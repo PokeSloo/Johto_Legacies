@@ -1314,12 +1314,12 @@ static const struct SpriteFrameImage sPicTable_Norman[] = {
     overworld_frame(gObjectEventPic_Norman, 2, 4, 0),
     overworld_frame(gObjectEventPic_Norman, 2, 4, 1),
     overworld_frame(gObjectEventPic_Norman, 2, 4, 2),
-    overworld_frame(gObjectEventPic_Norman, 2, 4, 0),
-    overworld_frame(gObjectEventPic_Norman, 2, 4, 0),
-    overworld_frame(gObjectEventPic_Norman, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Norman, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Norman, 2, 4, 2),
-    overworld_frame(gObjectEventPic_Norman, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Norman, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Norman, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Norman, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Norman, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Norman, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Norman, 2, 4, 8),
 };
 
 static const struct SpriteFrameImage sPicTable_Winona[] = {
@@ -1350,12 +1350,12 @@ static const struct SpriteFrameImage sPicTable_Tate[] = {
     overworld_frame(gObjectEventPic_Tate, 2, 4, 0),
     overworld_frame(gObjectEventPic_Tate, 2, 4, 1),
     overworld_frame(gObjectEventPic_Tate, 2, 4, 2),
-    overworld_frame(gObjectEventPic_Tate, 2, 4, 0),
-    overworld_frame(gObjectEventPic_Tate, 2, 4, 0),
-    overworld_frame(gObjectEventPic_Tate, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Tate, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Tate, 2, 4, 2),
-    overworld_frame(gObjectEventPic_Tate, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Tate, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Tate, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Tate, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Tate, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Tate, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Tate, 2, 4, 8),
 };
 
 static const struct SpriteFrameImage sPicTable_Wallace[] = {
@@ -2040,12 +2040,12 @@ static const struct SpriteFrameImage sPicTable_Red[] = {
     overworld_frame(gObjectEventPic_Red, 2, 4, 0),
     overworld_frame(gObjectEventPic_Red, 2, 4, 1),
     overworld_frame(gObjectEventPic_Red, 2, 4, 2),
-    overworld_frame(gObjectEventPic_Red, 2, 4, 0),
-    overworld_frame(gObjectEventPic_Red, 2, 4, 0),
-    overworld_frame(gObjectEventPic_Red, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Red, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Red, 2, 4, 2),
-    overworld_frame(gObjectEventPic_Red, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Red, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Red, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Red, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Red, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Red, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Red, 2, 4, 8),
 };
 
 static const struct SpriteFrameImage sPicTable_Leaf[] = {

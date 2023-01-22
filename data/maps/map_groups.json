@@ -96,18 +96,21 @@
     "Underwater_Route125"
   ],
   "gMapGroup_IndoorLittleroot": [
-    "LittlerootTown_BrendansHouse_1F",
-    "LittlerootTown_BrendansHouse_2F",
     "LittlerootTown_MaysHouse_1F",
-    "LittlerootTown_MaysHouse_2F",
-    "LittlerootTown_ProfessorBirchsLab"
+    "LittlerootTown_ProfessorBirchsLab",
+    "RustboroCity_CuttersHouse",
+    "RustboroCity_Flat2_3F"
   ],
   "gMapGroup_IndoorOldale": [
     "OldaleTown_House1",
     "OldaleTown_House2",
     "OldaleTown_PokemonCenter_1F",
     "OldaleTown_PokemonCenter_2F",
-    "OldaleTown_Mart"
+    "OldaleTown_Mart",
+    "LittlerootTown_BrendansHouse_1F",
+    "LittlerootTown_BrendansHouse_2F",
+    "LittlerootTown_MaysHouse_2F",
+    "InsideOfTruck"
   ],
   "gMapGroup_IndoorDewford": [
     "DewfordTown_House1",
@@ -203,11 +206,9 @@
     "RustboroCity_Flat1_1F",
     "RustboroCity_Flat1_2F",
     "RustboroCity_House1",
-    "RustboroCity_CuttersHouse",
     "RustboroCity_House2",
     "RustboroCity_Flat2_1F",
     "RustboroCity_Flat2_2F",
-    "RustboroCity_Flat2_3F",
     "RustboroCity_House3"
   ],
   "gMapGroup_IndoorFortree": [
@@ -473,7 +474,6 @@
     "ContestHallCool",
     "ContestHallSmart",
     "ContestHallCute",
-    "InsideOfTruck",
     "SSTidalCorridor",
     "SSTidalLowerDeck",
     "SSTidalRooms",
