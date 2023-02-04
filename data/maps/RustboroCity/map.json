@@ -12,7 +12,18 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": [
+    {
+      "direction": "down",
+      "offset": -8,
+      "map": "MAP_ROUTE104"
+    },
+    {
+      "direction": "left",
+      "offset": 4,
+      "map": "MAP_ROUTE107"
+    }
+  ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
@@ -267,11 +278,11 @@
       "dest_warp_id": 0
     },
     {
-      "x": 7,
-      "y": 15,
+      "x": 8,
+      "y": 28,
       "elevation": 0,
-      "dest_map": "MAP_RUSTBORO_CITY_DEVON_CORP_1F",
-      "dest_warp_id": 1
+      "dest_map": "MAP_NAVEL_ROCK_UP2",
+      "dest_warp_id": 0
     },
     {
       "x": 6,
@@ -295,8 +306,8 @@
       "dest_warp_id": 0
     },
     {
-      "x": 5,
-      "y": 50,
+      "x": 4,
+      "y": 53,
       "elevation": 0,
       "dest_map": "MAP_RUSTBORO_CITY_FLAT2_1F",
       "dest_warp_id": 0
