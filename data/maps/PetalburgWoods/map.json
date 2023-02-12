@@ -196,8 +196,8 @@
       "x": 9,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE104",
-      "dest_warp_id": 3
+      "dest_map": "MAP_NAVEL_ROCK_DOWN05",
+      "dest_warp_id": 1
     }
   ],
   "coord_events": [
