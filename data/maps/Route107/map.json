@@ -22,6 +22,11 @@
       "direction": "down",
       "offset": 42,
       "map": "MAP_MT_PYRE_EXTERIOR"
+    },
+    {
+      "direction": "down",
+      "offset": -26,
+      "map": "MAP_ROUTE118"
     }
   ],
   "object_events": [
@@ -150,6 +155,13 @@
       "elevation": 0,
       "dest_map": "MAP_NAVEL_ROCK_UP2",
       "dest_warp_id": 3
+    },
+    {
+      "x": 8,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_NAVEL_ROCK_UP4",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [

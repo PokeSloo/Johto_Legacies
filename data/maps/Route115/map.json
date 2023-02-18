@@ -2,7 +2,7 @@
   "id": "MAP_ROUTE115",
   "name": "Route115",
   "layout": "LAYOUT_ROUTE115",
-  "music": "MUS_ROUTE104",
+  "music": "MUS_HG_NATIONAL_PARK",
   "region_map_section": "MAPSEC_ROUTE_115",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -12,23 +12,12 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "direction": "down",
-      "offset": 0,
-      "map": "MAP_RUSTBORO_CITY"
-    },
-    {
-      "direction": "right",
-      "offset": -40,
-      "map": "MAP_ROUTE114"
-    }
-  ],
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
       "x": 18,
-      "y": 68,
+      "y": 59,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -40,10 +29,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
-      "x": 5,
-      "y": 15,
+      "x": 34,
+      "y": 57,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -53,10 +42,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
-      "x": 27,
-      "y": 53,
+      "x": 22,
+      "y": 15,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -66,8 +55,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 12,
-      "y": 5,
+      "x": 43,
+      "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -79,8 +68,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 13,
-      "y": 5,
+      "x": 44,
+      "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -92,8 +81,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 14,
-      "y": 5,
+      "x": 45,
+      "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -105,8 +94,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
-      "x": 15,
-      "y": 50,
+      "x": 26,
+      "y": 24,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
@@ -118,8 +107,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
-      "x": 19,
-      "y": 15,
+      "x": 16,
+      "y": 26,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 5,
@@ -131,10 +120,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 24,
-      "y": 62,
+      "x": 31,
+      "y": 19,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -144,8 +133,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 20,
-      "y": 60,
+      "x": 2,
+      "y": 37,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -157,8 +146,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 18,
-      "y": 7,
+      "x": 2,
+      "y": 48,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -170,8 +159,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 23,
-      "y": 29,
+      "x": 43,
+      "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -183,8 +172,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 31,
-      "y": 64,
+      "x": 46,
+      "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -196,8 +185,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 31,
-      "y": 65,
+      "x": 47,
+      "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -209,8 +198,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 29,
-      "y": 50,
+      "x": 3,
+      "y": 40,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -222,8 +211,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 31,
-      "y": 56,
+      "x": 38,
+      "y": 61,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -235,8 +224,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
-      "x": 10,
-      "y": 15,
+      "x": 12,
+      "y": 33,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_RIGHT_UP_LEFT",
       "movement_range_x": 3,
@@ -248,8 +237,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
-      "x": 11,
-      "y": 12,
+      "x": 19,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_TREE_DISGUISE",
       "movement_range_x": 1,
@@ -261,10 +250,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
-      "x": 15,
-      "y": 7,
+      "x": 20,
+      "y": 37,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -274,10 +263,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 10,
-      "y": 7,
+      "x": 16,
+      "y": 19,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -287,10 +276,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 28,
-      "y": 62,
+      "x": 29,
+      "y": 34,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -300,8 +289,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 26,
-      "y": 67,
+      "x": 20,
+      "y": 55,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -313,8 +302,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 12,
-      "y": 14,
+      "x": 13,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -327,47 +316,49 @@
   ],
   "warp_events": [
     {
-      "x": 27,
-      "y": 37,
+      "x": 8,
+      "y": 63,
       "elevation": 0,
-      "dest_map": "MAP_METEOR_FALLS_1F_1R",
-      "dest_warp_id": 1
+      "dest_map": "MAP_NAVEL_ROCK_UP1",
+      "dest_warp_id": 2
     },
     {
-      "x": 21,
-      "y": 6,
+      "x": 45,
+      "y": 26,
       "elevation": 0,
-      "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_map": "MAP_NAVEL_ROCK_UP4",
+      "dest_warp_id": 2
     },
     {
-      "x": 36,
-      "y": 10,
+      "x": 3,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
       "dest_warp_id": 0
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "secret_base",
-      "x": 32,
-      "y": 6,
+      "x": 3,
+      "y": 4,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_BROWN_CAVE4_2"
     },
     {
       "type": "secret_base",
-      "x": 21,
-      "y": 18,
+      "x": 3,
+      "y": 4,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_BROWN_CAVE3_2"
     },
     {
       "type": "sign",
-      "x": 16,
-      "y": 64,
+      "x": 13,
+      "y": 60,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route115_EventScript_RouteSignRustboro"
@@ -375,78 +366,78 @@
     {
       "type": "sign",
       "x": 25,
-      "y": 38,
+      "y": 44,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route115_EventScript_MeteorFallsSign"
     },
     {
       "type": "secret_base",
-      "x": 8,
-      "y": 30,
+      "x": 3,
+      "y": 4,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_YELLOW_CAVE2_3"
     },
     {
       "type": "secret_base",
-      "x": 32,
-      "y": 39,
+      "x": 3,
+      "y": 4,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_BROWN_CAVE1_2"
     },
     {
       "type": "secret_base",
-      "x": 26,
-      "y": 15,
+      "x": 3,
+      "y": 4,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_BROWN_CAVE2_2"
     },
     {
       "type": "secret_base",
-      "x": 23,
-      "y": 8,
+      "x": 3,
+      "y": 4,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_BROWN_CAVE1_3"
     },
     {
       "type": "secret_base",
-      "x": 32,
-      "y": 46,
+      "x": 3,
+      "y": 4,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_BROWN_CAVE2_3"
     },
     {
       "type": "secret_base",
-      "x": 7,
-      "y": 20,
+      "x": 3,
+      "y": 4,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_TREE2_4"
     },
     {
       "type": "secret_base",
-      "x": 8,
-      "y": 20,
+      "x": 3,
+      "y": 4,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_TREE3_3"
     },
     {
       "type": "secret_base",
-      "x": 25,
-      "y": 24,
+      "x": 3,
+      "y": 4,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_BROWN_CAVE3_3"
     },
     {
       "type": "secret_base",
-      "x": 20,
-      "y": 53,
+      "x": 3,
+      "y": 4,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_RED_CAVE3_1"
     },
     {
       "type": "hidden_item",
-      "x": 15,
-      "y": 49,
+      "x": 3,
+      "y": 45,
       "elevation": 3,
       "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_115_HEART_SCALE"

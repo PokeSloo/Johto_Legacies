@@ -17,6 +17,11 @@
       "direction": "down",
       "offset": 20,
       "map": "MAP_ROUTE117"
+    },
+    {
+      "direction": "up",
+      "offset": 23,
+      "map": "MAP_ROUTE118"
     }
   ],
   "object_events": [
@@ -552,6 +557,13 @@
       "y": 39,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY_HOUSE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 29,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_NAVEL_ROCK_DOWN07",
       "dest_warp_id": 0
     }
   ],
