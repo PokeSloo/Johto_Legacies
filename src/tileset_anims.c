@@ -73,6 +73,7 @@ static void QueueAnimTiles_MauvilleGym_ElectricGates(u16);
 static void QueueAnimTiles_SootopolisGym_Waterfalls(u16);
 static void QueueAnimTiles_EliteFour_GroundLights(u16);
 static void QueueAnimTiles_EliteFour_WallLights(u16);
+static void QueueAnimTiles_Dewford_Fire(u16);
 
 const u16 gTilesetAnims_General_Flower_Frame1[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/1.4bpp");
 const u16 gTilesetAnims_General_Flower_Frame0[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/0.4bpp");
@@ -381,6 +382,18 @@ const u16 *const gTilesetAnims_Dewford_Flag[] = {
     gTilesetAnims_Dewford_Flag_Frame1,
     gTilesetAnims_Dewford_Flag_Frame2,
     gTilesetAnims_Dewford_Flag_Frame3
+};
+
+const u16 gTilesetAnims_Dewford_Fire_Frame0[] = INCBIN_U16("data/tilesets/secondary/dewford/anim/fire/fire_anim0.4bpp");
+const u16 gTilesetAnims_Dewford_Fire_Frame1[] = INCBIN_U16("data/tilesets/secondary/dewford/anim/fire/fire_anim1.4bpp");
+const u16 gTilesetAnims_Dewford_Fire_Frame2[] = INCBIN_U16("data/tilesets/secondary/dewford/anim/fire/fire_anim2.4bpp");
+const u16 gTilesetAnims_Dewford_Fire_Frame3[] = INCBIN_U16("data/tilesets/secondary/dewford/anim/fire/fire_anim3.4bpp");
+
+const u16 *const gTilesetAnims_Dewford_Fire[] = {
+    gTilesetAnims_Dewford_Fire_Frame0,
+    gTilesetAnims_Dewford_Fire_Frame1,
+    gTilesetAnims_Dewford_Fire_Frame2,
+    gTilesetAnims_Dewford_Fire_Frame3
 };
 
 const u16 gTilesetAnims_BattleFrontierOutsideWest_Flag_Frame0[] = INCBIN_U16("data/tilesets/secondary/battle_frontier_outside_west/anim/flag/0.4bpp");
@@ -861,6 +874,8 @@ static void TilesetAnim_Dewford(u16 timer)
 {
     if (timer % 8 == 0)
         QueueAnimTiles_Dewford_Flag(timer / 8);
+    if (timer % 8 == 1)
+        QueueAnimTiles_Dewford_Fire(timer / 8);
 }
 
 static void TilesetAnim_Slateport(u16 timer)
@@ -1043,6 +1058,12 @@ static void QueueAnimTiles_Dewford_Flag(u16 timer)
 {
     u16 i = timer % ARRAY_COUNT(gTilesetAnims_Dewford_Flag);
     AppendTilesetAnimToBuffer(gTilesetAnims_Dewford_Flag[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 170)), 6 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Dewford_Fire(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Dewford_Fire);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Dewford_Fire[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 154)), 4 * TILE_SIZE_4BPP);
 }
 
 static void QueueAnimTiles_BattleFrontierOutsideWest_Flag(u16 timer)
