@@ -74,6 +74,7 @@ static void QueueAnimTiles_SootopolisGym_Waterfalls(u16);
 static void QueueAnimTiles_EliteFour_GroundLights(u16);
 static void QueueAnimTiles_EliteFour_WallLights(u16);
 static void QueueAnimTiles_Dewford_Fire(u16);
+static void QueueAnimTiles_Pacifidlog_Whirls(u16);
 
 const u16 gTilesetAnims_General_Flower_Frame1[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/1.4bpp");
 const u16 gTilesetAnims_General_Flower_Frame0[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/0.4bpp");
@@ -171,6 +172,14 @@ const u16 *const gTilesetAnims_Pacifidlog_LogBridges[] = {
     gTilesetAnims_Pacifidlog_LogBridges_Frame1,
     gTilesetAnims_Pacifidlog_LogBridges_Frame2,
     gTilesetAnims_Pacifidlog_LogBridges_Frame1
+};
+
+const u16 gTilesetAnims_Pacifidlog_Whirls_Frame0[] = INCBIN_U16("data/tilesets/secondary/pacifidlog/anim/whirlpool/whirlpool0.4bpp");
+const u16 gTilesetAnims_Pacifidlog_Whirls_Frame1[] = INCBIN_U16("data/tilesets/secondary/pacifidlog/anim/whirlpool/whirlpool1.4bpp");
+
+const u16 *const gTilesetAnims_Pacifidlog_Whirls[] = {
+    gTilesetAnims_Pacifidlog_Whirls_Frame0,
+    gTilesetAnims_Pacifidlog_Whirls_Frame1
 };
 
 const u16 gTilesetAnims_Underwater_Seaweed_Frame0[] = INCBIN_U16("data/tilesets/secondary/underwater/anim/seaweed/0.4bpp");
@@ -938,6 +947,8 @@ static void TilesetAnim_Pacifidlog(u16 timer)
         QueueAnimTiles_Pacifidlog_LogBridges(timer / 16);
     if (timer % 16 == 1)
         QueueAnimTiles_Pacifidlog_WaterCurrents(timer / 16);
+    if (timer % 16 == 2)
+        QueueAnimTiles_Pacifidlog_Whirls(timer / 16);
 }
 
 static void TilesetAnim_Sootopolis(u16 timer)
@@ -989,6 +1000,12 @@ static void QueueAnimTiles_Pacifidlog_LogBridges(u8 timer)
 {
     u8 i = timer % ARRAY_COUNT(gTilesetAnims_Pacifidlog_LogBridges);
     AppendTilesetAnimToBuffer(gTilesetAnims_Pacifidlog_LogBridges[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 464)), 30 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Pacifidlog_Whirls(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Pacifidlog_Whirls);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Pacifidlog_Whirls[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 98)), 4 * TILE_SIZE_4BPP);
 }
 
 static void QueueAnimTiles_Underwater_Seaweed(u8 timer)
