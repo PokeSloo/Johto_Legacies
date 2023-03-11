@@ -220,6 +220,13 @@
       "elevation": 0,
       "dest_map": "MAP_NAVEL_ROCK_DOWN08",
       "dest_warp_id": 2
+    },
+    {
+      "x": 57,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_NAVEL_ROCK_DOWN10",
+      "dest_warp_id": 2
     }
   ],
   "coord_events": [

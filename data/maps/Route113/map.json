@@ -5,7 +5,7 @@
   "music": "MUS_ROUTE113",
   "region_map_section": "MAPSEC_ROUTE_113",
   "requires_flash": false,
-  "weather": "WEATHER_SUNNY",
+  "weather": "WEATHER_SNOW",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -14,21 +14,16 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "left",
-      "offset": 0,
-      "map": "MAP_FALLARBOR_TOWN"
-    },
-    {
       "direction": "right",
-      "offset": 0,
-      "map": "MAP_ROUTE111"
+      "offset": 3,
+      "map": "MAP_FALLARBOR_TOWN"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
-      "x": 66,
-      "y": 12,
+      "x": 15,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -40,8 +35,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 36,
-      "y": 10,
+      "x": 16,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
       "movement_range_x": 0,
@@ -53,8 +48,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 62,
-      "y": 8,
+      "x": 42,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -66,8 +61,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 21,
-      "y": 11,
+      "x": 82,
+      "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
@@ -79,8 +74,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 51,
-      "y": 11,
+      "x": 67,
+      "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
       "movement_range_x": 0,
@@ -92,8 +87,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 53,
-      "y": 7,
+      "x": 52,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -105,8 +100,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 79,
-      "y": 5,
+      "x": 51,
+      "y": 23,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -118,8 +113,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
-      "x": 29,
-      "y": 6,
+      "x": 92,
+      "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BURIED",
       "movement_range_x": 0,
@@ -131,8 +126,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
-      "x": 71,
-      "y": 2,
+      "x": 77,
+      "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BURIED",
       "movement_range_x": 0,
@@ -144,8 +139,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TWIN",
-      "x": 45,
-      "y": 6,
+      "x": 59,
+      "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -157,8 +152,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TWIN",
-      "x": 46,
-      "y": 6,
+      "x": 60,
+      "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -170,8 +165,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 15,
-      "y": 15,
+      "x": 72,
+      "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -183,8 +178,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 75,
-      "y": 3,
+      "x": 50,
+      "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -196,8 +191,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 71,
-      "y": 4,
+      "x": 41,
+      "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -209,12 +204,12 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 7,
-      "y": 6,
+      "x": 54,
+      "y": 19,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WALK_DOWN_AND_UP",
-      "movement_range_x": 1,
-      "movement_range_y": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 3,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "6",
       "script": "Route113_EventScript_Sophie",
@@ -222,8 +217,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 7,
-      "y": 13,
+      "x": 93,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
       "movement_range_x": 1,
@@ -236,158 +231,165 @@
   ],
   "warp_events": [
     {
-      "x": 33,
-      "y": 5,
+      "x": 20,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_ROUTE113_GLASS_WORKSHOP",
       "dest_warp_id": 0
     },
     {
-      "x": 41,
-      "y": 12,
+      "x": 87,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
       "dest_warp_id": 0
     },
     {
-      "x": 88,
-      "y": 5,
+      "x": 50,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 8,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_NAVEL_ROCK_DOWN10",
       "dest_warp_id": 0
     }
   ],
   "coord_events": [
     {
       "type": "weather",
-      "x": 19,
-      "y": 11,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 19,
-      "y": 10,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 19,
-      "y": 12,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 19,
-      "y": 13,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 86,
-      "y": 9,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 85,
-      "y": 10,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 85,
-      "y": 11,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 14,
-      "y": 10,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 14,
-      "y": 11,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 14,
-      "y": 12,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 14,
-      "y": 13,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 94,
-      "y": 8,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 94,
-      "y": 9,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 94,
-      "y": 10,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 94,
-      "y": 11,
+      "x": 1,
+      "y": 2,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 19,
-      "y": 14,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 87,
-      "y": 8,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 87,
-      "y": 6,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 87,
-      "y": 7,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     }
@@ -395,23 +397,23 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 85,
-      "y": 6,
+      "x": 86,
+      "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route113_EventScript_RouteSign111"
     },
     {
       "type": "sign",
-      "x": 12,
-      "y": 9,
+      "x": 96,
+      "y": 14,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route113_EventScript_RouteSignFallarbor"
     },
     {
       "type": "sign",
-      "x": 58,
+      "x": 3,
       "y": 4,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -419,39 +421,39 @@
     },
     {
       "type": "sign",
-      "x": 31,
-      "y": 5,
+      "x": 17,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route113_EventScript_GlassWorkshopSign"
     },
     {
       "type": "secret_base",
-      "x": 49,
+      "x": 1,
       "y": 8,
       "elevation": 3,
       "secret_base_id": "SECRET_BASE_RED_CAVE1_3"
     },
     {
       "type": "hidden_item",
-      "x": 66,
-      "y": 3,
+      "x": 17,
+      "y": 14,
       "elevation": 3,
       "item": "ITEM_ETHER",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_113_ETHER"
     },
     {
       "type": "hidden_item",
-      "x": 22,
-      "y": 5,
+      "x": 96,
+      "y": 21,
       "elevation": 3,
       "item": "ITEM_TM32",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_113_TM_32"
     },
     {
       "type": "hidden_item",
-      "x": 73,
-      "y": 3,
+      "x": 14,
+      "y": 20,
       "elevation": 3,
       "item": "ITEM_NUGGET",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_113_NUGGET"
