@@ -38,7 +38,7 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
     [MB_SEAWEED]                         = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE | TILE_FLAG_HAS_ENCOUNTERS,
     [MB_UNUSED_23]                       = TILE_FLAG_UNUSED,
     [MB_ASHGRASS]                        = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
-    [MB_FOOTPRINTS]                      = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
+    [MB_FOOTPRINTS]                      = TILE_FLAG_UNUSED,
     [MB_THIN_ICE]                        = TILE_FLAG_UNUSED,
     [MB_CRACKED_ICE]                     = TILE_FLAG_UNUSED,
     [MB_HOT_SPRINGS]                     = TILE_FLAG_UNUSED,
@@ -201,7 +201,6 @@ bool8 MetatileBehavior_IsReflective(u8 metatileBehavior)
     if (metatileBehavior == MB_POND_WATER
      || metatileBehavior == MB_PUDDLE
      || metatileBehavior == MB_UNUSED_SOOTOPOLIS_DEEP_WATER_2
-     || metatileBehavior == MB_ICE
      || metatileBehavior == MB_SOOTOPOLIS_DEEP_WATER
      || metatileBehavior == MB_REFLECTION_UNDER_BRIDGE)
         return TRUE;
