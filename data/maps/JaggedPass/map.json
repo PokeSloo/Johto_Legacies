@@ -5,34 +5,45 @@
   "music": "MUS_PETALBURG_WOODS",
   "region_map_section": "MAPSEC_JAGGED_PASS",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_SNOW",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": [
+    {
+      "direction": "up",
+      "offset": -6,
+      "map": "MAP_MT_CHIMNEY"
+    },
+    {
+      "direction": "right",
+      "offset": -6,
+      "map": "MAP_ROUTE110"
+    }
+  ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 10,
-      "y": 8,
+      "x": 13,
+      "y": 10,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
+      "trainer_sight_or_berry_tree_id": "2",
       "script": "JaggedPass_EventScript_Eric",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 16,
-      "y": 35,
+      "x": 21,
+      "y": 34,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -42,8 +53,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 23,
-      "y": 24,
+      "x": 19,
+      "y": 36,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -55,21 +66,21 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 9,
+      "x": 10,
       "y": 21,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
+      "trainer_sight_or_berry_tree_id": "1",
       "script": "JaggedPass_EventScript_Diana",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
-      "x": 16,
-      "y": 19,
+      "x": 1,
+      "y": 44,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -82,7 +93,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 14,
-      "y": 25,
+      "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -95,7 +106,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
       "x": 18,
-      "y": 25,
+      "y": 28,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -108,36 +119,36 @@
   ],
   "warp_events": [
     {
-      "x": 14,
-      "y": 40,
+      "x": 0,
+      "y": 2,
       "elevation": 3,
       "dest_map": "MAP_ROUTE112",
       "dest_warp_id": 2
     },
     {
-      "x": 15,
-      "y": 40,
+      "x": 0,
+      "y": 2,
       "elevation": 3,
       "dest_map": "MAP_ROUTE112",
       "dest_warp_id": 3
     },
     {
-      "x": 13,
-      "y": 5,
+      "x": 0,
+      "y": 2,
       "elevation": 3,
       "dest_map": "MAP_MT_CHIMNEY",
       "dest_warp_id": 2
     },
     {
-      "x": 14,
-      "y": 5,
+      "x": 0,
+      "y": 2,
       "elevation": 3,
       "dest_map": "MAP_MT_CHIMNEY",
       "dest_warp_id": 3
     },
     {
-      "x": 16,
-      "y": 18,
+      "x": 0,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_MAGMA_HIDEOUT_1F",
       "dest_warp_id": 0
@@ -146,43 +157,43 @@
   "coord_events": [
     {
       "type": "weather",
-      "x": 13,
-      "y": 15,
+      "x": 1,
+      "y": 4,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 21,
-      "y": 12,
+      "x": 1,
+      "y": 4,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 14,
-      "y": 15,
+      "x": 1,
+      "y": 3,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 18,
-      "y": 17,
+      "x": 1,
+      "y": 4,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 22,
-      "y": 19,
+      "x": 1,
+      "y": 3,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "trigger",
-      "x": 21,
-      "y": 15,
+      "x": 1,
+      "y": 4,
       "elevation": 3,
       "var": "VAR_JAGGED_PASS_STATE",
       "var_value": "1",
@@ -190,8 +201,8 @@
     },
     {
       "type": "trigger",
-      "x": 22,
-      "y": 20,
+      "x": 1,
+      "y": 3,
       "elevation": 3,
       "var": "VAR_JAGGED_PASS_STATE",
       "var_value": "1",
@@ -199,8 +210,8 @@
     },
     {
       "type": "trigger",
-      "x": 21,
-      "y": 20,
+      "x": 1,
+      "y": 4,
       "elevation": 3,
       "var": "VAR_JAGGED_PASS_STATE",
       "var_value": "1",
@@ -208,8 +219,8 @@
     },
     {
       "type": "trigger",
-      "x": 14,
-      "y": 15,
+      "x": 1,
+      "y": 4,
       "elevation": 3,
       "var": "VAR_JAGGED_PASS_STATE",
       "var_value": "1",
@@ -217,8 +228,8 @@
     },
     {
       "type": "trigger",
-      "x": 13,
-      "y": 15,
+      "x": 1,
+      "y": 4,
       "elevation": 3,
       "var": "VAR_JAGGED_PASS_STATE",
       "var_value": "1",
@@ -228,16 +239,16 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 8,
-      "y": 10,
+      "x": 11,
+      "y": 16,
       "elevation": 3,
       "item": "ITEM_FULL_HEAL",
       "flag": "FLAG_HIDDEN_ITEM_JAGGED_PASS_FULL_HEAL"
     },
     {
       "type": "hidden_item",
-      "x": 7,
-      "y": 29,
+      "x": 14,
+      "y": 28,
       "elevation": 3,
       "item": "ITEM_GREAT_BALL",
       "flag": "FLAG_HIDDEN_ITEM_JAGGED_PASS_GREAT_BALL"
