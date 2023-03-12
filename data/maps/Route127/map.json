@@ -5,7 +5,7 @@
   "music": "MUS_ROUTE120",
   "region_map_section": "MAPSEC_ROUTE_127",
   "requires_flash": false,
-  "weather": "WEATHER_SUNNY",
+  "weather": "WEATHER_SNOW",
   "map_type": "MAP_TYPE_OCEAN_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -14,34 +14,24 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "up",
+      "direction": "dive",
       "offset": 0,
-      "map": "MAP_MOSSDEEP_CITY"
-    },
-    {
-      "direction": "down",
-      "offset": 0,
-      "map": "MAP_ROUTE128"
+      "map": "MAP_UNDERWATER_ROUTE127"
     },
     {
       "direction": "left",
       "offset": 0,
-      "map": "MAP_ROUTE126"
-    },
-    {
-      "direction": "dive",
-      "offset": 0,
-      "map": "MAP_UNDERWATER_ROUTE127"
+      "map": "MAP_FALLARBOR_TOWN"
     }
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 45,
-      "y": 42,
+      "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
+      "x": 41,
+      "y": 5,
       "elevation": 1,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
-      "movement_range_x": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 6,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
@@ -49,9 +39,9 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 18,
-      "y": 68,
+      "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
+      "x": 19,
+      "y": 24,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_LEFT_AND_RIGHT",
       "movement_range_x": 0,
@@ -63,8 +53,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 14,
-      "y": 6,
+      "x": 32,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -76,8 +66,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 64,
-      "y": 39,
+      "x": 40,
+      "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -89,10 +79,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 42,
-      "y": 21,
+      "x": 53,
+      "y": 7,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -102,10 +92,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 64,
-      "y": 19,
+      "x": 44,
+      "y": 6,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -115,8 +105,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 54,
-      "y": 14,
+      "x": 27,
+      "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -128,21 +118,21 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 15,
-      "y": 23,
+      "x": 21,
+      "y": 19,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
+      "trainer_sight_or_berry_tree_id": "4",
       "script": "Route127_EventScript_Aidan",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
-      "x": 63,
-      "y": 63,
+      "x": 31,
+      "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -154,8 +144,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 12,
-      "y": 23,
+      "x": 58,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -167,8 +157,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 13,
-      "y": 20,
+      "x": 64,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -188,36 +178,36 @@
   "bg_events": [
     {
       "type": "secret_base",
-      "x": 59,
-      "y": 67,
+      "x": 3,
+      "y": 4,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_RED_CAVE4_1"
     },
     {
       "type": "secret_base",
-      "x": 59,
-      "y": 72,
+      "x": 3,
+      "y": 5,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_YELLOW_CAVE3_2"
     },
     {
       "type": "secret_base",
-      "x": 67,
-      "y": 63,
+      "x": 3,
+      "y": 6,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_YELLOW_CAVE4_1"
     },
     {
       "type": "secret_base",
-      "x": 61,
-      "y": 21,
+      "x": 3,
+      "y": 3,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_YELLOW_CAVE3_3"
     },
     {
       "type": "secret_base",
-      "x": 45,
-      "y": 24,
+      "x": 3,
+      "y": 2,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_YELLOW_CAVE1_3"
     }

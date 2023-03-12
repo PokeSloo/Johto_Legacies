@@ -425,9 +425,9 @@
       "id": "LAYOUT_ROUTE127",
       "name": "Route127_Layout",
       "width": 80,
-      "height": 80,
+      "height": 30,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/Route127/border.bin",
       "blockdata_filepath": "data/layouts/Route127/map.bin"
     },
