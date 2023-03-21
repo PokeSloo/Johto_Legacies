@@ -12,12 +12,23 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": [
+    {
+      "direction": "up",
+      "offset": 0,
+      "map": "MAP_VERDANTURF_TOWN"
+    },
+    {
+      "direction": "left",
+      "offset": 112,
+      "map": "MAP_ROUTE103"
+    }
+  ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 31,
-      "y": 43,
+      "x": 13,
+      "y": 105,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -29,8 +40,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 31,
-      "y": 44,
+      "x": 11,
+      "y": 120,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -42,10 +53,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 18,
-      "y": 14,
+      "x": 8,
+      "y": 47,
       "elevation": 7,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -55,8 +66,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 21,
-      "y": 14,
+      "x": 28,
+      "y": 27,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -68,8 +79,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 17,
-      "y": 14,
+      "x": 21,
+      "y": 51,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -81,8 +92,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 14,
-      "y": 14,
+      "x": 17,
+      "y": 25,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -94,10 +105,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 19,
-      "y": 14,
+      "x": 31,
+      "y": 90,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -107,8 +118,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 31,
-      "y": 45,
+      "x": 12,
+      "y": 105,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -120,8 +131,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 7,
-      "y": 6,
+      "x": 12,
+      "y": 84,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -134,7 +145,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 11,
-      "y": 37,
+      "y": 33,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -146,8 +157,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 12,
-      "y": 43,
+      "x": 25,
+      "y": 57,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -158,11 +169,11 @@
       "flag": "FLAG_TEMP_11"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 18,
-      "y": 8,
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+      "x": 8,
+      "y": 5,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -172,10 +183,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
-      "x": 19,
-      "y": 8,
+      "x": 9,
+      "y": 5,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -185,10 +196,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_4",
-      "x": 17,
-      "y": 8,
+      "x": 19,
+      "y": 12,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
+      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -198,8 +209,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 13,
-      "y": 14,
+      "x": 17,
+      "y": 100,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -211,10 +222,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 10,
-      "y": 14,
+      "x": 16,
+      "y": 71,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -224,8 +235,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 20,
-      "y": 14,
+      "x": 11,
+      "y": 113,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
       "movement_range_x": 0,
@@ -237,8 +248,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 29,
-      "y": 53,
+      "x": 21,
+      "y": 59,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -250,8 +261,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 30,
-      "y": 54,
+      "x": 28,
+      "y": 39,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -263,8 +274,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 22,
-      "y": 69,
+      "x": 12,
+      "y": 95,
       "elevation": 7,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -276,8 +287,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 11,
-      "y": 64,
+      "x": 9,
+      "y": 55,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -289,8 +300,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 16,
-      "y": 15,
+      "x": 26,
+      "y": 70,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -302,8 +313,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 15,
-      "y": 15,
+      "x": 27,
+      "y": 70,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -315,8 +326,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 11,
-      "y": 14,
+      "x": 8,
+      "y": 23,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -328,8 +339,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 22,
-      "y": 14,
+      "x": 12,
+      "y": 65,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 1,
@@ -341,8 +352,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 31,
-      "y": 19,
+      "x": 27,
+      "y": 91,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -354,8 +365,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 12,
-      "y": 14,
+      "x": 14,
+      "y": 38,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 1,
@@ -368,36 +379,36 @@
   ],
   "warp_events": [
     {
-      "x": 8,
-      "y": 63,
+      "x": 12,
+      "y": 4,
       "elevation": 0,
       "dest_map": "MAP_METEOR_FALLS_1F_1R",
       "dest_warp_id": 0
     },
     {
-      "x": 29,
-      "y": 5,
+      "x": 2,
+      "y": 4,
       "elevation": 0,
       "dest_map": "MAP_ROUTE114_FOSSIL_MANIACS_HOUSE",
       "dest_warp_id": 0
     },
     {
-      "x": 27,
-      "y": 36,
+      "x": 2,
+      "y": 3,
       "elevation": 0,
       "dest_map": "MAP_ROUTE114_LANETTES_HOUSE",
       "dest_warp_id": 0
     },
     {
-      "x": 6,
-      "y": 46,
+      "x": 1,
+      "y": 4,
       "elevation": 0,
       "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
       "dest_warp_id": 0
     },
     {
-      "x": 7,
-      "y": 4,
+      "x": 1,
+      "y": 3,
       "elevation": 0,
       "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
       "dest_warp_id": 0
@@ -409,89 +420,89 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 7,
-      "y": 64,
+      "x": 2,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route114_EventScript_MeteorFallsSign"
     },
     {
       "type": "sign",
-      "x": 31,
-      "y": 7,
+      "x": 13,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route114_EventScript_FossilManiacsHouseSign"
     },
     {
       "type": "secret_base",
-      "x": 9,
-      "y": 47,
+      "x": 2,
+      "y": 2,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_BROWN_CAVE1_1"
     },
     {
       "type": "secret_base",
-      "x": 30,
-      "y": 51,
+      "x": 2,
+      "y": 2,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_BROWN_CAVE2_1"
     },
     {
       "type": "secret_base",
-      "x": 11,
-      "y": 62,
+      "x": 2,
+      "y": 2,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_BROWN_CAVE3_1"
     },
     {
       "type": "secret_base",
-      "x": 19,
-      "y": 70,
+      "x": 1,
+      "y": 2,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_BROWN_CAVE4_1"
     },
     {
       "type": "secret_base",
-      "x": 11,
-      "y": 27,
+      "x": 1,
+      "y": 2,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_TREE3_2"
     },
     {
       "type": "secret_base",
-      "x": 12,
-      "y": 27,
+      "x": 1,
+      "y": 2,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_TREE4_2"
     },
     {
       "type": "sign",
-      "x": 25,
-      "y": 38,
+      "x": 1,
+      "y": 2,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route114_EventScript_LanettesHouseSign"
     },
     {
       "type": "hidden_item",
-      "x": 20,
-      "y": 57,
+      "x": 12,
+      "y": 53,
       "elevation": 3,
       "item": "ITEM_CARBOS",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_114_CARBOS"
     },
     {
       "type": "secret_base",
-      "x": 32,
-      "y": 57,
+      "x": 2,
+      "y": 2,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_BROWN_CAVE4_3"
     },
     {
       "type": "hidden_item",
-      "x": 7,
-      "y": 30,
+      "x": 15,
+      "y": 7,
       "elevation": 3,
       "item": "ITEM_REVIVE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_113_REVIVE"
