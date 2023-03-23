@@ -2,7 +2,7 @@
   "id": "MAP_NAVEL_ROCK_DOWN03",
   "name": "NavelRock_Down03",
   "layout": "LAYOUT_NAVEL_ROCK_LADDER_ROOM1",
-  "music": "MUS_RG_SEVII_CAVE",
+  "music": "MUS_HG_RUINS_OF_ALPH",
   "region_map_section": "MAPSEC_MT_PYRE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
