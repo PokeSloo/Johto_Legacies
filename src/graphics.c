@@ -1855,6 +1855,7 @@ const u16 gWallClockFemale_Pal[]    = INCBIN_U16("graphics/wallclock/female.gbap
 const u32 gWallClock_Gfx[]          = INCBIN_U32("graphics/wallclock/clock.4bpp.lz");
 const u32 gWallClockStart_Tilemap[] = INCBIN_U32("graphics/wallclock/clock_start.bin.lz");
 const u32 gWallClockView_Tilemap[]  = INCBIN_U32("graphics/wallclock/clock_view.bin.lz");
+const u32 gWallClockTravel_Tilemap[]  = INCBIN_U32("graphics/wallclock/clock_travel.bin.lz");
 
 const u16 gUsePokeblockCondition_Pal[] = INCBIN_U16("graphics/pokeblock/use_screen/condition.gbapal");
 const u32 gUsePokeblockCondition_Gfx[] = INCBIN_U32("graphics/pokeblock/use_screen/condition.4bpp.lz");

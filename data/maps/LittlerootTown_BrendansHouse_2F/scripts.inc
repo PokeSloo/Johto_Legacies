@@ -127,6 +127,12 @@ LittlerootTown_BrendansHouse_2F_EventScript_MeetBrendanEast::
 	waitmovement 0
 	return
 
+LittlerootTown_BrendansHouse_2F_EventScript_TTWallClock::
+	fadescreen FADE_TO_BLACK
+	special TimeTravelBackClock
+	waitstate
+	return
+
 LittlerootTown_BrendansHouse_2F_Movement_BrendanEnters:
 	walk_down
 	walk_down
