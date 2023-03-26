@@ -43,7 +43,9 @@ static void SpriteCB_AMIndicator(struct Sprite *sprite);
 void TimeTravelBackClock(void);
 static void Task_TimeTravelBack_WaitFadeIn(u8 taskId);
 static void Task_TravelBack_HandleInput(u8 taskId);
-u8 i;
+void TimeTravelForwardClock(void);
+static void Task_TimeTravelForward_WaitFadeIn(u8 taskId);
+static void Task_TravelForward_HandleInput(u8 taskId);
 
 #define sTaskId data[0]
 
@@ -815,6 +817,47 @@ void TimeTravelBackClock(void)
     ScheduleBgCopyTilemapToVram(2);
 }
 
+void TimeTravelForwardClock(void)
+{
+    u8 taskId;
+    u8 spriteId;
+
+    LoadWallClockGraphics();
+    LZ77UnCompVram(gWallClockTravel_Tilemap, (u16 *)BG_SCREEN_ADDR(7));
+
+    taskId = CreateTask(Task_TimeTravelForward_WaitFadeIn, 0);
+    gTasks[taskId].tHours = 10;
+    gTasks[taskId].tMinutes = 0;
+    gTasks[taskId].tMoveDir = 0;
+    gTasks[taskId].tPeriod = 0;
+    gTasks[taskId].tMoveSpeed = 0;
+    gTasks[taskId].tMinuteHandAngle = 0;
+    gTasks[taskId].tHourHandAngle = 300;
+
+    spriteId = CreateSprite(&sSpriteTemplate_MinuteHand, 120, 80, 1);
+    gSprites[spriteId].sTaskId = taskId;
+    gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
+    gSprites[spriteId].oam.matrixNum = 0;
+
+    spriteId = CreateSprite(&sSpriteTemplate_HourHand, 120, 80, 0);
+    gSprites[spriteId].sTaskId = taskId;
+    gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
+    gSprites[spriteId].oam.matrixNum = 1;
+
+    spriteId = CreateSprite(&sSpriteTemplate_PM, 120, 80, 2);
+    gSprites[spriteId].sTaskId = taskId;
+    gSprites[spriteId].data[1] = 45;
+
+    spriteId = CreateSprite(&sSpriteTemplate_AM, 120, 80, 2);
+    gSprites[spriteId].sTaskId = taskId;
+    gSprites[spriteId].data[1] = 90;
+
+    WallClockInit();
+
+    PutWindowTilemap(1);
+    ScheduleBgCopyTilemapToVram(2);
+}
+
 static void CB2_WallClock(void)
 {
     RunTasks();
@@ -837,6 +880,14 @@ static void Task_TimeTravelBack_WaitFadeIn(u8 taskId)
     if (!gPaletteFade.active)
     {
         gTasks[taskId].func = Task_TravelBack_HandleInput;
+    }
+}
+
+static void Task_TimeTravelForward_WaitFadeIn(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        gTasks[taskId].func = Task_TravelForward_HandleInput;
     }
 }
 
@@ -897,6 +948,33 @@ static void Task_TravelBack_HandleInput(u8 taskId)
         else
         {
             gTasks[taskId].tMoveDir = MOVE_BACKWARD;
+
+            if (gTasks[taskId].tMoveSpeed < 0xFF)
+                gTasks[taskId].tMoveSpeed++;
+
+            gTasks[taskId].tMinuteHandAngle = CalcNewMinHandAngle(gTasks[taskId].tMinuteHandAngle, gTasks[taskId].tMoveDir, gTasks[taskId].tMoveSpeed);
+            AdvanceClock(taskId, gTasks[taskId].tMoveDir);
+        }
+    }
+}
+
+static void Task_TravelForward_HandleInput(u8 taskId)
+{
+    if (gTasks[taskId].tMinuteHandAngle % 6)
+    {
+        gTasks[taskId].tMinuteHandAngle = CalcNewMinHandAngle(gTasks[taskId].tMinuteHandAngle, gTasks[taskId].tMoveDir, gTasks[taskId].tMoveSpeed);
+    }
+    else
+    {
+        gTasks[taskId].tMinuteHandAngle = gTasks[taskId].tMinutes * 6;
+        gTasks[taskId].tHourHandAngle = (gTasks[taskId].tHours % 12) * 30 + (gTasks[taskId].tMinutes / 10) * 5;
+        if (JOY_NEW(A_BUTTON))
+        {
+            gTasks[taskId].func = Task_ViewClock_FadeOut;
+        }
+        else
+        {
+            gTasks[taskId].tMoveDir = MOVE_FORWARD;
 
             if (gTasks[taskId].tMoveSpeed < 0xFF)
                 gTasks[taskId].tMoveSpeed++;

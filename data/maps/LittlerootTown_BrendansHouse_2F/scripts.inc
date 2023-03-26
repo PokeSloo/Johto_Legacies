@@ -133,6 +133,12 @@ LittlerootTown_BrendansHouse_2F_EventScript_TTWallClock::
 	waitstate
 	return
 
+LittlerootTown_BrendansHouse_2F_EventScript_TTWallClockFw::
+	fadescreen FADE_TO_BLACK
+	special TimeTravelForwardClock
+	waitstate
+	return
+
 LittlerootTown_BrendansHouse_2F_Movement_BrendanEnters:
 	walk_down
 	walk_down
