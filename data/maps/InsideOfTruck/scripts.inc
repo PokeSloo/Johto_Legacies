@@ -4,9 +4,6 @@ InsideOfTruck_MapScripts::
 	.byte 0
 
 InsideOfTruck_OnLoad:
-	setmetatile 4, 1, METATILE_InsideOfTruck_ExitLight_Top, FALSE
-	setmetatile 4, 2, METATILE_InsideOfTruck_ExitLight_Mid, FALSE
-	setmetatile 4, 3, METATILE_InsideOfTruck_ExitLight_Bottom, FALSE
 	end
 
 InsideOfTruck_OnResume:
@@ -14,11 +11,6 @@ InsideOfTruck_OnResume:
 	end
 
 InsideOfTruck_EventScript_SetIntroFlags::
-	lockall
-	setflag FLAG_HIDE_MAP_NAME_POPUP
-	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, InsideOfTruck_EventScript_SetIntroFlagsMale
-	goto_if_eq VAR_RESULT, FEMALE, InsideOfTruck_EventScript_SetIntroFlagsFemale
 	end
 
 InsideOfTruck_EventScript_SetIntroFlagsMale::
