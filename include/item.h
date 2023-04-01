@@ -4,6 +4,7 @@
 #include "constants/item.h"
 #include "constants/item_config.h"
 
+void ItemId_GetHoldEffectParam_Script();
 typedef void (*ItemUseFunc)(u8);
 
 struct Item
