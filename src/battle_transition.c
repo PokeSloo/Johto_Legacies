@@ -24,6 +24,7 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "constants/rgb.h"
+#include "event_data.h"
 
 #define PALTAG_UNUSED_MUGSHOT 0x100A
 
@@ -107,6 +108,7 @@ static void Task_Slice(u8);
 static void Task_WhiteBarsFade(u8);
 static void Task_GridSquares(u8);
 static void Task_AngledWipes(u8);
+static void Task_Mugshot(u8);
 static void Task_Sidney(u8);
 static void Task_Phoebe(u8);
 static void Task_Glacia(u8);
@@ -358,6 +360,7 @@ static const TaskFunc sTasks_Main[B_TRANSITION_COUNT] =
     [B_TRANSITION_WHITE_BARS_FADE] = Task_WhiteBarsFade,
     [B_TRANSITION_GRID_SQUARES] = Task_GridSquares,
     [B_TRANSITION_ANGLED_WIPES] = Task_AngledWipes,
+    [B_TRANSITION_MUGSHOT] = Task_Mugshot,
     [B_TRANSITION_SIDNEY] = Task_Sidney,
     [B_TRANSITION_PHOEBE] = Task_Phoebe,
     [B_TRANSITION_GLACIA] = Task_Glacia,
@@ -547,7 +550,8 @@ static const u8 sMugshotsTrainerPicIDsTable[MUGSHOTS_COUNT] =
     [MUGSHOT_PHOEBE]   = TRAINER_PIC_ELITE_FOUR_PHOEBE,
     [MUGSHOT_GLACIA]   = TRAINER_PIC_ELITE_FOUR_GLACIA,
     [MUGSHOT_DRAKE]    = TRAINER_PIC_ELITE_FOUR_DRAKE,
-    [MUGSHOT_CHAMPION] = TRAINER_PIC_CHAMPION_WALLACE,
+    [MUGSHOT_CHAMPION] = TRAINER_PIC_STEVEN,
+    [MUGSHOT_RED] = TRAINER_PIC_RED,
 };
 static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
 {
@@ -556,6 +560,7 @@ static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
     [MUGSHOT_GLACIA] =   {0x1B0, 0x1B0},
     [MUGSHOT_DRAKE] =    {0x1A0, 0x1A0},
     [MUGSHOT_CHAMPION] = {0x188, 0x188},
+    [MUGSHOT_RED] =   {0x200, 0x200},
 };
 static const s16 sMugshotsOpponentCoords[MUGSHOTS_COUNT][2] =
 {
@@ -564,6 +569,7 @@ static const s16 sMugshotsOpponentCoords[MUGSHOTS_COUNT][2] =
     [MUGSHOT_GLACIA] =   {-4,  4},
     [MUGSHOT_DRAKE] =    { 0,  5},
     [MUGSHOT_CHAMPION] = {-8,  7},
+    [MUGSHOT_RED] =   { 0,  0},
 };
 
 static const TransitionSpriteCallback sMugshotTrainerPicFuncs[] =
@@ -896,11 +902,12 @@ static const u16 sMugshotPal_May[] = INCBIN_U16("graphics/battle_transitions/may
 
 static const u16 *const sOpponentMugshotsPals[MUGSHOTS_COUNT] =
 {
-    [MUGSHOT_SIDNEY] = sMugshotPal_Sidney,
-    [MUGSHOT_PHOEBE] = sMugshotPal_Phoebe,
-    [MUGSHOT_GLACIA] = sMugshotPal_Glacia,
-    [MUGSHOT_DRAKE] = sMugshotPal_Drake,
-    [MUGSHOT_CHAMPION] = sMugshotPal_Champion
+    [MUGSHOT_SIDNEY] = sMugshotPal_Glacia,
+    [MUGSHOT_PHOEBE] = sMugshotPal_Champion,
+    [MUGSHOT_GLACIA] = sMugshotPal_Sidney,
+    [MUGSHOT_DRAKE] = sMugshotPal_Phoebe,
+    [MUGSHOT_CHAMPION] = sMugshotPal_Drake,
+    [MUGSHOT_RED] = sMugshotPal_Drake
 };
 
 static const u16 *const sPlayerMugshotsPals[GENDER_COUNT] =
@@ -2259,6 +2266,12 @@ static void VBlankCB_Wave(void)
 #define sSlideAccel  data[2]
 #define sDone        data[6]
 #define sSlideDir    data[7]
+
+static void Task_Mugshot(u8 taskId)
+{
+    gTasks[taskId].tMugshotId = VarGet(VAR_MUGSHOT_ID);
+    DoMugshotTransition(taskId);
+}
 
 static void Task_Sidney(u8 taskId)
 {
