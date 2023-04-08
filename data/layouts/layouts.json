@@ -3994,7 +3994,7 @@
     {
       "id": "LAYOUT_ARTISAN_CAVE_B1F",
       "name": "ArtisanCave_B1F_Layout",
-      "width": 46,
+      "width": 65,
       "height": 54,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
@@ -4004,8 +4004,8 @@
     {
       "id": "LAYOUT_ARTISAN_CAVE_1F",
       "name": "ArtisanCave_1F_Layout",
-      "width": 21,
-      "height": 22,
+      "width": 66,
+      "height": 52,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ArtisanCave_1F/border.bin",

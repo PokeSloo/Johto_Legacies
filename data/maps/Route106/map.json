@@ -91,7 +91,7 @@
       "x": 46,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_GRANITE_CAVE_1F",
+      "dest_map": "MAP_ARTISAN_CAVE_B1F",
       "dest_warp_id": 0
     },
     {
@@ -116,8 +116,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 47,
-      "y": 11,
+      "x": 12,
+      "y": 17,
       "elevation": 0,
       "item": "ITEM_STARDUST",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_106_STARDUST"
