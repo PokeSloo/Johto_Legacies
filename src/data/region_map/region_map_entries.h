@@ -3,7 +3,7 @@
 
 static const u8 sMapName_LittlerootTown[] = _("NEW BARK TOWN");
 static const u8 sMapName_OldaleTown[] = _("CHERRYGROVE CITY");
-static const u8 sMapName_DewfordTown[] = _("DEWFORD TOWN");
+static const u8 sMapName_DewfordTown[] = _("MT. SILVER");
 static const u8 sMapName_LavaridgeTown[] = _("CIANWOOD CITY");
 static const u8 sMapName_FallarborTown[] = _("MAHOGANY TOWN");
 static const u8 sMapName_VerdanturfTown[] = _("BLACKTHORN CITY");
@@ -46,7 +46,7 @@ static const u8 sMapName_Route126[] = _("ROUTE 126");
 static const u8 sMapName_Route127[] = _("ROUTE 44");
 static const u8 sMapName_Route128[] = _("ROUTE 128");
 static const u8 sMapName_Route129[] = _("ROUTE 43");
-static const u8 sMapName_Route130[] = _("ROUTE 130");
+static const u8 sMapName_Route130[] = _("ROUTE 28");
 static const u8 sMapName_Route131[] = _("ROUTE 131");
 static const u8 sMapName_Route132[] = _("ROUTE 132");
 static const u8 sMapName_Route133[] = _("ROUTE 133");
