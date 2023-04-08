@@ -2,7 +2,7 @@
   "id": "MAP_EVER_GRANDE_CITY",
   "name": "EverGrandeCity",
   "layout": "LAYOUT_EVER_GRANDE_CITY",
-  "music": "MUS_EVER_GRANDE",
+  "music": "MUS_HG_POKEMON_LEAGUE",
   "region_map_section": "MAPSEC_EVER_GRANDE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -15,7 +15,7 @@
   "connections": [
     {
       "direction": "left",
-      "offset": 40,
+      "offset": 36,
       "map": "MAP_ROUTE128"
     }
   ],
@@ -31,22 +31,22 @@
       "dest_warp_id": 0
     },
     {
-      "x": 27,
-      "y": 48,
+      "x": 2,
+      "y": 17,
       "elevation": 0,
       "dest_map": "MAP_EVER_GRANDE_CITY_POKEMON_CENTER_1F",
       "dest_warp_id": 0
     },
     {
-      "x": 18,
-      "y": 41,
+      "x": 3,
+      "y": 17,
       "elevation": 0,
       "dest_map": "MAP_VICTORY_ROAD_1F",
       "dest_warp_id": 0
     },
     {
       "x": 18,
-      "y": 27,
+      "y": 23,
       "elevation": 0,
       "dest_map": "MAP_VICTORY_ROAD_1F",
       "dest_warp_id": 1
@@ -55,26 +55,17 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 17,
-      "y": 58,
-      "elevation": 1,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "EverGrandeCity_EventScript_SetVisitedEverGrande"
-    },
-    {
-      "type": "trigger",
-      "x": 16,
-      "y": 58,
-      "elevation": 1,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "EverGrandeCity_EventScript_SetVisitedEverGrande"
-    },
-    {
-      "type": "trigger",
       "x": 18,
-      "y": 58,
+      "y": 22,
+      "elevation": 1,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "EverGrandeCity_EventScript_SetVisitedEverGrande"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 23,
       "elevation": 1,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -83,7 +74,7 @@
     {
       "type": "trigger",
       "x": 19,
-      "y": 58,
+      "y": 23,
       "elevation": 1,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -91,8 +82,8 @@
     },
     {
       "type": "trigger",
-      "x": 20,
-      "y": 58,
+      "x": 2,
+      "y": 20,
       "elevation": 1,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -100,8 +91,8 @@
     },
     {
       "type": "trigger",
-      "x": 21,
-      "y": 58,
+      "x": 2,
+      "y": 20,
       "elevation": 1,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -109,8 +100,8 @@
     },
     {
       "type": "trigger",
-      "x": 22,
-      "y": 58,
+      "x": 2,
+      "y": 20,
       "elevation": 1,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -118,8 +109,8 @@
     },
     {
       "type": "trigger",
-      "x": 23,
-      "y": 58,
+      "x": 2,
+      "y": 20,
       "elevation": 1,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -127,8 +118,8 @@
     },
     {
       "type": "trigger",
-      "x": 24,
-      "y": 58,
+      "x": 2,
+      "y": 20,
       "elevation": 1,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -136,8 +127,8 @@
     },
     {
       "type": "trigger",
-      "x": 25,
-      "y": 58,
+      "x": 2,
+      "y": 20,
       "elevation": 1,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -145,8 +136,17 @@
     },
     {
       "type": "trigger",
-      "x": 26,
-      "y": 58,
+      "x": 2,
+      "y": 20,
+      "elevation": 1,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "EverGrandeCity_EventScript_SetVisitedEverGrande"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 20,
       "elevation": 1,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -156,40 +156,40 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 19,
-      "y": 43,
+      "x": 3,
+      "y": 18,
       "elevation": 5,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "EverGrandeCity_EventScript_VictoryRoadSign"
     },
     {
       "type": "sign",
-      "x": 29,
-      "y": 48,
+      "x": 2,
+      "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
     },
     {
       "type": "sign",
-      "x": 18,
-      "y": 52,
+      "x": 1,
+      "y": 19,
       "elevation": 5,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "EverGrandeCity_EventScript_CitySign"
     },
     {
       "type": "sign",
-      "x": 23,
-      "y": 15,
+      "x": 1,
+      "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "EverGrandeCity_EventScript_PokemonLeagueSign"
     },
     {
       "type": "sign",
-      "x": 28,
-      "y": 48,
+      "x": 2,
+      "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"

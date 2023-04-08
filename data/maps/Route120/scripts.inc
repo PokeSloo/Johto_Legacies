@@ -3,9 +3,6 @@
 .set LOCALID_BRIDGE_KECLEON_SHADOW, 36  @ They use a second object which is identical to Kecleon but has a reflection palette tag for the bridge shadow
 
 Route120_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, Route120_OnResume
-	map_script MAP_SCRIPT_ON_TRANSITION, Route120_OnTransition
-	map_script MAP_SCRIPT_ON_LOAD, Route120_OnLoad
 	.byte 0
 
 Route120_OnResume:
