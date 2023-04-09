@@ -2,9 +2,9 @@
   "id": "MAP_VICTORY_ROAD_B1F",
   "name": "VictoryRoad_B1F",
   "layout": "LAYOUT_VICTORY_ROAD_B1F",
-  "music": "MUS_VICTORY_ROAD",
+  "music": "MUS_HG_VICTORY_ROAD",
   "region_map_section": "MAPSEC_VICTORY_ROAD",
-  "requires_flash": true,
+  "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
   "allow_cycling": true,
@@ -12,12 +12,12 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 20,
-      "y": 5,
+      "x": 37,
+      "y": 0,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -29,8 +29,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 21,
-      "y": 4,
+      "x": 36,
+      "y": 0,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -39,19 +39,6 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_StrengthBoulder",
       "flag": "FLAG_TEMP_14"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 4,
-      "y": 7,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_StrengthBoulder",
-      "flag": "FLAG_TEMP_11"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
@@ -64,12 +51,25 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_StrengthBoulder",
+      "flag": "FLAG_TEMP_11"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 34,
+      "y": 0,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
       "flag": "FLAG_TEMP_12"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 20,
-      "y": 26,
+      "x": 33,
+      "y": 0,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -81,8 +81,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 21,
-      "y": 25,
+      "x": 32,
+      "y": 0,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -94,8 +94,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 35,
-      "y": 6,
+      "x": 50,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -107,8 +107,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 19,
-      "y": 5,
+      "x": 5,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -120,8 +120,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 20,
-      "y": 4,
+      "x": 6,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -146,8 +146,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 20,
-      "y": 25,
+      "x": 59,
+      "y": 23,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -159,8 +159,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 21,
-      "y": 26,
+      "x": 59,
+      "y": 24,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -172,8 +172,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 34,
-      "y": 4,
+      "x": 35,
+      "y": 0,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -186,7 +186,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
       "x": 37,
-      "y": 12,
+      "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -198,7 +198,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 26,
+      "x": 49,
       "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -211,8 +211,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 5,
-      "y": 21,
+      "x": 16,
+      "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -224,8 +224,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 34,
-      "y": 3,
+      "x": 5,
+      "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -237,8 +237,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 42,
-      "y": 8,
+      "x": 31,
+      "y": 17,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -250,8 +250,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 32,
-      "y": 3,
+      "x": 44,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -263,10 +263,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
-      "x": 14,
+      "x": 57,
       "y": 16,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -276,8 +276,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 14,
-      "y": 20,
+      "x": 9,
+      "y": 24,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
       "movement_range_x": 1,
@@ -290,55 +290,87 @@
   ],
   "warp_events": [
     {
-      "x": 30,
-      "y": 25,
+      "x": 51,
+      "y": 19,
       "elevation": 3,
       "dest_map": "MAP_VICTORY_ROAD_B2F",
       "dest_warp_id": 0
     },
     {
-      "x": 17,
-      "y": 16,
+      "x": 7,
+      "y": 3,
       "elevation": 3,
-      "dest_map": "MAP_VICTORY_ROAD_B2F",
-      "dest_warp_id": 2
-    },
-    {
-      "x": 42,
-      "y": 25,
-      "elevation": 3,
-      "dest_map": "MAP_VICTORY_ROAD_1F",
-      "dest_warp_id": 3
-    },
-    {
-      "x": 42,
-      "y": 2,
-      "elevation": 4,
       "dest_map": "MAP_VICTORY_ROAD_B2F",
       "dest_warp_id": 1
     },
     {
-      "x": 8,
-      "y": 3,
+      "x": 27,
+      "y": 23,
       "elevation": 3,
-      "dest_map": "MAP_VICTORY_ROAD_1F",
-      "dest_warp_id": 4
+      "dest_map": "MAP_VICTORY_ROAD_B2F",
+      "dest_warp_id": 2
     },
     {
-      "x": 20,
-      "y": 21,
+      "x": 38,
+      "y": 0,
+      "elevation": 4,
+      "dest_map": "MAP_VICTORY_ROAD_B2F",
+      "dest_warp_id": 3
+    },
+    {
+      "x": 7,
+      "y": 15,
       "elevation": 3,
       "dest_map": "MAP_VICTORY_ROAD_1F",
       "dest_warp_id": 2
     },
     {
-      "x": 5,
-      "y": 26,
+      "x": 28,
+      "y": 18,
       "elevation": 3,
+      "dest_map": "MAP_VICTORY_ROAD_B2F",
+      "dest_warp_id": 5
+    },
+    {
+      "x": 22,
+      "y": 3,
+      "elevation": 3,
+      "dest_map": "MAP_VICTORY_ROAD_B2F",
+      "dest_warp_id": 4
+    },
+    {
+      "x": 31,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_VICTORY_ROAD_B2F",
+      "dest_warp_id": 6
+    },
+    {
+      "x": 57,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_VICTORY_ROAD_B2F",
+      "dest_warp_id": 7
+    },
+    {
+      "x": 58,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_VICTORY_ROAD_B2F",
+      "dest_warp_id": 8
+    },
+    {
+      "x": 56,
+      "y": 6,
+      "elevation": 0,
       "dest_map": "MAP_VICTORY_ROAD_B2F",
       "dest_warp_id": 3
     }
   ],
-  "coord_events": [],
-  "bg_events": []
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }

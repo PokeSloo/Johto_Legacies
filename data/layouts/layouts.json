@@ -1624,8 +1624,8 @@
     {
       "id": "LAYOUT_VICTORY_ROAD_1F",
       "name": "VictoryRoad_1F_Layout",
-      "width": 46,
-      "height": 45,
+      "width": 38,
+      "height": 54,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/VictoryRoad_1F/border.bin",
@@ -2844,8 +2844,8 @@
     {
       "id": "LAYOUT_VICTORY_ROAD_B1F",
       "name": "VictoryRoad_B1F_Layout",
-      "width": 46,
-      "height": 31,
+      "width": 64,
+      "height": 30,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/VictoryRoad_B1F/border.bin",
@@ -2854,8 +2854,8 @@
     {
       "id": "LAYOUT_VICTORY_ROAD_B2F",
       "name": "VictoryRoad_B2F_Layout",
-      "width": 46,
-      "height": 31,
+      "width": 62,
+      "height": 35,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/VictoryRoad_B2F/border.bin",
