@@ -239,6 +239,13 @@
       "elevation": 0,
       "dest_map": "MAP_NAVEL_ROCK_DOWN06",
       "dest_warp_id": 0
+    },
+    {
+      "x": 49,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_SEALED_CHAMBER_OUTER_ROOM",
+      "dest_warp_id": 1
     }
   ],
   "coord_events": [

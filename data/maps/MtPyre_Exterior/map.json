@@ -80,6 +80,20 @@
       "elevation": 0,
       "dest_map": "MAP_NAVEL_ROCK_DOWN03",
       "dest_warp_id": 2
+    },
+    {
+      "x": 12,
+      "y": 39,
+      "elevation": 0,
+      "dest_map": "MAP_GRANITE_CAVE_B1F",
+      "dest_warp_id": 3
+    },
+    {
+      "x": 5,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_GRANITE_CAVE_B1F",
+      "dest_warp_id": 4
     }
   ],
   "coord_events": [
