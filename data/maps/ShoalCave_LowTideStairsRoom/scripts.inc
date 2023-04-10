@@ -1,5 +1,4 @@
 ShoalCave_LowTideStairsRoom_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, ShoalCave_LowTideStairsRoom_OnLoad
 	.byte 0
 
 ShoalCave_LowTideStairsRoom_OnLoad:

@@ -1634,8 +1634,8 @@
     {
       "id": "LAYOUT_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM",
       "name": "ShoalCave_LowTideEntranceRoom_Layout",
-      "width": 35,
-      "height": 35,
+      "width": 52,
+      "height": 50,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ShoalCave_LowTideEntranceRoom/border.bin",
@@ -1644,8 +1644,8 @@
     {
       "id": "LAYOUT_SHOAL_CAVE_LOW_TIDE_INNER_ROOM",
       "name": "ShoalCave_LowTideInnerRoom_Layout",
-      "width": 46,
-      "height": 38,
+      "width": 30,
+      "height": 42,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ShoalCave_LowTideInnerRoom/border.bin",
@@ -1654,8 +1654,8 @@
     {
       "id": "LAYOUT_SHOAL_CAVE_LOW_TIDE_STAIRS_ROOM",
       "name": "ShoalCave_LowTideStairsRoom_Layout",
-      "width": 21,
-      "height": 15,
+      "width": 54,
+      "height": 25,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ShoalCave_LowTideStairsRoom/border.bin",
@@ -3274,8 +3274,8 @@
     {
       "id": "LAYOUT_SHOAL_CAVE_LOW_TIDE_ICE_ROOM",
       "name": "ShoalCave_LowTideIceRoom_Layout",
-      "width": 20,
-      "height": 30,
+      "width": 30,
+      "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ShoalCave_LowTideIceRoom/border.bin",
