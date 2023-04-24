@@ -57,6 +57,7 @@ static void QueueAnimTiles_Mauville_Flowers(u16, u8);
 static void QueueAnimTiles_BikeShop_BlinkingLights(u16);
 static void QueueAnimTiles_BattlePyramid_Torch(u16);
 static void QueueAnimTiles_BattlePyramid_StatueShadow(u16);
+static void QueueAnimTiles_BattlePyramid_Pillar(u16);
 static void BlendAnimPalette_BattleDome_FloorLights(u16);
 static void BlendAnimPalette_BattleDome_FloorLightsNoBlend(u16);
 static void QueueAnimTiles_Lavaridge_Steam(u8);
@@ -547,6 +548,20 @@ const u16 tileset_anims_space_11[224] = {};
 
 const u16 gTilesetAnims_Unused2_Frame1[] = INCBIN_U16("data/tilesets/secondary/unused_2/1.4bpp");
 
+const u16 gTilesetAnims_BattlePyramid_Pillar_Frame0[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/pillar/pillar0.4bpp");
+const u16 gTilesetAnims_BattlePyramid_Pillar_Frame1[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/pillar/pillar1.4bpp");
+const u16 gTilesetAnims_BattlePyramid_Pillar_Frame2[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/pillar/pillar2.4bpp");
+const u16 gTilesetAnims_BattlePyramid_Pillar_Frame3[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/pillar/pillar3.4bpp");
+const u16 gTilesetAnims_BattlePyramid_Pillar_Frame4[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/pillar/pillar4.4bpp");
+const u16 gTilesetAnims_BattlePyramid_Pillar_Frame5[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/pillar/pillar5.4bpp");
+const u16 gTilesetAnims_BattlePyramid_Pillar_Frame6[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/pillar/pillar6.4bpp");
+const u16 gTilesetAnims_BattlePyramid_Pillar_Frame7[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/pillar/pillar7.4bpp");
+const u16 gTilesetAnims_BattlePyramid_Pillar_Frame8[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/pillar/pillar8.4bpp");
+const u16 gTilesetAnims_BattlePyramid_Pillar_Frame9[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/pillar/pillar9.4bpp");
+const u16 gTilesetAnims_BattlePyramid_Pillar_Frame10[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/pillar/pillar10.4bpp");
+const u16 gTilesetAnims_BattlePyramid_Pillar_Frame11[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/pillar/pillar11.4bpp");
+const u16 gTilesetAnims_BattlePyramid_Pillar_Frame12[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/pillar/pillar12.4bpp");
+
 const u16 *const gTilesetAnims_BattlePyramid_Torch[] = {
     gTilesetAnims_BattlePyramid_Torch_Frame0,
     gTilesetAnims_BattlePyramid_Torch_Frame1,
@@ -557,6 +572,33 @@ const u16 *const gTilesetAnims_BattlePyramid_StatueShadow[] = {
     gTilesetAnims_BattlePyramid_StatueShadow_Frame0,
     gTilesetAnims_BattlePyramid_StatueShadow_Frame1,
     gTilesetAnims_BattlePyramid_StatueShadow_Frame2
+};
+
+const u16 *const gTilesetAnims_BattlePyramid_Pillar[] = {
+    gTilesetAnims_BattlePyramid_Pillar_Frame0,
+    gTilesetAnims_BattlePyramid_Pillar_Frame1,
+    gTilesetAnims_BattlePyramid_Pillar_Frame2,
+    gTilesetAnims_BattlePyramid_Pillar_Frame3,
+    gTilesetAnims_BattlePyramid_Pillar_Frame4,
+    gTilesetAnims_BattlePyramid_Pillar_Frame5,
+    gTilesetAnims_BattlePyramid_Pillar_Frame6,
+    gTilesetAnims_BattlePyramid_Pillar_Frame5,
+    gTilesetAnims_BattlePyramid_Pillar_Frame4,
+    gTilesetAnims_BattlePyramid_Pillar_Frame3,
+    gTilesetAnims_BattlePyramid_Pillar_Frame2,
+    gTilesetAnims_BattlePyramid_Pillar_Frame1,
+    gTilesetAnims_BattlePyramid_Pillar_Frame0,
+    gTilesetAnims_BattlePyramid_Pillar_Frame7,
+    gTilesetAnims_BattlePyramid_Pillar_Frame8,
+    gTilesetAnims_BattlePyramid_Pillar_Frame9,
+    gTilesetAnims_BattlePyramid_Pillar_Frame10,
+    gTilesetAnims_BattlePyramid_Pillar_Frame11,
+    gTilesetAnims_BattlePyramid_Pillar_Frame12,
+    gTilesetAnims_BattlePyramid_Pillar_Frame11,
+    gTilesetAnims_BattlePyramid_Pillar_Frame10,
+    gTilesetAnims_BattlePyramid_Pillar_Frame9,
+    gTilesetAnims_BattlePyramid_Pillar_Frame8,
+    gTilesetAnims_BattlePyramid_Pillar_Frame7
 };
 
 static const u16 *const sTilesetAnims_BattleDomeFloorLightPals[] = {
@@ -1134,6 +1176,8 @@ static void TilesetAnim_BattlePyramid(u16 timer)
         QueueAnimTiles_BattlePyramid_Torch(timer / 8);
         QueueAnimTiles_BattlePyramid_StatueShadow(timer / 8);
     }
+    if (timer % 11 == 1)
+        QueueAnimTiles_BattlePyramid_Pillar(timer / 11);
 }
 
 static void TilesetAnim_BattleDome(u16 timer)
@@ -1201,6 +1245,12 @@ static void QueueAnimTiles_BattlePyramid_StatueShadow(u16 timer)
 {
     u16 i = timer % ARRAY_COUNT(gTilesetAnims_BattlePyramid_StatueShadow);
     AppendTilesetAnimToBuffer(gTilesetAnims_BattlePyramid_StatueShadow[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 135)), 8 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_BattlePyramid_Pillar(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_BattlePyramid_Pillar);
+    AppendTilesetAnimToBuffer(gTilesetAnims_BattlePyramid_Pillar[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 352)), 30 * TILE_SIZE_4BPP);
 }
 
 static void BlendAnimPalette_BattleDome_FloorLights(u16 timer)
