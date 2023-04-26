@@ -1834,20 +1834,20 @@
     {
       "id": "LAYOUT_NEW_MAUVILLE_ENTRANCE",
       "name": "NewMauville_Entrance_Layout",
-      "width": 9,
-      "height": 9,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Facility",
+      "width": 21,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattlePyramid",
       "border_filepath": "data/layouts/NewMauville_Entrance/border.bin",
       "blockdata_filepath": "data/layouts/NewMauville_Entrance/map.bin"
     },
     {
       "id": "LAYOUT_NEW_MAUVILLE_INSIDE",
       "name": "NewMauville_Inside_Layout",
-      "width": 41,
-      "height": 41,
+      "width": 20,
+      "height": 18,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_BikeShop",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/NewMauville_Inside/border.bin",
       "blockdata_filepath": "data/layouts/NewMauville_Inside/map.bin"
     },
