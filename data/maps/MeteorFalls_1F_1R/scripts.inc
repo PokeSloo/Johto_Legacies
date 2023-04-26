@@ -5,7 +5,6 @@
 .set LOCALID_AQUA_GRUNT_2, 9
 
 MeteorFalls_1F_1R_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, MeteorFalls_1F_1R_OnLoad
 	.byte 0
 
 MeteorFalls_1F_1R_OnLoad:

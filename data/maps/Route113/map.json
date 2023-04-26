@@ -234,22 +234,22 @@
       "x": 20,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE113_GLASS_WORKSHOP",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 87,
-      "y": 14,
-      "elevation": 0,
-      "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
+      "dest_map": "MAP_METEOR_FALLS_1F_1R",
       "dest_warp_id": 0
     },
     {
       "x": 50,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_map": "MAP_METEOR_FALLS_1F_1R",
+      "dest_warp_id": 1
+    },
+    {
+      "x": 50,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_METEOR_FALLS_1F_1R",
+      "dest_warp_id": 2
     },
     {
       "x": 8,
@@ -257,6 +257,13 @@
       "elevation": 0,
       "dest_map": "MAP_NAVEL_ROCK_DOWN10",
       "dest_warp_id": 0
+    },
+    {
+      "x": 87,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_METEOR_FALLS_1F_1R",
+      "dest_warp_id": 3
     }
   ],
   "coord_events": [
