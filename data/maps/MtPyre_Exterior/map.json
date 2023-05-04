@@ -2,7 +2,7 @@
   "id": "MAP_MT_PYRE_EXTERIOR",
   "name": "MtPyre_Exterior",
   "layout": "LAYOUT_MT_PYRE_EXTERIOR",
-  "music": "MUS_HG_RUINS_OF_ALPH",
+  "music": "MUS_HG_UNION_CAVE",
   "region_map_section": "MAPSEC_MT_PYRE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -54,11 +54,11 @@
   ],
   "warp_events": [
     {
-      "x": 33,
-      "y": 49,
+      "x": 18,
+      "y": 23,
       "elevation": 3,
       "dest_map": "MAP_MT_PYRE_1F",
-      "dest_warp_id": 1
+      "dest_warp_id": 0
     },
     {
       "x": 13,
@@ -71,7 +71,7 @@
       "x": 26,
       "y": 10,
       "elevation": 3,
-      "dest_map": "MAP_MT_PYRE_SUMMIT",
+      "dest_map": "MAP_MT_PYRE_3F",
       "dest_warp_id": 1
     },
     {
@@ -94,6 +94,27 @@
       "elevation": 0,
       "dest_map": "MAP_GRANITE_CAVE_B1F",
       "dest_warp_id": 4
+    },
+    {
+      "x": 11,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_MT_PYRE_3F",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 6,
+      "y": 44,
+      "elevation": 0,
+      "dest_map": "MAP_MT_PYRE_3F",
+      "dest_warp_id": 2
+    },
+    {
+      "x": 33,
+      "y": 49,
+      "elevation": 0,
+      "dest_map": "MAP_MT_PYRE_3F",
+      "dest_warp_id": 3
     }
   ],
   "coord_events": [
