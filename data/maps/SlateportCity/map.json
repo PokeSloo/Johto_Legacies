@@ -497,10 +497,10 @@
       "dest_warp_id": 0
     },
     {
-      "x": 21,
-      "y": 22,
+      "x": 23,
+      "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F",
+      "dest_map": "MAP_MAUVILLE_CITY_GAME_CORNER",
       "dest_warp_id": 0
     },
     {
@@ -521,7 +521,7 @@
       "x": 11,
       "y": 23,
       "elevation": 0,
-      "dest_map": "MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F",
+      "dest_map": "MAP_BATTLE_FRONTIER_BATTLE_DOME_LOBBY",
       "dest_warp_id": 0
     },
     {

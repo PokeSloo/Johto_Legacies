@@ -1,7 +1,6 @@
 .set LOCALID_ATTENDANT, 1
 
 BattleFrontier_BattleDomeCorridor_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, BattleFrontier_BattleDomeCorridor_OnFrame
 	.byte 0
 
 BattleFrontier_BattleDomeCorridor_OnFrame:

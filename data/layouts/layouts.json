@@ -3314,8 +3314,8 @@
     {
       "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_DOME_LOBBY",
       "name": "BattleFrontier_BattleDomeLobby_Layout",
-      "width": 23,
-      "height": 17,
+      "width": 15,
+      "height": 15,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/BattleFrontier_BattleDomeLobby/border.bin",
@@ -3324,8 +3324,8 @@
     {
       "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_DOME_CORRIDOR",
       "name": "BattleFrontier_BattleDomeCorridor_Layout",
-      "width": 48,
-      "height": 7,
+      "width": 22,
+      "height": 18,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/BattleFrontier_BattleDomeCorridor/border.bin",
@@ -3334,7 +3334,7 @@
     {
       "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_DOME_PRE_BATTLE_ROOM",
       "name": "BattleFrontier_BattleDomePreBattleRoom_Layout",
-      "width": 9,
+      "width": 19,
       "height": 8,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BattleDome",
