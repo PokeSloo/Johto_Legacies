@@ -565,6 +565,13 @@
       "elevation": 0,
       "dest_map": "MAP_NAVEL_ROCK_DOWN07",
       "dest_warp_id": 0
+    },
+    {
+      "x": 43,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_MIRAGE_TOWER_1F",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [

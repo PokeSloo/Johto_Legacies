@@ -3804,10 +3804,10 @@
     {
       "id": "LAYOUT_MIRAGE_TOWER_1F",
       "name": "MirageTower_1F_Layout",
-      "width": 21,
-      "height": 17,
+      "width": 60,
+      "height": 10,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_MirageTower",
+      "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/MirageTower_1F/border.bin",
       "blockdata_filepath": "data/layouts/MirageTower_1F/map.bin"
     },
@@ -3817,17 +3817,17 @@
       "width": 21,
       "height": 17,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_MirageTower",
+      "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/MirageTower_2F/border.bin",
       "blockdata_filepath": "data/layouts/MirageTower_2F/map.bin"
     },
     {
       "id": "LAYOUT_MIRAGE_TOWER_3F",
       "name": "MirageTower_3F_Layout",
-      "width": 21,
-      "height": 17,
+      "width": 17,
+      "height": 21,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_MirageTower",
+      "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/MirageTower_3F/border.bin",
       "blockdata_filepath": "data/layouts/MirageTower_3F/map.bin"
     },
@@ -3874,10 +3874,10 @@
     {
       "id": "LAYOUT_MIRAGE_TOWER_4F",
       "name": "MirageTower_4F_Layout",
-      "width": 13,
+      "width": 15,
       "height": 10,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_MirageTower",
+      "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/MirageTower_4F/border.bin",
       "blockdata_filepath": "data/layouts/MirageTower_4F/map.bin"
     },
