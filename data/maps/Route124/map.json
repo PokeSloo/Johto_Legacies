@@ -192,8 +192,29 @@
       "x": 24,
       "y": 17,
       "elevation": 3,
-      "dest_map": "MAP_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE",
+      "dest_map": "MAP_SEAFLOOR_CAVERN_ENTRANCE",
       "dest_warp_id": 0
+    },
+    {
+      "x": 55,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SEAFLOOR_CAVERN_ENTRANCE",
+      "dest_warp_id": 1
+    },
+    {
+      "x": 23,
+      "y": 43,
+      "elevation": 0,
+      "dest_map": "MAP_SEAFLOOR_CAVERN_ENTRANCE",
+      "dest_warp_id": 2
+    },
+    {
+      "x": 58,
+      "y": 46,
+      "elevation": 0,
+      "dest_map": "MAP_SEAFLOOR_CAVERN_ENTRANCE",
+      "dest_warp_id": 3
     }
   ],
   "coord_events": [
