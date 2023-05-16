@@ -2,21 +2,21 @@
   "id": "MAP_SKY_PILLAR_TOP",
   "name": "SkyPillar_Top",
   "layout": "LAYOUT_SKY_PILLAR_TOP",
-  "music": "MUS_MT_CHIMNEY",
+  "music": "MUS_HG_LIGHTHOUSE",
   "region_map_section": "MAPSEC_SKY_PILLAR",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_ROUTE",
+  "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_RAYQUAZA",
-      "x": 14,
+      "graphics_id": "OBJ_EVENT_GFX_DUSCLOPS",
+      "x": 6,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -25,12 +25,12 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RAYQUAZA_STILL",
-      "x": 14,
-      "y": 6,
+      "x": 5,
+      "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -43,23 +43,39 @@
   ],
   "warp_events": [
     {
-      "x": 16,
+      "x": 7,
       "y": 14,
       "elevation": 3,
       "dest_map": "MAP_SKY_PILLAR_5F",
       "dest_warp_id": 1
+    },
+    {
+      "x": 11,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_PILLAR_5F",
+      "dest_warp_id": 3
+    },
+    {
+      "x": 12,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_PILLAR_5F",
+      "dest_warp_id": 4
     }
   ],
   "coord_events": [
     {
       "type": "trigger",
-      "x": 14,
-      "y": 9,
+      "x": 0,
+      "y": 1,
       "elevation": 3,
       "var": "VAR_SKY_PILLAR_RAQUAZA_CRY_DONE",
       "var_value": "0",
       "script": "SkyPillar_Top_EventScript_AwakenRayquaza"
     }
   ],
-  "bg_events": []
+  "bg_events": [
+
+  ]
 }

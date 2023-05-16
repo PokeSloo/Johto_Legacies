@@ -2,13 +2,13 @@
   "id": "MAP_SKY_PILLAR_4F",
   "name": "SkyPillar_4F",
   "layout": "LAYOUT_SKY_PILLAR_4F",
-  "music": "MUS_MT_CHIMNEY",
+  "music": "MUS_HG_LIGHTHOUSE",
   "region_map_section": "MAPSEC_SKY_PILLAR",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_UNDERGROUND",
-  "allow_cycling": true,
-  "allow_escaping": true,
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
@@ -18,25 +18,74 @@
   ],
   "warp_events": [
     {
-      "x": 11,
-      "y": 1,
+      "x": 10,
+      "y": 4,
       "elevation": 3,
       "dest_map": "MAP_SKY_PILLAR_3F",
       "dest_warp_id": 1
     },
     {
-      "x": 7,
-      "y": 1,
+      "x": 6,
+      "y": 7,
       "elevation": 3,
       "dest_map": "MAP_SKY_PILLAR_3F",
       "dest_warp_id": 2
     },
     {
-      "x": 3,
-      "y": 1,
+      "x": 1,
+      "y": 4,
       "elevation": 3,
       "dest_map": "MAP_SKY_PILLAR_5F",
       "dest_warp_id": 0
+    },
+    {
+      "x": 6,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_PILLAR_5F",
+      "dest_warp_id": 2
+    },
+    {
+      "x": 11,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_PILLAR_4F",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 12,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_PILLAR_4F",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_PILLAR_3F",
+      "dest_warp_id": 3
+    },
+    {
+      "x": 12,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_PILLAR_3F",
+      "dest_warp_id": 4
+    },
+    {
+      "x": 7,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_PILLAR_3F",
+      "dest_warp_id": 5
+    },
+    {
+      "x": 7,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_PILLAR_3F",
+      "dest_warp_id": 5
     }
   ],
   "coord_events": [
