@@ -1,7 +1,6 @@
 .set LOCALID_FOSSIL, 1
 
 DesertUnderpass_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, DesertUnderpass_OnTransition
 	.byte 0
 
 DesertUnderpass_OnTransition:

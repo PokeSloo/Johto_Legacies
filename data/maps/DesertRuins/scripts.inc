@@ -1,7 +1,4 @@
 DesertRuins_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, DesertRuins_OnResume
-	map_script MAP_SCRIPT_ON_LOAD, DesertRuins_OnLoad
-	map_script MAP_SCRIPT_ON_TRANSITION, DesertRuins_OnTransition
 	.byte 0
 
 DesertRuins_OnResume:
