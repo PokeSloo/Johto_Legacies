@@ -88,13 +88,6 @@
   ],
   "warp_events": [
     {
-      "x": 0,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_DEWFORD_TOWN_HALL",
-      "dest_warp_id": 0
-    },
-    {
       "x": 19,
       "y": 9,
       "elevation": 0,
@@ -102,24 +95,10 @@
       "dest_warp_id": 0
     },
     {
-      "x": 0,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_DEWFORD_TOWN_GYM",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 0,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_DEWFORD_TOWN_HOUSE1",
-      "dest_warp_id": 0
-    },
-    {
       "x": 11,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_DEWFORD_TOWN_HOUSE2",
+      "dest_map": "MAP_NAVEL_ROCK_EXTERIOR",
       "dest_warp_id": 0
     }
   ],

@@ -2,12 +2,12 @@
   "id": "MAP_NAVEL_ROCK_B1F",
   "name": "NavelRock_B1F",
   "layout": "LAYOUT_NAVEL_ROCK_B1F",
-  "music": "MUS_RG_SEVII_CAVE",
-  "region_map_section": "MAPSEC_NAVEL_ROCK",
+  "music": "MUS_HG_LIGHTHOUSE",
+  "region_map_section": "MAPSEC_DEWFORD_TOWN",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_UNDERGROUND",
-  "allow_cycling": false,
+  "weather": "WEATHER_SNOW",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
   "show_map_name": true,
@@ -18,18 +18,25 @@
   ],
   "warp_events": [
     {
-      "x": 4,
-      "y": 3,
+      "x": 10,
+      "y": 13,
       "elevation": 3,
-      "dest_map": "MAP_NAVEL_ROCK_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_map": "MAP_NAVEL_ROCK_EXTERIOR",
+      "dest_warp_id": 3
+    },
+    {
+      "x": 15,
+      "y": 26,
+      "elevation": 3,
+      "dest_map": "MAP_NAVEL_ROCK_EXTERIOR",
+      "dest_warp_id": 4
     },
     {
       "x": 18,
-      "y": 9,
-      "elevation": 3,
-      "dest_map": "MAP_NAVEL_ROCK_FORK",
-      "dest_warp_id": 1
+      "y": 40,
+      "elevation": 0,
+      "dest_map": "MAP_NAVEL_ROCK_EXTERIOR",
+      "dest_warp_id": 5
     }
   ],
   "coord_events": [
