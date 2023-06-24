@@ -1,6 +1,4 @@
 Route110_TrickHousePuzzle2_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, Route110_TrickHousePuzzle2_OnResume
-	map_script MAP_SCRIPT_ON_TRANSITION, Route110_TrickHousePuzzle2_OnTransition
 	.byte 0
 
 Route110_TrickHousePuzzle2_OnResume:

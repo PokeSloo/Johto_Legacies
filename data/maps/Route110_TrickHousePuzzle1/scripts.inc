@@ -1,5 +1,4 @@
 Route110_TrickHousePuzzle1_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, Route110_TrickHousePuzzle1_OnLoad
 	.byte 0
 
 Route110_TrickHousePuzzle1_OnLoad:

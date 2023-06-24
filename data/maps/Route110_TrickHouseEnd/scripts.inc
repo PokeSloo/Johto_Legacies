@@ -1,10 +1,6 @@
 .set LOCALID_TRICK_MASTER, 1
 
 Route110_TrickHouseEnd_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, Route110_TrickHouseEnd_OnResume
-	map_script MAP_SCRIPT_ON_TRANSITION, Route110_TrickHouseEnd_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route110_TrickHouseEnd_OnFrame
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Route110_TrickHouseEnd_OnWarp
 	.byte 0
 
 Route110_TrickHouseEnd_OnResume:

@@ -2,8 +2,8 @@
   "id": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE8",
   "name": "Route110_TrickHousePuzzle8",
   "layout": "LAYOUT_ROUTE110_TRICK_HOUSE_PUZZLE8",
-  "music": "MUS_TRICK_HOUSE",
-  "region_map_section": "MAPSEC_ROUTE_110",
+  "music": "MUS_HG_TEAM_ROCKET_HQ",
+  "region_map_section": "MAPSEC_MAUVILLE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -12,51 +12,51 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
-      "x": 1,
-      "y": 10,
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
+      "x": 8,
+      "y": 12,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
+      "trainer_sight_or_berry_tree_id": "3",
       "script": "Route110_TrickHousePuzzle8_EventScript_Vincent",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
       "x": 4,
-      "y": 2,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
+      "trainer_sight_or_berry_tree_id": "3",
       "script": "Route110_TrickHousePuzzle8_EventScript_Leroy",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
       "x": 8,
-      "y": 17,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
+      "trainer_sight_or_berry_tree_id": "3",
       "script": "Route110_TrickHousePuzzle8_EventScript_Keira",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 2,
-      "y": 2,
+      "x": 25,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -65,37 +65,45 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route110_TrickHousePuzzle8_EventScript_ItemBeadMail",
       "flag": "FLAG_ITEM_TRICK_HOUSE_PUZZLE_8_BEAD_MAIL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+      "x": 18,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 0,
-      "y": 21,
-      "elevation": 3,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_ENTRANCE",
-      "dest_warp_id": 2
-    },
-    {
-      "x": 1,
-      "y": 21,
-      "elevation": 3,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_ENTRANCE",
-      "dest_warp_id": 2
-    },
-    {
-      "x": 13,
+      "x": 6,
       "y": 1,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_END",
+      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
+      "dest_warp_id": 1
+    },
+    {
+      "x": 18,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_CORRIDOR",
       "dest_warp_id": 0
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
-      "x": 3,
-      "y": 21,
+      "x": 0,
+      "y": 0,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route110_TrickHousePuzzle8_EventScript_Scroll"

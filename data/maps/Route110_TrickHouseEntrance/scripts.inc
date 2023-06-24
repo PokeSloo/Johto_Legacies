@@ -1,9 +1,6 @@
 .set LOCALID_TRICK_MASTER, 1
 
 Route110_TrickHouseEntrance_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route110_TrickHouseEntrance_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route110_TrickHouseEntrance_OnFrame
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Route110_TrickHouseEntrance_OnWarp
 	.byte 0
 
 	@ State descriptions for VAR_TRICK_HOUSE_ENTRANCE_STATE
