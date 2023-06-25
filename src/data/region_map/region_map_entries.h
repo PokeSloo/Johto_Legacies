@@ -190,14 +190,14 @@ static const u8 sMapName_ViapoisChamber[] = _("VIAPOIS CHAMBER");
 static const u8 sMapName_EmberSpa[] = _("EMBER SPA");
 static const u8 sMapName_SpecialArea[] = _("SPECIAL AREA");
 static const u8 sMapName_AquaHideout[] = _("SPROUT TOWER");
-static const u8 sMapName_MagmaHideout[] = _("MAGMA HIDEOUT");
+static const u8 sMapName_MagmaHideout[] = _("PHOENIX HIDEOUT");
 static const u8 sMapName_MirageTower[] = _("PHOENIX BASE");
 static const u8 sMapName_FarawayIsland[] = _("FARAWAY ISLAND");
 static const u8 sMapName_ArtisanCave[] = _("DARK CAVE");
 static const u8 sMapName_MarineCave[] = _("MARINE CAVE");
 static const u8 sMapName_TerraCave[] = _("TERRA CAVE");
 static const u8 sMapName_DesertUnderpass[] = _("DESERT UNDERPASS");
-static const u8 sMapName_TrainerHill[] = _("MT. SILVER");
+static const u8 sMapName_TrainerHill[] = _("BROKEN");
 
 const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_LITTLEROOT_TOWN]            = { 4, 11, 1, 1, sMapName_LittlerootTown},

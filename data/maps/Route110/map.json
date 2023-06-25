@@ -501,7 +501,7 @@
       "x": 88,
       "y": 21,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_ENTRANCE",
+      "dest_map": "MAP_ROUTE109_SEASHORE_HOUSE",
       "dest_warp_id": 0
     },
     {
@@ -529,8 +529,8 @@
       "x": 78,
       "y": 27,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE110_SEASIDE_CYCLING_ROAD_NORTH_ENTRANCE",
-      "dest_warp_id": 2
+      "dest_map": "MAP_ROUTE114_LANETTES_HOUSE",
+      "dest_warp_id": 0
     },
     {
       "x": 15,

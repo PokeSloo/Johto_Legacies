@@ -311,8 +311,7 @@
   ],
   "gMapGroup_IndoorRoute114": [
     "Route114_FossilManiacsHouse",
-    "Route114_FossilManiacsTunnel",
-    "Route114_LanettesHouse"
+    "Route114_FossilManiacsTunnel"
   ],
   "gMapGroup_IndoorRoute116": [
     "Route116_TunnelersRestHouse"
@@ -606,7 +605,8 @@
     "Route110_TrickHousePuzzle7",
     "Route110_TrickHousePuzzle8",
     "Route110_SeasideCyclingRoadNorthEntrance",
-    "Route110_SeasideCyclingRoadSouthEntrance"
+    "Route110_SeasideCyclingRoadSouthEntrance",
+    "Route114_LanettesHouse"
   ],
   "gMapGroup_IndoorRoute113": [
     "Route113_GlassWorkshop"
