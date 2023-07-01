@@ -804,20 +804,20 @@
     {
       "id": "LAYOUT_SLATEPORT_CITY_STERNS_SHIPYARD_1F",
       "name": "SlateportCity_SternsShipyard_1F_Layout",
-      "width": 21,
-      "height": 15,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Facility",
+      "width": 19,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/SlateportCity_SternsShipyard_1F/border.bin",
       "blockdata_filepath": "data/layouts/SlateportCity_SternsShipyard_1F/map.bin"
     },
     {
       "id": "LAYOUT_SLATEPORT_CITY_STERNS_SHIPYARD_2F",
       "name": "SlateportCity_SternsShipyard_2F_Layout",
-      "width": 17,
-      "height": 15,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Facility",
+      "width": 19,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Contest",
       "border_filepath": "data/layouts/SlateportCity_SternsShipyard_2F/border.bin",
       "blockdata_filepath": "data/layouts/SlateportCity_SternsShipyard_2F/map.bin"
     },
@@ -884,10 +884,10 @@
     {
       "id": "LAYOUT_MAUVILLE_CITY_GYM",
       "name": "MauvilleCity_Gym_Layout",
-      "width": 10,
-      "height": 21,
+      "width": 20,
+      "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_MauvilleGym",
+      "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/MauvilleCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/MauvilleCity_Gym/map.bin"
     },

@@ -2,8 +2,8 @@
   "id": "MAP_ROUTE104_PRETTY_PETAL_FLOWER_SHOP",
   "name": "Route104_PrettyPetalFlowerShop",
   "layout": "LAYOUT_ROUTE104_PRETTY_PETAL_FLOWER_SHOP",
-  "music": "MUS_PETALBURG",
-  "region_map_section": "MAPSEC_ROUTE_104",
+  "music": "MUS_HG_GOLDENROD",
+  "region_map_section": "MAPSEC_SLATEPORT_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -59,15 +59,15 @@
       "x": 2,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE104",
-      "dest_warp_id": 1
+      "dest_map": "MAP_SLATEPORT_CITY",
+      "dest_warp_id": 8
     },
     {
       "x": 3,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE104",
-      "dest_warp_id": 1
+      "dest_map": "MAP_SLATEPORT_CITY",
+      "dest_warp_id": 8
     }
   ],
   "coord_events": [
