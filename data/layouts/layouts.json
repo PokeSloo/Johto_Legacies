@@ -2444,10 +2444,10 @@
     {
       "id": "LAYOUT_ROUTE110_TRICK_HOUSE_END",
       "name": "Route110_TrickHouseEnd_Layout",
-      "width": 12,
-      "height": 8,
+      "width": 15,
+      "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_PetalburgGym",
       "border_filepath": "data/layouts/Route110_TrickHouseEnd/border.bin",
       "blockdata_filepath": "data/layouts/Route110_TrickHouseEnd/map.bin"
     },
