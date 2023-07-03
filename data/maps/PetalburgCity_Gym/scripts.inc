@@ -3,10 +3,6 @@
 .set LOCALID_WALLYS_DAD, 11
 
 PetalburgCity_Gym_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, PetalburgCity_Gym_OnLoad
-	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgCity_Gym_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PetalburgCity_Gym_OnWarp
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, PetalburgCity_Gym_OnFrame
 	.byte 0
 
 PetalburgCity_Gym_OnLoad:
