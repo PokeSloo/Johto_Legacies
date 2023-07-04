@@ -1084,20 +1084,20 @@
     {
       "id": "LAYOUT_SOOTOPOLIS_CITY_GYM_1F",
       "name": "SootopolisCity_Gym_1F_Layout",
-      "width": 17,
-      "height": 26,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_SootopolisGym",
+      "width": 11,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattleFrontierOutsideWest",
       "border_filepath": "data/layouts/SootopolisCity_Gym_1F/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_Gym_1F/map.bin"
     },
     {
       "id": "LAYOUT_SOOTOPOLIS_CITY_GYM_B1F",
       "name": "SootopolisCity_Gym_B1F_Layout",
-      "width": 17,
-      "height": 26,
+      "width": 39,
+      "height": 20,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_SootopolisGym",
+      "secondary_tileset": "gTileset_MossdeepGym",
       "border_filepath": "data/layouts/SootopolisCity_Gym_B1F/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_Gym_B1F/map.bin"
     },

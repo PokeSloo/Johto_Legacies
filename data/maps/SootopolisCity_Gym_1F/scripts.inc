@@ -1,8 +1,4 @@
 SootopolisCity_Gym_1F_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, SootopolisCity_Gym_1F_OnFrame
-	map_script MAP_SCRIPT_ON_RESUME, SootopolisCity_Gym_1F_OnResume
-	map_script MAP_SCRIPT_ON_LOAD, SootopolisCity_Gym_1F_OnLoad
-	map_script MAP_SCRIPT_ON_TRANSITION, SootopolisCity_Gym_1F_OnTransition
 	.byte 0
 
 SootopolisCity_Gym_1F_OnTransition:
