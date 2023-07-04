@@ -103,7 +103,7 @@
       "x": 8,
       "y": 21,
       "elevation": 0,
-      "dest_map": "MAP_FALLARBOR_TOWN_BATTLE_TENT_LOBBY",
+      "dest_map": "MAP_LILYCOVE_CITY_CONTEST_LOBBY",
       "dest_warp_id": 0
     },
     {
@@ -117,7 +117,7 @@
       "x": 16,
       "y": 21,
       "elevation": 0,
-      "dest_map": "MAP_FALLARBOR_TOWN_COZMOS_HOUSE",
+      "dest_map": "MAP_MOSSDEEP_CITY_GYM",
       "dest_warp_id": 0
     },
     {

@@ -1,5 +1,4 @@
 MossdeepCity_Gym_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, MossdeepCity_Gym_OnLoad
 	.byte 0
 
 @ NOTE: Mossdeep Gym was redesigned between R/S and E. Leftover (and now functionally unused) scripts are commented below
@@ -363,6 +362,31 @@ MossdeepCity_Gym_EventScript_RedFloorSwitch::
 	waitmovement 0
 	freerotatingtilepuzzle
 	end
+
+MossdeepCity_Gym_EventScript_SnowmanDown::
+	lockall
+	playse SE_MUD_BALL
+	applymovement VAR_LAST_TALKED, MossdeepCity_Gym_Movement_SnowmanDown
+	waitmovement 0
+	removeobject VAR_LAST_TALKED
+	releaseall
+	end
+
+MossdeepCity_Gym_Movement_SnowmanDown:
+	face_up
+	delay_8
+	face_left
+	delay_16
+	step_end
+
+MossdeepCity_Gym_EventScript_SnowmanFrozen::
+	lockall
+	msgbox MossdeepCity_Gym_Text_SnowmanFrozen, MSGBOX_DEFAULT
+	releaseall
+	end
+
+MossdeepCity_Gym_Text_SnowmanFrozen:
+	.string "This snowman is frozen solid.$"
 
 MossdeepCity_Gym_Text_GymGuideAdvice:
 	.string "Yo, how's it going, CHAMPION-bound\n"
