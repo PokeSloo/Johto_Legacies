@@ -103,6 +103,13 @@
       "elevation": 0,
       "dest_map": "MAP_LILYCOVE_CITY_HARBOR",
       "dest_warp_id": 0
+    },
+    {
+      "x": 47,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_FIERY_PATH",
+      "dest_warp_id": 1
     }
   ],
   "coord_events": [
