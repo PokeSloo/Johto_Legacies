@@ -157,7 +157,9 @@
     "PacifidlogTown_House2",
     "PacifidlogTown_House3",
     "PacifidlogTown_House4",
-    "PacifidlogTown_House5"
+    "PacifidlogTown_House5",
+    "SootopolisCity_LotadAndSeedotHouse",
+    "LilycoveCity_Harbor"
   ],
   "gMapGroup_IndoorPetalburg": [
     "PetalburgCity_WallysHouse",
@@ -234,7 +236,6 @@
     "LilycoveCity_PokemonCenter_2F",
     "LilycoveCity_UnusedMart",
     "LilycoveCity_PokemonTrainerFanClub",
-    "LilycoveCity_Harbor",
     "LilycoveCity_MoveDeletersHouse",
     "LilycoveCity_House1",
     "LilycoveCity_House2",
@@ -276,7 +277,6 @@
     "SootopolisCity_House5",
     "SootopolisCity_House6",
     "SootopolisCity_House7",
-    "SootopolisCity_LotadAndSeedotHouse",
     "SootopolisCity_MysteryEventsHouse_1F",
     "SootopolisCity_MysteryEventsHouse_B1F"
   ],
