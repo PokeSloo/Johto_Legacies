@@ -17,11 +17,6 @@
 .set LOCALID_WALLACE, 18
 
 SootopolisCity_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, SootopolisCity_OnLoad
-	map_script MAP_SCRIPT_ON_TRANSITION, SootopolisCity_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, SootopolisCity_OnResume
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, SootopolisCity_OnFrame
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, SootopolisCity_OnWarp
 	.byte 0
 
 SootopolisCity_OnLoad:

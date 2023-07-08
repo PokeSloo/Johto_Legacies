@@ -77,7 +77,7 @@
       "width": 60,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Sootopolis",
+      "secondary_tileset": "gTileset_TrainerHill",
       "border_filepath": "data/layouts/SootopolisCity/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity/map.bin"
     },
@@ -434,10 +434,10 @@
     {
       "id": "LAYOUT_ROUTE128",
       "name": "Route128_Layout",
-      "width": 120,
-      "height": 40,
+      "width": 40,
+      "height": 100,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_TrainerHill",
       "border_filepath": "data/layouts/Route128/border.bin",
       "blockdata_filepath": "data/layouts/Route128/map.bin"
     },
@@ -524,8 +524,8 @@
     {
       "id": "LAYOUT_UNDERWATER_ROUTE128",
       "name": "Underwater_Route128_Layout",
-      "width": 120,
-      "height": 40,
+      "width": 40,
+      "height": 100,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Underwater",
       "border_filepath": "data/layouts/Underwater_Route128/border.bin",
