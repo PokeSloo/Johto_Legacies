@@ -29,22 +29,26 @@
       "map": "MAP_ROUTE126"
     }
   ],
-  "object_events": [],
+  "object_events": [
+
+  ],
   "warp_events": [
     {
-      "x": 45,
-      "y": 65,
+      "x": 5,
+      "y": 4,
       "elevation": 0,
       "dest_map": "MAP_UNDERWATER_SOOTOPOLIS_CITY",
       "dest_warp_id": 0
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 30,
-      "y": 17,
+      "x": 17,
+      "y": 16,
       "elevation": 3,
       "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_126_HEART_SCALE"
@@ -52,55 +56,55 @@
     {
       "type": "hidden_item",
       "x": 41,
-      "y": 19,
+      "y": 21,
       "elevation": 3,
       "item": "ITEM_ULTRA_BALL",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_126_ULTRA_BALL"
     },
     {
       "type": "hidden_item",
-      "x": 63,
-      "y": 19,
+      "x": 52,
+      "y": 13,
       "elevation": 3,
       "item": "ITEM_STARDUST",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_126_STARDUST"
     },
     {
       "type": "hidden_item",
-      "x": 10,
-      "y": 36,
+      "x": 11,
+      "y": 5,
       "elevation": 3,
       "item": "ITEM_PEARL",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_126_PEARL"
     },
     {
       "type": "hidden_item",
-      "x": 11,
-      "y": 39,
+      "x": 35,
+      "y": 20,
       "elevation": 3,
       "item": "ITEM_IRON",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_126_IRON"
     },
     {
       "type": "hidden_item",
-      "x": 12,
-      "y": 35,
+      "x": 9,
+      "y": 4,
       "elevation": 3,
       "item": "ITEM_YELLOW_SHARD",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_126_YELLOW_SHARD"
     },
     {
       "type": "hidden_item",
-      "x": 65,
-      "y": 60,
+      "x": 29,
+      "y": 5,
       "elevation": 3,
       "item": "ITEM_BIG_PEARL",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_126_BIG_PEARL"
     },
     {
       "type": "hidden_item",
-      "x": 9,
-      "y": 77,
+      "x": 12,
+      "y": 4,
       "elevation": 3,
       "item": "ITEM_BLUE_SHARD",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_126_BLUE_SHARD"

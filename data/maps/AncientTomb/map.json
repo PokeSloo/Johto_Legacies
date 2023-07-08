@@ -2,24 +2,24 @@
   "id": "MAP_ANCIENT_TOMB",
   "name": "AncientTomb",
   "layout": "LAYOUT_ANCIENT_TOMB",
-  "music": "MUS_SEALED_CHAMBER",
-  "region_map_section": "MAPSEC_ANCIENT_TOMB",
+  "music": "MUS_HG_NEW_BARK",
+  "region_map_section": "MAPSEC_ISLAND_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_UNDERGROUND",
+  "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": true,
-  "allow_escaping": true,
+  "allow_escaping": false,
   "allow_running": true,
-  "show_map_name": true,
+  "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_REGISTEEL",
-      "x": 8,
-      "y": 7,
+      "graphics_id": "OBJ_EVENT_GFX_BRANDON",
+      "x": 5,
+      "y": 5,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -30,25 +30,18 @@
   ],
   "warp_events": [
     {
-      "x": 8,
-      "y": 29,
-      "elevation": 3,
-      "dest_map": "MAP_ROUTE120",
+      "x": 1,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_ISLAND_CAVE",
       "dest_warp_id": 0
     },
     {
-      "x": 8,
-      "y": 20,
+      "x": 2,
+      "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_ANCIENT_TOMB",
-      "dest_warp_id": 2
-    },
-    {
-      "x": 8,
-      "y": 11,
-      "elevation": 3,
-      "dest_map": "MAP_ANCIENT_TOMB",
-      "dest_warp_id": 1
+      "dest_map": "MAP_ISLAND_CAVE",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [
@@ -57,24 +50,24 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 8,
-      "y": 20,
+      "x": 1,
+      "y": 0,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AncientTomb_EventScript_CaveEntranceMiddle"
     },
     {
       "type": "sign",
-      "x": 7,
-      "y": 20,
+      "x": 0,
+      "y": 0,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AncientTomb_EventScript_CaveEntranceSide"
     },
     {
       "type": "sign",
-      "x": 9,
-      "y": 20,
+      "x": 2,
+      "y": 0,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AncientTomb_EventScript_CaveEntranceSide"

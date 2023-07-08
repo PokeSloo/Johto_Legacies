@@ -414,10 +414,10 @@
     {
       "id": "LAYOUT_ROUTE126",
       "name": "Route126_Layout",
-      "width": 80,
-      "height": 80,
+      "width": 70,
+      "height": 30,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Sootopolis",
       "border_filepath": "data/layouts/Route126/border.bin",
       "blockdata_filepath": "data/layouts/Route126/map.bin"
     },
@@ -504,8 +504,8 @@
     {
       "id": "LAYOUT_UNDERWATER_ROUTE126",
       "name": "Underwater_Route126_Layout",
-      "width": 80,
-      "height": 80,
+      "width": 70,
+      "height": 30,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Underwater",
       "border_filepath": "data/layouts/Underwater_Route126/border.bin",
@@ -2794,20 +2794,20 @@
     {
       "id": "LAYOUT_ISLAND_CAVE",
       "name": "IslandCave_Layout",
-      "width": 17,
-      "height": 33,
+      "width": 40,
+      "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
+      "secondary_tileset": "gTileset_Sootopolis",
       "border_filepath": "data/layouts/IslandCave/border.bin",
       "blockdata_filepath": "data/layouts/IslandCave/map.bin"
     },
     {
       "id": "LAYOUT_ANCIENT_TOMB",
       "name": "AncientTomb_Layout",
-      "width": 17,
-      "height": 33,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/AncientTomb/border.bin",
       "blockdata_filepath": "data/layouts/AncientTomb/map.bin"
     },
