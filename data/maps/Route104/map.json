@@ -496,6 +496,13 @@
       "elevation": 3,
       "dest_map": "MAP_GRANITE_CAVE_1F",
       "dest_warp_id": 0
+    },
+    {
+      "x": 22,
+      "y": 63,
+      "elevation": 0,
+      "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [

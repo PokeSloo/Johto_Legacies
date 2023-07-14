@@ -25,8 +25,8 @@
     },
     {
       "direction": "right",
-      "offset": -30,
-      "map": "MAP_ISLAND_CAVE"
+      "offset": -40,
+      "map": "MAP_ROUTE133"
     }
   ],
   "object_events": [
