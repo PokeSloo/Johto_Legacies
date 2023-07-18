@@ -14,16 +14,16 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "left",
+      "direction": "down",
       "offset": 0,
-      "map": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST"
+      "map": "MAP_ROUTE123"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
-      "x": 20,
-      "y": 17,
+      "x": 2,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 3,
@@ -35,8 +35,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
-      "x": 42,
-      "y": 15,
+      "x": 9,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -48,8 +48,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 53,
-      "y": 6,
+      "x": 2,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 2,
@@ -61,8 +61,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HEX_MANIAC",
-      "x": 54,
-      "y": 16,
+      "x": 10,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
@@ -74,8 +74,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
-      "x": 37,
-      "y": 32,
+      "x": 3,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -87,8 +87,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_COOK",
-      "x": 41,
-      "y": 56,
+      "x": 3,
+      "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -100,8 +100,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
-      "x": 8,
-      "y": 46,
+      "x": 6,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -113,8 +113,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M",
-      "x": 34,
-      "y": 41,
+      "x": 8,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
       "movement_range_x": 3,
@@ -126,8 +126,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RICH_BOY",
-      "x": 45,
-      "y": 47,
+      "x": 9,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -139,8 +139,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
-      "x": 59,
-      "y": 35,
+      "x": 8,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_DOWN_AND_UP",
       "movement_range_x": 1,
@@ -152,8 +152,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TWIN",
-      "x": 18,
-      "y": 40,
+      "x": 7,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -165,8 +165,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_1",
-      "x": 17,
-      "y": 40,
+      "x": 5,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -178,8 +178,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ZIGZAGOON_2",
-      "x": 40,
-      "y": 56,
+      "x": 2,
+      "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -191,8 +191,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SUDOWOODO",
-      "x": 54,
-      "y": 62,
+      "x": 6,
+      "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -204,8 +204,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 42,
-      "y": 34,
+      "x": 4,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -217,8 +217,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
-      "x": 51,
-      "y": 53,
+      "x": 4,
+      "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -230,8 +230,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
-      "x": 62,
-      "y": 18,
+      "x": 10,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_RIGHT_UP_LEFT",
       "movement_range_x": 2,
@@ -243,8 +243,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
-      "x": 11,
-      "y": 21,
+      "x": 23,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -256,8 +256,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 10,
-      "y": 21,
+      "x": 19,
+      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -269,8 +269,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 16,
-      "y": 30,
+      "x": 4,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 3,
@@ -282,8 +282,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
-      "x": 33,
-      "y": 14,
+      "x": 19,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -295,8 +295,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 54,
-      "y": 31,
+      "x": 6,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -308,8 +308,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
-      "x": 54,
-      "y": 32,
+      "x": 5,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -321,8 +321,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
-      "x": 58,
-      "y": 55,
+      "x": 5,
+      "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 1,
@@ -334,8 +334,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 48,
-      "y": 41,
+      "x": 7,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -347,8 +347,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 29,
-      "y": 14,
+      "x": 3,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -361,99 +361,99 @@
   ],
   "warp_events": [
     {
-      "x": 16,
-      "y": 14,
+      "x": 21,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
       "dest_warp_id": 0
     },
     {
-      "x": 39,
-      "y": 29,
+      "x": 7,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_BATTLE_ARENA_LOBBY",
       "dest_warp_id": 0
     },
     {
-      "x": 45,
-      "y": 56,
+      "x": 6,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_BATTLE_PALACE_LOBBY",
       "dest_warp_id": 0
     },
     {
-      "x": 58,
-      "y": 14,
+      "x": 5,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_BATTLE_PYRAMID_LOBBY",
       "dest_warp_id": 0
     },
     {
-      "x": 35,
-      "y": 12,
+      "x": 4,
+      "y": 2,
       "elevation": 3,
       "dest_map": "MAP_BATTLE_FRONTIER_RANKING_HALL",
       "dest_warp_id": 0
     },
     {
-      "x": 4,
-      "y": 44,
+      "x": 8,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_LOUNGE1",
       "dest_warp_id": 0
     },
     {
-      "x": 10,
-      "y": 28,
+      "x": 4,
+      "y": 6,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_EXCHANGE_SERVICE_CORNER",
       "dest_warp_id": 0
     },
     {
-      "x": 22,
-      "y": 51,
+      "x": 12,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_LOUNGE5",
       "dest_warp_id": 0
     },
     {
-      "x": 5,
-      "y": 8,
+      "x": 2,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_LOUNGE6",
       "dest_warp_id": 0
     },
     {
-      "x": 65,
-      "y": 31,
+      "x": 10,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_LOUNGE3",
       "dest_warp_id": 0
     },
     {
-      "x": 14,
-      "y": 51,
+      "x": 11,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_LOUNGE8",
       "dest_warp_id": 0
     },
     {
-      "x": 21,
-      "y": 45,
+      "x": 9,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_LOUNGE9",
       "dest_warp_id": 0
     },
     {
-      "x": 3,
-      "y": 51,
+      "x": 13,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_POKEMON_CENTER_1F",
       "dest_warp_id": 0
     },
     {
-      "x": 28,
-      "y": 7,
+      "x": 3,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_ARTISAN_CAVE_1F",
       "dest_warp_id": 0
@@ -465,64 +465,64 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 13,
-      "y": 17,
+      "x": 24,
+      "y": 14,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "BattleFrontier_OutsideEast_EventScript_BattleTowerSign"
     },
     {
       "type": "sign",
-      "x": 43,
-      "y": 56,
+      "x": 5,
+      "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "BattleFrontier_OutsideEast_EventScript_BattlePalaceSign"
     },
     {
       "type": "sign",
-      "x": 36,
-      "y": 34,
+      "x": 4,
+      "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "BattleFrontier_OutsideEast_EventScript_BattleArenaSign"
     },
     {
       "type": "sign",
-      "x": 62,
-      "y": 15,
+      "x": 2,
+      "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "BattleFrontier_OutsideEast_EventScript_BattlePyramidSign"
     },
     {
       "type": "sign",
-      "x": 7,
-      "y": 29,
+      "x": 4,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "BattleFrontier_OutsideEast_EventScript_ExchangeCornerSign"
     },
     {
       "type": "sign",
-      "x": 32,
-      "y": 13,
+      "x": 3,
+      "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "BattleFrontier_OutsideEast_EventScript_RankingHallSign"
     },
     {
       "type": "sign",
-      "x": 4,
-      "y": 51,
+      "x": 14,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Common_EventScript_ShowPokemonCenterSign"
     },
     {
       "type": "sign",
-      "x": 5,
-      "y": 51,
+      "x": 15,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Common_EventScript_ShowPokemonCenterSign"
