@@ -264,10 +264,10 @@
     {
       "id": "LAYOUT_ROUTE111",
       "name": "Route111_Layout",
-      "width": 40,
-      "height": 140,
+      "width": 59,
+      "height": 100,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_BattleFrontierOutsideWest",
       "border_filepath": "data/layouts/Route111/border.bin",
       "blockdata_filepath": "data/layouts/Route111/map.bin"
     },
