@@ -2377,7 +2377,7 @@
       "width": 40,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/SafariZone_Northwest/border.bin",
       "blockdata_filepath": "data/layouts/SafariZone_Northwest/map.bin"
     },
@@ -2387,7 +2387,7 @@
       "width": 40,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/SafariZone_North/border.bin",
       "blockdata_filepath": "data/layouts/SafariZone_North/map.bin"
     },
