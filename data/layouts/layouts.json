@@ -1867,17 +1867,17 @@
       "width": 18,
       "height": 12,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
+      "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/AbandonedShip_Corridors_1F/border.bin",
       "blockdata_filepath": "data/layouts/AbandonedShip_Corridors_1F/map.bin"
     },
     {
       "id": "LAYOUT_ABANDONED_SHIP_ROOMS_1F",
       "name": "AbandonedShip_Rooms_1F_Layout",
-      "width": 18,
-      "height": 17,
+      "width": 19,
+      "height": 15,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
+      "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/AbandonedShip_Rooms_1F/border.bin",
       "blockdata_filepath": "data/layouts/AbandonedShip_Rooms_1F/map.bin"
     },
@@ -1887,27 +1887,27 @@
       "width": 13,
       "height": 10,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
+      "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/AbandonedShip_Corridors_B1F/border.bin",
       "blockdata_filepath": "data/layouts/AbandonedShip_Corridors_B1F/map.bin"
     },
     {
       "id": "LAYOUT_ABANDONED_SHIP_ROOMS_B1F",
       "name": "AbandonedShip_Rooms_B1F_Layout",
-      "width": 27,
-      "height": 8,
+      "width": 13,
+      "height": 10,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
+      "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/AbandonedShip_Rooms_B1F/border.bin",
       "blockdata_filepath": "data/layouts/AbandonedShip_Rooms_B1F/map.bin"
     },
     {
       "id": "LAYOUT_ABANDONED_SHIP_ROOMS2_B1F",
       "name": "AbandonedShip_Rooms2_B1F_Layout",
-      "width": 18,
+      "width": 11,
       "height": 8,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
+      "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/AbandonedShip_Rooms2_B1F/border.bin",
       "blockdata_filepath": "data/layouts/AbandonedShip_Rooms2_B1F/map.bin"
     },
@@ -1934,10 +1934,10 @@
     {
       "id": "LAYOUT_ABANDONED_SHIP_ROOMS2_1F",
       "name": "AbandonedShip_Rooms2_1F_Layout",
-      "width": 9,
-      "height": 17,
+      "width": 13,
+      "height": 10,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
+      "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/AbandonedShip_Rooms2_1F/border.bin",
       "blockdata_filepath": "data/layouts/AbandonedShip_Rooms2_1F/map.bin"
     },
@@ -2634,7 +2634,7 @@
     {
       "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
       "name": "BattleFrontier_BattleTowerLobby_Layout",
-      "width": 25,
+      "width": 35,
       "height": 10,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BattleFrontier",

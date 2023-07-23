@@ -1,6 +1,4 @@
 AbandonedShip_Corridors_B1F_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, AbandonedShip_Corridors_B1F_OnResume
-	map_script MAP_SCRIPT_ON_LOAD, AbandonedShip_Corridors_B1F_OnLoad
 	.byte 0
 
 AbandonedShip_Corridors_B1F_OnResume:

@@ -1,5 +1,4 @@
 AbandonedShip_Rooms_B1F_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, AbandonedShip_Rooms_B1F_OnResume
 	.byte 0
 
 AbandonedShip_Rooms_B1F_OnResume:
