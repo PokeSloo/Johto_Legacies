@@ -2,19 +2,68 @@
   "id": "MAP_SHOAL_CAVE_HIGH_TIDE_ENTRANCE_ROOM",
   "name": "ShoalCave_HighTideEntranceRoom",
   "layout": "LAYOUT_SHOAL_CAVE_HIGH_TIDE_ENTRANCE_ROOM",
-  "music": "MUS_MT_PYRE",
-  "region_map_section": "MAPSEC_SHOAL_CAVE",
+  "music": "MUS_RG_MT_MOON",
+  "region_map_section": "MAPSEC_CERULEAN_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
   "allow_cycling": true,
-  "allow_escaping": true,
+  "allow_escaping": false,
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
-  "object_events": [],
-  "warp_events": [],
-  "coord_events": [],
-  "bg_events": []
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM",
+      "dest_warp_id": 1
+    },
+    {
+      "x": 6,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM",
+      "dest_warp_id": 2
+    },
+    {
+      "x": 12,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM",
+      "dest_warp_id": 3
+    },
+    {
+      "x": 22,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM",
+      "dest_warp_id": 4
+    },
+    {
+      "x": 25,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM",
+      "dest_warp_id": 5
+    },
+    {
+      "x": 32,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM",
+      "dest_warp_id": 6
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }
