@@ -79,8 +79,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 35,
-      "y": 14,
+      "x": 31,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -181,7 +181,7 @@
     },
     {
       "type": "sign",
-      "x": 20,
+      "x": 21,
       "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -189,7 +189,7 @@
     },
     {
       "type": "sign",
-      "x": 31,
+      "x": 26,
       "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
