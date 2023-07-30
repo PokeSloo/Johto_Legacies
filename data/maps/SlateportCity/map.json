@@ -589,8 +589,8 @@
       "x": 25,
       "y": 22,
       "elevation": 0,
-      "dest_map": "MAP_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM",
-      "dest_warp_id": 7
+      "dest_map": "MAP_BATTLE_FRONTIER_RANKING_HALL",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [

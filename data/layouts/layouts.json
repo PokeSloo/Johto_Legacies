@@ -3954,10 +3954,10 @@
     {
       "id": "LAYOUT_BATTLE_FRONTIER_RANKING_HALL",
       "name": "BattleFrontier_RankingHall_Layout",
-      "width": 53,
-      "height": 15,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleFrontierRankingHall",
+      "width": 30,
+      "height": 23,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/BattleFrontier_RankingHall/border.bin",
       "blockdata_filepath": "data/layouts/BattleFrontier_RankingHall/map.bin"
     },
