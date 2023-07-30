@@ -7543,7 +7543,7 @@ u16 GetBattleBGM(void)
         case SPECIES_LATIAS_MEGA:
         case SPECIES_LATIOS_MEGA:
         #endif
-            return MUS_VS_WILD;
+            return MUS_HG_VS_WILD;
         case SPECIES_GROUDON:
         case SPECIES_KYOGRE:
         case SPECIES_RAYQUAZA:
@@ -7554,7 +7554,7 @@ u16 GetBattleBGM(void)
         #endif
             return MUS_VS_KYOGRE_GROUDON;
         case SPECIES_JIRACHI:
-            return MUS_VS_WILD;
+            return MUS_HG_VS_WILD;
         case SPECIES_DEOXYS:
         #ifdef POKEMON_EXPANSION
         case SPECIES_DEOXYS_ATTACK:
@@ -7584,7 +7584,7 @@ u16 GetBattleBGM(void)
             return MUS_HG_VS_ARCEUS;
         #endif
         default:
-            return MUS_VS_WILD;
+            return MUS_HG_VS_WILD;
         }
     }
 }
