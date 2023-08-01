@@ -11,6 +11,11 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .tilemap = gPokenavCityMap_Oldale_0,
     },
     {
+        .mapSecId = MAPSEC_OLDALE_TOWN,
+        .index = 1,
+        .tilemap = gPokenavCityMap_Oldale_1,
+    },
+    {
         .mapSecId = MAPSEC_DEWFORD_TOWN,
         .index = 0,
         .tilemap = gPokenavCityMap_Dewford_0,
@@ -19,6 +24,11 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .mapSecId = MAPSEC_LAVARIDGE_TOWN,
         .index = 0,
         .tilemap = gPokenavCityMap_Lavaridge_0,
+    },
+    {
+        .mapSecId = MAPSEC_LAVARIDGE_TOWN,
+        .index = 1,
+        .tilemap = gPokenavCityMap_Lavaridge_1,
     },
     {
         .mapSecId = MAPSEC_FALLARBOR_TOWN,
@@ -39,6 +49,11 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .mapSecId = MAPSEC_PETALBURG_CITY,
         .index = 0,
         .tilemap = gPokenavCityMap_Petalburg_0,
+    },
+    {
+        .mapSecId = MAPSEC_PETALBURG_CITY,
+        .index = 1,
+        .tilemap = gPokenavCityMap_Petalburg_1,
     },
     {
         .mapSecId = MAPSEC_SLATEPORT_CITY,
@@ -99,6 +114,11 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .mapSecId = MAPSEC_SOOTOPOLIS_CITY,
         .index = 0,
         .tilemap = gPokenavCityMap_Sootopolis_0,
+    },
+    {
+        .mapSecId = MAPSEC_SOOTOPOLIS_CITY,
+        .index = 1,
+        .tilemap = gPokenavCityMap_Sootopolis_1,
     },
     {
         .mapSecId = MAPSEC_EVER_GRANDE_CITY,
