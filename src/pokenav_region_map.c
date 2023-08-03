@@ -653,7 +653,7 @@ static void PrintLandmarkNames(struct Pokenav_RegionMapGfx *state, int mapSecId,
     while (1)
     {
         const u8 *landmarkName = GetLandmarkName(mapSecId, pos, i);
-        if (!landmarkName)
+        //if (!landmarkName)
             break;
 
         StringCopyPadded(gStringVar1, landmarkName, CHAR_SPACE, 12);
