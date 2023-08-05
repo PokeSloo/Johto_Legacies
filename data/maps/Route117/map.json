@@ -347,6 +347,13 @@
       "elevation": 0,
       "dest_map": "MAP_NAVEL_ROCK_DOWN05",
       "dest_warp_id": 2
+    },
+    {
+      "x": 21,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE117_POKEMON_DAY_CARE",
+      "dest_warp_id": 2
     }
   ],
   "coord_events": [

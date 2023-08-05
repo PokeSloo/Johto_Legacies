@@ -1194,10 +1194,10 @@
     {
       "id": "LAYOUT_ROUTE114_FOSSIL_MANIACS_TUNNEL",
       "name": "Route114_FossilManiacsTunnel_Layout",
-      "width": 13,
-      "height": 26,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/Route114_FossilManiacsTunnel/border.bin",
       "blockdata_filepath": "data/layouts/Route114_FossilManiacsTunnel/map.bin"
     },
@@ -2934,7 +2934,7 @@
     {
       "id": "LAYOUT_RUSTBORO_CITY_FLAT2_1F",
       "name": "RustboroCity_Flat2_1F_Layout",
-      "width": 14,
+      "width": 11,
       "height": 9,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
@@ -2944,7 +2944,7 @@
     {
       "id": "LAYOUT_RUSTBORO_CITY_FLAT2_2F",
       "name": "RustboroCity_Flat2_2F_Layout",
-      "width": 14,
+      "width": 12,
       "height": 9,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
@@ -3134,10 +3134,10 @@
     {
       "id": "LAYOUT_RUSTBORO_CITY_FLAT1_2F",
       "name": "RustboroCity_Flat1_2F_Layout",
-      "width": 14,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "width": 13,
+      "height": 11,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/RustboroCity_Flat1_2F/border.bin",
       "blockdata_filepath": "data/layouts/RustboroCity_Flat1_2F/map.bin"
     },
