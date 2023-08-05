@@ -251,8 +251,8 @@
       "x": 13,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_DESERT_RUINS",
-      "dest_warp_id": 1
+      "dest_map": "MAP_ROUTE119_WEATHER_INSTITUTE_1F",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [

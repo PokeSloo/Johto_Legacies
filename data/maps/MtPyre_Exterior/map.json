@@ -115,6 +115,13 @@
       "elevation": 0,
       "dest_map": "MAP_MT_PYRE_3F",
       "dest_warp_id": 3
+    },
+    {
+      "x": 30,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_RUSTBORO_CITY_FLAT1_1F",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [
