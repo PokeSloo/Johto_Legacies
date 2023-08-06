@@ -595,8 +595,8 @@
   ],
   "warp_events": [
     {
-      "x": 14,
-      "y": 60,
+      "x": 4,
+      "y": 42,
       "elevation": 0,
       "dest_map": "MAP_ANCIENT_TOMB",
       "dest_warp_id": 0

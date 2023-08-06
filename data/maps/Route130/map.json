@@ -80,6 +80,13 @@
       "elevation": 0,
       "dest_map": "MAP_SCORCHED_SLAB",
       "dest_warp_id": 5
+    },
+    {
+      "x": 21,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_FRONTIER_BATTLE_PALACE_CORRIDOR",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [
