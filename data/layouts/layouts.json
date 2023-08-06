@@ -3044,10 +3044,10 @@
     {
       "id": "LAYOUT_MOSSDEEP_CITY_GAME_CORNER_1F",
       "name": "MossdeepCity_GameCorner_1F_Layout",
-      "width": 12,
-      "height": 10,
+      "width": 11,
+      "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_MossdeepGameCorner",
+      "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/MossdeepCity_GameCorner_1F/border.bin",
       "blockdata_filepath": "data/layouts/MossdeepCity_GameCorner_1F/map.bin"
     },
