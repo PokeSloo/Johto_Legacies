@@ -5,13 +5,13 @@
   "music": "MUS_RG_LAVENDER",
   "region_map_section": "MAPSEC_EVER_GRANDE_CITY",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_FOG_HORIZONTAL",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": false,
   "show_map_name": false,
-  "battle_scene": "MAP_BATTLE_SCENE_GLACIA",
+  "battle_scene": "MAP_BATTLE_SCENE_PHOEBE",
   "connections": 0,
   "object_events": [
     {
