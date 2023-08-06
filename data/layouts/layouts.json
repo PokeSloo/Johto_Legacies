@@ -654,10 +654,10 @@
     {
       "id": "LAYOUT_DEWFORD_TOWN_HALL",
       "name": "DewfordTown_Hall_Layout",
-      "width": 17,
+      "width": 11,
       "height": 9,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_MossdeepGameCorner",
       "border_filepath": "data/layouts/DewfordTown_Hall/border.bin",
       "blockdata_filepath": "data/layouts/DewfordTown_Hall/map.bin"
     },
@@ -674,10 +674,10 @@
     {
       "id": "LAYOUT_LAVARIDGE_TOWN_HERB_SHOP",
       "name": "LavaridgeTown_HerbShop_Layout",
-      "width": 11,
+      "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/LavaridgeTown_HerbShop/border.bin",
       "blockdata_filepath": "data/layouts/LavaridgeTown_HerbShop/map.bin"
     },
@@ -854,8 +854,8 @@
     {
       "id": "LAYOUT_SLATEPORT_CITY_OCEANIC_MUSEUM_1F",
       "name": "SlateportCity_OceanicMuseum_1F_Layout",
-      "width": 20,
-      "height": 9,
+      "width": 17,
+      "height": 10,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_OceanicMuseum",
       "border_filepath": "data/layouts/SlateportCity_OceanicMuseum_1F/border.bin",
@@ -2554,10 +2554,10 @@
     {
       "id": "LAYOUT_ROUTE110_SEASIDE_CYCLING_ROAD_ENTRANCE",
       "name": "Route110_SeasideCyclingRoadEntrance_Layout",
-      "width": 15,
-      "height": 6,
+      "width": 10,
+      "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/Route110_SeasideCyclingRoadEntrance/border.bin",
       "blockdata_filepath": "data/layouts/Route110_SeasideCyclingRoadEntrance/map.bin"
     },

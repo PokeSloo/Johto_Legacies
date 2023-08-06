@@ -1,4 +1,4 @@
-.set LOCALID_FAMILIAR_GRUNT, 13
+.set LOCALID_FAMILIAR_GRUNT, 7
 
 SlateportCity_OceanicMuseum_1F_MapScripts::
 	.byte 0
