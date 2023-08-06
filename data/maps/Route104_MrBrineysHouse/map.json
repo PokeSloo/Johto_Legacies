@@ -2,8 +2,8 @@
   "id": "MAP_ROUTE104_MR_BRINEYS_HOUSE",
   "name": "Route104_MrBrineysHouse",
   "layout": "LAYOUT_ROUTE104_MR_BRINEYS_HOUSE",
-  "music": "MUS_PETALBURG",
-  "region_map_section": "MAPSEC_ROUTE_104",
+  "music": "MUS_HG_ROUTE38",
+  "region_map_section": "MAPSEC_ROUTE_109",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -16,29 +16,29 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
-      "x": 5,
-      "y": 3,
+      "x": 6,
+      "y": 4,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_LEFT_UP_RIGHT",
-      "movement_range_x": 3,
-      "movement_range_y": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route104_MrBrineysHouse_EventScript_Briney",
-      "flag": "FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY"
+      "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WINGULL",
-      "x": 6,
-      "y": 3,
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+      "x": 9,
+      "y": 4,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 3,
-      "movement_range_y": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route104_MrBrineysHouse_EventScript_Peeko",
-      "flag": "FLAG_HIDE_BRINEYS_HOUSE_PEEKO"
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -55,6 +55,20 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE109",
       "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE116_TUNNELERS_REST_HOUSE",
+      "dest_warp_id": 2
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE116_TUNNELERS_REST_HOUSE",
+      "dest_warp_id": 3
     }
   ],
   "coord_events": [
