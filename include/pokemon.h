@@ -1,5 +1,7 @@
 #ifndef GUARD_POKEMON_H
 #define GUARD_POKEMON_H
+#define DAY_START 6
+#define NIGHT_START 18
 
 #include "sprite.h"
 #include "constants/region_map_sections.h"
