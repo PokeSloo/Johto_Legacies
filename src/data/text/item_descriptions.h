@@ -3474,7 +3474,7 @@ static const u8 sExpCharmDesc[] = _(
 // Form-changing Key Items
 static const u8 sRotomCatalogDesc[] = _(
     "A catalog full of\n"
-    "deviced liked by\n"
+    "devices liked by\n"
     "Rotom.");
 
 static const u8 sGracideaDesc[] = _(
@@ -3734,9 +3734,9 @@ static const u8 sContestPassDesc[] = _(
     "Pokémon Contests.");
 
 static const u8 sOaksParcelDesc[] = _(
-    "A parcel for Prof.\n"
-    "Oak from a Pokémon\n"
-    "Mart's clerk.");
+    "Oliver's notebook\n"
+    "given to you by\n"
+    "Professor Elm.");
 
 static const u8 sSecretKeyDesc[] = _(
     "The key to the\n"
@@ -3744,14 +3744,14 @@ static const u8 sSecretKeyDesc[] = _(
     "Gym's entrance.");
 
 static const u8 sBikeVoucherDesc[] = _(
-    "A voucher for\n"
-    "obtaining a bicycle\n"
-    "from the Bike Shop.");
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
 
 static const u8 sGoldTeethDesc[] = _(
-    "Gold dentures lost\n"
-    "by the Safari\n"
-    "Zone's Warden.");
+    "Clearly just a\n"
+    "rock that is\n"
+    "painted gold.");
 
 static const u8 sCardKeyDesc[] = _(
     "A card-type door\n"

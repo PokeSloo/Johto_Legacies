@@ -632,7 +632,7 @@
       "x": 5,
       "y": 45,
       "elevation": 3,
-      "item": "ITEM_SUPER_REPEL",
+      "item": "ITEM_OAKS_PARCEL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_123_SUPER_REPEL"
     },
     {
@@ -655,7 +655,7 @@
       "x": 16,
       "y": 33,
       "elevation": 3,
-      "item": "ITEM_REVIVE",
+      "item": "ITEM_GOLD_TEETH",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_123_REVIVE"
     },
     {
@@ -679,7 +679,7 @@
       "x": 28,
       "y": 75,
       "elevation": 3,
-      "item": "ITEM_RARE_CANDY",
+      "item": "ITEM_BIKE_VOUCHER",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY"
     }
   ]

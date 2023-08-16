@@ -9832,7 +9832,7 @@ const struct Item gItems[] =
 
     [ITEM_OAKS_PARCEL] =
     {
-        .name = _("Oak's Parcel"),
+        .name = _("Notebook"),
         .itemId = ITEM_OAKS_PARCEL,
         .price = 0,
         .description = sOaksParcelDesc,
@@ -9856,19 +9856,19 @@ const struct Item gItems[] =
 
     [ITEM_BIKE_VOUCHER] =
     {
-        .name = _("Bike Voucher"),
+        .name = _("Trade Stone"),
         .itemId = ITEM_BIKE_VOUCHER,
-        .price = 0,
+        .price = 3000,
         .description = sBikeVoucherDesc,
-        .importance = 1,
-        .pocket = POCKET_KEY_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .flingPower = 30,
     },
 
     [ITEM_GOLD_TEETH] =
     {
-        .name = _("Gold Teeth"),
+        .name = _("Fake Nugget"),
         .itemId = ITEM_GOLD_TEETH,
         .price = 0,
         .description = sGoldTeethDesc,
