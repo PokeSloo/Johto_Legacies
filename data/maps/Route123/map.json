@@ -632,7 +632,7 @@
       "x": 5,
       "y": 45,
       "elevation": 3,
-      "item": "ITEM_OAKS_PARCEL",
+      "item": "ITEM_SILPH_SCOPE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_123_SUPER_REPEL"
     },
     {
@@ -655,7 +655,7 @@
       "x": 16,
       "y": 33,
       "elevation": 3,
-      "item": "ITEM_GOLD_TEETH",
+      "item": "ITEM_CARD_KEY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_123_REVIVE"
     },
     {

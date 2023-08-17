@@ -3754,9 +3754,9 @@ static const u8 sGoldTeethDesc[] = _(
     "painted gold.");
 
 static const u8 sCardKeyDesc[] = _(
-    "A card-type door\n"
-    "key used in Silph\n"
-    "Co's office.");
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
 
 static const u8 sLiftKeyDesc[] = _(
     "An elevator key\n"
@@ -3764,9 +3764,9 @@ static const u8 sLiftKeyDesc[] = _(
     "Rocket's Hideout.");
 
 static const u8 sSilphScopeDesc[] = _(
-    "Silph Co's scope\n"
-    "makes unseeable\n"
-    "POKéMON visible.");
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
 
 static const u8 sTriPassDesc[] = _(
     "A pass for ferries\n"

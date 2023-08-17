@@ -553,6 +553,8 @@ const u8 *const gItemEffectTable[] =
     [ITEM_GALARICA_CUFF - ITEM_POTION]    = gItemEffect_EvoItem,
     [ITEM_GALARICA_WREATH - ITEM_POTION]  = gItemEffect_EvoItem,
     [ITEM_BIKE_VOUCHER - ITEM_POTION]     = gItemEffect_EvoItem,
+    [ITEM_CARD_KEY - ITEM_POTION]         = gItemEffect_EvoItem,
+    [ITEM_SILPH_SCOPE - ITEM_POTION]      = gItemEffect_EvoItem,
 
     // Berries
     [ITEM_CHERI_BERRY - ITEM_POTION]      = gItemEffect_CheriBerry,
