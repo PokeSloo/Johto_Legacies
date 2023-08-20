@@ -83,3 +83,9 @@ EventScript_DoInSearchOfTrainers::
 	goto_if_eq VAR_RESULT, 0, EventScript_DoInSearchOfTrainers
 	goto EventScript_TurnOffTV
 	end
+
+PlayersHouse_1F_Text_TheresAMovieOnTV:
+	.string "It's a movie about superheroes.$"
+
+PlayersHouse_1F_Text_LatiEmergencyNewsFlash:
+	.string "It's just some boring soap opera.$"

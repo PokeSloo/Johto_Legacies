@@ -181,7 +181,15 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "LittlerootTown_BrendansHouse_2F_Trigger"
+    }
   ],
   "bg_events": [
     {

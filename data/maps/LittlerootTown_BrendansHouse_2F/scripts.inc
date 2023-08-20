@@ -250,7 +250,7 @@ LittlerootTown_BrendansHouse_2F_EventScript_PC::
 	lockall
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, LittlerootTown_BrendansHouse_2F_EventScript_CheckPlayersPC
-	goto_if_eq VAR_RESULT, FEMALE, LittlerootTown_BrendansHouse_2F_EventScript_CheckRivalsPC
+	goto_if_eq VAR_RESULT, FEMALE, LittlerootTown_BrendansHouse_2F_EventScript_CheckPlayersPC
 	end
 
 LittlerootTown_BrendansHouse_2F_EventScript_CheckPlayersPC::
@@ -313,3 +313,26 @@ PlayersHouse_2F_Text_ItsAGameCube:
 	.string "It's a Nintendo GameCube.\p"
 	.string "A Game Boy Advance is connected to\n"
 	.string "serve as the Controller.$"
+
+LittlerootTown_BrendansHouse_2F_Trigger::
+	lockall
+	goto_if_unset FLAG_SET_WALL_CLOCK, LittlerootTown_BrendansHouse_2F_Trigger_2
+	releaseall
+	end
+
+LittlerootTown_BrendansHouse_2F_Trigger_2:
+	msgbox LittlerootTown_BrendansHouse_2F_Trigger_Text_0
+	waitmessage
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_2F_PlayerStepLeft
+	waitmovement 0
+	releaseall
+	end
+
+
+LittlerootTown_BrendansHouse_2F_PlayerStepLeft:
+	walk_left
+	step_end
+
+LittlerootTown_BrendansHouse_2F_Trigger_Text_0:
+	.string "Oh oh, the clock has stopped. Better\n"
+	.string "reset it.$"

@@ -213,7 +213,6 @@ LittlerootTown_EventScript_BeginDexUpgradeScene::
 	end
 
 LittlerootTown_OnWarp:
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade
 	.2byte 0
 
 LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade::

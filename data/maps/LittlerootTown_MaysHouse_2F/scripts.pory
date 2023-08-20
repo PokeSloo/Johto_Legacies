@@ -23,10 +23,12 @@ script LittleRootTown_MaysHouse_2F_OnTransition{
         applymovement (SHANE_ID, LittlerootTown_MaysHouse_2F_ShaneStepDown)
         playse (SE_WALL_HIT)
         waitmovement (0)
+        playse (SE_PIN)
         applymovement (SHANE_ID, LittlerootTown_MaysHouse_2F_ShaneAppostaphe)
         waitmovement (0)
         msgbox (format("Hey!\pGet out of my room, nerd!"))
         waitmessage
+        closemessage
         applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_MaysHouse_2F_PlayerLeaves)
         waitmovement (0)
         warp (MAP_INSIDE_OF_TRUCK, 1)
@@ -285,9 +287,8 @@ RivalsHouse_2F_EventScript_BrendanWhereShouldIGoNext::
 
 LittlerootTown_MaysHouse_2F_EventScript_PC::
 	lockall
-	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, LittlerootTown_MaysHouse_2F_EventScript_CheckRivalsPC
-	goto_if_eq VAR_RESULT, FEMALE, LittlerootTown_MaysHouse_2F_EventScript_CheckPlayersPC
+	msgbox gText_PokemonTrainerSchoolEmail, MSGBOX_DEFAULT
+	releaseall
 	end
 
 LittlerootTown_MaysHouse_2F_EventScript_CheckRivalsPC::

@@ -1,0 +1,180 @@
+const MOM_ID = 1
+const SHANE_POST_E4_ID = 2
+const SILVER_POST_E4_ID = 3
+const SHANE_START_ID = 4
+const ENTEI_EGG_ID = 5
+const AZUMARILL_ID = 6
+
+mapscripts LittlerootTown_BrendansHouse_1F_MapScripts {}
+
+script LittlerootTown_BrendansHouse_1F_Trigger_1 {
+lockall
+applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
+applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
+waitmovement (0)
+msgbox (Come_Here)
+waitmessage
+closemessage
+applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_WalkDownFromLeft)
+waitmovement (0)
+goto (LittlerootTown_BrendansHouse_1F_Get_Started)
+}
+
+script LittlerootTown_BrendansHouse_1F_Trigger_2 {
+lockall
+applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
+applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
+waitmovement (0)
+msgbox (Come_Here)
+waitmessage
+closemessage
+applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_WalkDownFromMiddle)
+waitmovement (0)
+goto (LittlerootTown_BrendansHouse_1F_Get_Started)
+}
+
+script LittlerootTown_BrendansHouse_1F_Trigger_3 {
+lockall
+applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
+applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
+waitmovement (0)
+msgbox (Come_Here)
+waitmessage
+closemessage
+applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_WalkDownFromRight)
+waitmovement (0)
+goto (LittlerootTown_BrendansHouse_1F_Get_Started)
+}
+
+script LittlerootTown_BrendansHouse_1F_Get_Started {
+msgbox (format("Today is the day!\pToday you get to go choose your very first POKéMON. I'm so excited for you {PLAYER}!\pNow, ROUTE 29 can be dangerous. There are patches of grass where wild POKéMON can jump out and attack you.\pYou will need someone to go with you and keep you safe."))
+waitmessage
+closemessage
+delay (10)
+applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceUp)
+applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceUp)
+waitmovement (0)
+delay (10)
+msgbox ("SHANE!")
+waitmessage
+closemessage
+delay (120)
+clearflag (FLAG_GENERAL_HIDE)
+playse (SE_DOOR)
+addobject (SHANE_START_ID)
+applymovement (SHANE_START_ID, LittlerootTown_BrendansHouse_1F_StepDown1)
+waitmovement (0)
+msgbox (format("SHANE: What, MOM?\nI'm busy right now.\pMOM: You can't be that busy, we all hear your drumming up there.\pNow come over here, I need to talk to you.\pSHANE: Ugh, fine."))
+waitmessage
+closemessage
+applymovement (SHANE_START_ID, LittlerootTown_BrendansHouse_1F_WalktoPlayer)
+waitmovement (0)
+applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
+applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_PlayerStepDownFaceUP)
+waitmovement (0)
+checkplayergender
+if (var(VAR_RESULT) == MALE) {
+    call (LittlerootTown_BrendansHouse_1F_MalePlayer)
+}
+elif (var(VAR_RESULT) == FEMALE) {
+    call (LittlerootTown_BrendansHouse_1F_FemalePlayer)
+}
+applymovement (SHANE_START_ID, LittlerootTown_BrendansHouse_1F_FaceDown)
+waitmovement (0)
+msgbox (format("Just keep quiet, and follow me."))
+waitmessage
+closemessage
+applymovement (SHANE_START_ID, LittlerootTown_BrendansHouse_1F_ShaneLeave)
+waitmovement (0)
+playse (SE_DOOR)
+removeobject (SHANE_START_ID)
+setflag (FLAG_GENERAL_HIDE)
+applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_StepUpFaceRight)
+waitmovement (0)
+msgbox (format("MOM: Don't worry, sweetie. If SHANE gives you any trouble, just let me know. Azumarill and I will set him straight!\pOh, and don't forget to take your shoes with you."))
+waitmessage
+playfanfare (MUS_OBTAIN_ITEM)
+msgbox (format("{PLAYER} received the running shoes!"))
+waitfanfare
+setflag (FLAG_SYS_B_DASH)
+setflag (FLAG_RECEIVED_RUNNING_SHOES)
+addvar (VAR_CHERRYGROVE_STATE, 1)
+msgbox (format("Just remember to hold B when you want to run.\pNow go have fun!"))
+waitmessage
+closemessage
+applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceRight)
+waitmovement (0)
+releaseall
+end
+}
+
+script LittlerootTown_BrendansHouse_1F_MalePlayer {
+    msgbox (format("MOM: SHANE, I need you to take your little brother over to New Bark Town to pick out his first POKéMON\pSHANE: What!? Why do I have to?\pMOM: That's enough, SHANE. You already have your first badge, and you're close to getting your second. {PLAYER} can learn a lot from you.\pSHANE: Fine, I'll go."))
+    waitmessage
+    return
+}
+
+script LittlerootTown_BrendansHouse_1F_FemalePlayer {
+    msgbox (format("MOM: SHANE, I need you to take your little sister over to New Bark Town to pick out her first POKéMON\pSHANE: What!? Why do I have to?\pMOM: That's enough, SHANE. You already have your first badge, and you're close to getting your second. {PLAYER} can learn a lot from you.\pSHANE: Fine, I'll go."))
+    waitmessage
+    return
+}
+
+text Come_Here {
+format ("MOM: There you are, {PLAYER}.")
+}
+
+movement LittlerootTown_BrendansHouse_1F_FaceDown {
+    face_down
+}
+
+movement LittlerootTown_BrendansHouse_1F_FaceLeft {
+    face_left
+}
+
+movement LittlerootTown_BrendansHouse_1F_FaceRight {
+    face_right
+}
+
+movement LittlerootTown_BrendansHouse_1F_StepUpFaceRight {
+    walk_up
+    face_right
+}
+
+movement LittlerootTown_BrendansHouse_1F_WalkDownFromLeft {
+    walk_down * 3
+    walk_right * 3
+}
+
+movement LittlerootTown_BrendansHouse_1F_WalkDownFromMiddle {
+    walk_down * 2
+    walk_right * 2
+}
+
+movement LittlerootTown_BrendansHouse_1F_WalkDownFromRight {
+    walk_down * 3
+    walk_right
+}
+
+movement LittlerootTown_BrendansHouse_1F_FaceUp {
+    face_up
+}
+
+movement LittlerootTown_BrendansHouse_1F_StepDown1 {
+    walk_down
+}
+
+movement LittlerootTown_BrendansHouse_1F_WalktoPlayer {
+    walk_down * 3
+    walk_right
+}
+
+movement LittlerootTown_BrendansHouse_1F_ShaneLeave {
+    walk_left
+    walk_down * 2
+}
+
+movement LittlerootTown_BrendansHouse_1F_PlayerStepDownFaceUP {
+    walk_down
+    face_up
+}

@@ -40,7 +40,7 @@ gText_Birch_SoItsPlayer::
 	.string "Your name is {PLAYER}?$"
 
 gText_Birch_YourePlayer::
-	.string "Oh, so you are {PLAYER}!\p"
+	.string "Oh, so you're {PLAYER}!\p"
 	.string "I’ve heard plenty about you from your\n"
 	.string "parents.\p"
 	.string "You live in Cherrygrove City, it’s very\n"
