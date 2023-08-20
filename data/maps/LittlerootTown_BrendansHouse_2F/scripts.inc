@@ -27,6 +27,9 @@ LittlerootTown_BrendansHouse_2F_EventScript_TryUpdateBrendanPos::
 LittlerootTown_BrendansHouse_2F_EventScript_Ret::
 	return
 
+LittlerootTown_MaysHouse_2F_EventScript_Ret::
+	return
+
 LittlerootTown_BrendansHouse_2F_EventScript_CheckSetReadyToMeetBrendan::
 	checkplayergender
 	goto_if_eq VAR_RESULT, FEMALE, LittlerootTown_BrendansHouse_2F_EventScript_SetReadyToMeetBrendan
