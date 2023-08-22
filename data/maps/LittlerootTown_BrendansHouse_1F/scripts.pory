@@ -4,6 +4,7 @@ const SILVER_POST_E4_ID = 3
 const SHANE_START_ID = 4
 const ENTEI_EGG_ID = 5
 const AZUMARILL_ID = 6
+const FERALIGATR_ID = 7
 
 mapscripts LittlerootTown_BrendansHouse_1F_MapScripts {}
 
@@ -47,7 +48,7 @@ goto (LittlerootTown_BrendansHouse_1F_Get_Started)
 }
 
 script LittlerootTown_BrendansHouse_1F_Get_Started {
-msgbox (format("Today is the day!\pToday you get to go choose your very first POKéMON. I'm so excited for you {PLAYER}!\pNow, ROUTE 29 can be dangerous. There are patches of grass where wild POKéMON can jump out and attack you.\pYou will need someone to go with you and keep you safe."))
+msgbox (format("Today is the day!\pToday you get to go choose your very first POKéMON. I'm so excited for you!\pNow, Route 29 can be dangerous. There are patches of grass where wild POKéMON can jump out and attack you.\pYou will need someone to go with you and keep you safe."))
 waitmessage
 closemessage
 delay (10)
@@ -62,6 +63,7 @@ delay (120)
 clearflag (FLAG_GENERAL_HIDE)
 playse (SE_DOOR)
 addobject (SHANE_START_ID)
+playbgm (MUS_HG_ENCOUNTER_RIVAL, FALSE)
 applymovement (SHANE_START_ID, LittlerootTown_BrendansHouse_1F_StepDown1)
 waitmovement (0)
 msgbox (format("SHANE: What, MOM?\nI'm busy right now.\pMOM: You can't be that busy, we all hear your drumming up there.\pNow come over here, I need to talk to you.\pSHANE: Ugh, fine."))
@@ -89,6 +91,7 @@ waitmovement (0)
 playse (SE_DOOR)
 removeobject (SHANE_START_ID)
 setflag (FLAG_GENERAL_HIDE)
+fadedefaultbgm
 applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_StepUpFaceRight)
 waitmovement (0)
 msgbox (format("MOM: Don't worry, sweetie. If SHANE gives you any trouble, just let me know. Azumarill and I will set him straight!\pOh, and don't forget to take your shoes with you."))
@@ -109,15 +112,36 @@ end
 }
 
 script LittlerootTown_BrendansHouse_1F_MalePlayer {
-    msgbox (format("MOM: SHANE, I need you to take your little brother over to New Bark Town to pick out his first POKéMON\pSHANE: What!? Why do I have to?\pMOM: That's enough, SHANE. You already have your first badge, and you're close to getting your second. {PLAYER} can learn a lot from you.\pSHANE: Fine, I'll go."))
+    msgbox (format("MOM: SHANE, I need you to take your little brother over to New Bark Town to pick out his first POKéMON."))
+    waitmessage
+    applymovement (SHANE_START_ID, LittlerootTown_BrendansHouse_1F_StompRight)
+    waitmovement (0)
+    msgbox (format("SHANE: What!? Why do I have to?\pMOM: That's enough, SHANE. You already have your first badge, and you're close to getting your second. {PLAYER} can learn a lot from you.\pSHANE: Fine, I'll go."))
     waitmessage
     return
 }
 
 script LittlerootTown_BrendansHouse_1F_FemalePlayer {
-    msgbox (format("MOM: SHANE, I need you to take your little sister over to New Bark Town to pick out her first POKéMON\pSHANE: What!? Why do I have to?\pMOM: That's enough, SHANE. You already have your first badge, and you're close to getting your second. {PLAYER} can learn a lot from you.\pSHANE: Fine, I'll go."))
+    msgbox (format("MOM: SHANE, I need you to take your little sister over to New Bark Town to pick out her first POKéMON."))
+    waitmessage
+    applymovement (SHANE_START_ID, LittlerootTown_BrendansHouse_1F_StompRight)
+    waitmovement (0)
+    msgbox (format("SHANE: What!? Why do I have to?\pMOM: That's enough, SHANE. You already have your first badge, and you're close to getting your second. {PLAYER} can learn a lot from you.\pSHANE: Fine, I'll go."))
     waitmessage
     return
+}
+
+script LittlerootTown_BrendansHouse_1F_Azumarill {
+    lock
+    faceplayer
+	waitse
+	playmoncry (SPECIES_AZUMARILL, CRY_MODE_NORMAL)
+    applymovement (AZUMARILL_ID, LittlerootTown_BrendansHouse_1F_Heart)
+    msgbox (format("AZUMARILL: Azu! Azu!"))
+    waitmovement (0)
+    waitmoncry
+    release
+    end
 }
 
 text Come_Here {
@@ -177,4 +201,12 @@ movement LittlerootTown_BrendansHouse_1F_ShaneLeave {
 movement LittlerootTown_BrendansHouse_1F_PlayerStepDownFaceUP {
     walk_down
     face_up
+}
+
+movement LittlerootTown_BrendansHouse_1F_StompRight {
+    walk_in_place_right
+}
+
+movement LittlerootTown_BrendansHouse_1F_Heart {
+    emote_heart
 }

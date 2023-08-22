@@ -38,6 +38,16 @@ LittleRootTown_MaysHouse_2F_OnTransition::
 	end
 
 
+LittleRootTown_MaysHouse_2F_ShaneJournal::
+	msgbox LittleRootTown_MaysHouse_2F_ShaneJournal_Text_0, MSGBOX_SIGN
+	end
+
+
+LittleRootTown_MaysHouse_2F_ShanePC::
+	msgbox LittleRootTown_MaysHouse_2F_ShanePC_Text_0, MSGBOX_SIGN
+	end
+
+
 LittlerootTown_MaysHouse_2F_ShaneStepDown:
 	walk_in_place_down
 	step_end
@@ -404,3 +414,31 @@ RivalsHouse_2F_Text_BrendanWhereShouldIGoNext:
 LittleRootTown_MaysHouse_2F_OnTransition_Text_0:
 	.string "Hey!\p"
 	.string "Get out of my room, nerd!$"
+
+LittleRootTown_MaysHouse_2F_ShaneJournal_Text_0:
+	.string "It's SHANE's journal...\p"
+	.string "Some things are better left unread.$"
+
+LittleRootTown_MaysHouse_2F_ShanePC_Text_0:
+	.string "5 tips to increase your popularity with\n"
+	.string "the ladies!\p"
+	.string "Tip number 1: Dress code.\n"
+	.string "Chicks dig a guy who dresses for\l"
+	.string "success, you can never go wrong with a\l"
+	.string "leather jacket.\p"
+	.string "Tip number 2: Take charge.\n"
+	.string "Women don't know what they want, so you\l"
+	.string "have tell them what they want.\p"
+	.string "Tip number 3: Get jacked.\n"
+	.string "Chicks dig guys who are ripped out of\l"
+	.string "thier minds.\p"
+	.string "Tip number 4: Be rich.\n"
+	.string "There's nothing chicks love more than\l"
+	.string "spending your money.\p"
+	.string "Tip number 5: POKéMON master.\n"
+	.string "Chicks go crazy for guys who can\l"
+	.string "defeat anyone in a POKéMON battle.\p"
+	.string "That's it for now, bros. Catch you next\n"
+	.string "time!\p"
+	.string "And don't forget to aboslutely\n"
+	.string "obliterate that like button!$"

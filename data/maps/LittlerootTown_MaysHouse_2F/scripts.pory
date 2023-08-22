@@ -37,6 +37,16 @@ script LittleRootTown_MaysHouse_2F_OnTransition{
         end
 }
 
+script LittleRootTown_MaysHouse_2F_ShaneJournal {
+	msgbox (format("It's SHANE's journal...\pSome things are better left unread."), MSGBOX_SIGN)
+	end
+}
+
+script LittleRootTown_MaysHouse_2F_ShanePC {
+	msgbox (format("5 tips to increase your popularity with the ladies!\pTip number 1: Dress code.\nChicks dig a guy who dresses for success, you can never go wrong with a leather jacket.\pTip number 2: Take charge.\nWomen don't know what they want, so you have tell them what they want.\pTip number 3: Get jacked.\nChicks dig guys who are ripped out of thier minds.\pTip number 4: Be rich.\nThere's nothing chicks love more than spending your money.\pTip number 5: POKéMON master.\nChicks go crazy for guys who can defeat anyone in a POKéMON battle.\pThat's it for now, bros. Catch you next time!\pAnd don't forget to aboslutely obliterate that like button!"), MSGBOX_SIGN)
+	end
+}
+
 movement LittlerootTown_MaysHouse_2F_ShaneStepDown {
     walk_in_place_down
 }

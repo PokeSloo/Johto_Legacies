@@ -45,9 +45,9 @@
 #define FLAG_HIDE_ENTEI_EGG  0x21 // Entei egg in first floor of player's house
 #define FLAG_HIDE_SILVER_IN_HOUSE    0x22 // In first floor of player's house
 #define FLAG_HIDE_SHANE_IN_HOUSE    0x23 // In first floor of player's house
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
-#define FLAG_UNUSED_0x025    0x25 // Unused Flag
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
+#define FLAG_HIDE_SHANE_CHERRYGROVE_ESCORT    0x24 // Shane waiting outside player's house
+#define FLAG_HIDE_SHANE_CHERRYGROVE_BATTLE    0x25 // Shane battles you when back to Cherrygrove
+#define FLAG_HIDE_FERALIGATR_IN_HOUSE    0x26 // In first floor of player's house
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag
 #define FLAG_UNUSED_0x028    0x28 // Unused Flag
 #define FLAG_UNUSED_0x029    0x29 // Unused Flag

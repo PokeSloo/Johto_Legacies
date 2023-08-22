@@ -60,6 +60,7 @@ LittlerootTown_BrendansHouse_1F_Get_Started::
 	clearflag FLAG_GENERAL_HIDE
 	playse SE_DOOR
 	addobject 4
+	playbgm MUS_HG_ENCOUNTER_RIVAL, FALSE
 	applymovement 4, LittlerootTown_BrendansHouse_1F_StepDown1
 	waitmovement 0
 	msgbox LittlerootTown_BrendansHouse_1F_Get_Started_Text_2
@@ -86,6 +87,7 @@ LittlerootTown_BrendansHouse_1F_Get_Started_1:
 	playse SE_DOOR
 	removeobject 4
 	setflag FLAG_GENERAL_HIDE
+	fadedefaultbgm
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_StepUpFaceRight
 	waitmovement 0
 	msgbox LittlerootTown_BrendansHouse_1F_Get_Started_Text_4
@@ -116,13 +118,34 @@ LittlerootTown_BrendansHouse_1F_Get_Started_3:
 LittlerootTown_BrendansHouse_1F_MalePlayer::
 	msgbox LittlerootTown_BrendansHouse_1F_MalePlayer_Text_0
 	waitmessage
+	applymovement 4, LittlerootTown_BrendansHouse_1F_StompRight
+	waitmovement 0
+	msgbox LittlerootTown_BrendansHouse_1F_MalePlayer_Text_1
+	waitmessage
 	return
 
 
 LittlerootTown_BrendansHouse_1F_FemalePlayer::
 	msgbox LittlerootTown_BrendansHouse_1F_FemalePlayer_Text_0
 	waitmessage
+	applymovement 4, LittlerootTown_BrendansHouse_1F_StompRight
+	waitmovement 0
+	msgbox LittlerootTown_BrendansHouse_1F_MalePlayer_Text_1
+	waitmessage
 	return
+
+
+LittlerootTown_BrendansHouse_1F_Azumarill::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_AZUMARILL, CRY_MODE_NORMAL
+	applymovement 6, LittlerootTown_BrendansHouse_1F_Heart
+	msgbox LittlerootTown_BrendansHouse_1F_Azumarill_Text_0
+	waitmovement 0
+	waitmoncry
+	release
+	end
 
 
 LittlerootTown_BrendansHouse_1F_FaceDown:
@@ -191,12 +214,19 @@ LittlerootTown_BrendansHouse_1F_PlayerStepDownFaceUP:
 	face_up
 	step_end
 
+LittlerootTown_BrendansHouse_1F_StompRight:
+	walk_in_place_right
+	step_end
+
+LittlerootTown_BrendansHouse_1F_Heart:
+	emote_heart
+	step_end
+
 LittlerootTown_BrendansHouse_1F_Get_Started_Text_0:
 	.string "Today is the day!\p"
 	.string "Today you get to go choose your very\n"
-	.string "first POKéMON. I'm so excited for you\l"
-	.string "{PLAYER}!\p"
-	.string "Now, ROUTE 29 can be dangerous. There\n"
+	.string "first POKéMON. I'm so excited for you!\p"
+	.string "Now, Route 29 can be dangerous. There\n"
 	.string "are patches of grass where wild\l"
 	.string "POKéMON can jump out and attack you.\p"
 	.string "You will need someone to go with you and\n"
@@ -235,7 +265,9 @@ LittlerootTown_BrendansHouse_1F_Get_Started_Text_6:
 LittlerootTown_BrendansHouse_1F_MalePlayer_Text_0:
 	.string "MOM: SHANE, I need you to take your\n"
 	.string "little brother over to New Bark Town to\l"
-	.string "pick out his first POKéMON\p"
+	.string "pick out his first POKéMON.$"
+
+LittlerootTown_BrendansHouse_1F_MalePlayer_Text_1:
 	.string "SHANE: What!? Why do I have to?\p"
 	.string "MOM: That's enough, SHANE. You already\n"
 	.string "have your first badge, and you're close\l"
@@ -246,13 +278,10 @@ LittlerootTown_BrendansHouse_1F_MalePlayer_Text_0:
 LittlerootTown_BrendansHouse_1F_FemalePlayer_Text_0:
 	.string "MOM: SHANE, I need you to take your\n"
 	.string "little sister over to New Bark Town to\l"
-	.string "pick out her first POKéMON\p"
-	.string "SHANE: What!? Why do I have to?\p"
-	.string "MOM: That's enough, SHANE. You already\n"
-	.string "have your first badge, and you're close\l"
-	.string "to getting your second. {PLAYER} can\l"
-	.string "learn a lot from you.\p"
-	.string "SHANE: Fine, I'll go.$"
+	.string "pick out her first POKéMON.$"
+
+LittlerootTown_BrendansHouse_1F_Azumarill_Text_0:
+	.string "AZUMARILL: Azu! Azu!$"
 
 Come_Here::
 	.string "MOM: There you are, {PLAYER}.$"

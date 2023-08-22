@@ -24,6 +24,8 @@ PlayersHouse_2F_EventScript_WallClock::
 	setflag FLAG_HIDE_ENTEI_EGG
 	setflag FLAG_HIDE_SILVER_IN_HOUSE
 	setflag FLAG_HIDE_SHANE_IN_HOUSE
+	setflag FLAG_HIDE_FERALIGATR_IN_HOUSE
+	setflag FLAG_HIDE_SHANE_CHERRYGROVE_BATTLE
 	releaseall
 	end
 

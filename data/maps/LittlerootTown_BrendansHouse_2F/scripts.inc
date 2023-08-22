@@ -310,9 +310,9 @@ Common_Text_LookCloserAtMap:
 	.string "HOENN region map.$"
 
 PlayersHouse_2F_Text_ItsAGameCube:
-	.string "It's a Nintendo GameCube.\p"
-	.string "A Game Boy Advance is connected to\n"
-	.string "serve as the Controller.$"
+	.string "It's a Nintendo Switch.\p"
+	.string "This really isn't the best time for\n"
+	.string "games, maybe later.$"
 
 LittlerootTown_BrendansHouse_2F_Trigger::
 	lockall
