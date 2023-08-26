@@ -1,0 +1,386 @@
+const SHANE_ID = 4
+
+mapscripts OldaleTown_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag (FLAG_VISITED_OLDALE_TOWN)
+        end
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_CHERRYGROVE_STATE, 1: OldaleTown_OnFrame
+    ]
+}
+
+script OldaleTown_OnFrame {
+    lock
+    playse (SE_PIN)
+    applymovement (SHANE_ID, OldaleTown_ShaneApostraphe)
+    waitmovement (0)
+    delay (10)
+    msgbox (format("SHANE: What took you so long?"))
+    waitmessage
+    closemessage
+    applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerStepToShane)
+    waitmovement (0)
+    msgbox (format("Any longer, and I was going to leave you behind.\pCome on, let's get this over with."))
+    waitmessage
+    closemessage
+	applymovement (SHANE_ID, OldaleTown_ShaneWalktoNerd)
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalktoNerd)
+    waitmovement (0)
+	msgbox (format("Pfft, get a load of this nerd. Not a single girl would go for a guy like that.\pTrust me."))
+    waitmessage
+    closemessage
+	applymovement (SHANE_ID, OldaleTown_ShaneWalktoGrass)
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalktoGrass)
+    waitmovement (0)
+    msgbox (format("This is a patch of tall grass. A scrawny kid like you would get ripped to shreds if you stepped one foot in there without a POKéMON of your own."))
+    waitmessage
+    closemessage
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalkDownOne)
+    waitmovement (0)
+	applymovement (SHANE_ID, OldaleTown_ShaneWalktoLedge, MAP_OLDALE_TOWN)
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalktoLedge)
+    waitmovement (0)
+	delay (20)
+	msgbox (format("I jump down from small ledges like this all the time."))
+    waitmessage
+	applymovement (SHANE_ID, OldaleTown_ShaneFacePlayer, MAP_OLDALE_TOWN)
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerFaceShane)
+    waitmovement (0)
+	msgbox (format("I bet even a wimp like you could jump it."))
+    waitmessage
+    closemessage
+	applymovement (SHANE_ID, OldaleTown_ShaneFaceDown, MAP_OLDALE_TOWN)
+    waitmovement (0)
+	delay (30)
+	applymovement (SHANE_ID, OldaleTown_ShaneJumpLedge, MAP_OLDALE_TOWN)
+	playse (SE_LEDGE)
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_ShaneFaceDown)
+    waitmovement (0)
+	delay (30)
+	msgbox (format("You'd better hurry up, or I'll leave you behind."))
+    waitmessage
+    closemessage
+	applymovement (SHANE_ID, OldaleTown_ShaneWalkOffscreen, MAP_OLDALE_TOWN)
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerPrepareJumpLedge)
+	waitmovement (0)
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerJumpLedge)
+	playse (SE_LEDGE)
+    waitmovement (0)
+	msgbox (format("Didn't break your ankles, did you? Ha!"))
+    waitmessage
+    closemessage
+	applymovement (SHANE_ID, OldaleTown_ShaneToTree, MAP_OLDALE_TOWN)
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerToTree)
+    waitmovement (0)
+	msgbox (format("These small trees are super annoying. If you have HM01 and the Violet City gym badge, you can cut them down."))
+    waitmessage
+    closemessage
+	applymovement (SHANE_ID, OldaleTown_ShaneWalkAroundTrees, MAP_OLDALE_TOWN)
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalkAroundTrees)
+    waitmovement (0)
+	msgbox (format("This part is a little tricky, just try and keep up."))
+    waitmessage
+    closemessage
+	applymovement (SHANE_ID, OldaleTown_ShaneWalkToSign, MAP_OLDALE_TOWN)
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalkToSign)
+    waitmovement (0)
+	applymovement (SHANE_ID, OldaleTown_ShaneJumpRight, MAP_OLDALE_TOWN)
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerJumpRight)
+	playse (SE_LEDGE)
+	playse (SE_LEDGE)
+    waitmovement (0)
+	msgbox (format("Wow, I'm surprised you didn't get left in my dust, haha!"))
+    waitmessage
+    closemessage
+	applymovement (SHANE_ID, OldaleTown_ShaneWalkToLab, MAP_OLDALE_TOWN)
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalkToLab)
+    waitmovement (0)
+	delay (20)
+	applymovement (SHANE_ID, OldaleTown_ShaneFacePlayer, MAP_OLDALE_TOWN)
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerFaceShane)
+    waitmovement (0)
+	msgbox (format("This is Professor Elm's lab. He's also a huge nerd, so you two should get along.\pWelp, Mom just said to bring you here, she didn't say anything about bringing you back.\pYou're on your own now, later loser."))
+    waitmessage
+    closemessage
+	applymovement (SHANE_ID, OldaleTown_ShaneLeaves, MAP_OLDALE_TOWN)
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWatchesShane)
+    waitmovement (0)
+	removeobject (SHANE_ID, MAP_OLDALE_TOWN)
+	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_BothFaceUp)
+    waitmovement (0)
+    setflag (FLAG_HIDE_SHANE_CHERRYGROVE_ESCORT)
+    addvar (VAR_CHERRYGROVE_STATE, 1)
+    release
+    end
+}
+
+movement OldaleTown_ShaneApostraphe {
+    face_left
+    emote_exclamation_mark
+}
+
+movement OldaleTown_PlayerStepToShane {
+    walk_right * 3
+}
+
+movement OldaleTown_ShaneWalktoNerd {
+	walk_right * 9
+	face_down
+}
+
+movement OldaleTown_PlayerWalktoNerd {
+	walk_right * 9
+	delay_16
+	face_down
+}
+
+movement OldaleTown_ShaneWalktoGrass {
+	walk_right * 6
+	walk_up
+	walk_right * 18
+	walk_down * 2
+	walk_right
+	walk_down
+}
+
+movement OldaleTown_PlayerWalktoGrass {
+	walk_right * 7
+	walk_up
+	walk_right * 18
+	walk_down * 2
+	walk_right
+	face_down
+	delay_16
+	walk_left
+	face_down
+}
+
+movement OldaleTown_ShaneWalktoLedge {
+	walk_right * 23
+	walk_down * 3
+	walk_right
+	face_down
+}
+
+movement OldaleTown_PlayerWalkDownOne {
+	walk_down
+}
+
+movement OldaleTown_PlayerWalktoLedge {
+	walk_right * 24
+	walk_down * 3
+}
+
+movement OldaleTown_ShaneFacePlayer {
+	face_left
+}
+
+movement OldaleTown_PlayerFaceShane {
+	face_right
+}
+
+movement OldaleTown_ShaneFaceDown {
+	face_down
+}
+
+movement OldaleTown_ShaneJumpLedge {
+	jump_2_down
+	delay_16
+	walk_in_place_up
+}
+
+movement OldaleTown_ShaneWalkOffscreen {
+	walk_right * 6
+	face_left
+}
+
+movement OldaleTown_PlayerPrepareJumpLedge {
+	delay_16
+	delay_16
+	walk_in_place_fast_right
+	delay_16
+	walk_in_place_fast_down
+	delay_16
+	walk_in_place_fast_right
+	delay_8
+	walk_in_place_fast_down
+	delay_8
+	walk_in_place_fast_down
+	walk_in_place_fast_down
+	walk_in_place_fast_down
+}
+
+movement OldaleTown_PlayerJumpLedge {
+	jump_2_down
+	player_run_right * 4
+	walk_right * 2
+}
+
+movement OldaleTown_ShaneToTree {
+	walk_right * 5
+	face_up
+}
+
+movement OldaleTown_PlayerToTree {
+	walk_right * 5
+	delay_16
+	face_up
+}
+
+movement OldaleTown_BothFaceUp {
+	face_up
+}
+
+movement OldaleTown_ShaneWalkAroundTrees {
+	walk_right * 12
+	walk_up * 2
+	walk_right * 4
+	walk_up * 4
+	walk_right * 6
+	delay_16
+	face_left
+}
+
+movement OldaleTown_PlayerWalkAroundTrees {
+	walk_right * 13
+	walk_up * 2
+	walk_right * 4
+	walk_up * 4
+	walk_right * 5
+}
+
+movement OldaleTown_ShaneWalkToSign {
+	walk_fast_down * 4
+	walk_fast_right * 7
+	walk_fast_up * 5
+	walk_fast_right
+}
+
+movement OldaleTown_ShaneJumpRight {
+	jump_2_right
+	walk_fast_right * 10
+	walk_right * 2
+	walk_up * 2
+	face_down
+}
+
+movement OldaleTown_PlayerWalkToSign {
+	walk_fast_right
+	walk_fast_down * 4
+	walk_fast_right * 7
+	walk_fast_up * 5
+	face_right
+}
+
+movement OldaleTown_PlayerJumpRight {
+	delay_8
+	walk_fast_right
+	jump_2_right
+	walk_fast_right * 10
+	walk_right * 2
+	walk_up
+}
+
+movement OldaleTown_ShaneWalkToLab {
+	walk_right * 16
+	walk_up
+	walk_right * 15
+	walk_up
+}
+
+movement OldaleTown_PlayerWalkToLab {
+	walk_up
+	walk_right * 16
+	walk_up
+	walk_right * 14
+	walk_up
+}
+
+movement OldaleTown_ShaneLeaves {
+	walk_down
+	walk_left * 10
+}
+
+movement OldaleTown_PlayerWatchesShane {
+	delay_16
+	face_down
+	delay_16 * 3
+	face_left
+	delay_16 * 9
+}
+
+raw `
+OldaleTown_EventScript_TownSign::
+	msgbox OldaleTown_Text_TownSign, MSGBOX_SIGN
+	end
+
+OldaleTown_EventScript_Girl::
+	msgbox OldaleTown_Text_SavingMyProgress, MSGBOX_NPC
+	end
+
+OldaleTown_EventScript_MartEmployee::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_POTION_OLDALE, OldaleTown_EventScript_ExplainPotion
+	goto_if_set FLAG_TEMP_1, OldaleTown_EventScript_ExplainPotion
+	setflag FLAG_TEMP_1
+	playbgm MUS_FOLLOW_ME, FALSE
+	msgbox OldaleTown_Text_IWorkAtPokemonMart, MSGBOX_DEFAULT
+	closemessage
+	msgbox OldaleTown_Text_ThisIsAPokemonMart, MSGBOX_DEFAULT
+	giveitem ITEM_POTION
+	goto_if_eq VAR_RESULT, FALSE, OldaleTown_EventScript_BagIsFull
+	msgbox OldaleTown_Text_PotionExplanation, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_POTION_OLDALE
+	fadedefaultbgm
+	release
+	end
+
+OldaleTown_EventScript_ExplainPotion::
+	msgbox OldaleTown_Text_PotionExplanation, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_EventScript_BagIsFull::
+	msgbox gText_TooBadBagIsFull, MSGBOX_DEFAULT
+	fadedefaultbgm
+	release
+	end
+
+OldaleTown_EventScript_FootprintsMan::
+	msgbox OldaleTown_Text_FinishedSketchingFootprints, MSGBOX_NPC
+	end
+
+OldaleTown_Text_SavingMyProgress:
+	.string "I want to take a rest, so I'm saving my\n"
+	.string "progress.$"
+
+OldaleTown_Text_IWorkAtPokemonMart:
+	.string "Hi!\n"
+	.string "I work at a POKéMON MART.\p"
+	.string "Can I get you to come with me?$"
+
+OldaleTown_Text_ThisIsAPokemonMart:
+	.string "This is a POKéMON MART.\n"
+	.string "Just look for our blue roof.\p"
+	.string "We sell a variety of goods including\n"
+	.string "POKé BALLS for catching POKéMON.\p"
+	.string "Here, I'd like you to have this as\n"
+	.string "a promotional item.$"
+
+OldaleTown_Text_PotionExplanation:
+	.string "A POTION can be used anytime, so it's\n"
+	.string "even more useful than a POKéMON CENTER\l"
+	.string "in certain situations.$"
+
+OldaleTown_Text_FinishedSketchingFootprints:
+	.string "I finished sketching the footprints of\n"
+	.string "a rare POKéMON.\p"
+	.string "But it turns out they were only my\n"
+	.string "own footprints…$"
+
+OldaleTown_Text_TownSign:
+	.string "Cherrygrove City\n"
+	.string "“The City of Fragrant Flowers.”$"
+`
