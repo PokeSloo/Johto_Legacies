@@ -1,0 +1,77 @@
+mapscripts LittlerootTown_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag (FLAG_VISITED_LITTLEROOT_TOWN)
+        end
+    }
+}
+
+script LittlerootTown_Trigger {
+    lock
+    msgbox (format("SHANE's words echoed in {PLAYER}'s ears:\pA scrawny kid like you would get ripped to shreds if you stepped one foot in there without a POKéMON of your own."))
+    waitmessage
+    closemessage
+    applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_PlayerWalkRight)
+    waitmovement (0)
+    release
+    end
+}
+
+movement LittlerootTown_PlayerWalkRight {
+    walk_right
+}
+
+raw`
+LittlerootTown_EventScript_FatMan::
+	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC
+	end
+
+LittlerootTown_EventScript_Boy::
+	msgbox LittlerootTown_Text_BirchSpendsDaysInLab, MSGBOX_NPC
+	end
+
+LittlerootTown_EventScript_Twin::
+	lock
+	faceplayer
+	msgbox LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_EventScript_TownSign::
+	msgbox LittlerootTown_Text_TownSign, MSGBOX_SIGN
+	end
+
+LittlerootTown_EventScript_BirchsLabSign::
+	msgbox LittlerootTown_Text_ProfBirchsLab, MSGBOX_SIGN
+	end
+
+LittlerootTown_EventScript_BrendansHouseSign::
+	msgbox LittlerootTown_Text_ProfBirchsHouse, MSGBOX_SIGN
+	return
+
+LittlerootTown_Text_CanUsePCToStoreItems:
+	.string "If you use a PC, you can store items\n"
+	.string "and POKéMON.\p"
+	.string "The power of science is staggering!$"
+
+LittlerootTown_Text_BirchSpendsDaysInLab:
+	.string "PROF. BIRCH spends days in his LAB\n"
+	.string "studying, then he'll suddenly go out in\l"
+	.string "the wild to do more research…\p"
+	.string "When does PROF. BIRCH spend time\n"
+	.string "at home?$"
+
+LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut:
+	.string "Um, um, um!\p"
+	.string "If you go outside and go in the grass,\n"
+	.string "wild POKéMON will jump out!$"
+
+LittlerootTown_Text_TownSign:
+	.string "LITTLEROOT TOWN\n"
+	.string "“A town that can't be shaded any hue.”$"
+
+LittlerootTown_Text_ProfBirchsLab:
+	.string "PROF. ELM'S POKéMON LAB$"
+
+LittlerootTown_Text_ProfBirchsHouse:
+	.string "GOLD'S HOUSE$"
+`

@@ -48,9 +48,9 @@
 #define FLAG_HIDE_SHANE_CHERRYGROVE_ESCORT    0x24 // Shane waiting outside player's house
 #define FLAG_HIDE_SHANE_CHERRYGROVE_BATTLE    0x25 // Shane battles you when back to Cherrygrove
 #define FLAG_HIDE_FERALIGATR_IN_HOUSE    0x26 // In first floor of player's house
-#define FLAG_UNUSED_0x027    0x27 // Unused Flag
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
+#define FLAG_HIDE_CHIKORITA_BALL    0x27 // Elm's lab
+#define FLAG_HIDE_TOTODILE_BALL   0x28 // Elm's lab
+#define FLAG_HIDE_CYNDAQUIL_BALL    0x29 // Elm's lab
 #define FLAG_UNUSED_0x02A    0x2A // Unused Flag
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag

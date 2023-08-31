@@ -732,8 +732,8 @@ OldaleTown_OnFrame_Text_10:
 	.string "my dust, haha!$"
 
 OldaleTown_OnFrame_Text_11:
-	.string "This is Professor Elm's lab. He's also a\n"
-	.string "huge nerd, so you two should get along.\p"
+	.string "This is PROF. ELM's lab. He's also a huge\n"
+	.string "nerd, so you two should get along.\p"
 	.string "Welp, Mom just said to bring you here,\n"
 	.string "she didn't say anything about bringing\l"
 	.string "you back.\p"

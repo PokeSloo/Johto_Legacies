@@ -100,7 +100,7 @@ script OldaleTown_OnFrame {
 	applymovement (SHANE_ID, OldaleTown_ShaneFacePlayer, MAP_OLDALE_TOWN)
 	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerFaceShane)
     waitmovement (0)
-	msgbox (format("This is Professor Elm's lab. He's also a huge nerd, so you two should get along.\pWelp, Mom just said to bring you here, she didn't say anything about bringing you back.\pYou're on your own now, later loser."))
+	msgbox (format("This is PROF. ELM's lab. He's also a huge nerd, so you two should get along.\pWelp, Mom just said to bring you here, she didn't say anything about bringing you back.\pYou're on your own now, later loser."))
     waitmessage
     closemessage
 	applymovement (SHANE_ID, OldaleTown_ShaneLeaves, MAP_OLDALE_TOWN)
