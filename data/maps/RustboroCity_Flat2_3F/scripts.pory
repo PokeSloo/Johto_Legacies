@@ -1,0 +1,11 @@
+mapscripts RustboroCity_Flat2_3F_MapScripts {}
+
+script RustboroCity_Flat2_3F_Man {
+    msgbox (format("Have you heard of The Thunderbolts? They're my favorite band.\pTheir lead singer, CHARLIE, is also the Olivine City gym leader."), MSGBOX_NPC)
+    end
+}
+
+script RustboroCity_Flat2_3F_Girl {
+    msgbox (format("My boyfriend is obsessed with The Thunderbolts. They're all he ever talks about."), MSGBOX_NPC)
+    end
+}

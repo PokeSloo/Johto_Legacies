@@ -106,7 +106,8 @@ gBirchDexRatingText_LessThan200::
 
 gBirchDexRatingText_DexCompleted::
 	.string "Congratulations!\n"
-	.string "Your POKéDEX is complete!$"
+	.string "You've caught every single species of\n"
+	.string "POKéMON available to you!$"
 
 gBirchDexRatingText_OnANationwideBasis::
 	.string "Hmhm…\p"

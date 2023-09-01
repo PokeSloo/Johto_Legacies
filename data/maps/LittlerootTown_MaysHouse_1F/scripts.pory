@@ -1,0 +1,6 @@
+mapscripts LittlerootTown_MaysHouse_1F_MapScripts {}
+
+script LittlerootTown_MaysHouse_1F_Woman {
+    msgbox (format("My son was about your age when he set out on his first adventure, I'm so very proud of him."), MSGBOX_NPC)
+    end
+}

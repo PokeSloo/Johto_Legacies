@@ -1,0 +1,11 @@
+mapscripts RustboroCity_CuttersHouse_MapScripts {}
+
+script RustboroCity_CuttersHouse_EventScript_Man {
+    msgbox (format("Please, feel free to walk right into my house without knocking.\pNo really, it's fine. I love when random people just barge in."), MSGBOX_NPC)
+    end
+}
+
+script RustboroCity_CuttersHouse_EventScript_Girl {
+    msgbox (format("Just ignore my dad, he can be so dramatic. Most people in Johto don't mind uninvited guests."), MSGBOX_NPC)
+    end
+}

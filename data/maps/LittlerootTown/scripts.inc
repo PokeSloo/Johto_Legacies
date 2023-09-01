@@ -22,19 +22,28 @@ LittlerootTown_PlayerWalkRight:
 	walk_right
 	step_end
 
-LittlerootTown_EventScript_FatMan::
-	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC
-	end
-
-LittlerootTown_EventScript_Boy::
-	msgbox LittlerootTown_Text_BirchSpendsDaysInLab, MSGBOX_NPC
-	end
-
-LittlerootTown_EventScript_Twin::
+LittlerootTown_EventScript_NewFatMan::
 	lock
 	faceplayer
-	msgbox LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut, MSGBOX_DEFAULT
+	msgbox LittlerootTown_EventScript_NewFatMan_Text_0
+	waitmessage
+	giveitem ITEM_RARE_CANDY, 50
 	release
+	end
+
+
+LittlerootTown_EventScript_Boy::
+	msgbox LittlerootTown_EventScript_Boy_Text_0, MSGBOX_NPC
+	end
+
+
+LittlerootTown_EventScript_Girl::
+	msgbox LittlerootTown_EventScript_Girl_Text_0, MSGBOX_NPC
+	end
+
+
+LittlerootTown_EventScript_FatMan::
+	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC
 	end
 
 LittlerootTown_EventScript_TownSign::
@@ -54,21 +63,9 @@ LittlerootTown_Text_CanUsePCToStoreItems:
 	.string "and POKéMON.\p"
 	.string "The power of science is staggering!$"
 
-LittlerootTown_Text_BirchSpendsDaysInLab:
-	.string "PROF. BIRCH spends days in his LAB\n"
-	.string "studying, then he'll suddenly go out in\l"
-	.string "the wild to do more research…\p"
-	.string "When does PROF. BIRCH spend time\n"
-	.string "at home?$"
-
-LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut:
-	.string "Um, um, um!\p"
-	.string "If you go outside and go in the grass,\n"
-	.string "wild POKéMON will jump out!$"
-
 LittlerootTown_Text_TownSign:
-	.string "LITTLEROOT TOWN\n"
-	.string "“A town that can't be shaded any hue.”$"
+	.string "NEW BARK TOWN\n"
+	.string "“Winds of a New Beginning.”$"
 
 LittlerootTown_Text_ProfBirchsLab:
 	.string "PROF. ELM'S POKéMON LAB$"
@@ -82,3 +79,20 @@ LittlerootTown_Trigger_Text_0:
 	.string "A scrawny kid like you would get ripped\n"
 	.string "to shreds if you stepped one foot in\l"
 	.string "there without a POKéMON of your own.$"
+
+LittlerootTown_EventScript_NewFatMan_Text_0:
+	.string "Here, have some rare candies.$"
+
+LittlerootTown_EventScript_Boy_Text_0:
+	.string "I've heard a new shop that sells Nature\n"
+	.string "Mints opened up in Violet City\l"
+	.string "recently.\p"
+	.string "The fact you can change your POKéMON's\n"
+	.string "personality so easily is scary!$"
+
+LittlerootTown_EventScript_Girl_Text_0:
+	.string "Did you come to New Bark Town to see\n"
+	.string "PROF. ELM?\p"
+	.string "He's very generous when it comes to\n"
+	.string "handing out POKéMON, he must have a\l"
+	.string "surplus.$"

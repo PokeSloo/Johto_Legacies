@@ -20,20 +20,29 @@ movement LittlerootTown_PlayerWalkRight {
     walk_right
 }
 
+script LittlerootTown_EventScript_NewFatMan {
+	lock
+	faceplayer
+	msgbox (format("Here, have some rare candies."))
+	waitmessage
+	giveitem (ITEM_RARE_CANDY, 50)
+	release
+	end
+}
+
+script LittlerootTown_EventScript_Boy {
+	msgbox (format("I've heard a new shop that sells Nature Mints opened up in Violet City recently.\pThe fact you can change your POKéMON's personality so easily is scary!"), MSGBOX_NPC)
+	end
+}
+
+script LittlerootTown_EventScript_Girl {
+	msgbox (format("Did you come to New Bark Town to see PROF. ELM?\pHe's very generous when it comes to handing out POKéMON, he must have a surplus."), MSGBOX_NPC)
+	end
+}
+
 raw`
 LittlerootTown_EventScript_FatMan::
 	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC
-	end
-
-LittlerootTown_EventScript_Boy::
-	msgbox LittlerootTown_Text_BirchSpendsDaysInLab, MSGBOX_NPC
-	end
-
-LittlerootTown_EventScript_Twin::
-	lock
-	faceplayer
-	msgbox LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut, MSGBOX_DEFAULT
-	release
 	end
 
 LittlerootTown_EventScript_TownSign::
@@ -53,21 +62,9 @@ LittlerootTown_Text_CanUsePCToStoreItems:
 	.string "and POKéMON.\p"
 	.string "The power of science is staggering!$"
 
-LittlerootTown_Text_BirchSpendsDaysInLab:
-	.string "PROF. BIRCH spends days in his LAB\n"
-	.string "studying, then he'll suddenly go out in\l"
-	.string "the wild to do more research…\p"
-	.string "When does PROF. BIRCH spend time\n"
-	.string "at home?$"
-
-LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut:
-	.string "Um, um, um!\p"
-	.string "If you go outside and go in the grass,\n"
-	.string "wild POKéMON will jump out!$"
-
 LittlerootTown_Text_TownSign:
-	.string "LITTLEROOT TOWN\n"
-	.string "“A town that can't be shaded any hue.”$"
+	.string "NEW BARK TOWN\n"
+	.string "“Winds of a New Beginning.”$"
 
 LittlerootTown_Text_ProfBirchsLab:
 	.string "PROF. ELM'S POKéMON LAB$"
