@@ -1,5 +1,5 @@
 gBirchDexRatingText_AreYouCurious::
-	.string "PROF. BIRCH: Ah, {PLAYER}{KUN}!\p"
+	.string "PROF. ELM: Ah, {PLAYER}{KUN}!\p"
 	.string "Are you curious about how your\n"
 	.string "POKéDEX is coming along?$"
 
@@ -57,8 +57,8 @@ gBirchDexRatingText_LessThan100::
 	.string "can only be caught there.$"
 
 gBirchDexRatingText_LessThan110::
-	.string "You've finally reached\n"
-	.string "the 100-kind mark.\p"
+	.string "You've almost reached\n"
+	.string "the 300-kind mark.\p"
 	.string "This is an impressive POKéDEX!$"
 
 gBirchDexRatingText_LessThan120::
@@ -76,7 +76,7 @@ gBirchDexRatingText_LessThan140::
 
 gBirchDexRatingText_LessThan150::
 	.string "I had no idea that there were so\n"
-	.string "many POKéMON species in the HOENN\l"
+	.string "many POKéMON species in the JOHTO\l"
 	.string "region.$"
 
 gBirchDexRatingText_LessThan160::
@@ -87,7 +87,7 @@ gBirchDexRatingText_LessThan160::
 
 gBirchDexRatingText_LessThan170::
 	.string "One can get a very good idea about\n"
-	.string "the POKéMON of the HOENN region\l"
+	.string "the POKéMON of the JOHTO region\l"
 	.string "by looking through your POKéDEX.$"
 
 gBirchDexRatingText_LessThan180::
@@ -109,7 +109,6 @@ gBirchDexRatingText_DexCompleted::
 	.string "Your POKéDEX is complete!$"
 
 gBirchDexRatingText_OnANationwideBasis::
-	.string "Hmhm…\n"
-	.string "On a nationwide basis…\p"
-	.string "You've seen {STR_VAR_1} POKéMON,\n"
+	.string "Hmhm…\p"
+	.string "So you've seen {STR_VAR_1} POKéMON,\n"
 	.string "and you've caught {STR_VAR_2} POKéMON…$"
