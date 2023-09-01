@@ -25,6 +25,7 @@ LittlerootTown_ProfessorBirchsLab_OnFrame::
 	waitmessage
 	closemessage
 	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE
+	clearflag FLAG_HIDE_SHANE_CHERRYGROVE_BATTLE
 	addvar VAR_CHERRYGROVE_STATE, 1
 	release
 	end

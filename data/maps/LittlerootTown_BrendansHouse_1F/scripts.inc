@@ -148,6 +148,88 @@ LittlerootTown_BrendansHouse_1F_Azumarill::
 	end
 
 
+LittlerootTown_BrendansHouse_1F_PostBattleTrigger_1::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown
+	applymovement 1, LittlerootTown_BrendansHouse_1F_FaceLeft
+	waitmovement 0
+	msgbox LittlerootTown_BrendansHouse_1F_WhatHappened
+	waitmessage
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_WalkDownFromLeft
+	waitmovement 0
+	goto LittlerootTown_BrendansHouse_1F_Get_Nav
+	return
+
+
+LittlerootTown_BrendansHouse_1F_PostBattleTrigger_2::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown
+	applymovement 1, LittlerootTown_BrendansHouse_1F_FaceLeft
+	waitmovement 0
+	msgbox LittlerootTown_BrendansHouse_1F_WhatHappened
+	waitmessage
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_WalkDownFromMiddle
+	waitmovement 0
+	goto LittlerootTown_BrendansHouse_1F_Get_Nav
+	return
+
+
+LittlerootTown_BrendansHouse_1F_PostBattleTrigger_3::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown
+	applymovement 1, LittlerootTown_BrendansHouse_1F_FaceLeft
+	waitmovement 0
+	msgbox LittlerootTown_BrendansHouse_1F_WhatHappened
+	waitmessage
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_WalkDownFromRight
+	waitmovement 0
+	goto LittlerootTown_BrendansHouse_1F_Get_Nav
+	return
+
+
+LittlerootTown_BrendansHouse_1F_Get_Nav::
+	msgbox LittlerootTown_BrendansHouse_1F_Get_Nav_Text_0
+	waitmessage
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox LittlerootTown_BrendansHouse_1F_Get_Nav_Text_1
+	waitfanfare
+	setflag FLAG_SYS_POKENAV_GET
+	setflag FLAG_RECEIVED_POKENAV
+	setflag FLAG_HIDE_SHANE_CHERRYGROVE_BATTLE
+	addvar VAR_CHERRYGROVE_STATE, 1
+	msgbox LittlerootTown_BrendansHouse_1F_Get_Nav_Text_2
+	waitmessage
+	applymovement 1, LittlerootTown_BrendansHouse_1F_FaceRight
+	waitmovement 0
+	msgbox LittlerootTown_BrendansHouse_1F_Get_Nav_Text_3
+	waitmessage
+	closemessage
+	waitse
+	playmoncry SPECIES_AZUMARILL, CRY_MODE_NORMAL
+	applymovement 6, LittlerootTown_BrendansHouse_1F_DownExclamation
+	waitmovement 0
+	msgbox LittlerootTown_BrendansHouse_1F_Azumarill_Text_0
+	waitmessage
+	closemessage
+	waitmoncry
+	applymovement 1, LittlerootTown_BrendansHouse_1F_FaceLeft
+	waitmovement 0
+	msgbox LittlerootTown_BrendansHouse_1F_Get_Nav_Text_4
+	waitmessage
+	closemessage
+	applymovement 1, LittlerootTown_BrendansHouse_1F_FaceRight
+	waitmovement 0
+	setflag FLAG_HAS_MATCH_CALL
+	setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
+	setflag FLAG_ENABLE_MOM_MATCH_CALL
+	setflag FLAG_ADVENTURE_STARTED
+	releaseall
+	end
+
+
 LittlerootTown_BrendansHouse_1F_FaceDown:
 	face_down
 	step_end
@@ -222,6 +304,11 @@ LittlerootTown_BrendansHouse_1F_Heart:
 	emote_heart
 	step_end
 
+LittlerootTown_BrendansHouse_1F_DownExclamation:
+	walk_in_place_down
+	emote_exclamation_mark
+	step_end
+
 LittlerootTown_BrendansHouse_1F_Get_Started_Text_0:
 	.string "Today is the day!\p"
 	.string "Today you get to go choose your very\n"
@@ -283,5 +370,36 @@ LittlerootTown_BrendansHouse_1F_FemalePlayer_Text_0:
 LittlerootTown_BrendansHouse_1F_Azumarill_Text_0:
 	.string "AZUMARILL: Azu! Azu!$"
 
+LittlerootTown_BrendansHouse_1F_Get_Nav_Text_0:
+	.string "...\p"
+	.string "...\p"
+	.string "Uh huh...\p"
+	.string "...\p"
+	.string "Oh that SHANE!\p"
+	.string "He's really on my last nerve now!\p"
+	.string "Ok, sweetie, take this with you.$"
+
+LittlerootTown_BrendansHouse_1F_Get_Nav_Text_1:
+	.string "{PLAYER} received a POKéNAV.$"
+
+LittlerootTown_BrendansHouse_1F_Get_Nav_Text_2:
+	.string "MOM: That is a POKéNAV, you can\n"
+	.string "register people and call them anytime.\l"
+	.string "It also has a map of the Johto region.\p"
+	.string "Don't hesitate to call me if SHANE acts\n"
+	.string "up again. Azumarill and I will take care\l"
+	.string "of him.$"
+
+LittlerootTown_BrendansHouse_1F_Get_Nav_Text_3:
+	.string "Right, Azumarill?$"
+
+LittlerootTown_BrendansHouse_1F_Get_Nav_Text_4:
+	.string "MOM: Now get going, and don't worry\n"
+	.string "about SHANE, ok.$"
+
 Come_Here::
 	.string "MOM: There you are, {PLAYER}.$"
+
+LittlerootTown_BrendansHouse_1F_WhatHappened::
+	.string "MOM: {PLAYER}, you're awake!\p"
+	.string "Come over and tell me what happened.$"

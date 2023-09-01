@@ -2,30 +2,42 @@ Route101_MapScripts::
 	.byte 0
 
 
-Route101_EventScript_Youngster::
-	msgbox Route101_Text_TakeTiredPokemonToPokeCenter, MSGBOX_NPC
+Route101_EventScript_Boy1::
+	msgbox Route101_EventScript_Boy1_Text_0, MSGBOX_NPC
 	end
 
-Route101_EventScript_Boy::
-	msgbox Route101_Text_WildPokemonInTallGrass, MSGBOX_NPC
+
+Route101_EventScript_Boy2::
+	msgbox Route101_EventScript_Boy2_Text_0, MSGBOX_NPC
 	end
 
-Route101_EventScript_RouteSign::
-	msgbox Route101_Text_RouteSign, MSGBOX_SIGN
+
+Route101_EventScript_SignLeft::
+	msgbox Route101_EventScript_SignLeft_Text_0, MSGBOX_SIGN
 	end
 
-Route101_Text_TakeTiredPokemonToPokeCenter:
-	.string "If POKéMON get tired, take them to\n"
-	.string "a POKéMON CENTER.\p"
-	.string "There's a POKéMON CENTER in OLDALE\n"
-	.string "TOWN right close by.$"
 
-Route101_Text_WildPokemonInTallGrass:
-	.string "Wild POKéMON will jump out at you in\n"
-	.string "tall grass.\p"
-	.string "If you want to catch POKéMON, you have\n"
-	.string "to go into the tall grass and search.$"
+Route101_EventScript_SignRight::
+	msgbox Route101_EventScript_SignRight_Text_0, MSGBOX_SIGN
+	end
 
-Route101_Text_RouteSign:
-	.string "ROUTE 101\n"
-	.string "{UP_ARROW} OLDALE TOWN$"
+
+Route101_EventScript_Boy1_Text_0:
+	.string "Oh, hey {PLAYER}!\p"
+	.string "I see you finally received your first\n"
+	.string "POKéMON too. Going out, and catching\l"
+	.string "even more POKéMON is super fun!\p"
+	.string "I wonder how many there are.$"
+
+Route101_EventScript_Boy2_Text_0:
+	.string "Every route has one or two super rare\n"
+	.string "POKéMON, you'll be lucky if you see one\l"
+	.string "though.$"
+
+Route101_EventScript_SignLeft_Text_0:
+	.string "ROUTE 29\n"
+	.string "{LEFT_ARROW} CHERRYGROVE CITY$"
+
+Route101_EventScript_SignRight_Text_0:
+	.string "ROUTE 29\n"
+	.string "{RIGHT_ARROW} NEW BARK TOWN$"

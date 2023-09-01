@@ -6827,9 +6827,19 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute119Mudkip[] 
 
 static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute103Treecko[] = {
     {
-    .iv = 0,
-    .lvl = 5,
-    .species = SPECIES_TORCHIC,
+    .iv = 150,
+    .lvl = 25,
+    .species = SPECIES_HOUNDOOM,
+    },
+    {
+    .iv = 150,
+    .lvl = 25,
+    .species = SPECIES_SHIFTRY,
+    },
+    {
+    .iv = 150,
+    .lvl = 25,
+    .species = SPECIES_SHARPEDO,
     }
 };
 

@@ -1,0 +1,6 @@
+mapscripts NavelRock_Down01_MapScripts {}
+
+script NavelRock_Down01_EventScript_Guard {
+    msgbox (format("Well, if it isn't {PLAYER}.\pYou sure grew up fast, I remember when you were just a baby.\pI see you have your own POKéMON now, you can go on through."), MSGBOX_NPC)
+    end
+}

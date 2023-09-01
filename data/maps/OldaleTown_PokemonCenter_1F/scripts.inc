@@ -7,7 +7,6 @@ OldaleTown_PokemonCenter_1F_MapScripts::
 
 OldaleTown_PokemonCenter_1F_OnTransition:
 	setrespawn HEAL_LOCATION_OLDALE_TOWN
-	call Common_EventScript_UpdateBrineyLocation
 	end
 
 OldaleTown_PokemonCenter_1F_EventScript_Nurse::
@@ -40,16 +39,15 @@ OldaleTown_PokemonCenter_1F_EventScript_WirelessClubAvailable::
 	end
 
 OldaleTown_PokemonCenter_1F_Text_TrainersCanUsePC:
-	.string "That PC in the corner there is\n"
-	.string "for any POKéMON TRAINER to use.\p"
-	.string "Naturally, that means you're welcome\n"
-	.string "to use it, too.$"
+	.string "They never seem to have any good\n"
+	.string "magazines on these bookshelves, of\l"
+	.string "course I will read all of them\l"
+	.string "nonetheless.$"
 
 OldaleTown_PokemonCenter_1F_Text_PokemonCentersAreGreat:
-	.string "POKéMON CENTERS are great!\p"
-	.string "You can use their services as much\n"
-	.string "as you like, and it's all for free.\l"
-	.string "You never have to worry!$"
+	.string "{PLAYER}! You have a POKéMON of your\n"
+	.string "own now?\p"
+	.string "I'm so jealous, I can't wait to grow up!$"
 
 OldaleTown_PokemonCenter_1F_Text_WirelessClubNotAvailable:
 	.string "The POKéMON WIRELESS CLUB on\n"

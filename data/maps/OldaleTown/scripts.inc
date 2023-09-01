@@ -612,29 +612,161 @@ OldaleTown_PlayerWatchesShane:
 	delay_16
 	step_end
 
-OldaleTown_EventScript_TownSign::
-	msgbox OldaleTown_Text_TownSign, MSGBOX_SIGN
+OldaleTown_EventScript_Girl::
+	msgbox OldaleTown_EventScript_Girl_Text_0, MSGBOX_NPC
 	end
 
-OldaleTown_EventScript_Girl::
-	msgbox OldaleTown_Text_SavingMyProgress, MSGBOX_NPC
+
+OldaleTown_EventScript_Mailbox::
+	msgbox OldaleTown_EventScript_Mailbox_Text_0, MSGBOX_SIGN
+	end
+
+
+OldaleTown_EventScript_Trigger1::
+	lock
+	playse SE_PIN
+	applymovement 5, OldaleTown_ShaneApostraphePlain
+	waitmovement 0
+	delay 30
+	playbgm MUS_HG_ENCOUNTER_RIVAL, FALSE
+	applymovement 5, OldaleTown_ShaneWalktoPlayer1
+	waitmovement 0
+	goto OldaleTown_EventScript_ShaneBattle
+	return
+
+
+OldaleTown_EventScript_Trigger2::
+	lock
+	playse SE_PIN
+	applymovement 5, OldaleTown_ShaneApostraphePlain
+	waitmovement 0
+	delay 30
+	playbgm MUS_HG_ENCOUNTER_RIVAL, FALSE
+	applymovement 5, OldaleTown_ShaneWalktoPlayer2
+	waitmovement 0
+	goto OldaleTown_EventScript_ShaneBattle
+	return
+
+
+OldaleTown_EventScript_Trigger3::
+	lock
+	playse SE_PIN
+	applymovement 5, OldaleTown_ShaneApostraphePlain
+	waitmovement 0
+	delay 30
+	playbgm MUS_HG_ENCOUNTER_RIVAL, FALSE
+	applymovement 5, OldaleTown_ShaneWalktoPlayer3
+	waitmovement 0
+	goto OldaleTown_EventScript_ShaneBattle
+	return
+
+
+OldaleTown_EventScript_Trigger4::
+	lock
+	playse SE_PIN
+	applymovement 5, OldaleTown_ShaneApostraphePlain
+	waitmovement 0
+	delay 30
+	playbgm MUS_HG_ENCOUNTER_RIVAL, FALSE
+	applymovement 5, OldaleTown_ShaneWalktoPlayer4
+	waitmovement 0
+	goto OldaleTown_EventScript_ShaneBattle
+	return
+
+
+OldaleTown_EventScript_ShaneBattle::
+	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
+	addvar VAR_CHERRYGROVE_STATE, 1
+	msgbox OldaleTown_EventScript_ShaneBattle_Text_0
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TREECKO, OldaleTown_Text_ShaneDefeat
+	msgbox OldaleTown_EventScript_ShaneBattle_Text_1
+	waitmessage
+	closemessage
+	applymovement 5, OldaleTown_ShaneHitPlayer
+	waitmovement 0
+	playse SE_WALL_HIT
+	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerKnockBack
+	waitmovement 0
+	special HealPlayerParty
+	fadescreenspeed FADE_TO_BLACK, 4
+	delay 30
+	warpsilent MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F, 1, 4
+	waitstate
+	release
+	end
+
+
+OldaleTown_ShaneApostraphePlain:
+	emote_exclamation_mark
+	step_end
+
+OldaleTown_ShaneWalktoPlayer1:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+OldaleTown_ShaneWalktoPlayer2:
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+OldaleTown_ShaneWalktoPlayer3:
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+OldaleTown_ShaneWalktoPlayer4:
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+OldaleTown_ShaneHitPlayer:
+	lock_facing_direction
+	walk_slow_left
+	delay_16
+	walk_faster_right
+	step_end
+
+OldaleTown_PlayerKnockBack:
+	lock_facing_direction
+	jump_2_right
+	step_end
+
+OldaleTown_EventScript_TownSign::
+	msgbox OldaleTown_Text_TownSign, MSGBOX_SIGN
 	end
 
 OldaleTown_EventScript_MartEmployee::
 	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_POTION_OLDALE, OldaleTown_EventScript_ExplainPotion
-	goto_if_set FLAG_TEMP_1, OldaleTown_EventScript_ExplainPotion
-	setflag FLAG_TEMP_1
-	playbgm MUS_FOLLOW_ME, FALSE
 	msgbox OldaleTown_Text_IWorkAtPokemonMart, MSGBOX_DEFAULT
-	closemessage
-	msgbox OldaleTown_Text_ThisIsAPokemonMart, MSGBOX_DEFAULT
 	giveitem ITEM_POTION
 	goto_if_eq VAR_RESULT, FALSE, OldaleTown_EventScript_BagIsFull
 	msgbox OldaleTown_Text_PotionExplanation, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_POTION_OLDALE
-	fadedefaultbgm
 	release
 	end
 
@@ -653,22 +785,14 @@ OldaleTown_EventScript_FootprintsMan::
 	msgbox OldaleTown_Text_FinishedSketchingFootprints, MSGBOX_NPC
 	end
 
-OldaleTown_Text_SavingMyProgress:
-	.string "I want to take a rest, so I'm saving my\n"
-	.string "progress.$"
-
 OldaleTown_Text_IWorkAtPokemonMart:
 	.string "Hi!\n"
-	.string "I work at a POKéMON MART.\p"
-	.string "Can I get you to come with me?$"
-
-OldaleTown_Text_ThisIsAPokemonMart:
-	.string "This is a POKéMON MART.\n"
-	.string "Just look for our blue roof.\p"
+	.string "I work at this POKéMON MART.\p"
 	.string "We sell a variety of goods including\n"
-	.string "POKé BALLS for catching POKéMON.\p"
+	.string "POKé BALLS for catching POKéMON, as\l"
+	.string "well as POTIONs for healing POKéMON.\p"
 	.string "Here, I'd like you to have this as\n"
-	.string "a promotional item.$"
+	.string "a free sample.$"
 
 OldaleTown_Text_PotionExplanation:
 	.string "A POTION can be used anytime, so it's\n"
@@ -676,13 +800,12 @@ OldaleTown_Text_PotionExplanation:
 	.string "in certain situations.$"
 
 OldaleTown_Text_FinishedSketchingFootprints:
-	.string "I finished sketching the footprints of\n"
-	.string "a rare POKéMON.\p"
-	.string "But it turns out they were only my\n"
-	.string "own footprints…$"
+	.string "Man, lately my girlfriend can't seem to\n"
+	.string "keep her hands off of me. I had to get\l"
+	.string "out of the house for some fresh air.$"
 
 OldaleTown_Text_TownSign:
-	.string "Cherrygrove City\n"
+	.string "CHERRYGROVE CITY\n"
 	.string "“The City of Fragrant Flowers.”$"
 
 OldaleTown_OnFrame_Text_0:
@@ -738,3 +861,29 @@ OldaleTown_OnFrame_Text_11:
 	.string "she didn't say anything about bringing\l"
 	.string "you back.\p"
 	.string "You're on your own now, later loser.$"
+
+OldaleTown_EventScript_Girl_Text_0:
+	.string "If you have a POKéMON that knows the\n"
+	.string "move Surf, and the Olivine City gym\l"
+	.string "badge, then it can ferry you across the\l"
+	.string "water.\p"
+	.string "It's amazing how much more that opens\n"
+	.string "up the world.$"
+
+OldaleTown_EventScript_Mailbox_Text_0:
+	.string "{PLAYER}'S HOUSE$"
+
+OldaleTown_EventScript_ShaneBattle_Text_0:
+	.string "SHANE: Wow! You actually made it back\n"
+	.string "on your own.\p"
+	.string "I see you got a POKéMON from PROF. ELM.\n"
+	.string "You know, I got one from him too, but it\l"
+	.string "was too weak. I got rid of that thing.\p"
+	.string "Hey, let's test our your new POKéMON!\n"
+	.string "I'll see if it's a weakling!$"
+
+OldaleTown_EventScript_ShaneBattle_Text_1:
+	.string "You'll pay for cheating!$"
+
+OldaleTown_Text_ShaneDefeat::
+	.string "You cheated!$"

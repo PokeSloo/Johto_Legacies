@@ -144,8 +144,91 @@ script LittlerootTown_BrendansHouse_1F_Azumarill {
     end
 }
 
+script LittlerootTown_BrendansHouse_1F_PostBattleTrigger_1 {
+lockall
+applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
+applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
+waitmovement (0)
+msgbox (LittlerootTown_BrendansHouse_1F_WhatHappened)
+waitmessage
+closemessage
+applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_WalkDownFromLeft)
+waitmovement (0)
+goto (LittlerootTown_BrendansHouse_1F_Get_Nav)
+}
+
+script LittlerootTown_BrendansHouse_1F_PostBattleTrigger_2 {
+lockall
+applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
+applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
+waitmovement (0)
+msgbox (LittlerootTown_BrendansHouse_1F_WhatHappened)
+waitmessage
+closemessage
+applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_WalkDownFromMiddle)
+waitmovement (0)
+goto (LittlerootTown_BrendansHouse_1F_Get_Nav)
+}
+
+script LittlerootTown_BrendansHouse_1F_PostBattleTrigger_3 {
+lockall
+applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
+applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
+waitmovement (0)
+msgbox (LittlerootTown_BrendansHouse_1F_WhatHappened)
+waitmessage
+closemessage
+applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_WalkDownFromRight)
+waitmovement (0)
+goto (LittlerootTown_BrendansHouse_1F_Get_Nav)
+}
+
+script LittlerootTown_BrendansHouse_1F_Get_Nav {
+    msgbox (format("...\p...\pUh huh...\p...\pOh that SHANE!\pHe's really on my last nerve now!\pOk, sweetie, take this with you."))
+    waitmessage
+    playfanfare (MUS_OBTAIN_ITEM)
+	msgbox ("{PLAYER} received a POKéNAV.")
+	waitfanfare
+	setflag (FLAG_SYS_POKENAV_GET)
+	setflag (FLAG_RECEIVED_POKENAV)
+	setflag (FLAG_HIDE_SHANE_CHERRYGROVE_BATTLE)
+    addvar (VAR_CHERRYGROVE_STATE, 1)
+    msgbox (format("MOM: That is a POKéNAV, you can register people and call them anytime. It also has a map of the Johto region.\pDon't hesitate to call me if SHANE acts up again. Azumarill and I will take care of him."))
+    waitmessage
+    applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceRight)
+    waitmovement (0)
+    msgbox (format("Right, Azumarill?"))
+    waitmessage
+    closemessage
+    waitse
+	playmoncry (SPECIES_AZUMARILL, CRY_MODE_NORMAL)
+    applymovement (AZUMARILL_ID, LittlerootTown_BrendansHouse_1F_DownExclamation)
+    waitmovement (0)
+    msgbox (format("AZUMARILL: Azu! Azu!"))
+    waitmessage
+    closemessage
+    waitmoncry
+    applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
+    waitmovement (0)
+    msgbox (format("MOM: Now get going, and don't worry about SHANE, ok."))
+    waitmessage
+    closemessage
+    applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceRight)
+    waitmovement (0)
+    setflag (FLAG_HAS_MATCH_CALL)
+    setflag (FLAG_ADDED_MATCH_CALL_TO_POKENAV)
+    setflag (FLAG_ENABLE_MOM_MATCH_CALL)
+    setflag (FLAG_ADVENTURE_STARTED)
+    releaseall
+    end
+}
+
 text Come_Here {
 format ("MOM: There you are, {PLAYER}.")
+}
+
+text LittlerootTown_BrendansHouse_1F_WhatHappened {
+    format("MOM: {PLAYER}, you're awake!\pCome over and tell me what happened.")
 }
 
 movement LittlerootTown_BrendansHouse_1F_FaceDown {
@@ -209,4 +292,9 @@ movement LittlerootTown_BrendansHouse_1F_StompRight {
 
 movement LittlerootTown_BrendansHouse_1F_Heart {
     emote_heart
+}
+
+movement LittlerootTown_BrendansHouse_1F_DownExclamation {
+    walk_in_place_down
+    emote_exclamation_mark
 }

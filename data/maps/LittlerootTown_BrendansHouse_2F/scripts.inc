@@ -323,6 +323,7 @@ LittlerootTown_BrendansHouse_2F_Trigger::
 LittlerootTown_BrendansHouse_2F_Trigger_2:
 	msgbox LittlerootTown_BrendansHouse_2F_Trigger_Text_0
 	waitmessage
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_2F_PlayerStepLeft
 	waitmovement 0
 	releaseall
