@@ -124,6 +124,6 @@ Route102_EventScript_SignMrPokemon_Text_0:
 	.string "MR. POKéMON'S HOUSE$"
 
 Route102_EventScript_SignTips_Text_0:
-	.string "Trainer tips:\n"
-	.string "Use an ANTIDOTE to heal your POKéMON if\l"
+	.string "TRAINER TIPS\p"
+	.string "Use an ANTIDOTE to heal your POKéMON if\n"
 	.string "it gets poisoned.$"

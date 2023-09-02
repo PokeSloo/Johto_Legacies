@@ -565,40 +565,39 @@ Route106_Text_ElliotRematchPostBattle:
 	.string "You agree with me, right?$"
 
 Route106_Text_NedIntro:
-	.string "What do people do if they need to go\n"
-	.string "to a washroom?\p"
-	.string "What if my ROD hooks a big one while\n"
-	.string "I'm in the washroom? I just can't go…$"
+	.string "That guy over there is hogging the best\n"
+	.string "fishing spot!$"
 
 Route106_Text_NedDefeated:
-	.string "I lost because I'm trying to not go\n"
-	.string "to the washroom…$"
+	.string "I lost out on the good fishing spot and\n"
+	.string "this battle.$"
 
 Route106_Text_NedPostBattle:
-	.string "Oh, no! I've got this feeling I'll hook\n"
-	.string "a big one!$"
+	.string "Maybe that other fisherman will leave\n"
+	.string "soon, and I can have my spot back.$"
 
 Route106_Text_DouglasIntro:
-	.string "Hahahah! I'm a lousy runner, but in\n"
-	.string "the water you can't catch me!$"
+	.string "My super BUG POKéMON will have you\n"
+	.string "begging for mercy!$"
 
 Route106_Text_DouglasDefeated:
 	.string "I give up!$"
 
 Route106_Text_DouglasPostBattle:
-	.string "I wouldn't lose in a swim race…$"
+	.string "I wouldn't lose in a bug catching\n"
+	.string "contest.$"
 
 Route106_Text_KylaIntro:
-	.string "The sea is my backyard. I'm not going\n"
-	.string "to take it easy because you're a kid!$"
+	.string "Ick! I hate bugs!\p"
+	.string "That's almost all that's in this grass.$"
 
 Route106_Text_KylaDefeated:
-	.string "Did you take it easy on me by any\n"
-	.string "chance?$"
+	.string "Squashed, like a bug.$"
 
 Route106_Text_KylaPostBattle:
-	.string "Drifting along with the waves…\n"
-	.string "I love it! Why don't you give it a try?$"
+	.string "There's a bug catcher over by the DARK\n"
+	.string "CAVE entrance, bug catchers give me\l"
+	.string "the creeps.$"
 
 Route107_Text_DarrinIntro:
 	.string "Yawn…\p"

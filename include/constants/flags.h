@@ -52,7 +52,7 @@
 #define FLAG_HIDE_TOTODILE_BALL   0x28 // Elm's lab
 #define FLAG_HIDE_CYNDAQUIL_BALL    0x29 // Elm's lab
 #define FLAG_GOT_RT30_EGG    0x2A // Unused Flag
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
+#define FLAG_HIDE_RT31_RAIKOU    0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag
 #define FLAG_UNUSED_0x02E    0x2E // Unused Flag

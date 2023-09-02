@@ -46,3 +46,75 @@ Route106_Text_TrainerTips:
 	.string "Advice on catching POKéMON with a ROD:\n"
 	.string "Press the A Button if you get a bite.$"
 
+Route106_EventScript_DarkCaveSign::
+	msgbox Route106_EventScript_DarkCaveSign_Text_0, MSGBOX_SIGN
+	end
+
+
+Route106_EventScript_TriggerRaikou::
+	lock
+	goto_if_unset FLAG_HIDE_RT31_RAIKOU, Route106_EventScript_TriggerRaikou_2
+	release
+	end
+
+Route106_EventScript_TriggerRaikou_2:
+	applymovement OBJ_EVENT_ID_PLAYER, Route106_PlayerWalkUp
+	waitmovement 0
+	fadeoutbgm 1
+	playse SE_PIN
+	applymovement 8, Route106_LookDownExclamation
+	waitmovement 0
+	waitse
+	delay 60
+	playmoncry SPECIES_RAIKOU, CRY_MODE_NORMAL
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 8
+	setvar VAR_0x8007, 5
+	special ShakeCamera
+	waitstate
+	delay 60
+	playse SE_FLEE
+	applymovement 8, Route106_RaikouFlee
+	waitmovement 0
+	playse SE_LEDGE
+	applymovement 8, Route106_RaikouJump
+	waitmovement 0
+	removeobject 8
+	setflag FLAG_HIDE_RT31_RAIKOU
+	fadeinbgm 1
+	release
+	end
+
+
+Route106_PlayerWalkUp:
+	walk_up
+	walk_up
+	step_end
+
+Route106_LookDownExclamation:
+	walk_in_place_down
+	emote_exclamation_mark
+	step_end
+
+Route106_RaikouFlee:
+	walk_fast_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	step_end
+
+Route106_RaikouJump:
+	jump_2_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	step_end
+
+Route106_EventScript_DarkCaveSign_Text_0:
+	.string "DARK CAVE$"

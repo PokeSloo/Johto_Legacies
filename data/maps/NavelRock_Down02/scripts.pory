@@ -1,0 +1,6 @@
+mapscripts NavelRock_Down02_MapScripts {}
+
+script NavelRock_Down02_EventScript_Guard {
+    msgbox (format("You there!\p...\pI like that hat...\pUs guards are only allowed to wear our uniforms when we're on duty.\pConsider yourself lucky."), MSGBOX_NPC)
+    end
+}
