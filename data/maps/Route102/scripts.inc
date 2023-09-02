@@ -1,21 +1,36 @@
 Route102_MapScripts::
 	.byte 0
 
+
 Route102_EventScript_LittleBoy::
-	msgbox Route102_Text_ImNotVeryTall, MSGBOX_NPC
+	msgbox Route102_EventScript_LittleBoy_Text_0, MSGBOX_NPC
 	end
 
-Route102_EventScript_RouteSignOldale::
-	msgbox Route102_Text_RouteSignOldale, MSGBOX_SIGN
-	end
-
-Route102_EventScript_RouteSignPetalburg::
-	msgbox Route102_Text_RouteSignPetalburg, MSGBOX_SIGN
-	end
 
 Route102_EventScript_Boy::
-	msgbox Route102_Text_CatchWholeBunchOfPokemon, MSGBOX_NPC
+	msgbox Route102_EventScript_Boy_Text_0, MSGBOX_NPC
 	end
+
+
+Route102_EventScript_SigntoCherrygrove::
+	msgbox Route102_EventScript_SigntoCherrygrove_Text_0, MSGBOX_SIGN
+	end
+
+
+Route102_EventScript_SignBerryMaster::
+	msgbox Route102_EventScript_SignBerryMaster_Text_0, MSGBOX_SIGN
+	end
+
+
+Route102_EventScript_SignMrPokemon::
+	msgbox Route102_EventScript_SignMrPokemon_Text_0, MSGBOX_SIGN
+	end
+
+
+Route102_EventScript_SignTips::
+	msgbox Route102_EventScript_SignTips_Text_0, MSGBOX_SIGN
+	end
+
 
 Route102_EventScript_Calvin::
 	trainerbattle_single TRAINER_CALVIN_1, Route102_Text_CalvinIntro, Route102_Text_CalvinDefeated, Route102_EventScript_CalvinRegisterMatchCallAfterBattle
@@ -89,21 +104,26 @@ Route102_Text_LetsGoBack:
 	.string "{PLAYER}, thank you!\n"
 	.string "Let's go back to the GYM!$"
 
-Route102_Text_ImNotVeryTall:
-	.string "I'm…not very tall, so I sink right\n"
-	.string "into tall grass.\p"
-	.string "The grass goes up my nose and…\n"
-	.string "Fwafwafwafwafwa…\p"
-	.string "Fwatchoo!$"
+Route102_EventScript_LittleBoy_Text_0:
+	.string "I live here with my dad, he's a world\n"
+	.string "famous POKéMON breeder.$"
 
-Route102_Text_CatchWholeBunchOfPokemon:
-	.string "I'm going to catch a whole bunch of\n"
-	.string "POKéMON!$"
+Route102_EventScript_Boy_Text_0:
+	.string "The berry master that lives here is a\n"
+	.string "good guy, he gives me free berries\l"
+	.string "every day!$"
 
-Route102_Text_RouteSignOldale:
-	.string "ROUTE 102\n"
-	.string "{RIGHT_ARROW} OLDALE TOWN$"
+Route102_EventScript_SigntoCherrygrove_Text_0:
+	.string "ROUTE 30\n"
+	.string "{DOWN_ARROW} CHERRYGROVE CITY$"
 
-Route102_Text_RouteSignPetalburg:
-	.string "ROUTE 102\n"
-	.string "{LEFT_ARROW} PETALBURG CITY$"
+Route102_EventScript_SignBerryMaster_Text_0:
+	.string "BERRY MASTER'S HOUSE$"
+
+Route102_EventScript_SignMrPokemon_Text_0:
+	.string "MR. POKéMON'S HOUSE$"
+
+Route102_EventScript_SignTips_Text_0:
+	.string "Trainer tips:\n"
+	.string "Use an ANTIDOTE to heal your POKéMON if\l"
+	.string "it gets poisoned.$"

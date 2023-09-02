@@ -182,7 +182,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route102_EventScript_RouteSignOldale"
+      "script": "Route102_EventScript_SignMrPokemon"
     },
     {
       "type": "sign",
@@ -190,7 +190,23 @@
       "y": 60,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route102_EventScript_RouteSignOldale"
+      "script": "Route102_EventScript_SigntoCherrygrove"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 55,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route102_EventScript_SignBerryMaster"
+    },
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 34,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route102_EventScript_SignTips"
     }
   ]
 }
