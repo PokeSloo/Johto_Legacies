@@ -69,10 +69,11 @@ RustboroCity_Mart_EventScript_BugCatcher::
 	end
 
 RustboroCity_Mart_Text_BuyingHealsInCaseOfShroomish:
-	.string "I'm buying some PARLYZ HEALS and\n"
-	.string "ANTIDOTES.\p"
-	.string "Just in case I run into SHROOMISH\n"
-	.string "in PETALBURG WOODS.$"
+	.string "I tried going through Dark Cave without\n"
+	.string "a flashlight or anything, but I got\l"
+	.string "lost.\p"
+	.string "They weren't kidding when they named it\n"
+	.string "Dark Cave.$"
 
 RustboroCity_Mart_Text_ShouldBuySuperPotionsInstead:
 	.string "My POKéMON evolved.\n"

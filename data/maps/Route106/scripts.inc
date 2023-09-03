@@ -82,6 +82,7 @@ Route106_EventScript_TriggerRaikou_2:
 	waitmovement 0
 	removeobject 8
 	setflag FLAG_HIDE_RT31_RAIKOU
+	setflag FLAG_HIDE_THIN_FALKNER
 	fadeinbgm 1
 	release
 	end

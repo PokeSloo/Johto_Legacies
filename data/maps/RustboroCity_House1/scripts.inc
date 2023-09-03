@@ -50,32 +50,85 @@ RustboroCity_House1_EventScript_Hiker::
 	end
 
 RustboroCity_House1_Text_IllTradeIfYouWant:
-	.string "Huh? My POKéMON is cute?\n"
-	.string "Sure, I knew that.\p"
-	.string "But if you really want, I'm willing\n"
-	.string "to trade it to you.\p"
-	.string "I'll trade you my {STR_VAR_2} for\n"
-	.string "a {STR_VAR_1} if you want.$"
+	.string "I have so many ROCK type POKéMON that\n"
+	.string "I don't know what to do with them all.\p"
+	.string "Say, would you be willing to trade me a\n"
+	.string "{STR_VAR_1} for my Own Tempo\n"
+	.string "{STR_VAR_2}?$"
 
 RustboroCity_House1_Text_PleaseBeGoodToMyPokemon:
-	.string "Eheheh…\n"
-	.string "Please be good to my POKéMON.$"
+	.string "Please be good to that little RUFFIAN.$"
 
 RustboroCity_House1_Text_DoesntLookLikeMonToMe:
-	.string "Huh? That doesn't look anything like\n"
-	.string "a {STR_VAR_1} to me.$"
+	.string "You can't fool me, I know what a\n"
+	.string "{STR_VAR_1} looks like, and that's\l"
+	.string "not one.$"
 
 RustboroCity_House1_Text_YouDontWantToThatsOkay:
-	.string "Oh, if you don't want to, that's okay.\n"
-	.string "But my POKéMON is cute, you know…$"
+	.string "Fine if you don't want to, but this is a\n"
+	.string "very special Rockruff.$"
 
 RustboroCity_House1_Text_AnyPokemonCanBeCute:
-	.string "Any POKéMON can be cute if you raise\n"
-	.string "it with care and kindness.$"
+	.string "That Rockruff is special, it will only\n"
+	.string "evolve between 5pm and 6pm.$"
 
 RustboroCity_House1_Text_AllSortsOfPlaces:
-	.string "In all sorts of places, there are all\n"
-	.string "sorts of POKéMON and people.\p"
-	.string "I find that fascinating, so I go to all\n"
-	.string "sorts of places.$"
+	.string "I changed my Geodude's ability to\n"
+	.string "Sturdy using an Ability Capsule.\p"
+	.string "It seems to be happy about the change.$"
 
+RustboroCity_House1_EventScript_Girl::
+	msgbox RustboroCity_House1_EventScript_Girl_Text_0, MSGBOX_NPC
+	end
+
+
+RustboroCity_House1_EventScript_ShopKeep::
+	lock
+	msgbox RustboroCity_House1_EventScript_ShopKeep_Text_0
+	waitmessage
+	pokemart RustboroCity_House1_MartItems
+	msgbox RustboroCity_House1_EventScript_ShopKeep_Text_1
+	release
+	end
+
+
+	.align 2
+RustboroCity_House1_MartItems:
+	.2byte ITEM_ABILITY_CAPSULE
+	.2byte ITEM_ABILITY_PATCH
+	.2byte ITEM_LONELY_MINT
+	.2byte ITEM_ADAMANT_MINT
+	.2byte ITEM_NAUGHTY_MINT
+	.2byte ITEM_BRAVE_MINT
+	.2byte ITEM_BOLD_MINT
+	.2byte ITEM_IMPISH_MINT
+	.2byte ITEM_LAX_MINT
+	.2byte ITEM_RELAXED_MINT
+	.2byte ITEM_MODEST_MINT
+	.2byte ITEM_MILD_MINT
+	.2byte ITEM_RASH_MINT
+	.2byte ITEM_QUIET_MINT
+	.2byte ITEM_CALM_MINT
+	.2byte ITEM_GENTLE_MINT
+	.2byte ITEM_CAREFUL_MINT
+	.2byte ITEM_SASSY_MINT
+	.2byte ITEM_TIMID_MINT
+	.2byte ITEM_HASTY_MINT
+	.2byte ITEM_JOLLY_MINT
+	.2byte ITEM_NAIVE_MINT
+	.2byte ITEM_SERIOUS_MINT
+	.2byte ITEM_NONE
+
+RustboroCity_House1_EventScript_Girl_Text_0:
+	.string "I love Mareep, they're my favorite\n"
+	.string "POKéMON!\p"
+	.string "I saw a bunch on Route 32.\p"
+	.string "They look so cuddly, but try not to get\n"
+	.string "electrocuted.$"
+
+RustboroCity_House1_EventScript_ShopKeep_Text_0:
+	.string "Welcome!\p"
+	.string "How may I serve you?$"
+
+RustboroCity_House1_EventScript_ShopKeep_Text_1:
+	.string "Please come again.$"

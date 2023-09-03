@@ -7,7 +7,6 @@ RustboroCity_PokemonCenter_1F_MapScripts::
 
 RustboroCity_PokemonCenter_1F_OnTransition:
 	setrespawn HEAL_LOCATION_RUSTBORO_CITY
-	call Common_EventScript_UpdateBrineyLocation
 	end
 
 RustboroCity_PokemonCenter_1F_EventScript_Nurse::
@@ -37,13 +36,12 @@ RustboroCity_PokemonCenter_1F_Text_PokemonHavePersonalities:
 	.string "personalities!$"
 
 RustboroCity_PokemonCenter_1F_Text_MaleAndFemalePokemon:
-	.string "Just like people, there are male and\n"
-	.string "female POKéMON.\p"
-	.string "But no one seems to have any idea how\n"
-	.string "they're different.$"
+	.string "I changed my POKéMON's nature to\n"
+	.string "ADAMANT using a mint from the Herbal\l"
+	.string "Medicine Shop.$"
 
 RustboroCity_PokemonCenter_1F_Text_HMCutNextDoor:
-	.string "The man next door gave me an HM!\p"
-	.string "I used it to teach my POKéMON how to\n"
-	.string "CUT down skinny trees.$"
+	.string "Have you been to the Ruins of Alph?\p"
+	.string "The ruins have always fascinated me\n"
+	.string "since I was a little girl.$"
 

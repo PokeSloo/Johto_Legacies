@@ -1,0 +1,80 @@
+mapscripts RustboroCity_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag (FLAG_VISITED_RUSTBORO_CITY)
+	}
+}
+
+script RustboroCity_Text_CitySign {
+	msgbox (format("VIOLET CITY\n“The City of Nostalgic Scents.”"), MSGBOX_SIGN)
+	end
+}
+
+script RustboroCity_Text_VioletUniversity {
+	msgbox (format("VIOLET UNIVERSITY"), MSGBOX_SIGN)
+	end
+}
+
+script RustboroCity_Text_HerbalMedicineShop {
+	msgbox (format("HERBAL MEDICINE SHOP"), MSGBOX_SIGN)
+	end
+}
+
+script RustboroCity_Text_SproutTower {
+	msgbox (format("SPROUT TOWER"), MSGBOX_SIGN)
+	end
+}
+
+script RustboroCity_EventScript_BridgeMan {
+	msgbox (format("Have you been to Sprout Tower yet?\pYou may receive a gift from the Elder Sage if he deems you worthy of it."), MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_EventScript_NinjaBoy {
+	msgbox (format("FLYING type POKéMON really are the best, don't you agree?"), MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_EventScript_Rt36Guy {
+	msgbox (format("Weird trees keep popping up on Route 36, they make it difficult to get to Goldenrod City."), MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_EventScript_HerbShopSage {
+	msgbox (format("This shop sells “medicines” that can alter a POKéMON's ability, or nature.\pSuch blasphemy!\pPOKéMON are sacred beings that deserve the utmost respect!"), MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_EventScript_BlondeMan {
+	msgbox (format("I think our gym leader, FALKNER, has really lost his edge over the years.\pMaybe it's time for Violet City to find a new gym leader."), MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_EventScript_GymGuy {
+	msgbox (format("The gym leader here is a pushover.\pHe uses FLYING type POKéMON, but ROCK type POKéMON and ELECTRIC type POKéMON are so easy to find around here."), MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_EventScript_UniversityGuy {
+	msgbox (format("Oh, man, I just don't know what to do.\pI'm failing all of my classes, and don't know how to tell my parents they've spent so much money for my education, but it's all going to waste.\pI guess I can always become a check station guard."), MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_EventScript_PCgirl {
+	msgbox (format("I just love the rustic feel of Violet City, I could stay here forever."), MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_EventScript_Twin {
+	msgbox (format("Have you been to the Ruins of Alph?\pMy friends and I like to play there, but the sages always run us off."), MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_EventScript_BenchBoy {
+	msgbox (format("Where are we?\pIs it time for my nap?"), MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_EventScript_BenchGirl {
+	msgbox (format("Move along kiddo, I'm trying to show my husband a little romance."), MSGBOX_NPC)
+	end
+}

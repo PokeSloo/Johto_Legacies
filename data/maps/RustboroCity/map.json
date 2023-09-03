@@ -35,11 +35,11 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_EventScript_Woman",
+      "script": "RustboroCity_EventScript_PCgirl",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
+      "graphics_id": "OBJ_EVENT_GFX_NOLAND",
       "x": 33,
       "y": 23,
       "elevation": 3,
@@ -48,7 +48,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_EventScript_FatMan",
+      "script": "RustboroCity_EventScript_BridgeMan",
       "flag": "0"
     },
     {
@@ -87,7 +87,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_EventScript_Boy2",
+      "script": "RustboroCity_EventScript_GymGuy",
       "flag": "0"
     },
     {
@@ -100,11 +100,11 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_EventScript_Man1",
+      "script": "RustboroCity_EventScript_BlondeMan",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
       "x": 30,
       "y": 52,
       "elevation": 3,
@@ -113,11 +113,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_EventScript_LittleBoy",
+      "script": "RustboroCity_EventScript_BenchBoy",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
       "x": 31,
       "y": 52,
       "elevation": 3,
@@ -126,11 +126,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_EventScript_LittleGirl",
+      "script": "RustboroCity_EventScript_BenchGirl",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_2",
+      "graphics_id": "OBJ_EVENT_GFX_NOLAND",
       "x": 12,
       "y": 38,
       "elevation": 3,
@@ -139,33 +139,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_EventScript_DevonEmployee1",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
-      "x": 5,
-      "y": 14,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
-      "flag": "FLAG_HIDE_RUSTBORO_CITY_AQUA_GRUNT"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_DEVON_EMPLOYEE",
-      "x": 4,
-      "y": 14,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_EventScript_DevonEmployee2",
+      "script": "RustboroCity_EventScript_HerbShopSage",
       "flag": "0"
     },
     {
@@ -191,34 +165,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_EventScript_Man2",
+      "script": "RustboroCity_EventScript_Rt36Guy",
       "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
-      "x": 4,
-      "y": 55,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_EventScript_Rival",
-      "flag": "FLAG_HIDE_RUSTBORO_CITY_RIVAL"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
-      "x": 4,
-      "y": 16,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
-      "flag": "FLAG_HIDE_RUSTBORO_CITY_SCIENTIST"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_1",
@@ -230,7 +178,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_EventScript_Boy1",
+      "script": "RustboroCity_EventScript_UniversityGuy",
       "flag": "0"
     },
     {
@@ -319,13 +267,6 @@
       "dest_warp_id": 0
     },
     {
-      "x": 4,
-      "y": 53,
-      "elevation": 0,
-      "dest_map": "MAP_RUSTBORO_CITY_FLAT2_1F",
-      "dest_warp_id": 0
-    },
-    {
       "x": 36,
       "y": 52,
       "elevation": 0,
@@ -339,27 +280,11 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 30,
-      "y": 37,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Common_EventScript_ShowPokemartSign"
-    },
-    {
-      "type": "sign",
       "x": 42,
       "y": 38,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "RustboroCity_EventScript_TrainersSchoolSign"
-    },
-    {
-      "type": "sign",
-      "x": 19,
-      "y": 38,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "Common_EventScript_ShowPokemartSign"
+      "script": "RustboroCity_Text_VioletUniversity"
     },
     {
       "type": "sign",
@@ -375,11 +300,11 @@
       "y": 49,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "RustboroCity_EventScript_CitySign"
+      "script": "RustboroCity_Text_CitySign"
     },
     {
       "type": "sign",
-      "x": 20,
+      "x": 19,
       "y": 38,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -399,15 +324,7 @@
       "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "RustboroCity_EventScript_DevonCorpSign"
-    },
-    {
-      "type": "sign",
-      "x": 7,
-      "y": 11,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "RustboroCity_EventScript_TunnelSign"
+      "script": "RustboroCity_Text_SproutTower"
     },
     {
       "type": "sign",
@@ -415,7 +332,7 @@
       "y": 36,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "RustboroCity_EventScript_CuttersHouseSign"
+      "script": "RustboroCity_Text_HerbalMedicineShop"
     }
   ]
 }
