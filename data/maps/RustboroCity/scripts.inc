@@ -90,7 +90,7 @@ RustboroCity_Text_VioletUniversity_Text_0:
 	.string "VIOLET UNIVERSITY$"
 
 RustboroCity_Text_HerbalMedicineShop_Text_0:
-	.string "HERBAL MEDICINE SHOP$"
+	.string "VIOLET SUPPLEMENT SHOP$"
 
 RustboroCity_Text_SproutTower_Text_0:
 	.string "SPROUT TOWER$"
@@ -111,7 +111,7 @@ RustboroCity_EventScript_Rt36Guy_Text_0:
 
 RustboroCity_EventScript_HerbShopSage_Text_0:
 	.string "This shop sells “medicines” that can\n"
-	.string "alter a POKéMON's ability, or nature.\p"
+	.string "alter a POKéMON's ability.\p"
 	.string "Such blasphemy!\p"
 	.string "POKéMON are sacred beings that deserve\n"
 	.string "the utmost respect!$"

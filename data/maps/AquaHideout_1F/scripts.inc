@@ -106,14 +106,34 @@ AquaHideout_1F_Text_BossIsInSlateportCity:
 	.string "you something that crucial?$"
 
 AquaHideout_1F_Text_Grunt1Intro:
-	.string "Ayiyiyi!\n"
-	.string "Suspicious character spotted!$"
+	.string "Let me judge for myself if you are\n"
+	.string "indeed worthy.$"
 
 AquaHideout_1F_Text_Grunt1Defeat:
-	.string "Grrrrr…\n"
-	.string "I lost it!$"
+	.string "Worthy indeed.$"
 
 AquaHideout_1F_Text_Grunt1PostBattle:
-	.string "I took the loss for the TEAM,\n"
-	.string "but I did my job…$"
+	.string "Go on, you may ascend the tower.$"
 
+AquaHideout_1F_EventScript_Sage::
+	msgbox AquaHideout_1F_EventScript_Sage_Text_0, MSGBOX_NPC
+	end
+
+
+AquaHideout_1F_EventScript_Woman::
+	msgbox AquaHideout_1F_EventScript_Woman_Text_0, MSGBOX_NPC
+	end
+
+
+AquaHideout_1F_EventScript_Sage_Text_0:
+	.string "Greetings, young TRAINER.\p"
+	.string "Sprout Tower welcomes all challengers.\n"
+	.string "Your connection with your POKéMON\l"
+	.string "shall be tested here.$"
+
+AquaHideout_1F_EventScript_Woman_Text_0:
+	.string "Legends say a 100 foot tall Bellsprout\n"
+	.string "was used to make the swaying pillar at\l"
+	.string "the center this tower.\p"
+	.string "That seems like a tall tale to this old\n"
+	.string "lady.$"

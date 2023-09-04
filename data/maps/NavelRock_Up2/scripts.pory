@@ -1,0 +1,14 @@
+mapscripts NavelRock_Up2_MapScripts {}
+
+script NavelRock_Up2_EventScript_Guard {
+    lock
+    msgbox (format("Care to listen to my story, traveler?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        msgbox (format("Oh...\pOh, I'm sorry...\pI don't actually have a story, most people just say no.\pI just act like I have an interesting story to tell travelers so they think I am more interesting.\pThe truth is I am stuck behind this counter 24/7, I don't even get to sleep anymore.\pI should have listened to my parents advice and become a POKéMON PROFESSOR, but no, studying is for nerds.\p...\pThanks, I needed a good vent."))
+        release
+        end
+    }
+    msgbox (format("You don't know what you're missing out on, it's a fantastic story!"))
+    release
+    end
+}

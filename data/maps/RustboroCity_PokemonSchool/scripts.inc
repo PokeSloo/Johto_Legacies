@@ -74,131 +74,6 @@ RustboroCity_PokemonSchool_EventScript_StudentNotebook::
 	msgbox RustboroCity_PokemonSchool_Text_StudentsNotes, MSGBOX_SIGN
 	end
 
-RustboroCity_PokemonSchool_EventScript_Teacher::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_QUICK_CLAW, RustboroCity_PokemonSchool_EventScript_GaveQuickClaw
-	call_if_eq VAR_FACING, DIR_EAST, RustboroCity_PokemonSchool_EventScript_TeacherCheckOnStudentsEast
-	call_if_eq VAR_FACING, DIR_WEST, RustboroCity_PokemonSchool_EventScript_TeacherCheckOnStudentsWest
-	msgbox RustboroCity_PokemonSchool_Text_StudentsWhoDontStudyGetQuickClaw, MSGBOX_DEFAULT
-	giveitem ITEM_QUICK_CLAW
-	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
-	closemessage
-	applymovement VAR_LAST_TALKED, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	setflag FLAG_RECEIVED_QUICK_CLAW
-	release
-	end
-
-RustboroCity_PokemonSchool_EventScript_TeacherCheckOnStudentsEast::
-	applymovement VAR_LAST_TALKED, RustboroCity_PokemonSchool_Movement_TeacherCheckOnStudentsEast
-	waitmovement 0
-	return
-
-RustboroCity_PokemonSchool_EventScript_TeacherCheckOnStudentsWest::
-	applymovement VAR_LAST_TALKED, RustboroCity_PokemonSchool_Movement_TeacherCheckOnStudentsWest
-	waitmovement 0
-	return
-
-RustboroCity_PokemonSchool_EventScript_GaveQuickClaw::
-	msgbox RustboroCity_PokemonSchool_Text_ExplainQuickClaw, MSGBOX_DEFAULT
-	closemessage
-	applymovement VAR_LAST_TALKED, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	release
-	end
-
-RustboroCity_PokemonSchool_Movement_TeacherCheckOnStudentsWest:
-	walk_left
-	walk_down
-	walk_down
-	walk_right
-	walk_in_place_faster_down
-	delay_16
-	delay_16
-	delay_16
-	walk_down
-	walk_in_place_faster_left
-	delay_16
-	delay_16
-	walk_right
-	delay_16
-	delay_16
-	delay_8
-	walk_up
-	walk_left
-	walk_left
-	walk_up
-	walk_up
-	walk_right
-	step_end
-
-RustboroCity_PokemonSchool_Movement_TeacherCheckOnStudentsEast:
-	walk_right
-	walk_right
-	walk_down
-	walk_down
-	walk_left
-	walk_left
-	walk_in_place_faster_down
-	delay_16
-	delay_16
-	delay_16
-	walk_down
-	walk_in_place_faster_left
-	delay_16
-	delay_16
-	walk_right
-	delay_16
-	delay_16
-	delay_8
-	walk_up
-	walk_right
-	walk_up
-	walk_up
-	walk_left
-	walk_left
-	step_end
-
-RustboroCity_PokemonSchool_EventScript_Scott::
-	lock
-	faceplayer
-	goto_if_set FLAG_MET_SCOTT_AFTER_OBTAINING_STONE_BADGE, RustboroCity_PokemonSchool_EventScript_ScottWatchStudents
-	goto_if_set FLAG_MET_SCOTT_RUSTBORO, RustboroCity_PokemonSchool_EventScript_ScottSpokeAlready
-	goto_if_set FLAG_BADGE01_GET, RustboroCity_PokemonSchool_EventScript_ScottGreetHasBadge
-	msgbox RustboroCity_PokemonSchool_Text_ScottMetAlreadyCut, MSGBOX_DEFAULT
-	addvar VAR_SCOTT_STATE, 1
-	setflag FLAG_MET_SCOTT_RUSTBORO
-	release
-	end
-
-RustboroCity_PokemonSchool_EventScript_ScottSpokeAlready::
-	goto_if_set FLAG_BADGE01_GET, RustboroCity_PokemonSchool_EventScript_ScottNoticeBadge
-	msgbox RustboroCity_PokemonSchool_Text_StudentTalentLevelUnknown, MSGBOX_DEFAULT
-	release
-	end
-
-RustboroCity_PokemonSchool_EventScript_ScottGreetHasBadge::
-	msgbox RustboroCity_PokemonSchool_Text_ScottMetAlreadyStoneBadge, MSGBOX_DEFAULT
-	goto RustboroCity_PokemonSchool_EventScript_MetScottAfterBadge
-	end
-
-RustboroCity_PokemonSchool_EventScript_ScottNoticeBadge::
-	msgbox RustboroCity_PokemonSchool_Text_ScottStoneBadge, MSGBOX_DEFAULT
-	goto RustboroCity_PokemonSchool_EventScript_MetScottAfterBadge
-	end
-
-RustboroCity_PokemonSchool_EventScript_MetScottAfterBadge::
-	addvar VAR_SCOTT_STATE, 1
-	setflag FLAG_MET_SCOTT_AFTER_OBTAINING_STONE_BADGE
-	release
-	end
-
-RustboroCity_PokemonSchool_EventScript_ScottWatchStudents::
-	msgbox RustboroCity_PokemonSchool_Text_StudentTalentLevelUnknown, MSGBOX_DEFAULT
-	release
-	end
-
 RustboroCity_PokemonSchool_Text_BlackboardListsStatusChanges:
 	.string "The blackboard lists status changes\n"
 	.string "that may affect POKéMON in battle.$"
@@ -243,34 +118,18 @@ RustboroCity_PokemonSchool_Text_ExplainFreeze:
 	.string "It will remain frozen after battle.\n"
 	.string "Thaw it out using an ICE HEAL.$"
 
-RustboroCity_PokemonSchool_Text_StudentsWhoDontStudyGetQuickClaw:
-	.string "Students who don't study get a little\n"
-	.string "taste of my QUICK CLAW.\p"
-	.string "Whether or not you are a good student \n"
-	.string "will be evident from the way you use\l"
-	.string "this item.$"
-
-RustboroCity_PokemonSchool_Text_ExplainQuickClaw:
-	.string "A POKéMON holding the QUICK CLAW will\n"
-	.string "occasionally speed up and get to move\l"
-	.string "before its opponent.\p"
-	.string "There are many other items that are\n"
-	.string "meant to be held by POKéMON.\p"
-	.string "Just those alone will give you many\n"
-	.string "topics to study!$"
-
 RustboroCity_PokemonSchool_Text_TradingRightNow:
-	.string "I'm trading POKéMON with my friend\n"
-	.string "right now.$"
+	.string "This girl is totally into me, one day I'll\n"
+	.string "work up enough courage to ask her out.$"
 
 RustboroCity_PokemonSchool_Text_AlwaysWantedSeedot:
-	.string "I always wanted a SEEDOT, and\n"
-	.string "I'm finally getting one!$"
+	.string "I can't concentrate with this weirdo\n"
+	.string "breathing down my neck everyday.\p"
+	.string "Ugh, his breath smells like a Grimer!$"
 
 RustboroCity_PokemonSchool_Text_PokemontCantUseManMadeItems:
-	.string "POKéMON can hold items, but they\n"
-	.string "don't know what to do with man-made\l"
-	.string "items like POTION and ANTIDOTE.$"
+	.string "Nobody here wants to see a Dunsparce.\p"
+	.string "Where's PROF. THORNE when you need him?$"
 
 RustboroCity_PokemonSchool_Text_ConfusedPokemonAttacksItself:
 	.string "You know how some POKéMON moves can\n"
@@ -281,12 +140,10 @@ RustboroCity_PokemonSchool_Text_ConfusedPokemonAttacksItself:
 	.string "return to normal.$"
 
 RustboroCity_PokemonSchool_Text_PokemonHealItselfWithBerry:
-	.string "A POKéMON holding a BERRY will heal\n"
-	.string "itself…\p"
-	.string "There are many kinds of items that\n"
-	.string "POKéMON can hold…\p"
-	.string "Boy, it sure is hard taking notes\n"
-	.string "down…$"
+	.string "Our other Professor, THORNE, is out\n"
+	.string "doing field research.\p"
+	.string "He's extremely knowledgeable about\n"
+	.string "anything POKéMON related.$"
 
 RustboroCity_PokemonSchool_Text_StudentsNotes:
 	.string "It's this student's notebook…\p"
@@ -299,53 +156,72 @@ RustboroCity_PokemonSchool_Text_StudentsNotes:
 	.string "with them.\p"
 	.string "A TRAINER's mission is to defeat\n"
 	.string "the strong TRAINERS who await\l"
-	.string "challengers in POKéMON GYMS.$"
+	.string "challengers in POKéMON GYMS.\p"
+    .string "Is this really college level material?$"
 
-RustboroCity_PokemonSchool_Text_ScottMetAlreadyCut:
-	.string "Hello? Didn't we meet before?\n"
-	.string "I think back in PETALBURG CITY.\p"
-	.string "Let me introduce myself.\n"
-	.string "My name's SCOTT.\p"
-	.string "I've been traveling everywhere in\n"
-	.string "search of outstanding TRAINERS.\p"
-	.string "More specifically, I'm looking for\n"
-	.string "POKéMON battle experts.\p"
-	.string "So, what brings you to this SCHOOL?\n"
-	.string "Are you a TRAINER, too?\p"
-	.string "The first thing you should do is to\n"
-	.string "have a POKéMON learn the move CUT.\p"
-	.string "If I remember correctly, someone in\n"
-	.string "this town has CUT.$"
+RustboroCity_PokemonSchool_EventScript_NewTeacher::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_EXPERT_BELT, RustboroCity_PokemonSchool_EventScript_NewTeacher_1
+	msgbox RustboroCity_PokemonSchool_EventScript_NewTeacher_Text_1
+	special ChoosePartyMon
+	waitstate
+	copyvar VAR_RESULT, VAR_0x8004
+	compare VAR_RESULT, PARTY_NOTHING_CHOSEN
+	goto_if_eq RustboroCity_PokemonSchool_EventScript_NewTeacher_4
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	compare VAR_RESULT, SPECIES_DUNSPARCE
+	goto_if_ne RustboroCity_PokemonSchool_EventScript_NewTeacher_7
+	msgbox RustboroCity_PokemonSchool_EventScript_NewTeacher_Text_4
+	giveitem ITEM_EXPERT_BELT
+	setflag FLAG_RECEIVED_EXPERT_BELT
+	msgbox RustboroCity_PokemonSchool_EventScript_NewTeacher_Text_5
+	release
+	end
 
-RustboroCity_PokemonSchool_Text_StudentTalentLevelUnknown:
-	.string "SCOTT: Hmm…\p"
-	.string "The talent levels of the students here\n"
-	.string "are unknown. The potential's there.$"
+RustboroCity_PokemonSchool_EventScript_NewTeacher_1:
+	msgbox RustboroCity_PokemonSchool_EventScript_NewTeacher_Text_0
+	release
+	end
 
-RustboroCity_PokemonSchool_Text_ScottStoneBadge:
-	.string "SCOTT: Oh, what's that?\p"
-	.string "It's a STONE BADGE, isn't it?\n"
-	.string "That's pretty impressive, I'd say.\p"
-	.string "But, you know, I would've loved to see\n"
-	.string "you in battle.\p"
-	.string "It's hard to tell what you're like as\n"
-	.string "a TRAINER from a LEAGUE BADGE.$"
+RustboroCity_PokemonSchool_EventScript_NewTeacher_4:
+	msgbox RustboroCity_PokemonSchool_EventScript_NewTeacher_Text_2
+	release
+	end
 
-RustboroCity_PokemonSchool_Text_ScottMetAlreadyStoneBadge:
-	.string "Hello? Didn't we meet before?\n"
-	.string "I think back in PETALBURG CITY.\p"
-	.string "Let me introduce myself.\n"
-	.string "My name's SCOTT.\p"
-	.string "I've been traveling everywhere in\n"
-	.string "search of outstanding TRAINERS.\p"
-	.string "More specifically, I'm looking for\n"
-	.string "POKéMON battle experts.\p"
-	.string "Oh, what's that?\n"
-	.string "It's a STONE BADGE, isn't it?\p"
-	.string "That's pretty impressive, I'd say, for\n"
-	.string "a starting TRAINER like yourself.\p"
-	.string "But, you know, I would've loved to see\n"
-	.string "you in battle.\p"
-	.string "It's hard to tell what you're like as\n"
-	.string "a TRAINER from a LEAGUE BADGE.$"
+RustboroCity_PokemonSchool_EventScript_NewTeacher_7:
+	msgbox RustboroCity_PokemonSchool_EventScript_NewTeacher_Text_3
+	release
+	end
 
+
+RustboroCity_PokemonSchool_EventScript_NewTeacher_Text_0:
+	.string "Thanks for the help, I'm sure that\n"
+	.string "Dunsparce wasn't easy to find.$"
+
+RustboroCity_PokemonSchool_EventScript_NewTeacher_Text_1:
+	.string "The POKéMON Dunsparce are said to live\n"
+	.string "in Dark Cave, but they are very rare.\p"
+	.string "I would like to show one to my class, but\n"
+	.string "alas, I don't have one.\p"
+	.string "Do you have a Dunsparce I can show the\n"
+	.string "class?$"
+
+RustboroCity_PokemonSchool_EventScript_NewTeacher_Text_2:
+	.string "That's fine, come back when you find a\n"
+	.string "Dunsparce.$"
+
+RustboroCity_PokemonSchool_EventScript_NewTeacher_Text_3:
+	.string "I'm sorry, but that is not a Dunsparce.$"
+
+RustboroCity_PokemonSchool_EventScript_NewTeacher_Text_4:
+	.string "Fantastic! That is indeed a Dunsparce!\p"
+	.string "Get a good look class!\p"
+	.string "I feel I must reward you for your\n"
+	.string "efforts. Please, take this.$"
+
+RustboroCity_PokemonSchool_EventScript_NewTeacher_Text_5:
+	.string "Thanks for the help, I'm sure that\n"
+	.string "Dunsparce wasn't easy to find.\p"
+	.string "I'll be sure to come to you if I need to\n"
+	.string "find any more rare POKéMON.$"

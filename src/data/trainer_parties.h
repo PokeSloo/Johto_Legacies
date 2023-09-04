@@ -9,37 +9,37 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Sawyer1[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntAquaHideout1[] = {
     {
     .iv = 0,
-    .lvl = 32,
-    .species = SPECIES_POOCHYENA,
+    .lvl = 6,
+    .species = SPECIES_BELLSPROUT,
     }
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntAquaHideout2[] = {
     {
     .iv = 0,
-    .lvl = 31,
-    .species = SPECIES_ZUBAT,
+    .lvl = 6,
+    .species = SPECIES_BELLSPROUT,
     },
     {
     .iv = 0,
-    .lvl = 31,
-    .species = SPECIES_CARVANHA,
+    .lvl = 6,
+    .species = SPECIES_BELLSPROUT,
     }
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntAquaHideout3[] = {
     {
     .iv = 0,
-    .lvl = 32,
-    .species = SPECIES_ZUBAT,
+    .lvl = 8,
+    .species = SPECIES_BELLSPROUT,
     }
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntAquaHideout4[] = {
     {
     .iv = 0,
-    .lvl = 32,
-    .species = SPECIES_CARVANHA,
+    .lvl = 7,
+    .species = SPECIES_BELLSPROUT,
     }
 };
 
@@ -284,16 +284,16 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GruntWeatherInst4[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntAquaHideout5[] = {
     {
     .iv = 0,
-    .lvl = 32,
-    .species = SPECIES_CARVANHA,
+    .lvl = 6,
+    .species = SPECIES_BELLSPROUT,
     }
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntAquaHideout6[] = {
     {
     .iv = 0,
-    .lvl = 32,
-    .species = SPECIES_ZUBAT,
+    .lvl = 8,
+    .species = SPECIES_BELLSPROUT,
     }
 };
 
@@ -313,13 +313,18 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Fredrick[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_Matt[] = {
     {
     .iv = 50,
-    .lvl = 34,
-    .species = SPECIES_MIGHTYENA,
+    .lvl = 9,
+    .species = SPECIES_BELLSPROUT,
     },
     {
     .iv = 50,
-    .lvl = 34,
-    .species = SPECIES_GOLBAT,
+    .lvl = 12,
+    .species = SPECIES_HOOTHOOT,
+    },
+    {
+    .iv = 50,
+    .lvl = 10,
+    .species = SPECIES_BELLSPROUT,
     }
 };
 
@@ -2315,21 +2320,21 @@ static const struct TrainerMonNoItemCustomMoves sParty_Kirk[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntAquaHideout7[] = {
     {
     .iv = 0,
-    .lvl = 31,
-    .species = SPECIES_POOCHYENA,
+    .lvl = 6,
+    .species = SPECIES_BELLSPROUT,
     },
     {
     .iv = 0,
-    .lvl = 31,
-    .species = SPECIES_ZUBAT,
+    .lvl = 7,
+    .species = SPECIES_HOOTHOOT,
     }
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntAquaHideout8[] = {
     {
     .iv = 0,
-    .lvl = 32,
-    .species = SPECIES_CARVANHA,
+    .lvl = 8,
+    .species = SPECIES_HOOTHOOT,
     }
 };
 

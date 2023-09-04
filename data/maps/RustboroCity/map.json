@@ -260,15 +260,15 @@
       "dest_warp_id": 1
     },
     {
-      "x": 24,
-      "y": 50,
+      "x": 36,
+      "y": 52,
       "elevation": 0,
       "dest_map": "MAP_RUSTBORO_CITY_HOUSE2",
       "dest_warp_id": 0
     },
     {
-      "x": 36,
-      "y": 52,
+      "x": 24,
+      "y": 50,
       "elevation": 0,
       "dest_map": "MAP_RUSTBORO_CITY_HOUSE3",
       "dest_warp_id": 0

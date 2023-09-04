@@ -15,7 +15,7 @@ script RustboroCity_Text_VioletUniversity {
 }
 
 script RustboroCity_Text_HerbalMedicineShop {
-	msgbox (format("HERBAL MEDICINE SHOP"), MSGBOX_SIGN)
+	msgbox (format("VIOLET SUPPLEMENT SHOP"), MSGBOX_SIGN)
 	end
 }
 
@@ -40,7 +40,7 @@ script RustboroCity_EventScript_Rt36Guy {
 }
 
 script RustboroCity_EventScript_HerbShopSage {
-	msgbox (format("This shop sells “medicines” that can alter a POKéMON's ability, or nature.\pSuch blasphemy!\pPOKéMON are sacred beings that deserve the utmost respect!"), MSGBOX_NPC)
+	msgbox (format("This shop sells “medicines” that can alter a POKéMON's ability.\pSuch blasphemy!\pPOKéMON are sacred beings that deserve the utmost respect!"), MSGBOX_NPC)
 	end
 }
 

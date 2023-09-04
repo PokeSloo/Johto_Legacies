@@ -53,7 +53,7 @@ RustboroCity_House1_Text_IllTradeIfYouWant:
 	.string "I have so many ROCK type POKéMON that\n"
 	.string "I don't know what to do with them all.\p"
 	.string "Say, would you be willing to trade me a\n"
-	.string "{STR_VAR_1} for my Own Tempo\n"
+	.string "{STR_VAR_1} for my Own Tempo\l"
 	.string "{STR_VAR_2}?$"
 
 RustboroCity_House1_Text_PleaseBeGoodToMyPokemon:
@@ -96,27 +96,12 @@ RustboroCity_House1_EventScript_ShopKeep::
 RustboroCity_House1_MartItems:
 	.2byte ITEM_ABILITY_CAPSULE
 	.2byte ITEM_ABILITY_PATCH
-	.2byte ITEM_LONELY_MINT
-	.2byte ITEM_ADAMANT_MINT
-	.2byte ITEM_NAUGHTY_MINT
-	.2byte ITEM_BRAVE_MINT
-	.2byte ITEM_BOLD_MINT
-	.2byte ITEM_IMPISH_MINT
-	.2byte ITEM_LAX_MINT
-	.2byte ITEM_RELAXED_MINT
-	.2byte ITEM_MODEST_MINT
-	.2byte ITEM_MILD_MINT
-	.2byte ITEM_RASH_MINT
-	.2byte ITEM_QUIET_MINT
-	.2byte ITEM_CALM_MINT
-	.2byte ITEM_GENTLE_MINT
-	.2byte ITEM_CAREFUL_MINT
-	.2byte ITEM_SASSY_MINT
-	.2byte ITEM_TIMID_MINT
-	.2byte ITEM_HASTY_MINT
-	.2byte ITEM_JOLLY_MINT
-	.2byte ITEM_NAIVE_MINT
-	.2byte ITEM_SERIOUS_MINT
+	.2byte ITEM_HP_UP
+	.2byte ITEM_PROTEIN
+	.2byte ITEM_IRON
+	.2byte ITEM_CALCIUM
+	.2byte ITEM_ZINC
+	.2byte ITEM_CARBOS
 	.2byte ITEM_NONE
 
 RustboroCity_House1_EventScript_Girl_Text_0:

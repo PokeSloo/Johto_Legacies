@@ -1,78 +1,6 @@
 AquaHideout_B1F_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, AquaHideout_B1F_OnResume
-	map_script MAP_SCRIPT_ON_TRANSITION, AquaHideout_B1F_OnTransition
 	.byte 0
 
-AquaHideout_B1F_OnResume:
-	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, AquaHideout_B1F_EventScript_TryRemoveElectrode
-	end
-
-AquaHideout_B1F_EventScript_TryRemoveElectrode::
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
-	removeobject VAR_LAST_TALKED
-	return
-
-AquaHideout_B1F_OnTransition:
-	call_if_unset FLAG_DEFEATED_ELECTRODE_1_AQUA_HIDEOUT, AquaHideout_B1F_EventScript_ShowElectrode1
-	call_if_unset FLAG_DEFEATED_ELECTRODE_2_AQUA_HIDEOUT, AquaHideout_B1F_EventScript_ShowElectrode2
-	end
-
-AquaHideout_B1F_EventScript_ShowElectrode1::
-	clearflag FLAG_HIDE_AQUA_HIDEOUT_B1F_ELECTRODE_1
-	return
-
-AquaHideout_B1F_EventScript_ShowElectrode2::
-	clearflag FLAG_HIDE_AQUA_HIDEOUT_B1F_ELECTRODE_2
-	return
-
-AquaHideout_B1F_EventScript_Electrode1::
-	lock
-	faceplayer
-	setwildbattle SPECIES_ELECTRODE, 30
-	waitse
-	playmoncry SPECIES_ELECTRODE, CRY_MODE_ENCOUNTER
-	delay 40
-	waitmoncry
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	dowildbattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, AquaHideout_B1F_EventScript_DefeatedElectrode1
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, AquaHideout_B1F_EventScript_DefeatedElectrode1
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, AquaHideout_B1F_EventScript_DefeatedElectrode1
-	setflag FLAG_DEFEATED_ELECTRODE_1_AQUA_HIDEOUT
-	release
-	end
-
-AquaHideout_B1F_EventScript_DefeatedElectrode1::
-	setflag FLAG_DEFEATED_ELECTRODE_1_AQUA_HIDEOUT
-	goto Common_EventScript_RemoveStaticPokemon
-	end
-
-AquaHideout_B1F_EventScript_Electrode2::
-	lock
-	faceplayer
-	setwildbattle SPECIES_ELECTRODE, 30
-	waitse
-	playmoncry SPECIES_ELECTRODE, CRY_MODE_ENCOUNTER
-	delay 40
-	waitmoncry
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	dowildbattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, AquaHideout_B1F_EventScript_DefeatedElectrode2
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, AquaHideout_B1F_EventScript_DefeatedElectrode2
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, AquaHideout_B1F_EventScript_DefeatedElectrode2
-	setflag FLAG_DEFEATED_ELECTRODE_2_AQUA_HIDEOUT
-	release
-	end
-
-AquaHideout_B1F_EventScript_DefeatedElectrode2::
-	setflag FLAG_DEFEATED_ELECTRODE_2_AQUA_HIDEOUT
-	goto Common_EventScript_RemoveStaticPokemon
-	end
 
 AquaHideout_B1F_EventScript_Grunt2::
 	trainerbattle_single TRAINER_GRUNT_AQUA_HIDEOUT_2, AquaHideout_B1F_Text_Grunt2Intro, AquaHideout_B1F_Text_Grunt2Defeat, AquaHideout_B1F_EventScript_Grunt2Defeated
@@ -107,54 +35,44 @@ AquaHideout_B1F_EventScript_Grunt7::
 	end
 
 AquaHideout_B1F_Text_Grunt2Intro:
-	.string "If you want to know the secret about\n"
-	.string "our HIDEOUT, you have me to beat!$"
+	.string "I will show you what a true bond\n"
+	.string "between person and POKéMON can\l"
+	.string "accomplish.$"
 
 AquaHideout_B1F_Text_Grunt2Defeat:
-	.string "I can't win at all…$"
+	.string "My bond…$"
 
 AquaHideout_B1F_Text_Grunt2PostBattle:
-	.string "Our HIDEOUT's secret?\p"
-	.string "Well, let's just say…\n"
-	.string "There's a submarine at the far end!\p"
-	.string "But, by now…\n"
-	.string "Kekekeke…$"
+	.string "Perhaps your bond is stronger than\n"
+	.string "mine.$"
 
 AquaHideout_B1F_Text_Grunt3Intro:
-	.string "Fuel supply loaded A-OK!\n"
-	.string "In-cruise snacks loaded A-OK!\p"
-	.string "Nothing left to do but KO a pesky\n"
-	.string "meddler!$"
+	.string "Headed to the upper floor are you?$"
 
 AquaHideout_B1F_Text_Grunt3Defeat:
-	.string "I took a serious licking!$"
+	.string "Outstanding.$"
 
 AquaHideout_B1F_Text_Grunt3PostBattle:
-	.string "Humph!\n"
-	.string "This was supposed to happen!\p"
-	.string "My mission was to just hold you up!$"
+	.string "Go on, you are ready for the upper\n"
+	.string "floor.$"
 
 AquaHideout_B1F_Text_Grunt5Intro:
-	.string "Yawn… Keeping watch over the\n"
-	.string "HIDEOUT bores me. I'll take you on.$"
+	.string "Are you a fan of the almighty\n"
+	.string "Bellsprout as well?$"
 
 AquaHideout_B1F_Text_Grunt5Defeat:
-	.string "Yawn…\n"
-	.string "Oh, I lost…$"
+	.string "Superb…$"
 
 AquaHideout_B1F_Text_Grunt5PostBattle:
-	.string "If you scurry too much, other TEAM\n"
-	.string "AQUA members might get you.$"
+	.string "The almighty Bellsprout smiles upon\n"
+	.string "you.$"
 
 AquaHideout_B1F_Text_Grunt7Intro:
-	.string "Hey!\n"
-	.string "You there!\p"
-	.string "Which do you think is cooler?\n"
-	.string "TEAM AQUA's uniform or TEAM MAGMA's?$"
+	.string "Are you not here to praise the Sprout!?$"
 
 AquaHideout_B1F_Text_Grunt7Defeat:
-	.string "I lost in a cool way…$"
+	.string "One can truly praise the Sprout after\n"
+	.string "experiencing great loss.$"
 
 AquaHideout_B1F_Text_Grunt7PostBattle:
-	.string "If you have a cool uniform, you look\n"
-	.string "good even in a loss, don't you think?$"
+	.string "I live only to serve the Sprout.$"

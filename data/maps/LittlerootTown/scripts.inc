@@ -84,11 +84,9 @@ LittlerootTown_EventScript_NewFatMan_Text_0:
 	.string "Here, have some rare candies.$"
 
 LittlerootTown_EventScript_Boy_Text_0:
-	.string "I've heard a new shop that sells Nature\n"
-	.string "Mints opened up in Violet City\l"
-	.string "recently.\p"
-	.string "The fact you can change your POKéMON's\n"
-	.string "personality so easily is scary!$"
+	.string "Have you been to Goldenrod City?\p"
+	.string "It's such a big city, that I feel like I'm\n"
+	.string "going to get lost every time I go there.$"
 
 LittlerootTown_EventScript_Girl_Text_0:
 	.string "Did you come to New Bark Town to see\n"

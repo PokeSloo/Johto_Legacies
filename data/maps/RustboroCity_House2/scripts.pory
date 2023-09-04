@@ -1,0 +1,32 @@
+mapscripts RustboroCity_House2_MapScripts {}
+
+script RustboroCity_House2_EventScript_PokefanF {
+	msgbox (format("My husband is a great fisherman, I just wish he would stop buying so many rods."), MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_House2_EventScript_Fisherman {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_OLD_ROD)) {
+        msgbox (format("That OLD ROD hasn't broken yet, has it? Haha!\pDon't worry, you can find more than just Magikarp with it."))
+        release
+        end
+    }
+    else {
+        msgbox (format("Hmm, you have the aura of a master fisherman.\pIt's your calm demeanor.\pIf the fish detect hostility on your end of the line, they won't bite.\pSay, I have an Old Rod that I haven't used for years.\pI'll let you have it to get you started.\pWhat do you say, will you take it?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT)) {
+            giveitem (ITEM_OLD_ROD)
+            setflag (FLAG_RECEIVED_OLD_ROD)
+            msgbox (format("That's the spirit!\pA master fisherman in the making!\pYou should try fishing in Violet City while you're here."))
+            release
+            end
+        }
+        else {
+            msgbox (format("Hmm, maybe I was wrong about you."))
+            release
+            end
+        }
+    }
+}
+

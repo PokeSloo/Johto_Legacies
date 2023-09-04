@@ -36,9 +36,10 @@ RustboroCity_PokemonCenter_1F_Text_PokemonHavePersonalities:
 	.string "personalities!$"
 
 RustboroCity_PokemonCenter_1F_Text_MaleAndFemalePokemon:
-	.string "I changed my POKéMON's nature to\n"
-	.string "ADAMANT using a mint from the Herbal\l"
-	.string "Medicine Shop.$"
+	.string "I changed my POKéMON's ability to\n"
+	.string "its hidden ability using an Ability\l"
+	.string "Patch.\p"
+	.string "The Supplement Shop in town sells them.$"
 
 RustboroCity_PokemonCenter_1F_Text_HMCutNextDoor:
 	.string "Have you been to the Ruins of Alph?\p"

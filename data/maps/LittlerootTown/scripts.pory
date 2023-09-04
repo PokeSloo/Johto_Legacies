@@ -31,7 +31,7 @@ script LittlerootTown_EventScript_NewFatMan {
 }
 
 script LittlerootTown_EventScript_Boy {
-	msgbox (format("I've heard a new shop that sells Nature Mints opened up in Violet City recently.\pThe fact you can change your POKéMON's personality so easily is scary!"), MSGBOX_NPC)
+	msgbox (format("Have you been to Goldenrod City?\pIt's such a big city, that I feel like I'm going to get lost every time I go there."), MSGBOX_NPC)
 	end
 }
 

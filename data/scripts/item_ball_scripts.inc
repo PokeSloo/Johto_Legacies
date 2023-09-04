@@ -511,19 +511,19 @@ MtPyre_Exterior_EventScript_ItemTM48::
 	end
 
 AquaHideout_B1F_EventScript_ItemMasterBall::
-	finditem ITEM_MASTER_BALL
+	finditem ITEM_POTION
 	end
 
 AquaHideout_B1F_EventScript_ItemNugget::
-	finditem ITEM_NUGGET
+	finditem ITEM_POKE_BALL
 	end
 
 AquaHideout_B1F_EventScript_ItemMaxElixir::
-	finditem ITEM_MAX_ELIXIR
+	finditem ITEM_X_SPEED
 	end
 
 AquaHideout_B2F_EventScript_ItemNestBall::
-	finditem ITEM_NEST_BALL
+	finditem ITEM_ESCAPE_ROPE
 	end
 
 AquaHideout_B2F_EventScript_ItemMasterBall::
