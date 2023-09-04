@@ -33,17 +33,17 @@ MtPyre_3F_EventScript_RematchGabrielle::
 	end
 
 MtPyre_3F_Text_WilliamIntro:
-	.string "The rich atmosphere of the mountain\n"
-	.string "has elevated my psychic power!\p"
-	.string "A mere child like you…\n"
-	.string "You dream of winning?$"
+	.string "Where's the bathroom in this place?\p"
+	.string "I can't seem to find any tour guides\n"
+	.string "either.$"
 
 MtPyre_3F_Text_WilliamDefeat:
-	.string "I drown in self-pity…$"
+	.string "At least I don't need a bathroom\n"
+	.string "anymore.$"
 
 MtPyre_3F_Text_WilliamPostBattle:
-	.string "My psychic powers have surely\n"
-	.string "grown several times, but…$"
+	.string "You haven't seen people dressed up as\n"
+	.string "sages around here have you?$"
 
 MtPyre_3F_Text_KaylaIntro:
 	.string "Ahahahaha!\p"
@@ -55,10 +55,7 @@ MtPyre_3F_Text_KaylaDefeat:
 
 MtPyre_3F_Text_KaylaPostBattle:
 	.string "This means my training is still not\n"
-	.string "enough…\p"
-	.string "I've got to keep working toward the\n"
-	.string "summit…\p"
-	.string "Go, me!$"
+	.string "enough…$"
 
 MtPyre_3F_Text_GabrielleIntro:
 	.string "Why have you come here?$"

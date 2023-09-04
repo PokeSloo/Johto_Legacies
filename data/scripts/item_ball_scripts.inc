@@ -483,7 +483,7 @@ SafariZone_Southeast_EventScript_ItemBigPearl::
 	end
 
 MtPyre_2F_EventScript_ItemUltraBall::
-	finditem ITEM_ULTRA_BALL
+	finditem ITEM_GREAT_BALL
 	end
 
 MtPyre_3F_EventScript_ItemSuperRepel::

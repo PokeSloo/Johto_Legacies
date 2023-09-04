@@ -1,0 +1,21 @@
+mapscripts MtPyre_Exterior_MapScripts {}
+
+script MtPyre_Exterior_EventScript_GateSign {
+    msgbox (format("RUINS OF ALPH\pVisitors who are interested in archaeology are welcome."), MSGBOX_SIGN)
+    end
+}
+
+script MtPyre_Exterior_EventScript_BuildingSign {
+    msgbox (format("RUINS RESEARCH CENTER"), MSGBOX_SIGN)
+    end
+}
+
+script MtPyre_Exterior_EventScript_CaveSign {
+    msgbox (format("This is a mysterious hall.\nPlease watch your step."), MSGBOX_SIGN)
+    end
+}
+
+script MtPyre_Exterior_EventScript_RT32Sign {
+    msgbox (format("RUINS OF ALPH\nFeel free to explore the ruins and become a fossil professor!"), MSGBOX_SIGN)
+    end
+}

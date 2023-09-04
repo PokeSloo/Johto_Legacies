@@ -1,26 +1,40 @@
 MtPyre_Exterior_MapScripts::
 	.byte 0
 
-MtPyre_Exterior_OnTransition:
-	call MtPyre_Exterior_EventScript_CheckEnterFromSummit
+
+MtPyre_Exterior_EventScript_GateSign::
+	msgbox MtPyre_Exterior_EventScript_GateSign_Text_0, MSGBOX_SIGN
 	end
 
-MtPyre_Exterior_EventScript_CheckEnterFromSummit::
-	getplayerxy VAR_TEMP_0, VAR_TEMP_1
-	goto_if_lt VAR_TEMP_1, 12, MtPyre_Exterior_EventScript_EnterFromSummit
-	return
 
-MtPyre_Exterior_EventScript_EnterFromSummit::
-	setweather WEATHER_FOG_HORIZONTAL
-	return
-
-MtPyre_Exterior_EventScript_FogTrigger::
-	setweather WEATHER_FOG_HORIZONTAL
-	doweather
+MtPyre_Exterior_EventScript_BuildingSign::
+	msgbox MtPyre_Exterior_EventScript_BuildingSign_Text_0, MSGBOX_SIGN
 	end
 
-MtPyre_Exterior_EventScript_SunTrigger::
-	setweather WEATHER_SUNNY
-	doweather
+
+MtPyre_Exterior_EventScript_CaveSign::
+	msgbox MtPyre_Exterior_EventScript_CaveSign_Text_0, MSGBOX_SIGN
 	end
 
+
+MtPyre_Exterior_EventScript_RT32Sign::
+	msgbox MtPyre_Exterior_EventScript_RT32Sign_Text_0, MSGBOX_SIGN
+	end
+
+
+MtPyre_Exterior_EventScript_GateSign_Text_0:
+	.string "RUINS OF ALPH\p"
+	.string "Visitors who are interested in\n"
+	.string "archaeology are welcome.$"
+
+MtPyre_Exterior_EventScript_BuildingSign_Text_0:
+	.string "RUINS RESEARCH CENTER$"
+
+MtPyre_Exterior_EventScript_CaveSign_Text_0:
+	.string "This is a mysterious hall.\n"
+	.string "Please watch your step.$"
+
+MtPyre_Exterior_EventScript_RT32Sign_Text_0:
+	.string "RUINS OF ALPH\n"
+	.string "Feel free to explore the ruins and\l"
+	.string "become a fossil professor!$"

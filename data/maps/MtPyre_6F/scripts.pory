@@ -1,0 +1,173 @@
+const OLIVER_ID = 4
+
+mapscripts MtPyre_6F_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        if (flag(FLAG_RUINS_ROOM_OPEN)) {
+            setmetatile (8, 9, 0x262, FALSE)
+            setmetatile (9, 9, 0x262, FALSE)
+            setmetatile (10, 9, 0x262, FALSE)
+            setmetatile (12, 9, 0x262, FALSE)
+            setmetatile (9, 10, 0x262, FALSE)
+            setmetatile (11, 10, 0x262, FALSE)
+            setmetatile (7, 9, 0x261, FALSE)
+            setmetatile (11, 9, 0x261, FALSE)
+            setmetatile (13, 9, 0x261, FALSE)
+            setmetatile (6, 10, 0x261, FALSE)
+            setmetatile (8, 10, 0x261, FALSE)
+            setmetatile (10, 10, 0x261, FALSE)
+            setmetatile (12, 10, 0x261, FALSE)
+            setmetatile (14, 10, 0x261, FALSE)
+            setmetatile (10, 11, 0x261, FALSE)
+            return
+        }
+        end
+    }
+}
+
+script MtPyre_6F_EventScript_Oliver {
+    lock
+    faceplayer
+    msgbox (format("Oh... excuse me, I didn't notice you there.\pMy name is OLIVER, and you are?\pOk, {PLAYER}.\p...\pWhat's that?\pI left my Notebook back at the lab, and my father sent you here to bring it to me?\pThank you so much!"))
+    waitmessage
+    closemessage
+    playfanfare (MUS_OBTAIN_ITEM)
+    msgbox (format("{PLAYER} handed the Notebook over to OLIVER."))
+    waitfanfare
+    removeitem (ITEM_OAKS_PARCEL)
+    msgbox (format("OLIVER: I feel like I should reward you for your troubles somehow.\pHmm… maybe this will do."))
+    waitmessage
+    closemessage
+    giveitem (ITEM_HM01_CUT)
+    msgbox (format("OLIVER: HM01 is the move CUT, you will need the Violet City gym badge to use it though.\p...\pWhat's that you say? You saw a strange POKéMON on the way here?\p...\pHmm… a yellow POKéMON with stripes, and a purple cloud on its back…"))
+    waitmessage
+    closemessage
+    playse (SE_PIN)
+    applymovement (OLIVER_ID, MtPyre_6F_Exclamation)
+    waitmovement (0)
+    msgbox (format("Oh!\pIt must have been Raikou!\pRaikou is one of three legendary beasts, the last one still roaming around freely in fact!\pResearchers believe that the three legendary beasts were once normal POKéMON that were resurrected by Ho-oh.\pYou know, it's my personal theory that the Unown were once people that were also resurrected by Ho-oh.\pThat's why I'm here studying these ruins."))
+    waitmessage
+    closemessage
+    fadeoutbgm (1)
+	playse (SE_M_EARTHQUAKE)
+    setvar (VAR_0x8004, 1)  // vertical pan
+	setvar (VAR_0x8005, 1)  // horizontal pan
+	setvar (VAR_0x8006, 12)  // num shakes
+	setvar (VAR_0x8007, 5)  // shake delay
+	special (ShakeCamera)
+	waitstate
+    setmetatile (8, 9, 0x261, FALSE)
+    setmetatile (9, 9, 0x261, FALSE)
+    setmetatile (10, 9, 0x261, FALSE)
+    setmetatile (12, 9, 0x261, FALSE)
+    setmetatile (9, 10, 0x261, FALSE)
+    setmetatile (11, 10, 0x261, FALSE)
+    setmetatile (7, 9, 0x261, FALSE)
+    setmetatile (11, 9, 0x261, FALSE)
+    setmetatile (13, 9, 0x261, FALSE)
+    setmetatile (6, 10, 0x261, FALSE)
+    setmetatile (8, 10, 0x261, FALSE)
+    setmetatile (10, 10, 0x261, FALSE)
+    setmetatile (12, 10, 0x261, FALSE)
+    setmetatile (14, 10, 0x261, FALSE)
+    setmetatile (10, 11, 0x261, FALSE)
+    special (DrawWholeMapView)
+    playse (SE_PIN)
+    applymovement (OLIVER_ID, MtPyre_6F_Exclamation)
+    applymovement (OBJ_EVENT_ID_PLAYER, MtPyre_6F_Exclamation)
+    waitmovement (0)
+    delay (30)
+    setmetatile (9, 9, 0x262, FALSE)
+    special (DrawWholeMapView)
+    delay (10)
+    removeobject (OLIVER_ID)
+    playse(SE_FALL)
+    waitse
+    applymovement (OBJ_EVENT_ID_PLAYER, MtPyre_6F_LookDown)
+    waitmovement (0)
+    delay (30)
+    setmetatile (8, 9, 0x262, FALSE)
+    setmetatile (10, 9, 0x262, FALSE)
+    setmetatile (12, 9, 0x262, FALSE)
+    setmetatile (9, 10, 0x262, FALSE)
+    setmetatile (11, 10, 0x262, FALSE)
+    special (DrawWholeMapView)
+    setflag (FLAG_RUINS_ROOM_OPEN)
+    fadeinbgm (4)
+    warphole (MAP_MT_PYRE_5F)
+	release
+	end
+}
+
+movement MtPyre_6F_Exclamation {
+    emote_exclamation_mark
+}
+
+movement MtPyre_6F_LookDown {
+    face_down
+}
+
+raw`
+MtPyre_6F_EventScript_Valerie::
+	trainerbattle_single TRAINER_VALERIE_1, MtPyre_6F_Text_ValerieIntro, MtPyre_6F_Text_ValerieDefeat, MtPyre_6F_EventScript_RegisterValerie
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, MtPyre_6F_EventScript_RematchValerie
+	msgbox MtPyre_6F_Text_ValeriePostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+MtPyre_6F_EventScript_RegisterValerie::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	msgbox MtPyre_6F_Text_ValerieRegister, MSGBOX_DEFAULT
+	register_matchcall TRAINER_VALERIE_1
+	release
+	end
+
+MtPyre_6F_EventScript_RematchValerie::
+	trainerbattle_rematch TRAINER_VALERIE_1, MtPyre_6F_Text_ValerieRematchIntro, MtPyre_6F_Text_ValerieRematchDefeat
+	msgbox MtPyre_6F_Text_ValeriePostRematch, MSGBOX_AUTOCLOSE
+	end
+
+MtPyre_6F_EventScript_Cedric::
+	trainerbattle_single TRAINER_CEDRIC, MtPyre_6F_Text_CedricIntro, MtPyre_6F_Text_CedricDefeat
+	msgbox MtPyre_6F_Text_CedricPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+MtPyre_6F_Text_ValerieIntro:
+	.string "When I'm here…\n"
+	.string "A curious power flows into me…$"
+
+MtPyre_6F_Text_ValerieDefeat:
+	.string "The power is ebbing away…$"
+
+MtPyre_6F_Text_ValeriePostBattle:
+	.string "Perhaps the power is from the spirits\n"
+	.string "of POKéMON in fitful sleep here…$"
+
+MtPyre_6F_Text_ValerieRegister:
+	.string "Fufufu… I lost the match, but…\n"
+	.string "I have this little ability…\p"
+	.string "Without ever laying my hands on\n"
+	.string "your POKéNAV… Hiyah!$"
+
+MtPyre_6F_Text_ValerieRematchIntro:
+	.string "Behind you…\n"
+	.string "What is it…$"
+
+MtPyre_6F_Text_ValerieRematchDefeat:
+	.string "Something faded away…$"
+
+MtPyre_6F_Text_ValeriePostRematch:
+	.string "The POKéMON at rest here…\n"
+	.string "Sometimes, they play…$"
+
+MtPyre_6F_Text_CedricIntro:
+	.string "You there, train with me.$"
+
+MtPyre_6F_Text_CedricDefeat:
+	.string "Yes, just what I needed.$"
+
+MtPyre_6F_Text_CedricPostBattle:
+	.string "The spirits in these ruins shall deepen\n"
+	.string "my connection to all POKéMON.$"
+`

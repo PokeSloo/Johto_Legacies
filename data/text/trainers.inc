@@ -703,16 +703,15 @@ Route107_Text_RayNotEnoughPokemon:
 	.string "go bring some more POKéMON!$"
 
 Route107_Text_CamronIntro:
-	.string "I'm in the middle of a triathlon,\n"
-	.string "but I'm nowhere near tired!$"
+	.string "I'm training for a huge triathlon, help\n"
+	.string "me train my POKéMON too!$"
 
 Route107_Text_CamronDefeated:
 	.string "That exhausted me…$"
 
 Route107_Text_CamronPostBattle:
-	.string "I still have swimming and running left\n"
-	.string "to do after this.\p"
-	.string "Am I going to be okay?$"
+	.string "My POKéMON might not be ready, but I\n"
+	.string "think I am.$"
 
 Route108_Text_JeromeIntro:
 	.string "My dream is to swim the world's seven\n"

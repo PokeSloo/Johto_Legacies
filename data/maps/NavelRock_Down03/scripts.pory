@@ -1,0 +1,6 @@
+mapscripts NavelRock_Down03_MapScripts {}
+
+script NavelRock_Down03_EventScript_Guard {
+    msgbox(format("Hello there, TRAINER!\pPleasant day we're having.\pOh, you can go on through."), MSGBOX_NPC)
+    end
+}

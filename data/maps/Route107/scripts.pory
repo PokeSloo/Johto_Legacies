@@ -1,0 +1,147 @@
+raw`
+.set LOCALID_SUDOWOODO, 9
+
+Route107_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, Route107_OnResume
+	map_script MAP_SCRIPT_ON_TRANSITION, Route107_OnTransition
+	.byte 0
+
+Route107_OnResume:
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route107_EventScript_TryRemoveSudowoodo
+	end
+
+Route107_EventScript_TryRemoveSudowoodo::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
+	removeobject VAR_LAST_TALKED
+	return
+
+Route107_OnTransition:
+	call_if_unset FLAG_DEFEATED_SUDOWOODO, Route107_EventScript_ShowSudowoodo
+	end
+
+Route107_EventScript_ShowSudowoodo::
+	clearflag FLAG_HIDE_BATTLE_FRONTIER_SUDOWOODO
+	return
+
+Route107_EventScript_Sudowoodo::
+	lock
+	faceplayer
+	waitse
+	playse SE_SUDOWOODO_SHAKE
+	applymovement LOCALID_SUDOWOODO, Route107_Movement_SudowoodoShake
+	waitmovement 0
+	release
+	end
+
+Route107_EventScript_WaterSudowoodo::
+	lock
+	faceplayer
+	special DoWateringBerryTreeAnim
+	waitstate
+	waitse
+	playse SE_SUDOWOODO_SHAKE
+	applymovement LOCALID_SUDOWOODO, Route107_Movement_SudowoodoShake
+	waitmovement 0
+	msgbox gText_Sudowoodo_Attacked, MSGBOX_DEFAULT
+	closemessage
+	waitse
+	playmoncry SPECIES_SUDOWOODO, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setvar VAR_LAST_TALKED, LOCALID_SUDOWOODO
+	setwildbattle SPECIES_SUDOWOODO, 20
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Route107_EventScript_DefeatedSudowoodo
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, Route107_EventScript_DefeatedSudowoodo
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Route107_EventScript_DefeatedSudowoodo
+	setflag FLAG_DEFEATED_SUDOWOODO
+	release
+	end
+
+Route107_EventScript_DefeatedSudowoodo::
+	setflag FLAG_DEFEATED_SUDOWOODO
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+
+Route107_Movement_SudowoodoShake:
+	face_right
+	delay_8
+	face_down
+	delay_8
+	face_left
+	delay_8
+	face_down
+	delay_8
+	face_right
+	delay_8
+	face_down
+	delay_8
+	face_left
+	delay_8
+	face_down
+	step_end
+
+Route107_EventScript_Darrin::
+	trainerbattle_single TRAINER_DARRIN, Route107_Text_DarrinIntro, Route107_Text_DarrinDefeated
+	msgbox Route107_Text_DarrinPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route107_EventScript_Tony::
+	trainerbattle_single TRAINER_TONY_1, Route107_Text_TonyIntro, Route107_Text_TonyDefeated, Route107_EventScript_TonyRegisterMatchCallAfterBattle
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, Route107_EventScript_TonyRematch
+	msgbox Route107_Text_TonyPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Route107_EventScript_TonyRegisterMatchCallAfterBattle::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	msgbox Route107_Text_TonyRegister, MSGBOX_DEFAULT
+	register_matchcall TRAINER_TONY_1
+	release
+	end
+
+Route107_EventScript_TonyRematch::
+	trainerbattle_rematch TRAINER_TONY_1, Route107_Text_TonyRematchIntro, Route107_Text_TonyRematchDefeated
+	msgbox Route107_Text_TonyRematchPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route107_EventScript_Denise::
+	trainerbattle_single TRAINER_DENISE, Route107_Text_DeniseIntro, Route107_Text_DeniseDefeated
+	msgbox Route107_Text_DenisePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route107_EventScript_Beth::
+	trainerbattle_single TRAINER_BETH, Route107_Text_BethIntro, Route107_Text_BethDefeated
+	msgbox Route107_Text_BethPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route107_EventScript_Lisa::
+	trainerbattle_double TRAINER_LISA_AND_RAY, Route107_Text_LisaIntro, Route107_Text_LisaDefeated, Route107_Text_LisaNotEnoughPokemon
+	msgbox Route107_Text_LisaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route107_EventScript_Ray::
+	trainerbattle_double TRAINER_LISA_AND_RAY, Route107_Text_RayIntro, Route107_Text_RayDefeated, Route107_Text_RayNotEnoughPokemon
+	msgbox Route107_Text_RayPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route107_EventScript_Camron::
+	trainerbattle_single TRAINER_CAMRON, Route107_Text_CamronIntro, Route107_Text_CamronDefeated
+	msgbox Route107_Text_CamronPostBattle, MSGBOX_AUTOCLOSE
+	end
+`
+script Route107_EventScript_RuinsSign {
+    msgbox (format("RUINS OF ALPH\nNorth Entrance"), MSGBOX_SIGN)
+    end
+}
+
+script Route107_EventScript_RouteSign {
+    msgbox (format("ROUTE 36\n{UP_ARROW} ECRUTEAK CITY"), MSGBOX_SIGN)
+    end
+}

@@ -1,5 +1,88 @@
+.set LOCALID_SUDOWOODO, 9
+
 Route107_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, Route107_OnResume
+	map_script MAP_SCRIPT_ON_TRANSITION, Route107_OnTransition
 	.byte 0
+
+Route107_OnResume:
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route107_EventScript_TryRemoveSudowoodo
+	end
+
+Route107_EventScript_TryRemoveSudowoodo::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
+	removeobject VAR_LAST_TALKED
+	return
+
+Route107_OnTransition:
+	call_if_unset FLAG_DEFEATED_SUDOWOODO, Route107_EventScript_ShowSudowoodo
+	end
+
+Route107_EventScript_ShowSudowoodo::
+	clearflag FLAG_HIDE_BATTLE_FRONTIER_SUDOWOODO
+	return
+
+Route107_EventScript_Sudowoodo::
+	lock
+	faceplayer
+	waitse
+	playse SE_SUDOWOODO_SHAKE
+	applymovement LOCALID_SUDOWOODO, Route107_Movement_SudowoodoShake
+	waitmovement 0
+	release
+	end
+
+Route107_EventScript_WaterSudowoodo::
+	lock
+	faceplayer
+	special DoWateringBerryTreeAnim
+	waitstate
+	waitse
+	playse SE_SUDOWOODO_SHAKE
+	applymovement LOCALID_SUDOWOODO, Route107_Movement_SudowoodoShake
+	waitmovement 0
+	msgbox gText_Sudowoodo_Attacked, MSGBOX_DEFAULT
+	closemessage
+	waitse
+	playmoncry SPECIES_SUDOWOODO, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setvar VAR_LAST_TALKED, LOCALID_SUDOWOODO
+	setwildbattle SPECIES_SUDOWOODO, 20
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Route107_EventScript_DefeatedSudowoodo
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, Route107_EventScript_DefeatedSudowoodo
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Route107_EventScript_DefeatedSudowoodo
+	setflag FLAG_DEFEATED_SUDOWOODO
+	release
+	end
+
+Route107_EventScript_DefeatedSudowoodo::
+	setflag FLAG_DEFEATED_SUDOWOODO
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+
+Route107_Movement_SudowoodoShake:
+	face_right
+	delay_8
+	face_down
+	delay_8
+	face_left
+	delay_8
+	face_down
+	delay_8
+	face_right
+	delay_8
+	face_down
+	delay_8
+	face_left
+	delay_8
+	face_down
+	step_end
 
 Route107_EventScript_Darrin::
 	trainerbattle_single TRAINER_DARRIN, Route107_Text_DarrinIntro, Route107_Text_DarrinDefeated
@@ -52,3 +135,20 @@ Route107_EventScript_Camron::
 	msgbox Route107_Text_CamronPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route107_EventScript_RuinsSign::
+	msgbox Route107_EventScript_RuinsSign_Text_0, MSGBOX_SIGN
+	end
+
+
+Route107_EventScript_RouteSign::
+	msgbox Route107_EventScript_RouteSign_Text_0, MSGBOX_SIGN
+	end
+
+
+Route107_EventScript_RuinsSign_Text_0:
+	.string "RUINS OF ALPH\n"
+	.string "North Entrance$"
+
+Route107_EventScript_RouteSign_Text_0:
+	.string "ROUTE 36\n"
+	.string "{UP_ARROW} ECRUTEAK CITY$"

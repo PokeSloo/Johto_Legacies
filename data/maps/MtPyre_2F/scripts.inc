@@ -1,13 +1,18 @@
 MtPyre_2F_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, CaveHole_CheckFallDownHole
-	map_script MAP_SCRIPT_ON_TRANSITION, CaveHole_FixCrackedGround
-	map_script MAP_SCRIPT_ON_RESUME, MtPyre_2F_SetHoleWarp
+	map_script MAP_SCRIPT_ON_LOAD, MtPyre_2F_MapScripts_MAP_SCRIPT_ON_LOAD
 	.byte 0
 
-MtPyre_2F_SetHoleWarp:
-	setstepcallback STEP_CB_CRACKED_FLOOR
-	setholewarp MAP_MT_PYRE_1F
+MtPyre_2F_MapScripts_MAP_SCRIPT_ON_LOAD:
+	goto_if_set FLAG_RUINS_ROOM_OPEN, MtPyre_2F_MapScripts_MAP_SCRIPT_ON_LOAD_2
 	end
+
+MtPyre_2F_MapScripts_MAP_SCRIPT_ON_LOAD_2:
+	setmetatile 12, 1, 0x280, FALSE
+	setmetatile 13, 1, 0x280, FALSE
+	setmetatile 12, 0, 0x263, TRUE
+	setmetatile 13, 0, 0x263, TRUE
+	return
+
 
 MtPyre_2F_EventScript_Woman::
 	msgbox MtPyre_2F_Text_MemoriesOfSkitty, MSGBOX_NPC
@@ -43,26 +48,26 @@ MtPyre_2F_EventScript_Zander::
 	end
 
 MtPyre_2F_Text_MemoriesOfSkitty:
-	.string "Memories of my darling SKITTY…\n"
-	.string "My eyes overflow thinking about it.$"
+	.string "Yes, yes, the gloomy air...\p"
+	.string "The musty scents...\p"
+	.string "This place is perfect...$"
 
 MtPyre_2F_Text_TumbledFromFloorAbove:
-	.string "Ooch, ouch… There are holes in the\n"
-	.string "ground here and there.\p"
-	.string "I didn't notice and took a tumble from\n"
-	.string "the floor above.$"
+	.string "Sacred ruins reduced to nothing more\n"
+	.string "than a tourist attraction.\p"
+	.string "It's blasphemy!$"
 
 MtPyre_2F_Text_MarkIntro:
-	.string "Hey! Are you searching for POKéMON?\n"
-	.string "You came along after me! You're rude!$"
+	.string "This place sucks.\p"
+	.string "I don't see any vending machines, and\n"
+	.string "the people wearing sage costumes are\l"
+	.string "all so rude to me.$"
 
 MtPyre_2F_Text_MarkDefeat:
-	.string "Ayieeeeh!\n"
-	.string "I'm sorry, forgive me, please!$"
+	.string "Hey, chill out bro.$"
 
 MtPyre_2F_Text_MarkPostBattle:
-	.string "People don't come here often, so\n"
-	.string "I thought there'd be rare POKéMON.$"
+	.string "You're just as rude as the sage actors.$"
 
 MtPyre_2F_Text_LukeIntro:
 	.string "LUKE: We're here on a dare.\p"
@@ -108,28 +113,22 @@ MtPyre_2F_Text_DezNotEnoughMons:
 
 MtPyre_2F_Text_LeahIntro:
 	.string "You are an unfamiliar sight…\n"
-	.string "Depart before anything befalls you!$"
+	.string "This could be fun!$"
 
 MtPyre_2F_Text_LeahDefeat:
 	.string "Hmm…\n"
 	.string "You're durable.$"
 
 MtPyre_2F_Text_LeahPostBattle:
-	.string "Our family has been TRAINERS here\n"
-	.string "since my great-grandmother's time…\p"
-	.string "It is my duty to protect this\n"
-	.string "mountain…$"
+	.string "I sense the presence of spirits\n"
+	.string "nearby...$"
 
 MtPyre_2F_Text_ZanderIntro:
-	.string "Kiyaaaaah!\n"
-	.string "I'm terrified!$"
+	.string "You defile sacred ground!$"
 
 MtPyre_2F_Text_ZanderDefeat:
-	.string "Nooooooo!\n"
-	.string "I lost my wits!$"
+	.string "Such insolence!$"
 
 MtPyre_2F_Text_ZanderPostBattle:
-	.string "I get freaked out every time I see\n"
-	.string "anything move…\p"
-	.string "I shouldn't have come here to train…$"
-
+	.string "Please leave, this is not some tourist\n"
+	.string "attraction.$"

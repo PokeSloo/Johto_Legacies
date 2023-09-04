@@ -1415,7 +1415,7 @@
       "id": "LAYOUT_MT_PYRE_6F",
       "name": "MtPyre_6F_Layout",
       "width": 48,
-      "height": 30,
+      "height": 36,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/MtPyre_6F/border.bin",

@@ -3,20 +3,18 @@ MtPyre_4F_MapScripts::
 
 @ Seems like the scripts for the 4F and 5F were swapped
 
-MtPyre_5F_EventScript_Atsushi::
-	trainerbattle_single TRAINER_ATSUSHI, MtPyre_5F_Text_AtsushiIntro, MtPyre_5F_Text_AtsushiDefeat
-	msgbox MtPyre_5F_Text_AtsushiPostBattle, MSGBOX_AUTOCLOSE
+MtPyre_4F_EventScript_Tasha::
+	trainerbattle_single TRAINER_TASHA, MtPyre_4F_Text_TashaIntro, MtPyre_4F_Text_TashaDefeat
+	msgbox MtPyre_4F_Text_TashaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-MtPyre_5F_Text_AtsushiIntro:
-	.string "Teacher…\n"
-	.string "Please watch over my progress!$"
+MtPyre_4F_Text_TashaIntro:
+	.string "Go back from whence you came!$"
 
-MtPyre_5F_Text_AtsushiDefeat:
-	.string "Teacher…\n"
-	.string "Please forgive me!$"
+MtPyre_4F_Text_TashaDefeat:
+	.string "I'm sorry, I thought you were a spirit…$"
 
-MtPyre_5F_Text_AtsushiPostBattle:
-	.string "Until I improve, my teacher, who rests\n"
-	.string "here, will never find true peace…$"
+MtPyre_4F_Text_TashaPostBattle:
+	.string "Children shouldn't play around in these\n"
+	.string "sacred ruins.$"
 

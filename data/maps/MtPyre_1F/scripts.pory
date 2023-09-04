@@ -1,0 +1,16 @@
+mapscripts MtPyre_1F_MapScripts {}
+
+script MtPyre_1F_EventScript_Sage {
+    msgbox (format("Feel free to explore the ruins, but please be respectful.\pThese are sacred grounds."), MSGBOX_NPC)
+    end
+}
+
+script MtPyre_1F_EventScript_OldWoman {
+    msgbox (format("These ruins must be thousands of years old."), MSGBOX_NPC)
+    end
+}
+
+script MtPyre_1F_EventScript_Hex {
+    msgbox (format("These ruins are so spooky, I love it here!"), MSGBOX_NPC)
+    end
+}
