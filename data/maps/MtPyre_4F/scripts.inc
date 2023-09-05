@@ -17,4 +17,19 @@ MtPyre_4F_Text_TashaDefeat:
 MtPyre_4F_Text_TashaPostBattle:
 	.string "Children shouldn't play around in these\n"
 	.string "sacred ruins.$"
+	
+MtPyre_5F_EventScript_Atsushi::
+	trainerbattle_single TRAINER_ATSUSHI, MtPyre_5F_Text_AtsushiIntro, MtPyre_5F_Text_AtsushiDefeat
+	msgbox MtPyre_5F_Text_AtsushiPostBattle, MSGBOX_AUTOCLOSE
+	end
 
+MtPyre_5F_Text_AtsushiIntro:
+	.string "These ruins are great!\p"
+	.string "Wouldn't you agree?$"
+
+MtPyre_5F_Text_AtsushiDefeat:
+	.string "Not a fan of ruins I suppose.$"
+
+MtPyre_5F_Text_AtsushiPostBattle:
+	.string "If you ever become interested in ruins,\n"
+	.string "us Ruin Maniacs have a club.$"

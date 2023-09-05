@@ -57,8 +57,8 @@
 #define FLAG_HIDE_FAT_FALKNER    0x2D // In gym
 #define FLAG_RECEIVED_EXPERT_BELT    0x2E // From violet university
 #define FLAG_RUINS_ROOM_OPEN    0x2F // Ruins of alph secret room
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
-#define FLAG_UNUSED_0x031    0x31 // Unused Flag
+#define FLAG_OLIVER_CATACOMBS_FALL    0x30 // Right after the fall
+#define FLAG_OLIVER_CATACOMBS_RESEARCH    0x31 // After fall event
 #define FLAG_UNUSED_0x032    0x32 // Unused Flag
 #define FLAG_UNUSED_0x033    0x33 // Unused Flag
 #define FLAG_UNUSED_0x034    0x34 // Unused Flag

@@ -2287,8 +2287,8 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Daisuke[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_Atsushi[] = {
     {
     .iv = 100,
-    .lvl = 32,
-    .species = SPECIES_HARIYAMA,
+    .lvl = 7,
+    .species = SPECIES_SANDSHREW,
     }
 };
 

@@ -49,7 +49,7 @@ MtPyre_6F_EventScript_Oliver::
 	waitmessage
 	closemessage
 	fadeoutbgm 1
-	playse SE_M_EARTHQUAKE
+	playse SE_M_ROCK_THROW
 	setvar VAR_0x8004, 1
 	setvar VAR_0x8005, 1
 	setvar VAR_0x8006, 12
@@ -92,6 +92,7 @@ MtPyre_6F_EventScript_Oliver::
 	setmetatile 9, 10, 0x262, FALSE
 	setmetatile 11, 10, 0x262, FALSE
 	special DrawWholeMapView
+	setflag FLAG_OLIVER_CATACOMBS_RESEARCH
 	setflag FLAG_RUINS_ROOM_OPEN
 	fadeinbgm 4
 	warphole MAP_MT_PYRE_5F

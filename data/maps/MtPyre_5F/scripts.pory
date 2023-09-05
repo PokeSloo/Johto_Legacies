@@ -1,0 +1,115 @@
+const OLIVER_ID = 1
+
+mapscripts MtPyre_5F_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_CHERRYGROVE_STATE, 7: MtPyre_5F_On_Frame
+    ]
+}
+
+script MtPyre_5F_On_Frame {
+    lock
+    getplayerxy (VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 8) {
+        goto (MtPyre_5F_PlayerLeft)
+    }
+    elif (var(VAR_TEMP_1) == 9) {
+        goto (MtPyre_5F_PlayerMiddle)
+    }
+    else {
+        goto (MtPyre_5F_PlayerRight)
+    }
+}
+
+script MtPyre_5F_PlayerLeft {
+    applymovement (OLIVER_ID, MtPyre_5F_FaceLeft)
+    applymovement (OBJ_EVENT_ID_PLAYER, MtPyre_5F_FaceRight)
+    waitmovement (0)
+    goto (MtPyre_5F_Main)
+}
+
+script MtPyre_5F_PlayerMiddle {
+    applymovement (OLIVER_ID, MtPyre_5F_FaceDown)
+    applymovement (OBJ_EVENT_ID_PLAYER, MtPyre_5F_FaceUp)
+    waitmovement (0)
+    goto (MtPyre_5F_Main)
+}
+
+script MtPyre_5F_PlayerRight {
+    applymovement (OLIVER_ID, MtPyre_5F_FaceRight)
+    applymovement (OBJ_EVENT_ID_PLAYER, MtPyre_5F_FaceLeft)
+    waitmovement (0)
+    goto (MtPyre_5F_Main)
+}
+
+movement MtPyre_5F_FaceLeft {
+    walk_in_place_left
+}
+
+movement MtPyre_5F_FaceRight {
+    walk_in_place_right
+}
+
+movement MtPyre_5F_FaceDown {
+    walk_in_place_down
+}
+
+movement MtPyre_5F_FaceUp {
+    walk_in_place_up
+}
+
+script MtPyre_5F_Main {
+    msgbox (format("OLIVER: Are you alright, {PLAYER}?\pThat was a big fall, I didn't expect the floor to give out.\pI wonder what caused that earthquake."))
+    waitmessage
+    closemessage
+    playse (SE_PIN)
+    applymovement (OLIVER_ID, MtPyre_5F_LookAround)
+    waitmovement (0)
+    msgbox (format("{PLAYER}! Do you know what this place is!?\pThese are catacombs!\pIt's not an absolute validation, but this definitely aligns with my theory.\pThese could be the remains of humans who were resurrected as Unown.\pI'll have to stay here and do some research, this is a huge find!\pI will give you a call if I find out anything.\pSorry, this would help…"))
+    waitmessage
+    closemessage
+    delay (30)
+	playfanfare (MUS_REGISTER_MATCH_CALL)
+	msgbox (format("Registered OLIVER in the POKéNAV."))
+	waitfanfare
+	closemessage
+	delay (30)
+	setflag (FLAG_ENABLE_PROF_BIRCH_MATCH_CALL)
+    setflag (FLAG_ENABLE_WALLY_MATCH_CALL)
+    msgbox (format("OLIVER: I noticed my father wasn't in your POKéNAV, so I registered him as well.\pBy the way, my university professor is an expert on legendary POKéMON. I will tell him about your encounter with Raikou, I'm sure he will be excited to hear about it.\pOk, back to my research. Good luck to you!"))
+    waitmessage
+    closemessage
+    applymovement (OLIVER_ID, MtPyre_5F_WalkAway)
+    waitmovement (0)
+    addobject (3)
+    clearflag (FLAG_OLIVER_CATACOMBS_RESEARCH)
+    removeobject (OLIVER_ID)
+    setflag (FLAG_OLIVER_CATACOMBS_FALL)
+    addvar (VAR_CHERRYGROVE_STATE, 1)
+    release
+    end
+}
+
+movement MtPyre_5F_LookAround {
+    emote_exclamation_mark
+    delay_16
+    walk_in_place_up
+    delay_8
+    walk_in_place_down
+    delay_8
+    walk_in_place_left
+    delay_8
+    walk_in_place_right
+    delay_8
+    face_player
+}
+
+movement MtPyre_5F_WalkAway {
+    walk_up
+    walk_left * 4
+    face_up
+}
+
+script MtPyre_5F_EventScript_OliverResearching {
+    msgbox (format("OLIVER: Oh, it's {PLAYER}.\pI haven't discovered anything yet, but I will keep researching these catacombs."), MSGBOX_NPC)
+    end
+}

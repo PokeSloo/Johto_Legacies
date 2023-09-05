@@ -16,16 +16,16 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_WALLY",
-      "x": 8,
-      "y": 8,
+      "x": 9,
+      "y": 9,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "MtPyre_5F_EventScript_Atsushi",
-      "flag": "0"
+      "script": "0x0",
+      "flag": "FLAG_OLIVER_CATACOMBS_FALL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -39,6 +39,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MtPyre_5F_EventScript_ItemLaxIncense",
       "flag": "FLAG_ITEM_MT_PYRE_5F_LAX_INCENSE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WALLY",
+      "x": 5,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtPyre_5F_EventScript_OliverResearching",
+      "flag": "FLAG_OLIVER_CATACOMBS_RESEARCH"
     }
   ],
   "warp_events": [
