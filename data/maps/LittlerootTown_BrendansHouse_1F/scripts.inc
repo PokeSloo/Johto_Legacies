@@ -225,6 +225,7 @@ LittlerootTown_BrendansHouse_1F_Get_Nav::
 	setflag FLAG_HAS_MATCH_CALL
 	setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
 	setflag FLAG_ENABLE_MOM_MATCH_CALL
+	setflag FLAG_REGISTERED_STEVEN_POKENAV
 	setflag FLAG_ADVENTURE_STARTED
 	releaseall
 	end

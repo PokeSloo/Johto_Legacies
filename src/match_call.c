@@ -1993,35 +1993,35 @@ static u8 GetPokedexRatingLevel(u16 numSeen)
         return 3;
     if (numSeen < 50)
         return 4;
-    if (numSeen < 60)
+    if (numSeen < 75)
         return 5;
-    if (numSeen < 70)
-        return 6;
-    if (numSeen < 80)
-        return 7;
-    if (numSeen < 90)
-        return 8;
     if (numSeen < 100)
-        return 9;
-    if (numSeen < 110)
-        return 10;
-    if (numSeen < 120)
-        return 11;
-    if (numSeen < 130)
-        return 12;
-    if (numSeen < 140)
-        return 13;
+        return 6;
     if (numSeen < 150)
-        return 14;
-    if (numSeen < 160)
-        return 15;
-    if (numSeen < 170)
-        return 16;
-    if (numSeen < 180)
-        return 17;
-    if (numSeen < 190)
-        return 18;
+        return 7;
     if (numSeen < 200)
+        return 8;
+    if (numSeen < 250)
+        return 9;
+    if (numSeen < 300)
+        return 10;
+    if (numSeen < 350)
+        return 11;
+    if (numSeen < 400)
+        return 12;
+    if (numSeen < 450)
+        return 13;
+    if (numSeen < 500)
+        return 14;
+    if (numSeen < 550)
+        return 15;
+    if (numSeen < 600)
+        return 16;
+    if (numSeen < 650)
+        return 17;
+    if (numSeen < 700)
+        return 18;
+    if (numSeen < 781)
         return 19;
 
     if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(SPECIES_DEOXYS), FLAG_GET_CAUGHT))
@@ -2029,7 +2029,7 @@ static u8 GetPokedexRatingLevel(u16 numSeen)
     if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(SPECIES_JIRACHI), FLAG_GET_CAUGHT))
         numSeen--;
 
-    if (numSeen < 200)
+    if (numSeen < 781)
         return 19;
     else
         return 20;

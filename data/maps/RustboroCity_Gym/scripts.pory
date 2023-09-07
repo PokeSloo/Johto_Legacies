@@ -1,0 +1,273 @@
+const FALKNER_ID = 1
+
+mapscripts RustboroCity_Gym_MapScripts {}
+
+script RustboroCity_Gym_EventScript_Roxanne {
+	trainerbattle_single (TRAINER_ROXANNE_1, RustboroCity_Gym_Text_RoxanneIntro, RustboroCity_Gym_Text_RoxanneDefeat, RustboroCity_Gym_EventScript_RoxanneDefeated, NO_MUSIC)
+	msgbox (RustboroCity_Gym_Text_RoxannePostBattle, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script RustboroCity_Gym_EventScript_RoxanneDefeated {
+	msgbox (RustboroCity_Gym_Text_ReceivedStoneBadge)
+	waitmessage
+	call (Common_EventScript_PlayGymBadgeFanfare)
+	msgbox (RustboroCity_Gym_Text_StoneBadgeInfoTakeThis, MSGBOX_DEFAULT)
+	setflag (FLAG_DEFEATED_RUSTBORO_GYM)
+	setflag (FLAG_BADGE01_GET)
+	setvar (VAR_0x8008, 1)
+	call (Common_EventScript_SetGymTrainers)
+	giveitem (ITEM_TM40)
+	msgbox (RustboroCity_Gym_Text_ExplainRockTomb, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    specialvar (VAR_RESULT, GetPlayerFacingDirection)
+    if (var(VAR_RESULT) == DIR_EAST) {
+        applymovement (FALKNER_ID, RustboroCity_Gym_FalknerLeaveAround)
+        waitmovement (0)
+        removeobject (FALKNER_ID)
+        setflag (FLAG_HIDE_FAT_FALKNER)
+        playse (SE_WARP_IN)
+        waitse
+        release
+        end
+    }
+    else {
+        applymovement (FALKNER_ID, RustboroCity_Gym_FalknerLeave)
+	    waitmovement (0)
+        removeobject (FALKNER_ID)
+        setflag (FLAG_HIDE_FAT_FALKNER)
+        playse (SE_WARP_IN)
+        waitse
+        release
+        end
+    }
+}
+
+movement RustboroCity_Gym_FalknerLeaveAround {
+    walk_down
+    walk_left * 2
+    walk_up
+}
+
+movement RustboroCity_Gym_FalknerLeave {
+    walk_left * 2
+}
+
+raw`
+RustboroCity_Gym_EventScript_Josh::
+	trainerbattle_single TRAINER_JOSH, RustboroCity_Gym_Text_JoshIntro, RustboroCity_Gym_Text_JoshDefeat
+	msgbox RustboroCity_Gym_Text_JoshPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+RustboroCity_Gym_EventScript_Tommy::
+	trainerbattle_single TRAINER_TOMMY, RustboroCity_Gym_Text_TommyIntro, RustboroCity_Gym_Text_TommyDefeat
+	msgbox RustboroCity_Gym_Text_TommyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+RustboroCity_Gym_EventScript_Marc::
+	trainerbattle_single TRAINER_MARC, RustboroCity_Gym_Text_MarcIntro, RustboroCity_Gym_Text_MarcDefeat
+	msgbox RustboroCity_Gym_Text_MarcPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+RustboroCity_Gym_EventScript_GymGuide::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_RUSTBORO_GYM, RustboroCity_Gym_EventScript_GymGuidePostVictory
+	msgbox RustboroCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_Gym_EventScript_GymGuidePostVictory::
+	msgbox RustboroCity_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_Gym_EventScript_LeftGymStatue::
+	lockall
+	goto_if_set FLAG_BADGE01_GET, RustboroCity_Gym_EventScript_GymStatueCertified
+	goto RustboroCity_Gym_EventScript_GymStatue
+	end
+
+RustboroCity_Gym_EventScript_RightGymStatue::
+	lockall
+	goto_if_set FLAG_BADGE01_GET, RustboroCity_Gym_EventScript_GymStatueCertified
+	goto RustboroCity_Gym_EventScript_GymStatue
+	end
+
+RustboroCity_Gym_EventScript_GymStatueCertified::
+	msgbox RustboroCity_Gym_Text_GymStatueCertified, MSGBOX_DEFAULT
+	releaseall
+	end
+
+RustboroCity_Gym_EventScript_GymStatue::
+	msgbox RustboroCity_Gym_Text_GymStatue, MSGBOX_DEFAULT
+	releaseall
+	end
+
+RustboroCity_Gym_EventScript_RegisterRoxanne::
+	lockall
+	pokenavcall RustboroCity_Gym_Text_RoxanneRegisterCall
+	waitmessage
+	delay 30
+	playfanfare MUS_REGISTER_MATCH_CALL
+	msgbox RustboroCity_Gym_Text_RegisteredRoxanne, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	delay 30
+	setflag FLAG_ENABLE_ROXANNE_MATCH_CALL
+	clearflag FLAG_ENABLE_ROXANNE_FIRST_CALL
+	releaseall
+	end
+
+RustboroCity_Gym_Text_GymGuideAdvice:
+	.string "Yo, how's it going?\p"
+	.string "Listen, my friend!\n"
+	.string "Would you like to become the CHAMPION?\p"
+	.string "I'm no TRAINER, not me, but I can\n"
+	.string "sure give you winning advice.\p"
+	.string "That's settled, then! We'll aim for the\n"
+	.string "POKéMON CHAMPIONSHIP together!\p"
+	.string "It's your job as a TRAINER to collect\n"
+	.string "GYM BADGES, am I right?\p"
+	.string "But GYM LEADERS aren't pushovers!\p"
+	.string "And that's where I come in!\n"
+	.string "I'm here to provide expert advice!\p"
+	.string "FALKNER, the GYM LEADER, is a user\n"
+	.string "of FLYING-type POKéMON.\p"
+	.string "FLYING-type POKéMON are generally\n"
+	.string "fast, but ELECTRIC-type and\l"
+	.string "ROCK-type moves will bring them back\l"
+	.string "down to earth.\p"
+	.string "Come see me afterwards, if you beat\n"
+	.string "the GYM LEADER.\p"
+	.string "Well, go for it!$"
+
+RustboroCity_Gym_Text_GymGuidePostVictory:
+	.string "Whoa! What a breathtaking victory!\n"
+	.string "My cheering must've worked!\p"
+	.string "Great!\n"
+	.string "Check your TRAINER CARD.\p"
+	.string "The ZEPHYR BADGE you got should be\n"
+	.string "properly recorded on it.\p"
+	.string "In other words…\p"
+	.string "You've climbed the first step on\n"
+	.string "the stairs to the CHAMPIONSHIP!\p"
+	.string "That's got to feel awesome!$"
+
+RustboroCity_Gym_Text_JoshIntro:
+	.string "Try not to slip and fall off!$"
+
+RustboroCity_Gym_Text_JoshDefeat:
+	.string "You were too good for me…$"
+
+RustboroCity_Gym_Text_JoshPostBattle:
+	.string "You haven't even begun to witness the\n"
+	.string "full potential of FLYING-type\l"
+	.string "POKéMON!$"
+
+RustboroCity_Gym_Text_TommyIntro:
+	.string "Hey, don't push me off the edge!$"
+
+RustboroCity_Gym_Text_TommyDefeat:
+	.string "Wow! You've got some potential!$"
+
+RustboroCity_Gym_Text_TommyPostBattle:
+	.string "Why did I join this gym?\p"
+	.string "I'm afraid of heights.$"
+
+RustboroCity_Gym_Text_MarcIntro:
+	.string "I will knock you down to earth, little\n"
+	.string "kid!$"
+
+RustboroCity_Gym_Text_MarcDefeat:
+	.string "Oh, man oh man!\n"
+	.string "Our challenger is one feisty customer!$"
+
+RustboroCity_Gym_Text_MarcPostBattle:
+	.string "Sure, FALKNER has been feeling down\n"
+	.string "lately, but he'll still wipe the floor\l"
+	.string "with you!$"
+
+RustboroCity_Gym_Text_RoxanneIntro:
+	.string "Welcome, challenger. I am FALKNER,\n"
+	.string "Violet City's gym leader and master of\l"
+	.string "the skies...\p"
+	.string "Yeah, yeah, go ahead and laugh.\p"
+	.string "Twenty years of losing to children\n"
+	.string "takes a toll on a person, you know!\p"
+	.string "But don't expect an easy win. Contrary\n"
+	.string "to the rumors going around, I still have\l"
+	.string "some fight left in me!\p"
+	.string "My losing streak ends right now!$"
+
+RustboroCity_Gym_Text_RoxanneDefeat:
+	.string "So…\n"
+	.string "I lost…\p"
+	.string "It seems my losing streak continues...\p"
+	.string "Very well, that's just the way it is...\p"
+	.string "Go on then, take this ZEPHYR BADGE...$"
+
+RustboroCity_Gym_Text_ReceivedStoneBadge:
+	.string "{PLAYER} received the ZEPHYR BADGE\n"
+	.string "from FALKNER.$"
+
+RustboroCity_Gym_Text_StoneBadgeInfoTakeThis:
+	.string "That badge will enable your POKéMON to\n"
+	.string "use the HM move CUT outside of battle.\p"
+	.string "Oh, I suppose you can have this too...$"
+
+RustboroCity_Gym_Text_ExplainRockTomb:
+	.string "TM40 contains AERIAL ACE...\p"
+	.string "It's a move...\p"
+	.string "No...\p"
+	.string "You know what! I'm done with this.\p"
+	.string "I can't allow this losing streak to keep\n"
+	.string "tormenting me day after day!\p"
+	.string "...\p"
+	.string "I'm going to train along with my POKéMON\n"
+	.string "until I can't take another step, until\l"
+	.string "my body runs out of sweat!\p"
+	.string "I'm making a vow right now.\p"
+	.string "The next time you see me, I will not be\n"
+	.string "the laughingstock of gym leaders!\p"
+	.string "The name FALKNER will strike fear into\n"
+	.string "the hearts of everyone.\p"
+	.string "Mark my words...$"
+
+RustboroCity_Gym_Text_RoxannePostBattle:
+	.string "Since you are so strong, you should\n"
+	.string "challenge other GYM LEADERS.\p"
+	.string "By battling many TRAINERS, you should\n"
+	.string "learn many things.$"
+
+RustboroCity_Gym_Text_GymStatue:
+	.string "VIOLET CITY POKéMON GYM$"
+
+RustboroCity_Gym_Text_GymStatueCertified:
+	.string "VIOLET CITY POKéMON GYM\p"
+	.string "FALKNER'S CERTIFIED TRAINERS:\n"
+	.string "{PLAYER}$"
+
+RustboroCity_Gym_Text_RoxanneRegisterCall:
+	.string "… … … … … …\n"
+	.string "… … … … … Beep!\p"
+	.string "ROXANNE: Oh, hello, {PLAYER}?\n"
+	.string "This is ROXANNE of RUSTBORO CITY.\p"
+	.string "I heard from BRAWLY that you're\n"
+	.string "moving up through the ranks of\l"
+	.string "TRAINERS at an incredible clip.\p"
+	.string "Well, I'd rather not think that\n"
+	.string "I can't beat you.\p"
+	.string "I promise, I will shape up my GYM\n"
+	.string "so that you may challenge us again.\p"
+	.string "I hope you'll be looking forward to\n"
+	.string "that occasion as much as me!\p"
+	.string "… … … … … …\n"
+	.string "… … … … … Click!$"
+
+RustboroCity_Gym_Text_RegisteredRoxanne:
+	.string "Registered GYM LEADER ROXANNE\n"
+	.string "in the POKéNAV.$"
+`

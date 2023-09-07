@@ -101,7 +101,7 @@ RustboroCity_EventScript_BridgeMan_Text_0:
 	.string "Sage if he deems you worthy of it.$"
 
 RustboroCity_EventScript_NinjaBoy_Text_0:
-	.string "FLYING type POKéMON really are the\n"
+	.string "FLYING-type POKéMON really are the\n"
 	.string "best, don't you agree?$"
 
 RustboroCity_EventScript_Rt36Guy_Text_0:
@@ -124,8 +124,8 @@ RustboroCity_EventScript_BlondeMan_Text_0:
 
 RustboroCity_EventScript_GymGuy_Text_0:
 	.string "The gym leader here is a pushover.\p"
-	.string "He uses FLYING type POKéMON, but ROCK\n"
-	.string "type POKéMON and ELECTRIC type\l"
+	.string "He uses FLYING-type POKéMON, but\n"
+	.string "ROCK-type POKéMON and ELECTRIC-type\l"
 	.string "POKéMON are so easy to find around\l"
 	.string "here.$"
 

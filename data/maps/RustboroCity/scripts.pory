@@ -30,7 +30,7 @@ script RustboroCity_EventScript_BridgeMan {
 }
 
 script RustboroCity_EventScript_NinjaBoy {
-	msgbox (format("FLYING type POKéMON really are the best, don't you agree?"), MSGBOX_NPC)
+	msgbox (format("FLYING-type POKéMON really are the best, don't you agree?"), MSGBOX_NPC)
 	end
 }
 
@@ -50,7 +50,7 @@ script RustboroCity_EventScript_BlondeMan {
 }
 
 script RustboroCity_EventScript_GymGuy {
-	msgbox (format("The gym leader here is a pushover.\pHe uses FLYING type POKéMON, but ROCK type POKéMON and ELECTRIC type POKéMON are so easy to find around here."), MSGBOX_NPC)
+	msgbox (format("The gym leader here is a pushover.\pHe uses FLYING-type POKéMON, but ROCK-type POKéMON and ELECTRIC-type POKéMON are so easy to find around here."), MSGBOX_NPC)
 	end
 }
 

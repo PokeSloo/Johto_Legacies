@@ -83,7 +83,7 @@ MtPyre_5F_Main::
 	closemessage
 	delay 30
 	setflag FLAG_ENABLE_PROF_BIRCH_MATCH_CALL
-	setflag FLAG_ENABLE_WALLY_MATCH_CALL
+	setflag FLAG_ENABLE_SCOTT_MATCH_CALL
 	msgbox MtPyre_5F_Main_Text_3
 	waitmessage
 	closemessage

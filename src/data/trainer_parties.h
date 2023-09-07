@@ -3363,23 +3363,23 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne1[] = {
     {
     .iv = 100,
     .lvl = 12,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_PIKIPEK,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_TACKLE, MOVE_DEFENSE_CURL, MOVE_ROCK_THROW, MOVE_ROCK_TOMB}
+    .moves = {MOVE_AERIAL_ACE, MOVE_ECHOED_VOICE, MOVE_ROCK_SMASH, MOVE_TAILWIND}
     },
     {
     .iv = 100,
     .lvl = 12,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_HOOTHOOT,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_TACKLE, MOVE_DEFENSE_CURL, MOVE_ROCK_THROW, MOVE_ROCK_TOMB}
+    .moves = {MOVE_AERIAL_ACE, MOVE_CONFUSION, MOVE_HYPNOSIS, MOVE_WHIRLWIND}
     },
     {
     .iv = 200,
-    .lvl = 15,
-    .species = SPECIES_NOSEPASS,
+    .lvl = 14,
+    .species = SPECIES_PIDGEOTTO,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = {MOVE_BLOCK, MOVE_HARDEN, MOVE_TACKLE, MOVE_ROCK_TOMB}
+    .moves = {MOVE_AERIAL_ACE, MOVE_SAND_ATTACK, MOVE_QUICK_ATTACK, MOVE_GUST}
     }
 };
 
@@ -4223,8 +4223,8 @@ static const struct TrainerMonNoItemCustomMoves sParty_Josh[] = {
     {
     .iv = 100,
     .lvl = 10,
-    .species = SPECIES_GEODUDE,
-    .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .species = SPECIES_TAILLOW,
+    .moves = {MOVE_QUICK_ATTACK, MOVE_PECK, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -4232,12 +4232,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Tommy[] = {
     {
     .iv = 110,
     .lvl = 8,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_FLETCHLING,
     },
     {
     .iv = 120,
     .lvl = 8,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_WINGULL,
     }
 };
 
@@ -7661,12 +7661,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Marc[] = {
     {
     .iv = 120,
     .lvl = 8,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_PIKIPEK,
     },
     {
     .iv = 130,
     .lvl = 8,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_HOPPIP,
     }
 };
 
@@ -9894,7 +9894,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Camron[] = {
     {
     .iv = 0,
     .lvl = 6,
-    .species = SPECIES_YUNGOOS,
+    .species = SPECIES_LITLEO,
     }
 };
 

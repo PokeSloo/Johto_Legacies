@@ -177,7 +177,7 @@ static const match_call_text_data_t sMrStoneTextScripts[] = {
 static const struct MatchCallStructNPC sMrStoneMatchCallHeader =
 {
     .type = MC_TYPE_NPC,
-    .mapSec = MAPSEC_RUSTBORO_CITY,
+    .mapSec = MAPSEC_OLDALE_TOWN,
     .flag = 0xFFFF,
     .desc = gText_MrStoneMatchCallDesc,
     .name = gText_MrStoneMatchCallName,
@@ -211,7 +211,7 @@ static const struct MatchCallStructTrainer sNormanMatchCallHeader =
 static const struct MatchCallBirch sProfBirchMatchCallHeader =
 {
     .type = MC_TYPE_BIRCH,
-    .mapSec = 0,
+    .mapSec = MAPSEC_LITTLEROOT_TOWN,
     .flag = FLAG_ENABLE_PROF_BIRCH_MATCH_CALL,
     .desc = gText_ProfBirchMatchCallDesc,
     .name = gText_ProfBirchMatchCallName
@@ -227,7 +227,7 @@ static const match_call_text_data_t sMomTextScripts[] = {
 static const struct MatchCallStructNPC sMomMatchCallHeader =
 {
     .type = MC_TYPE_NPC,
-    .mapSec = MAPSEC_LITTLEROOT_TOWN,
+    .mapSec = MAPSEC_OLDALE_TOWN,
     .flag = FLAG_ENABLE_MOM_MATCH_CALL,
     .desc = gText_MomMatchCallDesc,
     .name = gText_MomMatchCallName,
