@@ -60,7 +60,7 @@
 #define FLAG_OLIVER_CATACOMBS_FALL    0x30 // Right after the fall
 #define FLAG_OLIVER_CATACOMBS_RESEARCH    0x31 // After fall event
 #define FLAG_TERRA_CAVE_OPEN    0x32 // On route 32
-#define FLAG_HIDE_SHANE_AZALEA    0x33 // Before he leaves the gym
+#define FLAG_RECEIVED_IRON_BALL    0x33 // From gate guard left of Violet
 #define FLAG_RECEIVED_SHANE_CALL_RT32    0x34 // Self explanatory
 #define FLAG_UNUSED_0x035    0x35 // Unused Flag
 #define FLAG_UNUSED_0x036    0x36 // Unused Flag

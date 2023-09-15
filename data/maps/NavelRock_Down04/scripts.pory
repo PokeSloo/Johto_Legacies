@@ -1,0 +1,6 @@
+mapscripts NavelRock_Down04_MapScripts {}
+
+script NavelRock_Down04_EventScript_Guard {
+    msgbox (format("Go on through.\pIt's not like I could stop you anyway, being stuck behind this counter."), MSGBOX_NPC)
+    end
+}

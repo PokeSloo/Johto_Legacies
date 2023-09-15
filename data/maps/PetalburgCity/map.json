@@ -218,7 +218,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_WALLACE",
       "x": 22,
-      "y": 33,
+      "y": 32,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -226,7 +226,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_SHANE_AZALEA"
+      "flag": "FLAG_GENERAL_HIDE"
     }
   ],
   "warp_events": [
