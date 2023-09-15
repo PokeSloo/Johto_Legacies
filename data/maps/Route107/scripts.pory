@@ -137,7 +137,7 @@ Route107_EventScript_Camron::
 	end
 `
 script Route107_EventScript_RuinsSign {
-    msgbox (format("RUINS OF ALPH\nNorth Entrance"), MSGBOX_SIGN)
+    msgbox (format("RUINS OF ALPH\n{DOWN_ARROW} North Entrance"), MSGBOX_SIGN)
     end
 }
 

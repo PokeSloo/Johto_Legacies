@@ -1,0 +1,324 @@
+mapscripts Route104_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        if (flag(FLAG_TERRA_CAVE_OPEN)) {
+            setmetatile (22, 63, 0x0A7, FALSE)
+            setmetatile (22, 62, 0x064, TRUE)
+            return
+        }
+        end
+    }
+}
+
+script Route104_EventScript_ShaneCallTrigger {
+    lockall
+    if (!flag(FLAG_RECEIVED_SHANE_CALL_RT32)){
+        pokenavcall ("SHANE: Hey!\pI can't believe you went and told MOM\non me!\pI was just playing around.\pStop being such a baby about\neverything and learn to stick up\lfor yourself.\pLoser.")
+        waitmessage
+        setflag(FLAG_RECEIVED_SHANE_CALL_RT32)
+        release
+        end
+    }
+    releaseall
+    end
+}
+
+raw`
+Route104_EventScript_WhiteHerbFlorist::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_WHITE_HERB, Route104_EventScript_ReceivedWhiteHerb
+	msgbox Route104_Text_DontNeedThisTakeIt, MSGBOX_DEFAULT
+	giveitem ITEM_WHITE_HERB
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_WHITE_HERB
+	release
+	end
+
+Route104_EventScript_ReceivedWhiteHerb::
+	msgbox Route104_Text_FlowerShopSellingSaplings, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_Girl1::
+	msgbox Route104_Text_BrineyLivesInSeasideCottage, MSGBOX_NPC
+	end
+
+Route104_EventScript_BugCatcher::
+	msgbox Route104_Text_WhatsItLikeAtBottomOfSea, MSGBOX_SIGN
+	end
+
+Route104_EventScript_BrineysCottageSign::
+	msgbox Route104_Text_MrBrineysCottage, MSGBOX_SIGN
+	end
+
+Route104_EventScript_RouteSignPetalburg::
+	msgbox Route104_Text_RouteSignPetalburg, MSGBOX_SIGN
+	end
+
+Route104_EventScript_RouteSignRustboro::
+	msgbox Route104_Text_RouteSignRustboro, MSGBOX_SIGN
+	end
+
+Route104_EventScript_FlowerShopSign::
+	msgbox Route104_Text_PrettyPetalFlowShop, MSGBOX_SIGN
+	end
+
+Route104_EventScript_TrainerTipsDoubleBattles::
+	msgbox Route104_Text_TrainerTipsDoubleBattles, MSGBOX_SIGN
+	end
+
+Route104_EventScript_Boy1::
+	msgbox Route104_Text_ThrowBallAtWeakenedPokemon, MSGBOX_NPC
+	end
+
+Route104_EventScript_Woman::
+	msgbox Route104_Text_OnlyThrowBallAtWildPokemon, MSGBOX_NPC
+	end
+
+Route104_EventScript_Boy2::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_TM11, Route104_EventScript_ReceivedBulletSeed
+	msgbox Route104_Text_LikeFillingMouthWithSeedsTakeThis, MSGBOX_DEFAULT
+	giveitem ITEM_TM11
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_TM11
+	release
+	end
+
+Route104_EventScript_ReceivedBulletSeed::
+	msgbox Route104_Text_TMsAreOneTimeUse, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_Girl2::
+	msgbox Route104_Text_ImNotATrainer, MSGBOX_NPC
+	end
+
+Route104_EventScript_Ivan::
+	trainerbattle_single TRAINER_IVAN, Route104_Text_IvanIntro, Route104_Text_IvanDefeat
+	msgbox Route104_Text_IvanPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route104_EventScript_Billy::
+	trainerbattle_single TRAINER_BILLY, Route104_Text_BillyIntro, Route104_Text_BillyDefeat
+	msgbox Route104_Text_BillyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route104_EventScript_Haley::
+	trainerbattle_single TRAINER_HALEY_1, Route104_Text_HaleyIntro, Route104_Text_HaleyDefeat, Route104_EventScript_TryRegisterHaleyAfterBattle
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, Route104_EventScript_RematchHaley
+	setvar VAR_0x8004, TRAINER_HALEY_1
+	specialvar VAR_RESULT, IsTrainerRegistered
+	goto_if_eq VAR_RESULT, FALSE, Route104_EventScript_TryRegisterHaley
+	msgbox Route104_Text_HaleyPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_TryRegisterHaleyAfterBattle::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterHaleyAfterBattle
+	release
+	end
+
+Route104_EventScript_RegisterHaleyAfterBattle::
+	msgbox Route104_Text_HaleyRegister2, MSGBOX_DEFAULT
+	register_matchcall TRAINER_HALEY_1
+	release
+	end
+
+Route104_EventScript_TryRegisterHaley::
+	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterHaley
+	msgbox Route104_Text_HaleyPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_RegisterHaley::
+	msgbox Route104_Text_HaleyRegister1, MSGBOX_DEFAULT
+	register_matchcall TRAINER_HALEY_1
+	release
+	end
+
+Route104_EventScript_RematchHaley::
+	trainerbattle_rematch TRAINER_HALEY_1, Route104_Text_HaleyRematchIntro, Route104_Text_HaleyRematchDefeat
+	msgbox Route104_Text_HaleyPostRematch, MSGBOX_AUTOCLOSE
+	end
+
+Route104_EventScript_Winston::
+	trainerbattle_single TRAINER_WINSTON_1, Route104_Text_WinstonIntro, Route104_Text_WinstonDefeat, Route104_EventScript_TryRegisterWinstonAfterBattle
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, Route104_EventScript_RematchWinston
+	setvar VAR_0x8004, TRAINER_WINSTON_1
+	specialvar VAR_RESULT, IsTrainerRegistered
+	goto_if_eq VAR_RESULT, FALSE, Route104_EventScript_TryRegisterWinston
+	msgbox Route104_Text_WinstonPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_TryRegisterWinstonAfterBattle::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterWinstonAfterBattle
+	release
+	end
+
+Route104_EventScript_RegisterWinstonAfterBattle::
+	msgbox Route104_Text_WinstonRegister2, MSGBOX_DEFAULT
+	register_matchcall TRAINER_WINSTON_1
+	release
+	end
+
+Route104_EventScript_TryRegisterWinston::
+	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterWinston
+	msgbox Route104_Text_WinstonPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_RegisterWinston::
+	msgbox Route104_Text_WinstonRegister1, MSGBOX_DEFAULT
+	register_matchcall TRAINER_WINSTON_1
+	release
+	end
+
+Route104_EventScript_RematchWinston::
+	trainerbattle_rematch TRAINER_WINSTON_1, Route104_Text_WinstonRematchIntro, Route104_Text_WinstonRematchDefeat
+	msgbox Route104_Text_WinstonPostRematch, MSGBOX_AUTOCLOSE
+	end
+
+Route104_EventScript_Cindy::
+	trainerbattle_single TRAINER_CINDY_1, Route104_Text_CindyIntro, Route104_Text_CindyDefeat, Route104_EventScript_TryRegisterCindyAfterBattle
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, Route104_EventScript_RematchCindy
+	setvar VAR_0x8004, TRAINER_CINDY_1
+	specialvar VAR_RESULT, IsTrainerRegistered
+	goto_if_eq VAR_RESULT, FALSE, Route104_EventScript_TryRegisterCindy
+	msgbox Route104_Text_CindyPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_TryRegisterCindyAfterBattle::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterCindyAfterBattle
+	release
+	end
+
+Route104_EventScript_RegisterCindyAfterBattle::
+	msgbox Route104_Text_CindyRegister2, MSGBOX_DEFAULT
+	register_matchcall TRAINER_CINDY_1
+	release
+	end
+
+Route104_EventScript_TryRegisterCindy::
+	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterCindy
+	msgbox Route104_Text_CindyPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_RegisterCindy::
+	msgbox Route104_Text_CindyRegister1, MSGBOX_DEFAULT
+	register_matchcall TRAINER_CINDY_1
+	release
+	end
+
+Route104_EventScript_RematchCindy::
+	trainerbattle_rematch TRAINER_CINDY_1, Route104_Text_CindyRematchIntro, Route104_Text_CindyRematchDefeat
+	msgbox Route104_Text_CindyPostRematch, MSGBOX_AUTOCLOSE
+	end
+
+Route104_EventScript_Gina::
+	trainerbattle_double TRAINER_GINA_AND_MIA_1, Route104_Text_GinaIntro, Route104_Text_GinaDefeat, Route104_Text_GinaNotEnoughMons
+	special GetPlayerBigGuyGirlString
+	msgbox Route104_Text_GinaPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_Mia::
+	trainerbattle_double TRAINER_GINA_AND_MIA_1, Route104_Text_MiaIntro, Route104_Text_MiaDefeat, Route104_Text_MiaNotEnoughMons
+	special GetPlayerBigGuyGirlString
+	msgbox Route104_Text_MiaPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_Darian::
+	trainerbattle_single TRAINER_DARIAN, Route104_Text_DarianIntro, Route104_Text_DarianDefeat
+	msgbox Route104_Text_DarianPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route104_Text_BrineyLivesInSeasideCottage:
+	.string "That seaside cottage is where\n"
+	.string "MR. BRINEY lives.\p"
+	.string "He was once a mighty sailor who never\n"
+	.string "feared the sea, however stormy.$"
+
+Route104_Text_WhatsItLikeAtBottomOfSea:
+	.string "The sea, huh?\p"
+	.string "I wonder what it's like at the bottom\n"
+	.string "of the sea?$"
+
+Route104_Text_ThrowBallAtWeakenedPokemon:
+	.string "If you're going to throw a POKé BALL,\n"
+	.string "weaken the wild POKéMON first.\p"
+	.string "It will be easier to catch if it's been\n"
+	.string "poisoned, burned, or lulled to sleep.$"
+
+Route104_Text_OnlyThrowBallAtWildPokemon:
+	.string "If only I had HM01, I could cut down\n"
+	.string "that little tree.\p"
+	.string "I don't know whose bright idea it was to\n"
+	.string "plant it there.$"
+
+Route104_Text_ImNotATrainer:
+	.string "Oh, no, I'm not a TRAINER.\p"
+	.string "But that's right, if TRAINERS lock eyes,\n"
+	.string "it's a challenge to battle.\p"
+	.string "If you don't want to battle, stay out\n"
+	.string "of their sight.$"
+
+Route104_Text_LikeFillingMouthWithSeedsTakeThis:
+	.string "Such a lovely day today, I love being\n"
+	.string "out in the sunlight.\p"
+	.string "Here, you can have this. Bring the\n"
+	.string "sunlight with you wherever you go.$"
+
+Route104_Text_TMsAreOneTimeUse:
+	.string "A word of advice:\p"
+	.string "A TM, TECHNICAL MACHINE, is good only\n"
+	.string "for one-time use.\p"
+	.string "Once you use it, it's gone.\n"
+	.string "Think twice before using it...$"
+
+Route104_Text_DontNeedThisTakeIt:
+	.string "This FLOWER SHOP started selling\n"
+	.string "saplings recently.\p"
+	.string "It made me so happy, I went overboard\n"
+	.string "shopping.\p"
+	.string "I don't need this WHITE HERB anymore.\n"
+	.string "Would you take it, please?$"
+
+Route104_Text_FlowerShopSellingSaplings:
+	.string "This FLOWER SHOP started selling\n"
+	.string "saplings recently.\p"
+	.string "It made me so happy, I went overboard\n"
+	.string "shopping. Where should I put them?$"
+
+Route104_Text_MrBrineysCottage:
+	.string "UNION CAVE$"
+
+Route104_Text_RouteSignPetalburg:
+	.string "RUINS OF ALPH\n"
+	.string "{LEFT_ARROW} East Entrance$"
+
+Route104_Text_RouteSignRustboro:
+	.string "ROUTE 1O4\n"
+	.string "{UP_ARROW} RUSTBORO CITY$"
+
+Route104_Text_PrettyPetalFlowShop:
+	.string "PRETTY PETAL FLOWER SHOP$"
+
+Route104_Text_TrainerTipsDoubleBattles:
+	.string "ROUTE 32\n"
+	.string "{DOWN_ARROW} South to AZALEA TOWN$"
+`

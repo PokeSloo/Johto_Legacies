@@ -147,7 +147,7 @@ Route107_EventScript_RouteSign::
 
 Route107_EventScript_RuinsSign_Text_0:
 	.string "RUINS OF ALPH\n"
-	.string "North Entrance$"
+	.string "{DOWN_ARROW} North Entrance$"
 
 Route107_EventScript_RouteSign_Text_0:
 	.string "ROUTE 36\n"

@@ -59,9 +59,9 @@
 #define FLAG_RUINS_ROOM_OPEN    0x2F // Ruins of alph secret room
 #define FLAG_OLIVER_CATACOMBS_FALL    0x30 // Right after the fall
 #define FLAG_OLIVER_CATACOMBS_RESEARCH    0x31 // After fall event
-#define FLAG_UNUSED_0x032    0x32 // Unused Flag
-#define FLAG_UNUSED_0x033    0x33 // Unused Flag
-#define FLAG_UNUSED_0x034    0x34 // Unused Flag
+#define FLAG_TERRA_CAVE_OPEN    0x32 // On route 32
+#define FLAG_HIDE_SHANE_AZALEA    0x33 // Before he leaves the gym
+#define FLAG_RECEIVED_SHANE_CALL_RT32    0x34 // Self explanatory
 #define FLAG_UNUSED_0x035    0x35 // Unused Flag
 #define FLAG_UNUSED_0x036    0x36 // Unused Flag
 #define FLAG_UNUSED_0x037    0x37 // Unused Flag
@@ -283,7 +283,7 @@
 #define FLAG_RETURNED_RED_OR_BLUE_ORB        0x103
 #define FLAG_RECEIVED_TM49                   0x104
 #define FLAG_RECEIVED_TM28                   0x105
-#define FLAG_RECEIVED_TM09                   0x106
+#define FLAG_RECEIVED_TM11                   0x106
 #define FLAG_ENTERED_ELITE_FOUR              0x107
 #define FLAG_RECEIVED_TM10                   0x108
 #define FLAG_RECEIVED_TM41                   0x109

@@ -3011,9 +3011,9 @@ static const u8 sEnigmaBerryEReaderDesc[] = _(
 
 // TMs/HMs
 static const u8 sTM01Desc[] = _(
-    "Powerful, but makes\n"
-    "the user flinch if\n"
-    "hit by the foe.");
+    "Attacks with a\n"
+    "horrible aura. May\n"
+    "cause flinching.");
 
 static const u8 sTM02Desc[] = _(
     "Hooks and slashes\n"
@@ -3021,9 +3021,9 @@ static const u8 sTM02Desc[] = _(
     "sharp claws.");
 
 static const u8 sTM03Desc[] = _(
-    "Generates an\n"
-    "ultrasonic wave\n"
-    "that may confuse.");
+    "Shoots boiling water\n"
+    "at the foe.\n"
+    "May inflict a burn.");
 
 static const u8 sTM04Desc[] = _(
     "Raises Sp. Atk and\n"
@@ -3051,9 +3051,9 @@ static const u8 sTM08Desc[] = _(
     "Attack & Defense.");
 
 static const u8 sTM09Desc[] = _(
-    "Shoots 2 to 5 seeds\n"
-    "in a row to strike\n"
-    "the foe.");
+    "A snare attack that\n"
+    "does more damage\n"
+    "to heavier foes.");
 
 static const u8 sTM10Desc[] = _(
     "The attack power\n"
@@ -3121,9 +3121,9 @@ static const u8 sTM22Desc[] = _(
     "attacks next turn.");
 
 static const u8 sTM23Desc[] = _(
-    "Slams the foe with\n"
-    "a hard tail. It may\n"
-    "lower Defense.");
+    "Restores the user's\n"
+    "HP by half of its\n"
+    "max HP.");
 
 static const u8 sTM24Desc[] = _(
     "A powerful electric\n"
@@ -3176,9 +3176,9 @@ static const u8 sTM33Desc[] = _(
     "physical attacks.");
 
 static const u8 sTM34Desc[] = _(
-    "Zaps the foe with a\n"
-    "jolt of electricity\n"
-    "that never misses.");
+    "Slashes the foe\n"
+    "with crossed scythes\n"
+    "claws, etc.");
 
 static const u8 sTM35Desc[] = _(
     "Looses a stream of\n"
@@ -3201,9 +3201,9 @@ static const u8 sTM38Desc[] = _(
     "burn the foe.");
 
 static const u8 sTM39Desc[] = _(
-    "Stops the foe from\n"
-    "moving with rocks.\n"
-    "May lower Speed.");
+    "Stabs the foe with\n"
+    "stones. Has a high\n"
+    "critical hit ratio.");
 
 static const u8 sTM40Desc[] = _(
     "An extremely fast\n"
@@ -3221,9 +3221,9 @@ static const u8 sTM42Desc[] = _(
     "or paralyzed.");
 
 static const u8 sTM43Desc[] = _(
-    "Adds an effect to\n"
-    "attack depending\n"
-    "on the location.");
+    "An attack that\n"
+    "absorbs over half\n"
+    "the damage inflicted.");
 
 static const u8 sTM44Desc[] = _(
     "The user sleeps for\n"
@@ -3246,14 +3246,14 @@ static const u8 sTM47Desc[] = _(
     "slams into the foe.");
 
 static const u8 sTM48Desc[] = _(
-    "Switches abilities\n"
-    "with the foe on the\n"
-    "turn this is used.");
+    "Does damage then\n"
+    "switches out the\n"
+    "user.");
 
 static const u8 sTM49Desc[] = _(
-    "Steals the effects\n"
-    "of the move the foe\n"
-    "is trying to use.");
+    "Damages foes by\n"
+    "emitting a bright\n"
+    "flash.");
 
 static const u8 sTM50Desc[] = _(
     "Enables full-power\n"
