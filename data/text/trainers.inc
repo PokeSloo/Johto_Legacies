@@ -248,45 +248,41 @@ Route103_Text_MarcosPostBattle:
 	.string "Heh, maybe I should turn pro.$"
 
 Route104_Text_GinaIntro:
-	.string "GINA: Okay, let's battle with our\n"
-	.string "POKéMON!$"
+	.string "TINA: Are you prepared for a double\n"
+	.string "battle?$"
 
 Route104_Text_GinaDefeat:
-	.string "GINA: Losing upsets me!$"
+	.string "TINA: Losing upsets me!$"
 
 Route104_Text_GinaPostBattle:
-	.string "GINA: You are strong!\n"
+	.string "TINA: You are strong!\n"
 	.string "We have to train lots more!$"
 
 Route104_Text_GinaNotEnoughMons:
-	.string "GINA: Oh? Only one POKéMON?\n"
-	.string "Then, we don't battle with you.\p"
-	.string "If there's only one POKéMON, it will\n"
-	.string "be lonesome. That's not nice.$"
+	.string "TINA: Oh, it looks like you aren't\n"
+	.string "prepared for a double battle.\p"
+	.string "You will need more than one POKéMON.$"
 
 Route104_Text_MiaIntro:
-	.string "MIA: We are twins, so we battle\n"
-	.string "POKéMON together.$"
+	.string "MAI: Us twins do everything\n"
+	.string "together, even POKéMON battles!$"
 
 Route104_Text_MiaDefeat:
-	.string "MIA: We battled together, but we\n"
+	.string "MAI: We battled together, but we\n"
 	.string "both lost…$"
 
 Route104_Text_MiaPostBattle:
-	.string "MIA: We will train our POKéMON more\n"
+	.string "MAI: We will train our POKéMON more\n"
 	.string "and be strong like you.$"
 
 Route104_Text_MiaNotEnoughMons:
-	.string "MIA: You want to battle with us?\p"
-	.string "It's a big no-no if you don't have two\n"
-	.string "POKéMON with you.\l"
-	.string "We're too strong for you!$"
+	.string "MAI: Sorry, but you will have to bring\n"
+	.string "more POKéMON if you want to battle us.$"
 
 Route104_Text_IvanIntro:
-	.string "Why keep it a secret?\n"
-	.string "I'm the WATER POKéMON expert!\p"
-	.string "Huh?\n"
-	.string "You don't know me?$"
+	.string "I'm one of the best fishermen around.\p"
+	.string "What?\p"
+	.string "You don't believe me?$"
 
 Route104_Text_IvanDefeat:
 	.string "I thought I wasn't too bad, if I may\n"
@@ -297,17 +293,16 @@ Route104_Text_IvanPostBattle:
 	.string "I forgot I had to raise my POKéMON…$"
 
 Route104_Text_BillyIntro:
-	.string "Leaving footprints in the sand is\n"
-	.string "so fun!$"
+	.string "Hey, you look like a weakling!\p"
+	.string "This will be easy.$"
 
 Route104_Text_BillyDefeat:
-	.string "Waah! I got sand in my runners!\n"
-	.string "They're all gritty!$"
+	.string "You should have told me you weren't a\n"
+	.string "weakling.$"
 
 Route104_Text_BillyPostBattle:
-	.string "I want to leave my footprints in\n"
-	.string "the sand everywhere, but they\l"
-	.string "disappear quickly…$"
+	.string "I'm looking for weak TRAINERS to battle\n"
+	.string "to practice on.$"
 
 Route104_Text_HaleyIntro:
 	.string "Should I…\n"
@@ -349,26 +344,26 @@ Route104_Text_HaleyPostRematch:
 
 Route104_Text_WinstonIntro:
 	.string "Oh, sure, I'll accept your challenge.\n"
-	.string "I have a lot of money.$"
+	.string "You don't look very tough to me.$"
 
 Route104_Text_WinstonDefeat:
 	.string "Why couldn't I win?$"
 
 Route104_Text_WinstonPostBattle:
-	.string "There are some things money can't buy.\n"
-	.string "That's POKéMON…$"
+	.string "You're tougher than you look, but can\n"
+	.string "you survive camping in Mt. Mortar?$"
 
 Route104_Text_WinstonRegister1:
-	.string "Hm?\n"
-	.string "Ah, you've obtained a POKéNAV.\p"
-	.string "I will gladly register you.\n"
-	.string "After all, I have plenty of money.$"
+	.string "...\p"
+	.string "What's that?\p"
+	.string "You want to register me in your\n"
+	.string "POKéNAV?$"
 
 Route104_Text_WinstonRegister2:
-	.string "Hm?\n"
-	.string "Ah, you've obtained a POKéNAV.\p"
-	.string "I will gladly register you.\n"
-	.string "After all, I have plenty of money.$"
+	.string "...\p"
+	.string "What's that?\p"
+	.string "You want to register me in your\n"
+	.string "POKéNAV?$"
 
 Route104_Text_WinstonRematchIntro:
 	.string "After I lost to you, I learned a bunch\n"
@@ -379,20 +374,19 @@ Route104_Text_WinstonRematchDefeat:
 	.string "Why couldn't I win?$"
 
 Route104_Text_WinstonPostRematch:
-	.string "I'm fabulously wealthy, but I can't\n"
-	.string "seem to win at POKéMON…\p"
-	.string "It's so deep, the world of POKéMON…$"
+	.string "You're tougher than you look, but can\n"
+	.string "you survive camping in Mt. Silver?$"
 
 Route104_Text_CindyIntro:
-	.string "We must have been fated to meet.\n"
-	.string "May I ask you for a battle?$"
+	.string "Maybe you can satisfy my need for a\n"
+	.string "strong opponent, my boyfriend never\l"
+	.string "puts up much of a challenge.$"
 
 Route104_Text_CindyDefeat:
 	.string "Oh, my!$"
 
 Route104_Text_CindyPostBattle:
-	.string "“Hello” is the beginning of “good-bye.”\n"
-	.string "I hope we meet again.$"
+	.string "You sure know how to please a woman.$"
 
 Route104_Text_CindyRegister1:
 	.string "Hello, we meet again.\p"
@@ -400,34 +394,32 @@ Route104_Text_CindyRegister1:
 	.string "register each other in our POKéNAVS.$"
 
 Route104_Text_CindyRegister2:
-	.string "We should commemorate how we seem\n"
-	.string "to be drawn to each other.\p"
+	.string "That was so much fun!\p"
 	.string "Let's register each other in our\n"
 	.string "POKéNAVS.$"
 
 Route104_Text_CindyRematchIntro:
 	.string "Hello, we meet again.\n"
-	.string "May I ask you for a battle?$"
+	.string "Will you satisfy my needs this time?$"
 
 Route104_Text_CindyRematchDefeat:
 	.string "Oh, my…\n"
-	.string "I did the best that I could…$"
+	.string "Consider me satisfied…$"
 
 Route104_Text_CindyPostRematch:
-	.string "“Hello” is the beginning of “good-bye.”\n"
-	.string "I hope we meet again.$"
+	.string "That was fun, we should do this again\n"
+	.string "sometime.$"
 
 Route104_Text_DarianIntro:
-	.string "I fished up a tough-looking POKéMON!\p"
-	.string "It has this magical quality to it!\n"
-	.string "It surely looks tough, yes it does!$"
+	.string "You can fish up better POKéMON with\n"
+	.string "better rods.\p"
+	.string "Let me show you!$"
 
 Route104_Text_DarianDefeat:
 	.string "What the…$"
 
 Route104_Text_DarianPostBattle:
-	.string "Hey, MAGIKARP, you sure don't live up\n"
-	.string "to your name, do you?$"
+	.string "I guess you had the better POKéMON.$"
 
 Route105_Text_FosterIntro:
 	.string "There's supposed to be a mystical\n"
