@@ -1,0 +1,150 @@
+const SHANE_LOCAL_ID = 16
+const FOREST_GRUNT_ID = 14
+
+raw`
+PetalburgCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgCity_OnTransition
+	.byte 0
+
+PetalburgCity_OnTransition:
+	setflag FLAG_VISITED_PETALBURG_CITY
+	end
+
+PetalburgCity_EventScript_WallysMom::
+	msgbox PetalburgCity_Text_WhereIsWally, MSGBOX_NPC
+	end
+
+PetalburgCity_EventScript_GymSign::
+	msgbox PetalburgCity_Text_GymSign, MSGBOX_SIGN
+	end
+
+PetalburgCity_EventScript_CitySign::
+	msgbox PetalburgCity_Text_CitySign, MSGBOX_SIGN
+	end
+
+PetalburgCity_EventScript_Gentleman::
+	msgbox PetalburgCity_Text_FullPartyExplanation, MSGBOX_NPC
+	end
+
+PetalburgCity_EventScript_WallyHouseSign::
+	msgbox PetalburgCity_Text_WallyHouseSign, MSGBOX_SIGN
+	end
+
+PetalburgCity_EventScript_GymBoy::
+	msgbox PetalburgCity_Text_AreYouRookieTrainer, MSGBOX_NPC
+	end
+
+PetalburgCity_Text_WhereIsWally:
+	.string "Have you visited the POKéBALL FACTORY\n"
+	.string "in town?\p"
+	.string "They sell a unique assortment of\n"
+	.string "POKéBALLs that you can't buy anywhere\l"
+	.string "else.$"
+
+PetalburgCity_Text_AreYouRookieTrainer:
+	.string "My friends and I like to go mushroom\n"
+	.string "hunting in Ilex Forest.\p"
+	.string "There's a guy in town who collects them,\n"
+	.string "you know.$"
+
+PetalburgCity_Text_FullPartyExplanation:
+	.string "You know, when I was younger, a shady\n"
+	.string "group of characters came to our town\l"
+	.string "and tried to cut off the tails of our\l"
+	.string "Slowpoke to sell.\p"
+	.string "A brave young lad about your age came\n"
+	.string "out of nowhere and defeated them all\l"
+	.string "without saying a single word.\p"
+	.string "It was remarkable.$"
+
+PetalburgCity_Text_GymSign:
+	.string "AZALEA TOWN POKéMON GYM\n"
+	.string "LEADER: ALICIA\l"
+	.string "“Royalty with a knack for battling.”$"
+
+PetalburgCity_Text_CitySign:
+	.string "AZALEA TOWN\n"
+	.string "“Living Happily with POKéMON.”$"
+
+PetalburgCity_Text_WallyHouseSign:
+	.string "POKéBALL FACTORY$"
+`
+
+script PetalburgCity_GymTrigger {
+opendoor (22, 33)
+waitdooranim
+}
+
+script PetalburgCity_EventScript_Slowpoke {
+    lock
+    faceplayer
+    waitse
+	playmoncry (SPECIES_SLOWPOKE, CRY_MODE_NORMAL)
+    msgbox (format("SLOWPOKE: Slooowww?"))
+    waitmoncry
+    release
+    end
+}
+
+script PetalburgCity_EventScript_IlexSign {
+    msgbox (format("ILEX FOREST ahead\n{LEFT_ARROW} Enter through the gate."), MSGBOX_SIGN)
+    end
+}
+
+script PetalburgCity_EventScript_NameRater {
+    msgbox (format("NAME RATER'S HOUSE"), MSGBOX_SIGN)
+    end
+}
+
+script PetalburgCity_EventScript_SlowpokeWellSign {
+    msgbox (format("SLOWPOKE WELL\nAlso known as the RAINMAKER WELL.\pLocals believe that a SLOWPOKE's yawn summons the rain.\pRecords show that a SLOWPOKE's yawn ended a drought 400 years ago."), MSGBOX_SIGN)
+    end
+}
+
+script PetalburgCity_EventScript_GymGrunt {
+    msgbox (format("Get lost, stupid kid."), MSGBOX_NPC)
+    end
+}
+
+script PetalburgCity_EventScript_ForestGrunt {
+    msgbox (format("Out of the way kid, the grown-ups are busy here."), MSGBOX_NPC)
+    end
+}
+
+script PetalburgCity_EventScript_ForestLead {
+    lock
+    msgbox (format("Listen up you grunts!\pAs soon as our teammates return with a Master Ball from the POKéBALL FACTORY, we will head into the forest in search of the shrine…"))
+    waitmessage
+    faceplayer
+    msgbox (format("Excuse me!\pDon't you know it's impolite to eavesdrop, you little brat!?"))
+    waitmessage
+    closemessage
+    applymovement (FOREST_GRUNT_ID, PetalburgCity_Movement_FaceLeft)
+    waitmovement (0)
+    release
+    end
+}
+
+movement PetalburgCity_Movement_FaceLeft {
+    face_left
+}
+
+script PetalburgCity_EventScript_Boy {
+    lock
+    faceplayer
+    if (!flag(FLAG_DEFEATED_PHOENIX_BALL_FACTORY)) {
+        msgbox (format("I saw some weird people wearing red hoods go into the POKéBALL FACTORY.\pIt looked like they were up to no good."))
+        release
+        end
+    }
+    else {
+        msgbox (format("I heard you ran off those red hooded weirdos, thanks!"))
+        release
+        end
+    }
+}
+
+script PetalburgCity_EventScript_BenchGuy {
+    msgbox (format("Yawn...\pThis Slowpoke keeps yawning, and it's making me sleepy..."), MSGBOX_NPC)
+    end
+}

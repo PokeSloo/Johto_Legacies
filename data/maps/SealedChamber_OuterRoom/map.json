@@ -26,6 +26,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_StrengthBoulder",
       "flag": "FLAG_TEMP_11"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 13,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SealedChamber_OuterRoom_EventScript_ItemHMFlash",
+      "flag": "FLAG_ITEM_SLOWPOKE_WELL_FLASH"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 23,
+      "y": 15,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SealedChamber_OuterRoom_EventScript_ItemDampRock",
+      "flag": "FLAG_ITEM_SLOWPOKE_WELL_DAMP_ROCK"
     }
   ],
   "warp_events": [
@@ -48,229 +74,6 @@
 
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleGHI"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleMNO"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleTUV"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleDEF"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleJKL"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BraillePQRS"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleWXYZ"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BraillePeriod"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleComma"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_InnerRoomEntranceWall"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleABC"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleABC"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleGHI"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleGHI"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleMNO"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleMNO"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleTUV"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleTUV"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleDEF"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleDEF"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleJKL"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleJKL"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BraillePQRS"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BraillePQRS"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleWXYZ"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleWXYZ"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleDigHere"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SealedChamber_OuterRoom_EventScript_BrailleDigHere"
-    }
+
   ]
 }
