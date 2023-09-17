@@ -1,5 +1,56 @@
 Route108_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route108_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
+
+Route108_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_CHERRYGROVE_STATE, 8, Route108_On_Frame
+	.2byte 0
+
+
+Route108_On_Frame::
+	lock
+	playse SE_PIN
+	applymovement 8, Route108_Movement_Exclamation
+	waitmovement 0
+	delay 60
+	applymovement 8, Route108_Movement_UpToPlayer
+	waitmovement 0
+	msgbox Route108_On_Frame_Text_0
+	waitmessage
+	closemessage
+	applymovement 8, Route108_Movement_RunAway
+	waitmovement 0
+	removeobject 8
+	setflag FLAG_HIDE_FAKE_NUGGET_GUY
+	addvar VAR_CHERRYGROVE_STATE, 1
+	release
+	end
+
+
+Route108_Movement_Exclamation:
+	emote_exclamation_mark
+	step_end
+
+Route108_Movement_UpToPlayer:
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+Route108_Movement_RunAway:
+	lock_facing_direction
+	walk_slow_down
+	unlock_facing_direction
+	walk_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+Route108_EventScript_SignPost::
+	msgbox Route108_EventScript_SignPost_Text_0, MSGBOX_SIGN
+	end
+
 
 Route108_EventScript_Jerome::
 	trainerbattle_single TRAINER_JEROME, Route108_Text_JeromeIntro, Route108_Text_JeromeDefeated
@@ -47,3 +98,9 @@ Route108_EventScript_CoryRematch::
 	msgbox Route108_Text_CoryRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route108_On_Frame_Text_0:
+	.string "Buy my shit$"
+
+Route108_EventScript_SignPost_Text_0:
+	.string "ROUTE 33\n"
+	.string "{LEFT_ARROW} West to AZALEA TOWN$"

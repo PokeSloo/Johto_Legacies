@@ -706,90 +706,87 @@ Route107_Text_CamronPostBattle:
 	.string "think I am.$"
 
 Route108_Text_JeromeIntro:
-	.string "My dream is to swim the world's seven\n"
-	.string "seas!$"
+	.string "You didn't buy anything from that shady\n"
+	.string "looking guy, did you?$"
 
 Route108_Text_JeromeDefeated:
-	.string "I won't be able to swim the seven seas\n"
-	.string "like this…$"
+	.string "You rocked my world...$"
 
 Route108_Text_JeromePostBattle:
-	.string "Playing with marine POKéMON is one of\n"
-	.string "the pleasures of swimming!$"
+	.string "I thought you would be an easy win\n"
+	.string "since you fell for that shady guys\l"
+	.string "sales pitch.$"
 
 Route108_Text_MatthewIntro:
-	.string "Ahoy, there! Are you going out to\n"
-	.string "the ABANDONED SHIP, too?$"
+	.string "Take flight, my bird POKéMON!$"
 
 Route108_Text_MatthewDefeated:
-	.string "I'm sinking!\n"
-	.string "Glub… Glub…$"
+	.string "No!\n"
+	.string "Knocked back down to earth!$"
 
 Route108_Text_MatthewPostBattle:
-	.string "Some people even go inside that\n"
-	.string "ABANDONED SHIP.$"
+	.string "Flight allows birds to experience\n"
+	.string "freedom like no human can.$"
 
 Route108_Text_TaraIntro:
-	.string "My liar of a boyfriend told me that\n"
-	.string "I look great in a bikini…$"
+	.string "It never stops raining on this route,\n"
+	.string "it's so much fun!$"
 
 Route108_Text_TaraDefeated:
 	.string "Oh, boo!$"
 
 Route108_Text_TaraPostBattle:
-	.string "Even if it's a lie, I love being told\n"
-	.string "I look great…\l"
-	.string "We girls are so complex…$"
+	.string "Have you been down into the Slowpoke\n"
+	.string "Well?\p"
+	.string "It's so damp and cozy.$"
 
 Route108_Text_MissyIntro:
-	.string "I love the sea!\n"
-	.string "I forget all my worries when I swim!$"
+	.string "I'm out here training to reduce my\n"
+	.string "stress!$"
 
 Route108_Text_MissyDefeated:
 	.string "When I lose a battle, I get all\n"
 	.string "stressed out!$"
 
 Route108_Text_MissyPostBattle:
-	.string "Work off your stress by swimming!\n"
+	.string "Work off your stress by exercising!\n"
 	.string "It's so healthy!$"
 
 Route108_Text_CoryIntro:
-	.string "I love WATER-type POKéMON.\n"
-	.string "I love other POKéMON, too!$"
+	.string "Hiyah!\p"
+	.string "I will show you the result of years of\n"
+	.string "training!$"
 
 Route108_Text_CoryDefeated:
-	.string "Waaah! I lost!\n"
-	.string "Waaah! Waaah!$"
+	.string "Maybe the quality of one's training\n"
+	.string "matters as well...$"
 
 Route108_Text_CoryPostBattle:
-	.string "Shouting is good for me!\n"
-	.string "It uplifts me!$"
+	.string "It seems I need more quality training.$"
 
 Route108_Text_CoryRegister:
-	.string "I love tough TRAINERS, too!\n"
+	.string "I love tough TRAINERS,\n"
 	.string "Register me in your POKéNAV!$"
 
 Route108_Text_CoryRematchIntro:
-	.string "Win or lose, I love battling at sea!$"
+	.string "Win or lose, I love battling!$"
 
 Route108_Text_CoryRematchDefeated:
-	.string "Waaah! I lost again!\n"
-	.string "Waaah! Waaah!$"
+	.string "Defeated yet again...$"
 
 Route108_Text_CoryRematchPostBattle:
-	.string "If you're faced with a challenge,\n"
-	.string "try shouting at the sea!$"
+	.string "It seems I need more quality training.$"
 
 Route108_Text_CarolinaIntro:
-	.string "I take huge pride in my POKéMON.\n"
-	.string "We'll show you one speedy battle!$"
+	.string "I take huge pride in my cute POKéMON.\n"
+	.string "We'll show you an adorable battle!$"
 
 Route108_Text_CarolinaDefeated:
 	.string "That wasn't cute at all.$"
 
 Route108_Text_CarolinaPostBattle:
-	.string "Since I'm at sea like this, I wouldn't\n"
-	.string "mind putting on a pink, frilly swimsuit…$"
+	.string "Cute POKéMON are my favorite, what kind\n"
+	.string "is your favorite?$"
 
 Route109_Text_DavidIntro:
 	.string "Hiyah! Look at my chiseled abs!\n"

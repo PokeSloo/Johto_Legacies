@@ -35,7 +35,7 @@ Route106_EventScript_ItemProtein::
 	end
 
 Route108_EventScript_ItemStarPiece::
-	finditem ITEM_STAR_PIECE
+	finditem ITEM_ELIXIR
 	end
 
 Route109_EventScript_ItemPPUp::

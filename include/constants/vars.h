@@ -263,7 +263,7 @@
 #define VAR_ROXANNE_CALL_STEP_COUNTER        0x40F4
 #define VAR_SCOTT_BF_CALL_STEP_COUNTER       0x40F5
 #define VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER 0x40F6
-#define VAR_CHERRYGROVE_STATE                0x40F7 // 1 = Got running shoes, 2 = Shane to Newbark, 3 = Talked to Elm, no poke, 4 = Got poke from Elm, 5 = Got balls from aid, 6 = Lose to Shane, 7 = Got Pokenav, 8 = Fell in Alph
+#define VAR_CHERRYGROVE_STATE                0x40F7 // 1 = Got running shoes, 2 = Shane to Newbark, 3 = Talked to Elm, no poke, 4 = Got poke from Elm, 5 = Got balls from aid, 6 = Lose to Shane, 7 = Got Pokenav, 8 = Fell in Alph, 9 = Got fake nugget
 #define VAR_UNUSED_0x40F8                    0x40F8 // Unused Var
 #define VAR_UNUSED_0x40F9                    0x40F9 // Unused Var
 #define VAR_UNUSED_0x40FA                    0x40FA // Unused Var
