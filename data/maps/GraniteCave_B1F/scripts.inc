@@ -1,11 +1,49 @@
 GraniteCave_B1F_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, CaveHole_CheckFallDownHole
-	map_script MAP_SCRIPT_ON_TRANSITION, CaveHole_FixCrackedGround
-	map_script MAP_SCRIPT_ON_RESUME, GraniteCave_B1F_SetHoleWarp
 	.byte 0
 
-GraniteCave_B1F_SetHoleWarp:
-	setstepcallback STEP_CB_CRACKED_FLOOR
-	setholewarp MAP_GRANITE_CAVE_B2F
+GraniteCave_B1F_EventScript_Karen::
+	trainerbattle_single TRAINER_KAREN_1, Route116_Text_KarenIntro, Route116_Text_KarenDefeat, GraniteCave_B1F_EventScript_TryRegisterKarenAfterBattle
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, GraniteCave_B1F_EventScript_RematchKaren
+	setvar VAR_0x8004, TRAINER_KAREN_1
+	specialvar VAR_RESULT, IsTrainerRegistered
+	goto_if_eq VAR_RESULT, FALSE, GraniteCave_B1F_EventScript_TryRegisterKaren
+	msgbox Route116_Text_KarenPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+GraniteCave_B1F_EventScript_TryRegisterKarenAfterBattle::
+	goto_if_set FLAG_HAS_MATCH_CALL, GraniteCave_B1F_EventScript_RegisterKarenAfterBattle
+	release
+	end
+
+GraniteCave_B1F_EventScript_RegisterKarenAfterBattle::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	msgbox Route116_Text_KarenRegister2, MSGBOX_DEFAULT
+	register_matchcall TRAINER_KAREN_1
+	release
+	end
+
+GraniteCave_B1F_EventScript_TryRegisterKaren::
+	goto_if_set FLAG_HAS_MATCH_CALL, GraniteCave_B1F_EventScript_RegisterKaren
+	msgbox Route116_Text_KarenPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+GraniteCave_B1F_EventScript_RegisterKaren::
+	msgbox Route116_Text_KarenRegister1, MSGBOX_DEFAULT
+	register_matchcall TRAINER_KAREN_1
+	release
+	end
+
+GraniteCave_B1F_EventScript_RematchKaren::
+	trainerbattle_rematch TRAINER_KAREN_1, Route116_Text_KarenRematchIntro, Route116_Text_KarenRematchDefeat
+	msgbox Route116_Text_KarenPostRematch, MSGBOX_AUTOCLOSE
+	end
+
+GraniteCave_B1F_EventScript_Sarah::
+	trainerbattle_single TRAINER_SARAH, Route116_Text_SarahIntro, Route116_Text_SarahDefeat
+	msgbox Route116_Text_SarahPostBattle, MSGBOX_AUTOCLOSE
 	end
 

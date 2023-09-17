@@ -62,9 +62,9 @@
 #define FLAG_TERRA_CAVE_OPEN    0x32 // On route 32
 #define FLAG_RECEIVED_IRON_BALL    0x33 // From gate guard left of Violet
 #define FLAG_RECEIVED_SHANE_CALL_RT32    0x34 // Self explanatory
-#define FLAG_UNUSED_0x035    0x35 // Unused Flag
-#define FLAG_UNUSED_0x036    0x36 // Unused Flag
-#define FLAG_UNUSED_0x037    0x37 // Unused Flag
+#define FLAG_ITEM_UNION_CAVE_GREAT_BALL    0x35 // Item ball in Union Cave
+#define FLAG_ITEM_UNION_CAVE_SUPER_POTION    0x36 // Item ball in Union Cave
+#define FLAG_ITEM_UNION_CAVE_B1F_MOONSTONE    0x37 // Item ball in Union Cave
 #define FLAG_UNUSED_0x038    0x38 // Unused Flag
 #define FLAG_UNUSED_0x039    0x39 // Unused Flag
 #define FLAG_UNUSED_0x03A    0x3A // Unused Flag

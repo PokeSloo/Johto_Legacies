@@ -1,39 +1,64 @@
 GraniteCave_1F_MapScripts::
 	.byte 0
 
-GraniteCave_1F_EventScript_Hiker::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_HM05, GraniteCave_1F_EventScript_ReceivedFlash
-	msgbox GraniteCave_1F_Text_GetsDarkAheadHereYouGo, MSGBOX_DEFAULT
-	giveitem ITEM_HM05
-	setflag FLAG_RECEIVED_HM05
-	msgbox GraniteCave_1F_Text_ExplainFlash, MSGBOX_DEFAULT
+GraniteCave_1F_EventScript_Joey::
+	trainerbattle_single TRAINER_JOEY, Route116_Text_JoeyIntro, Route116_Text_JoeyDefeat
+	msgbox Route116_Text_JoeyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+GraniteCave_1F_EventScript_Jose::
+	trainerbattle_single TRAINER_JOSE, Route116_Text_JoseIntro, Route116_Text_JoseDefeat
+	msgbox Route116_Text_JosePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+GraniteCave_1F_EventScript_Jerry::
+	trainerbattle_single TRAINER_JERRY_1, Route116_Text_JerryIntro, Route116_Text_JerryDefeat, GraniteCave_1F_EventScript_TryRegisterJerryAfterBattle
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, GraniteCave_1F_EventScript_RematchJerry
+	setvar VAR_0x8004, TRAINER_JERRY_1
+	specialvar VAR_RESULT, IsTrainerRegistered
+	goto_if_eq VAR_RESULT, FALSE, GraniteCave_1F_EventScript_TryRegisterJerry
+	msgbox Route116_Text_JerryPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
-GraniteCave_1F_EventScript_ReceivedFlash::
-	msgbox GraniteCave_1F_Text_ExplainFlash, MSGBOX_DEFAULT
+GraniteCave_1F_EventScript_TryRegisterJerryAfterBattle::
+	goto_if_set FLAG_HAS_MATCH_CALL, GraniteCave_1F_EventScript_RegisterJerryAfterBattle
 	release
 	end
 
-GraniteCave_1F_Text_GetsDarkAheadHereYouGo:
-	.string "Hey, you.\n"
-	.string "It gets awfully dark ahead.\l"
-	.string "It'll be tough trying to explore.\p"
-	.string "That guy who came by earlier…\n"
-	.string "STEVEN, I think it was.\p"
-	.string "He knew how to use FLASH, so he ought\n"
-	.string "to be all right, but…\p"
-	.string "Well, for us HIKERS, helping out those\n"
-	.string "that we meet is our motto.\p"
-	.string "Here you go, I'll pass this on to you.$"
+GraniteCave_1F_EventScript_RegisterJerryAfterBattle::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	msgbox Route116_Text_JerryRegister2, MSGBOX_DEFAULT
+	register_matchcall TRAINER_JERRY_1
+	release
+	end
 
-GraniteCave_1F_Text_ExplainFlash:
-	.string "Teach that hidden move FLASH to\n"
-	.string "a POKéMON and use it.\p"
-	.string "It lights up even the inky darkness\n"
-	.string "of caves.\p"
-	.string "But, to use it, you need the GYM BADGE\n"
-	.string "from DEWFORD's POKéMON GYM.$"
+GraniteCave_1F_EventScript_TryRegisterJerry::
+	goto_if_set FLAG_HAS_MATCH_CALL, GraniteCave_1F_EventScript_RegisterJerry
+	msgbox Route116_Text_JerryPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+GraniteCave_1F_EventScript_RegisterJerry::
+	msgbox Route116_Text_JerryRegister1, MSGBOX_DEFAULT
+	register_matchcall TRAINER_JERRY_1
+	release
+	end
+
+GraniteCave_1F_EventScript_RematchJerry::
+	trainerbattle_rematch TRAINER_JERRY_1, Route116_Text_JerryRematchIntro, Route116_Text_JerryRematchDefeat
+	msgbox Route116_Text_JerryPostRematch, MSGBOX_AUTOCLOSE
+	end
+
+GraniteCave_1F_EventScript_Clark::
+	trainerbattle_single TRAINER_CLARK, Route116_Text_ClarkIntro, Route116_Text_ClarkDefeat
+	msgbox Route116_Text_ClarkPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+GraniteCave_1F_EventScript_Janice::
+	trainerbattle_single TRAINER_JANICE, Route116_Text_JaniceIntro, Route116_Text_JaniceDefeat
+	msgbox Route116_Text_JanicePostBattle, MSGBOX_AUTOCLOSE
+	end
 

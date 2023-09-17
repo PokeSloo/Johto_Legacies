@@ -354,8 +354,20 @@ GraniteCave_1F_EventScript_ItemEscapeRope::
 	finditem ITEM_ESCAPE_ROPE
 	end
 
+GraniteCave_1F_EventScript_ItemGreatBall::
+	finditem ITEM_GREAT_BALL
+	end
+
+GraniteCave_1F_EventScript_ItemSuperPotion::
+	finditem ITEM_SUPER_POTION
+	end
+
 GraniteCave_B1F_EventScript_ItemPokeBall::
 	finditem ITEM_POKE_BALL
+	end
+
+GraniteCave_B1F_EventScript_ItemMoonStone::
+	finditem ITEM_MOON_STONE
 	end
 
 GraniteCave_B2F_EventScript_ItemRepel::
