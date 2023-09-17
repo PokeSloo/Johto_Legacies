@@ -14,7 +14,49 @@ script Route108_On_Frame {
     delay (60)
     applymovement (CONMAN_ID, Route108_Movement_UpToPlayer)
     waitmovement (0)
-    msgbox (format("Buy my shit"))
+    checkplayergender
+    if (var(VAR_RESULT) == MALE) {
+        call (Route108_MalePlayer)
+    }
+    elif (var(VAR_RESULT) == FEMALE) {
+        call (Route108_FemalePlayer)
+    }
+    showmoneybox (0, 0)
+    msgbox (format("Say, would you be interested in buying this genuine Gold Nugget for the enticingly low price of just ¥1000?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        goto (Route108_TryToBuy)
+    }
+    else {
+        do {
+            msgbox (format("You know, it's really a steal at this price.\pWon't you buy it for just ¥1000?"), MSGBOX_YESNO)
+        } while (var(VAR_RESULT) == NO)
+    }
+    goto (Route108_TryToBuy)
+    end
+}
+
+script Route108_TryToBuy {
+    checkmoney (1000)
+    if (var(VAR_RESULT) == NO) {
+        msgbox (format("Hmm... It doesn't look like you have ¥1000.\pI tell you what, I'm a nice guy, so I'll help you out.\pYou can have this for free!"))
+        waitmessage
+        goto (Route108_ConmanLeaves)
+        end
+    }
+    else {
+        removemoney (1000)
+        updatemoneybox
+		playse (SE_SHOP)
+        waitse
+        goto (Route108_ConmanLeaves)
+        end
+    }
+}
+
+script Route108_ConmanLeaves {
+    giveitem (ITEM_GOLD_TEETH)
+    hidemoneybox
+    msgbox (format("Pleasure doing business with you!\pHehe..."))
     waitmessage
     closemessage
     applymovement (CONMAN_ID, Route108_Movement_RunAway)
@@ -24,6 +66,18 @@ script Route108_On_Frame {
     addvar (VAR_CHERRYGROVE_STATE, 1)
     release
     end
+}
+
+script Route108_MalePlayer {
+    msgbox (format("You there!\pYou look like a man of fine taste!"))
+    waitmessage
+    return
+}
+
+script Route108_FemalePlayer {
+    msgbox (format("You there!\pYou look like a woman of fine taste!"))
+    waitmessage
+    return
 }
 
 movement Route108_Movement_Exclamation {

@@ -15,7 +15,59 @@ Route108_On_Frame::
 	delay 60
 	applymovement 8, Route108_Movement_UpToPlayer
 	waitmovement 0
-	msgbox Route108_On_Frame_Text_0
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq Route108_On_Frame_2
+	compare VAR_RESULT, FEMALE
+	goto_if_eq Route108_On_Frame_3
+Route108_On_Frame_1:
+	showmoneybox 0, 0
+	msgbox Route108_On_Frame_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Route108_On_Frame_7
+Route108_On_Frame_11:
+	msgbox Route108_On_Frame_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Route108_On_Frame_11
+Route108_On_Frame_6:
+	goto Route108_TryToBuy
+	end
+
+Route108_On_Frame_2:
+	call Route108_MalePlayer
+	goto Route108_On_Frame_1
+
+Route108_On_Frame_3:
+	call Route108_FemalePlayer
+	goto Route108_On_Frame_1
+
+Route108_On_Frame_7:
+	goto Route108_TryToBuy
+	goto Route108_On_Frame_6
+
+
+Route108_TryToBuy::
+	checkmoney 1000
+	compare VAR_RESULT, NO
+	goto_if_eq Route108_TryToBuy_1
+	removemoney 1000
+	updatemoneybox
+	playse SE_SHOP
+	waitse
+	goto Route108_ConmanLeaves
+	end
+
+Route108_TryToBuy_1:
+	msgbox Route108_TryToBuy_Text_0
+	waitmessage
+	goto Route108_ConmanLeaves
+	end
+
+
+Route108_ConmanLeaves::
+	giveitem ITEM_GOLD_TEETH
+	hidemoneybox
+	msgbox Route108_ConmanLeaves_Text_0
 	waitmessage
 	closemessage
 	applymovement 8, Route108_Movement_RunAway
@@ -25,6 +77,18 @@ Route108_On_Frame::
 	addvar VAR_CHERRYGROVE_STATE, 1
 	release
 	end
+
+
+Route108_MalePlayer::
+	msgbox Route108_MalePlayer_Text_0
+	waitmessage
+	return
+
+
+Route108_FemalePlayer::
+	msgbox Route108_FemalePlayer_Text_0
+	waitmessage
+	return
 
 
 Route108_Movement_Exclamation:
@@ -99,7 +163,33 @@ Route108_EventScript_CoryRematch::
 	end
 
 Route108_On_Frame_Text_0:
-	.string "Buy my shit$"
+	.string "Say, would you be interested in buying\n"
+	.string "this genuine Gold Nugget for the\l"
+	.string "enticingly low price of just ¥1000?$"
+
+Route108_On_Frame_Text_1:
+	.string "You know, it's really a steal at this\n"
+	.string "price.\p"
+	.string "Won't you buy it for just ¥1000?$"
+
+Route108_TryToBuy_Text_0:
+	.string "Hmm... It doesn't look like you have\n"
+	.string "¥1000.\p"
+	.string "I tell you what, I'm a nice guy, so I'll\n"
+	.string "help you out.\p"
+	.string "You can have this for free!$"
+
+Route108_ConmanLeaves_Text_0:
+	.string "Pleasure doing business with you!\p"
+	.string "Hehe...$"
+
+Route108_MalePlayer_Text_0:
+	.string "You there!\p"
+	.string "You look like a man of fine taste!$"
+
+Route108_FemalePlayer_Text_0:
+	.string "You there!\p"
+	.string "You look like a woman of fine taste!$"
 
 Route108_EventScript_SignPost_Text_0:
 	.string "ROUTE 33\n"
