@@ -45,3 +45,36 @@ Route119_WeatherInstitute_1F_Text_Grunt4PostBattle:
 	.string "on my first mission, maybe I should\l"
 	.string "re-think this whole grunt thing.$"
 `
+
+script Route119_WeatherInstitute_1F_EventScript_BallSalesman {
+	lock
+	if (!flag(FLAG_HIDE_ROUTE_119_TEAM_AQUA)) {
+		msgbox (format("I'm sorry, but the shop is closed at the moment...\pPlease help us!"))
+		release
+		end
+	}
+	else {
+		msgbox (format("Welcome!\pHow may I serve you?"))
+    	waitmessage
+    	pokemart (Route119_WeatherInstitute_1F_MartItems)
+    	msgbox (format("Please come again."))
+    	release
+    	end
+	}
+}
+
+mart Route119_WeatherInstitute_1F_MartItems {
+	ITEM_LEVEL_BALL
+	ITEM_LURE_BALL
+	ITEM_MOON_BALL
+	ITEM_FRIEND_BALL
+	ITEM_LOVE_BALL
+	ITEM_FAST_BALL
+	ITEM_HEAVY_BALL
+	ITEM_DUSK_BALL
+	ITEM_TIMER_BALL
+	ITEM_QUICK_BALL
+	ITEM_REPEAT_BALL
+	ITEM_LUXURY_BALL
+	ITEM_MASTER_BALL
+}
