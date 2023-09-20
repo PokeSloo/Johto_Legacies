@@ -128,7 +128,7 @@ PetalburgCity_Movement_FaceLeft:
 PetalburgCity_EventScript_Boy::
 	lock
 	faceplayer
-	goto_if_unset FLAG_DEFEATED_PHOENIX_BALL_FACTORY, PetalburgCity_EventScript_Boy_1
+	goto_if_unset FLAG_HIDE_ROUTE_119_TEAM_AQUA, PetalburgCity_EventScript_Boy_1
 	msgbox PetalburgCity_EventScript_Boy_Text_1
 	release
 	end

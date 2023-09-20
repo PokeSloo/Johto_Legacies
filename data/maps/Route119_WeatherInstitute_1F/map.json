@@ -2,7 +2,7 @@
   "id": "MAP_ROUTE119_WEATHER_INSTITUTE_1F",
   "name": "Route119_WeatherInstitute_1F",
   "layout": "LAYOUT_ROUTE119_WEATHER_INSTITUTE_1F",
-  "music": "MUS_HG_ROCKET_TAKEOVER",
+  "music": "MUS_HG_POKE_MART",
   "region_map_section": "MAPSEC_PETALBURG_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -50,8 +50,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route119_WeatherInstitute_1F_EventScript_InstituteWorker2",
-      "flag": "FLAG_HIDE_WEATHER_INSTITUTE_1F_WORKERS"
+      "script": "NULL",
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
@@ -63,11 +63,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route119_WeatherInstitute_1F_EventScript_InstituteWorker1",
-      "flag": "FLAG_HIDE_WEATHER_INSTITUTE_1F_WORKERS"
+      "script": "NULL",
+      "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 14,
       "y": 8,
       "elevation": 3,
@@ -76,8 +76,21 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route119_WeatherInstitute_1F_EventScript_LittleBoy",
-      "flag": "0"
+      "script": "NULL",
+      "flag": "FLAG_HIDE_WEATHER_INSTITUTE_1F_WORKERS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "x": 17,
+      "y": 9,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_WEATHER_INSTITUTE_1F_WORKERS"
     }
   ],
   "warp_events": [
@@ -107,37 +120,6 @@
 
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 2,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route119_WeatherInstitute_1F_EventScript_Bed"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route119_WeatherInstitute_1F_EventScript_Bed"
-    },
-    {
-      "type": "sign",
-      "x": 0,
-      "y": 2,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route119_WeatherInstitute_1F_EventScript_Bed"
-    },
-    {
-      "type": "sign",
-      "x": 0,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route119_WeatherInstitute_1F_EventScript_Bed"
-    }
+
   ]
 }

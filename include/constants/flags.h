@@ -66,7 +66,7 @@
 #define FLAG_ITEM_UNION_CAVE_SUPER_POTION    0x36 // Item ball in Union Cave
 #define FLAG_ITEM_UNION_CAVE_B1F_MOONSTONE    0x37 // Item ball in Union Cave
 #define FLAG_HIDE_FAKE_NUGGET_GUY    0x38 // Route 33
-#define FLAG_DEFEATED_PHOENIX_BALL_FACTORY    0x39 // In Azalea
+#define FLAG_STILL_UNUSED    0x39 // Unused
 #define FLAG_ITEM_SLOWPOKE_WELL_FLASH    0x3A // HM 05
 #define FLAG_ITEM_SLOWPOKE_WELL_DAMP_ROCK   0x3B // Damp rock
 #define FLAG_UNUSED_0x03C    0x3C // Unused Flag

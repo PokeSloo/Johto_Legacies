@@ -132,7 +132,7 @@ movement PetalburgCity_Movement_FaceLeft {
 script PetalburgCity_EventScript_Boy {
     lock
     faceplayer
-    if (!flag(FLAG_DEFEATED_PHOENIX_BALL_FACTORY)) {
+    if (!flag(FLAG_HIDE_ROUTE_119_TEAM_AQUA)) {
         msgbox (format("I saw some weird people wearing red hoods go into the POKéBALL FACTORY.\pIt looked like they were up to no good."))
         release
         end

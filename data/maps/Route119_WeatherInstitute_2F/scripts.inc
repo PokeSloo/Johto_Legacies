@@ -1,34 +1,177 @@
-.set LOCALID_GRUNT_1, 1
-.set LOCALID_GRUNT_2, 2
-.set LOCALID_SHELLY, 3
-.set LOCALID_SCIENTIST, 5
-.set LOCALID_GRUNT_3, 7
-.set LOCALID_GRUNT_4, 8
-
 Route119_WeatherInstitute_2F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route119_WeatherInstitute_2F_OnTransition
+	map_script MAP_SCRIPT_ON_TRANSITION, Route119_WeatherInstitute_2F_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
 
-Route119_WeatherInstitute_2F_OnTransition:
-	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 0, Route119_WeatherInstitute_2F_EventScript_SetScientistPosAquaHere
-	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 1, Route119_WeatherInstitute_2F_EventScript_SetScientistPosAquaGone
-	call_if_set FLAG_SYS_GAME_CLEAR, Route119_WeatherInstitute_2F_EventScript_SetScientistPosGameClear
+Route119_WeatherInstitute_2F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	compare VAR_WEATHER_INSTITUTE_STATE, 1
+	goto_if_eq Route119_WeatherInstitute_2F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+	return
+
+Route119_WeatherInstitute_2F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	setobjectxyperm 7, 2, 6
+	setobjectmovementtype 7, MOVEMENT_TYPE_FACE_UP
+	setobjectxyperm 4, 12, 13
+	setobjectmovementtype 4, MOVEMENT_TYPE_WANDER_RIGHT_AND_LEFT
+	setobjectxyperm 6, 14, 9
+	setobjectmovementtype 6, MOVEMENT_TYPE_FACE_UP
+	setobjectxyperm 5, 7, 7
+	setobjectmovementtype 5, MOVEMENT_TYPE_FACE_DOWN
+	return
+
+
+Route119_WeatherInstitute_2F_EventScript_FinalGrunt::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_PlayerToAction
+	waitmovement 0
+	delay 30
+	applymovement 3, Route119_WeatherInstitute_2F_StepInPlaceLeft
+	waitmovement 0
+	msgbox Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_0
+	closemessage
+	applymovement 3, Route119_WeatherInstitute_2F_StepInPlaceLeft
+	waitmovement 0
+	msgbox Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_1
+	closemessage
+	playse SE_PIN
+	applymovement 3, Route119_WeatherInstitute_2F_TurnExclamation
+	waitmovement 0
+	delay 60
+	msgbox Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_2
+	closemessage
+	applymovement 3, Route119_WeatherInstitute_2F_StepInPlaceRight
+	waitmovement 0
+	msgbox Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_3
+	applymovement 3, Route119_WeatherInstitute_2F_StepOneRight
+	waitmovement 0
+	trainerbattle_no_intro TRAINER_SHELLY_WEATHER_INSTITUTE, Route119_WeatherInstitute_2F_Text_ShellyDefeat
+	applymovement 3, Route119_WeatherInstitute_2F_SlowlyBackUp
+	waitmovement 0
+	msgbox Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_4
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_PlayerWatchLeave
+	applymovement 3, Route119_WeatherInstitute_2F_GruntAroundPlayer
+	waitmovement 0
+	applymovement 3, Route119_WeatherInstitute_2F_StepInPlaceLeft
+	waitmovement 0
+	msgbox Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_5
+	closemessage
+	applymovement 2, Route119_WeatherInstitute_2F_GruntLeave
+	applymovement 3, Route119_WeatherInstitute_2F_FinalGruntLeave
+	waitmovement 0
+	setvar VAR_WEATHER_INSTITUTE_STATE, 1
+	clearflag FLAG_HIDE_WEATHER_INSTITUTE_1F_WORKERS
+	fadedefaultbgm
+	setflag FLAG_HIDE_ROUTE_119_TEAM_AQUA
+	removeobject 1
+	removeobject 8
+	removeobject 2
+	removeobject 3
+	applymovement OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_StepInPlaceLeft
+	waitmovement 0
+	delay 30
+	applymovement 5, Route119_WeatherInstitute_2F_CarmenToPlayer
+	waitmovement 0
+	msgbox Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_6
+	closemessage
+	applymovement 5, Route119_WeatherInstitute_2F_StepInPlaceRight
+	waitmovement 0
+	msgbox Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_7
+	waitmessage
+	giveitem ITEM_QUICK_BALL, 5
+	msgbox Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_8
+	waitmessage
+	closemessage
+	fadescreen FADE_TO_BLACK
+	setobjectxy 7, 2, 6
+	setobjectxyperm 7, 2, 6
+	setobjectmovementtype 7, MOVEMENT_TYPE_FACE_UP
+	setobjectxy 4, 12, 13
+	setobjectxyperm 4, 12, 13
+	setobjectmovementtype 4, MOVEMENT_TYPE_WANDER_RIGHT_AND_LEFT
+	setobjectxy 6, 14, 9
+	setobjectxyperm 6, 14, 9
+	setobjectmovementtype 6, MOVEMENT_TYPE_FACE_UP
+	setobjectxy 5, 7, 7
+	setobjectxyperm 5, 7, 7
+	setobjectmovementtype 5, MOVEMENT_TYPE_FACE_DOWN
+	fadescreen FADE_FROM_BLACK
+	release
 	end
 
-Route119_WeatherInstitute_2F_EventScript_SetScientistPosAquaHere::
-	setobjectxyperm LOCALID_SCIENTIST, 1, 6
-	setobjectmovementtype LOCALID_SCIENTIST, MOVEMENT_TYPE_FACE_RIGHT
-	return
 
-Route119_WeatherInstitute_2F_EventScript_SetScientistPosAquaGone::
-	setobjectxyperm LOCALID_SCIENTIST, 4, 6
-	setobjectmovementtype LOCALID_SCIENTIST, MOVEMENT_TYPE_FACE_RIGHT
-	return
+Route119_WeatherInstitute_2F_PlayerToAction:
+	walk_left
+	walk_down
+	walk_left
+	step_end
 
-Route119_WeatherInstitute_2F_EventScript_SetScientistPosGameClear::
-	setobjectxyperm LOCALID_SCIENTIST, 2, 2
-	setobjectmovementtype LOCALID_SCIENTIST, MOVEMENT_TYPE_FACE_UP
-	return
+Route119_WeatherInstitute_2F_StepInPlaceLeft:
+	walk_in_place_left
+	step_end
+
+Route119_WeatherInstitute_2F_TurnExclamation:
+	emote_exclamation_mark
+	walk_in_place_right
+	step_end
+
+Route119_WeatherInstitute_2F_StepInPlaceRight:
+	walk_in_place_right
+	step_end
+
+Route119_WeatherInstitute_2F_StepOneRight:
+	walk_fast_right
+	step_end
+
+Route119_WeatherInstitute_2F_SlowlyBackUp:
+	lock_facing_direction
+	walk_slow_left
+	unlock_facing_direction
+	step_end
+
+Route119_WeatherInstitute_2F_GruntAroundPlayer:
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	step_end
+
+Route119_WeatherInstitute_2F_PlayerWatchLeave:
+	delay_16
+	delay_16
+	face_down
+	delay_16
+	delay_16
+	face_right
+	step_end
+
+Route119_WeatherInstitute_2F_GruntLeave:
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route119_WeatherInstitute_2F_FinalGruntLeave:
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route119_WeatherInstitute_2F_CarmenToPlayer:
+	walk_right
+	walk_right
+	step_end
 
 Route119_WeatherInstitute_2F_EventScript_Grunt5::
 	trainerbattle_single TRAINER_GRUNT_WEATHER_INST_5, Route119_WeatherInstitute_2F_Text_Grunt5Intro, Route119_WeatherInstitute_2F_Text_Grunt5Defeat
@@ -45,289 +188,116 @@ Route119_WeatherInstitute_2F_EventScript_Grunt3::
 	msgbox Route119_WeatherInstitute_2F_Text_Grunt3PostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route119_WeatherInstitute_2F_EventScript_Shelly::
-	trainerbattle_single TRAINER_SHELLY_WEATHER_INSTITUTE, Route119_WeatherInstitute_2F_Text_ShellyIntro, Route119_WeatherInstitute_2F_Text_ShellyDefeat, Route119_WeatherInstitute_2F_EventScript_ShellyDefeated
-	msgbox Route119_WeatherInstitute_2F_Text_ShellyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route119_WeatherInstitute_2F_EventScript_ShellyDefeated::
-	msgbox Route119_WeatherInstitute_2F_Text_ShellyPostBattle, MSGBOX_DEFAULT
-	closemessage
-	addobject LOCALID_GRUNT_3
-	applymovement LOCALID_GRUNT_3, Route119_WeatherInstitute_2F_Movement_GruntApproachShelly
-	applymovement OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_Movement_ShovePlayerOutOfWay
-	waitmovement 0
-	msgbox Route119_WeatherInstitute_2F_Text_TeamMagmaJustPassedBy, MSGBOX_DEFAULT
-	closemessage
-	playse SE_PIN
-	applymovement LOCALID_SHELLY, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_SHELLY, Common_Movement_Delay48
-	waitmovement 0
-	msgbox Route119_WeatherInstitute_2F_Text_WeHaveToHurryToMtPyre, MSGBOX_DEFAULT
-	closemessage
-	setvar VAR_WEATHER_INSTITUTE_STATE, 1
-	clearflag FLAG_HIDE_WEATHER_INSTITUTE_2F_WORKERS
-	fadedefaultbgm
-	fadescreen FADE_TO_BLACK
-	setflag FLAG_HIDE_ROUTE_119_TEAM_AQUA
-	setflag FLAG_HIDE_WEATHER_INSTITUTE_2F_AQUA_GRUNT_M
-	removeobject LOCALID_GRUNT_1
-	removeobject LOCALID_GRUNT_2
-	removeobject LOCALID_SHELLY
-	removeobject LOCALID_GRUNT_4
-	removeobject LOCALID_GRUNT_3
-	applymovement OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_Movement_PlayerReturnToPosition
-	waitmovement 0
-	fadescreen FADE_FROM_BLACK
-	applymovement LOCALID_SCIENTIST, Route119_WeatherInstitute_2F_Movement_ScientistApproachPlayer
-	waitmovement 0
-	copyobjectxytoperm LOCALID_SCIENTIST
-	goto Route119_WeatherInstitute_2F_EventScript_ReceiveCastform
-	end
-
-Route119_WeatherInstitute_2F_EventScript_ReceiveCastform::
-	msgbox Route119_WeatherInstitute_2F_Text_ThanksPleaseTakePokemon, MSGBOX_DEFAULT
-	setvar VAR_TEMP_1, SPECIES_CASTFORM
-	givemon SPECIES_CASTFORM, 25, ITEM_MYSTIC_WATER
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Route119_WeatherInstitute_2F_EventScript_ReceiveCastformParty
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Route119_WeatherInstitute_2F_EventScript_ReceiveCastformPC
-	goto Common_EventScript_NoMoreRoomForPokemon
-	end
-
-Route119_WeatherInstitute_2F_EventScript_ReceiveCastformParty::
-	call Route119_WeatherInstitute_2F_EventScript_ReceivedCastformFanfare
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, Route119_WeatherInstitute_2F_EventScript_ExplainCastform
-	call Common_EventScript_GetGiftMonPartySlot
-	call Common_EventScript_NameReceivedPartyMon
-	goto Route119_WeatherInstitute_2F_EventScript_ExplainCastform
-	end
-
-Route119_WeatherInstitute_2F_EventScript_ReceiveCastformPC::
-	call Route119_WeatherInstitute_2F_EventScript_ReceivedCastformFanfare
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, Route119_WeatherInstitute_2F_EventScript_SendCastformToPC
-	call Common_EventScript_NameReceivedBoxMon
-	goto Route119_WeatherInstitute_2F_EventScript_SendCastformToPC
-	end
-
-Route119_WeatherInstitute_2F_EventScript_SendCastformToPC::
-	call Common_EventScript_TransferredToPC
-	goto Route119_WeatherInstitute_2F_EventScript_ExplainCastform
-	end
-
-Route119_WeatherInstitute_2F_EventScript_ReceivedCastformFanfare::
-	playfanfare MUS_OBTAIN_ITEM
-	message Route119_WeatherInstitute_2F_Text_PlayerReceivedCastform
-	waitmessage
-	waitfanfare
-	bufferspeciesname STR_VAR_1, SPECIES_CASTFORM
-	return
-
-Route119_WeatherInstitute_2F_EventScript_ExplainCastform::
-	msgbox Route119_WeatherInstitute_2F_Text_PokemonChangesWithWeather, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_CASTFORM
-	release
-	end
-
-Route119_WeatherInstitute_2F_EventScript_ScientistMentionWeather::
-	goto_if_set FLAG_SYS_GAME_CLEAR, Route119_WeatherInstitute_2F_EventScript_TryStartAbnormalWeather
-	msgbox Route119_WeatherInstitute_2F_Text_ChangingWeatherRidiculous, MSGBOX_DEFAULT
-	release
-	end
-
-Route119_WeatherInstitute_2F_EventScript_TryStartAbnormalWeather::
-	setvar VAR_0x8004, 0
-	call_if_set FLAG_DEFEATED_KYOGRE, Route119_WeatherInstitute_2F_EventScript_LegendaryDefeated
-	call_if_set FLAG_DEFEATED_GROUDON, Route119_WeatherInstitute_2F_EventScript_LegendaryDefeated
-	goto_if_eq VAR_0x8004, 2, Route119_WeatherInstitute_2F_EventScript_NoAbnormalWeather  @ Both defeated
-	call_if_unset FLAG_TEMP_2, Route119_WeatherInstitute_2F_EventScript_CreateAbnormalWeather
-	specialvar VAR_RESULT, GetAbnormalWeatherMapNameAndType
-	goto_if_eq VAR_RESULT, 1, Route119_WeatherInstitute_2F_EventScript_KyogreWeather
-	msgbox Route119_WeatherInstitute_2F_Text_GroudonWeather, MSGBOX_DEFAULT
-	release
-	end
-
-Route119_WeatherInstitute_2F_EventScript_KyogreWeather::
-	msgbox Route119_WeatherInstitute_2F_Text_KyogreWeather, MSGBOX_DEFAULT
-	release
-	end
-
-Route119_WeatherInstitute_2F_EventScript_CreateAbnormalWeather::
-	special CreateAbnormalWeatherEvent
-	setflag FLAG_TEMP_2
-	return
-
-Route119_WeatherInstitute_2F_EventScript_LegendaryDefeated::
-	addvar VAR_0x8004, 1
-	return
-
-Route119_WeatherInstitute_2F_EventScript_NoAbnormalWeather::
-	msgbox Route119_WeatherInstitute_2F_Text_NoAbnormalWeather, MSGBOX_DEFAULT
-	release
-	end
-
-Route119_WeatherInstitute_2F_Movement_GruntApproachShelly:
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	step_end
-
-Route119_WeatherInstitute_2F_Movement_ShovePlayerOutOfWay:
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	ride_water_current_up
-	walk_in_place_faster_down
-	step_end
-
-Route119_WeatherInstitute_2F_Movement_PlayerReturnToPosition:
-	slide_down
-	walk_in_place_faster_left
-	step_end
-
-Route119_WeatherInstitute_2F_Movement_ScientistApproachPlayer:
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
-Route119_WeatherInstitute_2F_EventScript_WeatherScientist::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_CASTFORM, Route119_WeatherInstitute_2F_EventScript_ScientistMentionWeather
-	goto Route119_WeatherInstitute_2F_EventScript_ReceiveCastform
-	end
+Route119_WeatherInstitute_2F_Text_ShellyDefeat:
+	.string "Oh, come on!\n"
+	.string "How could this day get any worse?$"
 
 Route119_WeatherInstitute_2F_Text_Grunt2Intro:
-	.string "The INSTITUTE created a type of\n"
-	.string "POKéMON that has something to do with\l"
-	.string "the weather. We're here to take them!$"
+	.string "Who let you up here!?\p"
+	.string "This is no place for kids to play!$"
 
 Route119_WeatherInstitute_2F_Text_Grunt2Defeat:
 	.string "Our plan's being spoiled by a kid?$"
 
 Route119_WeatherInstitute_2F_Text_Grunt2PostBattle:
-	.string "If the POKéMON they made here can\n"
-	.string "control the weather freely, then we of\l"
-	.string "TEAM AQUA definitely need it!$"
+	.string "You're pretty strong, you would make it\n"
+	.string "pretty far in our team.$"
 
 Route119_WeatherInstitute_2F_Text_Grunt3Intro:
-	.string "We're TEAM AQUA!\n"
-	.string "We appear wherever anything rare is\l"
-	.string "found!$"
+	.string "Stop right there!\p"
+	.string "I can't let you go any farther.$"
 
 Route119_WeatherInstitute_2F_Text_Grunt3Defeat:
 	.string "You got me!$"
 
 Route119_WeatherInstitute_2F_Text_Grunt3PostBattle:
-	.string "You don't have any idea what we of\n"
-	.string "TEAM AQUA are working towards!\l"
-	.string "You stay out of our way!$"
+	.string "Fine then!\n"
+	.string "Have it your way!\p"
+	.string "Why did I even sign up for this job...$"
 
 Route119_WeatherInstitute_2F_Text_Grunt5Intro:
-	.string "Don't tell me you're looking for that\n"
-	.string "weather POKéMON, too?\p"
-	.string "That's a no-no!\n"
-	.string "We were here to get it first!$"
+	.string "We heard they sell Master Balls here,\n"
+	.string "but the workers aren't giving them up!$"
 
 Route119_WeatherInstitute_2F_Text_Grunt5Defeat:
-	.string "Oh, will you look at my POKéMON?$"
+	.string "Wait, what just happened?$"
 
 Route119_WeatherInstitute_2F_Text_Grunt5PostBattle:
 	.string "Humph, so what?\n"
-	.string "What we want…\p"
-	.string "What we really want isn't here…\n"
-	.string "Ihihihihi…$"
+	.string "You really think you can stop us?$"
 
-Route119_WeatherInstitute_2F_Text_ShellyIntro:
-	.string "Ahahahaha!\p"
-	.string "You're going to meddle in TEAM AQUA's\n"
-	.string "affairs?\p"
-	.string "You're either absolutely fearless,\n"
-	.string "simply ignorant, or both!\p"
-	.string "You're so cute, you're disgusting!\n"
-	.string "I'll put you down, kiddy!$"
+Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_0:
+	.string "GRUNT: This is your final warning! Tell\n"
+	.string "us where you keep the Master Balls, and\l"
+	.string "we won't have to hurt you!\p"
+	.string "We know they're made in this factory, so\n"
+	.string "they must be somewhere in here.\p"
+	.string "CARMEN: I'll tell you the same thing I\n"
+	.string "told the others; we just sent off our\l"
+	.string "last shipment of Master Balls to the\l"
+	.string "Celadon Mart in Kanto.\p"
+	.string "We won't receive any more shipments of\n"
+	.string "raw material needed to produce Master\l"
+	.string "Balls for at least another three weeks.$"
 
-Route119_WeatherInstitute_2F_Text_ShellyDefeat:
-	.string "Ahahahaha!\n"
-	.string "You're disgustingly strong!$"
+Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_1:
+	.string "GRUNT: Gah!\p"
+	.string "Why can't I catch a break!?$"
 
-Route119_WeatherInstitute_2F_Text_ShellyPostBattle:
-	.string "It's bad enough to have TEAM MAGMA\n"
-	.string "blunder about, but now there's you!\p"
-	.string "What makes you want to sniff around\n"
-	.string "in our business, anyway?$"
+Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_2:
+	.string "GRUNT: And who let you in here!?\p"
+	.string "Did the other grunts fall asleep on the\n"
+	.string "job?\p"
+	.string "...\p"
+	.string "What do you mean you beat them?\p"
+	.string "Why is everyone so useless!?$"
 
-Route119_WeatherInstitute_2F_Text_TeamMagmaJustPassedBy:
-	.string "We have a situation here!\p"
-	.string "A TEAM MAGMA mob just passed\n"
-	.string "the WEATHER INSTITUTE.\p"
-	.string "They appear to be headed for\n"
-	.string "MT. PYRE!$"
+Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_3:
+	.string "GRUNT: Fine then, I'll show you not to\n"
+	.string "mess with TEAM PHOENIX!$"
 
-Route119_WeatherInstitute_2F_Text_WeHaveToHurryToMtPyre:
-	.string "What?!\p"
-	.string "We can't waste any more time here!\n"
-	.string "We have to hurry to MT. PYRE, too!\p"
-	.string "Ahahahaha!\n"
-	.string "TEAM MAGMA, just you wait!$"
+Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_4:
+	.string "GRUNT: This wasn't supposed to\n"
+	.string "happen...\p"
+	.string "I was told this job would be easy…$"
 
-Route119_WeatherInstitute_2F_Text_ThanksPleaseTakePokemon:
-	.string "Thanks!\n"
-	.string "Thanks to you, we're safe!\p"
-	.string "It might be an odd way of thanking you,\n"
-	.string "but take this POKéMON.$"
+Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_5:
+	.string "GRUNT: Don't think you've seen the last\n"
+	.string "of TEAM PHOENIX!\p"
+	.string "We always rise back up!$"
 
-@ Unused
-Route119_WeatherInstitute_2F_Text_NoRoomForPokemon:
-	.string "Hm? You don't seem to have any room\n"
-	.string "for this POKéMON.$"
+Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_6:
+	.string "CARMEN: Thank you for saving us from\n"
+	.string "those hooded lowlifes!\p"
+	.string "My name is CARMEN, by the way. I'm the\n"
+	.string "owner and CEO of this factory.\p"
+	.string "And your name is?\p"
+	.string "...\p"
+	.string "{PLAYER}, I'll be sure to remember\n"
+	.string "that.\p"
+	.string "By the way, we are actually fully\n"
+	.string "stocked up on Master Balls, but I\l"
+	.string "wasn't about to give in to those jerks'\l"
+	.string "demands!$"
 
-Route119_WeatherInstitute_2F_Text_PlayerReceivedCastform:
-	.string "{PLAYER} received CASTFORM!$"
+Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_7:
+	.string "CARMEN: My grandfather started this\n"
+	.string "business from nothing.\p"
+	.string "It meant everything to him, and I\n"
+	.string "intend to carry on his legacy.\p"
+	.string "...\p"
+	.string "Here {PLAYER}, I know it isn't much of\n"
+	.string "a reward, but as thanks for stepping in\l"
+	.string "and saving us, I would like you to have\l"
+	.string "these…$"
 
-Route119_WeatherInstitute_2F_Text_PokemonChangesWithWeather:
-	.string "That POKéMON changes shape according\n"
-	.string "to the weather conditions.\p"
-	.string "There're plenty of them in the\n"
-	.string "INSTITUTE--go ahead and take it.$"
-
-Route119_WeatherInstitute_2F_Text_ChangingWeatherRidiculous:
-	.string "I've been researching rain for many\n"
-	.string "years, but it's ridiculous to think that\l"
-	.string "humans can freely change the weather.$"
-
-Route119_WeatherInstitute_2F_Text_GroudonWeather:
-	.string "I track weather patterns over\n"
-	.string "the HOENN region.\p"
-	.string "Presently, a drought has been recorded\n"
-	.string "in {STR_VAR_1}.\p"
-	.string "Could that mean, somewhere near\n"
-	.string "{STR_VAR_1}…$"
-
-Route119_WeatherInstitute_2F_Text_KyogreWeather:
-	.string "I track weather patterns over\n"
-	.string "the HOENN region.\p"
-	.string "Presently, heavy rainfall has been\n"
-	.string "recorded over {STR_VAR_1}.\p"
-	.string "Could that mean, somewhere near\n"
-	.string "{STR_VAR_1}…$"
-
-Route119_WeatherInstitute_2F_Text_NoAbnormalWeather:
-	.string "Abnormal weather conditions are\n"
-	.string "no longer being reported.\p"
-	.string "The occasional rainfall is a blessing,\n"
-	.string "really.$"
-
+Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_8:
+	.string "CARMEN: Those are Quick Balls. They are\n"
+	.string "most effective at the very start of a\l"
+	.string "battle, but lose effectiveness after\l"
+	.string "the first turn.\p"
+	.string "Feel free to buy more from the shop\n"
+	.string "downstairs if you run out.\p"
+	.string "Now, I must be sure everything in the\n"
+	.string "factory is still in working order.\p"
+	.string "Until we meet again, {PLAYER}.$"

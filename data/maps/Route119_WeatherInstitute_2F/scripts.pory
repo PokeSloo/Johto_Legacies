@@ -1,0 +1,217 @@
+const LOCALID_CARMEN = 5
+const LOCALID_SCIENTIST_1 = 7
+const LOCALID_SCIENTIST_2 = 4
+const LOCALID_SCIENTIST_3 = 6
+const LOCALID_GRUNT_1 = 1
+const LOCALID_GRUNT_2 = 8
+const LOCALID_GRUNT_3 = 2
+const LOCALID_GRUNT_FINAL = 3
+
+mapscripts Route119_WeatherInstitute_2F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if (var(VAR_WEATHER_INSTITUTE_STATE) == 1) {
+            setobjectxyperm (LOCALID_SCIENTIST_1, 2, 6)
+	        setobjectmovementtype (LOCALID_SCIENTIST_1, MOVEMENT_TYPE_FACE_UP)
+	        setobjectxyperm (LOCALID_SCIENTIST_2, 12, 13)
+	        setobjectmovementtype (LOCALID_SCIENTIST_2, MOVEMENT_TYPE_WANDER_RIGHT_AND_LEFT)
+	        setobjectxyperm (LOCALID_SCIENTIST_3, 14, 9)
+	        setobjectmovementtype (LOCALID_SCIENTIST_3, MOVEMENT_TYPE_FACE_UP)
+	        setobjectxyperm (LOCALID_CARMEN, 7, 7)
+	        setobjectmovementtype (LOCALID_CARMEN, MOVEMENT_TYPE_FACE_DOWN)
+	        return
+        }
+    }
+}
+
+script Route119_WeatherInstitute_2F_EventScript_FinalGrunt {
+	lock
+    applymovement (OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_PlayerToAction)
+    waitmovement (0)
+    delay (30)
+    applymovement (LOCALID_GRUNT_FINAL, Route119_WeatherInstitute_2F_StepInPlaceLeft)
+    waitmovement (0)
+    msgbox (format("GRUNT: This is your final warning! Tell us where you keep the Master Balls, and we won't have to hurt you!\pWe know they're made in this factory, so they must be somewhere in here.\pCARMEN: I'll tell you the same thing I told the others; we just sent off our last shipment of Master Balls to the Celadon Mart in Kanto.\pWe won't receive any more shipments of raw material needed to produce Master Balls for at least another three weeks."))
+	closemessage
+    applymovement (LOCALID_GRUNT_FINAL, Route119_WeatherInstitute_2F_StepInPlaceLeft)
+    waitmovement (0)
+	msgbox (format("GRUNT: Gah!\pWhy can't I catch a break!?"))
+	closemessage
+	playse (SE_PIN)
+	applymovement (LOCALID_GRUNT_FINAL, Route119_WeatherInstitute_2F_TurnExclamation)
+    waitmovement (0)
+	delay (60)
+	msgbox (format("GRUNT: And who let you in here!?\pDid the other grunts fall asleep on the job?\p...\pWhat do you mean you beat them?\pWhy is everyone so useless!?"))
+	closemessage
+	applymovement (LOCALID_GRUNT_FINAL, Route119_WeatherInstitute_2F_StepInPlaceRight)
+    waitmovement (0)
+	msgbox (format("GRUNT: Fine then, I'll show you not to mess with TEAM PHOENIX!"))
+	applymovement (LOCALID_GRUNT_FINAL, Route119_WeatherInstitute_2F_StepOneRight)
+    waitmovement (0)
+    trainerbattle_no_intro (TRAINER_SHELLY_WEATHER_INSTITUTE, Route119_WeatherInstitute_2F_Text_ShellyDefeat)
+	applymovement (LOCALID_GRUNT_FINAL, Route119_WeatherInstitute_2F_SlowlyBackUp)
+    waitmovement (0)
+	msgbox (format("GRUNT: This wasn't supposed to happen...\pI was told this job would be easy…"))
+	closemessage
+	applymovement (OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_PlayerWatchLeave)
+    applymovement (LOCALID_GRUNT_FINAL, Route119_WeatherInstitute_2F_GruntAroundPlayer)
+    waitmovement (0)
+	applymovement (LOCALID_GRUNT_FINAL, Route119_WeatherInstitute_2F_StepInPlaceLeft)
+    waitmovement (0)
+	msgbox (format("GRUNT: Don't think you've seen the last of TEAM PHOENIX!\pWe always rise back up!"))
+	closemessage
+	applymovement (LOCALID_GRUNT_3, Route119_WeatherInstitute_2F_GruntLeave)
+	applymovement (LOCALID_GRUNT_FINAL, Route119_WeatherInstitute_2F_FinalGruntLeave)
+    waitmovement (0)
+	setvar (VAR_WEATHER_INSTITUTE_STATE, 1)
+	clearflag (FLAG_HIDE_WEATHER_INSTITUTE_1F_WORKERS)
+	fadedefaultbgm
+	setflag (FLAG_HIDE_ROUTE_119_TEAM_AQUA)
+	removeobject (LOCALID_GRUNT_1)
+	removeobject (LOCALID_GRUNT_2)
+	removeobject (LOCALID_GRUNT_3)
+    removeobject (LOCALID_GRUNT_FINAL)
+	applymovement (OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_StepInPlaceLeft)
+    waitmovement (0)
+	delay (30)
+	applymovement (LOCALID_CARMEN, Route119_WeatherInstitute_2F_CarmenToPlayer)
+    waitmovement (0)
+	msgbox (format("CARMEN: Thank you for saving us from those hooded lowlifes!\pMy name is CARMEN, by the way. I'm the owner and CEO of this factory.\pAnd your name is?\p...\p{PLAYER}, I'll be sure to remember that.\pBy the way, we are actually fully stocked up on Master Balls, but I wasn't about to give in to those jerks' demands!"))
+	closemessage
+	applymovement (LOCALID_CARMEN, Route119_WeatherInstitute_2F_StepInPlaceRight)
+    waitmovement (0)
+	msgbox (format("CARMEN: My grandfather started this business from nothing.\pIt meant everything to him, and I intend to carry on his legacy.\p...\pHere {PLAYER}, I know it isn't much of a reward, but as thanks for stepping in and saving us, I would like you to have these…"))
+	waitmessage
+	giveitem (ITEM_QUICK_BALL, 5)
+	msgbox (format("CARMEN: Those are Quick Balls. They are most effective at the very start of a battle, but lose effectiveness after the first turn.\pFeel free to buy more from the shop downstairs if you run out.\pNow, I must be sure everything in the factory is still in working order.\pUntil we meet again, {PLAYER}."))
+	waitmessage
+	closemessage
+	fadescreen (FADE_TO_BLACK)
+    setobjectxy (LOCALID_SCIENTIST_1, 2, 6)
+	setobjectxyperm (LOCALID_SCIENTIST_1, 2, 6)
+	setobjectmovementtype (LOCALID_SCIENTIST_1, MOVEMENT_TYPE_FACE_UP)
+	setobjectxy (LOCALID_SCIENTIST_2, 12, 13)
+	setobjectxyperm (LOCALID_SCIENTIST_2, 12, 13)
+	setobjectmovementtype (LOCALID_SCIENTIST_2, MOVEMENT_TYPE_WANDER_RIGHT_AND_LEFT)
+	setobjectxy (LOCALID_SCIENTIST_3, 14, 9)
+	setobjectxyperm (LOCALID_SCIENTIST_3, 14, 9)
+	setobjectmovementtype (LOCALID_SCIENTIST_3, MOVEMENT_TYPE_FACE_UP)
+	setobjectxy (LOCALID_CARMEN, 7, 7)
+	setobjectxyperm (LOCALID_CARMEN, 7, 7)
+	setobjectmovementtype (LOCALID_CARMEN, MOVEMENT_TYPE_FACE_DOWN)
+	fadescreen (FADE_FROM_BLACK)
+    release
+	end
+}
+
+movement Route119_WeatherInstitute_2F_PlayerToAction {
+    walk_left
+    walk_down
+    walk_left
+}
+
+movement Route119_WeatherInstitute_2F_StepInPlaceLeft {
+    walk_in_place_left
+}
+
+movement Route119_WeatherInstitute_2F_TurnExclamation {
+	emote_exclamation_mark
+	walk_in_place_right
+}
+
+movement Route119_WeatherInstitute_2F_StepInPlaceRight {
+	walk_in_place_right
+}
+
+movement Route119_WeatherInstitute_2F_StepOneRight {
+	walk_fast_right
+}
+
+movement Route119_WeatherInstitute_2F_SlowlyBackUp {
+	lock_facing_direction
+	walk_slow_left
+	unlock_facing_direction
+}
+
+movement Route119_WeatherInstitute_2F_GruntAroundPlayer {
+	walk_down
+	walk_right * 3
+	walk_up * 2
+	walk_right * 2
+}
+
+movement Route119_WeatherInstitute_2F_PlayerWatchLeave {
+	delay_16 * 2
+	face_down
+	delay_16 * 2
+	face_right
+}
+
+movement Route119_WeatherInstitute_2F_GruntLeave {
+	walk_down * 2
+	walk_right * 4
+}
+
+movement Route119_WeatherInstitute_2F_FinalGruntLeave {
+	walk_right * 2
+	walk_down * 2
+	walk_right * 4
+}
+
+movement Route119_WeatherInstitute_2F_CarmenToPlayer {
+	walk_right * 2
+}
+
+raw`
+Route119_WeatherInstitute_2F_EventScript_Grunt5::
+	trainerbattle_single TRAINER_GRUNT_WEATHER_INST_5, Route119_WeatherInstitute_2F_Text_Grunt5Intro, Route119_WeatherInstitute_2F_Text_Grunt5Defeat
+	msgbox Route119_WeatherInstitute_2F_Text_Grunt5PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route119_WeatherInstitute_2F_EventScript_Grunt2::
+	trainerbattle_single TRAINER_GRUNT_WEATHER_INST_2, Route119_WeatherInstitute_2F_Text_Grunt2Intro, Route119_WeatherInstitute_2F_Text_Grunt2Defeat
+	msgbox Route119_WeatherInstitute_2F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route119_WeatherInstitute_2F_EventScript_Grunt3::
+	trainerbattle_single TRAINER_GRUNT_WEATHER_INST_3, Route119_WeatherInstitute_2F_Text_Grunt3Intro, Route119_WeatherInstitute_2F_Text_Grunt3Defeat
+	msgbox Route119_WeatherInstitute_2F_Text_Grunt3PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route119_WeatherInstitute_2F_Text_ShellyDefeat:
+	.string "Oh, come on!\n"
+	.string "How could this day get any worse?$"
+
+Route119_WeatherInstitute_2F_Text_Grunt2Intro:
+	.string "Who let you up here!?\p"
+	.string "This is no place for kids to play!$"
+
+Route119_WeatherInstitute_2F_Text_Grunt2Defeat:
+	.string "Our plan's being spoiled by a kid?$"
+
+Route119_WeatherInstitute_2F_Text_Grunt2PostBattle:
+	.string "You're pretty strong, you would make it\n"
+	.string "pretty far in our team.$"
+
+Route119_WeatherInstitute_2F_Text_Grunt3Intro:
+	.string "Stop right there!\p"
+	.string "I can't let you go any farther.$"
+
+Route119_WeatherInstitute_2F_Text_Grunt3Defeat:
+	.string "You got me!$"
+
+Route119_WeatherInstitute_2F_Text_Grunt3PostBattle:
+	.string "Fine then!\n"
+	.string "Have it your way!\p"
+	.string "Why did I even sign up for this job...$"
+
+Route119_WeatherInstitute_2F_Text_Grunt5Intro:
+	.string "We heard they sell Master Balls here,\n"
+	.string "but the workers aren't giving them up!$"
+
+Route119_WeatherInstitute_2F_Text_Grunt5Defeat:
+	.string "Wait, what just happened?$"
+
+Route119_WeatherInstitute_2F_Text_Grunt5PostBattle:
+	.string "Humph, so what?\n"
+	.string "You really think you can stop us?$"
+`
