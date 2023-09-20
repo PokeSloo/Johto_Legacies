@@ -78,3 +78,18 @@ mart Route119_WeatherInstitute_1F_MartItems {
 	ITEM_LUXURY_BALL
 	ITEM_MASTER_BALL
 }
+
+script Route119_WeatherInstitute_1F_EventScript_Boy {
+	msgbox (format("Those Master Balls sure are expensive, I don't think I'll ever be able to afford one."), MSGBOX_NPC)
+	end
+}
+
+script Route119_WeatherInstitute_1F_EventScript_Camper {
+	msgbox (format("Most of these are just for display, the real working Poké Balls are kept behind the counter and upstairs."), MSGBOX_NPC)
+	end
+}
+
+script Route119_WeatherInstitute_1F_EventScript_Cowgirl {
+	msgbox (format("I was sent here to pick up some Poké Balls for the farm, but there are so many different kinds to choose from, I can't make up my mind!"), MSGBOX_NPC)
+	end
+}

@@ -161,6 +161,26 @@ movement Route119_WeatherInstitute_2F_CarmenToPlayer {
 	walk_right * 2
 }
 
+script Route119_WeatherInstitute_2F_EventScript_Carmen {
+	msgbox (format("CARMEN: Thanks again for saving us, {PLAYER}.\pThose thieves could have cost us a fortune in stolen inventory."), MSGBOX_NPC)
+	end
+}
+
+script Route119_WeatherInstitute_2F_EventScript_Scientist1 {
+	msgbox (format("So you're the kid who saved us?\pI've never been in a situation like that before, I'm ashamed to say that I just froze up when I saw those thieves."), MSGBOX_NPC)
+	end
+}
+
+script Route119_WeatherInstitute_2F_EventScript_Scientist2 {
+	msgbox (format("Our Master Balls may seem overpriced, but if we sold them for the same price as normal Poké Balls, nobody would buy anything else.\pWe wouldn't be able to keep up with the demand.\pPlus, the raw material used to make them is very rare."), MSGBOX_NPC)
+	end
+}
+
+script Route119_WeatherInstitute_2F_EventScript_Scientist3 {
+	msgbox (format("CARMEN really stepped up after Kurt passed.\pI'm lucky to have worked under both CARMEN and her grandfather."), MSGBOX_NPC)
+	end
+}
+
 raw`
 Route119_WeatherInstitute_2F_EventScript_Grunt5::
 	trainerbattle_single TRAINER_GRUNT_WEATHER_INST_5, Route119_WeatherInstitute_2F_Text_Grunt5Intro, Route119_WeatherInstitute_2F_Text_Grunt5Defeat

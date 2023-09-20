@@ -77,6 +77,21 @@ Route119_WeatherInstitute_1F_MartItems:
 	.2byte ITEM_MASTER_BALL
 	.2byte ITEM_NONE
 
+Route119_WeatherInstitute_1F_EventScript_Boy::
+	msgbox Route119_WeatherInstitute_1F_EventScript_Boy_Text_0, MSGBOX_NPC
+	end
+
+
+Route119_WeatherInstitute_1F_EventScript_Camper::
+	msgbox Route119_WeatherInstitute_1F_EventScript_Camper_Text_0, MSGBOX_NPC
+	end
+
+
+Route119_WeatherInstitute_1F_EventScript_Cowgirl::
+	msgbox Route119_WeatherInstitute_1F_EventScript_Cowgirl_Text_0, MSGBOX_NPC
+	end
+
+
 Route119_WeatherInstitute_1F_EventScript_BallSalesman_Text_0:
 	.string "I'm sorry, but the shop is closed at the\n"
 	.string "moment...\p"
@@ -88,3 +103,19 @@ Route119_WeatherInstitute_1F_EventScript_BallSalesman_Text_1:
 
 Route119_WeatherInstitute_1F_EventScript_BallSalesman_Text_2:
 	.string "Please come again.$"
+
+Route119_WeatherInstitute_1F_EventScript_Boy_Text_0:
+	.string "Those Master Balls sure are expensive,\n"
+	.string "I don't think I'll ever be able to\l"
+	.string "afford one.$"
+
+Route119_WeatherInstitute_1F_EventScript_Camper_Text_0:
+	.string "Most of these are just for display, the\n"
+	.string "real working Poké Balls are kept behind\l"
+	.string "the counter and upstairs.$"
+
+Route119_WeatherInstitute_1F_EventScript_Cowgirl_Text_0:
+	.string "I was sent here to pick up some Poké\n"
+	.string "Balls for the farm, but there are so\l"
+	.string "many different kinds to choose from, I\l"
+	.string "can't make up my mind!$"

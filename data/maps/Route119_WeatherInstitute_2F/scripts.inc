@@ -173,6 +173,26 @@ Route119_WeatherInstitute_2F_CarmenToPlayer:
 	walk_right
 	step_end
 
+Route119_WeatherInstitute_2F_EventScript_Carmen::
+	msgbox Route119_WeatherInstitute_2F_EventScript_Carmen_Text_0, MSGBOX_NPC
+	end
+
+
+Route119_WeatherInstitute_2F_EventScript_Scientist1::
+	msgbox Route119_WeatherInstitute_2F_EventScript_Scientist1_Text_0, MSGBOX_NPC
+	end
+
+
+Route119_WeatherInstitute_2F_EventScript_Scientist2::
+	msgbox Route119_WeatherInstitute_2F_EventScript_Scientist2_Text_0, MSGBOX_NPC
+	end
+
+
+Route119_WeatherInstitute_2F_EventScript_Scientist3::
+	msgbox Route119_WeatherInstitute_2F_EventScript_Scientist3_Text_0, MSGBOX_NPC
+	end
+
+
 Route119_WeatherInstitute_2F_EventScript_Grunt5::
 	trainerbattle_single TRAINER_GRUNT_WEATHER_INST_5, Route119_WeatherInstitute_2F_Text_Grunt5Intro, Route119_WeatherInstitute_2F_Text_Grunt5Defeat
 	msgbox Route119_WeatherInstitute_2F_Text_Grunt5PostBattle, MSGBOX_AUTOCLOSE
@@ -301,3 +321,31 @@ Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_8:
 	.string "Now, I must be sure everything in the\n"
 	.string "factory is still in working order.\p"
 	.string "Until we meet again, {PLAYER}.$"
+
+Route119_WeatherInstitute_2F_EventScript_Carmen_Text_0:
+	.string "CARMEN: Thanks again for saving us,\n"
+	.string "{PLAYER}.\p"
+	.string "Those thieves could have cost us a\n"
+	.string "fortune in stolen inventory.$"
+
+Route119_WeatherInstitute_2F_EventScript_Scientist1_Text_0:
+	.string "So you're the kid who saved us?\p"
+	.string "I've never been in a situation like that\n"
+	.string "before, I'm ashamed to say that I just\l"
+	.string "froze up when I saw those thieves.$"
+
+Route119_WeatherInstitute_2F_EventScript_Scientist2_Text_0:
+	.string "Our Master Balls may seem overpriced,\n"
+	.string "but if we sold them for the same price\l"
+	.string "as normal Poké Balls, nobody would buy\l"
+	.string "anything else.\p"
+	.string "We wouldn't be able to keep up with the\n"
+	.string "demand.\p"
+	.string "Plus, the raw material used to make them\n"
+	.string "is very rare.$"
+
+Route119_WeatherInstitute_2F_EventScript_Scientist3_Text_0:
+	.string "CARMEN really stepped up after Kurt\n"
+	.string "passed.\p"
+	.string "I'm lucky to have worked under both\n"
+	.string "CARMEN and her grandfather.$"
