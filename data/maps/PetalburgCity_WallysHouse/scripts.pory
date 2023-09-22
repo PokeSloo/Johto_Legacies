@@ -1,0 +1,59 @@
+mapscripts PetalburgCity_WallysHouse_MapScripts {}
+
+script PetalburgCity_WallysHouse_EventScript_MushroomGuy {
+    lock
+    faceplayer
+    msgbox (format("Hiya! I'm the Mushroom Maniac!\pMy favorite hobby is collecting mushrooms. If you have any mushrooms, I would be willing to trade you for some Exp.Candy.\pSo do we have a deal?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        msgbox (format("Oh, I see.\pWell if you ever change your mind, you know where to find me."))
+        release
+        end
+    }
+    else {
+        goto (PetalburgCity_WallysHouse_EventScript_MushroomSale)
+        end
+    }
+}
+
+script PetalburgCity_WallysHouse_EventScript_MushroomSale{
+    checkitem (ITEM_BIG_MUSHROOM)
+    if (var(VAR_RESULT) == TRUE) {
+        msgbox (format("Oh! You have a Big Mushroom!\pThat's fantastic!\pHere, you can have an Exp.Candy S in return."))
+        removeitem (ITEM_BIG_MUSHROOM, 1)
+        giveitem (ITEM_EXP_CANDY_S)
+        msgbox (format("Pleasure doing business with you!\pNow, do you have any more mushrooms you would be willing to trade?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox (format("Oh, I see.\pWell if you ever change your mind, you know where to find me."))
+            release
+            end
+        }
+        else {
+            goto (PetalburgCity_WallysHouse_EventScript_MushroomSale)
+            end
+        }
+    }
+    checkitem (ITEM_TINY_MUSHROOM)
+    if (var(VAR_RESULT) == TRUE) {
+        msgbox (format("Ah, I see you have a Tiny Mushroom.\pHmm, for that you can have an Exp.Candy XS in return."))
+        removeitem (ITEM_TINY_MUSHROOM, 1)
+        giveitem (ITEM_EXP_CANDY_XS)
+        msgbox (format("Pleasure doing business with you.\pNow, do you have any more mushrooms you would be willing to trade?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox (format("Oh, I see.\pWell if you ever change your mind, you know where to find me."))
+            release
+            end
+        }
+        else {
+            goto (PetalburgCity_WallysHouse_EventScript_MushroomSale)
+            end
+        }
+    }
+    msgbox (format("Hmmm...\pIt appears you don't have any mushrooms on you at the moment.\pIf you do find some, you know where to find me."))
+    release
+    end
+}
+
+script PetalburgCity_WallysHouse_EventScript_MushroomGirl {
+    msgbox (format("My husband makes the best Mushroom Soup!\pDon't tell him, but it's the only reason I married him."), MSGBOX_NPC)
+    end
+}

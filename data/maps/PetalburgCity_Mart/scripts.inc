@@ -15,7 +15,9 @@ PetalburgCity_Mart_EventScript_Clerk::
 	.align 2
 PetalburgCity_Mart_Pokemart_Basic:
 	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
 	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_PARALYZE_HEAL
 	.2byte ITEM_AWAKENING
@@ -67,20 +69,20 @@ PetalburgCity_Mart_EventScript_Man::
 	end
 
 PetalburgCity_Mart_Text_WeakWillGrowStronger:
-	.string "Even if a POKéMON is weak now,\n"
-	.string "it will grow stronger.\p"
-	.string "The most important thing is love!\n"
-	.string "Love for your POKéMON!$"
+	.string "Have you been down into the Slowpoke\n"
+	.string "Well?\p"
+	.string "People slip and drop items down there\n"
+	.string "all the time.$"
 
 PetalburgCity_Mart_Text_RepelIsUseful:
-	.string "Do you use REPEL?\n"
-	.string "It keeps POKéMON away, so it's\l"
-	.string "useful when you're in a hurry.$"
+	.string "Do you use Repels?\p"
+	.string "They're handy for keeping unwanted\n"
+	.string "POKéMON away, but you might miss out\l"
+	.string "on a rare POKéMON if you use them too\l"
+	.string "much.$"
 
 PetalburgCity_Mart_Text_TakeSomeAntidotesWithYou:
-	.string "Do you have any ANTIDOTES with\n"
-	.string "you?\p"
-	.string "If you walk around with a poisoned\n"
-	.string "POKéMON, it will lose HP until it faints.\l"
-	.string "Take some ANTIDOTES with you.$"
+	.string "W-what?\p"
+	.string "I w-wasn't going to steal anything!\p"
+	.string "Just mind your own business...$"
 

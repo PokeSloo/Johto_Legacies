@@ -1,0 +1,24 @@
+mapscripts PetalburgCity_House1_MapScripts {}
+
+script PetalburgCity_House1_EventScript_TauntKid {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_TAUNT_TM)) {
+        msgbox (format("Have you tried taunting anyone yet?"))
+        release
+        end
+    }
+    else {
+        msgbox (format("Are you a TRAINER?\pI don't believe it!\pYou look like you couldn't even catch a cold!\pI bet I could beat you with a single level 1 Magikarp!\p...\pIt's fun to taunt people, you should try it sometime."))
+        waitmessage
+        giveitem (ITEM_TM12_TAUNT)
+        setflag (FLAG_RECEIVED_TAUNT_TM)
+        release
+        end
+    }
+}
+
+script PetalburgCity_House1_EventScript_Woman {
+    msgbox (format("Oh, I just don't know what to do about this child.\pHe takes after his father, that's for sure!"), MSGBOX_NPC)
+    end
+}

@@ -1,137 +1,112 @@
-.set LOCALID_WALLYS_DAD, 1
-
 PetalburgCity_WallysHouse_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, PetalburgCity_WallysHouse_OnFrame
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PetalburgCity_WallysHouse_OnWarp
 	.byte 0
 
-PetalburgCity_WallysHouse_OnWarp:
-	map_script_2 VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_WallysHouse_EventScript_PlayerWallysDadFaceEachOther
-	.2byte 0
 
-PetalburgCity_WallysHouse_EventScript_PlayerWallysDadFaceEachOther::
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
-	turnobject LOCALID_WALLYS_DAD, DIR_WEST
-	end
-
-PetalburgCity_WallysHouse_OnFrame:
-	map_script_2 VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_WallysHouse_EventScript_GiveHM03Surf
-	.2byte 0
-
-PetalburgCity_WallysHouse_EventScript_GiveHM03Surf::
-	lockall
-	msgbox PetalburgCity_WallysHouse_Text_PleaseExcuseUs, MSGBOX_DEFAULT
-	giveitem ITEM_HM03
-	setflag FLAG_RECEIVED_HM03
-	msgbox PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces, MSGBOX_DEFAULT
-	setvar VAR_PETALBURG_CITY_STATE, 5
-	releaseall
-	end
-
-PetalburgCity_WallysHouse_EventScript_WallysDad::
+PetalburgCity_WallysHouse_EventScript_MushroomGuy::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_WALLY_VICTORY_ROAD, PetalburgCity_WallysHouse_EventScript_DefeatedWallyInVictoryRoad
-	goto_if_set FLAG_RECEIVED_HM03, PetalburgCity_WallysHouse_EventScript_ReceievedHM03Surf
-	goto_if_set FLAG_THANKED_FOR_PLAYING_WITH_WALLY, PetalburgCity_WallysHouse_EventScript_PlayedWithWally
-	msgbox PetalburgCity_WallysHouse_Text_ThanksForPlayingWithWally, MSGBOX_DEFAULT
-	setflag FLAG_THANKED_FOR_PLAYING_WITH_WALLY
+	msgbox PetalburgCity_WallysHouse_EventScript_MushroomGuy_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq PetalburgCity_WallysHouse_EventScript_MushroomGuy_1
+	goto PetalburgCity_WallysHouse_EventScript_MushroomSale
+	end
+
+PetalburgCity_WallysHouse_EventScript_MushroomGuy_1:
+	msgbox PetalburgCity_WallysHouse_EventScript_MushroomGuy_Text_1
 	release
 	end
 
-PetalburgCity_WallysHouse_EventScript_ReceievedHM03Surf::
-	msgbox PetalburgCity_WallysHouse_Text_WallyIsComingHomeSoon, MSGBOX_DEFAULT
+
+PetalburgCity_WallysHouse_EventScript_MushroomSale::
+	checkitem ITEM_BIG_MUSHROOM
+	compare VAR_RESULT, TRUE
+	goto_if_eq PetalburgCity_WallysHouse_EventScript_MushroomSale_2
+	checkitem ITEM_TINY_MUSHROOM
+	compare VAR_RESULT, TRUE
+	goto_if_eq PetalburgCity_WallysHouse_EventScript_MushroomSale_5
+	msgbox PetalburgCity_WallysHouse_EventScript_MushroomSale_Text_4
 	release
 	end
 
-PetalburgCity_WallysHouse_EventScript_DefeatedWallyInVictoryRoad::
-	msgbox PetalburgCity_WallysHouse_Text_YouMetWallyInEverGrandeCity, MSGBOX_DEFAULT
+PetalburgCity_WallysHouse_EventScript_MushroomSale_2:
+	msgbox PetalburgCity_WallysHouse_EventScript_MushroomSale_Text_0
+	removeitem ITEM_BIG_MUSHROOM, 1
+	giveitem ITEM_EXP_CANDY_S
+	msgbox PetalburgCity_WallysHouse_EventScript_MushroomSale_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq PetalburgCity_WallysHouse_EventScript_MushroomSale_7
+	goto PetalburgCity_WallysHouse_EventScript_MushroomSale
+	end
+
+PetalburgCity_WallysHouse_EventScript_MushroomSale_5:
+	msgbox PetalburgCity_WallysHouse_EventScript_MushroomSale_Text_2
+	removeitem ITEM_TINY_MUSHROOM, 1
+	giveitem ITEM_EXP_CANDY_XS
+	msgbox PetalburgCity_WallysHouse_EventScript_MushroomSale_Text_3, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq PetalburgCity_WallysHouse_EventScript_MushroomSale_10
+	goto PetalburgCity_WallysHouse_EventScript_MushroomSale
+	end
+
+PetalburgCity_WallysHouse_EventScript_MushroomSale_7:
+	msgbox PetalburgCity_WallysHouse_EventScript_MushroomGuy_Text_1
 	release
 	end
 
-PetalburgCity_WallysHouse_EventScript_PlayedWithWally::
-	msgbox PetalburgCity_WallysHouse_Text_WonderHowWallyIsDoing, MSGBOX_DEFAULT
+PetalburgCity_WallysHouse_EventScript_MushroomSale_10:
+	msgbox PetalburgCity_WallysHouse_EventScript_MushroomGuy_Text_1
 	release
 	end
 
-PetalburgCity_WallysHouse_EventScript_WallysMom::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_HM03, PetalburgCity_WallysHouse_EventScript_ReceivedHM03Surf
-	msgbox PetalburgCity_WallysHouse_Text_WallyWasReallyHappy, MSGBOX_DEFAULT
-	release
+
+PetalburgCity_WallysHouse_EventScript_MushroomGirl::
+	msgbox PetalburgCity_WallysHouse_EventScript_MushroomGirl_Text_0, MSGBOX_NPC
 	end
 
-PetalburgCity_WallysHouse_EventScript_ReceivedHM03Surf::
-	msgbox PetalburgCity_WallysHouse_Text_WallyLeftWithoutTelling, MSGBOX_DEFAULT
-	release
-	end
 
-PetalburgCity_WallysHouse_Text_ThanksForPlayingWithWally:
-	.string "You're…\n"
-	.string "Ah, you must be {PLAYER}{KUN}, right?\p"
-	.string "Thank you for playing with WALLY a\n"
-	.string "little while ago.\p"
-	.string "He's been frail and sickly ever\n"
-	.string "since he was a baby.\p"
-	.string "We've sent him to stay with my relatives\n"
-	.string "in VERDANTURF TOWN for a while.\p"
-	.string "The air is a lot cleaner there\n"
-	.string "than it is here.\p"
-	.string "What's that? Where's WALLY?\n"
-	.string "He's already left, our WALLY.\p"
-	.string "I wonder where he could have\n"
-	.string "gotten by now?$"
+PetalburgCity_WallysHouse_EventScript_MushroomGuy_Text_0:
+	.string "Hiya! I'm the Mushroom Maniac!\p"
+	.string "My favorite hobby is collecting\n"
+	.string "mushrooms. If you have any mushrooms,\l"
+	.string "I would be willing to trade you for some\l"
+	.string "Exp.Candy.\p"
+	.string "So do we have a deal?$"
 
-PetalburgCity_WallysHouse_Text_WonderHowWallyIsDoing:
-	.string "I wonder how our WALLY is doing?$"
+PetalburgCity_WallysHouse_EventScript_MushroomGuy_Text_1:
+	.string "Oh, I see.\p"
+	.string "Well if you ever change your mind, you\n"
+	.string "know where to find me.$"
 
-PetalburgCity_WallysHouse_Text_PleaseExcuseUs:
-	.string "{PLAYER}{KUN}! Please excuse us for\n"
-	.string "dragging you here this way.\p"
-	.string "But our WALLY's become very healthy\n"
-	.string "since he went to VERDANTURF TOWN.\p"
-	.string "We owe it all to you!\p"
-	.string "When WALLY left town, you helped\n"
-	.string "him catch a POKéMON, right?\p"
-	.string "I think that made WALLY really\n"
-	.string "happy.\p"
-	.string "Actually, not just WALLY.\n"
-	.string "It made me, his father, happy too.\p"
-	.string "Happy that he's gained such a great\n"
-	.string "friend as you.\p"
-	.string "This isn't a bribe or anything, but\n"
-	.string "I'd really like you to have this.$"
+PetalburgCity_WallysHouse_EventScript_MushroomSale_Text_0:
+	.string "Oh! You have a Big Mushroom!\p"
+	.string "That's fantastic!\p"
+	.string "Here, you can have an Exp.Candy S in\n"
+	.string "return.$"
 
-PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces:
-	.string "If your POKéMON can SURF, you'll be\n"
-	.string "able to go to all sorts of places.$"
+PetalburgCity_WallysHouse_EventScript_MushroomSale_Text_1:
+	.string "Pleasure doing business with you!\p"
+	.string "Now, do you have any more mushrooms you\n"
+	.string "would be willing to trade?$"
 
-PetalburgCity_WallysHouse_Text_WallyIsComingHomeSoon:
-	.string "WALLY's coming home soon.\n"
-	.string "I'm looking forward to that.$"
+PetalburgCity_WallysHouse_EventScript_MushroomSale_Text_2:
+	.string "Ah, I see you have a Tiny Mushroom.\p"
+	.string "Hmm, for that you can have an Exp.Candy\n"
+	.string "XS in return.$"
 
-PetalburgCity_WallysHouse_Text_YouMetWallyInEverGrandeCity:
-	.string "Oh? You met WALLY in\n"
-	.string "EVER GRANDE CITY?\p"
-	.string "Oh, {PLAYER}{KUN}, don't be silly.\p"
-	.string "He may have gotten healthy, but he\n"
-	.string "can't go somewhere far away like\l"
-	.string "that all by himself.$"
+PetalburgCity_WallysHouse_EventScript_MushroomSale_Text_3:
+	.string "Pleasure doing business with you.\p"
+	.string "Now, do you have any more mushrooms you\n"
+	.string "would be willing to trade?$"
 
-PetalburgCity_WallysHouse_Text_WallyWasReallyHappy:
-	.string "WALLY was really happy when he told\n"
-	.string "us that he caught a POKéMON.\p"
-	.string "It's been ages since I've seen him\n"
-	.string "smile like that.$"
+PetalburgCity_WallysHouse_EventScript_MushroomSale_Text_4:
+	.string "Hmmm...\p"
+	.string "It appears you don't have any\n"
+	.string "mushrooms on you at the moment.\p"
+	.string "If you do find some, you know where to\n"
+	.string "find me.$"
 
-PetalburgCity_WallysHouse_Text_WallyLeftWithoutTelling:
-	.string "I want you to keep this a secret\n"
-	.string "from my husband…\p"
-	.string "But our WALLY left VERDANTURF TOWN\n"
-	.string "without telling anyone.\p"
-	.string "You know, WALLY is frail, but\n"
-	.string "he's surprisingly strong-willed.\p"
-	.string "I'm sure that he'll come back safe\n"
-	.string "and sound one day!$"
-
+PetalburgCity_WallysHouse_EventScript_MushroomGirl_Text_0:
+	.string "My husband makes the best Mushroom\n"
+	.string "Soup!\p"
+	.string "Don't tell him, but it's the only reason I\n"
+	.string "married him.$"

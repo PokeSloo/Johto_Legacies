@@ -66,10 +66,10 @@
 #define FLAG_ITEM_UNION_CAVE_SUPER_POTION    0x36 // Item ball in Union Cave
 #define FLAG_ITEM_UNION_CAVE_B1F_MOONSTONE    0x37 // Item ball in Union Cave
 #define FLAG_HIDE_FAKE_NUGGET_GUY    0x38 // Route 33
-#define FLAG_STILL_UNUSED    0x39 // Unused
+#define FLAG_ILEX_HIDDEN_BIG_MUSHROOM    0x39 // Hidden item in Ilex forest
 #define FLAG_ITEM_SLOWPOKE_WELL_FLASH    0x3A // HM 05
 #define FLAG_ITEM_SLOWPOKE_WELL_DAMP_ROCK   0x3B // Damp rock
-#define FLAG_UNUSED_0x03C    0x3C // Unused Flag
+#define FLAG_RECEIVED_TAUNT_TM    0x3C // Azalea Town
 #define FLAG_UNUSED_0x03D    0x3D // Unused Flag
 #define FLAG_UNUSED_0x03E    0x3E // Unused Flag
 #define FLAG_UNUSED_0x03F    0x3F // Unused Flag
