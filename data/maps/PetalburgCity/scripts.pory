@@ -71,8 +71,67 @@ PetalburgCity_Text_WallyHouseSign:
 `
 
 script PetalburgCity_GymTrigger {
+lock
+if (flag(FLAG_MET_SHANE_AZALEA)) {
+    release
+    end
+}
 opendoor (22, 33)
 waitdooranim
+addobject (SHANE_LOCAL_ID)
+playbgm (MUS_HG_ENCOUNTER_RIVAL, FALSE)
+applymovement (OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerFaceUp)
+waitmovement (0)
+delay (30)
+applymovement (SHANE_LOCAL_ID, PetalburgCity_ShaneWalkOutOfGym)
+applymovement (OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerBackUp)
+waitmovement (0)
+closedoor (22, 33)
+waitdooranim
+msgbox (format("SHANE: Oh yeah! Another gym badge!\p...\pOh, it's you.\pYou aren't still upset about getting beat last time are you?\pI was just trying to toughen up your POKéMON.\pDon't worry, I'm in a good mood, so I'll let you off the hook for now.\pLater loser."))
+waitmessage
+closemessage
+fadedefaultbgm
+applymovement (OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerFaceLeft)
+applymovement (SHANE_LOCAL_ID, PetalburgCity_ShaneLeave)
+waitmovement (0)
+removeobject (SHANE_LOCAL_ID)
+setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_1)
+setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_2)
+setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_3)
+setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_4)
+setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_5)
+setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_6)
+setflag (FLAG_MET_SHANE_AZALEA)
+release
+end
+}
+
+movement PetalburgCity_PlayerFaceUp {
+    face_up
+}
+
+movement PetalburgCity_ShaneWalkOutOfGym {
+    delay_16
+    walk_down
+}
+
+movement PetalburgCity_PlayerBackUp {
+    lock_facing_direction
+    walk_down
+    unlock_facing_direction
+}
+
+movement PetalburgCity_PlayerFaceLeft {
+    delay_16
+    face_left
+}
+
+movement PetalburgCity_ShaneLeave {
+    walk_left
+    walk_down
+    walk_left * 4
+    walk_up * 6
 }
 
 script PetalburgCity_EventScript_Slowpoke {

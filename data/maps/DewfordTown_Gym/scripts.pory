@@ -1,0 +1,590 @@
+const ID_ALICIA = 1
+
+mapscripts DewfordTown_Gym_MapScripts {}
+
+script DewfordTown_Gym_EventScript_Alicia {
+    lock
+    faceplayer
+    if (flag(FLAG_DEFEATED_DEWFORD_GYM)) {
+        msgbox (format("ALICIA: I had a lot of fun playing with you!\pYou're pretty good at battling too, maybe we can battle again someday."))
+        release
+        end
+    }
+    elif (flag(FLAG_FOUND_ALICIA)) {
+        msgbox(format("ALICIA: Do you want to play hide and seek again?\p...\pOh, you're here for a battle?\pWhy didn't you say so earlier, I love POKéMON battles!\pAlright, let's see how strong you are!"))
+        trainerbattle_no_intro (TRAINER_BRAWLY_1, DewfordTown_Gym_Text_AliciaDefeat)
+        msgbox(format("{PLAYER} received the SPARKLE BADGE from ALICIA!"))
+        waitmessage
+	    call (Common_EventScript_PlayGymBadgeFanfare)
+        setflag (FLAG_DEFEATED_DEWFORD_GYM)
+	    setflag (FLAG_BADGE02_GET)
+        msgbox (format("That SPARKLE BADGE will make all POKéMON up to Level 30 listen to you without question, even the POKéMON you get from trades!\pYou will also be able to use the HM move FLASH outside of battle.\pOh yeah, I would also like you to have this!"))
+        giveitem (ITEM_TM43_SECRET_POWER)
+        msgbox (format("That TM contains DRAINING KISS. It may sound like an innocent move, but your POKéMON will absorb over half the damage done to your opponent!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("ALICIA: I'm so bored!\pThere's nothing fun to do around here.\pYou there, play hide and seek with me!\pI'll hide somewhere in the gym, and you come find me.\pOk, no peeking!"))
+        waitmessage
+        closemessage
+        fadescreen (FADE_TO_BLACK)
+        random(4)
+        switch (var(VAR_RESULT)) {
+            case 0: setflag (FLAG_ALICIA_TOP_ARMOR)
+            case 1: setflag (FLAG_ALICIA_BOTTOM_ARMOR)
+            case 2: setflag (FLAG_ALICIA_PIANO)
+            case 3: setflag (FLAG_ALICIA_TABLE)
+        }
+        removeobject (ID_ALICIA)
+        setflag (FLAG_HIDE_AND_SEEK_ACTIVE)
+        fadescreen (FADE_FROM_BLACK)
+        release
+        end
+    }
+}
+
+text DewfordTown_Gym_Text_AliciaDefeat {
+    format("Wow! You're a lot tougher than you look!\pThat was the best battle I've had in a while. Here, I will gladly present you with this gym badge!")
+}
+
+script DewfordTown_Gym_EventScript_AliciaTopArmor {
+    lock
+    if (flag(FLAG_FOUND_ALICIA)) {
+        release
+        end
+    }
+    elif (flag(FLAG_HIDE_AND_SEEK_ACTIVE)) {
+        if (flag(FLAG_ALICIA_TOP_ARMOR)) {
+            playse (SE_PIN)
+            applymovement (OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp)
+            waitmovement (0)
+            addobject (13)
+            playse (SE_LEDGE)
+            applymovement (13, DewfordTown_Gym_Movement_JumpOut)
+            waitmovement (0)
+            msgbox (format("ALICIA: You found me!\pThat was fun, you're pretty good at hide and seek!"))
+            waitmessage
+            closemessage
+            fadescreen (FADE_TO_BLACK)
+            removeobject (13)
+            setflag (FLAG_FOUND_ALICIA)
+            clearflag (FLAG_HIDE_AND_SEEK_ACTIVE)
+            addobject (ID_ALICIA)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_1)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_2)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_3)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_4)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_5)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_6)
+            removeobject (2)
+            removeobject (3)
+            removeobject (4)
+            removeobject (6)
+            removeobject (7)
+            removeobject (8)
+            fadescreen (FADE_FROM_BLACK)
+            release
+            end
+        }
+        else {
+            release
+            end
+        }
+    }
+    else {
+        release
+        end
+    }
+}
+
+script DewfordTown_Gym_EventScript_AliciaBottomArmor {
+    lock
+    if (flag(FLAG_FOUND_ALICIA)) {
+        release
+        end
+    }
+    elif (flag(FLAG_HIDE_AND_SEEK_ACTIVE)) {
+        if (flag(FLAG_ALICIA_BOTTOM_ARMOR)) {
+            playse (SE_PIN)
+            applymovement (OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp)
+            waitmovement (0)
+            addobject (11)
+            playse (SE_LEDGE)
+            applymovement (11, DewfordTown_Gym_Movement_JumpOut)
+            waitmovement (0)
+            msgbox (format("ALICIA: You found me!\pThat was fun, you're pretty good at hide and seek!"))
+            waitmessage
+            closemessage
+            fadescreen (FADE_TO_BLACK)
+            removeobject (11)
+            setflag (FLAG_FOUND_ALICIA)
+            clearflag (FLAG_HIDE_AND_SEEK_ACTIVE)
+            addobject (ID_ALICIA)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_1)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_2)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_3)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_4)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_5)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_6)
+            removeobject (2)
+            removeobject (3)
+            removeobject (4)
+            removeobject (6)
+            removeobject (7)
+            removeobject (8)
+            fadescreen (FADE_FROM_BLACK)
+            release
+            end
+        }
+        else {
+            release
+            end
+        }
+    }
+    else {
+        release
+        end
+    }
+}
+
+script DewfordTown_Gym_EventScript_AliciaPiano {
+    lock
+    if (flag(FLAG_FOUND_ALICIA)) {
+        release
+        end
+    }
+    elif (flag(FLAG_HIDE_AND_SEEK_ACTIVE)) {
+        if (flag(FLAG_ALICIA_PIANO)) {
+            playse (SE_PIN)
+            applymovement (OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp)
+            waitmovement (0)
+            addobject (12)
+            playse (SE_LEDGE)
+            applymovement (12, DewfordTown_Gym_Movement_JumpOut)
+            waitmovement (0)
+            msgbox (format("ALICIA: You found me!\pThat was fun, you're pretty good at hide and seek!"))
+            waitmessage
+            closemessage
+            fadescreen (FADE_TO_BLACK)
+            removeobject (12)
+            setflag (FLAG_FOUND_ALICIA)
+            clearflag (FLAG_HIDE_AND_SEEK_ACTIVE)
+            addobject (ID_ALICIA)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_1)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_2)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_3)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_4)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_5)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_6)
+            removeobject (2)
+            removeobject (3)
+            removeobject (4)
+            removeobject (6)
+            removeobject (7)
+            removeobject (8)
+            fadescreen (FADE_FROM_BLACK)
+            release
+            end
+        }
+        else {
+            release
+            end
+        }
+    }
+    else {
+        release
+        end
+    }
+}
+
+script DewfordTown_Gym_EventScript_AliciaTable {
+    lock
+    if (flag(FLAG_FOUND_ALICIA)) {
+        release
+        end
+    }
+    elif (flag(FLAG_HIDE_AND_SEEK_ACTIVE)) {
+        if (flag(FLAG_ALICIA_TABLE)) {
+            playse (SE_PIN)
+            applymovement (OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp)
+            waitmovement (0)
+            addobject (10)
+            playse (SE_LEDGE)
+            applymovement (10, DewfordTown_Gym_Movement_JumpOut)
+            waitmovement (0)
+            msgbox (format("ALICIA: You found me!\pThat was fun, you're pretty good at hide and seek!"))
+            waitmessage
+            closemessage
+            fadescreen (FADE_TO_BLACK)
+            removeobject (10)
+            setflag (FLAG_FOUND_ALICIA)
+            clearflag (FLAG_HIDE_AND_SEEK_ACTIVE)
+            addobject (ID_ALICIA)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_1)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_2)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_3)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_4)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_5)
+            setflag (FLAG_HIDE_AZALEA_GYM_TRAINER_6)
+            removeobject (2)
+            removeobject (3)
+            removeobject (4)
+            removeobject (6)
+            removeobject (7)
+            removeobject (8)
+            fadescreen (FADE_FROM_BLACK)
+            release
+            end
+        }
+        else {
+            release
+            end
+        }
+    }
+    else {
+        release
+        end
+    }
+}
+
+movement DewfordTown_Gym_PlayerBackUp {
+    emote_exclamation_mark
+    delay_16 * 4
+    lock_facing_direction
+    walk_down
+    unlock_facing_direction
+    face_up
+}
+
+movement DewfordTown_Gym_Movement_JumpOut {
+    jump_in_place_down
+}
+
+script DewfordTown_Gym_EventScript_Trainer_1_Hiding {
+    lock
+    if (flag(FLAG_FOUND_ALICIA)) {
+        release
+        end
+    }
+    elif (flag(FLAG_HIDE_AND_SEEK_ACTIVE)) {
+        goto_if_defeated (TRAINER_BRENDEN, DewfordTown_Gym_EventScript_Trainer_Defeated)
+        playse (SE_PIN)
+        applymovement (OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp)
+        waitmovement (0)
+        clearflag (FLAG_HIDE_AZALEA_GYM_TRAINER_1)
+        addobject (8)
+        playse (SE_LEDGE)
+        applymovement (8, DewfordTown_Gym_Movement_JumpOut)
+        waitmovement (0)
+        msgbox (format("You found me!\pJust kidding, I'm not ALICIA!"))
+        trainerbattle_no_intro (TRAINER_BRENDEN, DewfordTown_Gym_Text_BrendenDefeat)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+script DewfordTown_Gym_EventScript_Trainer_2_Hiding {
+    lock
+    if (flag(FLAG_FOUND_ALICIA)) {
+        release
+        end
+    }
+    elif (flag(FLAG_HIDE_AND_SEEK_ACTIVE)) {
+        goto_if_defeated (TRAINER_LILITH, DewfordTown_Gym_EventScript_Trainer_Defeated)
+        playse (SE_PIN)
+        applymovement (OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp)
+        waitmovement (0)
+        clearflag (FLAG_HIDE_AZALEA_GYM_TRAINER_2)
+        addobject (7)
+        playse (SE_LEDGE)
+        applymovement (7, DewfordTown_Gym_Movement_JumpOut)
+        waitmovement (0)
+        msgbox (format("You found me!\pJust kidding, I'm not ALICIA!"))
+        trainerbattle_no_intro (TRAINER_LILITH, DewfordTown_Gym_Text_LilithDefeat)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+script DewfordTown_Gym_EventScript_Trainer_3_Hiding {
+    lock
+    if (flag(FLAG_FOUND_ALICIA)) {
+        release
+        end
+    }
+    elif (flag(FLAG_HIDE_AND_SEEK_ACTIVE)) {
+        goto_if_defeated (TRAINER_CRISTIAN, DewfordTown_Gym_EventScript_Trainer_Defeated)
+        playse (SE_PIN)
+        applymovement (OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp)
+        waitmovement (0)
+        clearflag (FLAG_HIDE_AZALEA_GYM_TRAINER_3)
+        addobject (6)
+        playse (SE_LEDGE)
+        applymovement (6, DewfordTown_Gym_Movement_JumpOut)
+        waitmovement (0)
+        msgbox (format("You found me!\pJust kidding, I'm not ALICIA!"))
+        trainerbattle_no_intro (TRAINER_CRISTIAN, DewfordTown_Gym_Text_CristianDefeat)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+script DewfordTown_Gym_EventScript_Trainer_4_Hiding {
+    lock
+    if (flag(FLAG_FOUND_ALICIA)) {
+        release
+        end
+    }
+    elif (flag(FLAG_HIDE_AND_SEEK_ACTIVE)) {
+        goto_if_defeated (TRAINER_LAURA, DewfordTown_Gym_EventScript_Trainer_Defeated)
+        playse (SE_PIN)
+        applymovement (OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp)
+        waitmovement (0)
+        clearflag (FLAG_HIDE_AZALEA_GYM_TRAINER_4)
+        addobject (4)
+        playse (SE_LEDGE)
+        applymovement (4, DewfordTown_Gym_Movement_JumpOut)
+        waitmovement (0)
+        msgbox (format("You found me!\pJust kidding, I'm not ALICIA!"))
+        trainerbattle_no_intro (TRAINER_LAURA, DewfordTown_Gym_Text_LauraDefeat)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+script DewfordTown_Gym_EventScript_Trainer_5_Hiding {
+    lock
+    if (flag(FLAG_FOUND_ALICIA)) {
+        release
+        end
+    }
+    elif (flag(FLAG_HIDE_AND_SEEK_ACTIVE)) {
+        goto_if_defeated (TRAINER_TAKAO, DewfordTown_Gym_EventScript_Trainer_Defeated)
+        playse (SE_PIN)
+        applymovement (OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp)
+        waitmovement (0)
+        clearflag (FLAG_HIDE_AZALEA_GYM_TRAINER_5)
+        addobject (2)
+        playse (SE_LEDGE)
+        applymovement (2, DewfordTown_Gym_Movement_JumpOut)
+        waitmovement (0)
+        msgbox (format("You found me!\pJust kidding, I'm not ALICIA!"))
+        trainerbattle_no_intro (TRAINER_TAKAO, DewfordTown_Gym_Text_TakaoDefeat)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+script DewfordTown_Gym_EventScript_Trainer_6_Hiding {
+    lock
+    if (flag(FLAG_FOUND_ALICIA)) {
+        release
+        end
+    }
+    elif (flag(FLAG_HIDE_AND_SEEK_ACTIVE)) {
+        goto_if_defeated (TRAINER_JOCELYN, DewfordTown_Gym_EventScript_Trainer_Defeated)
+        playse (SE_PIN)
+        applymovement (OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp)
+        waitmovement (0)
+        clearflag (FLAG_HIDE_AZALEA_GYM_TRAINER_6)
+        addobject (3)
+        playse (SE_LEDGE)
+        applymovement (3, DewfordTown_Gym_Movement_JumpOut)
+        waitmovement (0)
+        msgbox (format("You found me!\pJust kidding, I'm not ALICIA!"))
+        trainerbattle_no_intro (TRAINER_JOCELYN, DewfordTown_Gym_Text_JocelynDefeat)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+script DewfordTown_Gym_EventScript_Trainer_Defeated {
+    release
+    end
+}
+
+script DewfordTown_Gym_EventScript_Maid {
+    msgbox(format("Thank you for playing with ALICIA.\pKeeping up with her can be a real hassle sometimes."), MSGBOX_NPC)
+    end
+}
+
+raw`
+DewfordTown_Gym_EventScript_Takao::
+	trainerbattle_single TRAINER_TAKAO, DewfordTown_Gym_Text_TakaoIntro, DewfordTown_Gym_Text_TakaoDefeat
+	msgbox DewfordTown_Gym_Text_TakaoPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+DewfordTown_Gym_EventScript_Jocelyn::
+	trainerbattle_single TRAINER_JOCELYN, DewfordTown_Gym_Text_JocelynIntro, DewfordTown_Gym_Text_JocelynDefeat
+	msgbox DewfordTown_Gym_Text_JocelynPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+DewfordTown_Gym_EventScript_Laura::
+	trainerbattle_single TRAINER_LAURA, DewfordTown_Gym_Text_LauraIntro, DewfordTown_Gym_Text_LauraDefeat
+	msgbox DewfordTown_Gym_Text_LauraPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+DewfordTown_Gym_EventScript_Brenden::
+	trainerbattle_single TRAINER_BRENDEN, DewfordTown_Gym_Text_BrendenIntro, DewfordTown_Gym_Text_BrendenDefeat
+	msgbox DewfordTown_Gym_Text_BrendenPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+DewfordTown_Gym_EventScript_Cristian::
+	trainerbattle_single TRAINER_CRISTIAN, DewfordTown_Gym_Text_CristianIntro, DewfordTown_Gym_Text_CristianDefeat
+	msgbox DewfordTown_Gym_Text_CristianPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+DewfordTown_Gym_EventScript_Lilith::
+	trainerbattle_single TRAINER_LILITH, DewfordTown_Gym_Text_LilithIntro, DewfordTown_Gym_Text_LilithDefeat
+	msgbox DewfordTown_Gym_Text_LilithPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+DewfordTown_Gym_EventScript_GymGuide::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_DEWFORD_GYM, DewfordTown_Gym_EventScript_GymGuidePostVictory
+	msgbox DewfordTown_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_Gym_EventScript_GymGuidePostVictory::
+	msgbox DewfordTown_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_Gym_EventScript_LeftGymStatue::
+	lockall
+	goto_if_set FLAG_BADGE02_GET, DewfordTown_Gym_EventScript_GymStatueCertified
+	goto DewfordTown_Gym_EventScript_GymStatue
+	end
+
+DewfordTown_Gym_EventScript_RightGymStatue::
+	lockall
+	goto_if_set FLAG_BADGE02_GET, DewfordTown_Gym_EventScript_GymStatueCertified
+	goto DewfordTown_Gym_EventScript_GymStatue
+	end
+
+DewfordTown_Gym_EventScript_GymStatueCertified::
+	msgbox DewfordTown_Gym_Text_GymStatueCertified, MSGBOX_DEFAULT
+	releaseall
+	end
+
+DewfordTown_Gym_EventScript_GymStatue::
+	msgbox DewfordTown_Gym_Text_GymStatue, MSGBOX_DEFAULT
+	releaseall
+	end
+
+DewfordTown_Gym_Text_GymGuideAdvice:
+	.string "AZALEA's GYM LEADER ALICIA may just be\n"
+	.string "a little girl, but don't underestimate\l"
+	.string "her!\p"
+	.string "She is a FAIRY-type master!\p"
+	.string "You can try bringing a POISON-type or\n"
+	.string "STEEL-type POKéMON with you, but this\l"
+	.string "will be no easy battle even then.\p"
+	.string "Well, if you think you're ready, then go\n"
+	.string "for it!$"
+
+DewfordTown_Gym_Text_GymGuidePostVictory:
+	.string "I knew you could do it!\p"
+	.string "All thanks to following my advice, I'm\n"
+	.string "sure.$"
+
+DewfordTown_Gym_Text_TakaoIntro:
+	.string "Oh, you want a re-match huh?$"
+
+DewfordTown_Gym_Text_TakaoDefeat:
+	.string "You're just too strong!$"
+
+DewfordTown_Gym_Text_TakaoPostBattle:
+	.string "You're not very good at hide and seek\n"
+	.string "you know!$"
+
+DewfordTown_Gym_Text_JocelynIntro:
+	.string "Haven't had enough, have you?$"
+
+DewfordTown_Gym_Text_JocelynDefeat:
+	.string "But… How?\n"
+	.string "How could I lose so easily?$"
+
+DewfordTown_Gym_Text_JocelynPostBattle:
+	.string "You're still no match for ALICIA!$"
+
+DewfordTown_Gym_Text_LauraIntro:
+	.string "You don't get tired of losing, do you?$"
+
+DewfordTown_Gym_Text_LauraDefeat:
+	.string "Waaaaaaah!\n"
+	.string "I lost!$"
+
+DewfordTown_Gym_Text_LauraPostBattle:
+	.string "You're just a big meanie!$"
+
+DewfordTown_Gym_Text_LilithIntro:
+	.string "Sure, I'll battle with you again!$"
+
+DewfordTown_Gym_Text_LilithDefeat:
+	.string "Oh, you…\n"
+	.string "I don't want to know you!$"
+
+DewfordTown_Gym_Text_LilithPostBattle:
+	.string "ALICIA is the best at hide and seek!$"
+
+DewfordTown_Gym_Text_BrendenIntro:
+	.string "Ufufufu, so you want more do you?$"
+
+DewfordTown_Gym_Text_BrendenDefeat:
+	.string "How'd this happen?\n"
+	.string "It's not like me to lose this way!$"
+
+DewfordTown_Gym_Text_BrendenPostBattle:
+	.string "How many of us are hiding in here?\p"
+	.string "I'm not telling you!$"
+
+DewfordTown_Gym_Text_CristianIntro:
+	.string "What makes you so certain this time will\n"
+	.string "be different?$"
+
+DewfordTown_Gym_Text_CristianDefeat:
+	.string "Grrrrr!\n"
+	.string "Vastly overpowered!$"
+
+DewfordTown_Gym_Text_CristianPostBattle:
+	.string "You win!\n"
+	.string "Now find ALICIA!$"
+
+DewfordTown_Gym_Text_GymStatue:
+	.string "AZALEA TOWN POKéMON GYM\p"
+	.string "ALICIA'S CERTIFIED TRAINERS:\n"
+	.string "SHANE$"
+
+DewfordTown_Gym_Text_GymStatueCertified:
+	.string "AZALEA TOWN POKéMON GYM\p"
+	.string "ALICIA'S CERTIFIED TRAINERS:\n"
+	.string "SHANE, {PLAYER}$"
+`

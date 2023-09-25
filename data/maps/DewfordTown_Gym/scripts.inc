@@ -1,249 +1,477 @@
 DewfordTown_Gym_MapScripts::
 	.byte 0
 
-DewfordTown_Gym_OnTransition:
-	call DewfordTown_Gym_EventScript_SetFlashLevel
-	end
 
-DewfordTown_Gym_EventScript_SetFlashLevel::
-	goto_if_defeated TRAINER_BRAWLY_1, DewfordTown_Gym_EventScript_SetLightsOn
-	call DewfordTown_Gym_EventScript_CountTrainersDefeated
-	copyvar VAR_0x8001, VAR_0x8000
-	goto_if_eq VAR_0x8000, 0, DewfordTown_Gym_EventScript_SetFlashLevel7
-	goto_if_eq VAR_0x8000, 1, DewfordTown_Gym_EventScript_SetFlashLevel6
-	goto_if_eq VAR_0x8000, 2, DewfordTown_Gym_EventScript_SetFlashLevel5
-	goto_if_eq VAR_0x8000, 3, DewfordTown_Gym_EventScript_SetFlashLevel4
-	goto_if_eq VAR_0x8000, 4, DewfordTown_Gym_EventScript_SetFlashLevel3
-	goto_if_eq VAR_0x8000, 5, DewfordTown_Gym_EventScript_SetFlashLevel2
-	goto DewfordTown_Gym_EventScript_SetFlashLevel1
-
-DewfordTown_Gym_EventScript_SetLightsOn::
-	setflashlevel 0
-	return
-
-@ Brightest
-DewfordTown_Gym_EventScript_SetFlashLevel1::
-	setflashlevel 1
-	return
-
-DewfordTown_Gym_EventScript_SetFlashLevel2::
-	setflashlevel 2
-	return
-
-DewfordTown_Gym_EventScript_SetFlashLevel3::
-	setflashlevel 3
-	return
-
-DewfordTown_Gym_EventScript_SetFlashLevel4::
-	setflashlevel 4
-	return
-
-DewfordTown_Gym_EventScript_SetFlashLevel5::
-	setflashlevel 5
-	return
-
-DewfordTown_Gym_EventScript_SetFlashLevel6::
-	setflashlevel 6
-	return
-
-@ Darkest
-DewfordTown_Gym_EventScript_SetFlashLevel7::
-	setflashlevel 7
-	return
-
-DewfordTown_Gym_EventScript_BrightenRoom::
-	call DewfordTown_Gym_EventScript_CountTrainersDefeated
-	nop1
-	goto_if_eq VAR_0x8000, VAR_0x8001, DewfordTown_Gym_EventScript_NoLightChange
-	copyvar VAR_0x8001, VAR_0x8000
-	goto_if_eq VAR_0x8000, 1, DewfordTown_Gym_EventScript_AnimateFlash1Trainer
-	goto_if_eq VAR_0x8000, 2, DewfordTown_Gym_EventScript_AnimateFlash2Trainers
-	goto_if_eq VAR_0x8000, 3, DewfordTown_Gym_EventScript_AnimateFlash3Trainers
-	goto_if_eq VAR_0x8000, 4, DewfordTown_Gym_EventScript_AnimateFlash4Trainers
-	goto_if_eq VAR_0x8000, 5, DewfordTown_Gym_EventScript_AnimateFlash5Trainers
-	goto_if_eq VAR_0x8000, 6, DewfordTown_Gym_EventScript_AnimateFlash6Trainers
-
-DewfordTown_Gym_EventScript_NoLightChange::
-	return
-
-@ NOTE: A little confusingly, a larger animateflash param value is a smaller flash radius
-DewfordTown_Gym_EventScript_AnimateFlash1Trainer::
-	playse SE_SWITCH
-	animateflash 6
-	call DewfordTown_Gym_EventScript_SetFlashLevel
-	return
-
-DewfordTown_Gym_EventScript_AnimateFlash2Trainers::
-	playse SE_SWITCH
-	animateflash 5
-	call DewfordTown_Gym_EventScript_SetFlashLevel
-	return
-
-DewfordTown_Gym_EventScript_AnimateFlash3Trainers::
-	playse SE_SWITCH
-	animateflash 4
-	call DewfordTown_Gym_EventScript_SetFlashLevel
-	return
-
-DewfordTown_Gym_EventScript_AnimateFlash4Trainers::
-	playse SE_SWITCH
-	animateflash 3
-	call DewfordTown_Gym_EventScript_SetFlashLevel
-	return
-
-DewfordTown_Gym_EventScript_AnimateFlash5Trainers::
-	playse SE_SWITCH
-	animateflash 2
-	call DewfordTown_Gym_EventScript_SetFlashLevel
-	return
-
-DewfordTown_Gym_EventScript_AnimateFlash6Trainers::
-	playse SE_SWITCH
-	animateflash 1
-	call DewfordTown_Gym_EventScript_SetFlashLevel
-	return
-
-DewfordTown_Gym_EventScript_AnimateFlashFullBrightness::
-	playse SE_SWITCH
-	animateflash 0
-	call DewfordTown_Gym_EventScript_SetFlashLevel
-	return
-
-DewfordTown_Gym_EventScript_CountTrainersDefeated::
-	setvar VAR_0x8000, 0
-	goto_if_not_defeated TRAINER_TAKAO, DewfordTown_Gym_EventScript_CheckJocelyn
-	addvar VAR_0x8000, 1
-DewfordTown_Gym_EventScript_CheckJocelyn::
-	goto_if_not_defeated TRAINER_JOCELYN, DewfordTown_Gym_EventScript_CheckLaura
-	addvar VAR_0x8000, 1
-DewfordTown_Gym_EventScript_CheckLaura::
-	goto_if_not_defeated TRAINER_LAURA, DewfordTown_Gym_EventScript_CheckBrenden
-	addvar VAR_0x8000, 1
-DewfordTown_Gym_EventScript_CheckBrenden::
-	goto_if_not_defeated TRAINER_BRENDEN, DewfordTown_Gym_EventScript_CheckCristian
-	addvar VAR_0x8000, 1
-DewfordTown_Gym_EventScript_CheckCristian::
-	goto_if_not_defeated TRAINER_CRISTIAN, DewfordTown_Gym_EventScript_CheckLilith
-	addvar VAR_0x8000, 1
-DewfordTown_Gym_EventScript_CheckLilith::
-	goto_if_not_defeated TRAINER_LILITH, DewfordTown_Gym_EventScript_StopCountingTrainers
-	addvar VAR_0x8000, 1
-DewfordTown_Gym_EventScript_StopCountingTrainers::
-	return
-
-DewfordTown_Gym_EventScript_Brawly::
-	trainerbattle_single TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, DewfordTown_Gym_EventScript_BrawlyRematch
-	goto_if_unset FLAG_RECEIVED_TM08, DewfordTown_Gym_EventScript_GiveBulkUp2
-	msgbox DewfordTown_Gym_Text_BrawlyPostBattle, MSGBOX_DEFAULT
+DewfordTown_Gym_EventScript_Alicia::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_DEWFORD_GYM, DewfordTown_Gym_EventScript_Alicia_1
+	goto_if_set FLAG_FOUND_ALICIA, DewfordTown_Gym_EventScript_Alicia_2
+	msgbox DewfordTown_Gym_EventScript_Alicia_Text_5
+	waitmessage
+	closemessage
+	fadescreen FADE_TO_BLACK
+	random 4
+	switch VAR_RESULT
+	case 0, DewfordTown_Gym_EventScript_Alicia_8
+	case 1, DewfordTown_Gym_EventScript_Alicia_9
+	case 2, DewfordTown_Gym_EventScript_Alicia_10
+	case 3, DewfordTown_Gym_EventScript_Alicia_11
+DewfordTown_Gym_EventScript_Alicia_6:
+	removeobject 1
+	setflag FLAG_HIDE_AND_SEEK_ACTIVE
+	fadescreen FADE_FROM_BLACK
 	release
 	end
 
-DewfordTown_Gym_EventScript_BrawlyDefeated::
-	call DewfordTown_Gym_EventScript_AnimateFlashFullBrightness
-	message DewfordTown_Gym_Text_ReceivedKnuckleBadge
+DewfordTown_Gym_EventScript_Alicia_1:
+	msgbox DewfordTown_Gym_EventScript_Alicia_Text_0
+	release
+	end
+
+DewfordTown_Gym_EventScript_Alicia_2:
+	msgbox DewfordTown_Gym_EventScript_Alicia_Text_1
+	trainerbattle_no_intro TRAINER_BRAWLY_1, DewfordTown_Gym_Text_AliciaDefeat
+	msgbox DewfordTown_Gym_EventScript_Alicia_Text_2
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
-	msgbox DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_DEWFORD_GYM
 	setflag FLAG_BADGE02_GET
-	addvar VAR_PETALBURG_GYM_STATE, 1
-	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
-	setvar VAR_0x8008, 2
-	call Common_EventScript_SetGymTrainers
-	call DewfordTown_Gym_EventScript_GiveBulkUp
-	closemessage
-	delay 30
-	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox DewfordTown_Gym_Text_RegisteredBrawly, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
-	delay 30
-	setflag FLAG_ENABLE_BRAWLY_MATCH_CALL
-	setvar VAR_ROXANNE_CALL_STEP_COUNTER, 0
-	setflag FLAG_ENABLE_ROXANNE_FIRST_CALL
+	msgbox DewfordTown_Gym_EventScript_Alicia_Text_3
+	giveitem ITEM_TM43_SECRET_POWER
+	msgbox DewfordTown_Gym_EventScript_Alicia_Text_4
 	release
 	end
 
-DewfordTown_Gym_EventScript_GiveBulkUp::
-	giveitem ITEM_TM08
-	goto_if_eq VAR_RESULT, 0, Common_EventScript_BagIsFull
-	msgbox DewfordTown_Gym_Text_ExplainBulkUp, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM08
-	return
+DewfordTown_Gym_EventScript_Alicia_8:
+	setflag FLAG_ALICIA_TOP_ARMOR
+	goto DewfordTown_Gym_EventScript_Alicia_6
 
-DewfordTown_Gym_EventScript_GiveBulkUp2:
-	giveitem ITEM_TM08
-	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
-	msgbox DewfordTown_Gym_Text_ExplainBulkUp, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM08
+DewfordTown_Gym_EventScript_Alicia_9:
+	setflag FLAG_ALICIA_BOTTOM_ARMOR
+	goto DewfordTown_Gym_EventScript_Alicia_6
+
+DewfordTown_Gym_EventScript_Alicia_10:
+	setflag FLAG_ALICIA_PIANO
+	goto DewfordTown_Gym_EventScript_Alicia_6
+
+DewfordTown_Gym_EventScript_Alicia_11:
+	setflag FLAG_ALICIA_TABLE
+	goto DewfordTown_Gym_EventScript_Alicia_6
+
+
+DewfordTown_Gym_EventScript_AliciaTopArmor::
+	lock
+	goto_if_set FLAG_FOUND_ALICIA, DewfordTown_Gym_EventScript_AliciaTopArmor_1
+	goto_if_set FLAG_HIDE_AND_SEEK_ACTIVE, DewfordTown_Gym_EventScript_AliciaTopArmor_2
 	release
 	end
 
-DewfordTown_Gym_EventScript_BrawlyRematch::
-	trainerbattle_rematch_double TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyPreRematch, DewfordTown_Gym_Text_BrawlyRematchDefeat, DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons
-	msgbox DewfordTown_Gym_Text_BrawlyPostRematch, MSGBOX_AUTOCLOSE
+DewfordTown_Gym_EventScript_AliciaTopArmor_1:
+	release
 	end
+
+DewfordTown_Gym_EventScript_AliciaTopArmor_2:
+	goto_if_set FLAG_ALICIA_TOP_ARMOR, DewfordTown_Gym_EventScript_AliciaTopArmor_6
+	release
+	end
+
+DewfordTown_Gym_EventScript_AliciaTopArmor_6:
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp
+	waitmovement 0
+	addobject 13
+	playse SE_LEDGE
+	applymovement 13, DewfordTown_Gym_Movement_JumpOut
+	waitmovement 0
+	msgbox DewfordTown_Gym_EventScript_AliciaTopArmor_Text_0
+	waitmessage
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject 13
+	setflag FLAG_FOUND_ALICIA
+	clearflag FLAG_HIDE_AND_SEEK_ACTIVE
+	addobject 1
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_1
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_2
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_3
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_4
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_5
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_6
+	removeobject 2
+	removeobject 3
+	removeobject 4
+	removeobject 6
+	removeobject 7
+	removeobject 8
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+
+DewfordTown_Gym_EventScript_AliciaBottomArmor::
+	lock
+	goto_if_set FLAG_FOUND_ALICIA, DewfordTown_Gym_EventScript_AliciaBottomArmor_1
+	goto_if_set FLAG_HIDE_AND_SEEK_ACTIVE, DewfordTown_Gym_EventScript_AliciaBottomArmor_2
+	release
+	end
+
+DewfordTown_Gym_EventScript_AliciaBottomArmor_1:
+	release
+	end
+
+DewfordTown_Gym_EventScript_AliciaBottomArmor_2:
+	goto_if_set FLAG_ALICIA_BOTTOM_ARMOR, DewfordTown_Gym_EventScript_AliciaBottomArmor_6
+	release
+	end
+
+DewfordTown_Gym_EventScript_AliciaBottomArmor_6:
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp
+	waitmovement 0
+	addobject 11
+	playse SE_LEDGE
+	applymovement 11, DewfordTown_Gym_Movement_JumpOut
+	waitmovement 0
+	msgbox DewfordTown_Gym_EventScript_AliciaTopArmor_Text_0
+	waitmessage
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject 11
+	setflag FLAG_FOUND_ALICIA
+	clearflag FLAG_HIDE_AND_SEEK_ACTIVE
+	addobject 1
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_1
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_2
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_3
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_4
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_5
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_6
+	removeobject 2
+	removeobject 3
+	removeobject 4
+	removeobject 6
+	removeobject 7
+	removeobject 8
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+
+DewfordTown_Gym_EventScript_AliciaPiano::
+	lock
+	goto_if_set FLAG_FOUND_ALICIA, DewfordTown_Gym_EventScript_AliciaPiano_1
+	goto_if_set FLAG_HIDE_AND_SEEK_ACTIVE, DewfordTown_Gym_EventScript_AliciaPiano_2
+	release
+	end
+
+DewfordTown_Gym_EventScript_AliciaPiano_1:
+	release
+	end
+
+DewfordTown_Gym_EventScript_AliciaPiano_2:
+	goto_if_set FLAG_ALICIA_PIANO, DewfordTown_Gym_EventScript_AliciaPiano_6
+	release
+	end
+
+DewfordTown_Gym_EventScript_AliciaPiano_6:
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp
+	waitmovement 0
+	addobject 12
+	playse SE_LEDGE
+	applymovement 12, DewfordTown_Gym_Movement_JumpOut
+	waitmovement 0
+	msgbox DewfordTown_Gym_EventScript_AliciaTopArmor_Text_0
+	waitmessage
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject 12
+	setflag FLAG_FOUND_ALICIA
+	clearflag FLAG_HIDE_AND_SEEK_ACTIVE
+	addobject 1
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_1
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_2
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_3
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_4
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_5
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_6
+	removeobject 2
+	removeobject 3
+	removeobject 4
+	removeobject 6
+	removeobject 7
+	removeobject 8
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+
+DewfordTown_Gym_EventScript_AliciaTable::
+	lock
+	goto_if_set FLAG_FOUND_ALICIA, DewfordTown_Gym_EventScript_AliciaTable_1
+	goto_if_set FLAG_HIDE_AND_SEEK_ACTIVE, DewfordTown_Gym_EventScript_AliciaTable_2
+	release
+	end
+
+DewfordTown_Gym_EventScript_AliciaTable_1:
+	release
+	end
+
+DewfordTown_Gym_EventScript_AliciaTable_2:
+	goto_if_set FLAG_ALICIA_TABLE, DewfordTown_Gym_EventScript_AliciaTable_6
+	release
+	end
+
+DewfordTown_Gym_EventScript_AliciaTable_6:
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp
+	waitmovement 0
+	addobject 10
+	playse SE_LEDGE
+	applymovement 10, DewfordTown_Gym_Movement_JumpOut
+	waitmovement 0
+	msgbox DewfordTown_Gym_EventScript_AliciaTopArmor_Text_0
+	waitmessage
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject 10
+	setflag FLAG_FOUND_ALICIA
+	clearflag FLAG_HIDE_AND_SEEK_ACTIVE
+	addobject 1
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_1
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_2
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_3
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_4
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_5
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_6
+	removeobject 2
+	removeobject 3
+	removeobject 4
+	removeobject 6
+	removeobject 7
+	removeobject 8
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+
+DewfordTown_Gym_PlayerBackUp:
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	lock_facing_direction
+	walk_down
+	unlock_facing_direction
+	face_up
+	step_end
+
+DewfordTown_Gym_Movement_JumpOut:
+	jump_in_place_down
+	step_end
+
+DewfordTown_Gym_EventScript_Trainer_1_Hiding::
+	lock
+	goto_if_set FLAG_FOUND_ALICIA, DewfordTown_Gym_EventScript_Trainer_1_Hiding_1
+	goto_if_set FLAG_HIDE_AND_SEEK_ACTIVE, DewfordTown_Gym_EventScript_Trainer_1_Hiding_2
+	release
+	end
+
+DewfordTown_Gym_EventScript_Trainer_1_Hiding_1:
+	release
+	end
+
+DewfordTown_Gym_EventScript_Trainer_1_Hiding_2:
+	goto_if_defeated TRAINER_BRENDEN, DewfordTown_Gym_EventScript_Trainer_Defeated
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp
+	waitmovement 0
+	clearflag FLAG_HIDE_AZALEA_GYM_TRAINER_1
+	addobject 8
+	playse SE_LEDGE
+	applymovement 8, DewfordTown_Gym_Movement_JumpOut
+	waitmovement 0
+	msgbox DewfordTown_Gym_EventScript_Trainer_1_Hiding_Text_0
+	trainerbattle_no_intro TRAINER_BRENDEN, DewfordTown_Gym_Text_BrendenDefeat
+	release
+	end
+
+
+DewfordTown_Gym_EventScript_Trainer_2_Hiding::
+	lock
+	goto_if_set FLAG_FOUND_ALICIA, DewfordTown_Gym_EventScript_Trainer_2_Hiding_1
+	goto_if_set FLAG_HIDE_AND_SEEK_ACTIVE, DewfordTown_Gym_EventScript_Trainer_2_Hiding_2
+	release
+	end
+
+DewfordTown_Gym_EventScript_Trainer_2_Hiding_1:
+	release
+	end
+
+DewfordTown_Gym_EventScript_Trainer_2_Hiding_2:
+	goto_if_defeated TRAINER_LILITH, DewfordTown_Gym_EventScript_Trainer_Defeated
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp
+	waitmovement 0
+	clearflag FLAG_HIDE_AZALEA_GYM_TRAINER_2
+	addobject 7
+	playse SE_LEDGE
+	applymovement 7, DewfordTown_Gym_Movement_JumpOut
+	waitmovement 0
+	msgbox DewfordTown_Gym_EventScript_Trainer_1_Hiding_Text_0
+	trainerbattle_no_intro TRAINER_LILITH, DewfordTown_Gym_Text_LilithDefeat
+	release
+	end
+
+
+DewfordTown_Gym_EventScript_Trainer_3_Hiding::
+	lock
+	goto_if_set FLAG_FOUND_ALICIA, DewfordTown_Gym_EventScript_Trainer_3_Hiding_1
+	goto_if_set FLAG_HIDE_AND_SEEK_ACTIVE, DewfordTown_Gym_EventScript_Trainer_3_Hiding_2
+	release
+	end
+
+DewfordTown_Gym_EventScript_Trainer_3_Hiding_1:
+	release
+	end
+
+DewfordTown_Gym_EventScript_Trainer_3_Hiding_2:
+	goto_if_defeated TRAINER_CRISTIAN, DewfordTown_Gym_EventScript_Trainer_Defeated
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp
+	waitmovement 0
+	clearflag FLAG_HIDE_AZALEA_GYM_TRAINER_3
+	addobject 6
+	playse SE_LEDGE
+	applymovement 6, DewfordTown_Gym_Movement_JumpOut
+	waitmovement 0
+	msgbox DewfordTown_Gym_EventScript_Trainer_1_Hiding_Text_0
+	trainerbattle_no_intro TRAINER_CRISTIAN, DewfordTown_Gym_Text_CristianDefeat
+	release
+	end
+
+
+DewfordTown_Gym_EventScript_Trainer_4_Hiding::
+	lock
+	goto_if_set FLAG_FOUND_ALICIA, DewfordTown_Gym_EventScript_Trainer_4_Hiding_1
+	goto_if_set FLAG_HIDE_AND_SEEK_ACTIVE, DewfordTown_Gym_EventScript_Trainer_4_Hiding_2
+	release
+	end
+
+DewfordTown_Gym_EventScript_Trainer_4_Hiding_1:
+	release
+	end
+
+DewfordTown_Gym_EventScript_Trainer_4_Hiding_2:
+	goto_if_defeated TRAINER_LAURA, DewfordTown_Gym_EventScript_Trainer_Defeated
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp
+	waitmovement 0
+	clearflag FLAG_HIDE_AZALEA_GYM_TRAINER_4
+	addobject 4
+	playse SE_LEDGE
+	applymovement 4, DewfordTown_Gym_Movement_JumpOut
+	waitmovement 0
+	msgbox DewfordTown_Gym_EventScript_Trainer_1_Hiding_Text_0
+	trainerbattle_no_intro TRAINER_LAURA, DewfordTown_Gym_Text_LauraDefeat
+	release
+	end
+
+
+DewfordTown_Gym_EventScript_Trainer_5_Hiding::
+	lock
+	goto_if_set FLAG_FOUND_ALICIA, DewfordTown_Gym_EventScript_Trainer_5_Hiding_1
+	goto_if_set FLAG_HIDE_AND_SEEK_ACTIVE, DewfordTown_Gym_EventScript_Trainer_5_Hiding_2
+	release
+	end
+
+DewfordTown_Gym_EventScript_Trainer_5_Hiding_1:
+	release
+	end
+
+DewfordTown_Gym_EventScript_Trainer_5_Hiding_2:
+	goto_if_defeated TRAINER_TAKAO, DewfordTown_Gym_EventScript_Trainer_Defeated
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp
+	waitmovement 0
+	clearflag FLAG_HIDE_AZALEA_GYM_TRAINER_5
+	addobject 2
+	playse SE_LEDGE
+	applymovement 2, DewfordTown_Gym_Movement_JumpOut
+	waitmovement 0
+	msgbox DewfordTown_Gym_EventScript_Trainer_1_Hiding_Text_0
+	trainerbattle_no_intro TRAINER_TAKAO, DewfordTown_Gym_Text_TakaoDefeat
+	release
+	end
+
+
+DewfordTown_Gym_EventScript_Trainer_6_Hiding::
+	lock
+	goto_if_set FLAG_FOUND_ALICIA, DewfordTown_Gym_EventScript_Trainer_6_Hiding_1
+	goto_if_set FLAG_HIDE_AND_SEEK_ACTIVE, DewfordTown_Gym_EventScript_Trainer_6_Hiding_2
+	release
+	end
+
+DewfordTown_Gym_EventScript_Trainer_6_Hiding_1:
+	release
+	end
+
+DewfordTown_Gym_EventScript_Trainer_6_Hiding_2:
+	goto_if_defeated TRAINER_JOCELYN, DewfordTown_Gym_EventScript_Trainer_Defeated
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, DewfordTown_Gym_PlayerBackUp
+	waitmovement 0
+	clearflag FLAG_HIDE_AZALEA_GYM_TRAINER_6
+	addobject 3
+	playse SE_LEDGE
+	applymovement 3, DewfordTown_Gym_Movement_JumpOut
+	waitmovement 0
+	msgbox DewfordTown_Gym_EventScript_Trainer_1_Hiding_Text_0
+	trainerbattle_no_intro TRAINER_JOCELYN, DewfordTown_Gym_Text_JocelynDefeat
+	release
+	end
+
+
+DewfordTown_Gym_EventScript_Trainer_Defeated::
+	release
+	end
+
+
+DewfordTown_Gym_EventScript_Maid::
+	msgbox DewfordTown_Gym_EventScript_Maid_Text_0, MSGBOX_NPC
+	end
+
 
 DewfordTown_Gym_EventScript_Takao::
-	trainerbattle_single TRAINER_TAKAO, DewfordTown_Gym_Text_TakaoIntro, DewfordTown_Gym_Text_TakaoDefeat, DewfordTown_Gym_EventScript_TakaoBrightenRoom
+	trainerbattle_single TRAINER_TAKAO, DewfordTown_Gym_Text_TakaoIntro, DewfordTown_Gym_Text_TakaoDefeat
 	msgbox DewfordTown_Gym_Text_TakaoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-DewfordTown_Gym_EventScript_TakaoBrightenRoom::
-	call DewfordTown_Gym_EventScript_BrightenRoom
-	release
-	end
-
 DewfordTown_Gym_EventScript_Jocelyn::
-	trainerbattle_single TRAINER_JOCELYN, DewfordTown_Gym_Text_JocelynIntro, DewfordTown_Gym_Text_JocelynDefeat, DewfordTown_Gym_EventScript_JocelynBrightenRoom
+	trainerbattle_single TRAINER_JOCELYN, DewfordTown_Gym_Text_JocelynIntro, DewfordTown_Gym_Text_JocelynDefeat
 	msgbox DewfordTown_Gym_Text_JocelynPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-DewfordTown_Gym_EventScript_JocelynBrightenRoom::
-	call DewfordTown_Gym_EventScript_BrightenRoom
-	release
-	end
-
 DewfordTown_Gym_EventScript_Laura::
-	trainerbattle_single TRAINER_LAURA, DewfordTown_Gym_Text_LauraIntro, DewfordTown_Gym_Text_LauraDefeat, DewfordTown_Gym_EventScript_LauraBrightenRoom
+	trainerbattle_single TRAINER_LAURA, DewfordTown_Gym_Text_LauraIntro, DewfordTown_Gym_Text_LauraDefeat
 	msgbox DewfordTown_Gym_Text_LauraPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-DewfordTown_Gym_EventScript_LauraBrightenRoom::
-	call DewfordTown_Gym_EventScript_BrightenRoom
-	release
-	end
-
 DewfordTown_Gym_EventScript_Brenden::
-	trainerbattle_single TRAINER_BRENDEN, DewfordTown_Gym_Text_BrendenIntro, DewfordTown_Gym_Text_BrendenDefeat, DewfordTown_Gym_EventScript_BrendenBrightenRoom
+	trainerbattle_single TRAINER_BRENDEN, DewfordTown_Gym_Text_BrendenIntro, DewfordTown_Gym_Text_BrendenDefeat
 	msgbox DewfordTown_Gym_Text_BrendenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-DewfordTown_Gym_EventScript_BrendenBrightenRoom::
-	call DewfordTown_Gym_EventScript_BrightenRoom
-	release
-	end
-
 DewfordTown_Gym_EventScript_Cristian::
-	trainerbattle_single TRAINER_CRISTIAN, DewfordTown_Gym_Text_CristianIntro, DewfordTown_Gym_Text_CristianDefeat, DewfordTown_Gym_EventScript_CristianBrightenRoom
+	trainerbattle_single TRAINER_CRISTIAN, DewfordTown_Gym_Text_CristianIntro, DewfordTown_Gym_Text_CristianDefeat
 	msgbox DewfordTown_Gym_Text_CristianPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-DewfordTown_Gym_EventScript_CristianBrightenRoom::
-	call DewfordTown_Gym_EventScript_BrightenRoom
-	release
-	end
-
 DewfordTown_Gym_EventScript_Lilith::
-	trainerbattle_single TRAINER_LILITH, DewfordTown_Gym_Text_LilithIntro, DewfordTown_Gym_Text_LilithDefeat, DewfordTown_Gym_EventScript_LilithBrightenRoom
+	trainerbattle_single TRAINER_LILITH, DewfordTown_Gym_Text_LilithIntro, DewfordTown_Gym_Text_LilithDefeat
 	msgbox DewfordTown_Gym_Text_LilithPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-DewfordTown_Gym_EventScript_LilithBrightenRoom::
-	call DewfordTown_Gym_EventScript_BrightenRoom
-	release
 	end
 
 DewfordTown_Gym_EventScript_GymGuide::
@@ -282,93 +510,75 @@ DewfordTown_Gym_EventScript_GymStatue::
 	end
 
 DewfordTown_Gym_Text_GymGuideAdvice:
-	.string "Hey, how's it going, CHAMPION-\n"
-	.string "bound {PLAYER}?\p"
-	.string "DEWFORD's GYM LEADER BRAWLY commands\n"
-	.string "FIGHTING-type POKéMON.\p"
-	.string "Going against him with NORMAL-type\n"
-	.string "POKéMON is asking for trouble.\p"
-	.string "FIGHTING POKéMON will lay a serious\n"
-	.string "smack down on NORMAL POKéMON,\l"
-	.string "so be careful!\p"
-	.string "What's worse, the GYM is as dark as\n"
-	.string "the ocean floor.\p"
-	.string "But it will get brighter after defeating\n"
-	.string "the TRAINERS in your way.\p"
-	.string "Hey, okay, go for it!$"
+	.string "AZALEA's GYM LEADER ALICIA may just be\n"
+	.string "a little girl, but don't underestimate\l"
+	.string "her!\p"
+	.string "She is a FAIRY-type master!\p"
+	.string "You can try bringing a POISON-type or\n"
+	.string "STEEL-type POKéMON with you, but this\l"
+	.string "will be no easy battle even then.\p"
+	.string "Well, if you think you're ready, then go\n"
+	.string "for it!$"
 
 DewfordTown_Gym_Text_GymGuidePostVictory:
-	.string "Whoah! It's turned too bright in here!\p"
-	.string "Your future is bright, too!$"
+	.string "I knew you could do it!\p"
+	.string "All thanks to following my advice, I'm\n"
+	.string "sure.$"
 
 DewfordTown_Gym_Text_TakaoIntro:
-	.string "Might is right!\n"
-	.string "Come on!$"
+	.string "Oh, you want a re-match huh?$"
 
 DewfordTown_Gym_Text_TakaoDefeat:
-	.string "Not enough power…$"
+	.string "You're just too strong!$"
 
 DewfordTown_Gym_Text_TakaoPostBattle:
-	.string "Your skill overcame my strength!\n"
-	.string "Your technique is commendable!$"
+	.string "You're not very good at hide and seek\n"
+	.string "you know!$"
 
 DewfordTown_Gym_Text_JocelynIntro:
-	.string "There's no need for BRAWLY to be\n"
-	.string "involved!\p"
-	.string "I'll crush you!$"
+	.string "Haven't had enough, have you?$"
 
 DewfordTown_Gym_Text_JocelynDefeat:
 	.string "But… How?\n"
 	.string "How could I lose so easily?$"
 
 DewfordTown_Gym_Text_JocelynPostBattle:
-	.string "I'm not going to waste this loss.\n"
-	.string "I'll use it to motivate me to train!\p"
-	.string "One day I'll become a GYM LEADER…\p"
-	.string "No, I'll become the POKéMON LEAGUE\n"
-	.string "CHAMPION!$"
+	.string "You're still no match for ALICIA!$"
 
 DewfordTown_Gym_Text_LauraIntro:
-	.string "Don't you dare brush me off!\n"
-	.string "It's not my fault if you cry!$"
+	.string "You don't get tired of losing, do you?$"
 
 DewfordTown_Gym_Text_LauraDefeat:
 	.string "Waaaaaaah!\n"
 	.string "I lost!$"
 
 DewfordTown_Gym_Text_LauraPostBattle:
-	.string "I battle in the dark to make my heart\n"
-	.string "stronger.\p"
-	.string "But because it's so dark, I can never\n"
-	.string "see BRAWLY's face…$"
+	.string "You're just a big meanie!$"
 
 DewfordTown_Gym_Text_LilithIntro:
-	.string "Ufufu…\n"
-	.string "Are you stumbling around in the dark?$"
+	.string "Sure, I'll battle with you again!$"
 
 DewfordTown_Gym_Text_LilithDefeat:
 	.string "Oh, you…\n"
 	.string "I don't want to know you!$"
 
 DewfordTown_Gym_Text_LilithPostBattle:
-	.string "You deserve to stay lost and end up\n"
-	.string "back at the entrance again!$"
+	.string "ALICIA is the best at hide and seek!$"
 
 DewfordTown_Gym_Text_BrendenIntro:
-	.string "I'll show you the gumption of\n"
-	.string "a sailing man!$"
+	.string "Ufufufu, so you want more do you?$"
 
 DewfordTown_Gym_Text_BrendenDefeat:
 	.string "How'd this happen?\n"
 	.string "It's not like me to lose this way!$"
 
 DewfordTown_Gym_Text_BrendenPostBattle:
-	.string "Oh, aye! You're worthy of seeing\n"
-	.string "our GYM LEADER.$"
+	.string "How many of us are hiding in here?\p"
+	.string "I'm not telling you!$"
 
 DewfordTown_Gym_Text_CristianIntro:
-	.string "If you mean to pass, it has to be\n"
-	.string "through me!$"
+	.string "What makes you so certain this time will\n"
+	.string "be different?$"
 
 DewfordTown_Gym_Text_CristianDefeat:
 	.string "Grrrrr!\n"
@@ -376,83 +586,77 @@ DewfordTown_Gym_Text_CristianDefeat:
 
 DewfordTown_Gym_Text_CristianPostBattle:
 	.string "You win!\n"
-	.string "Go after that BADGE!$"
-
-DewfordTown_Gym_Text_BrawlyIntro:
-	.string "I'm BRAWLY!\n"
-	.string "DEWFORD's GYM LEADER!\p"
-	.string "I've been churned in the rough waves\n"
-	.string "of these parts, and I've grown tough\l"
-	.string "in the pitch-black cave!\p"
-	.string "So you wanted to challenge me?\n"
-	.string "Let me see what you're made of!$"
-
-DewfordTown_Gym_Text_BrawlyDefeat:
-	.string "Whoah, wow! You made a much bigger\n"
-	.string "splash than I expected!\p"
-	.string "You swamped me!\p"
-	.string "Okay, you've got me.\n"
-	.string "Take this GYM BADGE!$"
-
-DewfordTown_Gym_Text_ReceivedKnuckleBadge:
-	.string "{PLAYER} received the KNUCKLE BADGE\n"
-	.string "from BRAWLY.$"
-
-DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis:
-	.string "The KNUCKLE BADGE makes all POKéMON\n"
-	.string "up to Level 30, even those you get in\l"
-	.string "trades, obey without question.\p"
-	.string "And, you'll be able to use the HM move\n"
-	.string "FLASH outside of battle.\p"
-	.string "If you'd like, use this TECHNICAL\n"
-	.string "MACHINE, too.$"
-
-DewfordTown_Gym_Text_ExplainBulkUp:
-	.string "That TM08 contains BULK UP.\p"
-	.string "It's a move that raises both ATTACK\n"
-	.string "and DEFENSE stats.\p"
-	.string "… … … … … …$"
-
-DewfordTown_Gym_Text_RegisteredBrawly:
-	.string "Registered GYM LEADER BRAWLY\n"
-	.string "in the POKéNAV.$"
-
-DewfordTown_Gym_Text_BrawlyPostBattle:
-	.string "I can see your talent becoming a giant\n"
-	.string "wave to cause a storm of astonishment\l"
-	.string "among TRAINERS one day!$"
+	.string "Now find ALICIA!$"
 
 DewfordTown_Gym_Text_GymStatue:
-	.string "DEWFORD TOWN POKéMON GYM$"
+	.string "AZALEA TOWN POKéMON GYM\p"
+	.string "ALICIA'S CERTIFIED TRAINERS:\n"
+	.string "SHANE$"
 
 DewfordTown_Gym_Text_GymStatueCertified:
-	.string "DEWFORD TOWN POKéMON GYM\p"
-	.string "BRAWLY'S CERTIFIED TRAINERS:\n"
-	.string "{PLAYER}$"
+	.string "AZALEA TOWN POKéMON GYM\p"
+	.string "ALICIA'S CERTIFIED TRAINERS:\n"
+	.string "SHANE, {PLAYER}$"
 
-DewfordTown_Gym_Text_BrawlyPreRematch:
-	.string "BRAWLY: A wave may draw back, but it\n"
-	.string "always returns to the shore.\p"
-	.string "A giant wave of a talent like you…\n"
-	.string "I knew you would return!\p"
-	.string "Show me how much higher\n"
-	.string "you've gone!$"
+DewfordTown_Gym_EventScript_Alicia_Text_0:
+	.string "ALICIA: I had a lot of fun playing with\n"
+	.string "you!\p"
+	.string "You're pretty good at battling too,\n"
+	.string "maybe we can battle again someday.$"
 
-DewfordTown_Gym_Text_BrawlyRematchDefeat:
-	.string "Wow!\n"
-	.string "Swamped again!$"
+DewfordTown_Gym_EventScript_Alicia_Text_1:
+	.string "ALICIA: Do you want to play hide and\n"
+	.string "seek again?\p"
+	.string "...\p"
+	.string "Oh, you're here for a battle?\p"
+	.string "Why didn't you say so earlier, I love\n"
+	.string "POKéMON battles!\p"
+	.string "Alright, let's see how strong you are!$"
 
-DewfordTown_Gym_Text_BrawlyPostRematch:
-	.string "BRAWLY: Battling is vast and it's deep.\n"
-	.string "You can't see the bottom.\l"
-	.string "It's just like the sea of HOENN!$"
+DewfordTown_Gym_EventScript_Alicia_Text_2:
+	.string "{PLAYER} received the SPARKLE BADGE\n"
+	.string "from ALICIA!$"
 
-DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons:
-	.string "BRAWLY: A wave may draw back, but it\n"
-	.string "always returns to the shore.\p"
-	.string "A giant wave of a talent like you…\n"
-	.string "I knew you would return!\p"
-	.string "Oh? You only have one POKéMON\n"
-	.string "that can battle.\p"
-	.string "I'm sorry, but I'd like you to come back\n"
-	.string "with at least two POKéMON.$"
+DewfordTown_Gym_EventScript_Alicia_Text_3:
+	.string "That SPARKLE BADGE will make all\n"
+	.string "POKéMON up to Level 30 listen to you\l"
+	.string "without question, even the POKéMON\l"
+	.string "you get from trades!\p"
+	.string "You will also be able to use the HM move\n"
+	.string "FLASH outside of battle.\p"
+	.string "Oh yeah, I would also like you to have\n"
+	.string "this!$"
+
+DewfordTown_Gym_EventScript_Alicia_Text_4:
+	.string "That TM contains DRAINING KISS. It may\n"
+	.string "sound like an innocent move, but your\l"
+	.string "POKéMON will absorb over half the\l"
+	.string "damage done to your opponent!$"
+
+DewfordTown_Gym_EventScript_Alicia_Text_5:
+	.string "ALICIA: I'm so bored!\p"
+	.string "There's nothing fun to do around here.\p"
+	.string "You there, play hide and seek with me!\p"
+	.string "I'll hide somewhere in the gym, and you\n"
+	.string "come find me.\p"
+	.string "Ok, no peeking!$"
+
+DewfordTown_Gym_EventScript_AliciaTopArmor_Text_0:
+	.string "ALICIA: You found me!\p"
+	.string "That was fun, you're pretty good at\n"
+	.string "hide and seek!$"
+
+DewfordTown_Gym_EventScript_Trainer_1_Hiding_Text_0:
+	.string "You found me!\p"
+	.string "Just kidding, I'm not ALICIA!$"
+
+DewfordTown_Gym_EventScript_Maid_Text_0:
+	.string "Thank you for playing with ALICIA.\p"
+	.string "Keeping up with her can be a real hassle\n"
+	.string "sometimes.$"
+
+DewfordTown_Gym_Text_AliciaDefeat::
+	.string "Wow! You're a lot tougher than you look!\p"
+	.string "That was the best battle I've had in a\n"
+	.string "while. Here, I will gladly present you\l"
+	.string "with this gym badge!$"

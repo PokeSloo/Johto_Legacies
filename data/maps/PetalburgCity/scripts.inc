@@ -66,10 +66,77 @@ PetalburgCity_Text_WallyHouseSign:
 	.string "POKéBALL FACTORY$"
 
 PetalburgCity_GymTrigger::
+	lock
+	goto_if_set FLAG_MET_SHANE_AZALEA, PetalburgCity_GymTrigger_2
 	opendoor 22, 33
 	waitdooranim
-	return
+	addobject 16
+	playbgm MUS_HG_ENCOUNTER_RIVAL, FALSE
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerFaceUp
+	waitmovement 0
+	delay 30
+	applymovement 16, PetalburgCity_ShaneWalkOutOfGym
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerBackUp
+	waitmovement 0
+	closedoor 22, 33
+	waitdooranim
+	msgbox PetalburgCity_GymTrigger_Text_0
+	waitmessage
+	closemessage
+	fadedefaultbgm
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerFaceLeft
+	applymovement 16, PetalburgCity_ShaneLeave
+	waitmovement 0
+	removeobject 16
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_1
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_2
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_3
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_4
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_5
+	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_6
+	setflag FLAG_MET_SHANE_AZALEA
+	release
+	end
 
+PetalburgCity_GymTrigger_2:
+	release
+	end
+
+
+PetalburgCity_PlayerFaceUp:
+	face_up
+	step_end
+
+PetalburgCity_ShaneWalkOutOfGym:
+	delay_16
+	walk_down
+	step_end
+
+PetalburgCity_PlayerBackUp:
+	lock_facing_direction
+	walk_down
+	unlock_facing_direction
+	step_end
+
+PetalburgCity_PlayerFaceLeft:
+	delay_16
+	face_left
+	step_end
+
+PetalburgCity_ShaneLeave:
+	walk_left
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
 
 PetalburgCity_EventScript_Slowpoke::
 	lock
@@ -143,6 +210,18 @@ PetalburgCity_EventScript_BenchGuy::
 	msgbox PetalburgCity_EventScript_BenchGuy_Text_0, MSGBOX_NPC
 	end
 
+
+PetalburgCity_GymTrigger_Text_0:
+	.string "SHANE: Oh yeah! Another gym badge!\p"
+	.string "...\p"
+	.string "Oh, it's you.\p"
+	.string "You aren't still upset about getting\n"
+	.string "beat last time are you?\p"
+	.string "I was just trying to toughen up your\n"
+	.string "POKéMON.\p"
+	.string "Don't worry, I'm in a good mood, so I'll\n"
+	.string "let you off the hook for now.\p"
+	.string "Later loser.$"
 
 PetalburgCity_EventScript_Slowpoke_Text_0:
 	.string "SLOWPOKE: Slooowww?$"

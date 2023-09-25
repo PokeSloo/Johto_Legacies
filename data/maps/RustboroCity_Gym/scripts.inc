@@ -244,12 +244,14 @@ RustboroCity_Gym_Text_RoxannePostBattle:
 	.string "learn many things.$"
 
 RustboroCity_Gym_Text_GymStatue:
-	.string "VIOLET CITY POKéMON GYM$"
+	.string "VIOLET CITY POKéMON GYM\p"
+	.string "FALKNER'S CERTIFIED TRAINERS:\n"
+	.string "SHANE$"
 
 RustboroCity_Gym_Text_GymStatueCertified:
 	.string "VIOLET CITY POKéMON GYM\p"
 	.string "FALKNER'S CERTIFIED TRAINERS:\n"
-	.string "{PLAYER}$"
+	.string "SHANE, {PLAYER}$"
 
 RustboroCity_Gym_Text_RoxanneRegisterCall:
 	.string "… … … … … …\n"
