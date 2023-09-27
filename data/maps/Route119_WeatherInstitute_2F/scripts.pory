@@ -98,6 +98,7 @@ script Route119_WeatherInstitute_2F_EventScript_FinalGrunt {
 	setobjectxy (LOCALID_CARMEN, 7, 7)
 	setobjectxyperm (LOCALID_CARMEN, 7, 7)
 	setobjectmovementtype (LOCALID_CARMEN, MOVEMENT_TYPE_FACE_DOWN)
+	setflag (FLAG_ILEX_BATTLE_GRUNT)
 	fadescreen (FADE_FROM_BLACK)
     release
 	end

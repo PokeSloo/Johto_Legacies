@@ -1,0 +1,6 @@
+mapscripts NavelRock_Down06_MapScripts {}
+
+script NavelRock_Down06_EventScript_Guard {
+    msgbox(format("I've been hearing rumors of a strange POKéMON in Ilex Forest lately, some think it's the guardian of the forest."), MSGBOX_NPC)
+    end
+}

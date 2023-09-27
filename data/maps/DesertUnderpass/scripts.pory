@@ -1,0 +1,96 @@
+const SILVER_ID = 1
+
+mapscripts DesertUnderpass_MapScripts {}
+
+script DesertUnderpass_EventScript_Trigger {
+    lock
+    if (flag(FLAG_HIDE_PAST_SILVER)) {
+        release
+        end
+    }
+    applymovement (OBJ_EVENT_ID_PLAYER, DesertUnderpass_Movement_PlayerWalkOver)
+    waitmovement (0)
+    playbgm (MUS_HG_ENCOUNTER_RIVAL, FALSE)
+    applymovement (SILVER_ID, DesertUnderpass_Movement_SilverToPlayer)
+    waitmovement (0)
+    playse (SE_WALL_HIT)
+    applymovement (SILVER_ID, DesertUnderpass_Movement_SilverBounceBack)
+    waitmovement (0)
+    delay (30)
+    playse (SE_PIN)
+    applymovement (SILVER_ID, DesertUnderpass_Movement_SilverExclamation)
+    waitmovement (0)
+    delay (60)
+    applymovement (SILVER_ID, DesertUnderpass_Movement_SilverUpTwo)
+    waitmovement (0)
+    msgbox (format("???: Get out of my way!"))
+    waitmessage
+    closemessage
+    applymovement (OBJ_EVENT_ID_PLAYER, DesertUnderpass_Movement_PlayerReadyToJump)
+    applymovement (SILVER_ID, DesertUnderpass_Movement_SilverReadyToPush)
+    waitmovement (0)
+    playse (SE_LEDGE)
+    applymovement (SILVER_ID, DesertUnderpass_Movement_SilverHitPlayer)
+    applymovement (OBJ_EVENT_ID_PLAYER, DesertUnderpass_Movement_PlayerJumpRight)
+    waitmovement (0)
+    msgbox (format("???: Weakling..."))
+    waitmessage
+    closemessage
+    fadedefaultbgm
+    applymovement (SILVER_ID, DesertUnderpass_Movement_SilverExit)
+    waitmovement (0)
+    removeobject (SILVER_ID)
+    setflag (FLAG_HIDE_PAST_SILVER)
+    release
+    end
+}
+
+movement DesertUnderpass_Movement_PlayerWalkOver {
+    walk_right * 4
+    walk_down
+}
+
+movement DesertUnderpass_Movement_SilverToPlayer {
+    walk_fast_left * 8
+    walk_fast_up * 2
+}
+
+movement DesertUnderpass_Movement_SilverBounceBack {
+    lock_facing_direction
+    jump_2_down
+    unlock_facing_direction
+}
+
+movement DesertUnderpass_Movement_SilverExclamation {
+    emote_exclamation_mark
+}
+
+movement DesertUnderpass_Movement_SilverUpTwo {
+    walk_fast_up * 2
+}
+
+movement DesertUnderpass_Movement_PlayerReadyToJump {
+    walk_up
+    walk_right
+}
+
+movement DesertUnderpass_Movement_SilverReadyToPush {
+    walk_up * 2
+    face_right
+}
+
+movement DesertUnderpass_Movement_SilverHitPlayer {
+    walk_in_place_fast_right
+}
+
+movement DesertUnderpass_Movement_PlayerJumpRight {
+    jump_2_right
+    delay_16 * 2
+    face_left
+}
+
+movement DesertUnderpass_Movement_SilverExit {
+    walk_left * 4
+    walk_up
+    walk_left * 2
+}

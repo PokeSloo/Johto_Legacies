@@ -1,0 +1,11 @@
+mapscripts AlteringCave_MapScripts {}
+
+script AlteringCave_EventScript_Guard {
+    msgbox (format("Ilex Forest is big. Be careful!\nDon't get lost."), MSGBOX_NPC)
+    end
+}
+
+script AlteringCave_EventScript_Woman {
+    msgbox (format("The forest is watched over by its protector.\pStay out of mischief!"), MSGBOX_NPC)
+    end
+}

@@ -94,6 +94,7 @@ Route119_WeatherInstitute_2F_EventScript_FinalGrunt::
 	setobjectxy 5, 7, 7
 	setobjectxyperm 5, 7, 7
 	setobjectmovementtype 5, MOVEMENT_TYPE_FACE_DOWN
+	setflag FLAG_ILEX_BATTLE_GRUNT
 	fadescreen FADE_FROM_BLACK
 	release
 	end
