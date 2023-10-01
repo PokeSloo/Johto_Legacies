@@ -1,0 +1,101 @@
+const GOLD_ID = 5
+const CELEBI_ID = 6
+
+mapscripts DesertRuins_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_CHERRYGROVE_STATE, 9: DesertRuins_On_Frame
+    ]
+}
+
+script DesertRuins_On_Frame {
+    lock
+    clearflag (FLAG_HIDE_PAST_SILVER)
+    applymovement (OBJ_EVENT_ID_PLAYER, DesertRuins_Movement_WalktoKurts)
+    waitmovement (0)
+    fadeoutbgm (1)
+    playse (SE_PIN)
+    applymovement (OBJ_EVENT_ID_PLAYER, DesertRuins_Movement_WalktoGold)
+    waitmovement (0)
+    playse(SE_SLIDING_DOOR)
+    applymovement (GOLD_ID, DesertRuins_Movement_WalktoPlayer)
+    waitmovement (0)
+    playse (SE_WALL_HIT)
+    delay (60)
+    msgbox (format("..."))
+    trainerbattle_no_intro (TRAINER_BRENDAN_ROUTE_110_MUDKIP, DesertRuins_Text_GoldDefeat)
+    msgbox (format("..."))
+    waitmessage
+    closemessage
+    applymovement (OBJ_EVENT_ID_PLAYER, DesertRuins_Movement_WatchGoldLeave)
+    applymovement (GOLD_ID, DesertRuins_Movement_GoldLeave)
+    waitmovement (0)
+    delay (60)
+    setflag (FLAG_ILEX_BLOCKING_GRUNT)
+    setflag (FLAG_HIDE_PAST_SILVER)
+    clearflag (FLAG_ILEX_BATTLE_GRUNT)
+    addvar (VAR_CHERRYGROVE_STATE, 1)
+    addobject (CELEBI_ID)
+    playse (SE_LEDGE)
+    applymovement (CELEBI_ID, DesertRuins_Movement_CelebiJumpRight)
+    waitmovement (0)
+    delay (30)
+    playmoncry (SPECIES_CELEBI, CRY_MODE_NORMAL)
+    waitmoncry
+    delay (30)
+    fadescreen (FADE_TO_WHITE)
+    removeobject (CELEBI_ID)
+    playbgm (MUS_RAYQUAZA_APPEARS, FALSE)
+    special (TimeTravelForwardClock)
+	waitstate
+    fadedefaultbgm
+    release
+    end
+}
+
+movement DesertRuins_Movement_WalktoKurts {
+    walk_right * 7
+    delay_16 * 2
+    walk_in_place_left
+    delay_16 * 2
+    walk_in_place_down
+    delay_16 * 2
+    walk_up * 3
+    delay_16 * 2
+}
+
+movement DesertRuins_Movement_WalktoGold {
+    emote_question_mark
+    delay_16 * 4
+    walk_in_place_left
+    delay_16
+    walk_in_place_right
+    delay_16
+    player_run_down * 3
+    player_run_right * 4
+    face_right
+}
+
+movement DesertRuins_Movement_WalktoPlayer {
+    walk_down
+    walk_left * 6
+}
+
+movement DesertRuins_Movement_WatchGoldLeave {
+    delay_16
+    face_down
+    delay_16 * 2
+    face_left
+}
+
+movement DesertRuins_Movement_GoldLeave {
+    walk_down
+    walk_left * 10
+}
+
+movement DesertRuins_Movement_CelebiJumpRight {
+    jump_in_place_right
+}
+
+text DesertRuins_Text_GoldDefeat {
+    format("...!")
+}

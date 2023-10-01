@@ -188,8 +188,6 @@ Route117_PokemonDayCare_EventScript_CheckEnoughMoney::
 	end
 
 Route117_PokemonDayCare_EventScript_RetrieveMon::
-	applymovement LOCALID_DAYCARE_LADY, Route117_PokemonDayCare_Movement_RetrieveDaycareMon
-	waitmovement 0
 	specialvar VAR_RESULT, TakePokemonFromDaycare
 	special SubtractMoneyFromVar0x8005
 	playse SE_SHOP
@@ -213,28 +211,6 @@ Route117_PokemonDayCare_EventScript_NoRoom::
 	msgbox Route117_PokemonDayCare_Text_YourTeamIsFull, MSGBOX_DEFAULT
 	release
 	end
-
-Route117_PokemonDayCare_Movement_RetrieveDaycareMon:
-	delay_16
-	delay_16
-	face_left
-	delay_16
-	delay_16
-	face_right
-	delay_16
-	delay_16
-	face_up
-	walk_slow_up
-	set_invisible
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	face_down
-	set_visible
-	walk_slow_down
-	step_end
 
 @ Unused. Possibly a commented script, or a typo end added to the above Movement script
 Route117_PokemonDayCare_EventScript_UnusedEnd::

@@ -1,0 +1,6 @@
+mapscripts NavelRock_Down05_MapScripts {}
+
+script NavelRock_Down05_EventScript_Guard {
+    msgbox(format("A group of suspicious characters wearing red hoods came through here.\pIf I wasn't stuck behind this counter, I would have stopped them for sure."), MSGBOX_NPC)
+    end
+}

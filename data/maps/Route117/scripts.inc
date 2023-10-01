@@ -10,7 +10,7 @@ Route117_OnTransition:
 
 Route117_EventScript_TryMoveDayCareMan::
 	goto_if_unset FLAG_PENDING_DAYCARE_EGG, Route117_EventScript_StopMoveDayCareMan
-	setobjectxyperm LOCALID_DAYCARE_MAN, 47, 6
+	setobjectxyperm LOCALID_DAYCARE_MAN, 15, 21
 Route117_EventScript_StopMoveDayCareMan::
 	return
 
@@ -181,28 +181,139 @@ Route117_EventScript_Aisha::
 	end
 
 Route117_Text_DayCarePokemonHadNewMove:
-	.string "I left my POKéMON at the DAY CARE.\p"
-	.string "When I got it back, it had a new move\n"
-	.string "that I didn't teach it.\l"
-	.string "I was really, really surprised.$"
+	.string "One day I hope to compete on Whitney's\n"
+	.string "gameshow, THE CHALLENGE.\p"
+	.string "I'll have to keep training for now.$"
 
 Route117_Text_ArentTheseFlowersPretty:
-	.string "What do you think?\n"
-	.string "Aren't these flowers pretty?\p"
-	.string "I planted them all!$"
+	.string "There are wild Ditto on this route.\p"
+	.string "They are great for breeding with other\n"
+	.string "POKéMON in the daycare.$"
 
 Route117_Text_AirIsTastyHere:
-	.string "The air is tasty here!$"
+	.string "Are you headed to Goldenrod City?\p"
+	.string "That's where I was born!\p"
+	.string "I love it there.$"
 
 Route117_Text_RouteSignVerdanturf:
-	.string "ROUTE 117\n"
-	.string "{LEFT_ARROW} VERDANTURF TOWN$"
+	.string "ROUTE 34\n"
+	.string "{UP_ARROW} North to GOLDENROD CITY$"
 
 Route117_Text_RouteSignMauville:
-	.string "ROUTE 117\n"
-	.string "{RIGHT_ARROW} MAUVILLE CITY$"
+	.string "ROUTE 34\n"
+	.string "{DOWN_ARROW} South to AZALEA TOWN$"
 
 Route117_Text_DayCareSign:
 	.string "POKéMON DAY CARE\n"
 	.string "“Let us raise your POKéMON.”$"
 
+Route117_EventScript_Trigger::
+	lock
+	goto_if_set FLAG_OLIVER_CALL_RT_34, Route117_EventScript_Trigger_1
+	pokenavcall Route117_EventScript_Trigger_Text_0
+	waitmessage
+	setflag FLAG_OLIVER_CALL_RT_34
+	release
+	end
+
+Route117_EventScript_Trigger_1:
+	release
+	end
+
+
+Route117_EventScript_Azumarill::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_AZUMARILL, CRY_MODE_NORMAL
+	msgbox Route117_EventScript_Azumarill_Text_0
+	waitmoncry
+	release
+	end
+
+
+Route117_EventScript_Hypno::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_HYPNO, CRY_MODE_NORMAL
+	msgbox Route117_EventScript_Hypno_Text_0
+	waitmoncry
+	release
+	end
+
+
+Route117_EventScript_Miltank::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_MILTANK, CRY_MODE_NORMAL
+	msgbox Route117_EventScript_Miltank_Text_0
+	waitmoncry
+	release
+	end
+
+
+Route117_EventScript_Lapras::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_LAPRAS, CRY_MODE_NORMAL
+	msgbox Route117_EventScript_Lapras_Text_0
+	waitmoncry
+	release
+	end
+
+
+Route117_EventScript_Trigger_Text_0:
+	.string "Hello? {PLAYER}?\p"
+	.string "This is OLIVER. I'm calling to let you\n"
+	.string "know about my recent findings in the\l"
+	.string "Ruins of Alph.\p"
+	.string "I've discovered that the human\n"
+	.string "remains we found in the catacombs\l"
+	.string "date back to the same time period\l"
+	.string "that scientists believe is when\l"
+	.string "Ho-oh resurrected the three\l"
+	.string "legendary beasts.\p"
+	.string "This is even more confirmation that\n"
+	.string "the Unown were an ancient group of\l"
+	.string "people that were resurrected by\l"
+	.string "Ho-oh!\p"
+	.string "Oh, I also discovered ancient\n"
+	.string "writing along the back wall of the\l"
+	.string "catacomb chamber we fell into,\l"
+	.string "although I am still deciphering it.\p"
+	.string "...\p"
+	.string "What's that you say?\p"
+	.string "A strange POKéMON in Ilex Forest?\p"
+	.string "It took you to a sort of alternate\n"
+	.string "Ilex and Azalea town?\p"
+	.string "Hmm...\p"
+	.string "It's possible you encountered the\n"
+	.string "legendary POKéMON, Celebi.\p"
+	.string "Celebi is known as the protector of\n"
+	.string "Ilex Forest, and according to rumor,\l"
+	.string "has the ability to travel through\l"
+	.string "time!\p"
+	.string "I believe that is what you\n"
+	.string "experienced!\p"
+	.string "This is an incredible occurrence,\n"
+	.string "and quite frankly, I must say I'm a\l"
+	.string "bit jealous of your ability to\l"
+	.string "seemingly attract legendary POKéMON.\p"
+	.string "Well, keep me posted if anything\n"
+	.string "else interesting happens.\p"
+	.string "Until next time, {PLAYER}.$"
+
+Route117_EventScript_Azumarill_Text_0:
+	.string "AZUMARILL: Azu azu!$"
+
+Route117_EventScript_Hypno_Text_0:
+	.string "HYPNO: No noo!$"
+
+Route117_EventScript_Miltank_Text_0:
+	.string "MILTANK: Moo moo!$"
+
+Route117_EventScript_Lapras_Text_0:
+	.string "LAPRAS: Lapra!$"

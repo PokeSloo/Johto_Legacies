@@ -86,7 +86,7 @@
 #define FLAG_ILEX_BATTLE_GRUNT    0x4A // Ilex forest
 #define FLAG_ILEX_BLOCKING_GRUNT    0x4B // Ilex forest
 #define FLAG_HIDE_PAST_SILVER    0x4C // Past ilex forest
-#define FLAG_UNUSED_0x04D    0x4D // Unused Flag
+#define FLAG_OLIVER_CALL_RT_34    0x4D // After celebi event
 #define FLAG_UNUSED_0x04E    0x4E // Unused Flag
 #define FLAG_UNUSED_0x04F    0x4F // Unused Flag
 

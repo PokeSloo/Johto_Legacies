@@ -1,83 +1,138 @@
 DesertRuins_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, DesertRuins_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
-DesertRuins_OnResume:
-	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, DesertRuins_EventScript_TryRemoveRegirock
-	end
+DesertRuins_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_CHERRYGROVE_STATE, 9, DesertRuins_On_Frame
+	.2byte 0
 
-DesertRuins_EventScript_TryRemoveRegirock::
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
-	removeobject VAR_LAST_TALKED
-	return
 
-DesertRuins_OnLoad:
-	call_if_unset FLAG_SYS_REGIROCK_PUZZLE_COMPLETED, DesertRuins_EventScript_HideRegiEntrance
-	end
-
-DesertRuins_EventScript_HideRegiEntrance::
-	setmetatile 7, 19, METATILE_Cave_EntranceCover, TRUE
-	setmetatile 8, 19, METATILE_Cave_EntranceCover, TRUE
-	setmetatile 9, 19, METATILE_Cave_EntranceCover, TRUE
-	setmetatile 7, 20, METATILE_Cave_SealedChamberBraille_Mid, TRUE
-	setmetatile 8, 20, METATILE_Cave_SealedChamberBraille_Mid, TRUE
-	setmetatile 9, 20, METATILE_Cave_SealedChamberBraille_Mid, TRUE
-	return
-
-DesertRuins_OnTransition:
-	setflag FLAG_LANDMARK_DESERT_RUINS
-	call_if_unset FLAG_DEFEATED_REGIROCK, DesertRuins_EventScript_ShowRegirock
-	end
-
-DesertRuins_EventScript_ShowRegirock::
-	clearflag FLAG_HIDE_REGIROCK
-	return
-
-DesertRuins_EventScript_CaveEntranceMiddle::
-	lockall
-	goto_if_set FLAG_SYS_REGIROCK_PUZZLE_COMPLETED, DesertRuins_EventScript_BigHoleInWall
-	braillemsgbox DesertRuins_Braille_UseRockSmash
-	releaseall
-	end
-
-DesertRuins_EventScript_BigHoleInWall::
-	msgbox gText_BigHoleInTheWall, MSGBOX_DEFAULT
-	releaseall
-	end
-
-DesertRuins_EventScript_CaveEntranceSide::
-	lockall
-	braillemsgbox DesertRuins_Braille_UseRockSmash
-	releaseall
-	end
-
-DesertRuins_EventScript_Regirock::
+DesertRuins_On_Frame::
 	lock
-	faceplayer
-	waitse
-	playmoncry SPECIES_REGIROCK, CRY_MODE_ENCOUNTER
-	delay 40
+	clearflag FLAG_HIDE_PAST_SILVER
+	applymovement OBJ_EVENT_ID_PLAYER, DesertRuins_Movement_WalktoKurts
+	waitmovement 0
+	fadeoutbgm 1
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, DesertRuins_Movement_WalktoGold
+	waitmovement 0
+	playse SE_SLIDING_DOOR
+	applymovement 5, DesertRuins_Movement_WalktoPlayer
+	waitmovement 0
+	playse SE_WALL_HIT
+	delay 60
+	msgbox DesertRuins_On_Frame_Text_0
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_110_MUDKIP, DesertRuins_Text_GoldDefeat
+	msgbox DesertRuins_On_Frame_Text_0
+	waitmessage
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, DesertRuins_Movement_WatchGoldLeave
+	applymovement 5, DesertRuins_Movement_GoldLeave
+	waitmovement 0
+	delay 60
+	setflag FLAG_ILEX_BLOCKING_GRUNT
+	setflag FLAG_HIDE_PAST_SILVER
+	clearflag FLAG_ILEX_BATTLE_GRUNT
+	addvar VAR_CHERRYGROVE_STATE, 1
+	addobject 6
+	playse SE_LEDGE
+	applymovement 6, DesertRuins_Movement_CelebiJumpRight
+	waitmovement 0
+	delay 30
+	playmoncry SPECIES_CELEBI, CRY_MODE_NORMAL
 	waitmoncry
-	setwildbattle SPECIES_REGIROCK, 40
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special StartRegiBattle
+	delay 30
+	fadescreen FADE_TO_WHITE
+	removeobject 6
+	playbgm MUS_RAYQUAZA_APPEARS, FALSE
+	special TimeTravelForwardClock
 	waitstate
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, DesertRuins_EventScript_DefeatedRegirock
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, DesertRuins_EventScript_RanFromRegirock
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, DesertRuins_EventScript_RanFromRegirock
-	setflag FLAG_DEFEATED_REGIROCK
+	fadedefaultbgm
 	release
 	end
 
-DesertRuins_EventScript_DefeatedRegirock::
-	setflag FLAG_DEFEATED_REGIROCK
-	goto Common_EventScript_RemoveStaticPokemon
-	end
 
-DesertRuins_EventScript_RanFromRegirock::
-	setvar VAR_0x8004, SPECIES_REGIROCK
-	goto Common_EventScript_LegendaryFlewAway
-	end
+DesertRuins_Movement_WalktoKurts:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	delay_16
+	delay_16
+	walk_in_place_left
+	delay_16
+	delay_16
+	walk_in_place_down
+	delay_16
+	delay_16
+	walk_up
+	walk_up
+	walk_up
+	delay_16
+	delay_16
+	step_end
 
+DesertRuins_Movement_WalktoGold:
+	emote_question_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_in_place_left
+	delay_16
+	walk_in_place_right
+	delay_16
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_right
+	player_run_right
+	player_run_right
+	player_run_right
+	face_right
+	step_end
+
+DesertRuins_Movement_WalktoPlayer:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+DesertRuins_Movement_WatchGoldLeave:
+	delay_16
+	face_down
+	delay_16
+	delay_16
+	face_left
+	step_end
+
+DesertRuins_Movement_GoldLeave:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+DesertRuins_Movement_CelebiJumpRight:
+	jump_in_place_right
+	step_end
+
+DesertRuins_On_Frame_Text_0:
+	.string "...$"
+
+DesertRuins_Text_GoldDefeat::
+	.string "...!$"
