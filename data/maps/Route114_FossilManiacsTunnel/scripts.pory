@@ -1,0 +1,61 @@
+mapscripts Route114_FossilManiacsTunnel_MapScripts {}
+
+script Route114_FossilManiacsTunnel_EventScript_Groomer {
+    lock
+    faceplayer
+    dotimebasedevents
+    if (flag(FLAG_DAILY_GOLDENROD_GROOMER)) {
+        msgbox(format("Come see me again tomorrow, and I will beautify another one of your POKéMON!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Hi, I'm the POKéMON groomer!\pI can beautify one of your POKéMON and make them a little happier in the process.\pWould you like me to groom one of your POKéMON?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Ok, maybe some other time then."))
+            release
+            end
+        }
+        else {
+            msgbox(format("Fantastic! And which POKéMON needs grooming?"))
+            waitmessage
+            closemessage
+            special (ChoosePartyMon)
+            waitstate
+            if (var(VAR_0x8004) == PARTY_NOTHING_CHOSEN) {
+                msgbox(format("Ok, maybe some other time then."))
+                release
+                end
+            }
+            else {
+                specialvar (VAR_RESULT, ScriptGetPartyMonSpecies)
+                if (var(VAR_RESULT) == SPECIES_EGG) {
+                    msgbox(format("I'm sorry, there's not much I can do for an egg..."))
+                    release
+                    end
+                }
+                else {
+                    msgbox(format("Ok! I will work my magic!"))
+                    waitmessage
+                    closemessage
+                    special (FriendshipBreeder)
+                    playse (SE_REPEL)
+                    delay (30)
+                    playse (SE_CLICK)
+                    delay (30)
+                    playse (SE_CLICK)
+                    delay (30)
+                    playse (SE_CLICK)
+                    delay (30)
+                    playse (SE_REPEL)
+                    waitse
+                    delay (30)
+                    msgbox(format("All done!\pI think it looks a little happier now!"))
+                    setflag (FLAG_DAILY_GOLDENROD_GROOMER)
+                    release
+                    end
+                }
+            }
+        }
+    }
+}

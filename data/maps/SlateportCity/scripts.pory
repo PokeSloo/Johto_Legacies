@@ -1,0 +1,166 @@
+mapscripts SlateportCity_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag (FLAG_VISITED_SLATEPORT_CITY)
+        end
+    }
+    MAP_SCRIPT_ON_LOAD {
+        if (flag(FLAG_GOLDENROD_SEWER_OPEN)) {
+            setmetatile (46, 25, 0x277, TRUE)
+            setmetatile (47, 25, 0x27A, TRUE)
+            return
+        }
+        end
+    }
+}
+
+script SlateportCity_EventScript_CitySign {
+    msgbox(format("GOLDENROD CITY\n“A Happening Big City.”"), MSGBOX_SIGN)
+    end
+}
+
+script SlateportCity_EventScript_FlowerShopSign {
+    msgbox(format("GOLDENROD FLOWER SHOP\nA Small Shop Providing Lots of Beauty."), MSGBOX_SIGN)
+    end
+}
+
+script SlateportCity_EventScript_HyperloopSign {
+    msgbox(format("JOHTO-KANTO HYPERLOOP\nStill under construction."), MSGBOX_SIGN)
+    end
+}
+
+script SlateportCity_EventScript_BikeShopSign {
+    msgbox(format("GOLDENROD BIKE SHOP\nThe World is a Cycling Path!"), MSGBOX_SIGN)
+    end
+}
+
+script SlateportCity_EventScript_CasinoSign {
+    msgbox(format("GOLDENROD CITY GAME CORNER\nA Safe and Sound Playground!"), MSGBOX_SIGN)
+    end
+}
+
+script SlateportCity_EventScript_TopCook {
+    msgbox(format("This city just doesn't stop, I need to go on vacation.\pApricotta Beach is supposed to be nice this time of year."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_GymFatMan {
+    lock
+    faceplayer
+    if (flag(FLAG_BADGE03_GET)) {
+        msgbox(format("Wow, you actually beat Whitney!?\pI saw it all on TV! She really had you on the ropes for a while there!"))
+        release
+        end
+    }
+    msgbox(format("They'll be recording another episode of The Challenge soon.\pIt's not like anyone has a chance of beating Whitney, but I still watch every season!"))
+    release
+    end
+}
+
+script SlateportCity_EventScript_FlowerWoman {
+    msgbox(format("You there!\pWhy not stop by our flower shop for a quick look around?\pWe sell specialty nectars as well!"), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_UnreachableWoman {
+    msgbox(format("Cheaters never win, kiddo."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_SewerBaldMan {
+    msgbox(format("Can you believe I got kicked out of the POKéMON Fan Club?\pApperently there's a limit to how much you're allowed to love POKéMON."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_HyperloopRichBoy {
+    msgbox(format("They tore down the Magnet Train to build this new Hyperloop, but now there's no quick way to get to Kanto!\pThe city council really didn't think this one through."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_HyperloopBlondeGuy {
+    msgbox(format("The Hyperloop has been under construction for so long, I don't think they'll ever finish it!"), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_GoldenvineSailor {
+    msgbox(format("The Goldenvine Sea was recently opened up for public access, but take caution, those waters are not for the faint of heart."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_GoldenvineNerd {
+    lock
+    faceplayer
+    if (flag(FLAG_GOLDENROD_SEWER_OPEN)) {
+        msgbox(format("I can't believe I missed Whitney on the Night and Dave Show!\pMaybe they'll let me in next time if I look really desparate."))
+        release
+        end
+    }
+    msgbox(format("I heard Whitney will be on the Night and Dave Show tonight.\pI wish I could afford tickets, I can't get enough of Whitney!"))
+    release
+    end
+}
+
+script SlateportCity_EventScript_BenchGirl {
+    msgbox(format("The breeze from the Goldenvine Sea is nice this time of year, I could sit here all day."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_BenchMan {
+    msgbox(format("Although it's winter, the sea breeze keeps Goldenrod City's temperatures nice and moderate."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_AlleySailor {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_COIN_CASE)) {
+        msgbox(format("Argh, how has that old Coin Case been treatin' you?\pHopefully better than it's treated me."))
+        release
+        end
+    }
+    msgbox(format("Argh! I lost all me money in that blasted Game Corner!\pI belong to the seas, not some fancy city!\pHere, you take this. Me days of gambling are over..."))
+    giveitem (ITEM_COIN_CASE)
+	setflag (FLAG_RECEIVED_COIN_CASE)
+    msgbox(format("Maybe you'll have better luck than I have..."))
+    release
+    end
+}
+
+script SlateportCity_EventScript_AlleyBaldMan {
+    msgbox(format("The groomer here said she can't do anything with my hair!\pThis discrimination is just appalling!"), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_CasinoGirl {
+    msgbox(format("You there! Come on in and enjoy yourself!\pThe Goldenrod City Game Corner is open to everyone of all ages!\pWe don't care as long as you have money!"), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_MartWoman {
+    msgbox(format("I really need to get a handle on my shopping, but I just can't help myself!\pBesides, my husband's money won't spend itself!"), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_SewerGirl {
+    msgbox(format("I've been hearing a lot of construction sounds coming from the sewers lately, I wonder what they've been working on."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_BikeShopBlonde {
+    msgbox(format("Have you heard of the legendary bird trio in Kanto?\pRumor has it they've been spotted near the Whirl Islands.\pI wonder what drove them away from Kanto."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_BikeShopFatMan {
+    msgbox(format("All of the bikes I've bought from this place have broken, they must be defective..."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_MartEmployee {
+    msgbox(format("Come in an shop around!\pWe sell evolution stones and other items nobody else in Johto has!"), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_EventScript_BottomBitch {
+    msgbox(format("Big cities like this always make me dizzy, they're such a sensory overload!"), MSGBOX_NPC)
+    end
+}

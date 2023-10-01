@@ -538,3 +538,4 @@ gSpecials::
 	def_special TrySpecialOverworldEvo
 	def_special TimeTravelBackClock
 	def_special TimeTravelForwardClock
+	def_special FriendshipBreeder

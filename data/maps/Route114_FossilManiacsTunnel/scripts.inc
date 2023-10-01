@@ -1,93 +1,92 @@
-.set LOCALID_FOSSIL_MANIAC, 1
-
 Route114_FossilManiacsTunnel_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route114_FossilManiacsTunnel_OnTransition
-	map_script MAP_SCRIPT_ON_LOAD, Route114_FossilManiacsTunnel_OnLoad
 	.byte 0
 
-Route114_FossilManiacsTunnel_OnTransition:
-	call_if_set FLAG_SYS_GAME_CLEAR, Route114_FossilManiacsTunnel_EventScript_MoveFossilManiac
-	end
 
-Route114_FossilManiacsTunnel_EventScript_MoveFossilManiac::
-	setobjectxyperm LOCALID_FOSSIL_MANIAC, 6, 5
-	setobjectmovementtype LOCALID_FOSSIL_MANIAC, MOVEMENT_TYPE_FACE_DOWN
-	return
-
-Route114_FossilManiacsTunnel_OnLoad:
-	call_if_unset FLAG_SYS_GAME_CLEAR, Route114_FossilManiacsTunnel_EventScript_CloseDesertUnderpass
-	end
-
-Route114_FossilManiacsTunnel_EventScript_CloseDesertUnderpass::
-	setmetatile 6, 1, METATILE_Fallarbor_RedRockWall, TRUE
-	setmetatile 6, 2, METATILE_Fallarbor_RedRockWall, TRUE
-	return
-
-Route114_FossilManiacsTunnel_EventScript_ManiacMentionCaveIn::
-	lockall
-	applymovement LOCALID_FOSSIL_MANIAC, Common_Movement_WalkInPlaceFasterUp
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	msgbox Route114_FossilManiacsTunnel_Text_NotSafeThatWay, MSGBOX_DEFAULT
-	setvar VAR_FOSSIL_MANIAC_STATE, 2
-	releaseall
-	end
-
-Route114_FossilManiacsTunnel_EventScript_FossilManiac::
+Route114_FossilManiacsTunnel_EventScript_Groomer::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_REVIVED_FOSSIL_MON, Route114_FossilManiacsTunnel_EventScript_PlayerRevivedFossil
-	checkitem ITEM_ROOT_FOSSIL
-	goto_if_eq VAR_RESULT, TRUE, Route114_FossilManiacsTunnel_EventScript_PlayerHasFossil
-	checkitem ITEM_CLAW_FOSSIL
-	goto_if_eq VAR_RESULT, TRUE, Route114_FossilManiacsTunnel_EventScript_PlayerHasFossil
-	msgbox Route114_FossilManiacsTunnel_Text_LookInDesertForFossils, MSGBOX_DEFAULT
+	dotimebasedevents
+	goto_if_set FLAG_DAILY_GOLDENROD_GROOMER, Route114_FossilManiacsTunnel_EventScript_Groomer_1
+	msgbox Route114_FossilManiacsTunnel_EventScript_Groomer_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Route114_FossilManiacsTunnel_EventScript_Groomer_4
+	msgbox Route114_FossilManiacsTunnel_EventScript_Groomer_Text_3
+	waitmessage
+	closemessage
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq Route114_FossilManiacsTunnel_EventScript_Groomer_7
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	compare VAR_RESULT, SPECIES_EGG
+	goto_if_eq Route114_FossilManiacsTunnel_EventScript_Groomer_10
+	msgbox Route114_FossilManiacsTunnel_EventScript_Groomer_Text_5
+	waitmessage
+	closemessage
+	special FriendshipBreeder
+	playse SE_REPEL
+	delay 30
+	playse SE_CLICK
+	delay 30
+	playse SE_CLICK
+	delay 30
+	playse SE_CLICK
+	delay 30
+	playse SE_REPEL
+	waitse
+	delay 30
+	msgbox Route114_FossilManiacsTunnel_EventScript_Groomer_Text_6
+	setflag FLAG_DAILY_GOLDENROD_GROOMER
 	release
 	end
 
-Route114_FossilManiacsTunnel_EventScript_PlayerHasFossil::
-	msgbox Route114_FossilManiacsTunnel_Text_DevonCorpRevivingFossils, MSGBOX_DEFAULT
+Route114_FossilManiacsTunnel_EventScript_Groomer_1:
+	msgbox Route114_FossilManiacsTunnel_EventScript_Groomer_Text_0
 	release
 	end
 
-Route114_FossilManiacsTunnel_EventScript_PlayerRevivedFossil::
-	msgbox Route114_FossilManiacsTunnel_Text_FossilsAreWonderful, MSGBOX_DEFAULT
+Route114_FossilManiacsTunnel_EventScript_Groomer_4:
+	msgbox Route114_FossilManiacsTunnel_EventScript_Groomer_Text_2
 	release
 	end
 
-Route114_FossilManiacsTunnel_Text_LookInDesertForFossils:
-	.string "I'm the FOSSIL MANIAC…\n"
-	.string "I'm a nice guy who loves FOSSILS…\p"
-	.string "Do you want a FOSSIL?\p"
-	.string "But the FOSSILS around these parts all\n"
-	.string "belong to me… None for you…\p"
-	.string "If you can't bear to go without\n"
-	.string "a FOSSIL, look in a desert where there\l"
-	.string "are boulders and sand that may hide\l"
-	.string "FOSSILS…$"
+Route114_FossilManiacsTunnel_EventScript_Groomer_7:
+	msgbox Route114_FossilManiacsTunnel_EventScript_Groomer_Text_2
+	release
+	end
 
-Route114_FossilManiacsTunnel_Text_DevonCorpRevivingFossils:
-	.string "You found a FOSSIL, didn't you?\n"
-	.string "That's so nice… It's so dreamy…\p"
-	.string "What are you going to do with that\n"
-	.string "FOSSIL?\p"
-	.string "From what I've heard, DEVON is doing\n"
-	.string "research on reviving POKéMON from\l"
-	.string "FOSSILS…\p"
-	.string "I love my FOSSILS, so I would never\n"
-	.string "do anything like that…$"
+Route114_FossilManiacsTunnel_EventScript_Groomer_10:
+	msgbox Route114_FossilManiacsTunnel_EventScript_Groomer_Text_4
+	release
+	end
 
-Route114_FossilManiacsTunnel_Text_FossilsAreWonderful:
-	.string "FOSSILS are so… Wonderful…\n"
-	.string "It's so dreamy…$"
 
-Route114_FossilManiacsTunnel_Text_NotSafeThatWay:
-	.string "Oh…\n"
-	.string "It's not safe that way…\p"
-	.string "I was digging away, you see…\n"
-	.string "When the whole wall collapsed…\p"
-	.string "I think there's a giant cavern\n"
-	.string "underneath now…\p"
-	.string "But I've left it alone because I don't\n"
-	.string "think there are any FOSSILS there…$"
+Route114_FossilManiacsTunnel_EventScript_Groomer_Text_0:
+	.string "Come see me again tomorrow, and I will\n"
+	.string "beautify another one of your POKéMON!$"
 
+Route114_FossilManiacsTunnel_EventScript_Groomer_Text_1:
+	.string "Hi, I'm the POKéMON groomer!\p"
+	.string "I can beautify one of your POKéMON and\n"
+	.string "make them a little happier in the\l"
+	.string "process.\p"
+	.string "Would you like me to groom one of your\n"
+	.string "POKéMON?$"
+
+Route114_FossilManiacsTunnel_EventScript_Groomer_Text_2:
+	.string "Ok, maybe some other time then.$"
+
+Route114_FossilManiacsTunnel_EventScript_Groomer_Text_3:
+	.string "Fantastic! And which POKéMON needs\n"
+	.string "grooming?$"
+
+Route114_FossilManiacsTunnel_EventScript_Groomer_Text_4:
+	.string "I'm sorry, there's not much I can do for\n"
+	.string "an egg...$"
+
+Route114_FossilManiacsTunnel_EventScript_Groomer_Text_5:
+	.string "Ok! I will work my magic!$"
+
+Route114_FossilManiacsTunnel_EventScript_Groomer_Text_6:
+	.string "All done!\p"
+	.string "I think it looks a little happier now!$"

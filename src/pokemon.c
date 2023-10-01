@@ -7016,6 +7016,12 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
     }
 }
 
+void FriendshipBreeder(void)
+{
+    struct Pokemon *pokemon = &gPlayerParty[gPartyMenu.slotId];
+    AdjustFriendship(pokemon, FRIENDSHIP_EVENT_GROW_LEVEL);
+}
+
 void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
 {
     u8 evs[NUM_STATS];
