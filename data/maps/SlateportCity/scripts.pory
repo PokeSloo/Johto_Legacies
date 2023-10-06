@@ -67,7 +67,7 @@ script SlateportCity_EventScript_UnreachableWoman {
 }
 
 script SlateportCity_EventScript_SewerBaldMan {
-    msgbox(format("Can you believe I got kicked out of the POKéMON Fan Club?\pApperently there's a limit to how much you're allowed to love POKéMON."), MSGBOX_NPC)
+    msgbox(format("Can you believe I got kicked out of the POKéMON Fan Club?\pApparently there's a limit to how much you're allowed to love POKéMON."), MSGBOX_NPC)
     end
 }
 

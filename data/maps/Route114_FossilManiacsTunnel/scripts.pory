@@ -1,3 +1,5 @@
+const AMPHAROS_ID = 2
+
 mapscripts Route114_FossilManiacsTunnel_MapScripts {}
 
 script Route114_FossilManiacsTunnel_EventScript_Groomer {
@@ -58,4 +60,17 @@ script Route114_FossilManiacsTunnel_EventScript_Groomer {
             }
         }
     }
+}
+
+script Route114_FossilManiacsTunnel_EventScript_Ampharos {
+    lock
+    faceplayer
+	waitse
+	playmoncry (SPECIES_AMPHAROS, CRY_MODE_NORMAL)
+    applymovement (AMPHAROS_ID, LittlerootTown_BrendansHouse_1F_Heart)
+    msgbox (format("AMPHAROS: Ampha! Ampha!"))
+    waitmovement (0)
+    waitmoncry
+    release
+    end
 }

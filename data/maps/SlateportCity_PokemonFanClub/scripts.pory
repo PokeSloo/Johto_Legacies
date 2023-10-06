@@ -1,0 +1,135 @@
+mapscripts SlateportCity_PokemonFanClub_MapScripts {}
+
+script SlateportCity_PokemonFanClub_EventScript_Trader {
+    lock
+	faceplayer
+	goto_if_set (FLAG_GOLDENROD_CLOBBOPUS_TRADE, SlateportCity_PokemonFanClub_EventScript_TradeCompleted)
+	setvar (VAR_0x8008, INGAME_TRADE_PLUSLE)
+	copyvar (VAR_0x8004, VAR_0x8008)
+	specialvar (VAR_RESULT, GetInGameTradeSpeciesInfo)
+	copyvar (VAR_0x8009, VAR_RESULT)
+	msgbox (format("I'm just in love with FIGHTING-type POKéMON, but I really want to start branching out, you feel me?\pHey, would you be willing to trade me an Abra for my Clobbopus?"))
+	goto_if_eq (VAR_RESULT, NO, SlateportCity_PokemonFanClub_EventScript_DeclineTrade)
+	special (ChoosePartyMon)
+	waitstate
+	copyvar (VAR_0x800A, VAR_0x8004)
+	goto_if_eq (VAR_0x8004, PARTY_NOTHING_CHOSEN, SlateportCity_PokemonFanClub_EventScript_DeclineTrade)
+	copyvar (VAR_0x8005, VAR_0x800A)
+	specialvar (VAR_RESULT, GetTradeSpecies)
+	copyvar (VAR_0x800B, VAR_RESULT)
+	goto_if_ne (VAR_RESULT, VAR_0x8009, SlateportCity_PokemonFanClub_EventScript_NotRequestedMon)
+	copyvar (VAR_0x8004, VAR_0x8008)
+	copyvar (VAR_0x8005, VAR_0x800A)
+	special (CreateInGameTradePokemon)
+	special (DoInGameTradeScene)
+	waitstate
+	msgbox (format("Perfect!\pI think Abra is a good POKéMON to get me started with PSYCHIC-types."))
+	setflag (FLAG_GOLDENROD_CLOBBOPUS_TRADE)
+	release
+	end
+}
+
+script SlateportCity_PokemonFanClub_EventScript_DeclineTrade {
+	msgbox (format("Suit yourself. I thought maybe you could use a little help against Whitney, but I guess not."))
+	release
+	end
+}
+
+script SlateportCity_PokemonFanClub_EventScript_NotRequestedMon {
+	bufferspeciesname (STR_VAR_1, VAR_0x8009)
+	msgbox (format("Hmm... That doesn't look like an Abra to me.\pI mean, sure, I love all POKéMON, but I really want an Abra."))
+	release
+	end
+}
+
+script SlateportCity_PokemonFanClub_EventScript_TradeCompleted {
+	msgbox (format("How's old been SQUIDWARD treating you?\pYou know, Clobbopus can't be found anywhere in the Johto region.\pI caught SQUIDWARD on the Golden Islands."))
+	release
+	end
+}
+
+script SlateportCity_PokemonFanClub_EventScript_Twin {
+    lock
+    faceplayer
+    msgbox(format("POKéMON are the best!\nDon't you agree?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        msgbox(format("No? What do you mean no??\pYou're wrong!\pPOKéMON are the greatest!\pYour opinion is stupid, and I don't like your face!\pGet away from me!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Yay! POKéMON are the greatest!"))
+        release
+        end
+    }
+}
+
+script SlateportCity_PokemonFanClub_EventScript_SootheBellWoman {
+    msgbox(format("We recently had to reject a very unsightly man from joining our FanClub.\pWe strongly disapprove of his...\nbehavior towards POKéMON..."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_PokemonFanClub_EventScript_Chairman {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_FOCUS_SASH)) {
+        msgbox(format("Sorry, but I can't give you any more Focus Sashes.\pI need to keep at least 6 at all times, one for each of my POKéMON.\pI just can't stand the thought of them fainting in battle.\pI'm sure you will find another Focus Sash somewhere else."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Welcome to the POKéMON FanClub!\pI am the chairman here, and I just love POKéMON!\pTell me TRAINER, how much do you love POKéMON?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Oh, I see...\pSome people just don't appreciate POKéMON as much as we all should."))
+            release
+            end
+        }
+        else {
+            msgbox(format("Wonderful! A POKéMON lover with a fine sense of humor!\pI would gladly accept you as a member of our FanClub!\pI'll tell you what; I see that your love for POKéMON is genuine, and I like your attitude.\pI would like to present you with this little welcoming gift!"))
+            waitmessage
+            giveitem (ITEM_FOCUS_SASH)
+            msgbox(format("There's nothing I can't stand more than letting my POKéMON faint in battle.\pThat Focus Sash will prevent your POKéMON from fainting if it's at full health before the opponents attack.\pUse it wisely though, it will be destroyed after saving one of your POKéMON..."))
+            setflag (FLAG_RECEIVED_FOCUS_SASH)
+            release
+            end
+        }
+    }
+}
+
+script SlateportCity_PokemonFanClub_EventScript_Man {
+    msgbox(format("I thought this would be a fun club to join, but all these people ever do is sit around and talk about how much they love POKéMON!\pSeriously!\pAll I've heard for the last 3 weeks has been POKéMON this, POKéMON that, POKéMON, POKéMON, POKéMON, POKéMON!\pI'm losing my mind here!"), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_PokemonFanClub_EventScript_Azumarill {
+    lock
+    faceplayer
+    waitse
+	playmoncry (SPECIES_AZUMARILL, CRY_MODE_NORMAL)
+    msgbox (format("AZUMARILL: Azu azu!"))
+    waitmoncry
+    release
+    end
+}
+
+script SlateportCity_PokemonFanClub_EventScript_Slowpoke {
+    lock
+    faceplayer
+    waitse
+	playmoncry (SPECIES_SLOWPOKE, CRY_MODE_NORMAL)
+    msgbox (format("SLOWPOKE: Slooowww?"))
+    waitmoncry
+    release
+    end
+}
+
+script SlateportCity_PokemonFanClub_EventScript_Miltank {
+    lock
+    faceplayer
+    waitse
+	playmoncry (SPECIES_MILTANK, CRY_MODE_NORMAL)
+    msgbox (format("MILTANK: Moo moo!"))
+    waitmoncry
+    release
+    end
+}

@@ -17213,7 +17213,7 @@ static const struct LevelUpMove sCentiskorchLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sClobbopusLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_ROCK_SMASH),
+    //LEVEL_UP_MOVE( 1, MOVE_ROCK_SMASH),
     LEVEL_UP_MOVE( 1, MOVE_LEER),
     LEVEL_UP_MOVE( 5, MOVE_FEINT),
     LEVEL_UP_MOVE(10, MOVE_BIND),

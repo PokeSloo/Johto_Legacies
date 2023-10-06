@@ -88,7 +88,7 @@
 #define FLAG_HIDE_PAST_SILVER    0x4C // Past ilex forest
 #define FLAG_OLIVER_CALL_RT_34    0x4D // After celebi event
 #define FLAG_GOLDENROD_SEWER_OPEN    0x4E // Opens after defeating Shane in tv station
-#define FLAG_STILL_UNUSED    0x4F // was Pokemon groomer resets daily
+#define FLAG_GOLDENROD_CLOBBOPUS_TRADE    0x4F // After trade is completed
 
 // Scripts
 #define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL  0x50
@@ -651,7 +651,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
+#define FLAG_RECEIVED_FOCUS_SASH  0x264 // Goldenrod fanclub chairman
 #define FLAG_UNUSED_0x265  0x265 // Unused Flag
 #define FLAG_UNUSED_0x266  0x266 // Unused Flag
 #define FLAG_UNUSED_0x267  0x267 // Unused Flag

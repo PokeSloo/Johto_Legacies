@@ -61,6 +61,19 @@ Route114_FossilManiacsTunnel_EventScript_Groomer_10:
 	end
 
 
+Route114_FossilManiacsTunnel_EventScript_Ampharos::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_AMPHAROS, CRY_MODE_NORMAL
+	applymovement 2, LittlerootTown_BrendansHouse_1F_Heart
+	msgbox Route114_FossilManiacsTunnel_EventScript_Ampharos_Text_0
+	waitmovement 0
+	waitmoncry
+	release
+	end
+
+
 Route114_FossilManiacsTunnel_EventScript_Groomer_Text_0:
 	.string "Come see me again tomorrow, and I will\n"
 	.string "beautify another one of your POKéMON!$"
@@ -90,3 +103,6 @@ Route114_FossilManiacsTunnel_EventScript_Groomer_Text_5:
 Route114_FossilManiacsTunnel_EventScript_Groomer_Text_6:
 	.string "All done!\p"
 	.string "I think it looks a little happier now!$"
+
+Route114_FossilManiacsTunnel_EventScript_Ampharos_Text_0:
+	.string "AMPHAROS: Ampha! Ampha!$"

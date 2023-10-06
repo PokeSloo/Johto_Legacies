@@ -222,7 +222,7 @@ SlateportCity_EventScript_UnreachableWoman_Text_0:
 SlateportCity_EventScript_SewerBaldMan_Text_0:
 	.string "Can you believe I got kicked out of the\n"
 	.string "POKéMON Fan Club?\p"
-	.string "Apperently there's a limit to how much\n"
+	.string "Apparently there's a limit to how much\n"
 	.string "you're allowed to love POKéMON.$"
 
 SlateportCity_EventScript_HyperloopRichBoy_Text_0:
