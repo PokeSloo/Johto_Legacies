@@ -1,0 +1,16 @@
+mapscripts RustboroCity_Flat1_2F_MapScripts {}
+
+script RustboroCity_Flat1_2F_EventScript_WorkerLady {
+    msgbox (format("I'm sorry, but the Johto-Kanto Hyperloop is still under construction.\pWe are currently working out some issues over on the Kanto side."), MSGBOX_NPC)
+    end
+}
+
+script RustboroCity_Flat1_2F_EventScript_Man {
+    msgbox (format("I moved here from Saffron City back before they tore down the old Magnet Train.\pI hope they complete the Hyperloop soon, I would like to visit some old friends in Kanto."), MSGBOX_NPC)
+    end
+}
+
+script RustboroCity_Flat1_2F_EventScript_Woman {
+    msgbox (format("A watched pot never boils!\pAt least that's what people always say.\pI really want to see this Hyperloop completed though!"), MSGBOX_NPC)
+    end
+}

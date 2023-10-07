@@ -1,0 +1,19 @@
+mapscripts Route114_FossilManiacsHouse_MapScripts {}
+
+script Route114_FossilManiacsHouse_EventScript_OldMan {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_AMULET_COIN)) {
+        msgbox(format("Have you been making good use of my old Amulet Coin?"))
+        release
+        end
+    }
+    else {
+        msgbox(format("You know, I was a pretty good TRAINER back in my day.\pThis little coin helped me get to where I am today, but I don't really have much use for it anymore..."))
+        giveitem (ITEM_AMULET_COIN)
+        setflag (FLAG_RECEIVED_AMULET_COIN)
+        msgbox(format("Let one of your POKéMON hold onto that Amulet Coin, and you will earn more money from trainer battles.\pNeedless to say, that POKéMON has to enter the battle."))
+        release
+        end
+    }
+}

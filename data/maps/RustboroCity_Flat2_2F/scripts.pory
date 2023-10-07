@@ -1,0 +1,34 @@
+mapscripts RustboroCity_Flat2_2F_MapScripts {}
+
+script RustboroCity_Flat2_2F_EventScript_ToxicBeauty {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_TOXIC_TM)) {
+        msgbox(format("My boyfriend was mad that I spent all of his money at the Game Corner, but it wouldn't be a problem if he just made more money!\pHe's so useless!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("My boyfriend can't do anything right!\pI told him to go out and buy me something good, but all he came back with was a TM that's as useless as he is!\pWorst gift ever!\pHere, you take it."))
+        giveitem (ITEM_TM06_TOXIC)
+        setflag (FLAG_RECEIVED_TOXIC_TM)
+        msgbox(format("He's lucky I don't leave him for someone else, I bet the old man next door has some money at least."))
+        release
+        end
+    }
+}
+
+script RustboroCity_Flat2_2F_EventScript_Man {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_TOXIC_TM)) {
+        msgbox(format("I gave my girlfriend the TM for Toxic hoping she could take a hint.\pI really don't know what else to do, she threatens me if I even think about breaking up with her."))
+        release
+        end
+    }
+    else {
+        msgbox(format("I thought it would be cool to date a beauty, but she's the worst!\pI really don't know what to do, she threatens me if I even think about breaking up with her."))
+        release
+        end
+    }
+}
