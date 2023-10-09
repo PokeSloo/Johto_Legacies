@@ -7,7 +7,9 @@ MauvilleCity_GameCorner_MapScripts::
 	.set TM35_COINS,  4000
 	.set TM24_COINS,  4000
 	.set TM13_COINS,  4000
-	.set DOLL_COINS,  1000
+	.set PIKACHU_COINS,  1000
+	.set APPLIN_COINS,  5000
+	.set PORYGON_COINS,  9999
 
 	.set COINS_PRICE_50,  1000
 	.set COINS_PRICE_500, 10000
@@ -132,17 +134,17 @@ MauvilleCity_GameCorner_EventScript_ChooseDollPrize::
 
 MauvilleCity_GameCorner_EventScript_TreeckoDoll::
 	setvar VAR_TEMP_1, 1
-	bufferdecorationname STR_VAR_1, DECOR_TREECKO_DOLL
+	bufferspeciesname STR_VAR_1, SPECIES_PIKACHU
 	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize
 
 MauvilleCity_GameCorner_EventScript_TorchicDoll::
 	setvar VAR_TEMP_1, 2
-	bufferdecorationname STR_VAR_1, DECOR_TORCHIC_DOLL
+	bufferspeciesname STR_VAR_1, SPECIES_APPLIN
 	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize
 
 MauvilleCity_GameCorner_EventScript_MudkipDoll::
 	setvar VAR_TEMP_1, 3
-	bufferdecorationname STR_VAR_1, DECOR_MUDKIP_DOLL
+	bufferspeciesname STR_VAR_1, SPECIES_PORYGON
 	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize
 
 MauvilleCity_GameCorner_EventScript_ConfirmDollPrize::
@@ -156,44 +158,140 @@ MauvilleCity_GameCorner_EventScript_ConfirmDollPrize::
 
 MauvilleCity_GameCorner_EventScript_BuyTreeckoDoll::
 	checkcoins VAR_TEMP_2
-	goto_if_lt VAR_TEMP_2, DOLL_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll
-	bufferdecorationname STR_VAR_2, DECOR_TREECKO_DOLL
-	checkdecorspace DECOR_TREECKO_DOLL
-	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForDoll
-	removecoins DOLL_COINS
-	adddecoration DECOR_TREECKO_DOLL
+	goto_if_lt VAR_TEMP_2, PIKACHU_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll
+	setvar VAR_TEMP_1, SPECIES_PIKACHU
+	givemon SPECIES_PIKACHU, 15
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, MauvilleCity_GameCorner_EventScript_SendPikachuParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, MauvilleCity_GameCorner_EventScript_SendPikachuPC
+	msgbox gText_NoMoreRoomForPokemon, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_SendPikachuParty::
+	playfanfare MUS_OBTAIN_ITEM
+	message MauvilleCity_GameCorner_Text_ObtainedPikachu
+	waitmessage
+	waitfanfare
+	removecoins PIKACHU_COINS
 	updatecoinsbox 1, 1
 	playse SE_SHOP
-	msgbox MauvilleCity_GameCorner_Text_SendToYourHomePC, MSGBOX_DEFAULT
-	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
+	bufferspeciesname STR_VAR_1, SPECIES_PIKACHU
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_ExitDollPrize
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto MauvilleCity_GameCorner_EventScript_ExitDollPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_SendPikachuPC::
+	playfanfare MUS_OBTAIN_ITEM
+	message MauvilleCity_GameCorner_Text_ObtainedPikachu
+	waitmessage
+	waitfanfare
+	removecoins PIKACHU_COINS
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	bufferspeciesname STR_VAR_1, SPECIES_PIKACHU
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_MonTransferredPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto MauvilleCity_GameCorner_EventScript_MonTransferredPC
+	end
+
+MauvilleCity_GameCorner_EventScript_MonTransferredPC::
+	call Common_EventScript_TransferredToPC
+	goto MauvilleCity_GameCorner_EventScript_ExitDollPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_ExitDollPrize::
+	msgbox MauvilleCity_GameCorner_Text_EnjoyMon, MSGBOX_DEFAULT
+	waitmessage
+	hidecoinsbox 0, 0
+	release
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyTorchicDoll::
 	checkcoins VAR_TEMP_2
-	goto_if_lt VAR_TEMP_2, DOLL_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll
-	bufferdecorationname STR_VAR_2, DECOR_TORCHIC_DOLL
-	checkdecorspace DECOR_TORCHIC_DOLL
-	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForDoll
-	removecoins DOLL_COINS
-	adddecoration DECOR_TORCHIC_DOLL
+	goto_if_lt VAR_TEMP_2, APPLIN_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll
+	setvar VAR_TEMP_1, SPECIES_APPLIN
+	givemon SPECIES_APPLIN, 15
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, MauvilleCity_GameCorner_EventScript_SendApplinParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, MauvilleCity_GameCorner_EventScript_SendApplinPC
+	msgbox gText_NoMoreRoomForPokemon, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_SendApplinParty::
+	playfanfare MUS_OBTAIN_ITEM
+	message MauvilleCity_GameCorner_Text_ObtainedApplin
+	waitmessage
+	waitfanfare
+	removecoins APPLIN_COINS
 	updatecoinsbox 1, 1
 	playse SE_SHOP
-	msgbox MauvilleCity_GameCorner_Text_SendToYourHomePC, MSGBOX_DEFAULT
-	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
+	bufferspeciesname STR_VAR_1, SPECIES_APPLIN
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_ExitDollPrize
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto MauvilleCity_GameCorner_EventScript_ExitDollPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_SendApplinPC::
+	playfanfare MUS_OBTAIN_ITEM
+	message MauvilleCity_GameCorner_Text_ObtainedApplin
+	waitmessage
+	waitfanfare
+	removecoins APPLIN_COINS
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	bufferspeciesname STR_VAR_1, SPECIES_APPLIN
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_MonTransferredPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto MauvilleCity_GameCorner_EventScript_MonTransferredPC
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyMudkipDoll::
 	checkcoins VAR_TEMP_2
-	goto_if_lt VAR_TEMP_2, DOLL_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll
-	bufferdecorationname STR_VAR_2, DECOR_MUDKIP_DOLL
-	checkdecorspace DECOR_MUDKIP_DOLL
-	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForDoll
-	removecoins DOLL_COINS
-	adddecoration DECOR_MUDKIP_DOLL
+	goto_if_lt VAR_TEMP_2, PORYGON_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll
+	setvar VAR_TEMP_1, SPECIES_PORYGON
+	givemon SPECIES_PORYGON, 15
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, MauvilleCity_GameCorner_EventScript_SendPorygonParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, MauvilleCity_GameCorner_EventScript_SendPorygonPC
+	msgbox gText_NoMoreRoomForPokemon, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_SendPorygonParty::
+	playfanfare MUS_OBTAIN_ITEM
+	message MauvilleCity_GameCorner_Text_ObtainedPorygon
+	waitmessage
+	waitfanfare
+	removecoins PORYGON_COINS
 	updatecoinsbox 1, 1
 	playse SE_SHOP
-	msgbox MauvilleCity_GameCorner_Text_SendToYourHomePC, MSGBOX_DEFAULT
-	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
+	bufferspeciesname STR_VAR_1, SPECIES_PORYGON
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_ExitDollPrize
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto MauvilleCity_GameCorner_EventScript_ExitDollPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_SendPorygonPC::
+	playfanfare MUS_OBTAIN_ITEM
+	message MauvilleCity_GameCorner_Text_ObtainedPorygon
+	waitmessage
+	waitfanfare
+	removecoins PORYGON_COINS
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	bufferspeciesname STR_VAR_1, SPECIES_PORYGON
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_MonTransferredPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto MauvilleCity_GameCorner_EventScript_MonTransferredPC
 	end
 
 MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll::
@@ -627,7 +725,8 @@ MauvilleCity_GameCorner_EventScript_NoCoinCase::
 	end
 
 MauvilleCity_GameCorner_Text_ThisIsMauvilleGameCorner:
-	.string "This is MAUVILLE GAME CORNER.$"
+	.string "Welcome to the Goldenrod City Game\n"
+	.string "Corner!$"
 
 MauvilleCity_GameCorner_Text_NeedCoinCaseForCoins:
 	.string "Okay, you wanted some COINS for\n"
@@ -775,4 +874,16 @@ MauvilleCity_GameCorner_Text_HeresSomeSlotsInfo:
 MauvilleCity_GameCorner_Text_CantPlayWithNoCoinCase:
 	.string "You can't play if you don't have\n"
 	.string "a COIN CASE.$"
+
+MauvilleCity_GameCorner_Text_ObtainedPikachu:
+	.string "{PLAYER} received a Pikachu.$"
+
+MauvilleCity_GameCorner_Text_ObtainedApplin:
+	.string "{PLAYER} received an Applin.$"
+
+MauvilleCity_GameCorner_Text_ObtainedPorygon:
+	.string "{PLAYER} received a Porygon.$"
+
+MauvilleCity_GameCorner_Text_EnjoyMon:
+	.string "Please come again.$"
 
