@@ -20,7 +20,7 @@ DesertRuins_On_Frame::
 	applymovement 5, DesertRuins_Movement_WalktoPlayer
 	waitmovement 0
 	playse SE_WALL_HIT
-	delay 60
+	delay 120
 	msgbox DesertRuins_On_Frame_Text_0
 	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_110_MUDKIP, DesertRuins_Text_GoldDefeat
 	msgbox DesertRuins_On_Frame_Text_0

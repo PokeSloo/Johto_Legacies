@@ -20,7 +20,7 @@ script DesertRuins_On_Frame {
     applymovement (GOLD_ID, DesertRuins_Movement_WalktoPlayer)
     waitmovement (0)
     playse (SE_WALL_HIT)
-    delay (60)
+    delay (120)
     msgbox (format("..."))
     trainerbattle_no_intro (TRAINER_BRENDAN_ROUTE_110_MUDKIP, DesertRuins_Text_GoldDefeat)
     msgbox (format("..."))
