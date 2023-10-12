@@ -22,13 +22,13 @@ script Route108_On_Frame {
         call (Route108_FemalePlayer)
     }
     showmoneybox (0, 0)
-    msgbox (format("Say, would you be interested in buying this genuine Gold Nugget for the enticingly low price of just ¥1000?"), MSGBOX_YESNO)
+    msgbox (format("Say, would you be interested in buying this genuine Gold Nugget for the enticingly low price of just ¥1,000?"), MSGBOX_YESNO)
     if (var(VAR_RESULT) == YES) {
         goto (Route108_TryToBuy)
     }
     else {
         do {
-            msgbox (format("You know, it's really a steal at this price.\pWon't you buy it for just ¥1000?"), MSGBOX_YESNO)
+            msgbox (format("You know, it's really a steal at this price.\pWon't you buy it for just ¥1,000?"), MSGBOX_YESNO)
         } while (var(VAR_RESULT) == NO)
     }
     goto (Route108_TryToBuy)

@@ -1,82 +1,9 @@
-.set LOCALID_OWNER, 1
-
 Route104_PrettyPetalFlowerShop_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route104_PrettyPetalFlowerShop_OnTransition
 	.byte 0
 
 Route104_PrettyPetalFlowerShop_OnTransition:
 	setflag FLAG_LANDMARK_FLOWER_SHOP
-	goto_if_unset FLAG_MET_PRETTY_PETAL_SHOP_OWNER, Route104_PrettyPetalFlowerShop_EventScript_MoveShopOwner
-	goto_if_unset FLAG_BADGE03_GET, Route104_PrettyPetalFlowerShop_EventScript_MoveShopOwner
-	setflag FLAG_TEMP_1
-	end
-
-Route104_PrettyPetalFlowerShop_EventScript_MoveShopOwner::
-	setobjectxyperm LOCALID_OWNER, 4, 6
-	end
-
-Route104_PrettyPetalFlowerShop_EventScript_ShopOwner::
-	lock
-	faceplayer
-	goto_if_set FLAG_TEMP_1, Route104_PrettyPetalFlowerShop_EventScript_SellDecorations
-	msgbox Route104_PrettyPetalFlowerShop_Text_ThisIsPrettyPetalFlowerShop, MSGBOX_DEFAULT
-	goto_if_set FLAG_MET_PRETTY_PETAL_SHOP_OWNER, Route104_PrettyPetalFlowerShop_EventScript_AlreadyMet
-	setflag FLAG_MET_PRETTY_PETAL_SHOP_OWNER
-	msgbox Route104_PrettyPetalFlowerShop_Text_IntroLearnAboutBerries, MSGBOX_YESNO
-	call_if_eq VAR_RESULT, YES, Route104_PrettyPetalFlowerShop_EventScript_ExplainBerries
-	call_if_eq VAR_RESULT, NO, Route104_PrettyPetalFlowerShop_EventScript_DontExplainBerries
-	release
-	end
-
-Route104_PrettyPetalFlowerShop_EventScript_AlreadyMet::
-	msgbox Route104_PrettyPetalFlowerShop_Text_LearnAboutBerries, MSGBOX_YESNO
-	call_if_eq VAR_RESULT, YES, Route104_PrettyPetalFlowerShop_EventScript_ExplainBerries
-	call_if_eq VAR_RESULT, NO, Route104_PrettyPetalFlowerShop_EventScript_DontExplainBerries
-	release
-	end
-
-Route104_PrettyPetalFlowerShop_EventScript_ExplainBerries::
-	msgbox Route104_PrettyPetalFlowerShop_Text_BerriesExplanation, MSGBOX_DEFAULT
-	return
-
-Route104_PrettyPetalFlowerShop_EventScript_DontExplainBerries::
-	msgbox Route104_PrettyPetalFlowerShop_Text_FlowersBringHappiness, MSGBOX_DEFAULT
-	return
-
-Route104_PrettyPetalFlowerShop_EventScript_SellDecorations::
-	message gText_PlayerWhatCanIDoForYou
-	waitmessage
-	pokemartdecoration2 Route104_PrettyPetalFlowerShop_Pokemart_Plants
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	release
-	end
-
-	.align 2
-Route104_PrettyPetalFlowerShop_Pokemart_Plants:
-	.2byte DECOR_RED_PLANT
-	.2byte DECOR_TROPICAL_PLANT
-	.2byte DECOR_PRETTY_FLOWERS
-	.2byte DECOR_COLORFUL_PLANT
-	.2byte DECOR_BIG_PLANT
-	.2byte DECOR_GORGEOUS_PLANT
-	.2byte DECOR_NONE
-	release
-	end
-
-Route104_PrettyPetalFlowerShop_EventScript_WailmerPailGirl::
-	lock
-	faceplayer
-	goto_if_unset FLAG_RECEIVED_WAILMER_PAIL, Route104_PrettyPetalFlowerShop_EventScript_GiveWailmerPail
-	msgbox Route104_PrettyPetalFlowerShop_Text_WailmerPailExplanation, MSGBOX_DEFAULT
-	release
-	end
-
-Route104_PrettyPetalFlowerShop_EventScript_GiveWailmerPail::
-	msgbox Route104_PrettyPetalFlowerShop_Text_YouCanHaveThis, MSGBOX_DEFAULT
-	giveitem ITEM_WAILMER_PAIL
-	msgbox Route104_PrettyPetalFlowerShop_Text_WailmerPailExplanation, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_WAILMER_PAIL
-	release
 	end
 
 Route104_PrettyPetalFlowerShop_EventScript_RandomBerryGirl::
@@ -98,3 +25,72 @@ Route104_PrettyPetalFlowerShop_EventScript_AlreadyReceivedBerry::
 	msgbox Route104_PrettyPetalFlowerShop_Text_MachineMixesBerries, MSGBOX_DEFAULT
 	release
 	end
+
+Route104_PrettyPetalFlowerShop_EventScript_ShopOwner::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Route104_PrettyPetalFlowerShop_Pokemart_Plants
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+
+	.align 2
+Route104_PrettyPetalFlowerShop_Pokemart_Plants:
+	.2byte ITEM_RED_NECTAR
+	.2byte ITEM_PINK_NECTAR
+	.2byte ITEM_PURPLE_NECTAR
+	.2byte ITEM_YELLOW_NECTAR
+	.2byte ITEM_WHITE_HERB
+	.2byte ITEM_MENTAL_HERB
+	.2byte ITEM_POWER_HERB
+	.2byte ITEM_BIG_ROOT
+	.2byte ITEM_NONE
+
+Route104_PrettyPetalFlowerShop_EventScript_WailmerPailGirl::
+	lock
+	faceplayer
+	goto_if_unset FLAG_RECEIVED_WAILMER_PAIL, Route104_PrettyPetalFlowerShop_EventScript_GiveWailmerPail
+	msgbox Route104_PrettyPetalFlowerShop_EventScript_WailmerPailGirl_Text_0
+	release
+	end
+
+
+Route104_PrettyPetalFlowerShop_EventScript_GiveWailmerPail::
+	msgbox Route104_PrettyPetalFlowerShop_EventScript_GiveWailmerPail_Text_0
+	giveitem ITEM_WAILMER_PAIL
+	msgbox Route104_PrettyPetalFlowerShop_EventScript_GiveWailmerPail_Text_1
+	setflag FLAG_RECEIVED_WAILMER_PAIL
+	release
+	end
+
+
+Route104_PrettyPetalFlowerShop_EventScript_WailmerPailGirl_Text_0:
+	.string "Have you cleared that weird tree from\n"
+	.string "Route 36 yet?\p"
+	.string "I don't know why they seem to be so\n"
+	.string "fascinated with that route in\l"
+	.string "particular.$"
+
+Route104_PrettyPetalFlowerShop_EventScript_GiveWailmerPail_Text_0:
+	.string "Every few years a strange tree will\n"
+	.string "appear on Route 36.\p"
+	.string "I don't know why they are so drawn to\n"
+	.string "that route in particular, but it gets\l"
+	.string "annoying.\p"
+	.string "Here, you should take this.$"
+
+Route104_PrettyPetalFlowerShop_EventScript_GiveWailmerPail_Text_1:
+	.string "Use that Wailmer Pail to sprinkle some\n"
+	.string "water on the weird tree, they seem to\l"
+	.string "hate that.\p"
+	.string "Fair warning, it might decide to attack\n"
+	.string "you instead of running away.\p"
+	.string "You look like a capable TRAINER though,\n"
+	.string "so you shouldn't have an issue.\p"
+	.string "By the way, you can also use that\n"
+	.string "Wailmer Pail to water berries planted in\l"
+	.string "soil.\p"
+	.string "That will help them grow even faster.$"

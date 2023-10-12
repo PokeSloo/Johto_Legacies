@@ -1,0 +1,69 @@
+raw`
+Route104_PrettyPetalFlowerShop_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route104_PrettyPetalFlowerShop_OnTransition
+	.byte 0
+
+Route104_PrettyPetalFlowerShop_OnTransition:
+	setflag FLAG_LANDMARK_FLOWER_SHOP
+	end
+
+Route104_PrettyPetalFlowerShop_EventScript_RandomBerryGirl::
+	lock
+	faceplayer
+	dotimebasedevents
+	goto_if_set FLAG_DAILY_FLOWER_SHOP_RECEIVED_BERRY, Route104_PrettyPetalFlowerShop_EventScript_AlreadyReceivedBerry
+	msgbox Route104_PrettyPetalFlowerShop_Text_ImGrowingFlowers, MSGBOX_DEFAULT
+	random 8
+	addvar VAR_RESULT, FIRST_BERRY_INDEX
+	giveitem VAR_RESULT
+	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
+	setflag FLAG_DAILY_FLOWER_SHOP_RECEIVED_BERRY
+	msgbox Route104_PrettyPetalFlowerShop_Text_MachineMixesBerries, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_PrettyPetalFlowerShop_EventScript_AlreadyReceivedBerry::
+	msgbox Route104_PrettyPetalFlowerShop_Text_MachineMixesBerries, MSGBOX_DEFAULT
+	release
+	end
+`
+
+script Route104_PrettyPetalFlowerShop_EventScript_ShopOwner {
+	lock
+	faceplayer
+	message (gText_HowMayIServeYou)
+	waitmessage
+	pokemart (Route104_PrettyPetalFlowerShop_Pokemart_Plants)
+	msgbox (gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+mart Route104_PrettyPetalFlowerShop_Pokemart_Plants {
+	ITEM_RED_NECTAR
+    ITEM_PINK_NECTAR
+    ITEM_PURPLE_NECTAR
+    ITEM_YELLOW_NECTAR
+    ITEM_WHITE_HERB
+    ITEM_MENTAL_HERB
+    ITEM_POWER_HERB
+    ITEM_BIG_ROOT
+}
+
+script Route104_PrettyPetalFlowerShop_EventScript_WailmerPailGirl {
+	lock
+	faceplayer
+	goto_if_unset (FLAG_RECEIVED_WAILMER_PAIL, Route104_PrettyPetalFlowerShop_EventScript_GiveWailmerPail)
+	msgbox(format("Have you cleared that weird tree from Route 36 yet?\pI don't know why they seem to be so fascinated with that route in particular."))
+	release
+	end
+}
+
+script Route104_PrettyPetalFlowerShop_EventScript_GiveWailmerPail {
+	msgbox(format("Every few years a strange tree will appear on Route 36.\pI don't know why they are so drawn to that route in particular, but it gets annoying.\pHere, you should take this."))
+	giveitem (ITEM_WAILMER_PAIL)
+	msgbox(format("Use that Wailmer Pail to sprinkle some water on the weird tree, they seem to hate that.\pFair warning, it might decide to attack you instead of running away.\pYou look like a capable TRAINER though, so you shouldn't have an issue.\pBy the way, you can also use that Wailmer Pail to water berries planted in soil.\pThat will help them grow even faster."))
+	setflag (FLAG_RECEIVED_WAILMER_PAIL)
+	release
+	end
+}

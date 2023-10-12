@@ -1738,7 +1738,7 @@
               {
                 "min_level": 12,
                 "max_level": 14,
-                "species": "SPECIES_ROOKIDEE"
+                "species": "SPECIES_ORICORIO"
               },
               {
                 "min_level": 11,
@@ -11166,7 +11166,7 @@
               {
                 "min_level": 35,
                 "max_level": 35,
-                "species": "SPECIES_ORICORIO"
+                "species": "SPECIES_CORVISQUIRE"
               },
               {
                 "min_level": 28,

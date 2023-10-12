@@ -165,12 +165,12 @@ Route108_EventScript_CoryRematch::
 Route108_On_Frame_Text_0:
 	.string "Say, would you be interested in buying\n"
 	.string "this genuine Gold Nugget for the\l"
-	.string "enticingly low price of just ¥1000?$"
+	.string "enticingly low price of just ¥1,000?$"
 
 Route108_On_Frame_Text_1:
 	.string "You know, it's really a steal at this\n"
 	.string "price.\p"
-	.string "Won't you buy it for just ¥1000?$"
+	.string "Won't you buy it for just ¥1,000?$"
 
 Route108_TryToBuy_Text_0:
 	.string "Hmm... It doesn't look like you have\n"
