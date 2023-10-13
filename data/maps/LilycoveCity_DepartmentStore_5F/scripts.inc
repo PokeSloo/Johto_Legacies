@@ -1,4 +1,4 @@
-.set LOCALID_WOMAN, 7
+.set LOCALID_WOMAN, 5
 
 LilycoveCity_DepartmentStore_5F_MapScripts::
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, LilycoveCity_DepartmentStore_5F_OnWarp
@@ -50,23 +50,23 @@ LilycoveCity_DepartmentStore_5F_EventScript_ClerkMidLeft::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemartdecoration2 LilycoveCity_DepartmentStore_5F_Pokemart_Cushions
+	pokemart LilycoveCity_DepartmentStore_5F_Pokemart_Cushions
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
 	.align 2
 LilycoveCity_DepartmentStore_5F_Pokemart_Cushions:
-	.2byte DECOR_PIKA_CUSHION
-	.2byte DECOR_ROUND_CUSHION
-	.2byte DECOR_ZIGZAG_CUSHION
-	.2byte DECOR_SPIN_CUSHION
-	.2byte DECOR_DIAMOND_CUSHION
-	.2byte DECOR_BALL_CUSHION
-	.2byte DECOR_GRASS_CUSHION
-	.2byte DECOR_FIRE_CUSHION
-	.2byte DECOR_WATER_CUSHION
-	.2byte DECOR_NONE
+	.2byte ITEM_ODD_INCENSE
+	.2byte ITEM_SEA_INCENSE
+	.2byte ITEM_ROCK_INCENSE
+	.2byte ITEM_ROSE_INCENSE
+	.2byte ITEM_WAVE_INCENSE
+	.2byte ITEM_LAX_INCENSE
+	.2byte ITEM_FULL_INCENSE
+	.2byte ITEM_PURE_INCENSE
+	.2byte ITEM_LUCK_INCENSE
+	.2byte ITEM_NONE
 	release
 	end
 
@@ -126,26 +126,7 @@ LilycoveCity_DepartmentStore_5F_EventScript_PokefanF::
 	end
 
 LilycoveCity_DepartmentStore_5F_EventScript_Woman::
-	lockall
-	applymovement LOCALID_WOMAN, Common_Movement_FacePlayer
-	waitmovement 0
-	goto_if_eq VAR_SOOTOPOLIS_CITY_STATE, 0, LilycoveCity_DepartmentStore_5F_EventScript_WomanNormal
-	goto_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, LilycoveCity_DepartmentStore_5F_EventScript_WomanNormal
-	goto LilycoveCity_DepartmentStore_5F_EventScript_WomanLegendaryWeather
-	end
-
-LilycoveCity_DepartmentStore_5F_EventScript_WomanNormal::
-	msgbox LilycoveCity_DepartmentStore_5F_Text_SellManyCuteMatsHere, MSGBOX_DEFAULT
-	closemessage
-	releaseall
-	end
-
-LilycoveCity_DepartmentStore_5F_EventScript_WomanLegendaryWeather::
-	msgbox LilycoveCity_DepartmentStore_5F_Text_ClosedRooftopForWeather, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_WOMAN, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	releaseall
+	msgbox LilycoveCity_DepartmentStore_5F_Text_SellManyCuteMatsHere, MSGBOX_NPC
 	end
 
 LilycoveCity_DepartmentStore_5F_EventScript_LittleGirl::
@@ -153,19 +134,17 @@ LilycoveCity_DepartmentStore_5F_EventScript_LittleGirl::
 	end
 
 LilycoveCity_DepartmentStore_5F_Text_PlaceFullOfCuteDolls:
-	.string "This place is full of cute DOLLS.\p"
-	.string "I should buy some for me, instead of\n"
-	.string "just for my children.$"
+	.string "Whew! I wanted to get some exercise,\n"
+	.string "so I took the stairs, but I'm pooped!\p"
+	.string "Time for a little soda!$"
 
 LilycoveCity_DepartmentStore_5F_Text_GettingDollInsteadOfPokemon:
-	.string "I'm not big enough to raise POKéMON,\n"
-	.string "so I'm getting a cute DOLL instead.$"
+	.string "I just love all of the cute dolls they\n"
+	.string "sell here.\p"
+	.string "You should see my room at home, it's\n"
+	.string "abolutely filled with dolls!$"
 
 LilycoveCity_DepartmentStore_5F_Text_SellManyCuteMatsHere:
-	.string "They sell many cute MATS here.\p"
-	.string "I wonder which one I should get?\n"
-	.string "Maybe I'll buy them all…$"
+	.string "I can't get enough of shopping, I could\n"
+	.string "stay here all day!$"
 
-LilycoveCity_DepartmentStore_5F_Text_ClosedRooftopForWeather:
-	.string "I think they closed the rooftop\n"
-	.string "because the weather is wild today.$"
