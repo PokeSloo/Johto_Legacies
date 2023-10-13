@@ -327,6 +327,9 @@ VerdanturfTown_BattleTentLobby_EventScript_ExitRules::
 	releaseall
 	end
 
+BattleFrontier_BattleDomeLobby_Text_ReceivedPrize:
+	.string "Here's your prize.$"
+
 VerdanturfTown_BattleTentLobby_Text_MonsReluctantToUseDislikedMoves:
 	.string "If it doesn't like a certain move,\n"
 	.string "a POKéMON will be reluctant to use it.\p"

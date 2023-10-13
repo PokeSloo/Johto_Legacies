@@ -1,0 +1,155 @@
+const GUARD_ID = 7
+
+mapscripts BattleFrontier_BattleDomeLobby_MapScripts {}
+
+script BattleFrontier_BattleDomeLobby_EventScript_Guard {
+    lock
+    faceplayer
+    if (flag(FLAG_GOLDENROD_SEWER_OPEN)) {
+        msgbox(format("I'm sorry, but there are no shows airing right now."))
+        release
+        end
+    }
+    elif (flag(FLAG_BOUGHT_SHOW_TICKET)) {
+        specialvar (VAR_RESULT, GetPlayerFacingDirection)
+        if (var(VAR_RESULT) == DIR_NORTH) {
+            msgbox(format("Ah! I see you have a ticket to the Night and Dave Show.\pPlease, step right this way."))
+            waitmessage
+            closemessage
+            applymovement (GUARD_ID, BattleFrontier_BattleDomeLobby_Movement_GuardWalkUp)
+            waitmovement (0)
+            release
+            end
+        }
+        elif (var(VAR_RESULT) == DIR_SOUTH) {
+            msgbox(format("Would you like to leave?\pDon't take too long, your show is about to start."))
+            waitmessage
+            closemessage
+            applymovement (OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleDomeLobby_Movement_PlayerBackUp)
+            waitmovement (0)
+            applymovement (GUARD_ID, BattleFrontier_BattleDomeLobby_Movement_GuardWalkUp)
+            waitmovement (0)
+            release
+            end
+        }
+        else {
+            msgbox(format("The show is about to start, you'd better get in there."))
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("I'm sorry, but nobody is allowed through without a Show Ticket.\pPlease talk to the woman at the front desk."))
+        release
+        end
+    }
+}
+
+movement BattleFrontier_BattleDomeLobby_Movement_GuardWalkUp {
+    walk_up
+    walk_left
+    walk_in_place_right
+}
+
+movement BattleFrontier_BattleDomeLobby_Movement_PlayerBackUp {
+    lock_facing_direction
+    walk_up
+    unlock_facing_direction
+    face_down
+}
+
+script BattleFrontier_BattleDomeLobby_EventScript_DeskWoman {
+    lock
+    faceplayer
+    if (flag(FLAG_GOLDENROD_SEWER_OPEN)) {
+        msgbox(format("I'm sorry, but no shows are airing currently.\pPlease come back later."))
+        release
+        end
+    }
+    elif (flag(FLAG_BOUGHT_SHOW_TICKET)) {
+        msgbox(format("Please go on and find your seat, your show is about to start."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Welcome to the Goldenrod TV Station.\pWe are currently selling tickets to the Night and Dave Show."))
+        waitmessage
+        showmoneybox (0, 0)
+        msgbox(format("One children's ticket will be ¥1,000.\nWould you like to purchase a ticket?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("We'll be here if you change your mind, but you may miss the show if you take too long."))
+            waitmessage
+		    hidemoneybox
+            release
+            end
+        }
+        else {
+            checkmoney (1000)
+            if (var(VAR_RESULT) == NO) {
+                msgbox (format("I'm sorry, but it doesn't look like you have enough money for a ticket.\pPlease come back when you have at least ¥1,000."))
+                waitmessage
+		        hidemoneybox
+		        release
+                end
+            }
+            else {
+                removemoney (1000)
+                updatemoneybox
+		        playse (SE_SHOP)
+                waitse
+		        msgbox(format("One children's ticket to the Night and Dave Show."))
+		        waitmessage
+                closemessage
+		        hidemoneybox
+	            playfanfare (MUS_OBTAIN_ITEM)
+	            msgbox (format("{PLAYER} received the Show Ticket!"))
+	            waitfanfare
+                closemessage
+                setflag (FLAG_BOUGHT_SHOW_TICKET)
+                msgbox (format("Enjoy the show!"))
+                release
+                end
+            }
+        }
+    }
+}
+
+script BattleFrontier_BattleDomeLobby_EventScript_BlondeGuy {
+    msgbox(format("You're lucky the children's tickets are so cheap.\pYou wouldn't believe what they charge for adults!"), MSGBOX_NPC)
+    end
+}
+
+script BattleFrontier_BattleDomeLobby_EventScript_Lass {
+    lock
+    faceplayer
+    if (flag(FLAG_GOLDENROD_SEWER_OPEN)) {
+        msgbox(format("Did you see the Night and Dave Show?\pWhitney is the best!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Whitney, our very own gym leader, is one of the guests appearing tonight!\pI wonder who the other guest will be..."))
+        release
+        end
+    }
+}
+
+script BattleFrontier_BattleDomeLobby_EventScript_Nerd {
+    msgbox(format("I love the Night and Dave Show, I watch it every night at home!"), MSGBOX_NPC)
+    end
+}
+
+script BattleFrontier_BattleDomeLobby_EventScript_FatGuy {
+    lock
+    faceplayer
+    if (flag(FLAG_GOLDENROD_SEWER_OPEN)) {
+        msgbox(format("I can't believe I missed the Night and Dave Show!\pWhitney is my favorite gym leader, and I've failed her!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Are you going here to see the Night and Dave show as well?\pI'm loading up on snacks before going in."))
+        release
+        end
+    }
+}

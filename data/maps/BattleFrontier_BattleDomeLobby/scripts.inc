@@ -1,678 +1,249 @@
-.set LOCALID_ATTENDANT_SINGLES, 1
-.set LOCALID_ATTENDANT_DOUBLES, 6
-
 BattleFrontier_BattleDomeLobby_MapScripts::
 	.byte 0
 
-BattleFrontier_BattleDomeLobby_OnResume:
-	dome_initresultstree
-	end
 
-BattleFrontier_BattleDomeLobby_OnWarp:
-	map_script_2 VAR_TEMP_1, 0, BattleFrontier_BattleDomeLobby_EventScript_TurnPlayerNorth
-	.2byte 0
-
-BattleFrontier_BattleDomeLobby_EventScript_TurnPlayerNorth::
-	setvar VAR_TEMP_1, 1
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	end
-
-BattleFrontier_BattleDomeLobby_OnFrame:
-	map_script_2 VAR_TEMP_0, 0, BattleFrontier_BattleDomeLobby_EventScript_GetChallengeStatus
-	map_script_2 VAR_TEMP_0, CHALLENGE_STATUS_SAVING, BattleFrontier_BattleDomeLobby_EventScript_QuitWithoutSaving
-	map_script_2 VAR_TEMP_0, CHALLENGE_STATUS_PAUSED, BattleFrontier_BattleDomeLobby_EventScript_ResumeChallenge
-	map_script_2 VAR_TEMP_0, CHALLENGE_STATUS_WON, BattleFrontier_BattleDomeLobby_EventScript_WonChallenge
-	map_script_2 VAR_TEMP_0, CHALLENGE_STATUS_LOST, BattleFrontier_BattleDomeLobby_EventScript_LostChallenge
-	.2byte 0
-
-BattleFrontier_BattleDomeLobby_EventScript_GetChallengeStatus::
-	frontier_getstatus
-	end
-
-BattleFrontier_BattleDomeLobby_EventScript_QuitWithoutSaving::
-	lockall
-	msgbox BattleFrontier_BattleDomeLobby_Text_DidntSaveBeforeQuitting, MSGBOX_DEFAULT
-	closemessage
-	dome_set DOME_DATA_WIN_STREAK, 0
-	dome_set DOME_DATA_WIN_STREAK_ACTIVE, FALSE
-	dome_set DOME_DATA_ATTEMPTED_CHALLENGE, TRUE
-	frontier_set FRONTIER_DATA_CHALLENGE_STATUS, 0
-	setvar VAR_TEMP_0, 255
-	releaseall
-	end
-
-BattleFrontier_BattleDomeLobby_EventScript_WonChallenge::
-	call BattleFrontier_EventScript_IncrementWinStreak
-	lockall
-	frontier_isbrain
-	goto_if_eq VAR_RESULT, TRUE, BattleFrontier_BattleDomeLobby_EventScript_DefeatedAce
-	msgbox BattleFrontier_BattleDomeLobby_Text_CongratsForWinningTourney, MSGBOX_DEFAULT
-	goto BattleFrontier_BattleDomeLobby_EventScript_GiveBattlePoints
-
-BattleFrontier_BattleDomeLobby_EventScript_DefeatedAce::
-	msgbox BattleFrontier_BattleDomeLobby_Text_CongratsDefeatedTucker, MSGBOX_DEFAULT
-BattleFrontier_BattleDomeLobby_EventScript_GiveBattlePoints::
-	msgbox BattleFrontier_BattleDomeLobby_Text_AwardTheseBattlePoints, MSGBOX_DEFAULT
-	frontier_givepoints
-	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_GETPOINTS
-	message BattleFrontier_BattleDomeLobby_Text_RecordWillBeSaved
-	waitmessage
-	special LoadPlayerParty
-	frontier_setpartyorder FRONTIER_PARTY_SIZE
-	frontier_checkairshow
-	dome_set DOME_DATA_ATTEMPTED_CHALLENGE, TRUE
-	dome_set DOME_DATA_HAS_WON_CHALLENGE, TRUE
-	dome_set DOME_DATA_WIN_STREAK_ACTIVE, TRUE
-	special LoadPlayerParty
-	special HealPlayerParty
-	goto BattleFrontier_BattleDomeLobby_EventScript_AskRecordBattle
-
-BattleFrontier_BattleDomeLobby_EventScript_LostChallenge::
-	lockall
-	msgbox BattleFrontier_BattleDomeLobby_Text_ThankYouForPlaying, MSGBOX_DEFAULT
-	message BattleFrontier_BattleDomeLobby_Text_RecordWillBeSaved
-	waitmessage
-	special LoadPlayerParty
-	frontier_setpartyorder FRONTIER_PARTY_SIZE
-	frontier_checkairshow
-	dome_set DOME_DATA_WIN_STREAK_ACTIVE, FALSE
-	dome_set DOME_DATA_ATTEMPTED_CHALLENGE, TRUE
-	special LoadPlayerParty
-	special HealPlayerParty
-BattleFrontier_BattleDomeLobby_EventScript_AskRecordBattle::
-	dome_save 0
-	playse SE_SAVE
-	waitse
-	call BattleFrontier_EventScript_GetCantRecordBattle
-	goto_if_eq VAR_RESULT, TRUE, BattleFrontier_BattleDomeLobby_EventScript_EndChallenge
-	message BattleFrontier_BattleDomeLobby_Text_RecordLastMatch
-	waitmessage
-	multichoicedefault 20, 8, MULTI_YESNO, 1, FALSE
-	switch VAR_RESULT
-	case 1, BattleFrontier_BattleDomeLobby_EventScript_EndChallenge
-	case 0, BattleFrontier_BattleDomeLobby_EventScript_RecordBattle
-	case MULTI_B_PRESSED, BattleFrontier_BattleDomeLobby_EventScript_EndChallenge
-
-BattleFrontier_BattleDomeLobby_EventScript_RecordBattle::
-	call BattleFrontier_EventScript_SaveBattle
-BattleFrontier_BattleDomeLobby_EventScript_EndChallenge::
-	msgbox BattleFrontier_BattleDomeLobby_Text_HopeToSeeYouAgain, MSGBOX_DEFAULT
-	closemessage
-	setvar VAR_TEMP_0, 255
-	releaseall
-	end
-
-BattleFrontier_BattleDomeLobby_EventScript_ResumeChallenge::
-	lockall
-	msgbox BattleFrontier_BattleDomeLobby_Text_WeveBeenWaitingForYou, MSGBOX_DEFAULT
-	message BattleFrontier_BattleDomeLobby_Text_OkayToSaveBeforeChallenge2
-	waitmessage
-	dome_save CHALLENGE_STATUS_SAVING
-	playse SE_SAVE
-	waitse
-	frontier_set FRONTIER_DATA_PAUSED, FALSE
-	setvar VAR_TEMP_0, 255
-	goto BattleFrontier_BattleDomeLobby_EventScript_EnterChallenge
-
-BattleFrontier_BattleDomeLobby_EventScript_SinglesAttendant::
+BattleFrontier_BattleDomeLobby_EventScript_Guard::
 	lock
 	faceplayer
-	setvar VAR_FRONTIER_FACILITY, FRONTIER_FACILITY_DOME
-	setvar VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES
-	goto BattleFrontier_BattleDomeLobby_EventScript_AttendantWelcome
-	end
-
-BattleFrontier_BattleDomeLobby_EventScript_DoublesAttendant::
-	lock
-	faceplayer
-	setvar VAR_FRONTIER_FACILITY, FRONTIER_FACILITY_DOME
-	setvar VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES
-	goto BattleFrontier_BattleDomeLobby_EventScript_AttendantWelcome
-	end
-
-BattleFrontier_BattleDomeLobby_EventScript_AttendantWelcome::
-	special SavePlayerParty
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES, BattleFrontier_BattleDomeLobby_EventScript_WelcomeSingles
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleDomeLobby_EventScript_WelcomeDoubles
-BattleFrontier_BattleDomeLobby_EventScript_AskTakeChallenge::
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES, BattleFrontier_BattleDomeLobby_EventScript_TakeSinglesChallenge
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleDomeLobby_EventScript_TakeDoublesChallenge
-	waitmessage
-	multichoice 17, 6, MULTI_CHALLENGEINFO, FALSE
-	switch VAR_RESULT
-	case 0, BattleFrontier_BattleDomeLobby_EventScript_TryEnterChallenge
-	case 1, BattleFrontier_BattleDomeLobby_EventScript_ExplainChallenge
-	case 2, BattleFrontier_BattleDomeLobby_EventScript_CancelChallenge
-	case MULTI_B_PRESSED, BattleFrontier_BattleDomeLobby_EventScript_CancelChallenge
-
-BattleFrontier_BattleDomeLobby_EventScript_TryEnterChallenge::
-	message BattleFrontier_BattleDomeLobby_Text_WhichLevelMode
-	waitmessage
-	multichoice 17, 6, MULTI_LEVEL_MODE, FALSE
-	switch VAR_RESULT
-	case FRONTIER_LVL_TENT, BattleFrontier_BattleDomeLobby_EventScript_CancelChallenge
-	case MULTI_B_PRESSED, BattleFrontier_BattleDomeLobby_EventScript_CancelChallenge
-	frontier_checkineligible
-	goto_if_eq VAR_0x8004, TRUE, BattleFrontier_BattleDomeLobby_EventScript_NotEnoughValidMons
-	frontier_set FRONTIER_DATA_LVL_MODE, VAR_RESULT
-	msgbox BattleFrontier_BattleDomeLobby_Text_SelectThreeMons, MSGBOX_DEFAULT
-	fadescreen FADE_TO_BLACK
-	call BattleFrontier_EventScript_GetLvlMode
-	copyvar VAR_0x8004, VAR_RESULT
-	setvar VAR_0x8005, FRONTIER_PARTY_SIZE
-	special ChoosePartyForBattleFrontier
-	waitstate
-	goto_if_eq VAR_RESULT, 0, BattleFrontier_BattleDomeLobby_EventScript_LoadPartyCancelChallenge
-	msgbox BattleFrontier_BattleDomeLobby_Text_OkayToSaveBeforeChallenge, MSGBOX_YESNO
-	switch VAR_RESULT
-	case NO, BattleFrontier_BattleDomeLobby_EventScript_LoadPartyCancelChallenge
-	case YES, BattleFrontier_BattleDomeLobby_EventScript_SaveBeforeChallenge
-	case MULTI_B_PRESSED, BattleFrontier_BattleDomeLobby_EventScript_LoadPartyCancelChallenge
-
-BattleFrontier_BattleDomeLobby_EventScript_SaveBeforeChallenge::
-	setvar VAR_TEMP_0, 0
-	frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
-	dome_init
-	frontier_set FRONTIER_DATA_CHALLENGE_STATUS, CHALLENGE_STATUS_SAVING
-	frontier_set FRONTIER_DATA_PAUSED, FALSE
-	special LoadPlayerParty
-	closemessage
-	delay 2
-	call Common_EventScript_SaveGame
-	setvar VAR_TEMP_0, 255
-	goto_if_eq VAR_RESULT, 0, BattleFrontier_BattleDomeLobby_EventScript_CancelChallengeSaveFailed
-	dome_inittrainers
-BattleFrontier_BattleDomeLobby_EventScript_EnterChallenge::
-	special SavePlayerParty
-	frontier_setpartyorder FRONTIER_PARTY_SIZE
-	dome_settrainers
-	msgbox BattleFrontier_BattleDomeLobby_Text_ShowYouToBattleDome, MSGBOX_DEFAULT
-	closemessage
-	call BattleFrontier_BattleDomeLobby_EventScript_WalkToDoor
-	special HealPlayerParty
-	warp MAP_BATTLE_FRONTIER_BATTLE_DOME_CORRIDOR, 23, 6
-	setvar VAR_TEMP_0, 0
-	waitstate
-	end
-
-BattleFrontier_BattleDomeLobby_EventScript_ExplainChallenge::
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES, BattleFrontier_BattleDomeLobby_EventScript_ExplainSinglesChallenge
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleDomeLobby_EventScript_ExplainDoublesChallenge
-	goto BattleFrontier_BattleDomeLobby_EventScript_AskTakeChallenge
-
-BattleFrontier_BattleDomeLobby_EventScript_NotEnoughValidMons::
-	switch VAR_RESULT
-	case FRONTIER_LVL_50, BattleFrontier_BattleDomeLobby_EventScript_NotEnoughValidMonsLv50
-	case FRONTIER_LVL_OPEN, BattleFrontier_BattleDomeLobby_EventScript_NotEnoughValidMonsLvOpen
-
-BattleFrontier_BattleDomeLobby_EventScript_NotEnoughValidMonsLv50::
-	msgbox BattleFrontier_BattleDomeLobby_Text_NotEnoughValidMonsLv50, MSGBOX_DEFAULT
-	goto BattleFrontier_BattleDomeLobby_EventScript_EndCancelChallenge
-
-BattleFrontier_BattleDomeLobby_EventScript_NotEnoughValidMonsLvOpen::
-	msgbox BattleFrontier_BattleDomeLobby_Text_NotEnoughValidMonsLvOpen, MSGBOX_DEFAULT
-	goto BattleFrontier_BattleDomeLobby_EventScript_EndCancelChallenge
-
-BattleFrontier_BattleDomeLobby_EventScript_CancelChallengeSaveFailed::
-	frontier_set FRONTIER_DATA_CHALLENGE_STATUS, 0
-	goto BattleFrontier_BattleDomeLobby_EventScript_CancelChallenge
-
-BattleFrontier_BattleDomeLobby_EventScript_LoadPartyCancelChallenge::
-	special LoadPlayerParty
-BattleFrontier_BattleDomeLobby_EventScript_CancelChallenge::
-	msgbox BattleFrontier_BattleDomeLobby_Text_HopeToSeeYouAgain, MSGBOX_DEFAULT
-BattleFrontier_BattleDomeLobby_EventScript_EndCancelChallenge::
+	goto_if_set FLAG_GOLDENROD_SEWER_OPEN, BattleFrontier_BattleDomeLobby_EventScript_Guard_1
+	goto_if_set FLAG_BOUGHT_SHOW_TICKET, BattleFrontier_BattleDomeLobby_EventScript_Guard_2
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_Guard_Text_4
 	release
 	end
 
-BattleFrontier_BattleDomeLobby_EventScript_WalkToDoor::
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES, BattleFrontier_BattleDomeLobby_EventScript_SinglesAttendantWalkToDoor
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleDomeLobby_EventScript_DoublesAttendantWalkToDoor
-	applymovement OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleDomeLobby_Movement_WalkToDoor
+BattleFrontier_BattleDomeLobby_EventScript_Guard_1:
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_Guard_Text_0
+	release
+	end
+
+BattleFrontier_BattleDomeLobby_EventScript_Guard_2:
+	specialvar VAR_RESULT, GetPlayerFacingDirection
+	compare VAR_RESULT, DIR_NORTH
+	goto_if_eq BattleFrontier_BattleDomeLobby_EventScript_Guard_6
+	compare VAR_RESULT, DIR_SOUTH
+	goto_if_eq BattleFrontier_BattleDomeLobby_EventScript_Guard_7
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_Guard_Text_3
+	release
+	end
+
+BattleFrontier_BattleDomeLobby_EventScript_Guard_6:
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_Guard_Text_1
+	waitmessage
+	closemessage
+	applymovement 7, BattleFrontier_BattleDomeLobby_Movement_GuardWalkUp
 	waitmovement 0
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES, BattleFrontier_BattleDomeLobby_EventScript_OpenSinglesDoor
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleDomeLobby_EventScript_OpenDoublesDoor
-	waitdooranim
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES, BattleFrontier_BattleDomeLobby_EventScript_SinglesAttendantEnterDoor
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleDomeLobby_EventScript_DoublesAttendantEnterDoor
-	applymovement OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleDomeLobby_Movement_PlayerEnterDoor
+	release
+	end
+
+BattleFrontier_BattleDomeLobby_EventScript_Guard_7:
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_Guard_Text_2
+	waitmessage
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleDomeLobby_Movement_PlayerBackUp
 	waitmovement 0
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES, BattleFrontier_BattleDomeLobby_EventScript_CloseSinglesDoor
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleDomeLobby_EventScript_CloseDoublesDoor
-	waitdooranim
-	return
+	applymovement 7, BattleFrontier_BattleDomeLobby_Movement_GuardWalkUp
+	waitmovement 0
+	release
+	end
 
-BattleFrontier_BattleDomeLobby_EventScript_SinglesAttendantWalkToDoor::
-	applymovement LOCALID_ATTENDANT_SINGLES, BattleFrontier_BattleDomeLobby_Movement_WalkToDoor
-	return
 
-BattleFrontier_BattleDomeLobby_EventScript_DoublesAttendantWalkToDoor::
-	applymovement LOCALID_ATTENDANT_DOUBLES, BattleFrontier_BattleDomeLobby_Movement_WalkToDoor
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_SinglesAttendantEnterDoor::
-	applymovement LOCALID_ATTENDANT_SINGLES, BattleFrontier_BattleDomeLobby_Movement_AttendantEnterDoor
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_DoublesAttendantEnterDoor::
-	applymovement LOCALID_ATTENDANT_DOUBLES, BattleFrontier_BattleDomeLobby_Movement_AttendantEnterDoor
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_WelcomeSingles::
-	msgbox BattleFrontier_BattleDomeLobby_Text_WelcomeSingleBattle, MSGBOX_DEFAULT
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_WelcomeDoubles::
-	msgbox BattleFrontier_BattleDomeLobby_Text_WelcomeDoubleBattle, MSGBOX_DEFAULT
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_TakeSinglesChallenge::
-	message BattleFrontier_BattleDomeLobby_Text_TakeSinglesChallenge
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_TakeDoublesChallenge::
-	message BattleFrontier_BattleDomeLobby_Text_TakeDoublesChallenge
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_ExplainSinglesChallenge::
-	msgbox BattleFrontier_BattleDomeLobby_Text_ExplainSinglesChallenge, MSGBOX_DEFAULT
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_ExplainDoublesChallenge::
-	msgbox BattleFrontier_BattleDomeLobby_Text_ExplainDoublesChallenge, MSGBOX_DEFAULT
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_OpenSinglesDoor::
-	opendoor 5, 4
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_OpenDoublesDoor::
-	opendoor 17, 4
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_CloseSinglesDoor::
-	closedoor 5, 4
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_CloseDoublesDoor::
-	closedoor 17, 4
-	return
-
-BattleFrontier_BattleDomeLobby_Movement_WalkToDoor:
+BattleFrontier_BattleDomeLobby_Movement_GuardWalkUp:
 	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
+	walk_left
+	walk_in_place_right
 	step_end
 
-BattleFrontier_BattleDomeLobby_Movement_AttendantEnterDoor:
+BattleFrontier_BattleDomeLobby_Movement_PlayerBackUp:
+	lock_facing_direction
 	walk_up
-	set_invisible
+	unlock_facing_direction
+	face_down
 	step_end
 
-BattleFrontier_BattleDomeLobby_Movement_PlayerEnterDoor:
-	walk_up
-	walk_up
-	set_invisible
-	step_end
-
-BattleFrontier_BattleDomeLobby_EventScript_ShowSinglesResults::
-	lockall
-	frontier_results FRONTIER_FACILITY_DOME, FRONTIER_MODE_SINGLES
-	waitbuttonpress
-	special RemoveRecordsWindow
-	releaseall
+BattleFrontier_BattleDomeLobby_EventScript_DeskWoman::
+	lock
+	faceplayer
+	goto_if_set FLAG_GOLDENROD_SEWER_OPEN, BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_1
+	goto_if_set FLAG_BOUGHT_SHOW_TICKET, BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_2
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_2
+	waitmessage
+	showmoneybox 0, 0
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_3, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_6
+	checkmoney 1000
+	compare VAR_RESULT, NO
+	goto_if_eq BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_9
+	removemoney 1000
+	updatemoneybox
+	playse SE_SHOP
+	waitse
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_6
+	waitmessage
+	closemessage
+	hidemoneybox
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_7
+	waitfanfare
+	closemessage
+	setflag FLAG_BOUGHT_SHOW_TICKET
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_8
+	release
 	end
 
-BattleFrontier_BattleDomeLobby_EventScript_ShowDoublesResults::
-	lockall
-	frontier_results FRONTIER_FACILITY_DOME, FRONTIER_MODE_DOUBLES
-	waitbuttonpress
-	special RemoveRecordsWindow
-	releaseall
+BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_1:
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_0
+	release
 	end
 
-BattleFrontier_BattleDomeLobby_EventScript_ShowPrevTourneyTree::
-	dome_get DOME_DATA_PREV_TOURNEY_TYPE
-	call_if_eq VAR_RESULT, 0, BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsSinglesLv50
-	call_if_eq VAR_RESULT, 1, BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsDoublesLv50
-	call_if_eq VAR_RESULT, 2, BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsSinglesLvOpen
-	call_if_eq VAR_RESULT, 3, BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsDoublesLvOpen
-	fadescreen FADE_TO_BLACK
-	dome_showprevtourneytree
-	waitstate
+BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_2:
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_1
+	release
 	end
 
-BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsSinglesLv50::
-	msgbox BattleFrontier_BattleDomeLobby_Text_PrevTourneyResultsSinglesLv50, MSGBOX_SIGN
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsDoublesLv50::
-	msgbox BattleFrontier_BattleDomeLobby_Text_PrevTourneyResultsDoublesLv50, MSGBOX_SIGN
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsSinglesLvOpen::
-	msgbox BattleFrontier_BattleDomeLobby_Text_PrevTourneyResultsSinglesLvOpen, MSGBOX_SIGN
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsDoublesLvOpen::
-	msgbox BattleFrontier_BattleDomeLobby_Text_PrevTourneyResultsDoublesLvOpen, MSGBOX_SIGN
-	return
-
-BattleFrontier_BattleDomeLobby_EventScript_Maniac::
-	dome_getwinnersname
-	msgbox BattleFrontier_BattleDomeLobby_Text_LastWinnerWasTough, MSGBOX_NPC
+BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_6:
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_4
+	waitmessage
+	hidemoneybox
+	release
 	end
+
+BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_9:
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_5
+	waitmessage
+	hidemoneybox
+	release
+	end
+
+
+BattleFrontier_BattleDomeLobby_EventScript_BlondeGuy::
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_BlondeGuy_Text_0, MSGBOX_NPC
+	end
+
 
 BattleFrontier_BattleDomeLobby_EventScript_Lass::
-	msgbox BattleFrontier_BattleDomeLobby_Text_WinnersGainReputation, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_set FLAG_GOLDENROD_SEWER_OPEN, BattleFrontier_BattleDomeLobby_EventScript_Lass_1
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_Lass_Text_1
+	release
 	end
 
-BattleFrontier_BattleDomeLobby_EventScript_FatMan::
-	msgbox BattleFrontier_BattleDomeLobby_Text_TrashedInFirstRound, MSGBOX_NPC
+BattleFrontier_BattleDomeLobby_EventScript_Lass_1:
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_Lass_Text_0
+	release
 	end
 
-BattleFrontier_BattleDomeLobby_EventScript_Man::
-	msgbox BattleFrontier_BattleDomeLobby_Text_NeedToCheckOpponentCarefully, MSGBOX_NPC
+
+BattleFrontier_BattleDomeLobby_EventScript_Nerd::
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_Nerd_Text_0, MSGBOX_NPC
 	end
 
-@ A few OutsideWest event scripts are inserted here instead, two of which are unused
-BattleFrontier_OutsideWest_EventScript_Man3::
-	msgbox BattleFrontier_OutsideWest_Text_LongDreamedAboutBattleFrontier, MSGBOX_NPC
+
+BattleFrontier_BattleDomeLobby_EventScript_FatGuy::
+	lock
+	faceplayer
+	goto_if_set FLAG_GOLDENROD_SEWER_OPEN, BattleFrontier_BattleDomeLobby_EventScript_FatGuy_1
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_FatGuy_Text_1
+	release
 	end
 
-@ Unused
-BattleFrontier_OutsideWest_EventScript_BattleDomeSign2::
-	msgbox BattleFrontier_OutsideWest_Text_BattleDomeSign2, MSGBOX_NPC
+BattleFrontier_BattleDomeLobby_EventScript_FatGuy_1:
+	msgbox BattleFrontier_BattleDomeLobby_EventScript_FatGuy_Text_0
+	release
 	end
 
-@ Unused
-BattleFrontier_OutsideWest_EventScript_UnderConstructionSign::
-	msgbox BattleFrontier_OutsideWest_Text_QuestionMarkUnderConstruction, MSGBOX_NPC
-	end
 
-BattleFrontier_BattleDomeLobby_EventScript_RulesBoard::
-	lockall
-	msgbox BattleFrontier_BattleDomeLobby_Text_RulesAreListed, MSGBOX_DEFAULT
-	goto BattleFrontier_BattleDomeLobby_EventScript_ReadRulesBoard
-	end
+BattleFrontier_BattleDomeLobby_EventScript_Guard_Text_0:
+	.string "I'm sorry, but there are no shows airing\n"
+	.string "right now.$"
 
-BattleFrontier_BattleDomeLobby_EventScript_ReadRulesBoard::
-	message BattleFrontier_BattleDomeLobby_Text_ReadWhichHeading
-	waitmessage
-	multichoice 17, 4, MULTI_BATTLE_DOME_RULES, FALSE
-	switch VAR_RESULT
-	case 0, BattleFrontier_BattleDomeLobby_EventScript_RulesMatchup
-	case 1, BattleFrontier_BattleDomeLobby_EventScript_RulesTourneyTree
-	case 2, BattleFrontier_BattleDomeLobby_EventScript_RulesDoubleKO
-	case 3, BattleFrontier_BattleDomeLobby_EventScript_ExitRules
-	case MULTI_B_PRESSED, BattleFrontier_BattleDomeLobby_EventScript_ExitRules
-	end
+BattleFrontier_BattleDomeLobby_EventScript_Guard_Text_1:
+	.string "Ah! I see you have a ticket to the Night\n"
+	.string "and Dave Show.\p"
+	.string "Please, step right this way.$"
 
-BattleFrontier_BattleDomeLobby_EventScript_RulesMatchup::
-	msgbox BattleFrontier_BattleDomeLobby_Text_ExplainMatchupRules, MSGBOX_DEFAULT
-	goto BattleFrontier_BattleDomeLobby_EventScript_ReadRulesBoard
-	end
+BattleFrontier_BattleDomeLobby_EventScript_Guard_Text_2:
+	.string "Would you like to leave?\p"
+	.string "Don't take too long, your show is about\n"
+	.string "to start.$"
 
-BattleFrontier_BattleDomeLobby_EventScript_RulesTourneyTree::
-	msgbox BattleFrontier_BattleDomeLobby_Text_ExplainTourneyTree, MSGBOX_DEFAULT
-	goto BattleFrontier_BattleDomeLobby_EventScript_ReadRulesBoard
-	end
+BattleFrontier_BattleDomeLobby_EventScript_Guard_Text_3:
+	.string "The show is about to start, you'd\n"
+	.string "better get in there.$"
 
-BattleFrontier_BattleDomeLobby_EventScript_RulesDoubleKO::
-	msgbox BattleFrontier_BattleDomeLobby_Text_ExplainDoubleKORules, MSGBOX_DEFAULT
-	goto BattleFrontier_BattleDomeLobby_EventScript_ReadRulesBoard
-	end
+BattleFrontier_BattleDomeLobby_EventScript_Guard_Text_4:
+	.string "I'm sorry, but nobody is allowed through\n"
+	.string "without a Show Ticket.\p"
+	.string "Please talk to the woman at the front\n"
+	.string "desk.$"
 
-BattleFrontier_BattleDomeLobby_EventScript_ExitRules::
-	releaseall
-	end
+BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_0:
+	.string "I'm sorry, but no shows are airing\n"
+	.string "currently.\p"
+	.string "Please come back later.$"
 
-BattleFrontier_BattleDomeLobby_Text_WelcomeSingleBattle:
-	.string "Where the strategies of TRAINERS\n"
-	.string "are put to the test!\p"
-	.string "Welcome to the BATTLE DOME!\p"
-	.string "I am your guide to the SINGLE BATTLE\n"
-	.string "Tournament.$"
+BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_1:
+	.string "Please go on and find your seat, your\n"
+	.string "show is about to start.$"
 
-BattleFrontier_BattleDomeLobby_Text_TakeSinglesChallenge:
-	.string "Would you like to challenge\n"
-	.string "the SINGLE BATTLE Tournament?$"
+BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_2:
+	.string "Welcome to the Goldenrod TV Station.\p"
+	.string "We are currently selling tickets to the\n"
+	.string "Night and Dave Show.$"
 
-BattleFrontier_BattleDomeLobby_Text_HopeToSeeYouAgain:
-	.string "We hope to see you again.$"
+BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_3:
+	.string "One children's ticket will be ¥1,000.\n"
+	.string "Would you like to purchase a ticket?$"
 
-BattleFrontier_BattleDomeLobby_Text_ExplainSinglesChallenge:
-	.string "The SINGLE BATTLE Tournament\n"
-	.string "is exactly as the name suggests--\l"
-	.string "a tournament of SINGLE BATTLES.\p"
-	.string "All participating TRAINERS must\n"
-	.string "enter three POKéMON each.\p"
-	.string "In each battle, one of the three\n"
-	.string "POKéMON must be held in reserve.\p"
-	.string "The other two POKéMON can battle\n"
-	.string "one at a time.\p"
-	.string "Choose the two battling POKéMON after\n"
-	.string "examining the opponent's trio.\p"
-	.string "You win the tournament by defeating\n"
-	.string "four TRAINERS.\p"
-	.string "Battle Points are awarded to\n"
-	.string "the tournament winner.\p"
-	.string "If you want to interrupt your\n"
-	.string "tournament, please save the game.\p"
-	.string "If you don't save before interrupting,\n"
-	.string "you will be disqualified.$"
+BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_4:
+	.string "We'll be here if you change your mind,\n"
+	.string "but you may miss the show if you take\l"
+	.string "too long.$"
 
-BattleFrontier_BattleDomeLobby_Text_OkayToSaveBeforeChallenge:
-	.string "Before I show you to the BATTLE DOME,\n"
-	.string "I must save the data. Is that okay?$"
+BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_5:
+	.string "I'm sorry, but it doesn't look like you\n"
+	.string "have enough money for a ticket.\p"
+	.string "Please come back when you have at\n"
+	.string "least ¥1,000.$"
 
-BattleFrontier_BattleDomeLobby_Text_WhichLevelMode:
-	.string "The tournament offers two levels\n"
-	.string "of challenge, Level 50 and Open Level.\l"
-	.string "Which is your choice?$"
+BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_6:
+	.string "One children's ticket to the Night and\n"
+	.string "Dave Show.$"
 
-BattleFrontier_BattleDomeLobby_Text_SelectThreeMons:
-	.string "Now select the three POKéMON that\n"
-	.string "you wish to enter, please.$"
+BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_7:
+	.string "{PLAYER} received the Show Ticket!$"
 
-BattleFrontier_BattleDomeLobby_Text_NotEnoughValidMonsLvOpen:
-	.string "Excuse me!\p"
-	.string "You don't have three eligible POKéMON.\p"
-	.string "Also, the POKéMON must be holding\n"
-	.string "different kinds of items.\p"
-	.string "EGGS{STR_VAR_1} ineligible.\p"
-	.string "Please come see me when you are ready.$"
+BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_8:
+	.string "Enjoy the show!$"
 
-BattleFrontier_BattleDomeLobby_Text_NotEnoughValidMonsLv50:
-	.string "Excuse me!\p"
-	.string "You don't have three eligible POKéMON.\p"
-	.string "You must have three different POKéMON\n"
-	.string "of Level 50 or less to enter.\p"
-	.string "They also must be holding different\n"
-	.string "kinds of items.\p"
-	.string "EGGS{STR_VAR_1} ineligible.\p"
-	.string "Please come see me when you are ready.$"
+BattleFrontier_BattleDomeLobby_EventScript_BlondeGuy_Text_0:
+	.string "You're lucky the children's tickets are\n"
+	.string "so cheap.\p"
+	.string "You wouldn't believe what they charge\n"
+	.string "for adults!$"
 
-BattleFrontier_BattleDomeLobby_Text_ShowYouToBattleDome:
-	.string "I will now show you to\n"
-	.string "the BATTLE DOME.$"
+BattleFrontier_BattleDomeLobby_EventScript_Lass_Text_0:
+	.string "Did you see the Night and Dave Show?\p"
+	.string "Whitney is the best!$"
 
-BattleFrontier_BattleDomeLobby_Text_DidntSaveBeforeQuitting:
-	.string "Excuse me!\p"
-	.string "You didn't save before you quit your\n"
-	.string "challenge last time.\p"
-	.string "Because of that, your challenge so far\n"
-	.string "has been disqualified. Sorry!$"
+BattleFrontier_BattleDomeLobby_EventScript_Lass_Text_1:
+	.string "Whitney, our very own gym leader, is one\n"
+	.string "of the guests appearing tonight!\p"
+	.string "I wonder who the other guest will be...$"
 
-BattleFrontier_BattleDomeLobby_Text_CongratsForWinningTourney:
-	.string "Congratulations for winning\n"
-	.string "your Battle Tournament!$"
+BattleFrontier_BattleDomeLobby_EventScript_Nerd_Text_0:
+	.string "I love the Night and Dave Show, I watch\n"
+	.string "it every night at home!$"
 
-@ Unused
-BattleFrontier_BattleDomeLobby_Text_HereIsYourPrize:
-	.string "Here is your prize for your Battle\n"
-	.string "Tournament victory.$"
+BattleFrontier_BattleDomeLobby_EventScript_FatGuy_Text_0:
+	.string "I can't believe I missed the Night and\n"
+	.string "Dave Show!\p"
+	.string "Whitney is my favorite gym leader, and\n"
+	.string "I've failed her!$"
 
-@ Used by Verdanturf Tent
-BattleFrontier_BattleDomeLobby_Text_ReceivedPrize:
-	.string "{PLAYER} received the prize\n"
-	.string "{STR_VAR_1}.$"
-
-@ Unused
-BattleFrontier_BattleDomeLobby_Text_BagFullMakeRoom:
-	.string "Oh, your BAG appears to be full.\p"
-	.string "Please make room in your BAG, then come\n"
-	.string "see me.$"
-
-BattleFrontier_BattleDomeLobby_Text_ThankYouForPlaying:
-	.string "Thank you for playing!$"
-
-BattleFrontier_BattleDomeLobby_Text_RecordWillBeSaved:
-	.string "Your record will be saved.\n"
-	.string "Please wait.$"
-
-BattleFrontier_BattleDomeLobby_Text_WeveBeenWaitingForYou:
-	.string "We've been waiting for you!$"
-
-BattleFrontier_BattleDomeLobby_Text_OkayToSaveBeforeChallenge2:
-	.string "Before I show you to the BATTLE DOME,\n"
-	.string "I must save the data. Is that okay?$"
-
-BattleFrontier_BattleDomeLobby_Text_WelcomeDoubleBattle:
-	.string "Where the strategies of TRAINERS\n"
-	.string "are put to the test!\p"
-	.string "Welcome to the BATTLE DOME!\p"
-	.string "I am your guide to the DOUBLE BATTLE\n"
-	.string "Tournament.$"
-
-BattleFrontier_BattleDomeLobby_Text_TakeDoublesChallenge:
-	.string "Would you like to challenge\n"
-	.string "the DOUBLE BATTLE Tournament?$"
-
-BattleFrontier_BattleDomeLobby_Text_ExplainDoublesChallenge:
-	.string "The DOUBLE BATTLE Tournament\n"
-	.string "is exactly as the name suggests--\l"
-	.string "a tournament of DOUBLE BATTLES.\p"
-	.string "All participating TRAINERS must\n"
-	.string "enter three POKéMON each.\p"
-	.string "In each battle, one of the three\n"
-	.string "POKéMON must be held in reserve.\p"
-	.string "The remaining two POKéMON must take\n"
-	.string "part in a DOUBLE BATTLE.\p"
-	.string "Choose the two battling POKéMON after\n"
-	.string "examining the opponent's trio.\p"
-	.string "You win the tournament by defeating\n"
-	.string "four TRAINERS.\p"
-	.string "Battle Points are awarded to\n"
-	.string "the tournament winner.\p"
-	.string "If you want to interrupt your\n"
-	.string "tournament, please save the game.\p"
-	.string "If you don't save before interrupting,\n"
-	.string "you will be disqualified.$"
-
-BattleFrontier_BattleDomeLobby_Text_PrevTourneyResultsSinglesLv50:
-	.string "They're the results of the last\n"
-	.string "Level 50 SINGLE BATTLE Tournament.$"
-
-BattleFrontier_BattleDomeLobby_Text_PrevTourneyResultsDoublesLv50:
-	.string "They're the results of the last\n"
-	.string "Level 50 DOUBLE BATTLE Tournament.$"
-
-BattleFrontier_BattleDomeLobby_Text_PrevTourneyResultsSinglesLvOpen:
-	.string "They're the results of the last\n"
-	.string "Open Level SINGLE BATTLE Tournament.$"
-
-BattleFrontier_BattleDomeLobby_Text_PrevTourneyResultsDoublesLvOpen:
-	.string "They're the results of the last\n"
-	.string "Open Level DOUBLE BATTLE Tournament.$"
-
-BattleFrontier_BattleDomeLobby_Text_LastWinnerWasTough:
-	.string "Did you see it?\n"
-	.string "The last Battle Tournament?\p"
-	.string "The winner, {STR_VAR_1}, was seriously\n"
-	.string "tough.\p"
-	.string "You should check out the results\n"
-	.string "on the monitor beside the PC.$"
-
-BattleFrontier_OutsideWest_Text_LongDreamedAboutBattleFrontier:
-	.string "The BATTLE FRONTIER…\n"
-	.string "I've long dreamed about a place like it.$"
-
-@ Functionally unused
-BattleFrontier_OutsideWest_Text_BattleDomeSign2:
-	.string "The BATTLE DOME\n"
-	.string "Become the Unbeatable Superstar!$"
-
-@ Functionally unused
-BattleFrontier_OutsideWest_Text_QuestionMarkUnderConstruction:
-	.string "The ??????\n"
-	.string "Under Construction!$"
-
-BattleFrontier_BattleDomeLobby_Text_WinnersGainReputation:
-	.string "When a TRAINER chains tournament\n"
-	.string "wins at the BATTLE DOME, he or she\l"
-	.string "gains a reputation as a star.\p"
-	.string "Tough TRAINERS are drawn by that\n"
-	.string "reputation to the BATTLE DOME.\p"
-	.string "A true superstar is a TRAINER who\n"
-	.string "can keep winning tournaments.$"
-
-BattleFrontier_BattleDomeLobby_Text_TrashedInFirstRound:
-	.string "I ran into one of the tournament\n"
-	.string "favorites in the very first round.\p"
-	.string "Of course I got trashed…$"
-
-BattleFrontier_BattleDomeLobby_Text_NeedToCheckOpponentCarefully:
-	.string "I would've won if I'd kept this POKéMON\n"
-	.string "held in reserve.\p"
-	.string "You need to check your opponent's\n"
-	.string "POKéMON carefully before choosing\l"
-	.string "your battling POKéMON.$"
-
-BattleFrontier_BattleDomeLobby_Text_CongratsDefeatedTucker:
-	.string "Congratulations!\p"
-	.string "You defeated the DOME ACE and won\n"
-	.string "the Battle Tournament!$"
-
-BattleFrontier_BattleDomeLobby_Text_AwardTheseBattlePoints:
-	.string "In recognition of your strategy--\n"
-	.string "a thing of beauty it was, too--\l"
-	.string "we award you these Battle Point(s)!$"
-
-BattleFrontier_BattleDomeLobby_Text_RecordLastMatch:
-	.string "Would you like to record your\n"
-	.string "last BATTLE DOME match on your\l"
-	.string "FRONTIER PASS?$"
-
-BattleFrontier_BattleDomeLobby_Text_RulesAreListed:
-	.string "The Battle Tournament rules\n"
-	.string "are listed.$"
-
-BattleFrontier_BattleDomeLobby_Text_ReadWhichHeading:
-	.string "Which heading do you want to read?$"
-
-BattleFrontier_BattleDomeLobby_Text_ExplainMatchupRules:
-	.string "The tournament matchups are drawn up\n"
-	.string "based on the toughness of POKéMON\l"
-	.string "held by TRAINERS.\p"
-	.string "The matchups avoid having tough\n"
-	.string "TRAINERS face each other right away.$"
-
-BattleFrontier_BattleDomeLobby_Text_ExplainTourneyTree:
-	.string "The tournament chart, or as we call it,\n"
-	.string "the “Tree,” is available for viewing\l"
-	.string "in the Waiting Room from any guide.\p"
-	.string "The Tournament Tree will provide\n"
-	.string "several kinds of data.\p"
-	.string "The data on view includes the previous\n"
-	.string "tournament's results, the POKéMON held\l"
-	.string "by TRAINERS, and the battle styles of\l"
-	.string "TRAINERS.$"
-
-BattleFrontier_BattleDomeLobby_Text_ExplainDoubleKORules:
-	.string "If battling POKéMON faint at the same\n"
-	.string "time--a double KO--in a tournament\l"
-	.string "match, the REFEREES will review\l"
-	.string "the match and declare the winner.$"
+BattleFrontier_BattleDomeLobby_EventScript_FatGuy_Text_1:
+	.string "Are you going here to see the Night and\n"
+	.string "Dave show as well?\p"
+	.string "I'm loading up on snacks before going\n"
+	.string "in.$"

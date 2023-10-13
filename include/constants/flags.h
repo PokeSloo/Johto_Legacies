@@ -69,7 +69,7 @@
 #define FLAG_ILEX_HIDDEN_BIG_MUSHROOM    0x39 // Hidden item in Ilex forest
 #define FLAG_ITEM_SLOWPOKE_WELL_FLASH    0x3A // HM 05
 #define FLAG_ITEM_SLOWPOKE_WELL_DAMP_ROCK   0x3B // Damp rock
-#define FLAG_RECEIVED_TAUNT_TM    0x3C // Azalea Town
+#define FLAG_RECEIVED_TAUNT_TM    0x3C // Not used yet
 #define FLAG_MET_SHANE_AZALEA    0x3D // Shane coming out of the gym
 #define FLAG_HIDE_AND_SEEK_ACTIVE    0x3E // Azalea gym
 #define FLAG_ALICIA_TOP_ARMOR    0x3F // Azalea gym
@@ -653,8 +653,8 @@
 
 #define FLAG_RECEIVED_FOCUS_SASH  0x264 // Goldenrod fanclub chairman
 #define FLAG_RECEIVED_TOXIC_TM  0x265 // Goldenrod city
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
+#define FLAG_RECEIVED_BULKUP_TM  0x266 // Azalea town
+#define FLAG_BOUGHT_SHOW_TICKET  0x267 // Goldenrod tv station entry ticket
 #define FLAG_UNUSED_0x268  0x268 // Unused Flag
 #define FLAG_UNUSED_0x269  0x269 // Unused Flag
 #define FLAG_UNUSED_0x26A  0x26A // Unused Flag
