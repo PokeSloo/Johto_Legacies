@@ -153,14 +153,17 @@ script BattleFrontier_BattleDomeCorridor_EventScript_MainShow {
     applymovement (KARATE_ID, BattleFrontier_BattleDomeCorridor_Movement_KatashiToCenter)
     applymovement (DAVE_ID, BattleFrontier_BattleDomeCorridor_Movement_DaveToCenter)
     waitmovement (0)
-    delay (120)
+    delay (60)
     applymovement (KARATE_ID, BattleFrontier_BattleDomeCorridor_Movement_FaceLeft)
     waitmovement (0)
-    delay (120)
-    applymovement (KARATE_ID, BattleFrontier_BattleDomeCorridor_Movement_KatashiExit)
+    delay (60)
+    applymovement (KARATE_ID, BattleFrontier_BattleDomeCorridor_Movement_FaceUp)
+    waitmovement (0)
+    delay (60)
     applymovement (DAVE_ID, BattleFrontier_BattleDomeCorridor_Movement_DaveExit)
     applymovement (WHITNEY_ID, BattleFrontier_BattleDomeCorridor_Movement_WhitneyExit)
     applymovement (OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleDomeLobby_Movement_CameraPanDown)
+    applymovement (KARATE_ID, BattleFrontier_BattleDomeCorridor_Movement_KatashiExit)
     waitmovement (0)
     removeobject (WHITNEY_ID)
     removeobject (KARATE_ID)
@@ -267,6 +270,10 @@ movement BattleFrontier_BattleDomeCorridor_Movement_FaceLeft {
     face_left
 }
 
+movement BattleFrontier_BattleDomeCorridor_Movement_FaceUp {
+    face_up
+}
+
 movement BattleFrontier_BattleDomeCorridor_Movement_WhitneySpin {
     walk_down * 2
     delay_16
@@ -367,7 +374,7 @@ movement BattleFrontier_BattleDomeLobby_Movement_PlayerWatchShane {
     face_right
     delay_16 * 2
     face_down
-    delay_16
+    delay_16 * 2
     walk_right
     walk_in_place_down
 }

@@ -99,7 +99,6 @@ script BattleFrontier_BattleDomeLobby_EventScript_DeskWoman {
                 waitse
 		        msgbox(format("One children's ticket to the Night and Dave Show."))
 		        waitmessage
-                closemessage
 		        hidemoneybox
 	            playfanfare (MUS_OBTAIN_ITEM)
 	            msgbox (format("{PLAYER} received the Show Ticket!"))

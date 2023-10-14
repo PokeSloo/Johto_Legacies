@@ -80,7 +80,6 @@ BattleFrontier_BattleDomeLobby_EventScript_DeskWoman::
 	waitse
 	msgbox BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_6
 	waitmessage
-	closemessage
 	hidemoneybox
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_7

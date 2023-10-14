@@ -147,14 +147,17 @@ BattleFrontier_BattleDomeCorridor_EventScript_MainShow_1:
 	applymovement 1, BattleFrontier_BattleDomeCorridor_Movement_KatashiToCenter
 	applymovement 3, BattleFrontier_BattleDomeCorridor_Movement_DaveToCenter
 	waitmovement 0
-	delay 120
+	delay 60
 	applymovement 1, BattleFrontier_BattleDomeCorridor_Movement_FaceLeft
 	waitmovement 0
-	delay 120
-	applymovement 1, BattleFrontier_BattleDomeCorridor_Movement_KatashiExit
+	delay 60
+	applymovement 1, BattleFrontier_BattleDomeCorridor_Movement_FaceUp
+	waitmovement 0
+	delay 60
 	applymovement 3, BattleFrontier_BattleDomeCorridor_Movement_DaveExit
 	applymovement 2, BattleFrontier_BattleDomeCorridor_Movement_WhitneyExit
 	applymovement OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleDomeLobby_Movement_CameraPanDown
+	applymovement 1, BattleFrontier_BattleDomeCorridor_Movement_KatashiExit
 	waitmovement 0
 	removeobject 2
 	removeobject 1
@@ -292,6 +295,10 @@ BattleFrontier_BattleDomeCorridor_Movement_FaceDown:
 
 BattleFrontier_BattleDomeCorridor_Movement_FaceLeft:
 	face_left
+	step_end
+
+BattleFrontier_BattleDomeCorridor_Movement_FaceUp:
+	face_up
 	step_end
 
 BattleFrontier_BattleDomeCorridor_Movement_WhitneySpin:
@@ -442,6 +449,7 @@ BattleFrontier_BattleDomeLobby_Movement_PlayerWatchShane:
 	delay_16
 	delay_16
 	face_down
+	delay_16
 	delay_16
 	walk_right
 	walk_in_place_down

@@ -6871,36 +6871,41 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute119Mudkip[] 
 static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute103Treecko[] = {
     {
     .iv = 150,
-    .lvl = 25,
+    .lvl = 24,
     .species = SPECIES_HOUNDOOM,
     },
     {
     .iv = 150,
-    .lvl = 25,
+    .lvl = 23,
     .species = SPECIES_SHIFTRY,
     },
     {
     .iv = 150,
-    .lvl = 25,
+    .lvl = 24,
     .species = SPECIES_SHARPEDO,
     }
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute110Treecko[] = {
     {
-    .iv = 50,
-    .lvl = 18,
-    .species = SPECIES_WINGULL,
+    .iv = 150,
+    .lvl = 24,
+    .species = SPECIES_HOUNDOOM,
     },
     {
-    .iv = 50,
-    .lvl = 18,
-    .species = SPECIES_LOMBRE,
+    .iv = 150,
+    .lvl = 23,
+    .species = SPECIES_SHIFTRY,
     },
     {
-    .iv = 100,
-    .lvl = 20,
-    .species = SPECIES_COMBUSKEN,
+    .iv = 150,
+    .lvl = 24,
+    .species = SPECIES_THIEVUL,
+    },
+    {
+    .iv = 150,
+    .lvl = 24,
+    .species = SPECIES_SHARPEDO,
     }
 };
 
