@@ -655,9 +655,9 @@
 #define FLAG_RECEIVED_TOXIC_TM  0x265 // Goldenrod city
 #define FLAG_RECEIVED_BULKUP_TM  0x266 // Azalea town
 #define FLAG_BOUGHT_SHOW_TICKET  0x267 // Goldenrod tv station entry ticket
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
+#define FLAG_HIDE_SHANE_TV_STATION  0x268 // After he goes backstage
+#define FLAG_HIDE_WHITNEY_TV_STATION 0x269 // After the show
+#define FLAG_HIDE_KATASHI_TV_STATION  0x26A // After the show
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag

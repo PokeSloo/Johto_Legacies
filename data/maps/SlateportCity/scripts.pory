@@ -47,11 +47,11 @@ script SlateportCity_EventScript_GymFatMan {
     lock
     faceplayer
     if (flag(FLAG_BADGE03_GET)) {
-        msgbox(format("Wow, you actually beat Whitney!?\pI saw it all on TV! She really had you on the ropes for a while there!"))
+        msgbox(format("Wow, you actually beat WHITNEY!?\pI saw it all on TV! She really had you on the ropes for a while there!"))
         release
         end
     }
-    msgbox(format("They'll be recording another episode of The Challenge soon.\pIt's not like anyone has a chance of beating Whitney, but I still watch every season!"))
+    msgbox(format("They'll be recording another episode of The Challenge soon.\pIt's not like anyone has a chance of beating WHITNEY, but I still watch every season!"))
     release
     end
 }
@@ -90,11 +90,11 @@ script SlateportCity_EventScript_GoldenvineNerd {
     lock
     faceplayer
     if (flag(FLAG_GOLDENROD_SEWER_OPEN)) {
-        msgbox(format("I can't believe I missed Whitney on the Night and Dave Show!\pMaybe they'll let me in next time if I look really desparate."))
+        msgbox(format("I can't believe I missed WHITNEY on the Night and Dave Show!\pMaybe they'll let me in next time if I look really desparate."))
         release
         end
     }
-    msgbox(format("I heard Whitney will be on the Night and Dave Show tonight.\pI wish I could afford tickets, I can't get enough of Whitney!"))
+    msgbox(format("I heard WHITNEY will be on the Night and Dave Show tonight.\pI wish I could afford tickets, I can't get enough of WHITNEY!"))
     release
     end
 }

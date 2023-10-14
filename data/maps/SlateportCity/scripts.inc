@@ -199,7 +199,7 @@ SlateportCity_EventScript_TopCook_Text_0:
 	.string "this time of year.$"
 
 SlateportCity_EventScript_GymFatMan_Text_0:
-	.string "Wow, you actually beat Whitney!?\p"
+	.string "Wow, you actually beat WHITNEY!?\p"
 	.string "I saw it all on TV! She really had you on\n"
 	.string "the ropes for a while there!$"
 
@@ -207,7 +207,7 @@ SlateportCity_EventScript_GymFatMan_Text_1:
 	.string "They'll be recording another episode of\n"
 	.string "The Challenge soon.\p"
 	.string "It's not like anyone has a chance of\n"
-	.string "beating Whitney, but I still watch\l"
+	.string "beating WHITNEY, but I still watch\l"
 	.string "every season!$"
 
 SlateportCity_EventScript_FlowerWoman_Text_0:
@@ -244,16 +244,16 @@ SlateportCity_EventScript_GoldenvineSailor_Text_0:
 	.string "heart.$"
 
 SlateportCity_EventScript_GoldenvineNerd_Text_0:
-	.string "I can't believe I missed Whitney on the\n"
+	.string "I can't believe I missed WHITNEY on the\n"
 	.string "Night and Dave Show!\p"
 	.string "Maybe they'll let me in next time if I\n"
 	.string "look really desparate.$"
 
 SlateportCity_EventScript_GoldenvineNerd_Text_1:
-	.string "I heard Whitney will be on the Night and\n"
+	.string "I heard WHITNEY will be on the Night and\n"
 	.string "Dave Show tonight.\p"
 	.string "I wish I could afford tickets, I can't\n"
-	.string "get enough of Whitney!$"
+	.string "get enough of WHITNEY!$"
 
 SlateportCity_EventScript_BenchGirl_Text_0:
 	.string "The breeze from the Goldenvine Sea is\n"

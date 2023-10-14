@@ -181,7 +181,7 @@ Route117_EventScript_Aisha::
 	end
 
 Route117_Text_DayCarePokemonHadNewMove:
-	.string "One day I hope to compete on Whitney's\n"
+	.string "One day I hope to compete on WHITNEY's\n"
 	.string "gameshow, THE CHALLENGE.\p"
 	.string "I'll have to keep training for now.$"
 

@@ -149,8 +149,8 @@ SlateportCity_PokemonFanClub_EventScript_Trader_Text_1:
 
 SlateportCity_PokemonFanClub_EventScript_DeclineTrade_Text_0:
 	.string "Suit yourself. I thought maybe you\n"
-	.string "could use a little help against Whitney,\l"
-	.string "but I guess not.$"
+	.string "could use a little help against\l"
+	.string "WHITNEY, but I guess not.$"
 
 SlateportCity_PokemonFanClub_EventScript_NotRequestedMon_Text_0:
 	.string "Hmm... That doesn't look like an Abra to\n"

@@ -85,7 +85,6 @@ BattleFrontier_BattleDomeLobby_EventScript_DeskWoman::
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_7
 	waitfanfare
-	closemessage
 	setflag FLAG_BOUGHT_SHOW_TICKET
 	msgbox BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_8
 	release
@@ -225,10 +224,10 @@ BattleFrontier_BattleDomeLobby_EventScript_BlondeGuy_Text_0:
 
 BattleFrontier_BattleDomeLobby_EventScript_Lass_Text_0:
 	.string "Did you see the Night and Dave Show?\p"
-	.string "Whitney is the best!$"
+	.string "WHITNEY is the best!$"
 
 BattleFrontier_BattleDomeLobby_EventScript_Lass_Text_1:
-	.string "Whitney, our very own gym leader, is one\n"
+	.string "WHITNEY, our very own gym leader, is one\n"
 	.string "of the guests appearing tonight!\p"
 	.string "I wonder who the other guest will be...$"
 
@@ -239,7 +238,7 @@ BattleFrontier_BattleDomeLobby_EventScript_Nerd_Text_0:
 BattleFrontier_BattleDomeLobby_EventScript_FatGuy_Text_0:
 	.string "I can't believe I missed the Night and\n"
 	.string "Dave Show!\p"
-	.string "Whitney is my favorite gym leader, and\n"
+	.string "WHITNEY is my favorite gym leader, and\n"
 	.string "I've failed her!$"
 
 BattleFrontier_BattleDomeLobby_EventScript_FatGuy_Text_1:

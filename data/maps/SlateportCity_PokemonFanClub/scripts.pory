@@ -30,7 +30,7 @@ script SlateportCity_PokemonFanClub_EventScript_Trader {
 }
 
 script SlateportCity_PokemonFanClub_EventScript_DeclineTrade {
-	msgbox (format("Suit yourself. I thought maybe you could use a little help against Whitney, but I guess not."))
+	msgbox (format("Suit yourself. I thought maybe you could use a little help against WHITNEY, but I guess not."))
 	release
 	end
 }

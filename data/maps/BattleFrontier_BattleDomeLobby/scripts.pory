@@ -104,7 +104,6 @@ script BattleFrontier_BattleDomeLobby_EventScript_DeskWoman {
 	            playfanfare (MUS_OBTAIN_ITEM)
 	            msgbox (format("{PLAYER} received the Show Ticket!"))
 	            waitfanfare
-                closemessage
                 setflag (FLAG_BOUGHT_SHOW_TICKET)
                 msgbox (format("Enjoy the show!"))
                 release
@@ -123,12 +122,12 @@ script BattleFrontier_BattleDomeLobby_EventScript_Lass {
     lock
     faceplayer
     if (flag(FLAG_GOLDENROD_SEWER_OPEN)) {
-        msgbox(format("Did you see the Night and Dave Show?\pWhitney is the best!"))
+        msgbox(format("Did you see the Night and Dave Show?\pWHITNEY is the best!"))
         release
         end
     }
     else {
-        msgbox(format("Whitney, our very own gym leader, is one of the guests appearing tonight!\pI wonder who the other guest will be..."))
+        msgbox(format("WHITNEY, our very own gym leader, is one of the guests appearing tonight!\pI wonder who the other guest will be..."))
         release
         end
     }
@@ -143,7 +142,7 @@ script BattleFrontier_BattleDomeLobby_EventScript_FatGuy {
     lock
     faceplayer
     if (flag(FLAG_GOLDENROD_SEWER_OPEN)) {
-        msgbox(format("I can't believe I missed the Night and Dave Show!\pWhitney is my favorite gym leader, and I've failed her!"))
+        msgbox(format("I can't believe I missed the Night and Dave Show!\pWHITNEY is my favorite gym leader, and I've failed her!"))
         release
         end
     }

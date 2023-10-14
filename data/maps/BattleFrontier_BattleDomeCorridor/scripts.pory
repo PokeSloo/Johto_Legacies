@@ -1,0 +1,383 @@
+const GUARD_ID = 14
+const WHITNEY_ID = 2
+const KARATE_ID = 1
+const SHANE_ID = 4
+const DAVE_ID = 3
+
+mapscripts BattleFrontier_BattleDomeCorridor_MapScripts {}
+
+script BattleFrontier_BattleDomeCorridor_EventScript_Guard {
+    lock
+    faceplayer
+    specialvar (VAR_RESULT, GetPlayerFacingDirection)
+    if (var(VAR_RESULT) == DIR_WEST) {
+        if (flag(FLAG_HIDE_SHANE_TV_STATION)) {
+            msgbox(format("Hold up, let me see your ticket.\p...\p...\pOk, please find your seat."))
+            waitmessage
+            closemessage
+            applymovement (GUARD_ID, BattleFrontier_BattleDomeCorridor_Movement_Guardup)
+            waitmovement (0)
+            applymovement (OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleDomeLobby_Movement_PlayerleftTwo)
+            waitmovement (0)
+            applymovement (GUARD_ID, BattleFrontier_BattleDomeCorridor_Movement_Guarddown)
+            waitmovement (0)
+            release
+            end
+        }
+        else {
+            goto (BattleFrontier_BattleDomeCorridor_EventScript_MainShow)
+            end
+        }
+    }
+    else {
+        msgbox(format("Please find your seat."))
+        release
+        end
+    }
+}
+
+script BattleFrontier_BattleDomeCorridor_EventScript_MainShow {
+    msgbox(format("Hold up, let me see your ticket.\p...\p...\pOk, please find your seat."))
+    waitmessage
+    closemessage
+    applymovement (GUARD_ID, BattleFrontier_BattleDomeCorridor_Movement_Guardup)
+    waitmovement (0)
+    applymovement (OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleDomeLobby_Movement_PlayerleftTwo)
+    waitmovement (0)
+    applymovement (GUARD_ID, BattleFrontier_BattleDomeCorridor_Movement_Guarddown)
+    waitmovement (0)
+    applymovement (OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleDomeLobby_Movement_PlayerFindSeat)
+    waitmovement (0)
+    delay (30)
+    checkplayergender
+    if (var(VAR_RESULT) == MALE) {
+        call (BattleFrontier_BattleDomeCorridor_EventScript_MalePlayer)
+    }
+    elif (var(VAR_RESULT) == FEMALE) {
+        call (BattleFrontier_BattleDomeCorridor_EventScript_FemalePlayer)
+    }
+    applymovement (OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleDomeLobby_Movement_CameraPanUp)
+    waitmovement (0)
+    delay (30)
+    applymovement (DAVE_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceDown)
+    waitmovement (0)
+    msgbox(format("DAVE: Welcome, ladies and gentlemen to the Night and Dave Show!\pIt's the show where we bring in two guests with polar opposite personalities, and try to find some common ground.\pI'm your host, DAVE!"))
+    waitmessage
+    applymovement (DAVE_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceDown)
+    waitmovement (0)
+    msgbox(format("DAVE: Joining me tonight are two very special guests..."))
+    waitmessage
+    applymovement (DAVE_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceLeft)
+    waitmovement (0)
+    msgbox(format("DAVE: Our first guest is Goldenrod City's very own Gym Leader, the lovely and talented WHITNEY!"))
+    waitmessage
+    closemessage
+    playse (SE_APPLAUSE)
+    applymovement (WHITNEY_ID, BattleFrontier_BattleDomeCorridor_Movement_WhitneySpin)
+    waitmovement (0)
+    playse (SE_LEDGE)
+    applymovement (WHITNEY_ID, BattleFrontier_BattleDomeCorridor_Movement_WhitneyJumpSpin)
+    waitmovement (0)
+    msgbox(format("WHITNEY: Happy to be here, DAVE!\pIt's always nice to get out and try something new.\pDAVE: Indeed!\pI know you've been busy running your own show lately, but more on that later...\pOur second guest is a Black Belt from Cianwood City, the tough and manly KATASHI!"))
+    waitmessage
+    closemessage
+    playse (SE_APPLAUSE)
+    applymovement (KARATE_ID, BattleFrontier_BattleDomeCorridor_Movement_KatashiStepOut)
+    waitmovement (0)
+    msgbox(format("KATASHI: I am also grateful for your invitation, DAVE.\pYou honor me and my dojo.\pDAVE: KATASHI, I understand you train under the Cianwood City Gym Leader, LEE.\pHe's not too tough on you, is he? I've heard he can be rather intense.\pKATASHI: Master LEE is only as tough as he needs to be to help us excel.\pI wouldn't have it any other way."))
+    waitmessage
+    applymovement (WHITNEY_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceDown)
+    waitmovement (0)
+    msgbox(format("WHITNEY: As an accomplished Gym Leader myself, I can respect that.\pSome people can't grow as individuals without overcoming some obstacle."))
+    waitmessage
+    applymovement (DAVE_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceLeft)
+    waitmovement (0)
+    msgbox(format("DAVE: You would know a lot about that, WHITNEY.\pAs I recall, you used to cry every time you lost a battle!\pThose TRAINERS weren't too tough on you, were they?"))
+    waitmessage
+    applymovement (WHITNEY_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceRight)
+    waitmovement (0)
+    msgbox(format("WHITNEY: Now, DAVE, I know I used to be a little crybaby, but I've grown up since then.\pI'm not the same little girl that bursts into tears after losing a battle.\pOf course, I haven't actually lost a battle in years."))
+    waitmessage
+    applymovement (DAVE_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceLeft)
+    waitmovement (0)
+    msgbox(format("DAVE: That's right!\pYou've become quite the celebrity around here.\pAre you still enjoying your own show, The Challenge?\pWHITNEY: Of course! I love putting on a show while battling with tough trainers!\pDAVE: Fantastic!\pPerhaps KATASHI will challenge you on The Challenge someday."))
+    waitmessage
+    applymovement (KARATE_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceRight)
+    waitmovement (0)
+    msgbox(format("KATASHI: It would be an honor!"))
+    waitmessage
+    applymovement (WHITNEY_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceDown)
+    waitmovement (0)
+    msgbox(format("KATASHI: I do believe my FIGHTING-type POKéMON have good chance of winning.\pWe may even make you cry again!\pWHITNEY: Haha, you are welcome to try.\pYou know, KATASHI, I've always had a thing for tough guys…"))
+    waitmessage
+    closemessage
+    playse (SE_PIN)
+    applymovement (DAVE_ID, BattleFrontier_BattleDomeCorridor_Movement_Exclamation)
+    applymovement (SHANE_ID, BattleFrontier_BattleDomeCorridor_Movement_Heart)
+    waitmovement (0)
+    delay (60)
+    msgbox(format("DAVE: Oh my! This is unexpected!"))
+    waitmessage
+    applymovement (WHITNEY_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceRight)
+    waitmovement (0)
+    msgbox(format("WHITNEY: Oh DAVE, I'm just joking."))
+    waitmessage
+    applymovement (WHITNEY_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceDown)
+    waitmovement (0)
+    msgbox(format("Although..."))
+    waitmessage
+    applymovement (KARATE_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceRight)
+    waitmovement (0)
+    msgbox(format("KATASHI: All jokes aside, I'm a happily married man.\pWHITNEY: Is that so?\pWell your wife is one lucky lady!"))
+    waitmessage
+    closemessage
+    applymovement (KARATE_ID, BattleFrontier_BattleDomeCorridor_Movement_FaceDown)
+    waitmovement (0)
+    delay (30)
+    msgbox(format("KATASHI: Thank you… WHITNEY…\p...\pDAVE: Are you blushing over there, KATASHI?\pPerhaps you aren't as tough as you first appeared to be!"))
+    waitmessage
+    applymovement (KARATE_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceRight)
+    waitmovement (0)
+    msgbox(format("KATASHI: Think what you will, DAVE.\pA man like myself may not show it, but I do have emotions too."))
+    waitmessage
+    applymovement (DAVE_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceLeft)
+    waitmovement (0)
+    msgbox(format("DAVE: As you should!\pNow you see, you two aren't that different after all."))
+    waitmessage
+    applymovement (DAVE_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceDown)
+    waitmovement (0)
+    msgbox(format("DAVE: That's the reason I created this show, to bring people together and look past our differences.\pNow, ladies and gentlemen, it's time for a short break!\pHere's a quick word from our sponsors…"))
+    waitmessage
+    closemessage
+    applymovement (WHITNEY_ID, BattleFrontier_BattleDomeCorridor_Movement_WhitneyToCenter)
+    applymovement (KARATE_ID, BattleFrontier_BattleDomeCorridor_Movement_KatashiToCenter)
+    applymovement (DAVE_ID, BattleFrontier_BattleDomeCorridor_Movement_DaveToCenter)
+    waitmovement (0)
+    delay (120)
+    applymovement (KARATE_ID, BattleFrontier_BattleDomeCorridor_Movement_FaceLeft)
+    waitmovement (0)
+    delay (120)
+    applymovement (KARATE_ID, BattleFrontier_BattleDomeCorridor_Movement_KatashiExit)
+    applymovement (DAVE_ID, BattleFrontier_BattleDomeCorridor_Movement_DaveExit)
+    applymovement (WHITNEY_ID, BattleFrontier_BattleDomeCorridor_Movement_WhitneyExit)
+    applymovement (OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleDomeLobby_Movement_CameraPanDown)
+    waitmovement (0)
+    removeobject (WHITNEY_ID)
+    removeobject (KARATE_ID)
+    setflag (FLAG_HIDE_WHITNEY_TV_STATION)
+    setflag (FLAG_HIDE_KATASHI_TV_STATION)
+    checkplayergender
+    if (var(VAR_RESULT) == MALE) {
+        call (BattleFrontier_BattleDomeCorridor_EventScript_ShowMalePlayer)
+    }
+    elif (var(VAR_RESULT) == FEMALE) {
+        call (BattleFrontier_BattleDomeCorridor_EventScript_ShowFemalePlayer)
+    }
+    delay (30)
+    applymovement (SHANE_ID, BattleFrontier_BattleDomeCorridor_Movement_ShaneGetUp)
+    waitmovement (0)
+    delay (30)
+    applymovement (OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleDomeLobby_Movement_PlayerWatchShane)
+    applymovement (SHANE_ID, BattleFrontier_BattleDomeCorridor_Movement_ShaneExit)
+    waitmovement (0)
+    removeobject (SHANE_ID)
+    setflag (FLAG_HIDE_SHANE_TV_STATION)
+    release
+    end
+}
+
+script BattleFrontier_BattleDomeCorridor_EventScript_MalePlayer {
+    hideobjectat (OBJ_EVENT_ID_PLAYER, MAP_BATTLE_FRONTIER_BATTLE_DOME_CORRIDOR)
+    addobject (15)
+    return
+}
+
+script BattleFrontier_BattleDomeCorridor_EventScript_FemalePlayer {
+    hideobjectat (OBJ_EVENT_ID_PLAYER, MAP_BATTLE_FRONTIER_BATTLE_DOME_CORRIDOR)
+    addobject (16)
+    return
+}
+
+script BattleFrontier_BattleDomeCorridor_EventScript_ShowMalePlayer {
+    removeobject (15)
+    showobjectat (OBJ_EVENT_ID_PLAYER, MAP_BATTLE_FRONTIER_BATTLE_DOME_CORRIDOR)
+    return
+}
+
+script BattleFrontier_BattleDomeCorridor_EventScript_ShowFemalePlayer {
+    removeobject (16)
+    showobjectat (OBJ_EVENT_ID_PLAYER, MAP_BATTLE_FRONTIER_BATTLE_DOME_CORRIDOR)
+    return
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_Guardup {
+    walk_up
+    walk_in_place_down
+}
+
+movement BattleFrontier_BattleDomeLobby_Movement_PlayerleftTwo {
+    walk_left * 2
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_Guarddown {
+    walk_down
+    walk_in_place_up
+}
+
+movement BattleFrontier_BattleDomeLobby_Movement_PlayerFindSeat {
+    walk_left * 6
+    walk_up * 3
+    delay_16
+    walk_in_place_right
+    delay_16
+    walk_in_place_left
+    delay_16
+    walk_left
+    face_up
+}
+
+movement BattleFrontier_BattleDomeLobby_Movement_CameraPanUp {
+    walk_right
+    walk_fast_up * 6
+}
+
+movement BattleFrontier_BattleDomeLobby_Movement_CameraPanDown {
+    walk_fast_down * 6
+    walk_left
+    face_up
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceDown {
+    walk_in_place_down
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceLeft {
+    walk_in_place_left
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceRight {
+    walk_in_place_right
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_FaceDown {
+    face_down
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_FaceLeft {
+    face_left
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_WhitneySpin {
+    walk_down * 2
+    delay_16
+    face_right
+    delay_8
+    face_up
+    delay_8
+    face_left
+    delay_8
+    face_down
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_WhitneyJumpSpin {
+    disable_jump_landing_ground_effect
+    jump_2_right
+    enable_jump_landing_ground_effect
+    delay_16
+    face_up
+    delay_8
+    face_left
+    delay_8
+    face_down
+    delay_16 * 2
+    walk_left * 2
+    walk_up * 2
+    face_down
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_KatashiStepOut {
+    walk_right * 2
+    walk_down
+    delay_16 * 8
+    walk_up
+    walk_left * 2
+    face_right
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_Exclamation {
+    emote_exclamation_mark
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_Heart {
+    emote_heart
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_WhitneyToCenter {
+    walk_down
+    walk_right
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_KatashiToCenter {
+    walk_right
+    walk_down
+    walk_right * 3
+    face_up
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_DaveToCenter {
+    walk_left * 2
+    walk_down
+    walk_left
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_KatashiExit {
+    walk_left * 6
+    walk_up * 2
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_DaveExit {
+    walk_right
+    walk_up
+    walk_right * 2
+    face_down
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_WhitneyExit {
+    walk_right * 2
+    walk_up * 3
+    walk_left * 7
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_ShaneGetUp {
+    walk_right * 2
+    walk_in_place_up
+}
+
+movement BattleFrontier_BattleDomeCorridor_Movement_ShaneExit {
+    walk_down * 5
+    delay_16 * 2
+    walk_in_place_right
+    delay_16 * 2
+    walk_left * 9
+    walk_up
+}
+
+movement BattleFrontier_BattleDomeLobby_Movement_PlayerWatchShane {
+    delay_16
+    face_right
+    delay_16 * 2
+    face_down
+    delay_16
+    walk_right
+    walk_in_place_down
+}
+
+script BattleFrontier_BattleDomeCorridor_EventScript_Man {
+    msgbox(format("I wish it were me up there with WHITNEY, that karate guy sure is lucky!"), MSGBOX_NPC)
+    end
+}
+
+script BattleFrontier_BattleDomeCorridor_EventScript_Beauty {
+    msgbox(format("WHITNEY is dressed as stylish as ever!\pI love her sense of fashion."), MSGBOX_NPC)
+    end
+}
