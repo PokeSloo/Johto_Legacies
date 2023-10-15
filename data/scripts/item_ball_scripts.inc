@@ -107,7 +107,7 @@ Route115_EventScript_ItemSuperPotion::
 	end
 
 Route115_EventScript_ItemTM01::
-	finditem ITEM_TM01
+	finditem ITEM_TM48
 	end
 
 Route115_EventScript_ItemIron::

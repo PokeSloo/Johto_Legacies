@@ -1,0 +1,6 @@
+mapscripts NavelRock_Up1_MapScripts {}
+
+script NavelRock_Up1_EventScript_Guard {
+    msgbox(format("I'm sorry, but the Bug Catching Contest has been delayed until further notice.\pPlease enjoy the park, and don't litter."), MSGBOX_NPC)
+    end
+}

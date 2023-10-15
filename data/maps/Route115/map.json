@@ -41,7 +41,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
       "x": 22,
       "y": 15,
       "elevation": 3,
@@ -93,11 +93,11 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 26,
       "y": 24,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -106,7 +106,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
       "x": 16,
       "y": 26,
       "elevation": 3,
@@ -114,7 +114,7 @@
       "movement_range_x": 5,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
+      "trainer_sight_or_berry_tree_id": "4",
       "script": "Route115_EventScript_Koichi",
       "flag": "0"
     },
@@ -201,7 +201,7 @@
       "x": 3,
       "y": 40,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -223,7 +223,7 @@
       "flag": "FLAG_ITEM_ROUTE_115_GREAT_BALL"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
       "x": 12,
       "y": 33,
       "elevation": 3,
@@ -231,7 +231,7 @@
       "movement_range_x": 3,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
+      "trainer_sight_or_berry_tree_id": "3",
       "script": "Route115_EventScript_Kyra",
       "flag": "0"
     },
@@ -249,7 +249,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 20,
       "y": 37,
       "elevation": 3,
@@ -262,7 +262,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 16,
       "y": 19,
       "elevation": 3,
@@ -275,7 +275,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
       "x": 29,
       "y": 34,
       "elevation": 3,
@@ -328,33 +328,12 @@
       "elevation": 0,
       "dest_map": "MAP_NAVEL_ROCK_UP4",
       "dest_warp_id": 2
-    },
-    {
-      "x": 3,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
-      "dest_warp_id": 0
     }
   ],
   "coord_events": [
 
   ],
   "bg_events": [
-    {
-      "type": "secret_base",
-      "x": 3,
-      "y": 4,
-      "elevation": 0,
-      "secret_base_id": "SECRET_BASE_BROWN_CAVE4_2"
-    },
-    {
-      "type": "secret_base",
-      "x": 3,
-      "y": 4,
-      "elevation": 0,
-      "secret_base_id": "SECRET_BASE_BROWN_CAVE3_2"
-    },
     {
       "type": "sign",
       "x": 13,
@@ -364,82 +343,11 @@
       "script": "Route115_EventScript_RouteSignRustboro"
     },
     {
-      "type": "sign",
-      "x": 25,
-      "y": 44,
-      "elevation": 3,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route115_EventScript_MeteorFallsSign"
-    },
-    {
-      "type": "secret_base",
-      "x": 3,
-      "y": 4,
-      "elevation": 0,
-      "secret_base_id": "SECRET_BASE_YELLOW_CAVE2_3"
-    },
-    {
-      "type": "secret_base",
-      "x": 3,
-      "y": 4,
-      "elevation": 0,
-      "secret_base_id": "SECRET_BASE_BROWN_CAVE1_2"
-    },
-    {
-      "type": "secret_base",
-      "x": 3,
-      "y": 4,
-      "elevation": 0,
-      "secret_base_id": "SECRET_BASE_BROWN_CAVE2_2"
-    },
-    {
-      "type": "secret_base",
-      "x": 3,
-      "y": 4,
-      "elevation": 0,
-      "secret_base_id": "SECRET_BASE_BROWN_CAVE1_3"
-    },
-    {
-      "type": "secret_base",
-      "x": 3,
-      "y": 4,
-      "elevation": 0,
-      "secret_base_id": "SECRET_BASE_BROWN_CAVE2_3"
-    },
-    {
-      "type": "secret_base",
-      "x": 3,
-      "y": 4,
-      "elevation": 0,
-      "secret_base_id": "SECRET_BASE_TREE2_4"
-    },
-    {
-      "type": "secret_base",
-      "x": 3,
-      "y": 4,
-      "elevation": 0,
-      "secret_base_id": "SECRET_BASE_TREE3_3"
-    },
-    {
-      "type": "secret_base",
-      "x": 3,
-      "y": 4,
-      "elevation": 0,
-      "secret_base_id": "SECRET_BASE_BROWN_CAVE3_3"
-    },
-    {
-      "type": "secret_base",
-      "x": 3,
-      "y": 4,
-      "elevation": 0,
-      "secret_base_id": "SECRET_BASE_RED_CAVE3_1"
-    },
-    {
       "type": "hidden_item",
       "x": 3,
       "y": 45,
       "elevation": 3,
-      "item": "ITEM_HEART_SCALE",
+      "item": "ITEM_GOLD_BOTTLE_CAP",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_115_HEART_SCALE"
     }
   ]

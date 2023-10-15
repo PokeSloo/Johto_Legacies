@@ -1,0 +1,6 @@
+mapscripts NavelRock_Down07_MapScripts {}
+
+script NavelRock_Down07_EventScript_Guard {
+    msgbox(format("I'm glad my shift is almost over, I'm ready to get home and see my kids."), MSGBOX_NPC)
+    end
+}
