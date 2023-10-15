@@ -658,18 +658,18 @@
 #define FLAG_HIDE_SHANE_TV_STATION  0x268 // After he goes backstage
 #define FLAG_HIDE_WHITNEY_TV_STATION 0x269 // After the show
 #define FLAG_HIDE_KATASHI_TV_STATION  0x26A // After the show
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
-#define FLAG_UNUSED_0x26E  0x26E // Unused Flag
-#define FLAG_UNUSED_0x26F  0x26F // Unused Flag
-#define FLAG_UNUSED_0x270  0x270 // Unused Flag
-#define FLAG_UNUSED_0x271  0x271 // Unused Flag
-#define FLAG_UNUSED_0x272  0x272 // Unused Flag
-#define FLAG_UNUSED_0x273  0x273 // Unused Flag
-#define FLAG_UNUSED_0x274  0x274 // Unused Flag
-#define FLAG_UNUSED_0x275  0x275 // Unused Flag
-#define FLAG_UNUSED_0x276  0x276 // Unused Flag
+#define FLAG_HIDE_CELL_KEY  0x26B // Phoenix base
+#define FLAG_PB_CELLDOOR_1_OPEN  0x26C // For maptiles
+#define FLAG_PB_CELLDOOR_2_OPEN  0x26D // For maptiles
+#define FLAG_PB_CELLDOOR_3_OPEN  0x26E // For maptiles
+#define FLAG_HIDE_PHOENIX_CELL_GUARD  0x26F // Goldenrod base
+#define FLAG_HIDE_SHANE_PHOENIX_CELL  0x270 // Goldenrod base
+#define FLAG_TALKED_TO_PHOENIX_CELL_GUARD  0x271 // Talked to him once
+#define FLAG_HIDE_ROCKSMASH_BALL  0x272 // Goldenrod phoenix base
+#define FLAG_HIDE_THIEF_BALL  0x273 // Goldenrod phoenix base
+#define FLAG_HIDE_GOLDENROD_BASE_POTION  0x274 // Goldenrod phoenix base
+#define FLAG_HIDE_GOLDENROD_BASE_ULTRABALL  0x275 // Goldenrod phoenix base
+#define FLAG_HIDE_SEWER_BLACKSLUDGE  0x276 // Goldenrod sewer
 #define FLAG_UNUSED_0x277  0x277 // Unused Flag
 #define FLAG_UNUSED_0x278  0x278 // Unused Flag
 #define FLAG_UNUSED_0x279  0x279 // Unused Flag

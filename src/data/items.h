@@ -9711,7 +9711,7 @@ const struct Item gItems[] =
 
     [ITEM_BASEMENT_KEY] =
     {
-        .name = _("Basement Key"),
+        .name = _("Cell Key"),
         .itemId = ITEM_BASEMENT_KEY,
         .price = 0,
         .description = sBasementKeyDesc,

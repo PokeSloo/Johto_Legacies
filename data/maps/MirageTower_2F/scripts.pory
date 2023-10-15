@@ -1,0 +1,28 @@
+mapscripts MirageTower_2F_MapScripts {}
+
+script MirageTower_2F_EventScript_Grunt_3 {
+    trainerbattle_single (TRAINER_KENT, Route119_Text_KentIntro, Route119_Text_KentDefeat)
+	msgbox (Route119_Text_KentPostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+script MirageTower_2F_EventScript_Grunt_4 {
+    trainerbattle_single (TRAINER_GREG, Route119_Text_GregIntro, Route119_Text_GregDefeat)
+	msgbox (Route119_Text_GregPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script MirageTower_3F_EventScript_ThiefBall {
+    finditem (ITEM_TM46_THIEF)
+    end
+}
+
+script MirageTower_3F_EventScript_Potion {
+    finditem (ITEM_SUPER_POTION)
+    end
+}
+
+script MirageTower_3F_EventScript_UltraBall {
+    finditem (ITEM_ULTRA_BALL)
+    end
+}

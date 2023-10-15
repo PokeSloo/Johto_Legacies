@@ -157,8 +157,7 @@ BattleFrontier_BattleDomeLobby_EventScript_Guard_Text_0:
 	.string "right now.$"
 
 BattleFrontier_BattleDomeLobby_EventScript_Guard_Text_1:
-	.string "Ah! I see you have a ticket to the Night\n"
-	.string "and Dave Show.\p"
+	.string "Ah! I see you have a Show Ticket.\p"
 	.string "Please, step right this way.$"
 
 BattleFrontier_BattleDomeLobby_EventScript_Guard_Text_2:
@@ -206,8 +205,7 @@ BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_5:
 	.string "least ¥1,000.$"
 
 BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_6:
-	.string "One children's ticket to the Night and\n"
-	.string "Dave Show.$"
+	.string "Excellent, here's your ticket.$"
 
 BattleFrontier_BattleDomeLobby_EventScript_DeskWoman_Text_7:
 	.string "{PLAYER} received the Show Ticket!$"

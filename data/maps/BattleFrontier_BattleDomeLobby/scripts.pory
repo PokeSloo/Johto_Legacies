@@ -13,7 +13,7 @@ script BattleFrontier_BattleDomeLobby_EventScript_Guard {
     elif (flag(FLAG_BOUGHT_SHOW_TICKET)) {
         specialvar (VAR_RESULT, GetPlayerFacingDirection)
         if (var(VAR_RESULT) == DIR_NORTH) {
-            msgbox(format("Ah! I see you have a ticket to the Night and Dave Show.\pPlease, step right this way."))
+            msgbox(format("Ah! I see you have a Show Ticket.\pPlease, step right this way."))
             waitmessage
             closemessage
             applymovement (GUARD_ID, BattleFrontier_BattleDomeLobby_Movement_GuardWalkUp)
@@ -97,7 +97,7 @@ script BattleFrontier_BattleDomeLobby_EventScript_DeskWoman {
                 updatemoneybox
 		        playse (SE_SHOP)
                 waitse
-		        msgbox(format("One children's ticket to the Night and Dave Show."))
+		        msgbox(format("Excellent, here's your ticket."))
 		        waitmessage
 		        hidemoneybox
 	            playfanfare (MUS_OBTAIN_ITEM)

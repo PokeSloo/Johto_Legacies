@@ -421,8 +421,8 @@ script LittlerootTown_ProfessorBirchsLab_HealingMachine {
 		msgbox (format ("Healing sequence initiated..."))
 		delay (30)
 		special (HealPlayerParty)
-		playse (SE_USE_ITEM)
-		waitse
+		playfanfare (MUS_HEAL)
+		waitfanfare
 		msgbox (format("Your POKéMON have been fully restored."))
 		waitmessage
 		closemessage

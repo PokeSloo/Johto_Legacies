@@ -416,8 +416,8 @@ LittlerootTown_ProfessorBirchsLab_HealingMachine::
 	msgbox LittlerootTown_ProfessorBirchsLab_HealingMachine_Text_2
 	delay 30
 	special HealPlayerParty
-	playse SE_USE_ITEM
-	waitse
+	playfanfare MUS_HEAL
+	waitfanfare
 	msgbox LittlerootTown_ProfessorBirchsLab_HealingMachine_Text_3
 	waitmessage
 	closemessage

@@ -5,8 +5,8 @@ mapscripts SlateportCity_MapScripts {
     }
     MAP_SCRIPT_ON_LOAD {
         if (flag(FLAG_GOLDENROD_SEWER_OPEN)) {
-            setmetatile (46, 25, 0x277, TRUE)
-            setmetatile (47, 25, 0x27A, TRUE)
+            setmetatile (46, 25, 0x277, FALSE)
+            setmetatile (47, 25, 0x27A, FALSE)
             return
         }
         end

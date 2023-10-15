@@ -2691,10 +2691,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_DONALD] =
     {
-        .trainerClass = TRAINER_CLASS_BUG_MANIAC,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_BUG_MANIAC,
-        .trainerName = _("DONALD"),
+        .trainerClass = TRAINER_CLASS_TEAM_MAGMA,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MAGMA,
+        .trainerPic = TRAINER_PIC_MAGMA_GRUNT_F,
+        .trainerName = _("GRUNT"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
@@ -7427,10 +7427,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_DOUG] =
     {
-        .trainerClass = TRAINER_CLASS_BUG_CATCHER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_BUG_CATCHER,
-        .trainerName = _("DOUG"),
+        .trainerClass = TRAINER_CLASS_TEAM_MAGMA,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MAGMA,
+        .trainerPic = TRAINER_PIC_MAGMA_GRUNT_M,
+        .trainerName = _("GRUNT"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
@@ -7439,10 +7439,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_GREG] =
     {
-        .trainerClass = TRAINER_CLASS_BUG_CATCHER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_BUG_CATCHER,
-        .trainerName = _("GREG"),
+        .trainerClass = TRAINER_CLASS_TEAM_MAGMA,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MAGMA,
+        .trainerPic = TRAINER_PIC_MAGMA_GRUNT_M,
+        .trainerName = _("GRUNT"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
@@ -7451,10 +7451,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_KENT] =
     {
-        .trainerClass = TRAINER_CLASS_BUG_CATCHER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_BUG_CATCHER,
-        .trainerName = _("KENT"),
+        .trainerClass = TRAINER_CLASS_TEAM_MAGMA,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MAGMA,
+        .trainerPic = TRAINER_PIC_MAGMA_GRUNT_M,
+        .trainerName = _("GRUNT"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,

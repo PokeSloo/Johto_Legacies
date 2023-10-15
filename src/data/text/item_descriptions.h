@@ -3685,9 +3685,9 @@ static const u8 sDevonScopeDesc[] = _(
     "unseeable Pokémon.");
 
 static const u8 sBasementKeyDesc[] = _(
-    "The key for New\n"
-    "Mauville beneath\n"
-    "Mauville City.");
+    "A key that opens\n"
+    "cell doors in the\n"
+    "Phoenix Base.");
 
 static const u8 sScannerDesc[] = _(
     "A device found\n"

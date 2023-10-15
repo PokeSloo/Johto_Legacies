@@ -13,6 +13,7 @@ script BattleFrontier_BattleDomePreBattleRoom_EventScript_Shane {
     waitmessage
     closemessage
     setflag(FLAG_GOLDENROD_SEWER_OPEN)
+    setflag(FLAG_HIDE_CELL_KEY)
     setrespawn (HEAL_LOCATION_MIRAGE_TOWER_4F)
     fadeoutbgm (1)
     playse (SE_PIN)

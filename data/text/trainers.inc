@@ -2364,7 +2364,7 @@ Route117_Text_LydiaDefeat:
 	.string "me lose!$"
 
 Route117_Text_LydiaPostBattle:
-	.string "Hmm, maybe I'll leave another pokemon in\n"
+	.string "Hmm, maybe I'll leave another POKéMON in\n"
 	.string "the daycare with my Azumarill so he\l"
 	.string "doesn't get too lonely...$"
 
@@ -2698,15 +2698,16 @@ Route119_Text_BrentPostBattle:
 	.string "You'll never understand…$"
 
 Route119_Text_DonaldIntro:
-	.string "So, we finally meet!\n"
-	.string "My BUG POKéMON will keep you company!$"
+	.string "Hey! Who let you out of your cell!?$"
 
 Route119_Text_DonaldDefeat:
-	.string "I wish we'd never met…$"
+	.string "With that strength, you must have\n"
+	.string "broken out yourself.$"
 
 Route119_Text_DonaldPostBattle:
-	.string "I want to MIMIC you some more.\n"
-	.string "Can you hurry up and move?$"
+	.string "No, please, just walk around our base\n"
+	.string "like you own the place.\p"
+	.string "Psh, kids.$"
 
 Route119_Text_TaylorIntro:
 	.string "If you step forward, we step forward.\p"
@@ -2721,38 +2722,37 @@ Route119_Text_TaylorPostBattle:
 	.string "It's burning me up…$"
 
 Route119_Text_DougIntro:
-	.string "Yep, you've finally caught me!\n"
-	.string "Or were you trying to avoid me?$"
+	.string "Really? Which GRUNT forgot to take your\n"
+	.string "POKéMON away from you?$"
 
 Route119_Text_DougDefeat:
-	.string "Whoop, that was a great match!$"
+	.string "You're tougher than you look...$"
 
 Route119_Text_DougPostBattle:
-	.string "We're the MIMIC CIRCLE!\n"
-	.string "I hope you enjoyed our performance.$"
+	.string "Having trouble with our warp pads?\n"
+	.string "Haha!$"
 
 Route119_Text_GregIntro:
-	.string "You don't know who I am, do you?\p"
-	.string "But, I also don't know you.\n"
-	.string "So, we'll battle!$"
+	.string "Hey, you get back in your cell!\p"
+	.string "I don't want DAMON to yell at me again!$"
 
 Route119_Text_GregDefeat:
-	.string "You're pretty strong!$"
+	.string "Great, I'll get yelled at for sure now.$"
 
 Route119_Text_GregPostBattle:
-	.string "Until you go away somewhere, we'll\n"
-	.string "keep on mimicking your every move.$"
+	.string "This is a pretty stressful job, you\n"
+	.string "know.\p"
+	.string "Ah, you wouldn't understand.$"
 
 Route119_Text_KentIntro:
-	.string "The MIMIC CIRCLE was formed by people\n"
-	.string "who like to MIMIC.\p"
-	.string "A battle starts the instant we meet!$"
+	.string "Really, kid? I'm on my break!$"
 
 Route119_Text_KentDefeat:
-	.string "I give up!$"
+	.string "Now I really need a break!$"
 
 Route119_Text_KentPostBattle:
-	.string "Won't you join our MIMIC CIRCLE?$"
+	.string "I should have went with the other\n"
+	.string "GRUNTS to the Ecruteak Base.$"
 
 Route119_Text_JacksonIntro:
 	.string "Who has the knowledge and\n"

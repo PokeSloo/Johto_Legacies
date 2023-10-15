@@ -1,0 +1,6 @@
+mapscripts MirageTower_1F_MapScripts {}
+
+script MirageTower_1F_EventScript_BlackSludge {
+    finditem (ITEM_BLACK_SLUDGE)
+    end
+}

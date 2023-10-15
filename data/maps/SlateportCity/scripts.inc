@@ -12,8 +12,8 @@ SlateportCity_MapScripts_MAP_SCRIPT_ON_LOAD:
 	end
 
 SlateportCity_MapScripts_MAP_SCRIPT_ON_LOAD_2:
-	setmetatile 46, 25, 0x277, TRUE
-	setmetatile 47, 25, 0x27A, TRUE
+	setmetatile 46, 25, 0x277, FALSE
+	setmetatile 47, 25, 0x27A, FALSE
 	return
 
 

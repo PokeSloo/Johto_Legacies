@@ -1,0 +1,459 @@
+const SHANE_ID = 3
+const DAMON_ID = 4
+const GUARD_ID = 2
+const GRUNT_1_ID = 5
+const GRUNT_2_ID = 6
+const KEY_ID = 1
+
+mapscripts MirageTower_4F_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        call_if_set (FLAG_PB_CELLDOOR_1_OPEN, MirageTower_4F_Tiles_Door_1)
+        call_if_set (FLAG_PB_CELLDOOR_2_OPEN, MirageTower_4F_Tiles_Door_2)
+        call_if_set (FLAG_PB_CELLDOOR_3_OPEN, MirageTower_4F_Tiles_Door_3)
+        end
+    }
+}
+
+script MirageTower_4F_Tiles_Door_1 {
+    setmetatile (1, 7, 0x341, FALSE)
+    setmetatile (1, 6, 0x357, FALSE)
+    setmetatile (1, 5, 0x34F, FALSE)
+    setmetatile (0, 6, 0x356, TRUE)
+    setmetatile (0, 5, 0x34E, FALSE)
+    return
+}
+
+script MirageTower_4F_Tiles_Door_2 {
+    setmetatile (5, 7, 0x341, FALSE)
+    setmetatile (5, 6, 0x357, FALSE)
+    setmetatile (5, 5, 0x34F, FALSE)
+    setmetatile (4, 6, 0x356, TRUE)
+    setmetatile (4, 5, 0x34E, FALSE)
+    return
+}
+
+script MirageTower_4F_Tiles_Door_3 {
+    setmetatile (9, 7, 0x341, FALSE)
+    setmetatile (9, 6, 0x357, FALSE)
+    setmetatile (9, 5, 0x34F, FALSE)
+    setmetatile (8, 6, 0x356, TRUE)
+    setmetatile (8, 5, 0x34E, FALSE)
+    return
+}
+
+script MirageTower_4F_EventScript_Key {
+    finditem (ITEM_BASEMENT_KEY)
+    end
+}
+
+script MirageTower_4F_EventScript_Door3 {
+    lock
+    if (flag(FLAG_PB_CELLDOOR_3_OPEN)) {
+        msgbox(format("The cell door is open."))
+        release
+        end
+    }
+    else {
+        checkitem (ITEM_BASEMENT_KEY)
+        if (var(VAR_RESULT) == TRUE) {
+            msgbox(format("{PLAYER} inserted the Cell Key into the door."))
+            waitmessage
+            closemessage
+            delay (30)
+            playse (SE_DOOR)
+            setmetatile (9, 7, 0x341, FALSE)
+            setmetatile (9, 6, 0x357, FALSE)
+            setmetatile (9, 5, 0x34F, FALSE)
+            setmetatile (8, 6, 0x356, TRUE)
+            setmetatile (8, 5, 0x34E, FALSE)
+            special (DrawWholeMapView)
+            setflag(FLAG_PB_CELLDOOR_3_OPEN)
+            release
+            end
+        }
+        elif (flag(FLAG_HIDE_PHOENIX_CELL_GUARD)) {
+            msgbox(format("The cell door is locked."))
+            release
+            end
+        }
+        elif (flag(FLAG_HIDE_SHANE_PHOENIX_CELL)) {
+            if (flag(FLAG_TALKED_TO_PHOENIX_CELL_GUARD)) {
+                applymovement (GUARD_ID, MirageTower_4F_Movement_StepLeft)
+                waitmovement (0)
+                msgbox(format("What do you want now?\pThey don't pay me nearly enough for this.\pYou know, I shouldn't even be talking to you.\p...\pAlthough, that gold nugget you have looks awfully expensive.\pIf you were to accidentally drop it, I might accidentally drop my key...\pDrop the Fake Nugget?"), MSGBOX_YESNO)
+                if (var(VAR_RESULT) == NO) {
+                    applymovement (GUARD_ID, MirageTower_4F_Movement_StepDown)
+                    waitmovement (0)
+                    release
+                    end
+                }
+                else {
+                    closemessage
+                    removeitem (ITEM_GOLD_TEETH)
+                    addobject (7)
+                    delay (30)
+                    playse (SE_PIN)
+                    applymovement (GUARD_ID, MirageTower_4F_Movement_Exclamation)
+                    waitmovement (0)
+                    delay (30)
+                    removeobject (7)
+                    delay (60)
+                    applymovement (GUARD_ID, MirageTower_4F_Movement_StepUp)
+                    waitmovement (0)
+                    delay (30)
+                    applymovement (GUARD_ID, MirageTower_4F_Movement_StepRight)
+                    waitmovement (0)
+                    delay (30)
+                    applymovement (GUARD_ID, MirageTower_4F_Movement_StepUp)
+                    waitmovement (0)
+                    delay (30)
+                    msgbox(format("This never happened..."))
+                    waitmessage
+                    closemessage
+                    delay (30)
+                    addobject (KEY_ID)
+                    clearflag (FLAG_HIDE_CELL_KEY)
+                    delay (30)
+                    applymovement (GUARD_ID, MirageTower_4F_Movement_GuardLeave)
+                    waitmovement (0)
+                    removeobject (GUARD_ID)
+                    playse (SE_WARP_OUT)
+                    waitse
+                    setflag (FLAG_HIDE_PHOENIX_CELL_GUARD)
+                    release
+                    end
+                }
+            }
+            else {
+                applymovement (GUARD_ID, MirageTower_4F_Movement_StepLeft)
+                waitmovement (0)
+                msgbox(format("No no. I'm not supposed to let you out, no matter what."))
+                waitmessage
+                applymovement (GUARD_ID, MirageTower_4F_Movement_StepDown)
+                waitmovement (0)
+                msgbox(format("Man, how did I get stuck with guard duty today?"))
+                waitmessage
+                closemessage
+                setflag (FLAG_TALKED_TO_PHOENIX_CELL_GUARD)
+                release
+                end
+            }
+        }
+        else {
+            playse (SE_PIN)
+            applymovement (GUARD_ID, MirageTower_4F_Movement_ExclamationLeft)
+            waitmovement (0)
+            msgbox(format("Uh, hey, boss!\pThe other one's awake now!"))
+            waitmessage
+            closemessage
+            delay (60)
+            playse (SE_WARP_IN)
+            addobject(DAMON_ID)
+            addobject(GRUNT_1_ID)
+            addobject(GRUNT_2_ID)
+            applymovement (SHANE_ID, MirageTower_4F_Movement_StepDown)
+            waitmovement (0)
+            delay (20)
+            applymovement (DAMON_ID, MirageTower_4F_Movement_DamonDown)
+            applymovement (GRUNT_1_ID, MirageTower_4F_Movement_Grunt1Down)
+            applymovement (GRUNT_2_ID, MirageTower_4F_Movement_Grunt2Down)
+            waitmovement (0)
+            applymovement (GUARD_ID, MirageTower_4F_Movement_StepDown)
+            waitmovement (0)
+            delay (20)
+            msgbox(format("???: Well well, my Hypno really did a number on this one."))
+            waitmessage
+            closemessage
+            applymovement (DAMON_ID, MirageTower_4F_Movement_StepUp)
+            waitmovement (0)
+            msgbox(format("Now that you've both awoken from your little naps, I need you to be good little kiddos and answer a few questions for me.\pOne of our grunts said he saw a red-headed brat disappear and reappear with the Legendary POKéMON, Celebi.\pNow, are either one of you the same brat from Ilex Forest?\p{PLAYER}: ..."))
+            waitmessage
+            closemessage
+            applymovement (SHANE_ID, MirageTower_4F_Movement_StepDown)
+            waitmovement (0)
+            msgbox(format("SHANE: It was me, asshole!"))
+            waitmessage
+            closemessage
+            applymovement (DAMON_ID, MirageTower_4F_Movement_DamonToShaneCell)
+            waitmovement (0)
+            msgbox(format("???: Aren't you a spunky one.\pAnd how do we know you're not just trying to protect your friend?"))
+            waitmessage
+            closemessage
+            applymovement (SHANE_ID, MirageTower_4F_Movement_StepDown)
+            waitmovement (0)
+            msgbox(format("SHANE: Ha! Don't make me laugh!\pDo you really think a wimpy little kid like that could summon a Legendary POKéMON?\pYou've got to be out of your minds!"))
+            waitmessage
+            closemessage
+            applymovement (DAMON_ID, MirageTower_4F_Movement_StepRight)
+            waitmovement (0)
+            msgbox(format("???: Hmm...\pAlright."))
+            waitmessage
+            closemessage
+            applymovement (DAMON_ID, MirageTower_4F_Movement_WalkDownStepUp)
+            waitmovement (0)
+            msgbox(format("???: Grunts, take this one to the Ecruteak Base.\pLeave the other kid here, just in case...\pGRUNT: Yes sir, ADMIN DAMON!"))
+            waitmessage
+            closemessage
+            applymovement (GRUNT_1_ID, MirageTower_4F_Movement_Grunt1ToShaneCell)
+            applymovement (GRUNT_2_ID, MirageTower_4F_Movement_Grunt2ToShaneCell)
+            waitmovement (0)
+            delay (30)
+            playse (SE_DOOR)
+            setmetatile (5, 7, 0x341, FALSE)
+            setmetatile (5, 6, 0x357, FALSE)
+            setmetatile (5, 5, 0x34F, FALSE)
+            setmetatile (4, 6, 0x356, TRUE)
+            setmetatile (4, 5, 0x34E, FALSE)
+            special (DrawWholeMapView)
+            setflag(FLAG_PB_CELLDOOR_2_OPEN)
+            delay (30)
+            applymovement (GRUNT_1_ID, MirageTower_4F_Movement_Grunt1intoCell)
+            applymovement (GRUNT_2_ID, MirageTower_4F_Movement_Grunt2intoCell)
+            waitmovement (0)
+            msgbox(format("GRUNT: Now, don't give us any trouble."))
+            waitmessage
+            closemessage
+            applymovement (GRUNT_2_ID, MirageTower_4F_Movement_Grunt2Exit)
+            applymovement (SHANE_ID, MirageTower_4F_Movement_ShaneExit)
+            applymovement (GRUNT_1_ID, MirageTower_4F_Movement_Grunt1Exit)
+            waitmovement (0)
+            playse (SE_WARP_OUT)
+            removeobject (SHANE_ID)
+            removeobject (GRUNT_1_ID)
+            removeobject (GRUNT_2_ID)
+            setflag(FLAG_HIDE_SHANE_PHOENIX_CELL)
+            applymovement (DAMON_ID, MirageTower_4F_Movement_WalkLookAtPlayer)
+            waitmovement (0)
+            playse (SE_WARP_OUT)
+            waitse
+            removeobject (DAMON_ID)
+            release
+            end
+        }
+    }
+}
+
+movement MirageTower_4F_Movement_ExclamationLeft {
+    emote_exclamation_mark
+    delay_16 * 4
+    walk_in_place_left
+    delay_16 * 4
+    walk_in_place_right
+}
+
+movement MirageTower_4F_Movement_DamonDown {
+    walk_down * 3
+    walk_left
+    walk_down * 2
+    walk_left * 3
+    walk_in_place_up
+}
+
+movement MirageTower_4F_Movement_Grunt1Down {
+    delay_16
+    walk_down * 3
+    walk_left
+    walk_down * 2
+    walk_left * 2
+    walk_down
+    walk_left * 2
+    walk_up
+}
+
+movement MirageTower_4F_Movement_Grunt2Down {
+    delay_16 * 2
+    walk_down * 3
+    walk_left
+    walk_down * 2
+    walk_left * 2
+    walk_in_place_up
+}
+
+movement MirageTower_4F_Movement_StepDown {
+    walk_in_place_down
+}
+
+movement MirageTower_4F_Movement_StepUp {
+    walk_in_place_up
+}
+
+movement MirageTower_4F_Movement_StepRight {
+    walk_in_place_right
+}
+
+movement MirageTower_4F_Movement_StepLeft {
+    walk_in_place_left
+}
+
+movement MirageTower_4F_Movement_DamonToShaneCell {
+    walk_up
+    walk_left * 4
+    walk_in_place_up
+}
+
+movement MirageTower_4F_Movement_WalkDownStepUp {
+    walk_down * 2
+    walk_in_place_up
+}
+
+movement MirageTower_4F_Movement_Grunt1ToShaneCell {
+    walk_left * 3
+    walk_up
+}
+
+movement MirageTower_4F_Movement_Grunt2ToShaneCell {
+    walk_left * 5
+    walk_in_place_up
+}
+
+movement MirageTower_4F_Movement_Grunt1intoCell {
+    walk_up * 2
+    walk_left
+    walk_up * 2
+    walk_right
+    walk_in_place_down
+}
+
+movement MirageTower_4F_Movement_Grunt2intoCell {
+    walk_up * 3
+}
+
+movement MirageTower_4F_Movement_Grunt2Exit {
+    walk_down * 3
+    walk_right * 7
+    walk_up * 2
+    walk_right
+    walk_up * 3
+    set_invisible
+}
+
+movement MirageTower_4F_Movement_ShaneExit {
+    walk_down * 4
+    walk_right * 7
+    walk_up * 2
+    walk_right
+    walk_up * 3
+    set_invisible
+}
+
+movement MirageTower_4F_Movement_Grunt1Exit {
+    walk_down * 5
+    walk_right * 7
+    walk_up * 2
+    walk_right
+    walk_up * 3
+    set_invisible
+}
+
+movement MirageTower_4F_Movement_WalkLookAtPlayer {
+    walk_up
+    walk_right * 4
+    walk_in_place_up
+    delay_16 * 4
+    walk_right * 3
+    walk_up * 2
+    walk_right
+    walk_up * 3
+    set_invisible
+}
+
+movement MirageTower_4F_Movement_Exclamation {
+    emote_exclamation_mark
+    delay_16 * 4
+    walk_slow_left
+}
+
+movement MirageTower_4F_Movement_GuardLeave {
+    walk_right * 2
+    walk_up
+    walk_right
+    walk_up * 3
+    set_invisible
+}
+
+script MirageTower_4F_EventScript_Door2 {
+    lock
+    if (flag(FLAG_PB_CELLDOOR_2_OPEN)) {
+        msgbox(format("The cell door is open."))
+        release
+        end
+    }
+    else {
+        checkitem (ITEM_BASEMENT_KEY)
+        if (var(VAR_RESULT) == TRUE) {
+            msgbox(format("{PLAYER} inserted the Cell Key into the door."))
+            waitmessage
+            closemessage
+            delay (30)
+            playse (SE_DOOR)
+            setmetatile (5, 7, 0x341, FALSE)
+            setmetatile (5, 6, 0x357, FALSE)
+            setmetatile (5, 5, 0x34F, FALSE)
+            setmetatile (4, 6, 0x356, TRUE)
+            setmetatile (4, 5, 0x34E, FALSE)
+            special (DrawWholeMapView)
+            setflag(FLAG_PB_CELLDOOR_2_OPEN)
+            release
+            end
+        }
+        else {
+            msgbox(format("The cell door is locked."))
+            release
+            end
+        }
+    }
+}
+
+script MirageTower_4F_EventScript_Door1 {
+    lock
+    if (flag(FLAG_PB_CELLDOOR_1_OPEN)) {
+        msgbox(format("The cell door is open."))
+        release
+        end
+    }
+    else {
+        checkitem (ITEM_BASEMENT_KEY)
+        if (var(VAR_RESULT) == TRUE) {
+            msgbox(format("{PLAYER} inserted the Cell Key into the door."))
+            waitmessage
+            closemessage
+            delay (30)
+            playse (SE_DOOR)
+            setmetatile (1, 7, 0x341, FALSE)
+            setmetatile (1, 6, 0x357, FALSE)
+            setmetatile (1, 5, 0x34F, FALSE)
+            setmetatile (0, 6, 0x356, TRUE)
+            setmetatile (0, 5, 0x34E, FALSE)
+            special (DrawWholeMapView)
+            setflag(FLAG_PB_CELLDOOR_1_OPEN)
+            release
+            end
+        }
+        else {
+            msgbox(format("The cell door is locked."))
+            release
+            end
+        }
+    }
+}
+
+script MirageTower_4F_EventScript_Bed {
+    lock
+    msgbox(format("Would you like to take a quick nap?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        release
+        end
+    }
+    else {
+        closemessage
+        fadescreen (FADE_TO_BLACK)
+        special (HealPlayerParty)
+        playfanfare (MUS_HEAL)
+        waitfanfare
+        fadescreen (FADE_FROM_BLACK)
+        delay (20)
+        msgbox(format("Your POKéMON have been fully restored."))
+        release
+        end
+    }
+}
