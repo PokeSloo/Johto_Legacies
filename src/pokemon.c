@@ -3166,6 +3166,7 @@ static const s8 sFriendshipEventModifiers[][3] =
     [FRIENDSHIP_EVENT_FAINT_SMALL]     = {-1, -1, -1},
     [FRIENDSHIP_EVENT_FAINT_FIELD_PSN] = {-5, -5, -10},
     [FRIENDSHIP_EVENT_FAINT_LARGE]     = {-5, -5, -10},
+    [FRIENDSHIP_EVENT_GROOMER]         = {10,  6,  4},
 };
 
 #define HM_MOVES_END 0xFFFF
@@ -7019,7 +7020,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
 void FriendshipBreeder(void)
 {
     struct Pokemon *pokemon = &gPlayerParty[gPartyMenu.slotId];
-    AdjustFriendship(pokemon, FRIENDSHIP_EVENT_GROW_LEVEL);
+    AdjustFriendship(pokemon, FRIENDSHIP_EVENT_GROOMER);
 }
 
 void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)

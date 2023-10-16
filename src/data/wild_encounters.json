@@ -3778,63 +3778,63 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 23,
-                "max_level": 23,
+                "min_level": 12,
+                "max_level": 14,
                 "species": "SPECIES_FOMANTIS"
               },
               {
-                "min_level": 23,
-                "max_level": 23,
+                "min_level": 6,
+                "max_level": 8,
                 "species": "SPECIES_SCATTERBUG"
               },
               {
-                "min_level": 25,
-                "max_level": 25,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_SKORUPI"
               },
               {
-                "min_level": 24,
-                "max_level": 24,
+                "min_level": 12,
+                "max_level": 14,
                 "species": "SPECIES_NINCADA"
               },
               {
-                "min_level": 25,
-                "max_level": 25,
+                "min_level": 12,
+                "max_level": 14,
                 "species": "SPECIES_KRICKETOT"
               },
               {
-                "min_level": 25,
-                "max_level": 25,
+                "min_level": 12,
+                "max_level": 14,
                 "species": "SPECIES_CHERUBI"
               },
               {
-                "min_level": 24,
-                "max_level": 24,
+                "min_level": 12,
+                "max_level": 14,
                 "species": "SPECIES_SUNKERN"
               },
               {
-                "min_level": 25,
-                "max_level": 25,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_HERACROSS"
               },
               {
-                "min_level": 24,
-                "max_level": 24,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_SCYTHER"
               },
               {
-                "min_level": 24,
-                "max_level": 24,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_PINSIR"
               },
               {
-                "min_level": 26,
-                "max_level": 26,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_SIZZLIPEDE"
               },
               {
-                "min_level": 25,
-                "max_level": 25,
+                "min_level": 12,
+                "max_level": 15,
                 "species": "SPECIES_SIZZLIPEDE"
               }
             ]
