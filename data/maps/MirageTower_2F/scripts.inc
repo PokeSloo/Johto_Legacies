@@ -14,6 +14,24 @@ MirageTower_2F_EventScript_Grunt_4::
 	end
 
 
+MirageTower_2F_EventScript_Grunt_6::
+	trainerbattle_single TRAINER_YASU, Route119_Text_YasuIntro, Route119_Text_YasuDefeat
+	msgbox Route119_Text_YasuPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+
+MirageTower_2F_EventScript_Grunt_7::
+	trainerbattle_single TRAINER_TAKASHI, Route119_Text_TakashiIntro, Route119_Text_TakashiDefeat
+	msgbox Route119_Text_TakashiPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+
+MirageTower_2F_EventScript_Grunt_8::
+	trainerbattle_single TRAINER_HIDEO, Route119_Text_HideoIntro, Route119_Text_HideoDefeat
+	msgbox Route119_Text_HideoPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+
 MirageTower_3F_EventScript_ThiefBall::
 	finditem ITEM_TM46_THIEF
 	end

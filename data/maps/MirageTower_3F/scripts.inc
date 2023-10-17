@@ -18,3 +18,9 @@ MirageTower_3F_EventScript_Grunt_2::
 	msgbox Route119_Text_DougPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+
+MirageTower_3F_EventScript_Grunt_5::
+	trainerbattle_single TRAINER_DAYTON, Route119_Text_DaytonIntro, Route119_Text_DaytonDefeat
+	msgbox Route119_Text_DaytonPostBattle, MSGBOX_AUTOCLOSE
+	end
+

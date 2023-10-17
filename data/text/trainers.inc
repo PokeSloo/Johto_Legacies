@@ -2826,40 +2826,45 @@ Route119_Text_PhilPostBattle:
 	.string "admired BIRD POKéMON…$"
 
 Route119_Text_YasuIntro:
-	.string "To lurk in shadows, and live in\n"
-	.string "darkness… That is my destiny.\p"
-	.string "I emerge to challenge you!$"
+	.string "And who might you be?\p"
+	.string "An intruder!$"
 
 Route119_Text_YasuDefeat:
-	.string "I admit defeat!$"
+	.string "A strong intruder, it seems...$"
 
 Route119_Text_YasuPostBattle:
-	.string "Those defeated in battle withdraw\n"
-	.string "quietly back into the shadows.\l"
-	.string "That, too, is destiny…$"
+	.string "How did you discover our secret base?\p"
+	.string "...\p"
+	.string "Oh, DAMON must have brought you here.\p"
+	.string "Crap, he'll be mad when he finds out you\n"
+	.string "escaped.\p"
+	.string "Could you please go back to your cell\n"
+	.string "and wait there?$"
 
 Route119_Text_TakashiIntro:
-	.string "If you're not on your guard,\n"
-	.string "you're in for some pain!$"
+	.string "They never let me go on any fun\n"
+	.string "missions, it's so boring at this base!$"
 
 Route119_Text_TakashiDefeat:
-	.string "You're surprisingly good!$"
+	.string "Well at least that battle wasn't\n"
+	.string "boring...$"
 
 Route119_Text_TakashiPostBattle:
-	.string "My surprise attack ended in\n"
-	.string "failure…$"
+	.string "Who are you anyway?$"
 
 Route119_Text_HideoIntro:
-	.string "To hide a tree, use a forest!$"
+	.string "Alright kid, this is as far as you're\n"
+	.string "going.\p"
+	.string "Back to your cell!$"
 
 Route119_Text_HideoDefeat:
-	.string "I bow to your superiority.$"
+	.string "So that's how you got past the other\n"
+	.string "GRUNTS...$"
 
 Route119_Text_HideoPostBattle:
-	.string "To hide a tree, use a forest!\n"
-	.string "To hide a POKéMON, use a POKéMON!\p"
-	.string "There is no deep, hidden meaning\n"
-	.string "to that.$"
+	.string "You defeated me in a POKéMON battle, I\n"
+	.string "guess there isn't anything else I can\l"
+	.string "do to stop you now...$"
 
 Route119_Text_ChrisIntro:
 	.string "You spoke to me…\n"
@@ -2891,18 +2896,18 @@ Route119_Text_FabianPostBattle:
 	.string "Your win you have to atone!$"
 
 Route119_Text_DaytonIntro:
-	.string "Hohoho!\n"
-	.string "I like kid TRAINERS!\l"
-	.string "Let's have a good one!$"
+	.string "Are you one of the new recruits?\p"
+	.string "...\p"
+	.string "Hey wait! You're one of the kids they\n"
+	.string "captured!$"
 
 Route119_Text_DaytonDefeat:
-	.string "You're pretty amazing!\n"
-	.string "Hohoho!$"
+	.string "Where did you get POKéMON that good?$"
 
 Route119_Text_DaytonPostBattle:
-	.string "Hohoho!\n"
-	.string "I'll try emulating the pep of kid\l"
-	.string "TRAINERS like you!$"
+	.string "Maybe you should be one of our new\n"
+	.string "recruits, have you ever thought about\l"
+	.string "committing to a life of crime?$"
 
 Route119_Text_RachelIntro:
 	.string "Wherever and whenever I may be,\n"
