@@ -1,0 +1,149 @@
+const GUARD_ID = 6
+
+mapscripts SlateportCity_SternsShipyard_1F_MapScripts {}
+
+script SlateportCity_SternsShipyard_1F_EventScript_GymGuide {
+    lock
+    faceplayer
+    if (flag(FLAG_BADGE03_GET)) {
+        msgbox(format("You were great!\pI watched everything on TV. You're really starting to make a name for yourself!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Yo! How's it going, CHAMPION in the making?\pThis gym is actually the set for a gameshow called The Challenge.\pAt the end of The Challenge, you will face off against the Goldenrod City Gym Leader, WHITNEY.\pShe uses NORMAL-types, so you should bring a FIGHTING-type POKéMON.\pA GHOST-type would help too.\pWell, what are you waiting for?"))
+        release
+        end
+    }
+}
+
+script SlateportCity_SternsShipyard_1F_EventScript_Lass {
+    lock
+    faceplayer
+    if (flag(FLAG_BADGE03_GET)) {
+        msgbox(format("You actually did it!\pI was beginning to think WHITNEY was unbeatable!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Are you planning to compete on the show?\pGood luck, WHITNEY hasn't lost in years!"))
+        release
+        end
+    }
+}
+
+script SlateportCity_SternsShipyard_1F_EventScript_Boy {
+    msgbox(format("Man, this line isn't moving at all!\pI'm going to miss the whole show at this rate!"), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_SternsShipyard_1F_EventScript_Right_Guard {
+    msgbox(format("I'm sorry but this area is off limits right now."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_SternsShipyard_1F_EventScript_Desk_Woman {
+    lock
+    faceplayer
+    if (flag(FLAG_BADGE03_GET)) {
+        msgbox(format("Welcome back, {PLAYER}, and congrats on your win!\pWHITNEY is taking a break from the show right now, but I'm sure we will be filming another episode soon!"))
+        release
+        end
+    }
+    elif (flag(FLAG_REGISTERED_GOLDENROD_CHALLENGE)) {
+        msgbox(format("{PLAYER}, welcome back.\pWould you like me to explain the rules for The Challenge?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Very well then. Please talk to the guard at the left entrance to begin, and best of luck to you {PLAYER}!"))
+            release
+            end
+        }
+        else {
+            msgbox(format("The rules are simple, through the door on the left is our preliminary area.\pYou will be asked a series of five yes or no questions, and for each wrong answer you give, you will have to face a TRAINER.\pAfter all five questions have been answered, you will go on to face WHITNEY in the next room!\pYou will have no breaks or chances to heal your party between TRAINER battles, or before WHITNEY.\pWhen you are ready, please talk to the guard at the left entrance to begin The Challenge, and best of luck to you {PLAYER}!"))
+            release
+            end
+        }
+    }
+    elif (flag(FLAG_HIDE_SHANE_PHOENIX_CELL)) {
+        msgbox(format("Welcome to The Challenge registration desk!\pAll competitors must sign in here before going on the show.\pWould you like to register?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("I understand, being in the spotlight certainly isn't for everyone."))
+            release
+            end
+        }
+        else {
+            msgbox(format("Wonderful!\pJust fill out this form here, and I'll get you signed up!\p...\p...\pLet's see...\pYou're name is {PLAYER}, and you're from Cherrygrove City.\pThanks, this is all I need. Now, do you need me to explain the rules?"), MSGBOX_YESNO)
+            if (var(VAR_RESULT) == NO) {
+                msgbox(format("You must be a fan of the show!\pVery well, please talk to the guard at the left entrance to begin The Challenge, and best of luck to you {PLAYER}!"))
+                setflag (FLAG_REGISTERED_GOLDENROD_CHALLENGE)
+                release
+                end
+            }
+            else {
+                msgbox(format("Of course. The rules are simple, through the door on the left is our preliminary area.\pYou will be asked a series of five yes or no questions, and for each wrong answer you give, you will have to face a TRAINER.\pAfter all five questions have been answered, you will go on to face WHITNEY in the next room!\pYou will have no breaks or chances to heal your party between TRAINER battles, or before WHITNEY.\pWhen you are ready, please talk to the guard at the left entrance to begin The Challenge, and best of luck to you {PLAYER}!"))
+                setflag (FLAG_REGISTERED_GOLDENROD_CHALLENGE)
+                release
+                end
+            }
+        }
+    }
+    else {
+        msgbox(format("Welcome to The Challenge registration desk!\pI'm sorry, but WHITNEY isn't here right now.\pShe is currently appearing as a guest on the Night and Dave Show at the TV Station.\pYou should be able to catch the show if you go there now."))
+        release
+        end
+    }
+}
+
+script SlateportCity_SternsShipyard_1F_EventScript_Left_Guard {
+    lock
+    faceplayer
+    if (flag(FLAG_BADGE03_GET)) {
+        msgbox(format("I'm sorry but this area is off limits right now.\pIf you want to compete, then come back later."))
+        release
+        end
+    }
+    elif (flag(FLAG_REGISTERED_GOLDENROD_CHALLENGE)) {
+        msgbox(format("This entrance is for The Challenge competitors only.\pOh! I see you are registered.\pAlright, once you step through this door you won't have another chance to heal your POKéMON.\pAre all of your preparations complete?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Come back and see me once your preparations are complete."))
+            waitmessage
+            closemessage
+            applymovement (GUARD_ID, SlateportCity_SternsShipyard_1F_Movement_GuardFaceDown)
+            waitmovement (0)
+            release
+            end
+        }
+        else {
+            msgbox(format("Great!\pPlease step right this way, and good luck!"))
+            waitmessage
+            closemessage
+            applymovement (GUARD_ID, SlateportCity_SternsShipyard_1F_Movement_GuardStepAway)
+            waitmovement (0)
+            delay (30)
+            applymovement (OBJ_EVENT_ID_PLAYER, SlateportCity_SternsShipyard_1F_Movement_PlayerToDoor)
+            waitmovement (0)
+            warpdoor (MAP_SLATEPORT_CITY_STERNS_SHIPYARD_2F, 0)
+            waitstate
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("This entrance is for The Challenge competitors only."))
+        release
+        end
+    }
+}
+
+movement SlateportCity_SternsShipyard_1F_Movement_GuardFaceDown {
+    face_down
+}
+
+movement SlateportCity_SternsShipyard_1F_Movement_GuardStepAway {
+    walk_left
+    walk_in_place_right
+}
+
+movement SlateportCity_SternsShipyard_1F_Movement_PlayerToDoor {
+    walk_left
+    face_up
+}

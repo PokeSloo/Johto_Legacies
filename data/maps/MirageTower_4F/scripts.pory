@@ -117,7 +117,7 @@ script MirageTower_4F_EventScript_Door3 {
                     applymovement (GUARD_ID, MirageTower_4F_Movement_GuardLeave)
                     waitmovement (0)
                     removeobject (GUARD_ID)
-                    playse (SE_WARP_OUT)
+                    playse (SE_WARP_IN)
                     waitse
                     setflag (FLAG_HIDE_PHOENIX_CELL_GUARD)
                     release
@@ -147,7 +147,7 @@ script MirageTower_4F_EventScript_Door3 {
             waitmessage
             closemessage
             delay (60)
-            playse (SE_WARP_IN)
+            playse (SE_WARP_OUT)
             addobject(DAMON_ID)
             addobject(GRUNT_1_ID)
             addobject(GRUNT_2_ID)
@@ -217,14 +217,16 @@ script MirageTower_4F_EventScript_Door3 {
             applymovement (SHANE_ID, MirageTower_4F_Movement_ShaneExit)
             applymovement (GRUNT_1_ID, MirageTower_4F_Movement_Grunt1Exit)
             waitmovement (0)
-            playse (SE_WARP_OUT)
+            playse (SE_WARP_IN)
             removeobject (SHANE_ID)
             removeobject (GRUNT_1_ID)
             removeobject (GRUNT_2_ID)
             setflag(FLAG_HIDE_SHANE_PHOENIX_CELL)
+            clearflag(FLAG_HIDE_CHALLENGE_SPECTATOR_LINE)
+            setflag(FLAG_HIDE_GOLDENROD_GYM_RIGHT_GUARD)
             applymovement (DAMON_ID, MirageTower_4F_Movement_WalkLookAtPlayer)
             waitmovement (0)
-            playse (SE_WARP_OUT)
+            playse (SE_WARP_IN)
             waitse
             removeobject (DAMON_ID)
             release

@@ -671,12 +671,12 @@
 #define FLAG_HIDE_GOLDENROD_BASE_ULTRABALL  0x275 // Goldenrod phoenix base
 #define FLAG_HIDE_SEWER_BLACKSLUDGE  0x276 // Goldenrod sewer
 #define FLAG_RECEIVED_TM_04  0x277 // Route 35 fisherman
-#define FLAG_UNUSED_0x278  0x278 // Unused Flag
-#define FLAG_UNUSED_0x279  0x279 // Unused Flag
-#define FLAG_UNUSED_0x27A  0x27A // Unused Flag
-#define FLAG_UNUSED_0x27B  0x27B // Unused Flag
-#define FLAG_UNUSED_0x27C  0x27C // Unused Flag
-#define FLAG_UNUSED_0x27D  0x27D // Unused Flag
+#define FLAG_HIDE_GOLDENROD_GYM_RIGHT_GUARD  0x278 // Hidden until after you get the badge
+#define FLAG_REGISTERED_GOLDENROD_CHALLENGE  0x279 // Goldenrod gym
+#define FLAG_BONUS_ROUND_ITEM_1  0x27A // The challenge bonus round item ball
+#define FLAG_BONUS_ROUND_ITEM_2  0x27B // The challenge bonus round item ball
+#define FLAG_BONUS_ROUND_ITEM_3  0x27C // The challenge bonus round item ball
+#define FLAG_HIDE_CHALLENGE_SPECTATOR_LINE  0x27D // In the entrance area
 #define FLAG_UNUSED_0x27E  0x27E // Unused Flag
 #define FLAG_UNUSED_0x27F  0x27F // Unused Flag
 #define FLAG_UNUSED_0x280  0x280 // Unused Flag

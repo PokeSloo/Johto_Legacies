@@ -131,6 +131,8 @@ MirageTower_4F_EventScript_Door3::
 	removeobject 5
 	removeobject 6
 	setflag FLAG_HIDE_SHANE_PHOENIX_CELL
+	clearflag FLAG_HIDE_CHALLENGE_SPECTATOR_LINE
+	setflag FLAG_HIDE_GOLDENROD_GYM_RIGHT_GUARD
 	applymovement 4, MirageTower_4F_Movement_WalkLookAtPlayer
 	waitmovement 0
 	playse SE_WARP_OUT
