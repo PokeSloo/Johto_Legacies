@@ -56,7 +56,7 @@ MirageTower_4F_EventScript_Door3::
 	waitmessage
 	closemessage
 	delay 60
-	playse SE_WARP_IN
+	playse SE_WARP_OUT
 	addobject 4
 	addobject 5
 	addobject 6
@@ -126,7 +126,7 @@ MirageTower_4F_EventScript_Door3::
 	applymovement 3, MirageTower_4F_Movement_ShaneExit
 	applymovement 5, MirageTower_4F_Movement_Grunt1Exit
 	waitmovement 0
-	playse SE_WARP_OUT
+	playse SE_WARP_IN
 	removeobject 3
 	removeobject 5
 	removeobject 6
@@ -135,7 +135,7 @@ MirageTower_4F_EventScript_Door3::
 	setflag FLAG_HIDE_GOLDENROD_GYM_RIGHT_GUARD
 	applymovement 4, MirageTower_4F_Movement_WalkLookAtPlayer
 	waitmovement 0
-	playse SE_WARP_OUT
+	playse SE_WARP_IN
 	waitse
 	removeobject 4
 	release
@@ -217,7 +217,7 @@ MirageTower_4F_EventScript_Door3_11:
 	applymovement 2, MirageTower_4F_Movement_GuardLeave
 	waitmovement 0
 	removeobject 2
-	playse SE_WARP_OUT
+	playse SE_WARP_IN
 	waitse
 	setflag FLAG_HIDE_PHOENIX_CELL_GUARD
 	release
@@ -581,7 +581,7 @@ MirageTower_4F_EventScript_Door3_Text_7:
 
 MirageTower_4F_EventScript_Door3_Text_8:
 	.string "???: Well well, my Hypno really did a\n"
-	.string "number on this one.$"
+	.string "number on this brat.$"
 
 MirageTower_4F_EventScript_Door3_Text_9:
 	.string "Now that you've both awoken from your\n"

@@ -116,6 +116,12 @@ script SlateportCity_SternsShipyard_1F_EventScript_Left_Guard {
             msgbox(format("Great!\pPlease step right this way, and good luck!"))
             waitmessage
             closemessage
+            setflag (FLAG_HIDE_CHALLENGE_TRAINERS)
+            setflag (FLAG_BONUS_ROUND_ITEM_1)
+            setflag (FLAG_BONUS_ROUND_ITEM_2)
+            setflag (FLAG_BONUS_ROUND_ITEM_3)
+            clearflag (FLAG_ANSWERED_CHALLENGE_QUESTION_WRONG)
+            setvar (VAR_THE_CHALLENGE_EVENTS, 0)
             applymovement (GUARD_ID, SlateportCity_SternsShipyard_1F_Movement_GuardStepAway)
             waitmovement (0)
             delay (30)

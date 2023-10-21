@@ -81,14 +81,14 @@ script BattleFrontier_BattleDomeCorridor_EventScript_MainShow {
     msgbox(format("WHITNEY: Happy to be here, DAVE!\pIt's always nice to get out and try something new.\pDAVE: Indeed!\pI know you've been busy running your own show lately, but more on that later...\pOur second guest is a Black Belt from Cianwood City, the tough and manly KATASHI!"))
     waitmessage
     closemessage
-    playse (SE_APPLAUSE)
+    playse (SE_M_ENCORE2)
     applymovement (KARATE_ID, BattleFrontier_BattleDomeCorridor_Movement_KatashiStepOut)
     waitmovement (0)
     msgbox(format("KATASHI: I am also grateful for your invitation, DAVE.\pYou honor me and my dojo.\pDAVE: KATASHI, I understand you train under the Cianwood City Gym Leader, LEE.\pHe's not too tough on you, is he? I've heard he can be rather intense.\pKATASHI: Master LEE is only as tough as he needs to be to help us excel.\pI wouldn't have it any other way."))
     waitmessage
     applymovement (WHITNEY_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceDown)
     waitmovement (0)
-    msgbox(format("WHITNEY: As an accomplished Gym Leader myself, I can respect that.\pSome people can't grow as individuals without overcoming some obstacle."))
+    msgbox(format("WHITNEY: As an accomplished Gym Leader myself, I can respect that.\pOvercoming obstacles helps people grow as individuals.\pYou may want to give up and cry when faced with a tough challenge, but if you face it head on, you will undoubtedly grow more confident."))
     waitmessage
     applymovement (DAVE_ID, BattleFrontier_BattleDomeCorridor_Movement_WalkInPlaceLeft)
     waitmovement (0)

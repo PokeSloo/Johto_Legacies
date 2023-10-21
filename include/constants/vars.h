@@ -266,8 +266,8 @@
 #define VAR_CHERRYGROVE_STATE                0x40F7 // 1 = Got running shoes, 2 = Shane to Newbark, 3 = Talked to Elm, no poke, 4 = Got poke from Elm, 5 = Got balls from aid, 6 = Lose to Shane, 7 = Got Pokenav, 8 = Fell in Alph, 9 = Got fake nugget, 10 = Defeated past Gold
 #define VAR_GOLDENROD_GYM_BONUS_COUNT        0x40F8 // Unused Var
 #define VAR_GYM_LEADERS_ROUND2_COUNT         0x40F9 // Unused Var
-#define VAR_ECRUTEAK_STATE                   0x40FA // Unused Var
-#define VAR_UNUSED_0x40FB                    0x40FB // Unused Var
+#define VAR_ECRUTEAK_STATE                   0x40FA // 0 Used for the challenge
+#define VAR_THE_CHALLENGE_EVENTS             0x40FB // Used to control the player in goldenrod gym. 1 = Set after all questions
 #define VAR_UNUSED_0x40FC                    0x40FC // Unused Var
 #define VAR_UNUSED_0x40FD                    0x40FD // Unused Var
 #define VAR_UNUSED_0x40FE                    0x40FE // Unused Var

@@ -31,7 +31,7 @@ BattleFrontier_BattleDomePreBattleRoom_EventScript_Shane::
 	delay 120
 	fadescreenspeed FADE_TO_BLACK, 14
 	delay 30
-	fadeinbgm 10
+	fadeinbgm 1
 	warpsilent MAP_MIRAGE_TOWER_4F, 9, 3
 	waitstate
 	release

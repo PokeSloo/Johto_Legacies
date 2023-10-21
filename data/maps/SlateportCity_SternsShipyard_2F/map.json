@@ -15,9 +15,9 @@
   "connections": 0,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
       "x": 9,
-      "y": 16,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -25,12 +25,12 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "0"
+      "flag": "FLAG_HIDE_CHALLENGE_TRAINERS"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
-      "x": 10,
-      "y": 16,
+      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "x": 9,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -38,12 +38,12 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_CHALLENGE_TRAINERS"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
-      "x": 11,
-      "y": 16,
+      "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+      "x": 9,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_CHALLENGE_TRAINERS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TEALA",
@@ -63,7 +63,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SlateportCity_SternsShipyard_2F_EventScript_Assistant",
       "flag": "0"
     },
     {
@@ -89,13 +89,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SlateportCity_SternsShipyard_2F_EventScript_Mic",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
-      "x": 8,
-      "y": 16,
+      "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+      "x": 9,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -103,7 +103,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_CHALLENGE_TRAINERS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -115,7 +115,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SlateportCity_SternsShipyard_2F_EventScript_Bonus_Ball_1",
       "flag": "FLAG_BONUS_ROUND_ITEM_1"
     },
     {
@@ -145,17 +145,17 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 7,
-      "y": 16,
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 9,
+      "y": 18,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_CHALLENGE_TRAINERS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_2",
@@ -167,7 +167,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SlateportCity_SternsShipyard_2F_EventScript_Host",
       "flag": "0"
     },
     {
@@ -180,7 +180,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SlateportCity_SternsShipyard_2F_EventScript_Bonus_Ball_2",
       "flag": "FLAG_BONUS_ROUND_ITEM_2"
     },
     {
@@ -193,7 +193,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SlateportCity_SternsShipyard_2F_EventScript_Bonus_Ball_3",
       "flag": "FLAG_BONUS_ROUND_ITEM_3"
     }
   ],
@@ -214,7 +214,42 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_THE_CHALLENGE_EVENTS",
+      "var_value": "1",
+      "script": "SlateportCity_SternsShipyard_2F_EventScript_TriggerBottom"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_THE_CHALLENGE_EVENTS",
+      "var_value": "1",
+      "script": "SlateportCity_SternsShipyard_2F_EventScript_TriggerBottom"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_THE_CHALLENGE_EVENTS",
+      "var_value": "1",
+      "script": "SlateportCity_SternsShipyard_2F_EventScript_TriggerBottom"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_THE_CHALLENGE_EVENTS",
+      "var_value": "1",
+      "script": "SlateportCity_SternsShipyard_2F_EventScript_TriggerTop"
+    }
   ],
   "bg_events": [
 

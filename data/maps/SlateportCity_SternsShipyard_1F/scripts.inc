@@ -113,6 +113,12 @@ SlateportCity_SternsShipyard_1F_EventScript_Left_Guard_2:
 	msgbox SlateportCity_SternsShipyard_1F_EventScript_Left_Guard_Text_3
 	waitmessage
 	closemessage
+	setflag FLAG_HIDE_CHALLENGE_TRAINERS
+	setflag FLAG_BONUS_ROUND_ITEM_1
+	setflag FLAG_BONUS_ROUND_ITEM_2
+	setflag FLAG_BONUS_ROUND_ITEM_3
+	clearflag FLAG_ANSWERED_CHALLENGE_QUESTION_WRONG
+	setvar VAR_THE_CHALLENGE_EVENTS, 0
 	applymovement 6, SlateportCity_SternsShipyard_1F_Movement_GuardStepAway
 	waitmovement 0
 	delay 30
@@ -289,7 +295,7 @@ SlateportCity_SternsShipyard_1F_EventScript_Left_Guard_Text_0:
 SlateportCity_SternsShipyard_1F_EventScript_Left_Guard_Text_1:
 	.string "This entrance is for The Challenge\n"
 	.string "competitors only.\p"
-	.string "Oh! I see you are registered\p"
+	.string "Oh! I see you are registered.\p"
 	.string "Alright, once you step through this\n"
 	.string "door you won't have another chance to\l"
 	.string "heal your POKéMON.\p"

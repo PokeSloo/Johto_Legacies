@@ -161,7 +161,7 @@ script MirageTower_4F_EventScript_Door3 {
             applymovement (GUARD_ID, MirageTower_4F_Movement_StepDown)
             waitmovement (0)
             delay (20)
-            msgbox(format("???: Well well, my Hypno really did a number on this one."))
+            msgbox(format("???: Well well, my Hypno really did a number on this brat."))
             waitmessage
             closemessage
             applymovement (DAMON_ID, MirageTower_4F_Movement_StepUp)

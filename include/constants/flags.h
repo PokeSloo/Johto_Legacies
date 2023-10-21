@@ -677,8 +677,8 @@
 #define FLAG_BONUS_ROUND_ITEM_2  0x27B // The challenge bonus round item ball
 #define FLAG_BONUS_ROUND_ITEM_3  0x27C // The challenge bonus round item ball
 #define FLAG_HIDE_CHALLENGE_SPECTATOR_LINE  0x27D // In the entrance area
-#define FLAG_UNUSED_0x27E  0x27E // Unused Flag
-#define FLAG_UNUSED_0x27F  0x27F // Unused Flag
+#define FLAG_HIDE_CHALLENGE_TRAINERS  0x27E // In quiz room
+#define FLAG_ANSWERED_CHALLENGE_QUESTION_WRONG  0x27F // All questions will set this flag if wrong
 #define FLAG_UNUSED_0x280  0x280 // Unused Flag
 #define FLAG_UNUSED_0x281  0x281 // Unused Flag
 #define FLAG_UNUSED_0x282  0x282 // Unused Flag

@@ -75,7 +75,7 @@ BattleFrontier_BattleDomeCorridor_EventScript_MainShow_1:
 	msgbox BattleFrontier_BattleDomeCorridor_EventScript_MainShow_Text_3
 	waitmessage
 	closemessage
-	playse SE_APPLAUSE
+	playse SE_M_ENCORE2
 	applymovement 1, BattleFrontier_BattleDomeCorridor_Movement_KatashiStepOut
 	waitmovement 0
 	msgbox BattleFrontier_BattleDomeCorridor_EventScript_MainShow_Text_4
@@ -520,8 +520,12 @@ BattleFrontier_BattleDomeCorridor_EventScript_MainShow_Text_4:
 BattleFrontier_BattleDomeCorridor_EventScript_MainShow_Text_5:
 	.string "WHITNEY: As an accomplished Gym Leader\n"
 	.string "myself, I can respect that.\p"
-	.string "Some people can't grow as individuals\n"
-	.string "without overcoming some obstacle.$"
+	.string "Overcoming obstacles helps people grow\n"
+	.string "as individuals.\p"
+	.string "You may want to give up and cry when\n"
+	.string "faced with a tough challenge, but if\l"
+	.string "you face it head on, you will\l"
+	.string "undoubtedly grow more confident.$"
 
 BattleFrontier_BattleDomeCorridor_EventScript_MainShow_Text_6:
 	.string "DAVE: You would know a lot about that,\n"
