@@ -3454,31 +3454,38 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly1[] = {
 static const struct TrainerMonItemCustomMoves sParty_Wattson1[] = {
     {
     .iv = 200,
-    .lvl = 20,
-    .species = SPECIES_VOLTORB,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_ROLLOUT, MOVE_SPARK, MOVE_SELF_DESTRUCT, MOVE_SHOCK_WAVE}
+    .lvl = 27,
+    .species = SPECIES_WIGGLYTUFF,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .moves = {MOVE_DAZZLING_GLEAM, MOVE_HYPER_VOICE, MOVE_DISABLE, MOVE_THUNDER_PUNCH}
     },
     {
     .iv = 200,
-    .lvl = 20,
-    .species = SPECIES_ELECTRIKE,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_SHOCK_WAVE, MOVE_LEER, MOVE_QUICK_ATTACK, MOVE_HOWL}
+    .lvl = 27,
+    .species = SPECIES_SWELLOW,
+    .heldItem = ITEM_FLAME_ORB,
+    .moves = {MOVE_FACADE, MOVE_U_TURN, MOVE_BRAVE_BIRD, MOVE_QUICK_ATTACK}
     },
     {
     .iv = 220,
-    .lvl = 22,
-    .species = SPECIES_MAGNETON,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_SUPERSONIC, MOVE_SHOCK_WAVE, MOVE_THUNDER_WAVE, MOVE_SONIC_BOOM}
+    .lvl = 27,
+    .species = SPECIES_LOPUNNY,
+    .heldItem = ITEM_EXPERT_BELT,
+    .moves = {MOVE_FAKE_OUT, MOVE_RETURN, MOVE_JUMP_KICK, MOVE_ICE_PUNCH}
+    },
+    {
+    .iv = 220,
+    .lvl = 28,
+    .species = SPECIES_GIRAFARIG,
+    .heldItem = ITEM_TWISTED_SPOON,
+    .moves = {MOVE_PSYCHIC, MOVE_DOUBLE_HIT, MOVE_SHADOW_BALL, MOVE_AGILITY}
     },
     {
     .iv = 250,
-    .lvl = 24,
-    .species = SPECIES_MANECTRIC,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_QUICK_ATTACK, MOVE_THUNDER_WAVE, MOVE_SHOCK_WAVE, MOVE_HOWL}
+    .lvl = 28,
+    .species = SPECIES_MILTANK,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_BODY_SLAM, MOVE_MILK_DRINK, MOVE_ROLLOUT, MOVE_ATTRACT}
     }
 };
 

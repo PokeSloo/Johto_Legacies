@@ -120,6 +120,7 @@ script SlateportCity_SternsShipyard_1F_EventScript_Left_Guard {
             setflag (FLAG_BONUS_ROUND_ITEM_1)
             setflag (FLAG_BONUS_ROUND_ITEM_2)
             setflag (FLAG_BONUS_ROUND_ITEM_3)
+            setflag (FLAG_HIDE_WHITNEY_CHALLENGE_BATTLE)
             clearflag (FLAG_ANSWERED_CHALLENGE_QUESTION_WRONG)
             setvar (VAR_THE_CHALLENGE_EVENTS, 0)
             applymovement (GUARD_ID, SlateportCity_SternsShipyard_1F_Movement_GuardStepAway)

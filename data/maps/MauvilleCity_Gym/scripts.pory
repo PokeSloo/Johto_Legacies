@@ -1,0 +1,249 @@
+const WHITNEY_ID = 1
+const ANNOUNCER_ID = 2
+const PLAYER_ID = 3
+
+mapscripts MauvilleCity_Gym_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        call (BattleFrontier_BattleDomeBattleRoom_EventScript_SetPlayerGfx)
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_THE_CHALLENGE_EVENTS, 1: MauvilleCity_Gym_On_Frame
+    ]
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+        VAR_THE_CHALLENGE_EVENTS, 1: MauvilleCity_Gym_OnWarp
+    ]
+    MAP_SCRIPT_ON_RESUME {
+        call_if_eq (VAR_THE_CHALLENGE_EVENTS, 1, MauvilleCity_Gym_Add_Audience)
+	    end
+    }
+}
+
+script MauvilleCity_Gym_On_Frame {
+    lock
+    msgbox(format("Alright everyone, let's welcome our next CHALLENGER.\p{PLAYER} from Cherrygrove City!"))
+    waitmessage
+    closemessage
+    waitse
+    playse (SE_M_ENCORE2)
+    applymovement (PLAYER_ID, MauvilleCity_Gym_Movement_PlayerEnter)
+    call (MauvilleCity_Gym_Audince_Look_Around)
+    waitmovement (0)
+    waitse
+    applymovement (ANNOUNCER_ID, SlateportCity_SternsShipyard_2F_Movement_StepDown)
+    waitmovement (0)
+    if (!flag(FLAG_ANSWERED_CHALLENGE_QUESTION_WRONG)) {
+        msgbox(format("{PLAYER} managed to answer every single question correctly in the qualification round!"))
+        waitmessage
+        closemessage
+        playse (SE_M_ENCORE2)
+	    call (MauvilleCity_Gym_Audince_Look_Around)
+        waitse
+        msgbox(format("That's not an easy feat, talk about a knowledgeable TRAINER!"))
+        waitmessage
+    }
+    else {
+        msgbox(format("{PLAYER} couldn't answer every question correctly in the qualifying round, but made up for it by defeating TRAINERS!"))
+        waitmessage
+    }
+    applymovement (ANNOUNCER_ID, SlateportCity_SternsShipyard_2F_Movement_StepDown)
+    waitmovement (0)
+    msgbox(format("Now...\pThe moment you've all been waiting for...\pEveryone's favorite gym leader, the one and only WHITNEY!"))
+    waitmessage
+    closemessage
+    clearflag (FLAG_HIDE_WHITNEY_CHALLENGE_BATTLE)
+    addobject (WHITNEY_ID)
+    applymovement (WHITNEY_ID, SlateportCity_SternsShipyard_2F_Movement_WhitneyEnter)
+    playse (SE_M_ENCORE2)
+	call (MauvilleCity_Gym_Audince_Look_Around)
+    waitse
+    playse (SE_M_ENCORE2)
+	call (MauvilleCity_Gym_Audince_Look_Around)
+    waitse
+    playse (SE_M_ENCORE2)
+	call (MauvilleCity_Gym_Audince_Look_Around)
+    waitse
+    waitmovement (0)
+    msgbox(format("WHITNEY: Welcome, {PLAYER}!\pI hope you didn't get beat up too badly in the qualifying round.\pNot everyone has what it takes to qualify, but don't let it go to your head.\pThe real CHALLENGE begins now!"))
+    applymovement (WHITNEY_ID, MauvilleCity_Gym_Movement_StepLeft1)
+    applymovement (PLAYER_ID, MauvilleCity_Gym_Movement_StepRight1)
+    waitmovement (0)
+    trainerbattle_no_intro (TRAINER_WATTSON_1, BattleFrontier_BattleDomePreBattleRoom_Text_WhitneyDefeat)
+    msgbox(format("WHITNEY: Sniffle...\pHic..."))
+    waitmessage
+    applymovement (WHITNEY_ID, SlateportCity_SternsShipyard_2F_Movement_StepDown)
+    waitmovement (0)
+    msgbox(format("It's ok, WHITNEY, you're a big girl now...\pYou're past this..."))
+    waitmessage
+    applymovement (WHITNEY_ID, SlateportCity_SternsShipyard_2F_Movement_StepLeft)
+    waitmovement (0)
+    msgbox(format("Ok, I'm good now.\p{PLAYER}, you are truly an incredible TRAINER, and the first to defeat me in years!\pI will gladly present you with this BADGE!\p{PLAYER} received the PLAIN BADGE from WHITNEY!"))
+    waitmessage
+    call (Common_EventScript_PlayGymBadgeFanfare)
+    waitse
+    playse (SE_M_ENCORE2)
+	call (MauvilleCity_Gym_Audince_Look_Around)
+    waitse
+    msgbox(format("WHITNEY: The PLAIN BADGE will allow your POKéMON to use the HM move Rock Smash outside of battle.\pYou should also take this..."))
+    waitmessage
+    giveitem (ITEM_TM45_ATTRACT)
+    msgbox(format("TM45 contains the move Attract!\pIt will make your POKéMON irresistible to the opposite sex.\pYour opponents will only be able to attack 50 percent of the time!\pNow, {PLAYER}, congratulations!\pYou have beaten The Challenge!"))
+    waitmessage
+    closemessage
+    applymovement (WHITNEY_ID, MauvilleCity_Gym_Movement_RightToCenter)
+    applymovement (PLAYER_ID, MauvilleCity_Gym_Movement_LeftToCenter)
+    waitmovement (0)
+    special (DoDomeConfetti)
+	playse (SE_M_ENCORE2)
+	call (MauvilleCity_Gym_Audince_Look_Around)
+    waitse
+    playse (SE_M_ENCORE2)
+	call (MauvilleCity_Gym_Audince_Look_Around)
+    waitse
+	delay (30)
+    setflag (FLAG_DEFEATED_MAUVILLE_GYM)
+	setflag (FLAG_BADGE03_GET)
+    addvar (VAR_THE_CHALLENGE_EVENTS, 1)
+    setflag (FLAG_HIDE_WHITNEY_CHALLENGE_BATTLE)
+    setflag (FLAG_HIDE_CHALLENGE_SPECTATOR_LINE)
+    clearflag (FLAG_HIDE_GOLDENROD_GYM_RIGHT_GUARD)
+    warp (MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F, 9, 7)
+    waitstate
+    release
+    end
+}
+
+movement MauvilleCity_Gym_Movement_PlayerEnter {
+    walk_up * 3
+    walk_right * 2
+}
+
+movement SlateportCity_SternsShipyard_2F_Movement_WhitneyEnter {
+    set_visible
+    walk_up * 3
+    delay_16
+    face_left
+    delay_8
+    face_down
+    delay_8
+    face_right
+    delay_8
+    face_up
+    delay_8
+    face_left
+    delay_16
+    disable_jump_landing_ground_effect
+    jump_2_left
+    face_right
+    lock_facing_direction
+    jump_2_left
+    unlock_facing_direction
+    delay_8
+    face_down
+    delay_8
+    face_left
+    delay_8
+    face_up
+    delay_16
+    walk_slow_up
+    delay_16
+    face_left
+    lock_facing_direction
+    walk_slow_right * 2
+    unlock_facing_direction
+    delay_16
+    jump_in_place_up
+    delay_16 * 4
+    walk_down
+    walk_in_place_left
+    enable_jump_landing_ground_effect
+}
+
+movement MauvilleCity_Gym_Movement_StepLeft1 {
+    walk_left
+}
+
+movement MauvilleCity_Gym_Movement_StepRight1 {
+    walk_right
+}
+
+movement MauvilleCity_Gym_Movement_RightToCenter {
+    walk_left
+    walk_up
+}
+
+movement MauvilleCity_Gym_Movement_LeftToCenter {
+    walk_right
+    walk_up
+}
+
+script MauvilleCity_Gym_OnWarp {
+    call (BattleFrontier_BattleDomeBattleRoom_EventScript_SetPlayerGfx)
+    applymovement (OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleDomeBattleRoom_Movement_SetInvisible)
+    applymovement (WHITNEY_ID, BattleFrontier_BattleDomeBattleRoom_Movement_SetInvisibleFacingUp)
+    goto (MauvilleCity_Gym_Add_Audience)
+    end
+}
+
+script MauvilleCity_Gym_Add_Audience {
+    createvobject (OBJ_EVENT_GFX_MANIAC, 0, 2, 2)
+    createvobject (OBJ_EVENT_GFX_PICNICKER, 1, 3, 2)
+    createvobject (OBJ_EVENT_GFX_CAMPER, 2, 4, 2)
+    createvobject (OBJ_EVENT_GFX_WOMAN_1, 3, 7, 2)
+    createvobject (OBJ_EVENT_GFX_LITTLE_BOY_3, 4, 9, 2)
+    createvobject (OBJ_EVENT_GFX_NURSE, 5, 11, 2)
+    createvobject (OBJ_EVENT_GFX_OLD_WOMAN, 6, 14, 2)
+    createvobject (OBJ_EVENT_GFX_OLD_MAN, 7, 15, 2)
+    createvobject (OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F, 8, 2, 1)
+    createvobject (OBJ_EVENT_GFX_EXPERT_M, 9, 4, 1)
+    createvobject (OBJ_EVENT_GFX_EXPERT_F, 10, 5, 1)
+    createvobject (OBJ_EVENT_GFX_LASS, 11, 8, 1)
+    createvobject (OBJ_EVENT_GFX_GENTLEMAN, 12, 10, 1)
+    createvobject (OBJ_EVENT_GFX_NINJA_BOY, 13, 12, 1)
+    createvobject (OBJ_EVENT_GFX_COOK, 14, 15, 1)
+    createvobject (OBJ_EVENT_GFX_GIRL_2, 15, 16, 1)
+	end
+}
+
+script MauvilleCity_Gym_Audince_Look_Around {
+    turnvobject (0, DIR_EAST)
+	turnvobject (2, DIR_EAST)
+	turnvobject (4, DIR_WEST)
+	turnvobject (6, DIR_WEST)
+	turnvobject (8, DIR_WEST)
+	turnvobject (10, DIR_WEST)
+	turnvobject (12, DIR_EAST)
+	turnvobject (14, DIR_EAST)
+	delay (20)
+	turnvobject (0, DIR_SOUTH)
+	turnvobject (2, DIR_SOUTH)
+	turnvobject (4, DIR_SOUTH)
+	turnvobject (6, DIR_SOUTH)
+	turnvobject (8, DIR_SOUTH)
+	turnvobject (10, DIR_SOUTH)
+	turnvobject (12, DIR_SOUTH)
+	turnvobject (14, DIR_SOUTH)
+	delay (20)
+	turnvobject (1, DIR_EAST)
+	turnvobject (3, DIR_EAST)
+	turnvobject (5, DIR_WEST)
+	turnvobject (7, DIR_WEST)
+	turnvobject (9, DIR_WEST)
+	turnvobject (11, DIR_WEST)
+	turnvobject (13, DIR_EAST)
+	turnvobject (15, DIR_EAST)
+	delay (20)
+	turnvobject (1, DIR_SOUTH)
+	turnvobject (3, DIR_SOUTH)
+	turnvobject (5, DIR_SOUTH)
+	turnvobject (7, DIR_SOUTH)
+	turnvobject (9, DIR_SOUTH)
+	turnvobject (11, DIR_SOUTH)
+	turnvobject (13, DIR_SOUTH)
+	turnvobject (15, DIR_SOUTH)
+	delay (20)
+	return
+    }
+
+text BattleFrontier_BattleDomePreBattleRoom_Text_WhitneyDefeat {
+    format("Ugh...")
+}

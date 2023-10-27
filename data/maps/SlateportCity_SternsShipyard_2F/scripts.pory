@@ -971,7 +971,7 @@ script SlateportCity_SternsShipyard_2F_EventScript_PlayerExitToWhitney {
     msgbox (format("A rare honor, only awarded to the most skilled competitors.\pGo on then, the Goldenrod City Gym Leader is waiting..."))
     waitmessage
     closemessage
-    warp (MAP_MAUVILLE_CITY_GYM, 0)
+    warp (MAP_MAUVILLE_CITY_GYM, 9, 5)
     waitstate
     release
     end

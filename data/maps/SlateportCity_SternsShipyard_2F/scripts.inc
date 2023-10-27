@@ -1091,7 +1091,7 @@ SlateportCity_SternsShipyard_2F_EventScript_PlayerExitToWhitney::
 	msgbox SlateportCity_SternsShipyard_2F_EventScript_PlayerExitToWhitney_Text_1
 	waitmessage
 	closemessage
-	warp MAP_MAUVILLE_CITY_GYM, 0
+	warp MAP_MAUVILLE_CITY_GYM, 9, 5
 	waitstate
 	release
 	end
