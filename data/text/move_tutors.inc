@@ -25,11 +25,9 @@ MoveTutor_Text_SwaggerTaught:
 	.string "on without the swagger.$"
 
 MoveTutor_Text_RolloutTeach:
-	.string "Did you know that you can go from\n"
-	.string "here a long way in that direction\l"
-	.string "without changing direction?\p"
-	.string "I might even be able to roll\n"
-	.string "that way.\p"
+	.string "If you become round enough, you'll able\n"
+	.string "to get around by simply rolling.\p"
+	.string "It totally beats walking!\p"
 	.string "Do you think your POKéMON will\n"
 	.string "want to roll, too?\p"
 	.string "I can teach one the move ROLLOUT\n"

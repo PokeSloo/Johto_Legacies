@@ -680,7 +680,7 @@
 #define FLAG_HIDE_CHALLENGE_TRAINERS  0x27E // In quiz room
 #define FLAG_ANSWERED_CHALLENGE_QUESTION_WRONG  0x27F // All questions will set this flag if wrong
 #define FLAG_HIDE_WHITNEY_CHALLENGE_BATTLE  0x280 // Battle room before she enters
-#define FLAG_UNUSED_0x281  0x281 // Unused Flag
+#define FLAG_HIDE_ECRUTEAK_PHOENIX  0x281 // Hide grunts after rescuing shane
 #define FLAG_UNUSED_0x282  0x282 // Unused Flag
 #define FLAG_UNUSED_0x283  0x283 // Unused Flag
 #define FLAG_UNUSED_0x284  0x284 // Unused Flag

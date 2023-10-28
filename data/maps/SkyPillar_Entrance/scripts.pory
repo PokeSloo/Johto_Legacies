@@ -1,0 +1,38 @@
+mapscripts SkyPillar_Entrance_MapScripts {}
+
+script SkyPillar_Entrance_EventScript_Trigger {
+    lock
+    applymovement (1, SkyPillar_Entrance_Movement_SageLeft)
+    waitmovement (0)
+    msgbox(format("I'm sorry, but the Bell Tower is off limits to the unworthy."))
+    waitmessage
+    closemessage
+    applymovement (OBJ_EVENT_ID_PLAYER, Route106_PlayerStepDown)
+    waitmovement (0)
+    applymovement (1, SkyPillar_Entrance_Movement_SageDown)
+    waitmovement (0)
+    release
+    end
+}
+
+movement SkyPillar_Entrance_Movement_SageLeft {
+    walk_in_place_left
+}
+
+movement SkyPillar_Entrance_Movement_SageDown {
+    walk_in_place_down
+}
+
+movement Route106_PlayerStepDown {
+    walk_down
+}
+
+script SkyPillar_Entrance_EventScript_BlockSage {
+    msgbox(format("I'm sorry, but the Bell Tower is off limits to the unworthy."), MSGBOX_NPC)
+    end
+}
+
+script SkyPillar_Entrance_EventScript_WanderingSage {
+    msgbox(format("This path leads to the Bell Tower, it's a sacred tower that the legendary POKéMON Ho-oh watches over."), MSGBOX_NPC)
+    end
+}

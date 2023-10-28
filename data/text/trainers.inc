@@ -422,111 +422,110 @@ Route104_Text_DarianPostBattle:
 	.string "I guess you had the better POKéMON.$"
 
 Route105_Text_FosterIntro:
-	.string "There's supposed to be a mystical\n"
-	.string "rock around here.\l"
-	.string "Do you know anything about it?$"
+	.string "Are you headed to Mt. Mortar?\p"
+	.string "It's my favorite mountain by far!$"
 
 Route105_Text_FosterDefeated:
-	.string "I was thinking too much about that\n"
-	.string "rock, while my POKéMON remained weak…$"
+	.string "I should have concentrated more on our\n"
+	.string "battle.$"
 
 Route105_Text_FosterPostBattle:
-	.string "I can spend hours and hours staring\n"
-	.string "at a nice rock without growing bored.$"
+	.string "I've heard Mt. Silver is also a nice\n"
+	.string "mountain, but very few are allowed\l"
+	.string "there.$"
 
 Route105_Text_LuisIntro:
-	.string "Whew! I was worried that a kid was\n"
-	.string "drowning when I saw you.\p"
-	.string "You seem to be okay, so what do you\n"
-	.string "say to a battle?$"
+	.string "Hmph, I say, you look like you're\n"
+	.string "prepared for a battle!$"
 
 Route105_Text_LuisDefeated:
-	.string "Glub… Glub…$"
+	.string "Quite prepared indeed...$"
 
 Route105_Text_LuisPostBattle:
-	.string "If you are drowning, the signal is to\n"
-	.string "wave one arm toward the beach.$"
+	.string "A gentleman such as myself only battles\n"
+	.string "TRAINERS who appear well learned in\l"
+	.string "the art of POKéMON battles.$"
 
 Route105_Text_DominikIntro:
-	.string "Swimming the deep blue sea…\n"
-	.string "It feels the greatest!$"
+	.string "I'll show you the best POKéMON money\n"
+	.string "can buy!$"
 
 Route105_Text_DominikDefeated:
-	.string "I lost…\n"
-	.string "Now I'm feeling blue…$"
+	.string "No, I paid so much for that Porygon!\n"
+	.string "I want a refund.$"
 
 Route105_Text_DominikPostBattle:
-	.string "Why is the sea blue?\p"
-	.string "I learned about that at the MUSEUM in\n"
-	.string "SLATEPORT, but I forgot.$"
+	.string "I tried to purchase the Dance Theater in\n"
+	.string "Ecruteak, but they told me it's not for\l"
+	.string "sale.\p"
+	.string "The nerve of those people!$"
 
 Route105_Text_BeverlyIntro:
-	.string "My body feels lighter in the water.\n"
-	.string "It's as if I've gotten slimmer!$"
+	.string "Go, my adorable POKéMON!$"
 
 Route105_Text_BeverlyDefeated:
-	.string "I'm floating…$"
+	.string "I guess cuteness doesn't win POKéMON\n"
+	.string "battles...$"
 
 Route105_Text_PostBattle:
-	.string "Your body weight is reduced to just\n"
-	.string "one tenth in the water.\p"
-	.string "That would make me…\n"
-	.string "Whoops! I'm not telling you my weight!$"
+	.string "I was training up my cute little\n"
+	.string "ELECTRIC-type POKéMON to take on\l"
+	.string "WATARU, but it seems they aren't ready\l"
+	.string "yet.$"
 
 Route105_Text_ImaniIntro:
-	.string "The blue, blue sky…\n"
-	.string "The vast sea…\l"
-	.string "It's so peaceful…$"
+	.string "I was just out for a stroll, but I\n"
+	.string "suppose I have time for a quick battle!$"
 
 Route105_Text_ImaniDefeated:
-	.string "I lost while I was lounging!$"
+	.string "Perhaps I should have chosen an easier\n"
+	.string "opponent...$"
 
 Route105_Text_ImaniPostBattle:
-	.string "I want to be told I'm relaxing to be\n"
-	.string "with. Giggle.$"
+	.string "Have you been to the Dance Theater in\n"
+	.string "Ecruteak?\p"
+	.string "I wish I could be like those girls.$"
 
 Route105_Text_AndresIntro:
-	.string "I'm convinced that the sea keeps\n"
-	.string "secrets from us.$"
+	.string "Fwahahaha! Hiking is the best!$"
 
 Route105_Text_AndresDefeated:
-	.string "Yes…\n"
-	.string "I am no good at battling…$"
+	.string "I'm a better hiker than a battler,\n"
+	.string "trust me.$"
 
 Route105_Text_AndresPostBattle:
-	.string "I'm sure there are many secrets to be\n"
-	.string "discovered in the world's seas.\p"
-	.string "I mean to find them all!$"
+	.string "I've hiked every mountain in Johto, now\n"
+	.string "I have my sights set on Mt. Tempest in\l"
+	.string "the Golden Islands...$"
 
 Route105_Text_AndresRegister:
-	.string "Huh? I'm so weak, but you're willing\n"
-	.string "to register me in your POKéNAV?$"
+	.string "Register me in your POKéNAV so I can\n"
+	.string "tell you all about the greatness of\l"
+	.string "hiking later!$"
 
 Route105_Text_AndresRematchIntro:
-	.string "I've told you that I'm weak…\n"
-	.string "Are you sure you want to do this?$"
+	.string "Have you found an appreciation for\n"
+	.string "hiking yet?$"
 
 Route105_Text_AndresRematchDefeated:
-	.string "Yes…\n"
-	.string "I didn't think I could win.$"
+	.string "You're still a good battler I see.$"
 
 Route105_Text_AndresRematchPostBattle:
-	.string "I may be weak at battling, but my\n"
-	.string "drive to explore can't be bested.\p"
-	.string "I will travel the seas all around\n"
-	.string "the world!$"
+	.string "Have you been to Mt. Tempest?\p"
+	.string "I've heard very strong TRAINERS visit\n"
+	.string "there.$"
 
 Route105_Text_JosueIntro:
-	.string "I'm exhausted from swimming.\n"
-	.string "I'm just not used to it.\p"
-	.string "I need a battle for a change of pace!$"
+	.string "Birds are real, and I will prove it to\n"
+	.string "you!$"
 
 Route105_Text_JosueDefeated:
-	.string "I lost because I battled at sea.$"
+	.string "Are any of us real...?$"
 
 Route105_Text_JosuePostBattle:
-	.string "Yeah, for me, the sky is a much better\n"
-	.string "match than the sea.$"
+	.string "This could all be a simulation!\p"
+	.string "Just look at that hiker, I haven't seen\n"
+	.string "him blink once!$"
 
 Route106_Text_ElliotIntro:
 	.string "Which do you prefer, fishing in the\n"
@@ -592,18 +591,17 @@ Route106_Text_KylaPostBattle:
 	.string "the creeps.$"
 
 Route107_Text_DarrinIntro:
-	.string "Yawn…\p"
-	.string "I must have drifted off to sleep while\n"
-	.string "I was drifting in the waves.$"
+	.string "Did you come here from Goldenrod City?\p"
+	.string "I will show you the power of a true\n"
+	.string "POKéMON fan!$"
 
 Route107_Text_DarrinDefeated:
-	.string "Ahaha, I lost…\n"
-	.string "I'll take a snooze, I think…$"
+	.string "Oh, you must be a bigger POKéMON fan\n"
+	.string "than I am.$"
 
 Route107_Text_DarrinPostBattle:
-	.string "Floating and being rocked by\n"
-	.string "the waves--it's like sleeping in\l"
-	.string "a plush, comfy bed.$"
+	.string "Have you been to the POKéMON Fan Club\n"
+	.string "in Goldenrod City?$"
 
 Route107_Text_TonyIntro:
 	.string "I'll show you the awesome BUG-type\n"
@@ -660,39 +658,37 @@ Route107_Text_BethPostBattle:
 	.string "better. I'll go for it, too!$"
 
 Route107_Text_LisaIntro:
-	.string "LISA: We challenge you as a sister\n"
-	.string "and brother!$"
+	.string "LISA: Hey! You found our secret\n"
+	.string "make-out spot!$"
 
 Route107_Text_LisaDefeated:
-	.string "LISA: Awesome.\n"
-	.string "You're in a different class of tough.$"
+	.string "LISA: Way to ruin the mood...$"
 
 Route107_Text_LisaPostBattle:
-	.string "LISA: Do you have any friends who\n"
-	.string "would go to the beach with you?$"
+	.string "LISA: Go find your own make-out spot.\p"
+	.string "This one is taken.$"
 
 Route107_Text_LisaNotEnoughPokemon:
-	.string "LISA: If you want to battle with us,\n"
-	.string "bring more POKéMON.$"
+	.string "LISA: Only one POKéMON?\p"
+	.string "That's pretty ballsy, but we always\n"
+	.string "battle as a team.$"
 
 Route107_Text_RayIntro:
-	.string "RAY: We always battle POKéMON,\n"
-	.string "me and my sister.\p"
-	.string "I always lose, but we can beat you\n"
-	.string "2-on-2!$"
+	.string "RAY: Oh come on, read the room kid!$"
 
 Route107_Text_RayDefeated:
-	.string "RAY: Wowee, you're at a higher level\n"
-	.string "than us!$"
+	.string "RAY: My disappointment is immeasurable,\n"
+	.string "and my day is ruined.$"
 
 Route107_Text_RayPostBattle:
-	.string "RAY: My sister gave me my POKéMON.\n"
-	.string "I raised it, and now it's my important\l"
-	.string "partner!$"
+	.string "RAY: I found this nice secluded area to\n"
+	.string "make-out with my girlfriend, but you\l"
+	.string "just had to come along and ruin it.$"
 
 Route107_Text_RayNotEnoughPokemon:
-	.string "RAY: If you want to battle us,\n"
-	.string "go bring some more POKéMON!$"
+	.string "RAY: Just one POKéMON?\p"
+	.string "You've got guts kid, now get out of\n"
+	.string "here.$"
 
 Route107_Text_CamronIntro:
 	.string "I'm training for a huge triathlon, help\n"

@@ -1,0 +1,77 @@
+mapscripts MauvilleCity_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+        setflag (FLAG_VISITED_MAUVILLE_CITY)
+	    setflag (FLAG_SYS_TV_START)
+	    end
+    }
+}
+
+script MauvilleCity_EventScript_CitySign {
+    msgbox(format("ECRUTEAK CITY\n“A Historical City.”"), MSGBOX_SIGN)
+    end
+}
+
+script MauvilleCity_EventScript_BurnedTowerSign {
+    msgbox(format("BURNED TOWER\nIt was destroyed by a mysterious fire.\pPlease stay away, as it is unsafe."), MSGBOX_SIGN)
+    end
+}
+
+script MauvilleCity_EventScript_BellTowerSign {
+    msgbox(format("BARRIER STATION TO BELL TOWER\nNo Trespassing by the Unworthy."), MSGBOX_SIGN)
+    end
+}
+
+script MauvilleCity_EventScript_DanceTheaterSign {
+    msgbox(format("ECRUTEAK DANCE THEATER"), MSGBOX_SIGN)
+    end
+}
+
+script MauvilleCity_EventScript_BurnedTowerKid {
+    msgbox(format("Burned Tower? Historical significance?\pBig deal! Why do I have to write a school paper on this stupid place?"), MSGBOX_NPC)
+    end
+}
+
+script MauvilleCity_EventScript_Tourist {
+    msgbox(format("I wanted to see the Bell Tower while I was here touring with my friends, but the jerks inside told me I'm unworthy!\pDon't they know who I am?\pI'm going to write them the nastiest review!"), MSGBOX_NPC)
+    end
+}
+
+script MauvilleCity_EventScript_BlackHairBoy {
+    msgbox(format("Have you been to Route 42 recently?\pIt's been snowing non-stop that way, but luckily Ecruteak is still clear."), MSGBOX_NPC)
+    end
+}
+
+script MauvilleCity_EventScript_RichKid {
+    lock
+    faceplayer
+    if (flag(FLAG_HIDE_ECRUTEAK_PHOENIX)) {
+        msgbox(format("The Kimono Girls in the Dance Theater seem much happier.\pI'm not sure what happened, but it's much more fun now!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("I went to the Dance Theater, but all of the Kimono Girls seemed stressed for some reason.\pIt's kind of depressing."))
+        release
+        end
+    }
+}
+
+script MauvilleCity_EventScript_GymNerd {
+    msgbox(format("The gym leader here uses WATER-type POKéMON, but don't expect a calm ripple.\pWATARU will crash down on you like a roaring waterfall!"), MSGBOX_NPC)
+    end
+}
+
+script MauvilleCity_EventScript_KimonoGirl {
+    lock
+    faceplayer
+    if (flag(FLAG_HIDE_ECRUTEAK_PHOENIX)) {
+        msgbox(format("Welcome to the Ecruteak Dance Theater!\pAnd thank you so much for running off those thugs!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Welcome to the Ecruteak Dance Theater!\pPlease come in and enjoy yourself...\p...\pPlease, you have to help us...\pI shouldn't have said that, they'll hear me..."))
+        release
+        end
+    }
+}

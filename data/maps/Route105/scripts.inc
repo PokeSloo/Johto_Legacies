@@ -1,28 +1,16 @@
 Route105_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, Route105_OnLoad
-	map_script MAP_SCRIPT_ON_TRANSITION, Route105_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route105_OnFrame
 	.byte 0
 
-Route105_OnLoad:
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_105_NORTH, AbnormalWeather_EventScript_PlaceTilesRoute105North
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_105_SOUTH, AbnormalWeather_EventScript_PlaceTilesRoute105South
+
+Route105_EventScript_Sign_Top::
+	msgbox Route105_EventScript_Sign_Top_Text_0, MSGBOX_SIGN
 	end
 
-Route105_CloseRegiEntrance::
-	setmetatile 9, 19, METATILE_General_RockWall_RockBase, TRUE
-	setmetatile 9, 20, METATILE_General_RockWall_SandBase, TRUE
-	return
 
-Route105_OnTransition:
-	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_105_NORTH, AbnormalWeather_StartKyogreWeather
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_105_SOUTH, AbnormalWeather_StartKyogreWeather
+Route105_EventScript_Sign_Bottom::
+	msgbox Route105_EventScript_Sign_Bottom_Text_0, MSGBOX_SIGN
 	end
 
-Route105_OnFrame:
-	map_script_2 VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_EndEventAndCleanup_1
-	.2byte 0
 
 Route105_EventScript_Foster::
 	trainerbattle_single TRAINER_FOSTER, Route105_Text_FosterIntro, Route105_Text_FosterDefeated
@@ -94,3 +82,15 @@ Route104_Text_DadPokenavCall:
 Route104_Text_RegisteredDadInPokenav:
 	.string "Registered DAD NORMAN\n"
 	.string "in the POKéNAV.$"
+
+Route105_EventScript_Sign_Top_Text_0:
+	.string "ROUTE 37\n"
+	.string "{UP_ARROW} North to ECRUTEAK CITY$"
+
+Route105_EventScript_Sign_Bottom_Text_0:
+	.string "TRAINER TIPS\p"
+	.string "The move Dig can take you back to the\n"
+	.string "entrance when you use it.\p"
+	.string "If you want to explore a cave or\n"
+	.string "something similar, a POKéMON with Dig\l"
+	.string "will be quite useful.$"

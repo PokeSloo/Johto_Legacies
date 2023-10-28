@@ -1,0 +1,28 @@
+mapscripts SkyPillar_Outside_MapScripts {}
+
+script SkyPillar_Outside_EventScript_Fisherman {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_GOOD_ROD)) {
+        msgbox(format("How has that Good Rod been treating you?\pHave you tried fishing in the little pond in town?"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Hmm, that fishing rod you have...\pIs that just a stick with some string tied to it?\pSay, how would you like a real fishing rod?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("That's fine, but you won't be able to catch much with that Old Rod."))
+            release
+            end
+        }
+        else {
+            msgbox(format("That's what I like to hear!\pA true fisherman in the making!"))
+            waitmessage
+            giveitem (ITEM_GOOD_ROD)
+            msgbox(format("With a better rod, you'll be able to find better POKéMON.\pAnd don't worry, I have plenty of rods to spare."))
+            setflag(FLAG_RECEIVED_GOOD_ROD)
+            release
+            end
+        }
+    }
+}

@@ -3194,20 +3194,20 @@
     {
       "id": "LAYOUT_SKY_PILLAR_ENTRANCE",
       "name": "SkyPillar_Entrance_Layout",
-      "width": 20,
-      "height": 10,
+      "width": 10,
+      "height": 21,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleDome",
+      "secondary_tileset": "gTileset_BattlePyramid",
       "border_filepath": "data/layouts/SkyPillar_Entrance/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_Entrance/map.bin"
     },
     {
       "id": "LAYOUT_SKY_PILLAR_OUTSIDE",
       "name": "SkyPillar_Outside_Layout",
-      "width": 28,
-      "height": 23,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Pacifidlog",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/SkyPillar_Outside/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_Outside/map.bin"
     },
