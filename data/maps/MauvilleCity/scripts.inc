@@ -139,5 +139,5 @@ MauvilleCity_EventScript_KimonoGirl_Text_1:
 	.string "Please come in and enjoy yourself...\p"
 	.string "...\p"
 	.string "Please, you have to help us...\p"
-	.string "I shouldn't have said that, they'll hear\n"
-	.string "me...$"
+	.string "Oops, I shouldn't have spoken so loud.\p"
+	.string "They might hear me...$"

@@ -1,46 +1,132 @@
 MauvilleCity_House1_MapScripts::
 	.byte 0
 
-MauvilleCity_House1_EventScript_RockSmashDude::
+
+MauvilleCity_House1_EventScript_Collector::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_HM06, MauvilleCity_House1_EventScript_ReceivedRockSmash
-	msgbox MauvilleCity_House1_Text_ImRockSmashDudeTakeThis, MSGBOX_DEFAULT
-	giveitem ITEM_HM06
-	setflag FLAG_RECEIVED_HM06
-	setflag FLAG_HIDE_ROUTE_111_ROCK_SMASH_TIP_GUY
-	msgbox MauvilleCity_House1_Text_ExplainRockSmash, MSGBOX_DEFAULT
+	msgbox MauvilleCity_House1_EventScript_Collector_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq MauvilleCity_House1_EventScript_Collector_1
+	goto MauvilleCity_House1_EventScript_BottleCapSale
+	end
+
+MauvilleCity_House1_EventScript_Collector_1:
+	msgbox MauvilleCity_House1_EventScript_Collector_Text_1
 	release
 	end
 
-MauvilleCity_House1_EventScript_ReceivedRockSmash::
-	msgbox MauvilleCity_House1_Text_MonCanFlyOutOfSmashedRock, MSGBOX_DEFAULT
+
+MauvilleCity_House1_EventScript_BottleCapSale::
+	checkitem ITEM_GOLD_BOTTLE_CAP
+	compare VAR_RESULT, TRUE
+	goto_if_eq MauvilleCity_House1_EventScript_BottleCapSale_2
+	checkitem ITEM_BOTTLE_CAP
+	compare VAR_RESULT, TRUE
+	goto_if_eq MauvilleCity_House1_EventScript_BottleCapSale_5
+	msgbox MauvilleCity_House1_EventScript_BottleCapSale_Text_4
 	release
 	end
 
-MauvilleCity_House1_Text_ImRockSmashDudeTakeThis:
-	.string "Woohoo!\p"
-	.string "I hear people call me the ROCK SMASH\n"
-	.string "GUY, but I find that sort of degrading.\p"
-	.string "I think I deserve a bit more respect,\n"
-	.string "like maybe the ROCK SMASH DUDE.\p"
-	.string "Woohoo!\p"
-	.string "Anyways, your POKéMON look pretty\n"
-	.string "strong.\p"
-	.string "I like that!\n"
-	.string "Here, take this HIDDEN MACHINE!$"
+MauvilleCity_House1_EventScript_BottleCapSale_2:
+	msgbox MauvilleCity_House1_EventScript_BottleCapSale_Text_0
+	removeitem ITEM_GOLD_BOTTLE_CAP, 1
+	giveitem ITEM_EXP_CANDY_M
+	msgbox MauvilleCity_House1_EventScript_BottleCapSale_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq MauvilleCity_House1_EventScript_BottleCapSale_7
+	goto MauvilleCity_House1_EventScript_BottleCapSale
+	end
 
-MauvilleCity_House1_Text_ExplainRockSmash:
-	.string "That HM contains ROCK SMASH.\p"
-	.string "If you come across large boulders\n"
-	.string "that block your path…\p"
-	.string "Well, use that HM move and smash\n"
-	.string "them right out of your way!\p"
-	.string "Yes, sir! Smash rocks aside, I say!\n"
-	.string "Woohoo!$"
+MauvilleCity_House1_EventScript_BottleCapSale_5:
+	msgbox MauvilleCity_House1_EventScript_BottleCapSale_Text_2
+	removeitem ITEM_BOTTLE_CAP, 1
+	giveitem ITEM_EXP_CANDY_S
+	msgbox MauvilleCity_House1_EventScript_BottleCapSale_Text_3, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq MauvilleCity_House1_EventScript_BottleCapSale_10
+	goto MauvilleCity_House1_EventScript_BottleCapSale
+	end
 
-MauvilleCity_House1_Text_MonCanFlyOutOfSmashedRock:
-	.string "Oh, yes, if you smash a rock, a POKéMON\n"
-	.string "could come flying out of hiding.\p"
-	.string "Woohoo!$"
+MauvilleCity_House1_EventScript_BottleCapSale_7:
+	msgbox MauvilleCity_House1_EventScript_Collector_Text_1
+	release
+	end
 
+MauvilleCity_House1_EventScript_BottleCapSale_10:
+	msgbox MauvilleCity_House1_EventScript_Collector_Text_1
+	release
+	end
+
+
+MauvilleCity_House1_EventScript_TauntKid::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_TAUNT_TM, MauvilleCity_House1_EventScript_TauntKid_1
+	msgbox MauvilleCity_House1_EventScript_TauntKid_Text_1
+	waitmessage
+	giveitem ITEM_TM12_TAUNT
+	setflag FLAG_RECEIVED_TAUNT_TM
+	release
+	end
+
+MauvilleCity_House1_EventScript_TauntKid_1:
+	msgbox MauvilleCity_House1_EventScript_TauntKid_Text_0
+	release
+	end
+
+
+MauvilleCity_House1_EventScript_Collector_Text_0:
+	.string "Hiya! I'm the Bottle Cap Maniac!\p"
+	.string "My favorite hobby is collecting Bottle\n"
+	.string "Caps. If you have any Bottle Caps, I\l"
+	.string "would be willing to trade you for some\l"
+	.string "Exp.Candy.\p"
+	.string "So do we have a deal?$"
+
+MauvilleCity_House1_EventScript_Collector_Text_1:
+	.string "Oh, I see.\p"
+	.string "Well if you ever change your mind, you\n"
+	.string "know where to find me.$"
+
+MauvilleCity_House1_EventScript_BottleCapSale_Text_0:
+	.string "Oh! You have a Gold Bottle Cap!\p"
+	.string "That's fantastic!\p"
+	.string "Here, you can have an Exp.Candy M in\n"
+	.string "return.$"
+
+MauvilleCity_House1_EventScript_BottleCapSale_Text_1:
+	.string "Pleasure doing business with you!\p"
+	.string "Now, do you have any more Bottle Caps\n"
+	.string "you would be willing to trade?$"
+
+MauvilleCity_House1_EventScript_BottleCapSale_Text_2:
+	.string "Ah, I see you have a Bottle Cap.\p"
+	.string "Hmm, for that you can have an Exp.Candy\n"
+	.string "S in return.$"
+
+MauvilleCity_House1_EventScript_BottleCapSale_Text_3:
+	.string "Pleasure doing business with you.\p"
+	.string "Now, do you have any more Bottle Caps\n"
+	.string "you would be willing to trade?$"
+
+MauvilleCity_House1_EventScript_BottleCapSale_Text_4:
+	.string "Hmmm...\p"
+	.string "It appears you don't have any Bottle\n"
+	.string "Caps on you at the moment.\p"
+	.string "If you do find some, you know where to\n"
+	.string "find me.$"
+
+MauvilleCity_House1_EventScript_TauntKid_Text_0:
+	.string "Have you tried taunting anyone yet?$"
+
+MauvilleCity_House1_EventScript_TauntKid_Text_1:
+	.string "Are you a TRAINER?\p"
+	.string "I don't believe it!\p"
+	.string "You look like you couldn't even catch a\n"
+	.string "cold!\p"
+	.string "I bet I could beat you with a single\n"
+	.string "level 1 Magikarp!\p"
+	.string "...\p"
+	.string "It's fun to taunt people, you should try\n"
+	.string "it sometime.$"

@@ -1,0 +1,97 @@
+mapscripts MauvilleCity_House2_MapScripts {}
+
+script MauvilleCity_House2_EventScript_MoveRelearner {
+	lock
+    faceplayer
+	msgbox (MauvilleCity_House2_Text_ImTheMoveTutor, MSGBOX_DEFAULT)
+	showmoneybox (0, 0)
+	msgbox (MauvilleCity_House2_Text_ThatsAHeartScaleWantMeToTeachMove, MSGBOX_YESNO)
+	if (var(VAR_RESULT) == NO) {
+        goto (MauvilleCity_House2_EventScript_ComeBackWithHeartScale)
+    }
+    checkmoney (3000)
+    if (var(VAR_RESULT) == NO) {
+        msgbox(format("I'm sorry, but it doesn't look like you have enough money.\pPlease come back when you have at least ¥3,000"))
+        waitmessage
+        hidemoneybox
+		release
+        end
+    }
+	goto (MauvilleCity_House2_EventScript_ChooseMon)
+	end
+}
+
+script MauvilleCity_House2_EventScript_ChooseMon {
+	msgbox (MauvilleCity_House2_Text_TutorWhichMon, MSGBOX_DEFAULT)
+	special (ChooseMonForMoveRelearner)
+	waitstate
+	goto_if_eq (VAR_0x8004, PARTY_NOTHING_CHOSEN, MauvilleCity_House2_EventScript_ComeBackWithHeartScale)
+	special (IsSelectedMonEgg)
+	goto_if_eq (VAR_RESULT, TRUE, MauvilleCity_House2_EventScript_CantTeachEgg)
+	goto_if_eq (VAR_0x8005, 0, MauvilleCity_House2_EventScript_NoMoveToTeachMon)
+	goto (MauvilleCity_House2_EventScript_ChooseMove)
+	end
+}
+
+script MauvilleCity_House2_EventScript_ChooseMove {
+	msgbox (MauvilleCity_House2_Text_TeachWhichMove, MSGBOX_DEFAULT)
+	special (TeachMoveRelearnerMove)
+	waitstate
+	showmoneybox (0, 0)
+	goto_if_eq (VAR_0x8004, 0, MauvilleCity_House2_EventScript_ChooseMon)
+	removemoney (3000)
+    updatemoneybox
+	playse (SE_SHOP)
+    waitse
+	msgbox(format("Wonderful!"))
+	waitmessage
+	goto (MauvilleCity_House2_EventScript_ComeBackWithHeartScale)
+	end
+}
+
+script MauvilleCity_House2_EventScript_NoMoveToTeachMon {
+	msgbox (MauvilleCity_House2_Text_DontHaveMoveToTeachPokemon, MSGBOX_DEFAULT)
+	goto (MauvilleCity_House2_EventScript_ChooseMon)
+	end
+}
+
+script MauvilleCity_House2_EventScript_CantTeachEgg {
+	msgbox (MauvilleCity_House2_Text_CantTeachEgg, MSGBOX_DEFAULT)
+	goto (MauvilleCity_House2_EventScript_ChooseMon)
+	end
+}
+
+script MauvilleCity_House2_EventScript_ComeBackWithHeartScale {
+	hidemoneybox
+    msgbox (MauvilleCity_House2_Text_ComeBackWithHeartScale, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+text MauvilleCity_House2_Text_ImTheMoveTutor {
+    format("Hey, I'm the MOVE RELEARNER.\pI can teach any POKéMON a move that they have forgotten, also moves they may have missed the opportunity to learn.")
+}
+
+text MauvilleCity_House2_Text_ThatsAHeartScaleWantMeToTeachMove {
+    format("Of course, I don't work for free.\pHow does ¥3,000 sound to teach one of your POKéMON a move?")
+}
+
+text MauvilleCity_House2_Text_TutorWhichMon {
+    format("Which POKéMON shall be relearning a move?")
+}
+
+text MauvilleCity_House2_Text_TeachWhichMove {
+    format("Which move should I teach?")
+}
+
+text MauvilleCity_House2_Text_DontHaveMoveToTeachPokemon {
+    format("I'm sorry...\pIt doesn't appear that I have any move I can teach that POKéMON.")
+}
+
+text MauvilleCity_House2_Text_ComeBackWithHeartScale {
+    format("Well then, you know where to find me.")
+}
+
+text MauvilleCity_House2_Text_CantTeachEgg {
+    format("Hmm... I'm afraid I can't teach any moves to an egg.")
+}

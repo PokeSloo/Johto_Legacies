@@ -1,0 +1,72 @@
+mapscripts MauvilleCity_House1_MapScripts {}
+
+script MauvilleCity_House1_EventScript_Collector {
+    lock
+    faceplayer
+    msgbox (format("Hiya! I'm the Bottle Cap Maniac!\pMy favorite hobby is collecting Bottle Caps. If you have any Bottle Caps, I would be willing to trade you for some Exp.Candy.\pSo do we have a deal?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        msgbox (format("Oh, I see.\pWell if you ever change your mind, you know where to find me."))
+        release
+        end
+    }
+    else {
+        goto (MauvilleCity_House1_EventScript_BottleCapSale)
+        end
+    }
+}
+
+script MauvilleCity_House1_EventScript_BottleCapSale{
+    checkitem (ITEM_GOLD_BOTTLE_CAP)
+    if (var(VAR_RESULT) == TRUE) {
+        msgbox (format("Oh! You have a Gold Bottle Cap!\pThat's fantastic!\pHere, you can have an Exp.Candy M in return."))
+        removeitem (ITEM_GOLD_BOTTLE_CAP, 1)
+        giveitem (ITEM_EXP_CANDY_M)
+        msgbox (format("Pleasure doing business with you!\pNow, do you have any more Bottle Caps you would be willing to trade?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox (format("Oh, I see.\pWell if you ever change your mind, you know where to find me."))
+            release
+            end
+        }
+        else {
+            goto (MauvilleCity_House1_EventScript_BottleCapSale)
+            end
+        }
+    }
+    checkitem (ITEM_BOTTLE_CAP)
+    if (var(VAR_RESULT) == TRUE) {
+        msgbox (format("Ah, I see you have a Bottle Cap.\pHmm, for that you can have an Exp.Candy S in return."))
+        removeitem (ITEM_BOTTLE_CAP, 1)
+        giveitem (ITEM_EXP_CANDY_S)
+        msgbox (format("Pleasure doing business with you.\pNow, do you have any more Bottle Caps you would be willing to trade?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox (format("Oh, I see.\pWell if you ever change your mind, you know where to find me."))
+            release
+            end
+        }
+        else {
+            goto (MauvilleCity_House1_EventScript_BottleCapSale)
+            end
+        }
+    }
+    msgbox (format("Hmmm...\pIt appears you don't have any Bottle Caps on you at the moment.\pIf you do find some, you know where to find me."))
+    release
+    end
+}
+
+script MauvilleCity_House1_EventScript_TauntKid {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_TAUNT_TM)) {
+        msgbox (format("Have you tried taunting anyone yet?"))
+        release
+        end
+    }
+    else {
+        msgbox (format("Are you a TRAINER?\pI don't believe it!\pYou look like you couldn't even catch a cold!\pI bet I could beat you with a single level 1 Magikarp!\p...\pIt's fun to taunt people, you should try it sometime."))
+        waitmessage
+        giveitem (ITEM_TM12_TAUNT)
+        setflag (FLAG_RECEIVED_TAUNT_TM)
+        release
+        end
+    }
+}
