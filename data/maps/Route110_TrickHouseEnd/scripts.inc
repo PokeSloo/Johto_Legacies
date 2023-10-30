@@ -175,11 +175,6 @@ Route110_TrickHouseEnd_EventScript_GiveBlueTent::
 	return
 
 Route110_TrickHouseEnd_EventScript_TrickMasterExit::
-	applymovement LOCALID_TRICK_MASTER, Route110_TrickHouse_Movement_TrickMasterSpin
-	waitmovement 0
-	playse SE_M_EXPLOSION
-	applymovement LOCALID_TRICK_MASTER, Route110_TrickHouse_Movement_TrickMasterJumpAway
-	waitmovement 0
 	removeobject LOCALID_TRICK_MASTER
 	addvar VAR_TRICK_HOUSE_LEVEL, 1
 	return

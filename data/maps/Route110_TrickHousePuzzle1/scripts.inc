@@ -1,25 +1,6 @@
 Route110_TrickHousePuzzle1_MapScripts::
 	.byte 0
 
-Route110_TrickHousePuzzle1_OnLoad:
-	goto_if_eq VAR_TRICK_HOUSE_PUZZLE_1_STATE, 2, Route110_TrickHousePuzzle1_EventScript_OpenDoor
-	end
-
-Route110_TrickHousePuzzle1_EventScript_OpenDoor::
-	setmetatile 13, 1, METATILE_TrickHousePuzzle_Stairs_Down, FALSE
-	end
-
-Route110_TrickHousePuzzle1_EventScript_Scroll::
-	lockall
-	goto_if_eq VAR_TRICK_HOUSE_PUZZLE_1_STATE, 0, Route110_TrickHousePuzzle1_EventScript_FoundScroll
-	goto Route110_TrickHousePuzzle_EventScript_ReadScrollAgain
-	end
-
-Route110_TrickHousePuzzle1_EventScript_FoundScroll::
-	setvar VAR_TRICK_HOUSE_PUZZLE_1_STATE, 1
-	goto Route110_TrickHousePuzzle_EventScript_FoundScroll
-	end
-
 Route110_TrickHousePuzzle1_EventScript_Sally::
 	trainerbattle_single TRAINER_SALLY, Route110_TrickHousePuzzle1_Text_SallyIntro, Route110_TrickHousePuzzle1_Text_SallyDefeat
 	msgbox Route110_TrickHousePuzzle1_Text_SallyPostBattle, MSGBOX_AUTOCLOSE
@@ -43,34 +24,75 @@ Route110_TrickHousePuzzle1_Text_WroteSecretCodeLockOpened::
 	.string "The lock clicked open!$"
 
 Route110_TrickHousePuzzle1_Text_SallyIntro:
-	.string "I'll hack and slash my way to victory\n"
-	.string "with the CUT we just learned!$"
+	.string "Who let a kid in here?$"
 
 Route110_TrickHousePuzzle1_Text_SallyDefeat:
-	.string "Why are you so serious?$"
+	.string "What? Just who are you?$"
 
 Route110_TrickHousePuzzle1_Text_SallyPostBattle:
-	.string "I never get tired of hacking\n"
-	.string "and slashing!$"
+	.string "You found the secret switch under the\n"
+	.string "bonsai tree?\p"
+	.string "Just what was that idiot upstairs\n"
+	.string "doing?$"
 
 Route110_TrickHousePuzzle1_Text_EddieIntro:
-	.string "I wandered into this weird house\n"
-	.string "by accident…$"
+	.string "Intruder!$"
 
 Route110_TrickHousePuzzle1_Text_EddieDefeat:
-	.string "And now I've lost…$"
+	.string "A strong intruder, it seems...$"
 
 Route110_TrickHousePuzzle1_Text_EddiePostBattle:
-	.string "I lost my way, I lost a battle, and I'm\n"
-	.string "now even more lost… I can't get out…$"
+	.string "No, please, come in\p"
+	.string "Make yourself at home.\p"
+	.string "Stupid brat.$"
 
 Route110_TrickHousePuzzle1_Text_RobinIntro:
-	.string "Just who is the TRICK MASTER?$"
+	.string "Whoa there, are you lost kid?\p"
+	.string "I'm taking you back upstairs!$"
 
 Route110_TrickHousePuzzle1_Text_RobinDefeat:
-	.string "I lost while I was lost in thought!$"
+	.string "Uhm... Please go back upstairs?$"
 
 Route110_TrickHousePuzzle1_Text_RobinPostBattle:
-	.string "You're strong!\n"
-	.string "Just who are you?$"
+	.string "Don't you go through those warp pads!$"
 
+Route110_TrickHousePuzzle1_EventScript_Scientist::
+	lock
+	faceplayer
+	goto_if_set FLAG_GOT_ECRUTEAK_PHOENIX_PASSWORD, Route110_TrickHousePuzzle1_EventScript_Scientist_1
+	msgbox Route110_TrickHousePuzzle1_EventScript_Scientist_Text_1
+	waitmessage
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox Route110_TrickHousePuzzle1_EventScript_Scientist_Text_2
+	waitmessage
+	waitfanfare
+	msgbox Route110_TrickHousePuzzle1_EventScript_Scientist_Text_0
+	waitmessage
+	setflag FLAG_GOT_ECRUTEAK_PHOENIX_PASSWORD
+	release
+	end
+
+Route110_TrickHousePuzzle1_EventScript_Scientist_1:
+	msgbox Route110_TrickHousePuzzle1_EventScript_Scientist_Text_0
+	release
+	end
+
+
+Route110_TrickHousePuzzle1_EventScript_Scientist_Text_0:
+	.string "Please, you must shut this place down.$"
+
+Route110_TrickHousePuzzle1_EventScript_Scientist_Text_1:
+	.string "Who are you?\p"
+	.string "...\p"
+	.string "Oh, you're trying to shut this operation\n"
+	.string "down?\p"
+	.string "Look, I was actually a good scientist\n"
+	.string "before I was forced to work here.\p"
+	.string "They said they'll come after my family\n"
+	.string "if I don't do what they say.\p"
+	.string "You'll need a passcode to get into the\n"
+	.string "lower levels.\p"
+	.string "Here, it's 428752.$"
+
+Route110_TrickHousePuzzle1_EventScript_Scientist_Text_2:
+	.string "{PLAYER} got the passcode!$"

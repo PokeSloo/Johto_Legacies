@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
       "script": "Route110_TrickHousePuzzle7_EventScript_Joshua",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
@@ -38,10 +38,10 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route110_TrickHousePuzzle7_EventScript_Alexis",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
       "x": 4,
       "y": 12,
       "elevation": 0,
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
       "script": "Route110_TrickHousePuzzle7_EventScript_Patricia",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -67,7 +67,7 @@
       "flag": "FLAG_ITEM_TRICK_HOUSE_PUZZLE_7_TROPIC_MAIL"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
       "x": 1,
       "y": 9,
       "elevation": 3,
@@ -77,7 +77,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
       "script": "Route110_TrickHousePuzzle7_EventScript_Alvaro",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
@@ -90,10 +90,10 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
       "script": "Route110_TrickHousePuzzle7_EventScript_Mariela",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
       "x": 13,
       "y": 10,
       "elevation": 3,
@@ -103,7 +103,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
       "script": "Route110_TrickHousePuzzle7_EventScript_Everett",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     }
   ],
   "warp_events": [
@@ -123,42 +123,7 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 3,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle7_EventScript_YellowButton"
-    },
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 3,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle7_EventScript_BlueButton"
-    },
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 3,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle7_EventScript_GreenButton"
-    },
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 3,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle7_EventScript_PurpleButton"
-    }
+
   ],
   "bg_events": [
     {
@@ -167,7 +132,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route110_TrickHousePuzzle7_EventScript_Scroll"
+      "script": "Route110_TrickHousePuzzle7_EventScript_KeyPad"
     }
   ]
 }

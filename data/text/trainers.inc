@@ -1596,17 +1596,16 @@ Route112_Text_ShaylaPostBattle:
 	.string "But it's all right if you're busy.$"
 
 Route113_Text_JaylenIntro:
-	.string "Can you guess why it's so cool\n"
-	.string "around here?$"
+	.string "This place stinks, and I almost fell\n"
+	.string "through the floor!$"
 
 Route113_Text_JaylenDefeat:
 	.string "Peeuuw!\n"
 	.string "That stinks!$"
 
 Route113_Text_JaylenPostBattle:
-	.string "The volcanic ash blocks the sun,\n"
-	.string "so it doesn't get very warm.\p"
-	.string "That's good for me--I can't stand heat!$"
+	.string "I'm giving this place the worst rating I\n"
+	.string "can, nobody should come here.$"
 
 Route113_Text_DillonIntro:
 	.string "The volcano's eruption is proof that\n"
@@ -1734,42 +1733,39 @@ Route113_Text_CobyPostBattle:
 	.string "beaten so easily…$"
 
 Route113_Text_SophieIntro:
-	.string "The warmth here is making me drowsy.\n"
-	.string "Battle with me so I can stay awake.$"
+	.string "I got separated from my tour group,\n"
+	.string "maybe a loud battle will alert them to\l"
+	.string "my location!$"
 
 Route113_Text_SophieDefeat:
-	.string "This is a dream.\n"
-	.string "I'm sure of it…$"
+	.string "That battle got way too intense!$"
 
 Route113_Text_SophiePostBattle:
-	.string "Losing burns me up…\n"
-	.string "I'm just going to sleep right here!\l"
-	.string "Zzz!$"
+	.string "They really need to put up some signs in\n"
+	.string "this place, it's too easy to get lost.$"
 
 Route113_Text_LawrenceIntro:
-	.string "Were you maybe in the middle\n"
-	.string "of gathering volcanic ashes?$"
+	.string "I read some great reviews about this\n"
+	.string "place, but it's a pile of trash!$"
 
 Route113_Text_LawrenceDefeat:
-	.string "Ehehe.\n"
-	.string "We got beaten cleanly.$"
+	.string "No need to be so hostile!$"
 
 Route113_Text_LawrencePostBattle:
-	.string "I ought to hide under the ashes, too.$"
+	.string "I wanted to go to the Bell Tower\n"
+	.string "instead, but they wouldn't let me in.\p"
+	.string "This town is the worst!$"
 
 Route113_Text_WyattIntro:
-	.string "Y-you want to battle with me?\n"
-	.string "Even though I just caught my POKéMON?$"
+	.string "Excuse me, do you work here?\p"
+	.string "I just saw a huge rat!$"
 
 Route113_Text_WyattDefeat:
-	.string "Y-you're all happy to win?\n"
-	.string "Even though it's only me?$"
+	.string "So, you don't work here?$"
 
 Route113_Text_WyattPostBattle:
-	.string "Oh, so now you want to say a word to\n"
-	.string "the loser?\p"
-	.string "Aren't you just the coolest?\n"
-	.string "Humph!$"
+	.string "Whoever runs this place really needs to\n"
+	.string "do something about the rat problem!$"
 
 Route114_Text_LennyIntro:
 	.string "Yodelayhihoo!\p"

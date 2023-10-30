@@ -1,0 +1,143 @@
+const SHADY_GUY_ID = 1
+const STRENGTH_GIRL_ID = 7
+
+mapscripts Route110_TrickHouseEntrance_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        if (flag(FLAG_HIDE_SHADY_KIMONO_GUY)) {
+            setmetatile (15, 12, 0x2AE, FALSE)
+            setmetatile (16, 12, 0x2AF, TRUE)
+            return
+        }
+        end
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_ECRUTEAK_STATE, 1: Route110_TrickHouseEntrance_OnFrame
+    ]
+}
+
+script Route110_TrickHouseEntrance_OnFrame {
+    lock
+    playse (SE_PIN)
+    applymovement (STRENGTH_GIRL_ID, Route110_TrickHouseEntrance_ExclamationLookRight)
+    waitmovement (0)
+    waitse
+    delay (30)
+    applymovement (STRENGTH_GIRL_ID, Route110_TrickHouseEntrance_KimonoToPlayer)
+    waitmovement (0)
+    msgbox(format("You really did it!\pYou drove those thugs away!\pWords can't express how grateful we are to you.\pHere, please take this gift, it's the least I can do to thank you!"))
+    waitmessage
+    giveitem(ITEM_HM04_STRENGTH)
+    msgbox(format("That HM contains the move Strength, teach it to a POKéMON and they will be able to move boulders.\pOf course, you will need the Ecruteak City gym badge to use it.\pBy the way, if you want to challenge us girls, we will give you a special gift for defeating us.\pAgain, thank you for everything!"))
+    waitmessage
+    closemessage
+    applymovement (STRENGTH_GIRL_ID, Route110_TrickHouseEntrance_KimonoExit)
+    waitmovement (0)
+    removeobject(STRENGTH_GIRL_ID)
+    setflag(FLAG_RECEIVED_STRENGTH)
+    setflag(FLAG_HIDE_STRENGTH_KIMONO)
+    addvar (VAR_ECRUTEAK_STATE, 1)
+    release
+    end
+}
+
+movement Route110_TrickHouseEntrance_ExclamationLookRight {
+    emote_exclamation_mark
+    walk_in_place_right
+}
+
+movement Route110_TrickHouseEntrance_KimonoToPlayer {
+    walk_right * 3
+}
+
+movement Route110_TrickHouseEntrance_KimonoExit {
+    walk_up * 6
+}
+
+script Route110_TrickHouseEntrance_EventScript_ShadyGuy {
+    lock
+    faceplayer
+    msgbox(format("Hrm... A kid?\pYou can watch the girls, but no talking!"))
+    waitmessage
+    applymovement (SHADY_GUY_ID, Route110_TrickHouseEntrance_StepUp)
+    waitmovement (0)
+    release
+    end
+}
+
+movement Route110_TrickHouseEntrance_StepUp {
+    walk_in_place_up
+}
+
+script Route110_TrickHouseEntrance_EventScript_BonsaiSwitch {
+    lock
+    if (flag(FLAG_HIDE_SHADY_KIMONO_GUY)) {
+        release
+        end
+    }
+    else {
+        msgbox(format("There's a secret switch beneath this bonsai tree.\pPress it?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            release
+            end
+        }
+        else {
+            closemessage
+            playse (SE_SWITCH)
+            setmetatile (15, 12, 0x2AE, FALSE)
+            setmetatile (16, 12, 0x2AF, TRUE)
+            special (DrawWholeMapView)
+            waitse
+            delay (30)
+            playse (SE_PIN)
+            applymovement (SHADY_GUY_ID, Route110_TrickHouseEntrance_ExclamationRight)
+            waitmovement (0)
+            waitse
+            applymovement (OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEntrance__Movement_FaceLeft)
+            waitmovement (0)
+            msgbox(format("Hey! What do you think you're doing!?\pAlright, I'm going to have to force you to leave!"))
+            trainerbattle_no_intro (TRAINER_BRENDAN_ROUTE_103_MUDKIP, Route110_TrickHouseEntrance_Text_GruntDefeat)
+            applymovement (SHADY_GUY_ID, Route110_TrickHouseEntrance_BackUp)
+            waitmovement (0)
+            msgbox(format("You're a lot tougher than you look.\pI'd better warn the others..."))
+            waitmessage
+            closemessage
+            applymovement (SHADY_GUY_ID, Route110_TrickHouseEntrance_Movement_ShadyExit)
+            waitmovement (0)
+            playse (SE_EXIT)
+            removeobject (SHADY_GUY_ID)
+            setflag (FLAG_HIDE_SHADY_KIMONO_GUY)
+            waitse
+            release
+            end
+        }
+    }
+}
+
+movement Route110_TrickHouseEntrance_ExclamationRight {
+    emote_exclamation_mark
+    walk_in_place_right
+    delay_16 * 4
+    walk_right * 2
+    walk_down * 2
+    walk_right * 3
+}
+
+movement Route110_TrickHouseEntrance__Movement_FaceLeft {
+    face_left
+}
+
+movement Route110_TrickHouseEntrance_BackUp {
+    lock_facing_direction
+    walk_slow_left
+    unlock_facing_direction
+    face_right
+}
+
+movement Route110_TrickHouseEntrance_Movement_ShadyExit {
+    walk_up
+    walk_right * 3
+}
+
+text Route110_TrickHouseEntrance_Text_GruntDefeat {
+    format("Crap, you must be that kid that escaped from Goldenrod...")
+}

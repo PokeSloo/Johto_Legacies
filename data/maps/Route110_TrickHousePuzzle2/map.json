@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route110_TrickHousePuzzle2_EventScript_Ted",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route110_TrickHousePuzzle2_EventScript_Paul",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route110_TrickHousePuzzle2_EventScript_Georgia",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -90,7 +90,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SMOOCHUM_DOLL",
@@ -103,7 +103,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SKITTY",
@@ -116,7 +116,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PIKACHU_DOLL",
@@ -129,7 +129,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WINGULL",
@@ -142,7 +142,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY_DOLL",
@@ -155,7 +155,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KECLEON_DOLL",
@@ -168,10 +168,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
+      "graphics_id": "OBJ_EVENT_GFX_WINGULL",
       "x": 14,
       "y": 8,
       "elevation": 3,
@@ -181,7 +181,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     }
   ],
   "warp_events": [
@@ -194,51 +194,9 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 0,
-      "elevation": 3,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle2_EventScript_Button1"
-    },
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 0,
-      "elevation": 0,
-      "var": "VAR_TEMP_2",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle2_EventScript_Button2"
-    },
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 0,
-      "elevation": 3,
-      "var": "VAR_TEMP_3",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle2_EventScript_Button3"
-    },
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 0,
-      "elevation": 3,
-      "var": "VAR_TEMP_4",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle2_EventScript_Button4"
-    }
+
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": 2,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route110_TrickHousePuzzle2_EventScript_Scroll"
-    }
+
   ]
 }

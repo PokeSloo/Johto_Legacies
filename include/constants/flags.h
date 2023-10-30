@@ -681,14 +681,14 @@
 #define FLAG_ANSWERED_CHALLENGE_QUESTION_WRONG  0x27F // All questions will set this flag if wrong
 #define FLAG_HIDE_WHITNEY_CHALLENGE_BATTLE  0x280 // Battle room before she enters
 #define FLAG_HIDE_ECRUTEAK_PHOENIX  0x281 // Hide grunts after rescuing shane
-#define FLAG_UNUSED_0x282  0x282 // Unused Flag
-#define FLAG_UNUSED_0x283  0x283 // Unused Flag
-#define FLAG_UNUSED_0x284  0x284 // Unused Flag
-#define FLAG_UNUSED_0x285  0x285 // Unused Flag
-#define FLAG_UNUSED_0x286  0x286 // Unused Flag
-#define FLAG_UNUSED_0x287  0x287 // Unused Flag
-#define FLAG_UNUSED_0x288  0x288 // Unused Flag
-#define FLAG_UNUSED_0x289  0x289 // Unused Flag
+#define FLAG_HIDE_SHADY_KIMONO_GUY  0x282 // After battling him
+#define FLAG_GOT_ECRUTEAK_PHOENIX_PASSWORD  0x283 // In their base
+#define FLAG_PHOENIX_DOOR_OPEN  0x284 // Ecruteak base keypad door
+#define FLAG_HIDE_DAMON_ECRUTEAK  0x285 // Phoenix base
+#define FLAG_PHQ_CELLDOOR_1_OPEN  0x286 // Shanes cell ecruteak
+#define FLAG_PHQ_CELLDOOR_3_OPEN  0x287 // Empty cell ecruteak
+#define FLAG_HIDE_STRENGTH_KIMONO  0x288 // Ecruteak dance theater
+#define FLAG_RECEIVED_STRENGTH  0x289 // From kimono girl
 #define FLAG_UNUSED_0x28A  0x28A // Unused Flag
 #define FLAG_UNUSED_0x28B  0x28B // Unused Flag
 #define FLAG_UNUSED_0x28C  0x28C // Unused Flag

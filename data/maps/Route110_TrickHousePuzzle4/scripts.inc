@@ -1,17 +1,6 @@
 Route110_TrickHousePuzzle4_MapScripts::
 	.byte 0
 
-Route110_TrickHousePuzzle4_EventScript_Scroll::
-	lockall
-	goto_if_eq VAR_TRICK_HOUSE_PUZZLE_4_STATE, 0, Route110_TrickHousePuzzle4_EventScript_FoundScroll
-	goto Route110_TrickHousePuzzle_EventScript_ReadScrollAgain
-	end
-
-Route110_TrickHousePuzzle4_EventScript_FoundScroll::
-	setvar VAR_TRICK_HOUSE_PUZZLE_4_STATE, 1
-	goto Route110_TrickHousePuzzle_EventScript_FoundScroll
-	end
-
 Route110_TrickHousePuzzle4_EventScript_Cora::
 	trainerbattle_single TRAINER_CORA, Route110_TrickHousePuzzle4_Text_CoraIntro, Route110_TrickHousePuzzle4_Text_CoraDefeat
 	msgbox Route110_TrickHousePuzzle4_Text_CoraPostBattle, MSGBOX_AUTOCLOSE
@@ -35,36 +24,37 @@ Route110_TrickHousePuzzle4_Text_WroteSecretCodeLockOpened:
 	.string "The lock clicked open!$"
 
 Route110_TrickHousePuzzle4_Text_CoraIntro:
-	.string "It's too much bother to think this out.\n"
-	.string "I only wanted to battle!$"
+	.string "What are all of these shipping\n"
+	.string "containers for?\p"
+	.string "As if I would tell you!$"
 
 Route110_TrickHousePuzzle4_Text_CoraDefeat:
-	.string "Even though I lost, I still like battling\n"
-	.string "the best!$"
+	.string "Eep! Too strong...$"
 
 Route110_TrickHousePuzzle4_Text_CoraPostBattle:
-	.string "Wouldn't you agree? You would go\n"
-	.string "anywhere if TRAINERS were there.$"
+	.string "You may have won, but I'm still not\n"
+	.string "telling you anything.$"
 
 Route110_TrickHousePuzzle4_Text_YujiIntro:
-	.string "Heh! Boulders like this, I can brush\n"
-	.string "aside with one finger!$"
+	.string "Hey, you're not wearing a GRUNT\n"
+	.string "uniform...\p"
+	.string "You must be an intruder!$"
 
 Route110_TrickHousePuzzle4_Text_YujiDefeat:
-	.string "I can push boulders, but I can't solve\n"
-	.string "the puzzle…$"
+	.string "The ADMINS aren't going to be happy\n"
+	.string "about this...$"
 
 Route110_TrickHousePuzzle4_Text_YujiPostBattle:
-	.string "It's not good enough to be brawny…\n"
-	.string "You have to use your head. Be brainy!$"
+	.string "I'm sure DAMON will stop you at least.$"
 
 Route110_TrickHousePuzzle4_Text_PaulaIntro:
-	.string "The TRICK HOUSE is getting trickier,\n"
-	.string "isn't it?$"
+	.string "Naughty children like you deserve to be\n"
+	.string "punished!$"
 
 Route110_TrickHousePuzzle4_Text_PaulaDefeat:
 	.string "Aaak!$"
 
 Route110_TrickHousePuzzle4_Text_PaulaPostBattle:
-	.string "Has anyone made it to the end?$"
+	.string "Crap, now I'll be punished for letting\n"
+	.string "you through.$"
 

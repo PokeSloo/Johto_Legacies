@@ -18,14 +18,6 @@ Route110_TrickHousePuzzle5_OnTransition:
 	end
 
 Route110_TrickHousePuzzle5_EventScript_Scroll::
-	lockall
-	goto_if_eq VAR_TRICK_HOUSE_PUZZLE_5_STATE, 0, Route110_TrickHousePuzzle5_EventScript_FoundScroll
-	goto Route110_TrickHousePuzzle_EventScript_ReadScrollAgain
-	end
-
-Route110_TrickHousePuzzle5_EventScript_FoundScroll::
-	setvar VAR_TRICK_HOUSE_PUZZLE_5_STATE, 1
-	goto Route110_TrickHousePuzzle_EventScript_FoundScroll
 	end
 
 Route110_TrickHousePuzzle5_EventScript_Mechadoll1::

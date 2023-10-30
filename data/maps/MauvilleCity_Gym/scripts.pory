@@ -105,6 +105,7 @@ script MauvilleCity_Gym_On_Frame {
     addvar (VAR_THE_CHALLENGE_EVENTS, 1)
     setflag (FLAG_HIDE_WHITNEY_CHALLENGE_BATTLE)
     setflag (FLAG_HIDE_CHALLENGE_SPECTATOR_LINE)
+    setflag (FLAG_HIDE_STRENGTH_KIMONO)
     clearflag (FLAG_HIDE_GOLDENROD_GYM_RIGHT_GUARD)
     warp (MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F, 9, 7)
     waitstate

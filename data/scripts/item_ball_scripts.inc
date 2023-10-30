@@ -419,15 +419,15 @@ NewMauville_Inside_EventScript_ItemEscapeRope::
 	end
 
 NewMauville_Inside_EventScript_ItemThunderStone::
-	finditem ITEM_THUNDER_STONE
+	finditem ITEM_FLAME_ORB
 	end
 
 NewMauville_Inside_EventScript_ItemFullHeal::
-	finditem ITEM_FULL_HEAL
+	finditem ITEM_SPELL_TAG
 	end
 
 NewMauville_Inside_EventScript_ItemParalyzeHeal::
-	finditem ITEM_PARALYZE_HEAL
+	finditem ITEM_TM30
 	end
 
 AbandonedShip_Rooms_1F_EventScript_ItemHarborMail::
@@ -579,27 +579,27 @@ SeafloorCavern_Room9_EventScript_ItemTM26::
 	end
 
 Route110_TrickHousePuzzle1_EventScript_ItemOrangeMail::
-	finditem ITEM_ORANGE_MAIL
+	finditem ITEM_HEAVY_DUTY_BOOTS
 	end
 
 Route110_TrickHousePuzzle2_EventScript_ItemHarborMail::
-	finditem ITEM_HARBOR_MAIL
+	finditem ITEM_ULTRA_BALL
 	end
 
 Route110_TrickHousePuzzle2_EventScript_ItemWaveMail::
-	finditem ITEM_WAVE_MAIL
+	finditem ITEM_TM41
 	end
 
 Route110_TrickHousePuzzle3_EventScript_ItemShadowMail::
-	finditem ITEM_SHADOW_MAIL
+	finditem ITEM_SMOKE_BALL
 	end
 
 Route110_TrickHousePuzzle3_EventScript_ItemWoodMail::
-	finditem ITEM_WOOD_MAIL
+	finditem ITEM_DUSK_BALL
 	end
 
 Route110_TrickHousePuzzle4_EventScript_ItemMechMail::
-	finditem ITEM_MECH_MAIL
+	finditem ITEM_HYPER_POTION
 	end
 
 Route110_TrickHousePuzzle6_EventScript_ItemGlitterMail::
@@ -607,11 +607,11 @@ Route110_TrickHousePuzzle6_EventScript_ItemGlitterMail::
 	end
 
 Route110_TrickHousePuzzle7_EventScript_ItemTropicMail::
-	finditem ITEM_TROPIC_MAIL
+	finditem ITEM_FULL_HEAL
 	end
 
 Route110_TrickHousePuzzle8_EventScript_ItemBeadMail::
-	finditem ITEM_BEAD_MAIL
+	finditem ITEM_OLD_AMBER
 	end
 
 VictoryRoad_1F_EventScript_ItemMaxElixir::

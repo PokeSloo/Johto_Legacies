@@ -14,14 +14,6 @@ Route110_TrickHousePuzzle6_EventScript_InitPuzzle::
 	end
 
 Route110_TrickHousePuzzle6_EventScript_Scroll::
-	lockall
-	goto_if_eq VAR_TRICK_HOUSE_PUZZLE_6_STATE, 0, Route110_TrickHousePuzzle6_EventScript_FoundScroll
-	goto Route110_TrickHousePuzzle_EventScript_ReadScrollAgain
-	end
-
-Route110_TrickHousePuzzle6_EventScript_FoundScroll::
-	setvar VAR_TRICK_HOUSE_PUZZLE_6_STATE, 1
-	goto Route110_TrickHousePuzzle_EventScript_FoundScroll
 	end
 
 Route110_TrickHousePuzzle6_EventScript_Sophia::

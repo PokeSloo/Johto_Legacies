@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
       "script": "Route110_TrickHousePuzzle1_EventScript_Sally",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
       "script": "Route110_TrickHousePuzzle1_EventScript_Eddie",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
       "script": "Route110_TrickHousePuzzle1_EventScript_Robin",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -67,7 +67,7 @@
       "flag": "FLAG_ITEM_TRICK_HOUSE_PUZZLE_1_ORANGE_MAIL"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ZIGZAGOON_1",
+      "graphics_id": "OBJ_EVENT_GFX_WINGULL",
       "x": 7,
       "y": 4,
       "elevation": 3,
@@ -77,7 +77,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_CutTree",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
@@ -89,8 +89,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Route110_TrickHousePuzzle1_EventScript_Scientist",
+      "flag": "FLAG_HIDE_ECRUTEAK_PHOENIX"
     }
   ],
   "warp_events": [
@@ -141,13 +141,6 @@
 
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": 14,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route110_TrickHousePuzzle1_EventScript_Scroll"
-    }
+
   ]
 }
