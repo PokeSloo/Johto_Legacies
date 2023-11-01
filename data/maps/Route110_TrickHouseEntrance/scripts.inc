@@ -155,6 +155,304 @@ Route110_TrickHouseEntrance_Movement_ShadyExit:
 	walk_right
 	step_end
 
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_1::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_EEVEE, Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_2
+	goto_if_defeated TRAINER_BRENDAN_ROUTE_119_TREECKO, Route110_TrickHouseEntrance_EventScript_TalkToMiddle
+	goto_if_set FLAG_RECEIVED_STRENGTH, Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_4
+	goto_if_set FLAG_HIDE_SHADY_KIMONO_GUY, Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_5
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_7
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_2:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_0
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_4:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_9
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_3
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_TREECKO, Route110_TrickHouseEntrance_Text_Girl1Defeated
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_4
+	addvar VAR_KIMONO_GIRL_COUNT, 1
+	compare VAR_KIMONO_GIRL_COUNT, 5
+	goto_if_eq Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_12
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_5:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_6
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_9:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_2
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_12:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_5
+	release
+	end
+
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_2::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_EEVEE, Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_2
+	goto_if_defeated TRAINER_BRENDAN_ROUTE_103_TORCHIC, Route110_TrickHouseEntrance_EventScript_TalkToMiddle
+	goto_if_set FLAG_RECEIVED_STRENGTH, Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_4
+	goto_if_set FLAG_HIDE_SHADY_KIMONO_GUY, Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_5
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_7
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_2:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_0
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_4:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_9
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_Text_2
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TORCHIC, Route110_TrickHouseEntrance_Text_Girl2Defeated
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_4
+	addvar VAR_KIMONO_GIRL_COUNT, 1
+	compare VAR_KIMONO_GIRL_COUNT, 5
+	goto_if_eq Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_12
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_5:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_Text_3
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_9:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_Text_1
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_12:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_5
+	release
+	end
+
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_3::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_EEVEE, Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_2
+	goto_if_defeated TRAINER_BRENDAN_ROUTE_110_TORCHIC, Route110_TrickHouseEntrance_EventScript_TalkToMiddle
+	goto_if_set FLAG_RECEIVED_STRENGTH, Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_4
+	goto_if_set FLAG_HIDE_SHADY_KIMONO_GUY, Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_5
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_7
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_2:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_0
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_4:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_9
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_Text_2
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_110_TORCHIC, Route110_TrickHouseEntrance_Text_Girl3Defeated
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_4
+	addvar VAR_KIMONO_GIRL_COUNT, 1
+	compare VAR_KIMONO_GIRL_COUNT, 5
+	goto_if_eq Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_12
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_5:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_Text_3
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_9:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_Text_1
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_12:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_5
+	release
+	end
+
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_4::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_EEVEE, Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_2
+	goto_if_defeated TRAINER_BRENDAN_ROUTE_119_TORCHIC, Route110_TrickHouseEntrance_EventScript_TalkToMiddle
+	goto_if_set FLAG_RECEIVED_STRENGTH, Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_4
+	goto_if_set FLAG_HIDE_SHADY_KIMONO_GUY, Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_5
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_7
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_2:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_0
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_4:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_9
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_Text_2
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_TORCHIC, Route110_TrickHouseEntrance_Text_Girl4Defeated
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_4
+	addvar VAR_KIMONO_GIRL_COUNT, 1
+	compare VAR_KIMONO_GIRL_COUNT, 5
+	goto_if_eq Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_12
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_5:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_Text_3
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_9:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_Text_1
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_12:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_5
+	release
+	end
+
+
+Route110_TrickHouseEntrance_EventScript_TalkToMiddle::
+	compare VAR_KIMONO_GIRL_COUNT, 5
+	goto_if_eq Route110_TrickHouseEntrance_EventScript_TalkToMiddle_1
+	msgbox Route110_TrickHouseEntrance_EventScript_TalkToMiddle_Text_1
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_TalkToMiddle_1:
+	msgbox Route110_TrickHouseEntrance_EventScript_TalkToMiddle_Text_0
+	release
+	end
+
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_EEVEE, Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_2
+	goto_if_defeated TRAINER_MAY_ROUTE_103_MUDKIP, Route110_TrickHouseEntrance_EventScript_MiddleLater
+	goto_if_set FLAG_RECEIVED_STRENGTH, Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_4
+	goto_if_set FLAG_HIDE_SHADY_KIMONO_GUY, Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_5
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_7
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_2:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_0
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_4:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_9
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_Text_2
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_MUDKIP, Route110_TrickHouseEntrance_Text_Girl5Defeated
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_Text_3
+	addvar VAR_KIMONO_GIRL_COUNT, 1
+	compare VAR_KIMONO_GIRL_COUNT, 5
+	goto_if_eq Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_12
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_5:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_Text_5
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_9:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_Text_1
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_12:
+	msgbox Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_Text_4
+	givemon SPECIES_EEVEE, 15, ITEM_EVERSTONE
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Route110_TrickHouseEntrance_EventScript_ReceiveEeveeParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Route110_TrickHouseEntrance_EventScript_ReceiveEeveePC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+
+Route110_TrickHouseEntrance_EventScript_MiddleLater::
+	compare VAR_KIMONO_GIRL_COUNT, 5
+	goto_if_eq Route110_TrickHouseEntrance_EventScript_MiddleLater_1
+	msgbox Route110_TrickHouseEntrance_EventScript_MiddleLater_Text_1
+	release
+	end
+
+Route110_TrickHouseEntrance_EventScript_MiddleLater_1:
+	msgbox Route110_TrickHouseEntrance_EventScript_MiddleLater_Text_0
+	givemon SPECIES_EEVEE, 15, ITEM_EVERSTONE
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Route110_TrickHouseEntrance_EventScript_ReceiveEeveeParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Route110_TrickHouseEntrance_EventScript_ReceiveEeveePC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+
+Route110_TrickHouseEntrance_EventScript_ReceiveEeveeParty::
+	call Route110_TrickHouseEntrance_EventScript_ReceivedEeveeFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route110_TrickHouseEntrance_EventScript_ExplainEevee
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto Route110_TrickHouseEntrance_EventScript_ExplainEevee
+	end
+
+
+Route110_TrickHouseEntrance_EventScript_ReceiveEeveePC::
+	call Route110_TrickHouseEntrance_EventScript_ReceivedEeveeFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route110_TrickHouseEntrance_EventScript_SendEeveeToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto Route110_TrickHouseEntrance_EventScript_SendEeveeToPC
+	end
+
+
+Route110_TrickHouseEntrance_EventScript_SendEeveeToPC::
+	call Common_EventScript_TransferredToPC
+	goto Route110_TrickHouseEntrance_EventScript_ExplainEevee
+	end
+
+
+Route110_TrickHouseEntrance_EventScript_ReceivedEeveeFanfare::
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox Route110_TrickHouseEntrance_EventScript_ReceivedEeveeFanfare_Text_0
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_EEVEE
+	return
+
+
+Route110_TrickHouseEntrance_EventScript_ExplainEevee::
+	msgbox Route110_TrickHouseEntrance_EventScript_ExplainEevee_Text_0
+	setflag FLAG_RECEIVED_EEVEE
+	release
+	end
+
+
 Route110_TrickHouseEntrance_OnFrame_Text_0:
 	.string "You really did it!\p"
 	.string "You drove those thugs away!\p"
@@ -192,6 +490,155 @@ Route110_TrickHouseEntrance_EventScript_BonsaiSwitch_Text_2:
 	.string "You're a lot tougher than you look.\p"
 	.string "I'd better warn the others...$"
 
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_0:
+	.string "Welcome, please enjoy your stay...\p"
+	.string "Banzai!$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_1:
+	.string "Thanks for running off those thugs, I\n"
+	.string "never thought we would get rid of them.\p"
+	.string "Oh, would you like to have a battle?$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_2:
+	.string "Ok, another time then.$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_3:
+	.string "Banzai! Let's go!$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_4:
+	.string "If you manage to defeat all of us, we\n"
+	.string "will give you a special reward...$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_5:
+	.string "Oh! So you have!\p"
+	.string "In that case, talk to the girl dancing\n"
+	.string "at the center.$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_6:
+	.string "Please, you have to run off those\n"
+	.string "thugs!$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_1_Text_7:
+	.string "Welcome, please enjoy your stay...\p"
+	.string "Bonsai!$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_Text_0:
+	.string "We're so grateful for running off those\n"
+	.string "thugs!\p"
+	.string "Oh, would you like to have a battle?$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_Text_1:
+	.string "Very well then.$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_Text_2:
+	.string "Alright! Let's go!$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_2_Text_3:
+	.string "Thank you for getting rid of that man...\p"
+	.string "There are more downstairs...$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_Text_0:
+	.string "I wish I were stronger, then I could\n"
+	.string "have ran those thugs off myself!\p"
+	.string "Oh, would you like to have a battle?$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_Text_1:
+	.string "Alright, maybe later.$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_Text_2:
+	.string "Yes! Let's go!$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_3_Text_3:
+	.string "You really showed that thug a thing or\n"
+	.string "two!\p"
+	.string "There are more downstairs, please help\n"
+	.string "us!$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_Text_0:
+	.string "You must be strong if you managed to\n"
+	.string "run those thugs off, they've been\l"
+	.string "tormenting us for years!\p"
+	.string "Oh, would you like to have a battle?$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_Text_1:
+	.string "Please, take as much time as you need\n"
+	.string "to prepare.$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_Text_2:
+	.string "How wonderful! Let's go!$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_4_Text_3:
+	.string "Please help us, there are a lot more\n"
+	.string "thugs downstairs!$"
+
+Route110_TrickHouseEntrance_EventScript_TalkToMiddle_Text_0:
+	.string "Please talk to the girl dancing at the\n"
+	.string "center to receive a special reward!$"
+
+Route110_TrickHouseEntrance_EventScript_TalkToMiddle_Text_1:
+	.string "That was a good battle.\p"
+	.string "If you manage to defeat all of us, we\n"
+	.string "will give you a special reward...$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_Text_0:
+	.string "I can't thank you enough for running\n"
+	.string "off those thugs.\p"
+	.string "Oh, would you like to have a battle?$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_Text_1:
+	.string "You don't have to if you don't want to.$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_Text_2:
+	.string "That's the spirit! Let's go!$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_Text_3:
+	.string "If you manage to defeat all of us, I will\n"
+	.string "give you a special reward...$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_Text_4:
+	.string "Oh! So you have!\p"
+	.string "In that case, I would like to present\n"
+	.string "you with this special POKéMON.$"
+
+Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle_Text_5:
+	.string "Please, you must help us!\p"
+	.string "These thugs have taken over our Dance\n"
+	.string "Theater, and won't let us leave!$"
+
+Route110_TrickHouseEntrance_EventScript_MiddleLater_Text_0:
+	.string "Since you managed to defeat all of us, I\n"
+	.string "would like to present you with a\l"
+	.string "special reward!\p"
+	.string "Please, take this POKéMON.$"
+
+Route110_TrickHouseEntrance_EventScript_MiddleLater_Text_1:
+	.string "That was a good battle.\p"
+	.string "If you manage to defeat all of us, I will\n"
+	.string "give you a special reward...$"
+
+Route110_TrickHouseEntrance_EventScript_ReceivedEeveeFanfare_Text_0:
+	.string "{PLAYER} received the Eevee!$"
+
+Route110_TrickHouseEntrance_EventScript_ExplainEevee_Text_0:
+	.string "I wish you the best of luck in all of\n"
+	.string "your endeavors!$"
+
 Route110_TrickHouseEntrance_Text_GruntDefeat::
 	.string "Crap, you must be that kid that escaped\n"
 	.string "from Goldenrod...$"
+
+Route110_TrickHouseEntrance_Text_Girl1Defeated::
+	.string "You're a very talented TRAINER.$"
+
+Route110_TrickHouseEntrance_Text_Girl2Defeated::
+	.string "I see how you managed to defeat those\n"
+	.string "thugs.$"
+
+Route110_TrickHouseEntrance_Text_Girl3Defeated::
+	.string "Wow! That's all I can say!$"
+
+Route110_TrickHouseEntrance_Text_Girl4Defeated::
+	.string "You really are strong!$"
+
+Route110_TrickHouseEntrance_Text_Girl5Defeated::
+	.string "You are a simply marvelous TRAINER!$"

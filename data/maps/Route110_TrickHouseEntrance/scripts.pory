@@ -141,3 +141,316 @@ movement Route110_TrickHouseEntrance_Movement_ShadyExit {
 text Route110_TrickHouseEntrance_Text_GruntDefeat {
     format("Crap, you must be that kid that escaped from Goldenrod...")
 }
+
+script Route110_TrickHouseEntrance_EventScript_KimonoGirl_1 {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_EEVEE)) {
+        msgbox(format("Welcome, please enjoy your stay...\pBanzai!"))
+        release
+        end
+    }
+    goto_if_defeated (TRAINER_BRENDAN_ROUTE_119_TREECKO, Route110_TrickHouseEntrance_EventScript_TalkToMiddle)
+    if (flag(FLAG_RECEIVED_STRENGTH)) {
+        msgbox(format("Thanks for running off those thugs, I never thought we would get rid of them.\pOh, would you like to have a battle?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Ok, another time then."))
+            release
+            end
+        }
+        else {
+            msgbox(format("Banzai! Let's go!"))
+            trainerbattle_no_intro (TRAINER_BRENDAN_ROUTE_119_TREECKO, Route110_TrickHouseEntrance_Text_Girl1Defeated)
+            msgbox(format("If you manage to defeat all of us, we will give you a special reward..."))
+            addvar (VAR_KIMONO_GIRL_COUNT, 1)
+            if (var(VAR_KIMONO_GIRL_COUNT) == 5) {
+                msgbox(format("Oh! So you have!\pIn that case, talk to the girl dancing at the center."))
+                release
+                end
+            }
+            else {
+                release
+                end
+            }
+        }
+    }
+    elif (flag(FLAG_HIDE_SHADY_KIMONO_GUY)) {
+        msgbox(format("Please, you have to run off those thugs!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Welcome, please enjoy your stay...\pBonsai!"))
+        release
+        end
+    }
+}
+
+script Route110_TrickHouseEntrance_EventScript_KimonoGirl_2 {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_EEVEE)) {
+        msgbox(format("Welcome, please enjoy your stay...\pBanzai!"))
+        release
+        end
+    }
+    goto_if_defeated (TRAINER_BRENDAN_ROUTE_103_TORCHIC, Route110_TrickHouseEntrance_EventScript_TalkToMiddle)
+    if (flag(FLAG_RECEIVED_STRENGTH)) {
+        msgbox(format("We're so grateful for running off those thugs!\pOh, would you like to have a battle?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Very well then."))
+            release
+            end
+        }
+        else {
+            msgbox(format("Alright! Let's go!"))
+            trainerbattle_no_intro (TRAINER_BRENDAN_ROUTE_103_TORCHIC, Route110_TrickHouseEntrance_Text_Girl2Defeated)
+            msgbox(format("If you manage to defeat all of us, we will give you a special reward..."))
+            addvar (VAR_KIMONO_GIRL_COUNT, 1)
+            if (var(VAR_KIMONO_GIRL_COUNT) == 5) {
+                msgbox(format("Oh! So you have!\pIn that case, talk to the girl dancing at the center."))
+                release
+                end
+            }
+            else {
+                release
+                end
+            }
+        }
+    }
+    elif (flag(FLAG_HIDE_SHADY_KIMONO_GUY)) {
+        msgbox(format("Thank you for getting rid of that man...\pThere are more downstairs..."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Welcome, please enjoy your stay...\pBonsai!"))
+        release
+        end
+    }
+}
+
+script Route110_TrickHouseEntrance_EventScript_KimonoGirl_3 {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_EEVEE)) {
+        msgbox(format("Welcome, please enjoy your stay...\pBanzai!"))
+        release
+        end
+    }
+    goto_if_defeated (TRAINER_BRENDAN_ROUTE_110_TORCHIC, Route110_TrickHouseEntrance_EventScript_TalkToMiddle)
+    if (flag(FLAG_RECEIVED_STRENGTH)) {
+        msgbox(format("I wish I were stronger, then I could have ran those thugs off myself!\pOh, would you like to have a battle?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Alright, maybe later."))
+            release
+            end
+        }
+        else {
+            msgbox(format("Yes! Let's go!"))
+            trainerbattle_no_intro (TRAINER_BRENDAN_ROUTE_110_TORCHIC, Route110_TrickHouseEntrance_Text_Girl3Defeated)
+            msgbox(format("If you manage to defeat all of us, we will give you a special reward..."))
+            addvar (VAR_KIMONO_GIRL_COUNT, 1)
+            if (var(VAR_KIMONO_GIRL_COUNT) == 5) {
+                msgbox(format("Oh! So you have!\pIn that case, talk to the girl dancing at the center."))
+                release
+                end
+            }
+            else {
+                release
+                end
+            }
+        }
+    }
+    elif (flag(FLAG_HIDE_SHADY_KIMONO_GUY)) {
+        msgbox(format("You really showed that thug a thing or two!\pThere are more downstairs, please help us!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Welcome, please enjoy your stay...\pBonsai!"))
+        release
+        end
+    }
+}
+
+script Route110_TrickHouseEntrance_EventScript_KimonoGirl_4 {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_EEVEE)) {
+        msgbox(format("Welcome, please enjoy your stay...\pBanzai!"))
+        release
+        end
+    }
+    goto_if_defeated (TRAINER_BRENDAN_ROUTE_119_TORCHIC, Route110_TrickHouseEntrance_EventScript_TalkToMiddle)
+    if (flag(FLAG_RECEIVED_STRENGTH)) {
+        msgbox(format("You must be strong if you managed to run those thugs off, they've been tormenting us for years!\pOh, would you like to have a battle?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Please, take as much time as you need to prepare."))
+            release
+            end
+        }
+        else {
+            msgbox(format("How wonderful! Let's go!"))
+            trainerbattle_no_intro (TRAINER_BRENDAN_ROUTE_119_TORCHIC, Route110_TrickHouseEntrance_Text_Girl4Defeated)
+            msgbox(format("If you manage to defeat all of us, we will give you a special reward..."))
+            addvar (VAR_KIMONO_GIRL_COUNT, 1)
+            if (var(VAR_KIMONO_GIRL_COUNT) == 5) {
+                msgbox(format("Oh! So you have!\pIn that case, talk to the girl dancing at the center."))
+                release
+                end
+            }
+            else {
+                release
+                end
+            }
+        }
+    }
+    elif (flag(FLAG_HIDE_SHADY_KIMONO_GUY)) {
+        msgbox(format("Please help us, there are a lot more thugs downstairs!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Welcome, please enjoy your stay...\pBonsai!"))
+        release
+        end
+    }
+}
+
+script Route110_TrickHouseEntrance_EventScript_TalkToMiddle {
+    if (var(VAR_KIMONO_GIRL_COUNT) == 5) {
+        msgbox(format("Please talk to the girl dancing at the center to receive a special reward!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("That was a good battle.\pIf you manage to defeat all of us, we will give you a special reward..."))
+        release
+        end
+    }
+}
+
+script Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_EEVEE)) {
+        msgbox(format("Welcome, please enjoy your stay...\pBanzai!"))
+        release
+        end
+    }
+    goto_if_defeated (TRAINER_MAY_ROUTE_103_MUDKIP, Route110_TrickHouseEntrance_EventScript_MiddleLater)
+    if (flag(FLAG_RECEIVED_STRENGTH)) {
+        msgbox(format("I can't thank you enough for running off those thugs.\pOh, would you like to have a battle?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("You don't have to if you don't want to."))
+            release
+            end
+        }
+        else {
+            msgbox(format("That's the spirit! Let's go!"))
+            trainerbattle_no_intro (TRAINER_MAY_ROUTE_103_MUDKIP, Route110_TrickHouseEntrance_Text_Girl5Defeated)
+            msgbox(format("If you manage to defeat all of us, I will give you a special reward..."))
+            addvar (VAR_KIMONO_GIRL_COUNT, 1)
+            if (var(VAR_KIMONO_GIRL_COUNT) == 5) {
+                msgbox(format("Oh! So you have!\pIn that case, I would like to present you with this special POKéMON."))
+                givemon (SPECIES_EEVEE, 15, ITEM_EVERSTONE)
+	            goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PARTY, Route110_TrickHouseEntrance_EventScript_ReceiveEeveeParty)
+	            goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PC, Route110_TrickHouseEntrance_EventScript_ReceiveEeveePC)
+	            goto (Common_EventScript_NoMoreRoomForPokemon)
+                end
+            }
+            else {
+                release
+                end
+            }
+        }
+    }
+    elif (flag(FLAG_HIDE_SHADY_KIMONO_GUY)) {
+        msgbox(format("Please, you must help us!\pThese thugs have taken over our Dance Theater, and won't let us leave!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Welcome, please enjoy your stay...\pBonsai!"))
+        release
+        end
+    }
+}
+
+script Route110_TrickHouseEntrance_EventScript_MiddleLater {
+    if (var(VAR_KIMONO_GIRL_COUNT) == 5) {
+        msgbox(format("Since you managed to defeat all of us, I would like to present you with a special reward!\pPlease, take this POKéMON."))
+        givemon (SPECIES_EEVEE, 15, ITEM_EVERSTONE)
+	    goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PARTY, Route110_TrickHouseEntrance_EventScript_ReceiveEeveeParty)
+	    goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PC, Route110_TrickHouseEntrance_EventScript_ReceiveEeveePC)
+	    goto (Common_EventScript_NoMoreRoomForPokemon)
+        end
+    }
+    else {
+        msgbox(format("That was a good battle.\pIf you manage to defeat all of us, I will give you a special reward..."))
+        release
+        end
+    }
+}
+
+script Route110_TrickHouseEntrance_EventScript_ReceiveEeveeParty {
+	call (Route110_TrickHouseEntrance_EventScript_ReceivedEeveeFanfare)
+	msgbox (gText_NicknameThisPokemon, MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, NO, Route110_TrickHouseEntrance_EventScript_ExplainEevee)
+	call (Common_EventScript_GetGiftMonPartySlot)
+	call (Common_EventScript_NameReceivedPartyMon)
+	goto (Route110_TrickHouseEntrance_EventScript_ExplainEevee)
+	end
+}
+
+script Route110_TrickHouseEntrance_EventScript_ReceiveEeveePC {
+	call (Route110_TrickHouseEntrance_EventScript_ReceivedEeveeFanfare)
+	msgbox (gText_NicknameThisPokemon, MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, NO, Route110_TrickHouseEntrance_EventScript_SendEeveeToPC)
+	call (Common_EventScript_NameReceivedBoxMon)
+	goto (Route110_TrickHouseEntrance_EventScript_SendEeveeToPC)
+	end
+}
+
+script Route110_TrickHouseEntrance_EventScript_SendEeveeToPC {
+	call (Common_EventScript_TransferredToPC)
+	goto (Route110_TrickHouseEntrance_EventScript_ExplainEevee)
+	end
+}
+
+script Route110_TrickHouseEntrance_EventScript_ReceivedEeveeFanfare {
+	playfanfare (MUS_OBTAIN_ITEM)
+	msgbox(format("{PLAYER} received the Eevee!"))
+	waitmessage
+	waitfanfare
+	bufferspeciesname (STR_VAR_1, SPECIES_EEVEE)
+	return
+}
+
+script Route110_TrickHouseEntrance_EventScript_ExplainEevee {
+	msgbox(format("I wish you the best of luck in all of your endeavors!"))
+	setflag (FLAG_RECEIVED_EEVEE)
+	release
+	end
+}
+
+text Route110_TrickHouseEntrance_Text_Girl1Defeated {
+    format("You're a very talented TRAINER.")
+}
+
+text Route110_TrickHouseEntrance_Text_Girl2Defeated {
+    format("I see how you managed to defeat those thugs.")
+}
+
+text Route110_TrickHouseEntrance_Text_Girl3Defeated {
+    format("Wow! That's all I can say!")
+}
+
+text Route110_TrickHouseEntrance_Text_Girl4Defeated {
+    format("You really are strong!")
+}
+
+text Route110_TrickHouseEntrance_Text_Girl5Defeated {
+    format("You are a simply marvelous TRAINER!")
+}

@@ -255,22 +255,25 @@ Route110_TrickHouseCorridor_EventScript_Main_Text_1:
 
 Route110_TrickHouseCorridor_EventScript_Main_Text_2:
 	.string "Far from it in fact.\p"
+	.string "As you may have guessed, we exploit\n"
+	.string "POKéMON for our own personal gain.\p"
 	.string "You see, TEAM PHOENIX was actually born\n"
 	.string "from the ashes of TEAM ROCKET, have\l"
 	.string "you heard of them?\p"
 	.string "No, I suppose you wouldn't have, they\n"
 	.string "were disbanded many years ago.\p"
-	.string "You see, I was once a ROCKET scientist\n"
-	.string "myself, and I am still very loyal to\l"
-	.string "thier group.\p"
+	.string "At the time, I was one of TEAM ROCKETS\n"
+	.string "top scientists, and I am still very\l"
+	.string "loyal to thier organization.\p"
 	.string "Now, to complete our ultimate goal, you\n"
 	.string "need to come with me!$"
 
 Route110_TrickHouseCorridor_EventScript_Main_Text_3:
-	.string "You may have won this round, but we are\n"
-	.string "one step closer to our ultimate goal.\p"
-	.string "Our boss will insure that TEAM PHOENIX\n"
-	.string "will reign supreme one day!$"
+	.string "You may have won this round, but TEAM\n"
+	.string "PHOENIX is far from done.\p"
+	.string "Our boss will never relent, and TEAM\n"
+	.string "PHOENIX will surely reign supreme one\l"
+	.string "day!$"
 
 Route110_TrickHouseCorridor_EventScript_Main_Text_4:
 	.string "{PLAYER} inserted the Cell Key into\n"

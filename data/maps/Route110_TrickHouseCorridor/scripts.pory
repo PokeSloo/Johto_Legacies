@@ -81,11 +81,11 @@ script Route110_TrickHouseCorridor_EventScript_Main {
     waitmessage
     applymovement (THORNE_ID, Route110_TrickHouseCorridor_Movement_StepInPlaceLeft)
     waitmovement (0)
-    msgbox(format("Far from it in fact.\pYou see, TEAM PHOENIX was actually born from the ashes of TEAM ROCKET, have you heard of them?\pNo, I suppose you wouldn't have, they were disbanded many years ago.\pYou see, I was once a ROCKET scientist myself, and I am still very loyal to thier group.\pNow, to complete our ultimate goal, you need to come with me!"))
+    msgbox(format("Far from it in fact.\pAs you may have guessed, we exploit POKéMON for our own personal gain.\pYou see, TEAM PHOENIX was actually born from the ashes of TEAM ROCKET, have you heard of them?\pNo, I suppose you wouldn't have, they were disbanded many years ago.\pAt the time, I was one of TEAM ROCKETS top scientists, and I am still very loyal to thier organization.\pNow, to complete our ultimate goal, you need to come with me!"))
     applymovement (THORNE_ID, Route110_TrickHouseCorridor_Movement_ThorneStepLeft)
     waitmovement (0)
     trainerbattle_no_intro (TRAINER_BRENDAN_ROUTE_119_MUDKIP, Route110_TrickHouseCorridor_Text_ThorneDefeat)
-    msgbox(format("You may have won this round, but we are one step closer to our ultimate goal.\pOur boss will insure that TEAM PHOENIX will reign supreme one day!"))
+    msgbox(format("You may have won this round, but TEAM PHOENIX is far from done.\pOur boss will never relent, and TEAM PHOENIX will surely reign supreme one day!"))
     waitmessage
     closemessage
     applymovement (THORNE_ID, Route110_TrickHouseCorridor_Movement_ThorneExit)

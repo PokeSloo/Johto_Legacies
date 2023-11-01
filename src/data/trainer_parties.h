@@ -6956,73 +6956,48 @@ static const struct TrainerMonNoItemCustomMoves sParty_BrendanRoute110Treecko[] 
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute119Treecko[] = {
-    {
-    .iv = 100,
-    .lvl = 29,
-    .species = SPECIES_PELIPPER,
-    },
-    {
-    .iv = 100,
-    .lvl = 29,
-    .species = SPECIES_LOMBRE,
-    },
+static const struct TrainerMonNoItemCustomMoves sParty_BrendanRoute119Treecko[] = {
     {
     .iv = 150,
-    .lvl = 31,
-    .species = SPECIES_COMBUSKEN,
+    .lvl = 34,
+    .species = SPECIES_VAPOREON,
+    .moves = {MOVE_SCALD, MOVE_TOXIC, MOVE_WISH, MOVE_PROTECT}
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute103Torchic[] = {
-    {
-    .iv = 0,
-    .lvl = 5,
-    .species = SPECIES_MUDKIP,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute110Torchic[] = {
-    {
-    .iv = 50,
-    .lvl = 18,
-    .species = SPECIES_LOMBRE,
-    },
-    {
-    .iv = 50,
-    .lvl = 18,
-    .species = SPECIES_SLUGMA,
-    },
-    {
-    .iv = 100,
-    .lvl = 20,
-    .species = SPECIES_MARSHTOMP,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute119Torchic[] = {
-    {
-    .iv = 100,
-    .lvl = 29,
-    .species = SPECIES_LOMBRE,
-    },
-    {
-    .iv = 100,
-    .lvl = 29,
-    .species = SPECIES_SLUGMA,
-    },
+static const struct TrainerMonNoItemCustomMoves sParty_BrendanRoute103Torchic[] = {
     {
     .iv = 150,
-    .lvl = 31,
-    .species = SPECIES_MARSHTOMP,
+    .lvl = 34,
+    .species = SPECIES_FLAREON,
+    .moves = {MOVE_CURSE, MOVE_QUICK_ATTACK, MOVE_FIRE_FANG, MOVE_FIRE_SPIN}
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRoute103Mudkip[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_BrendanRoute110Torchic[] = {
     {
-    .iv = 0,
-    .lvl = 5,
-    .species = SPECIES_TREECKO,
+    .iv = 150,
+    .lvl = 34,
+    .species = SPECIES_JOLTEON,
+    .moves = {MOVE_THUNDERBOLT, MOVE_HIDDEN_POWER, MOVE_DOUBLE_TEAM, MOVE_DOUBLE_KICK}
+    }
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_BrendanRoute119Torchic[] = {
+    {
+    .iv = 150,
+    .lvl = 34,
+    .species = SPECIES_ESPEON,
+    .moves = {MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_SHADOW_BALL, MOVE_MORNING_SUN}
+    }
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_MayRoute103Mudkip[] = {
+    {
+    .iv = 150,
+    .lvl = 34,
+    .species = SPECIES_UMBREON,
+    .moves = {MOVE_WISH, MOVE_PROTECT, MOVE_DARK_PULSE, MOVE_CONFUSE_RAY}
     }
 };
 

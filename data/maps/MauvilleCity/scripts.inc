@@ -139,5 +139,8 @@ MauvilleCity_EventScript_KimonoGirl_Text_1:
 	.string "Please come in and enjoy yourself...\p"
 	.string "...\p"
 	.string "Please, you have to help us...\p"
+	.string "A group of thugs have taken over our\n"
+	.string "Dance Theater, there's a secret switch\l"
+	.string "hidden somewhere inside!\p"
 	.string "Oops, I shouldn't have spoken so loud.\p"
 	.string "They might hear me...$"

@@ -70,7 +70,7 @@ script MauvilleCity_EventScript_KimonoGirl {
         end
     }
     else {
-        msgbox(format("Welcome to the Ecruteak Dance Theater!\pPlease come in and enjoy yourself...\p...\pPlease, you have to help us...\pOops, I shouldn't have spoken so loud.\pThey might hear me..."))
+        msgbox(format("Welcome to the Ecruteak Dance Theater!\pPlease come in and enjoy yourself...\p...\pPlease, you have to help us...\pA group of thugs have taken over our Dance Theater, there's a secret switch hidden somewhere inside!\pOops, I shouldn't have spoken so loud.\pThey might hear me..."))
         release
         end
     }
