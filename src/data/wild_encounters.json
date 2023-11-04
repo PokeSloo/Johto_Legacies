@@ -1107,62 +1107,62 @@
             "mons": [
               {
                 "min_level": 15,
-                "max_level": 15,
+                "max_level": 17,
                 "species": "SPECIES_MEOWTH"
               },
               {
                 "min_level": 15,
-                "max_level": 15,
+                "max_level": 17,
                 "species": "SPECIES_MAGNEMITE"
               },
               {
                 "min_level": 15,
-                "max_level": 15,
+                "max_level": 17,
                 "species": "SPECIES_WOOLOO"
               },
               {
                 "min_level": 14,
-                "max_level": 14,
+                "max_level": 16,
                 "species": "SPECIES_ABSOL"
               },
               {
                 "min_level": 14,
-                "max_level": 14,
+                "max_level": 16,
                 "species": "SPECIES_VOLTORB"
               },
               {
                 "min_level": 14,
-                "max_level": 14,
+                "max_level": 16,
                 "species": "SPECIES_VOLTORB_HISUIAN"
               },
               {
                 "min_level": 16,
-                "max_level": 16,
+                "max_level": 17,
                 "species": "SPECIES_FARFETCHD"
               },
               {
                 "min_level": 16,
-                "max_level": 16,
+                "max_level": 17,
                 "species": "SPECIES_FARFETCHD_GALARIAN"
               },
               {
                 "min_level": 16,
-                "max_level": 16,
+                "max_level": 17,
                 "species": "SPECIES_MILTANK"
               },
               {
                 "min_level": 16,
-                "max_level": 16,
+                "max_level": 17,
                 "species": "SPECIES_TAUROS"
               },
               {
                 "min_level": 16,
-                "max_level": 16,
+                "max_level": 17,
                 "species": "SPECIES_MUDBRAY"
               },
               {
                 "min_level": 16,
-                "max_level": 16,
+                "max_level": 17,
                 "species": "SPECIES_MUDBRAY"
               }
             ]
@@ -3114,58 +3114,58 @@
                 "species": "SPECIES_ZUBAT"
               },
               {
-                "min_level": 17,
+                "min_level": 16,
                 "max_level": 17,
                 "species": "SPECIES_TEDDIURSA"
               },
               {
-                "min_level": 18,
-                "max_level": 18,
+                "min_level": 16,
+                "max_level": 17,
                 "species": "SPECIES_GEODUDE"
               },
               {
                 "min_level": 15,
-                "max_level": 15,
+                "max_level": 16,
                 "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 14,
-                "max_level": 14,
+                "max_level": 16,
                 "species": "SPECIES_MIENFOO"
               },
               {
                 "min_level": 16,
-                "max_level": 16,
+                "max_level": 17,
                 "species": "SPECIES_SALANDIT"
               },
               {
-                "min_level": 18,
-                "max_level": 18,
+                "min_level": 15,
+                "max_level": 16,
                 "species": "SPECIES_ROLYCOLY"
               },
               {
-                "min_level": 19,
-                "max_level": 19,
+                "min_level": 17,
+                "max_level": 17,
                 "species": "SPECIES_SOLROCK"
               },
               {
                 "min_level": 15,
-                "max_level": 15,
+                "max_level": 16,
                 "species": "SPECIES_NUMEL"
               },
               {
-                "min_level": 16,
+                "min_level": 15,
                 "max_level": 16,
                 "species": "SPECIES_SLUGMA"
               },
               {
-                "min_level": 16,
+                "min_level": 15,
                 "max_level": 16,
                 "species": "SPECIES_NUMEL"
               },
               {
-                "min_level": 19,
-                "max_level": 19,
+                "min_level": 17,
+                "max_level": 18,
                 "species": "SPECIES_LUNATONE"
               }
             ]
@@ -8905,58 +8905,58 @@
                 "species": "SPECIES_ZUBAT"
               },
               {
-                "min_level": 17,
+                "min_level": 16,
                 "max_level": 17,
                 "species": "SPECIES_TEDDIURSA"
               },
               {
-                "min_level": 18,
-                "max_level": 18,
+                "min_level": 16,
+                "max_level": 17,
                 "species": "SPECIES_GEODUDE"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 14,
+                "max_level": 16,
                 "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 14,
-                "max_level": 14,
+                "max_level": 16,
                 "species": "SPECIES_MIENFOO"
               },
               {
-                "min_level": 16,
+                "min_level": 14,
                 "max_level": 16,
                 "species": "SPECIES_ROLYCOLY"
               },
               {
-                "min_level": 18,
-                "max_level": 18,
+                "min_level": 15,
+                "max_level": 17,
                 "species": "SPECIES_SALANDIT"
               },
               {
                 "min_level": 14,
-                "max_level": 14,
+                "max_level": 16,
                 "species": "SPECIES_NUMEL"
               },
               {
-                "min_level": 19,
-                "max_level": 19,
+                "min_level": 16,
+                "max_level": 17,
                 "species": "SPECIES_SLUGMA"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 15,
+                "max_level": 16,
                 "species": "SPECIES_GEODUDE"
               },
               {
-                "min_level": 19,
-                "max_level": 19,
+                "min_level": 16,
+                "max_level": 17,
                 "species": "SPECIES_ROLYCOLY"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 14,
+                "max_level": 17,
                 "species": "SPECIES_ROLYCOLY"
               }
             ]

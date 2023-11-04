@@ -690,7 +690,7 @@
 #define FLAG_HIDE_STRENGTH_KIMONO  0x288 // Ecruteak dance theater
 #define FLAG_RECEIVED_STRENGTH  0x289 // From kimono girl
 #define FLAG_RECEIVED_EEVEE  0x28A // After defeating kimono girls
-#define FLAG_UNUSED_0x28B  0x28B // Unused Flag
+#define FLAG_HIDE_RT39_BOULDERS  0x28B // After moving one
 #define FLAG_UNUSED_0x28C  0x28C // Unused Flag
 #define FLAG_UNUSED_0x28D  0x28D // Unused Flag
 #define FLAG_UNUSED_0x28E  0x28E // Unused Flag

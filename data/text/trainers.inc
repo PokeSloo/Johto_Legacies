@@ -1495,105 +1495,92 @@ Route111_Text_BiancaPostBattle:
 	.string "You have quite a ways to travel.$"
 
 Route112_Text_BriceIntro:
-	.string "Hahahaha!\n"
-	.string "How about we have a battle?\l"
-	.string "You and me!\l"
-	.string "Hahahaha!$"
+	.string "Y'all city folk wouldn't last a day out\n"
+	.string "on the farm!$"
 
 Route112_Text_BriceDefeat:
-	.string "I lost!\n"
-	.string "Hahahaha!$"
+	.string "Ok, yer tougher than you look.$"
 
 Route112_Text_BricePostBattle:
-	.string "Hahahahaha! Something flew up my nose!\n"
-	.string "Hahahaha-hatchoo!$"
+	.string "Farm life is tough, but you might have\n"
+	.string "what it takes.$"
 
 Route112_Text_TrentIntro:
-	.string "My legs are solid from pounding up\n"
-	.string "and down the mountains.\p"
-	.string "They're not going to buckle easily,\n"
-	.string "friend!$"
+	.string "Howdy!\n"
+	.string "Are you headed to Moomoo Farm?$"
 
 Route112_Text_TrentDefeat:
-	.string "Ouch! My legs cramped up!$"
+	.string "I reckon you'd make a good farmhand.$"
 
 Route112_Text_TrentPostBattle:
-	.string "Try hiking, and I mean really\n"
-	.string "pounding, on these mountain trails\l"
-	.string "with a heavy pack weighing dozens of\l"
-	.string "pounds.\p"
-	.string "That, my friend, will get your body\n"
-	.string "into serious shape.$"
+	.string "Ma and Pa own Moomoo Farm, I always had\n"
+	.string "fun playin' with the Miltank when I was\l"
+	.string "younger.$"
 
 Route112_Text_TrentRegister:
-	.string "Ow, my legs have cramped up.\n"
-	.string "Can you grab me some bandages from\l"
-	.string "my backpack?\p"
-	.string "No, that's my POKéNAV!\n"
-	.string "Oh, fine, I'll register you.$"
+	.string "If you're ever interested in workin' on\n"
+	.string "the farm, or if you just want another\l"
+	.string "battle sometime...$"
 
 Route112_Text_TrentRematchIntro:
-	.string "I've been keeping fit by hiking.\n"
-	.string "Power, I have in spades!$"
+	.string "I knew you'd be back, let's battle!$"
 
 Route112_Text_TrentRematchDefeat:
-	.string "I got trumped in power?$"
+	.string "I reckon you're even stronger than last\n"
+	.string "time!$"
 
 Route112_Text_TrentRematchPostBattle:
-	.string "I hear there are some seriously tough\n"
-	.string "TRAINERS on top of MT. CHIMNEY.\p"
-	.string "I intend to get up there and give them\n"
-	.string "a challenge!$"
+	.string "Ma and Pa own Moomoo Farm, I always had\n"
+	.string "fun playin' with the Miltank when I was\l"
+	.string "younger.$"
 
 Route112_Text_LarryIntro:
-	.string "I'm strong.\n"
-	.string "I won't cry if I lose.$"
+	.string "Three years ago I had a vision...\p"
+	.string "I forsaw us having a battle!$"
 
 Route112_Text_LarryDefeat:
-	.string "Waaaah!$"
+	.string "Unfortunately, this is the same\n"
+	.string "outcome I saw in my vision.$"
 
 Route112_Text_LarryPostBattle:
-	.string "I'm not crying because I miss my mommy!\n"
-	.string "Snivel…$"
+	.string "Knowing the future isn't as fun when I\n"
+	.string "can't change it.$"
 
 Route112_Text_CarolIntro:
-	.string "When you're out on a picnic, why,\n"
-	.string "you simply have to sing!\l"
-	.string "Come on, sing with me!$"
+	.string "Would you like me to read your fortune?\p"
+	.string "It ends in your defeat!$"
 
 Route112_Text_CarolDefeat:
-	.string "Oh, you're so strong!$"
+	.string "No, my predictions have never been\n"
+	.string "wrong before...$"
 
 Route112_Text_CarolPostBattle:
-	.string "It doesn't matter if you're good or bad\n"
-	.string "at singing or POKéMON.\p"
-	.string "If you have the most fun, you win!$"
+	.string "There's something special about you...\p"
+	.string "I just can't place my finger on what it\n"
+	.string "is exactly...$"
 
 Route112_Text_BryantIntro:
-	.string "I caught hot POKéMON in FIERY PATH!\n"
-	.string "Take a look!$"
+	.string "Fly! My fools!$"
 
 Route112_Text_BryantDefeat:
-	.string "What a bumpy ride that was!$"
+	.string "What a bumpy flight that was!$"
 
 Route112_Text_BryantPostBattle:
-	.string "I like the way you battle.\n"
-	.string "It has a certain flair to it.$"
+	.string "I didn't expect to lose to a ground\n"
+	.string "dweller such as yourself.$"
 
 Route112_Text_ShaylaIntro:
-	.string "Oh, aren't you an adorable TRAINER!\n"
-	.string "Please, I need a romantic battle!\l"
-	.string "I'm somewhat decent!$"
+	.string "My my, what an adorable TRAINER.\n"
+	.string "Care for a battle?$"
 
 Route112_Text_ShaylaDefeat:
-	.string "Oh, how strong you are!\n"
-	.string "You've given me quite a shock!$"
+	.string "Adorable and strong!\n"
+	.string "Two great qualities.$"
 
 Route112_Text_ShaylaPostBattle:
-	.string "Are you busy right now?\n"
-	.string "I was thinking that maybe we can have\l"
-	.string "a rematch right now…\l"
-	.string "But it's all right if you're busy.$"
+	.string "This is my favorite route to take walks\n"
+	.string "on, there's just something about it\l"
+	.string "that put's me at peace.$"
 
 Route113_Text_JaylenIntro:
 	.string "This place stinks, and I almost fell\n"

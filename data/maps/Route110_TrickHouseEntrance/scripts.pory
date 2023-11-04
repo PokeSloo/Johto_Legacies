@@ -117,9 +117,10 @@ movement Route110_TrickHouseEntrance_ExclamationRight {
     emote_exclamation_mark
     walk_in_place_right
     delay_16 * 4
-    walk_right * 2
-    walk_down * 2
-    walk_right * 3
+    walk_fast_right * 2
+    walk_fast_down * 2
+    walk_fast_right * 2
+    walk_right
 }
 
 movement Route110_TrickHouseEntrance__Movement_FaceLeft {

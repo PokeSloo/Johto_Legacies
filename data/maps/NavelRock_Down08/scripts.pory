@@ -1,0 +1,6 @@
+mapscripts NavelRock_Down08_MapScripts {}
+
+script NavelRock_Down08_EventScript_Guard {
+    msgbox(format("Be careful on your adventures kid.\pThis area may seem peaceful, but some colorful criminals have been spotted around Ecruteak lately."), MSGBOX_NPC)
+    end
+}

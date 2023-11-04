@@ -1,0 +1,6 @@
+mapscripts NavelRock_Down10_MapScripts {}
+
+script NavelRock_Down10_EventScript_Guard {
+    msgbox(format("I see you brought your winter coat.\pGood idea! It's pretty cold in Mahogany Town this time of year."), MSGBOX_NPC)
+    end    
+}

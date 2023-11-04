@@ -128,12 +128,12 @@ Route110_TrickHouseEntrance_ExclamationRight:
 	delay_16
 	delay_16
 	delay_16
-	walk_right
-	walk_right
-	walk_down
-	walk_down
-	walk_right
-	walk_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_down
+	walk_fast_down
+	walk_fast_right
+	walk_fast_right
 	walk_right
 	step_end
 

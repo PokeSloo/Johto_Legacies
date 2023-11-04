@@ -215,139 +215,7 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
-    },
-    {
-      "type": "weather",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
-    }
+
   ],
   "bg_events": [
     {
@@ -368,14 +236,6 @@
     },
     {
       "type": "sign",
-      "x": 3,
-      "y": 4,
-      "elevation": 3,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route113_EventScript_TrainerTipsRegisterKeyItems"
-    },
-    {
-      "type": "sign",
       "x": 17,
       "y": 11,
       "elevation": 0,
@@ -383,18 +243,11 @@
       "script": "Route113_EventScript_GlassWorkshopSign"
     },
     {
-      "type": "secret_base",
-      "x": 1,
-      "y": 8,
-      "elevation": 3,
-      "secret_base_id": "SECRET_BASE_RED_CAVE1_3"
-    },
-    {
       "type": "hidden_item",
       "x": 17,
       "y": 14,
       "elevation": 3,
-      "item": "ITEM_ETHER",
+      "item": "ITEM_BOTTLE_CAP",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_113_ETHER"
     },
     {
@@ -410,7 +263,7 @@
       "x": 14,
       "y": 20,
       "elevation": 3,
-      "item": "ITEM_NUGGET",
+      "item": "ITEM_GOLD_BOTTLE_CAP",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_113_NUGGET"
     }
   ]
