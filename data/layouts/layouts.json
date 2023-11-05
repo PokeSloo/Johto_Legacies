@@ -3774,10 +3774,10 @@
     {
       "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_PYRAMID_TOP",
       "name": "BattleFrontier_BattlePyramidTop_Layout",
-      "width": 34,
-      "height": 23,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
+      "width": 22,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_LavaridgeGym",
       "border_filepath": "data/layouts/BattleFrontier_BattlePyramidTop/border.bin",
       "blockdata_filepath": "data/layouts/BattleFrontier_BattlePyramidTop/map.bin"
     },

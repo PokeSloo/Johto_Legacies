@@ -691,11 +691,11 @@
 #define FLAG_RECEIVED_STRENGTH  0x289 // From kimono girl
 #define FLAG_RECEIVED_EEVEE  0x28A // After defeating kimono girls
 #define FLAG_HIDE_RT39_BOULDERS  0x28B // After moving one
-#define FLAG_UNUSED_0x28C  0x28C // Unused Flag
-#define FLAG_UNUSED_0x28D  0x28D // Unused Flag
-#define FLAG_UNUSED_0x28E  0x28E // Unused Flag
-#define FLAG_UNUSED_0x28F  0x28F // Unused Flag
-#define FLAG_UNUSED_0x290  0x290 // Unused Flag
+#define FLAG_ECRUTEAK_GYM_WATER_DOWN  0x28C // With button press
+#define FLAG_HIDE_OLIVINE_GYM_TRAINER_1  0x28D // Unhide after battling them in town
+#define FLAG_HIDE_OLIVINE_GYM_TRAINER_2  0x28E // Unhide after battling them in town
+#define FLAG_HIDE_OLIVINE_GYM_TRAINER_3  0x28F // Unhide after battling them in town
+#define FLAG_HIDE_KIZU_PHOENIX  0x290 // Grunts and whatnot
 #define FLAG_UNUSED_0x291  0x291 // Unused Flag
 #define FLAG_UNUSED_0x292  0x292 // Unused Flag
 #define FLAG_UNUSED_0x293  0x293 // Unused Flag

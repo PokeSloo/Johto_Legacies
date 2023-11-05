@@ -2488,45 +2488,45 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Dalton5[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_Cole[] = {
     {
     .iv = 100,
-    .lvl = 23,
-    .species = SPECIES_NUMEL,
+    .lvl = 30,
+    .species = SPECIES_BARRASKEWDA,
     }
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_Jeff[] = {
     {
     .iv = 100,
-    .lvl = 22,
-    .species = SPECIES_SLUGMA,
+    .lvl = 30,
+    .species = SPECIES_MANTINE,
     },
     {
     .iv = 100,
-    .lvl = 22,
-    .species = SPECIES_SLUGMA,
+    .lvl = 31,
+    .species = SPECIES_GASTRODON,
     }
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_Axle[] = {
     {
     .iv = 100,
-    .lvl = 23,
-    .species = SPECIES_NUMEL,
+    .lvl = 30,
+    .species = SPECIES_PYUKUMUKU,
     }
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_Jace[] = {
     {
     .iv = 100,
-    .lvl = 23,
-    .species = SPECIES_SLUGMA,
+    .lvl = 30,
+    .species = SPECIES_AZUMARILL,
     }
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_Keegan[] = {
     {
     .iv = 120,
-    .lvl = 23,
-    .species = SPECIES_SLUGMA,
+    .lvl = 30,
+    .species = SPECIES_ALOMOMOLA,
     }
 };
 
@@ -3501,31 +3501,45 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson1[] = {
 static const struct TrainerMonItemCustomMoves sParty_Flannery1[] = {
     {
     .iv = 200,
-    .lvl = 24,
-    .species = SPECIES_NUMEL,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_OVERHEAT, MOVE_TAKE_DOWN, MOVE_MAGNITUDE, MOVE_SUNNY_DAY}
+    .lvl = 35,
+    .species = SPECIES_PELIPPER,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_SCALD, MOVE_U_TURN, MOVE_ROOST, MOVE_HURRICANE}
     },
     {
     .iv = 200,
-    .lvl = 24,
-    .species = SPECIES_SLUGMA,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_OVERHEAT, MOVE_SMOG, MOVE_LIGHT_SCREEN, MOVE_SUNNY_DAY}
+    .lvl = 35,
+    .species = SPECIES_LUDICOLO,
+    .heldItem = ITEM_LIFE_ORB,
+    .moves = {MOVE_SCALD, MOVE_GIGA_DRAIN, MOVE_ICE_BEAM, MOVE_RAIN_DANCE}
     },
     {
     .iv = 250,
-    .lvl = 26,
-    .species = SPECIES_CAMERUPT,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_OVERHEAT, MOVE_TACKLE, MOVE_SUNNY_DAY, MOVE_ATTRACT}
+    .lvl = 35,
+    .species = SPECIES_LANTURN,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .moves = {MOVE_SCALD, MOVE_THUNDERBOLT, MOVE_ICE_BEAM, MOVE_VOLT_SWITCH}
     },
     {
     .iv = 250,
-    .lvl = 29,
-    .species = SPECIES_TORKOAL,
-    .heldItem = ITEM_WHITE_HERB,
-    .moves = {MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_BODY_SLAM, MOVE_ATTRACT}
+    .lvl = 35,
+    .species = SPECIES_TOXAPEX,
+    .heldItem = ITEM_BLACK_SLUDGE,
+    .moves = {MOVE_SCALD, MOVE_HAZE, MOVE_RECOVER, MOVE_BANEFUL_BUNKER}
+    },
+    {
+    .iv = 250,
+    .lvl = 36,
+    .species = SPECIES_WHISCASH,
+    .heldItem = ITEM_CHESTO_BERRY,
+    .moves = {MOVE_EARTHQUAKE, MOVE_SCALD, MOVE_REST, MOVE_BOUNCE}
+    },
+    {
+    .iv = 250,
+    .lvl = 36,
+    .species = SPECIES_GYARADOS,
+    .heldItem = ITEM_SHELL_BELL,
+    .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_WATERFALL, MOVE_ICE_FANG}
     }
 };
 
@@ -6605,8 +6619,8 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Ernest5[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_Eli[] = {
     {
     .iv = 100,
-    .lvl = 23,
-    .species = SPECIES_NUMEL,
+    .lvl = 30,
+    .species = SPECIES_QUAGSIRE,
     }
 };
 
@@ -8717,9 +8731,9 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Johanna[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_Gerald[] = {
     {
     .iv = 100,
-    .lvl = 23,
-    .species = SPECIES_KECLEON,
-    .moves = {MOVE_FLAMETHROWER, MOVE_FURY_SWIPES, MOVE_FEINT_ATTACK, MOVE_BIND}
+    .lvl = 30,
+    .species = SPECIES_KINGLER,
+    .moves = {MOVE_METAL_CLAW, MOVE_MUD_SHOT, MOVE_SCALD, MOVE_STOMP}
     }
 };
 
@@ -8741,9 +8755,9 @@ static const struct TrainerMonNoItemCustomMoves sParty_Vivian[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_Danielle[] = {
     {
     .iv = 100,
-    .lvl = 23,
-    .species = SPECIES_MEDITITE,
-    .moves = {MOVE_BIDE, MOVE_DETECT, MOVE_CONFUSION, MOVE_FIRE_PUNCH}
+    .lvl = 30,
+    .species = SPECIES_GOLISOPOD,
+    .moves = {MOVE_RAZOR_SHELL, MOVE_SLASH, MOVE_BUG_BITE, MOVE_SWORDS_DANCE}
     }
 };
 

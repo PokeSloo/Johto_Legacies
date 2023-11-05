@@ -1,151 +1,890 @@
-.set LOCALID_COLE, 2
-.set LOCALID_GERALD, 3
-.set LOCALID_AXLE, 4
-.set LOCALID_DANIELLE, 5
-
 LavaridgeTown_Gym_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, LavaridgeTown_Gym_1F_MapScripts_MAP_SCRIPT_ON_LOAD
 	.byte 0
 
-LavaridgeTown_Gym_1F_OnTransition:
-	call LavaridgeTown_Gym_1F_EventScript_SetTrainerTempVars
-	call LavaridgeTown_Gym_1F_EventScript_CheckBuryTrainers
+LavaridgeTown_Gym_1F_MapScripts_MAP_SCRIPT_ON_LOAD:
+	goto_if_set FLAG_ECRUTEAK_GYM_WATER_DOWN, LavaridgeTown_Gym_1F_MapScripts_MAP_SCRIPT_ON_LOAD_1
+	return
+
+LavaridgeTown_Gym_1F_MapScripts_MAP_SCRIPT_ON_LOAD_1:
+	call LavaridgeTown_Gym_1F_EventScript_LowerWater
 	end
 
-@ Unclear where/if these temp vars are getting checked
-LavaridgeTown_Gym_1F_EventScript_SetTrainerTempVars::
-	setvar VAR_TEMP_B, 0
-	setvar VAR_TEMP_C, 0
-	setvar VAR_TEMP_D, 0
-	setvar VAR_TEMP_E, 0
-	setvar VAR_TEMP_F, 0
-	goto_if_defeated TRAINER_COLE, LavaridgeTown_Gym_1F_EventScript_SetGeraldTempVar
-	setvar VAR_TEMP_B, 1
-LavaridgeTown_Gym_1F_EventScript_SetGeraldTempVar::
-	goto_if_defeated TRAINER_GERALD, LavaridgeTown_Gym_1F_EventScript_SetAxleTempVar
-	setvar VAR_TEMP_C, 1
-LavaridgeTown_Gym_1F_EventScript_SetAxleTempVar::
-	goto_if_defeated TRAINER_AXLE, LavaridgeTown_Gym_1F_EventScript_SetDanielleTempVar
-	setvar VAR_TEMP_D, 1
-LavaridgeTown_Gym_1F_EventScript_SetDanielleTempVar::
-	goto_if_defeated TRAINER_DANIELLE, LavaridgeTown_Gym_1F_EventScript_EndSetTrainerTempVars
-	setvar VAR_TEMP_E, 1
-LavaridgeTown_Gym_1F_EventScript_EndSetTrainerTempVars::
+
+LavaridgeTown_Gym_1F_EventScript_LowerWater::
+	setmetatile 0, 2, 0x206, TRUE
+	setmetatile 1, 2, 0x206, TRUE
+	setmetatile 2, 2, 0x21F, TRUE
+	setmetatile 3, 2, 0x206, TRUE
+	setmetatile 4, 2, 0x206, TRUE
+	setmetatile 5, 2, 0x207, TRUE
+	setmetatile 13, 2, 0x205, TRUE
+	setmetatile 14, 2, 0x206, TRUE
+	setmetatile 15, 2, 0x206, TRUE
+	setmetatile 16, 2, 0x206, TRUE
+	setmetatile 17, 2, 0x206, TRUE
+	setmetatile 18, 2, 0x206, TRUE
+	setmetatile 19, 2, 0x206, TRUE
+	setmetatile 20, 2, 0x206, TRUE
+	setmetatile 21, 2, 0x206, TRUE
+	setmetatile 0, 3, 0x20E, TRUE
+	setmetatile 1, 3, 0x20E, TRUE
+	setmetatile 2, 3, 0x21E, FALSE
+	setmetatile 3, 3, 0x20E, TRUE
+	setmetatile 4, 3, 0x20E, TRUE
+	setmetatile 5, 3, 0x20F, TRUE
+	setmetatile 13, 3, 0x20D, TRUE
+	setmetatile 14, 3, 0x20E, TRUE
+	setmetatile 15, 3, 0x20E, TRUE
+	setmetatile 16, 3, 0x20E, TRUE
+	setmetatile 17, 3, 0x20E, TRUE
+	setmetatile 18, 3, 0x20E, TRUE
+	setmetatile 19, 3, 0x20E, TRUE
+	setmetatile 20, 3, 0x20E, TRUE
+	setmetatile 21, 3, 0x20E, TRUE
+	setmetatile 0, 4, 0x201, FALSE
+	setmetatile 1, 4, 0x202, FALSE
+	setmetatile 2, 4, 0x202, FALSE
+	setmetatile 3, 4, 0x202, FALSE
+	setmetatile 4, 4, 0x202, FALSE
+	setmetatile 5, 4, 0x231, TRUE
+	setmetatile 20, 4, 0x22D, TRUE
+	setmetatile 21, 4, 0x201, FALSE
+	setmetatile 0, 5, 0x209, FALSE
+	setmetatile 1, 5, 0x208, FALSE
+	setmetatile 2, 5, 0x208, FALSE
+	setmetatile 3, 5, 0x208, FALSE
+	setmetatile 4, 5, 0x208, FALSE
+	setmetatile 5, 5, 0x231, TRUE
+	setmetatile 20, 5, 0x230, TRUE
+	setmetatile 21, 5, 0x209, FALSE
+	setmetatile 0, 6, 0x209, FALSE
+	setmetatile 1, 6, 0x208, FALSE
+	setmetatile 2, 6, 0x208, FALSE
+	setmetatile 3, 6, 0x208, FALSE
+	setmetatile 4, 6, 0x208, FALSE
+	setmetatile 5, 6, 0x227, TRUE
+	setmetatile 6, 6, 0x206, TRUE
+	setmetatile 7, 6, 0x206, TRUE
+	setmetatile 8, 6, 0x206, TRUE
+	setmetatile 9, 6, 0x206, TRUE
+	setmetatile 10, 6, 0x206, TRUE
+	setmetatile 11, 6, 0x206, TRUE
+	setmetatile 12, 6, 0x206, TRUE
+	setmetatile 13, 6, 0x206, TRUE
+	setmetatile 14, 6, 0x206, TRUE
+	setmetatile 15, 6, 0x207, TRUE
+	setmetatile 20, 6, 0x230, TRUE
+	setmetatile 21, 6, 0x209, FALSE
+	setmetatile 0, 7, 0x209, FALSE
+	setmetatile 1, 7, 0x22E, TRUE
+	setmetatile 3, 7, 0x22D, TRUE
+	setmetatile 4, 7, 0x211, FALSE
+	setmetatile 5, 7, 0x22F, TRUE
+	setmetatile 6, 7, 0x20E, TRUE
+	setmetatile 7, 7, 0x20E, TRUE
+	setmetatile 8, 7, 0x20E, TRUE
+	setmetatile 9, 7, 0x20E, TRUE
+	setmetatile 10, 7, 0x20E, TRUE
+	setmetatile 11, 7, 0x20E, TRUE
+	setmetatile 12, 7, 0x20E, TRUE
+	setmetatile 13, 7, 0x20E, TRUE
+	setmetatile 14, 7, 0x20E, TRUE
+	setmetatile 15, 7, 0x20F, TRUE
+	setmetatile 20, 7, 0x230, TRUE
+	setmetatile 21, 7, 0x209, FALSE
+	setmetatile 0, 8, 0x209, FALSE
+	setmetatile 1, 8, 0x231, TRUE
+	setmetatile 3, 8, 0x230, TRUE
+	setmetatile 4, 8, 0x209, FALSE
+	setmetatile 5, 8, 0x210, FALSE
+	setmetatile 6, 8, 0x202, FALSE
+	setmetatile 7, 8, 0x202, FALSE
+	setmetatile 8, 8, 0x202, FALSE
+	setmetatile 9, 8, 0x202, FALSE
+	setmetatile 10, 8, 0x202, FALSE
+	setmetatile 11, 8, 0x202, FALSE
+	setmetatile 12, 8, 0x202, FALSE
+	setmetatile 13, 8, 0x202, FALSE
+	setmetatile 14, 8, 0x202, FALSE
+	setmetatile 15, 8, 0x231, TRUE
+	setmetatile 17, 8, 0x205, TRUE
+	setmetatile 18, 8, 0x206, TRUE
+	setmetatile 19, 8, 0x239, FALSE
+	setmetatile 20, 8, 0x235, TRUE
+	setmetatile 21, 8, 0x209, FALSE
+	setmetatile 0, 9, 0x209, FALSE
+	setmetatile 1, 9, 0x231, TRUE
+	setmetatile 13, 9, 0x22D, TRUE
+	setmetatile 14, 9, 0x211, FALSE
+	setmetatile 15, 9, 0x231, TRUE
+	setmetatile 17, 9, 0x20D, TRUE
+	setmetatile 18, 9, 0x20E, TRUE
+	setmetatile 19, 9, 0x239, FALSE
+	setmetatile 20, 9, 0x236, TRUE
+	setmetatile 21, 9, 0x209, FALSE
+	setmetatile 0, 10, 0x209, FALSE
+	setmetatile 1, 10, 0x231, TRUE
+	setmetatile 13, 10, 0x230, TRUE
+	setmetatile 14, 10, 0x209, FALSE
+	setmetatile 15, 10, 0x231, TRUE
+	setmetatile 17, 10, 0x230, TRUE
+	setmetatile 18, 10, 0x201, FALSE
+	setmetatile 19, 10, 0x202, FALSE
+	setmetatile 20, 10, 0x202, FALSE
+	setmetatile 21, 10, 0x20A, FALSE
+	setmetatile 0, 11, 0x209, FALSE
+	setmetatile 1, 11, 0x227, TRUE
+	setmetatile 2, 11, 0x206, TRUE
+	setmetatile 3, 11, 0x239, FALSE
+	setmetatile 4, 11, 0x206, TRUE
+	setmetatile 5, 11, 0x206, TRUE
+	setmetatile 6, 11, 0x206, TRUE
+	setmetatile 7, 11, 0x206, TRUE
+	setmetatile 8, 11, 0x206, TRUE
+	setmetatile 9, 11, 0x206, TRUE
+	setmetatile 10, 11, 0x206, TRUE
+	setmetatile 11, 11, 0x207, TRUE
+	setmetatile 13, 11, 0x230, TRUE
+	setmetatile 14, 11, 0x209, FALSE
+	setmetatile 15, 11, 0x231, TRUE
+	setmetatile 17, 11, 0x230, TRUE
+	setmetatile 18, 11, 0x209, FALSE
+	setmetatile 19, 11, 0x208, FALSE
+	setmetatile 20, 11, 0x208, FALSE
+	setmetatile 21, 11, 0x208, FALSE
+	setmetatile 0, 12, 0x209, FALSE
+	setmetatile 1, 12, 0x22F, TRUE
+	setmetatile 2, 12, 0x20E, TRUE
+	setmetatile 3, 12, 0x239, FALSE
+	setmetatile 4, 12, 0x20E, TRUE
+	setmetatile 5, 12, 0x20E, TRUE
+	setmetatile 6, 12, 0x20E, TRUE
+	setmetatile 7, 12, 0x20E, TRUE
+	setmetatile 8, 12, 0x20E, TRUE
+	setmetatile 9, 12, 0x20E, TRUE
+	setmetatile 10, 12, 0x20E, TRUE
+	setmetatile 11, 12, 0x20F, TRUE
+	setmetatile 13, 12, 0x230, TRUE
+	setmetatile 14, 12, 0x209, FALSE
+	setmetatile 15, 12, 0x231, TRUE
+	setmetatile 0, 13, 0x209, FALSE
+	setmetatile 1, 13, 0x210, FALSE
+	setmetatile 2, 13, 0x202, FALSE
+	setmetatile 3, 13, 0x202, FALSE
+	setmetatile 4, 13, 0x202, FALSE
+	setmetatile 5, 13, 0x202, FALSE
+	setmetatile 6, 13, 0x202, FALSE
+	setmetatile 7, 13, 0x202, FALSE
+	setmetatile 8, 13, 0x202, FALSE
+	setmetatile 9, 13, 0x202, FALSE
+	setmetatile 10, 13, 0x202, FALSE
+	setmetatile 11, 13, 0x231, TRUE
+	setmetatile 13, 13, 0x230, TRUE
+	setmetatile 14, 13, 0x209, FALSE
+	setmetatile 15, 13, 0x231, TRUE
+	setmetatile 9, 14, 0x22D, TRUE
+	setmetatile 10, 14, 0x211, FALSE
+	setmetatile 11, 14, 0x231, TRUE
+	setmetatile 13, 14, 0x230, TRUE
+	setmetatile 14, 14, 0x209, FALSE
+	setmetatile 15, 14, 0x227, TRUE
+	setmetatile 16, 14, 0x206, TRUE
+	setmetatile 17, 14, 0x206, TRUE
+	setmetatile 18, 14, 0x206, TRUE
+	setmetatile 19, 14, 0x239, FALSE
+	setmetatile 20, 14, 0x207, TRUE
+	setmetatile 9, 15, 0x230, TRUE
+	setmetatile 10, 15, 0x209, FALSE
+	setmetatile 11, 15, 0x231, TRUE
+	setmetatile 13, 15, 0x230, TRUE
+	setmetatile 14, 15, 0x209, FALSE
+	setmetatile 15, 15, 0x22F, TRUE
+	setmetatile 16, 15, 0x20E, TRUE
+	setmetatile 17, 15, 0x20E, TRUE
+	setmetatile 18, 15, 0x20E, TRUE
+	setmetatile 19, 15, 0x239, FALSE
+	setmetatile 20, 15, 0x20F, TRUE
+	setmetatile 1, 16, 0x205, TRUE
+	setmetatile 2, 16, 0x206, TRUE
+	setmetatile 3, 16, 0x206, TRUE
+	setmetatile 4, 16, 0x206, TRUE
+	setmetatile 5, 16, 0x206, TRUE
+	setmetatile 6, 16, 0x206, TRUE
+	setmetatile 7, 16, 0x207, TRUE
+	setmetatile 9, 16, 0x230, TRUE
+	setmetatile 10, 16, 0x209, FALSE
+	setmetatile 11, 16, 0x231, TRUE
+	setmetatile 13, 16, 0x230, TRUE
+	setmetatile 14, 16, 0x209, FALSE
+	setmetatile 15, 16, 0x210, FALSE
+	setmetatile 16, 16, 0x202, FALSE
+	setmetatile 17, 16, 0x202, FALSE
+	setmetatile 18, 16, 0x202, FALSE
+	setmetatile 19, 16, 0x202, FALSE
+	setmetatile 20, 16, 0x231, TRUE
+	setmetatile 1, 17, 0x20D, TRUE
+	setmetatile 2, 17, 0x20E, TRUE
+	setmetatile 3, 17, 0x20E, TRUE
+	setmetatile 4, 17, 0x20E, TRUE
+	setmetatile 5, 17, 0x20E, TRUE
+	setmetatile 6, 17, 0x20E, TRUE
+	setmetatile 7, 17, 0x20F, TRUE
+	setmetatile 5, 18, 0x22D, TRUE
+	setmetatile 6, 18, 0x201, FALSE
+	setmetatile 7, 18, 0x231, TRUE
+	setmetatile 5, 19, 0x230, TRUE
+	setmetatile 6, 19, 0x201, FALSE
+	setmetatile 7, 19, 0x227, TRUE
+	setmetatile 8, 19, 0x206, TRUE
+	setmetatile 9, 19, 0x206, TRUE
+	setmetatile 10, 19, 0x206, TRUE
+	setmetatile 11, 19, 0x206, TRUE
+	setmetatile 12, 19, 0x206, TRUE
+	setmetatile 13, 19, 0x206, TRUE
+	setmetatile 14, 19, 0x207, TRUE
+	setmetatile 18, 19, 0x205, TRUE
+	setmetatile 19, 19, 0x206, TRUE
+	setmetatile 20, 19, 0x239, FALSE
+	setmetatile 21, 19, 0x206, TRUE
+	setmetatile 0, 20, 0x206, TRUE
+	setmetatile 1, 20, 0x206, TRUE
+	setmetatile 2, 20, 0x206, TRUE
+	setmetatile 3, 20, 0x239, FALSE
+	setmetatile 4, 20, 0x206, TRUE
+	setmetatile 5, 20, 0x235, TRUE
+	setmetatile 6, 20, 0x209, FALSE
+	setmetatile 7, 20, 0x22F, TRUE
+	setmetatile 8, 20, 0x20E, TRUE
+	setmetatile 9, 20, 0x20E, TRUE
+	setmetatile 10, 20, 0x20E, TRUE
+	setmetatile 11, 20, 0x20E, TRUE
+	setmetatile 12, 20, 0x20E, TRUE
+	setmetatile 13, 20, 0x20E, TRUE
+	setmetatile 14, 20, 0x20F, TRUE
+	setmetatile 18, 20, 0x20D, TRUE
+	setmetatile 19, 20, 0x20E, TRUE
+	setmetatile 20, 20, 0x239, FALSE
+	setmetatile 21, 20, 0x20E, TRUE
+	setmetatile 0, 21, 0x20E, TRUE
+	setmetatile 1, 21, 0x20E, TRUE
+	setmetatile 2, 21, 0x20E, TRUE
+	setmetatile 3, 21, 0x239, FALSE
+	setmetatile 4, 21, 0x20E, TRUE
+	setmetatile 5, 21, 0x236, TRUE
+	setmetatile 6, 21, 0x209, FALSE
+	setmetatile 7, 21, 0x210, FALSE
+	setmetatile 8, 21, 0x202, FALSE
+	setmetatile 9, 21, 0x202, FALSE
+	setmetatile 10, 21, 0x202, FALSE
+	setmetatile 11, 21, 0x202, FALSE
+	setmetatile 12, 21, 0x202, FALSE
+	setmetatile 13, 21, 0x202, FALSE
+	setmetatile 14, 21, 0x227, TRUE
+	setmetatile 15, 21, 0x206, TRUE
+	setmetatile 16, 21, 0x206, TRUE
+	setmetatile 17, 21, 0x206, TRUE
+	setmetatile 18, 21, 0x235, TRUE
+	setmetatile 19, 21, 0x201, FALSE
+	setmetatile 20, 21, 0x202, FALSE
+	setmetatile 21, 21, 0x202, FALSE
+	setmetatile 0, 22, 0x201, FALSE
+	setmetatile 1, 22, 0x202, FALSE
+	setmetatile 2, 22, 0x202, FALSE
+	setmetatile 3, 22, 0x202, FALSE
+	setmetatile 4, 22, 0x202, FALSE
+	setmetatile 5, 22, 0x202, FALSE
+	setmetatile 6, 22, 0x20A, FALSE
+	setmetatile 7, 22, 0x208, FALSE
+	setmetatile 8, 22, 0x22E, TRUE
+	setmetatile 13, 22, 0x22D, TRUE
+	setmetatile 14, 22, 0x22F, TRUE
+	setmetatile 15, 22, 0x20E, TRUE
+	setmetatile 16, 22, 0x20E, TRUE
+	setmetatile 17, 22, 0x20E, TRUE
+	setmetatile 18, 22, 0x236, TRUE
+	setmetatile 19, 22, 0x209, FALSE
+	setmetatile 20, 22, 0x208, FALSE
+	setmetatile 21, 22, 0x208, FALSE
+	setmetatile 0, 23, 0x209, FALSE
+	setmetatile 1, 23, 0x22E, TRUE
+	setmetatile 6, 23, 0x22D, TRUE
+	setmetatile 7, 23, 0x211, FALSE
+	setmetatile 8, 23, 0x231, TRUE
+	setmetatile 13, 23, 0x230, TRUE
+	setmetatile 14, 23, 0x201, FALSE
+	setmetatile 15, 23, 0x22E, TRUE
+	setmetatile 20, 23, 0x22D, TRUE
+	setmetatile 21, 23, 0x211, FALSE
+	setmetatile 0, 24, 0x209, FALSE
+	setmetatile 1, 24, 0x231, TRUE
+	setmetatile 6, 24, 0x230, TRUE
+	setmetatile 7, 24, 0x209, FALSE
+	setmetatile 8, 24, 0x231, TRUE
+	setmetatile 13, 24, 0x230, TRUE
+	setmetatile 14, 24, 0x209, FALSE
+	setmetatile 15, 24, 0x231, TRUE
+	setmetatile 20, 24, 0x230, TRUE
+	setmetatile 21, 24, 0x209, FALSE
+	setmetatile 0, 25, 0x209, FALSE
+	setmetatile 1, 25, 0x231, TRUE
+	setmetatile 20, 25, 0x230, TRUE
+	setmetatile 21, 25, 0x209, FALSE
+	setmetatile 0, 26, 0x209, FALSE
+	setmetatile 1, 26, 0x231, TRUE
+	setmetatile 20, 26, 0x230, TRUE
+	setmetatile 21, 26, 0x209, FALSE
+	setmetatile 0, 27, 0x209, FALSE
+	setmetatile 1, 27, 0x227, TRUE
+	setmetatile 2, 27, 0x206, TRUE
+	setmetatile 3, 27, 0x239, FALSE
+	setmetatile 4, 27, 0x206, TRUE
+	setmetatile 5, 27, 0x206, TRUE
+	setmetatile 6, 27, 0x206, TRUE
+	setmetatile 7, 27, 0x206, TRUE
+	setmetatile 8, 27, 0x207, TRUE
+	setmetatile 13, 27, 0x205, TRUE
+	setmetatile 14, 27, 0x206, TRUE
+	setmetatile 15, 27, 0x206, TRUE
+	setmetatile 16, 27, 0x206, TRUE
+	setmetatile 17, 27, 0x206, TRUE
+	setmetatile 18, 27, 0x239, FALSE
+	setmetatile 19, 27, 0x206, TRUE
+	setmetatile 20, 27, 0x235, TRUE
+	setmetatile 21, 27, 0x209, FALSE
+	setmetatile 0, 28, 0x209, FALSE
+	setmetatile 1, 28, 0x22F, TRUE
+	setmetatile 2, 28, 0x20E, TRUE
+	setmetatile 3, 28, 0x239, FALSE
+	setmetatile 4, 28, 0x20E, TRUE
+	setmetatile 5, 28, 0x20E, TRUE
+	setmetatile 6, 28, 0x20E, TRUE
+	setmetatile 7, 28, 0x20E, TRUE
+	setmetatile 8, 28, 0x20F, TRUE
+	setmetatile 13, 28, 0x20D, TRUE
+	setmetatile 14, 28, 0x20E, TRUE
+	setmetatile 15, 28, 0x20E, TRUE
+	setmetatile 16, 28, 0x20E, TRUE
+	setmetatile 17, 28, 0x20E, TRUE
+	setmetatile 18, 28, 0x239, FALSE
+	setmetatile 19, 28, 0x20E, TRUE
+	setmetatile 20, 28, 0x236, TRUE
+	setmetatile 21, 28, 0x209, FALSE
+	setmetatile 0, 29, 0x209, FALSE
+	setmetatile 1, 29, 0x210, FALSE
+	setmetatile 2, 29, 0x202, FALSE
+	setmetatile 3, 29, 0x202, FALSE
+	setmetatile 4, 29, 0x202, FALSE
+	setmetatile 5, 29, 0x202, FALSE
+	setmetatile 6, 29, 0x202, FALSE
+	setmetatile 7, 29, 0x202, FALSE
+	setmetatile 8, 29, 0x231, TRUE
+	setmetatile 13, 29, 0x230, TRUE
+	setmetatile 14, 29, 0x201, FALSE
+	setmetatile 15, 29, 0x202, FALSE
+	setmetatile 16, 29, 0x202, FALSE
+	setmetatile 17, 29, 0x202, FALSE
+	setmetatile 18, 29, 0x202, FALSE
+	setmetatile 19, 29, 0x202, FALSE
+	setmetatile 20, 29, 0x202, FALSE
+	setmetatile 21, 29, 0x20A, FALSE
 	return
 
-LavaridgeTown_Gym_1F_EventScript_CheckBuryTrainers::
-	goto_if_defeated TRAINER_COLE, LavaridgeTown_Gym_1F_EventScript_CheckBuryGerald
-	setobjectmovementtype LOCALID_COLE, MOVEMENT_TYPE_BURIED
-LavaridgeTown_Gym_1F_EventScript_CheckBuryGerald::
-	goto_if_defeated TRAINER_GERALD, LavaridgeTown_Gym_1F_EventScript_CheckBuryAxle
-	setobjectmovementtype LOCALID_GERALD, MOVEMENT_TYPE_BURIED
-LavaridgeTown_Gym_1F_EventScript_CheckBuryAxle::
-	goto_if_defeated TRAINER_AXLE, LavaridgeTown_Gym_1F_EventScript_CheckBuryDanielle
-	setobjectmovementtype LOCALID_AXLE, MOVEMENT_TYPE_BURIED
-LavaridgeTown_Gym_1F_EventScript_CheckBuryDanielle::
-	goto_if_defeated TRAINER_DANIELLE, LavaridgeTown_Gym_1F_EventScript_EndCheckBuryTrainers
-	setobjectmovementtype LOCALID_DANIELLE, MOVEMENT_TYPE_BURIED
-LavaridgeTown_Gym_1F_EventScript_EndCheckBuryTrainers::
+
+LavaridgeTown_Gym_1F_EventScript_RaiseWater::
+	setmetatile 0, 2, 0x22B, TRUE
+	setmetatile 1, 2, 0x22B, TRUE
+	setmetatile 2, 2, 0x22B, TRUE
+	setmetatile 3, 2, 0x22B, TRUE
+	setmetatile 4, 2, 0x22B, TRUE
+	setmetatile 5, 2, 0x22C, TRUE
+	setmetatile 13, 2, 0x22A, TRUE
+	setmetatile 14, 2, 0x22B, TRUE
+	setmetatile 15, 2, 0x22B, TRUE
+	setmetatile 16, 2, 0x22B, TRUE
+	setmetatile 17, 2, 0x22B, TRUE
+	setmetatile 18, 2, 0x22B, TRUE
+	setmetatile 19, 2, 0x22B, TRUE
+	setmetatile 20, 2, 0x22B, TRUE
+	setmetatile 21, 2, 0x22B, TRUE
+	setmetatile 0, 3, 0x0A1, TRUE
+	setmetatile 1, 3, 0x0A1, TRUE
+	setmetatile 2, 3, 0x0A1, TRUE
+	setmetatile 3, 3, 0x0A1, TRUE
+	setmetatile 4, 3, 0x0A1, TRUE
+	setmetatile 5, 3, 0x229, TRUE
+	setmetatile 13, 3, 0x228, TRUE
+	setmetatile 14, 3, 0x0A1, TRUE
+	setmetatile 15, 3, 0x0A1, TRUE
+	setmetatile 16, 3, 0x0A1, TRUE
+	setmetatile 17, 3, 0x0A1, TRUE
+	setmetatile 18, 3, 0x0A1, TRUE
+	setmetatile 19, 3, 0x0A1, TRUE
+	setmetatile 20, 3, 0x0A1, TRUE
+	setmetatile 21, 3, 0x0A1, TRUE
+	setmetatile 0, 4, 0x0A1, TRUE
+	setmetatile 1, 4, 0x0A1, TRUE
+	setmetatile 2, 4, 0x0A1, TRUE
+	setmetatile 3, 4, 0x0A1, TRUE
+	setmetatile 4, 4, 0x0A1, TRUE
+	setmetatile 5, 4, 0x229, TRUE
+	setmetatile 20, 4, 0x21C, TRUE
+	setmetatile 21, 4, 0x0A1, TRUE
+	setmetatile 0, 5, 0x0A1, TRUE
+	setmetatile 1, 5, 0x0A1, TRUE
+	setmetatile 2, 5, 0x0A1, TRUE
+	setmetatile 3, 5, 0x0A1, TRUE
+	setmetatile 4, 5, 0x0A1, TRUE
+	setmetatile 5, 5, 0x229, TRUE
+	setmetatile 20, 5, 0x228, TRUE
+	setmetatile 21, 5, 0x0A1, TRUE
+	setmetatile 0, 6, 0x0A1, TRUE
+	setmetatile 1, 6, 0x0A1, TRUE
+	setmetatile 2, 6, 0x0A1, TRUE
+	setmetatile 3, 6, 0x0A1, TRUE
+	setmetatile 4, 6, 0x0A1, TRUE
+	setmetatile 5, 6, 0x223, TRUE
+	setmetatile 6, 6, 0x22B, TRUE
+	setmetatile 7, 6, 0x22B, TRUE
+	setmetatile 8, 6, 0x22B, TRUE
+	setmetatile 9, 6, 0x22B, TRUE
+	setmetatile 10, 6, 0x22B, TRUE
+	setmetatile 11, 6, 0x22B, TRUE
+	setmetatile 12, 6, 0x22B, TRUE
+	setmetatile 13, 6, 0x22B, TRUE
+	setmetatile 14, 6, 0x22B, TRUE
+	setmetatile 15, 6, 0x22C, TRUE
+	setmetatile 20, 6, 0x228, TRUE
+	setmetatile 21, 6, 0x0A1, TRUE
+	setmetatile 0, 7, 0x0A1, TRUE
+	setmetatile 1, 7, 0x21B, TRUE
+	setmetatile 3, 7, 0x21C, TRUE
+	setmetatile 4, 7, 0x0A1, TRUE
+	setmetatile 5, 7, 0x0A1, TRUE
+	setmetatile 6, 7, 0x0A1, TRUE
+	setmetatile 7, 7, 0x0A1, TRUE
+	setmetatile 8, 7, 0x0A1, TRUE
+	setmetatile 9, 7, 0x0A1, TRUE
+	setmetatile 10, 7, 0x0A1, TRUE
+	setmetatile 11, 7, 0x0A1, TRUE
+	setmetatile 12, 7, 0x0A1, TRUE
+	setmetatile 13, 7, 0x0A1, TRUE
+	setmetatile 14, 7, 0x0A1, TRUE
+	setmetatile 15, 7, 0x229, TRUE
+	setmetatile 20, 7, 0x228, TRUE
+	setmetatile 21, 7, 0x0A1, TRUE
+	setmetatile 0, 8, 0x0A1, TRUE
+	setmetatile 1, 8, 0x229, TRUE
+	setmetatile 3, 8, 0x228, TRUE
+	setmetatile 4, 8, 0x0A1, TRUE
+	setmetatile 5, 8, 0x0A1, TRUE
+	setmetatile 6, 8, 0x0A1, TRUE
+	setmetatile 7, 8, 0x0A1, TRUE
+	setmetatile 8, 8, 0x0A1, TRUE
+	setmetatile 9, 8, 0x0A1, TRUE
+	setmetatile 10, 8, 0x0A1, TRUE
+	setmetatile 11, 8, 0x0A1, TRUE
+	setmetatile 12, 8, 0x0A1, TRUE
+	setmetatile 13, 8, 0x0A1, TRUE
+	setmetatile 14, 8, 0x0A1, TRUE
+	setmetatile 15, 8, 0x229, TRUE
+	setmetatile 17, 8, 0x22A, TRUE
+	setmetatile 18, 8, 0x22B, TRUE
+	setmetatile 19, 8, 0x238, TRUE
+	setmetatile 20, 8, 0x224, TRUE
+	setmetatile 21, 8, 0x0A1, TRUE
+	setmetatile 0, 9, 0x0A1, TRUE
+	setmetatile 1, 9, 0x229, TRUE
+	setmetatile 13, 9, 0x21C, TRUE
+	setmetatile 14, 9, 0x0A1, TRUE
+	setmetatile 15, 9, 0x229, TRUE
+	setmetatile 17, 9, 0x228, TRUE
+	setmetatile 18, 9, 0x0A1, TRUE
+	setmetatile 19, 9, 0x0A1, TRUE
+	setmetatile 20, 9, 0x0A1, TRUE
+	setmetatile 21, 9, 0x0A1, TRUE
+	setmetatile 0, 10, 0x0A1, TRUE
+	setmetatile 1, 10, 0x229, TRUE
+	setmetatile 13, 10, 0x228, TRUE
+	setmetatile 14, 10, 0x0A1, TRUE
+	setmetatile 15, 10, 0x229, TRUE
+	setmetatile 17, 10, 0x228, TRUE
+	setmetatile 18, 10, 0x0A1, TRUE
+	setmetatile 19, 10, 0x0A1, TRUE
+	setmetatile 20, 10, 0x0A1, TRUE
+	setmetatile 21, 10, 0x0A1, TRUE
+	setmetatile 0, 11, 0x0A1, TRUE
+	setmetatile 1, 11, 0x223, TRUE
+	setmetatile 2, 11, 0x22B, TRUE
+	setmetatile 3, 11, 0x238, TRUE
+	setmetatile 4, 11, 0x22B, TRUE
+	setmetatile 5, 11, 0x22B, TRUE
+	setmetatile 6, 11, 0x22B, TRUE
+	setmetatile 7, 11, 0x22B, TRUE
+	setmetatile 8, 11, 0x22B, TRUE
+	setmetatile 9, 11, 0x22B, TRUE
+	setmetatile 10, 11, 0x22B, TRUE
+	setmetatile 11, 11, 0x22C, TRUE
+	setmetatile 13, 11, 0x228, TRUE
+	setmetatile 14, 11, 0x0A1, TRUE
+	setmetatile 15, 11, 0x229, TRUE
+	setmetatile 17, 11, 0x228, TRUE
+	setmetatile 18, 11, 0x0A1, TRUE
+	setmetatile 19, 11, 0x0A1, TRUE
+	setmetatile 20, 11, 0x0A1, TRUE
+	setmetatile 21, 11, 0x0A1, TRUE
+	setmetatile 0, 12, 0x0A1, TRUE
+	setmetatile 1, 12, 0x0A1, TRUE
+	setmetatile 2, 12, 0x0A1, TRUE
+	setmetatile 3, 12, 0x0A1, TRUE
+	setmetatile 4, 12, 0x0A1, TRUE
+	setmetatile 5, 12, 0x0A1, TRUE
+	setmetatile 6, 12, 0x0A1, TRUE
+	setmetatile 7, 12, 0x0A1, TRUE
+	setmetatile 8, 12, 0x0A1, TRUE
+	setmetatile 9, 12, 0x0A1, TRUE
+	setmetatile 10, 12, 0x0A1, TRUE
+	setmetatile 11, 12, 0x229, TRUE
+	setmetatile 13, 12, 0x228, TRUE
+	setmetatile 14, 12, 0x0A1, TRUE
+	setmetatile 15, 12, 0x229, TRUE
+	setmetatile 0, 13, 0x0A1, TRUE
+	setmetatile 1, 13, 0x0A1, TRUE
+	setmetatile 2, 13, 0x0A1, TRUE
+	setmetatile 3, 13, 0x0A1, TRUE
+	setmetatile 4, 13, 0x0A1, TRUE
+	setmetatile 5, 13, 0x0A1, TRUE
+	setmetatile 6, 13, 0x0A1, TRUE
+	setmetatile 7, 13, 0x0A1, TRUE
+	setmetatile 8, 13, 0x0A1, TRUE
+	setmetatile 9, 13, 0x0A1, TRUE
+	setmetatile 10, 13, 0x0A1, TRUE
+	setmetatile 11, 13, 0x229, TRUE
+	setmetatile 13, 13, 0x228, TRUE
+	setmetatile 14, 13, 0x0A1, TRUE
+	setmetatile 15, 13, 0x229, TRUE
+	setmetatile 9, 14, 0x21C, TRUE
+	setmetatile 10, 14, 0x0A1, TRUE
+	setmetatile 11, 14, 0x229, TRUE
+	setmetatile 13, 14, 0x228, TRUE
+	setmetatile 14, 14, 0x0A1, TRUE
+	setmetatile 15, 14, 0x223, TRUE
+	setmetatile 16, 14, 0x22B, TRUE
+	setmetatile 17, 14, 0x22B, TRUE
+	setmetatile 18, 14, 0x22B, TRUE
+	setmetatile 19, 14, 0x238, TRUE
+	setmetatile 20, 14, 0x22C, TRUE
+	setmetatile 9, 15, 0x228, TRUE
+	setmetatile 10, 15, 0x0A1, TRUE
+	setmetatile 11, 15, 0x229, TRUE
+	setmetatile 13, 15, 0x228, TRUE
+	setmetatile 14, 15, 0x0A1, TRUE
+	setmetatile 15, 15, 0x0A1, TRUE
+	setmetatile 16, 15, 0x0A1, TRUE
+	setmetatile 17, 15, 0x0A1, TRUE
+	setmetatile 18, 15, 0x0A1, TRUE
+	setmetatile 19, 15, 0x0A1, TRUE
+	setmetatile 20, 15, 0x229, TRUE
+	setmetatile 1, 16, 0x22A, TRUE
+	setmetatile 2, 16, 0x22B, TRUE
+	setmetatile 3, 16, 0x22B, TRUE
+	setmetatile 4, 16, 0x22B, TRUE
+	setmetatile 5, 16, 0x22B, TRUE
+	setmetatile 6, 16, 0x22B, TRUE
+	setmetatile 7, 16, 0x22C, TRUE
+	setmetatile 9, 16, 0x228, TRUE
+	setmetatile 10, 16, 0x0A1, TRUE
+	setmetatile 11, 16, 0x229, TRUE
+	setmetatile 13, 16, 0x228, TRUE
+	setmetatile 14, 16, 0x0A1, TRUE
+	setmetatile 15, 16, 0x0A1, TRUE
+	setmetatile 16, 16, 0x0A1, TRUE
+	setmetatile 17, 16, 0x0A1, TRUE
+	setmetatile 18, 16, 0x0A1, TRUE
+	setmetatile 19, 16, 0x0A1, TRUE
+	setmetatile 20, 16, 0x229, TRUE
+	setmetatile 1, 17, 0x228, TRUE
+	setmetatile 2, 17, 0x0A1, TRUE
+	setmetatile 3, 17, 0x0A1, TRUE
+	setmetatile 4, 17, 0x0A1, TRUE
+	setmetatile 5, 17, 0x0A1, TRUE
+	setmetatile 6, 17, 0x0A1, TRUE
+	setmetatile 7, 17, 0x229, TRUE
+	setmetatile 5, 18, 0x21C, TRUE
+	setmetatile 6, 18, 0x0A1, TRUE
+	setmetatile 7, 18, 0x229, TRUE
+	setmetatile 5, 19, 0x228, TRUE
+	setmetatile 6, 19, 0x0A1, TRUE
+	setmetatile 7, 19, 0x223, TRUE
+	setmetatile 8, 19, 0x22B, TRUE
+	setmetatile 9, 19, 0x22B, TRUE
+	setmetatile 10, 19, 0x22B, TRUE
+	setmetatile 11, 19, 0x22B, TRUE
+	setmetatile 12, 19, 0x22B, TRUE
+	setmetatile 13, 19, 0x22B, TRUE
+	setmetatile 14, 19, 0x22C, TRUE
+	setmetatile 18, 19, 0x22A, TRUE
+	setmetatile 19, 19, 0x22B, TRUE
+	setmetatile 20, 19, 0x238, TRUE
+	setmetatile 21, 19, 0x22B, TRUE
+	setmetatile 0, 20, 0x22B, TRUE
+	setmetatile 1, 20, 0x22B, TRUE
+	setmetatile 2, 20, 0x22B, TRUE
+	setmetatile 3, 20, 0x238, TRUE
+	setmetatile 4, 20, 0x22B, TRUE
+	setmetatile 5, 20, 0x224, TRUE
+	setmetatile 6, 20, 0x0A1, TRUE
+	setmetatile 7, 20, 0x0A1, TRUE
+	setmetatile 8, 20, 0x0A1, TRUE
+	setmetatile 9, 20, 0x0A1, TRUE
+	setmetatile 10, 20, 0x0A1, TRUE
+	setmetatile 11, 20, 0x0A1, TRUE
+	setmetatile 12, 20, 0x0A1, TRUE
+	setmetatile 13, 20, 0x0A1, TRUE
+	setmetatile 14, 20, 0x229, TRUE
+	setmetatile 18, 20, 0x228, TRUE
+	setmetatile 19, 20, 0x0A1, TRUE
+	setmetatile 20, 20, 0x0A1, TRUE
+	setmetatile 21, 20, 0x0A1, TRUE
+	setmetatile 0, 21, 0x0A1, TRUE
+	setmetatile 1, 21, 0x0A1, TRUE
+	setmetatile 2, 21, 0x0A1, TRUE
+	setmetatile 3, 21, 0x0A1, TRUE
+	setmetatile 4, 21, 0x0A1, TRUE
+	setmetatile 5, 21, 0x0A1, TRUE
+	setmetatile 6, 21, 0x0A1, TRUE
+	setmetatile 7, 21, 0x0A1, TRUE
+	setmetatile 8, 21, 0x0A1, TRUE
+	setmetatile 9, 21, 0x0A1, TRUE
+	setmetatile 10, 21, 0x0A1, TRUE
+	setmetatile 11, 21, 0x0A1, TRUE
+	setmetatile 12, 21, 0x0A1, TRUE
+	setmetatile 13, 21, 0x0A1, TRUE
+	setmetatile 14, 21, 0x223, TRUE
+	setmetatile 15, 21, 0x22B, TRUE
+	setmetatile 16, 21, 0x22B, TRUE
+	setmetatile 17, 21, 0x22B, TRUE
+	setmetatile 18, 21, 0x224, TRUE
+	setmetatile 19, 21, 0x0A1, TRUE
+	setmetatile 20, 21, 0x0A1, TRUE
+	setmetatile 21, 21, 0x0A1, TRUE
+	setmetatile 0, 22, 0x0A1, TRUE
+	setmetatile 1, 22, 0x0A1, TRUE
+	setmetatile 2, 22, 0x0A1, TRUE
+	setmetatile 3, 22, 0x0A1, TRUE
+	setmetatile 4, 22, 0x0A1, TRUE
+	setmetatile 5, 22, 0x0A1, TRUE
+	setmetatile 6, 22, 0x0A1, TRUE
+	setmetatile 7, 22, 0x0A1, TRUE
+	setmetatile 8, 22, 0x21B, TRUE
+	setmetatile 13, 22, 0x21C, TRUE
+	setmetatile 14, 22, 0x0A1, TRUE
+	setmetatile 15, 22, 0x0A1, TRUE
+	setmetatile 16, 22, 0x0A1, TRUE
+	setmetatile 17, 22, 0x0A1, TRUE
+	setmetatile 18, 22, 0x0A1, TRUE
+	setmetatile 19, 22, 0x0A1, TRUE
+	setmetatile 20, 22, 0x0A1, TRUE
+	setmetatile 21, 22, 0x0A1, TRUE
+	setmetatile 0, 23, 0x0A1, TRUE
+	setmetatile 1, 23, 0x21B, TRUE
+	setmetatile 6, 23, 0x21C, TRUE
+	setmetatile 7, 23, 0x0A1, TRUE
+	setmetatile 8, 23, 0x229, TRUE
+	setmetatile 13, 23, 0x228, TRUE
+	setmetatile 14, 23, 0x0A1, TRUE
+	setmetatile 15, 23, 0x21B, TRUE
+	setmetatile 20, 23, 0x21C, TRUE
+	setmetatile 21, 23, 0x0A1, TRUE
+	setmetatile 0, 24, 0x0A1, TRUE
+	setmetatile 1, 24, 0x229, TRUE
+	setmetatile 6, 24, 0x228, TRUE
+	setmetatile 7, 24, 0x0A1, FALSE
+	setmetatile 8, 24, 0x229, TRUE
+	setmetatile 13, 24, 0x228, TRUE
+	setmetatile 14, 24, 0x0A1, FALSE
+	setmetatile 15, 24, 0x229, TRUE
+	setmetatile 20, 24, 0x228, TRUE
+	setmetatile 21, 24, 0x0A1, TRUE
+	setmetatile 0, 25, 0x0A1, TRUE
+	setmetatile 1, 25, 0x229, TRUE
+	setmetatile 20, 25, 0x228, TRUE
+	setmetatile 21, 25, 0x0A1, TRUE
+	setmetatile 0, 26, 0x0A1, TRUE
+	setmetatile 1, 26, 0x229, TRUE
+	setmetatile 20, 26, 0x228, TRUE
+	setmetatile 21, 26, 0x0A1, TRUE
+	setmetatile 0, 27, 0x0A1, TRUE
+	setmetatile 1, 27, 0x223, TRUE
+	setmetatile 2, 27, 0x22B, TRUE
+	setmetatile 3, 27, 0x238, TRUE
+	setmetatile 4, 27, 0x22B, TRUE
+	setmetatile 5, 27, 0x22B, TRUE
+	setmetatile 6, 27, 0x22B, TRUE
+	setmetatile 7, 27, 0x22B, TRUE
+	setmetatile 8, 27, 0x22C, TRUE
+	setmetatile 13, 27, 0x22A, TRUE
+	setmetatile 14, 27, 0x22B, TRUE
+	setmetatile 15, 27, 0x22B, TRUE
+	setmetatile 16, 27, 0x22B, TRUE
+	setmetatile 17, 27, 0x22B, TRUE
+	setmetatile 18, 27, 0x238, TRUE
+	setmetatile 19, 27, 0x22B, TRUE
+	setmetatile 20, 27, 0x224, TRUE
+	setmetatile 21, 27, 0x0A1, TRUE
+	setmetatile 0, 28, 0x0A1, TRUE
+	setmetatile 1, 28, 0x0A1, TRUE
+	setmetatile 2, 28, 0x0A1, TRUE
+	setmetatile 3, 28, 0x0A1, TRUE
+	setmetatile 4, 28, 0x0A1, TRUE
+	setmetatile 5, 28, 0x0A1, TRUE
+	setmetatile 6, 28, 0x0A1, TRUE
+	setmetatile 7, 28, 0x0A1, TRUE
+	setmetatile 8, 28, 0x229, TRUE
+	setmetatile 13, 28, 0x228, TRUE
+	setmetatile 14, 28, 0x0A1, TRUE
+	setmetatile 15, 28, 0x0A1, TRUE
+	setmetatile 16, 28, 0x0A1, TRUE
+	setmetatile 17, 28, 0x0A1, TRUE
+	setmetatile 18, 28, 0x0A1, TRUE
+	setmetatile 19, 28, 0x0A1, TRUE
+	setmetatile 20, 28, 0x0A1, TRUE
+	setmetatile 21, 28, 0x0A1, TRUE
+	setmetatile 0, 29, 0x0A1, TRUE
+	setmetatile 1, 29, 0x0A1, TRUE
+	setmetatile 2, 29, 0x0A1, TRUE
+	setmetatile 3, 29, 0x0A1, TRUE
+	setmetatile 4, 29, 0x0A1, TRUE
+	setmetatile 5, 29, 0x0A1, TRUE
+	setmetatile 6, 29, 0x0A1, TRUE
+	setmetatile 7, 29, 0x0A1, TRUE
+	setmetatile 8, 29, 0x229, TRUE
+	setmetatile 13, 29, 0x228, TRUE
+	setmetatile 14, 29, 0x0A1, TRUE
+	setmetatile 15, 29, 0x0A1, TRUE
+	setmetatile 16, 29, 0x0A1, TRUE
+	setmetatile 17, 29, 0x0A1, TRUE
+	setmetatile 18, 29, 0x0A1, TRUE
+	setmetatile 19, 29, 0x0A1, TRUE
+	setmetatile 20, 29, 0x0A1, TRUE
+	setmetatile 21, 29, 0x0A1, TRUE
 	return
+
+
+LavaridgeTown_Gym_1F_EventScript_RedButton::
+	lock
+	goto_if_set FLAG_ECRUTEAK_GYM_WATER_DOWN, LavaridgeTown_Gym_1F_EventScript_RedButton_2
+	playse SE_SWITCH
+	call LavaridgeTown_Gym_1F_EventScript_LowerWater
+	special DrawWholeMapView
+	waitse
+	setflag FLAG_ECRUTEAK_GYM_WATER_DOWN
+	release
+	end
+
+LavaridgeTown_Gym_1F_EventScript_RedButton_2:
+	release
+	end
+
+
+LavaridgeTown_Gym_1F_EventScript_BlueButton::
+	lock
+	goto_if_unset FLAG_ECRUTEAK_GYM_WATER_DOWN, LavaridgeTown_Gym_1F_EventScript_BlueButton_2
+	playse SE_SWITCH
+	call LavaridgeTown_Gym_1F_EventScript_RaiseWater
+	special DrawWholeMapView
+	waitse
+	clearflag FLAG_ECRUTEAK_GYM_WATER_DOWN
+	release
+	end
+
+LavaridgeTown_Gym_1F_EventScript_BlueButton_2:
+	release
+	end
+
 
 LavaridgeTown_Gym_1F_EventScript_Flannery::
 	trainerbattle_single TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_FlanneryIntro, LavaridgeTown_Gym_1F_Text_FlanneryDefeat, LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated, NO_MUSIC
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, LavaridgeTown_Gym_1F_EventScript_FlanneryRematch
 	goto_if_unset FLAG_RECEIVED_TM50, LavaridgeTown_Gym_1F_EventScript_GiveOverheat2
 	msgbox LavaridgeTown_Gym_1F_Text_FlanneryPostBattle, MSGBOX_DEFAULT
 	release
 	end
+
 
 LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated::
 	message LavaridgeTown_Gym_1F_Text_ReceivedHeatBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox LavaridgeTown_Gym_1F_Text_ExplainHeatBadgeTakeThis, MSGBOX_DEFAULT
-	setflag FLAG_WHITEOUT_TO_LAVARIDGE
 	setflag FLAG_DEFEATED_LAVARIDGE_GYM
 	setflag FLAG_BADGE04_GET
-	addvar VAR_PETALBURG_GYM_STATE, 1
-	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
 	setvar VAR_0x8008, 4
 	call Common_EventScript_SetGymTrainers
-	setflag FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WALLY
-	setvar VAR_LAVARIDGE_TOWN_STATE, 1
+	setflag FLAG_HIDE_KIZU_PHOENIX
+	setflag FLAG_OLIVER_CATACOMBS_RESEARCH
+	setflag FLAG_HIDE_OLIVINE_GYM_TRAINER_1
+	setflag FLAG_HIDE_OLIVINE_GYM_TRAINER_2
+	setflag FLAG_HIDE_OLIVINE_GYM_TRAINER_3
 	call LavaridgeTown_Gym_1F_EventScript_GiveOverheat
 	closemessage
-	delay 30
-	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox LavaridgeTown_Gym_1F_Text_RegisteredFlannery, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
-	delay 30
-	setflag FLAG_ENABLE_FLANNERY_MATCH_CALL
 	release
 	end
 
+
 LavaridgeTown_Gym_1F_EventScript_GiveOverheat2::
-	giveitem ITEM_TM50
+	giveitem ITEM_TM03_WATER_PULSE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	msgbox LavaridgeTown_Gym_1F_Text_ExplainOverheat, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM50
 	release
 	end
 
+
 LavaridgeTown_Gym_1F_EventScript_GiveOverheat::
-	giveitem ITEM_TM50
+	giveitem ITEM_TM03_WATER_PULSE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	msgbox LavaridgeTown_Gym_1F_Text_ExplainOverheat, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM50
 	return
 
-LavaridgeTown_Gym_1F_EventScript_FlanneryRematch::
-	trainerbattle_rematch_double TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_FlanneryPreRematch, LavaridgeTown_Gym_1F_Text_FlanneryRematchDefeat, LavaridgeTown_Gym_1F_Text_FlanneryRematchNeedTwoMons
-	msgbox LavaridgeTown_Gym_1F_Text_FlanneryPostRematch, MSGBOX_AUTOCLOSE
-	end
 
 LavaridgeTown_Gym_1F_EventScript_Cole::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_COLE, LOCALID_COLE, LavaridgeTown_Gym_1F_Text_ColeIntro, LavaridgeTown_Gym_1F_Text_ColeDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_COLE, LavaridgeTown_Gym_1F_Text_ColeIntro, LavaridgeTown_Gym_1F_Text_ColeDefeat
 	msgbox LavaridgeTown_Gym_1F_Text_ColePostBattle, MSGBOX_AUTOCLOSE
 	end
 
-LavaridgeTown_Gym_EventScript_CheckTrainerScript::
-	call LavaridgeTown_Gym_1F_EventScript_SetTrainerTempVars
-	release
-	special ShouldTryGetTrainerScript
-	goto_if_eq VAR_RESULT, 1, EventScript_GotoTrainerScript
-	end
-
 LavaridgeTown_Gym_1F_EventScript_Axle::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_AXLE, LOCALID_AXLE, LavaridgeTown_Gym_1F_Text_AxleIntro, LavaridgeTown_Gym_1F_Text_AxleDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_AXLE, LavaridgeTown_Gym_1F_Text_AxleIntro, LavaridgeTown_Gym_1F_Text_AxleDefeat
 	msgbox LavaridgeTown_Gym_1F_Text_AxlePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 LavaridgeTown_Gym_B1F_EventScript_Keegan::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_KEEGAN, LOCALID_KEEGAN, LavaridgeTown_Gym_B1F_Text_KeeganIntro, LavaridgeTown_Gym_B1F_Text_KeeganDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_KEEGAN, LavaridgeTown_Gym_B1F_Text_KeeganIntro, LavaridgeTown_Gym_B1F_Text_KeeganDefeat
 	msgbox LavaridgeTown_Gym_B1F_Text_KeeganPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 LavaridgeTown_Gym_1F_EventScript_Danielle::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_DANIELLE, LOCALID_DANIELLE, LavaridgeTown_Gym_1F_Text_DanielleIntro, LavaridgeTown_Gym_1F_Text_DanielleDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_DANIELLE, LavaridgeTown_Gym_1F_Text_DanielleIntro, LavaridgeTown_Gym_1F_Text_DanielleDefeat
 	msgbox LavaridgeTown_Gym_1F_Text_DaniellePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 LavaridgeTown_Gym_1F_EventScript_Gerald::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_GERALD, LOCALID_GERALD, LavaridgeTown_Gym_1F_Text_GeraldIntro, LavaridgeTown_Gym_1F_Text_GeraldDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_GERALD, LavaridgeTown_Gym_1F_Text_GeraldIntro, LavaridgeTown_Gym_1F_Text_GeraldDefeat
 	msgbox LavaridgeTown_Gym_1F_Text_GeraldPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 LavaridgeTown_Gym_B1F_EventScript_Jace::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_JACE, LOCALID_JACE, LavaridgeTown_Gym_B1F_Text_JaceIntro, LavaridgeTown_Gym_B1F_Text_JaceDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_JACE, LavaridgeTown_Gym_B1F_Text_JaceIntro, LavaridgeTown_Gym_B1F_Text_JaceDefeat
 	msgbox LavaridgeTown_Gym_B1F_Text_JacePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 LavaridgeTown_Gym_B1F_EventScript_Jeff::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_JEFF, LOCALID_JEFF, LavaridgeTown_Gym_B1F_Text_JeffIntro, LavaridgeTown_Gym_B1F_Text_JeffDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_JEFF, LavaridgeTown_Gym_B1F_Text_JeffIntro, LavaridgeTown_Gym_B1F_Text_JeffDefeat
 	msgbox LavaridgeTown_Gym_B1F_Text_JeffPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 LavaridgeTown_Gym_B1F_EventScript_Eli::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_ELI, LOCALID_ELI, LavaridgeTown_Gym_B1F_Text_EliIntro, LavaridgeTown_Gym_B1F_Text_EliDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_ELI, LavaridgeTown_Gym_B1F_Text_EliIntro, LavaridgeTown_Gym_B1F_Text_EliDefeat
 	msgbox LavaridgeTown_Gym_B1F_Text_EliPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -187,178 +926,145 @@ LavaridgeTown_Gym_1F_EventScript_GymStatue::
 LavaridgeTown_Gym_1F_Text_GymGuideAdvice:
 	.string "Hey, how's it going, CHAMPION-\n"
 	.string "bound {PLAYER}?\p"
-	.string "LAVARIDGE's GYM LEADER FLANNERY\n"
-	.string "uses FIRE-type POKéMON.\p"
-	.string "Her passion for POKéMON burns stronger\n"
-	.string "and hotter than a volcano.\p"
-	.string "Don't get too close to her--you'll burn!\n"
-	.string "Hose her down with water and then\l"
-	.string "go for it!$"
+	.string "The Ecruteak Gym Leader, WATARU, uses\n"
+	.string "WATER-type POKéMON.\p"
+	.string "He's as fierce as a roaring waterfall, so\n"
+	.string "don't take him lightly!\p"
+	.string "Try using a GRASS or ELECTRIC-type to\n"
+	.string "show him what's up.\p"
+	.string "Well then, go for it!$"
 
 LavaridgeTown_Gym_1F_Text_GymGuidePostVictory:
-	.string "Yow! That was a scorching-hot battle!$"
+	.string "Wow, you really mopped the floor with\n"
+	.string "him!\p"
+	.string "I didn't doubt you for a second.$"
 
 LavaridgeTown_Gym_1F_Text_ColeIntro:
-	.string "Owowowowow!\n"
-	.string "Yikes, it's hot!$"
+	.string "Left or right, which way to go?$"
 
 LavaridgeTown_Gym_1F_Text_ColeDefeat:
-	.string "I'm blinded by sweat in my eyes…$"
+	.string "I'm all dried up!$"
 
 LavaridgeTown_Gym_1F_Text_ColePostBattle:
-	.string "Being buried in hot sand promotes\n"
-	.string "circulation.\p"
-	.string "It's effective for healing pain in\n"
-	.string "your joints.$"
+	.string "I guess our puzzle isn't that tricky.$"
 
 LavaridgeTown_Gym_1F_Text_AxleIntro:
-	.string "I'm trying to relieve my stress.\n"
-	.string "Don't come along and stress me out!$"
+	.string "You don't need floaties too, do you?$"
 
 LavaridgeTown_Gym_1F_Text_AxleDefeat:
-	.string "I hope FLANNERY flames you good!$"
+	.string "You let all my air out!$"
 
 LavaridgeTown_Gym_1F_Text_AxlePostBattle:
-	.string "Haaah… Whew…\p"
-	.string "If you spend too much time buried in\n"
-	.string "hot sand, it tuckers you out…$"
+	.string "I can't swim yet, but I love the water!$"
 
 LavaridgeTown_Gym_B1F_Text_KeeganIntro:
-	.string "You must be getting tired by now.\n"
-	.string "You'd like to rest in the hot sand,\l"
-	.string "wouldn't you?\p"
-	.string "But you should know that maintaining\n"
-	.string "your willpower is an important ability\l"
-	.string "for all TRAINERS.$"
+	.string "Raise the water back up, I was having\n"
+	.string "fun!$"
 
 LavaridgeTown_Gym_B1F_Text_KeeganDefeat:
-	.string "Play with fire, and be burned…$"
+	.string "Ok, that battle was pretty fun too.$"
 
 LavaridgeTown_Gym_B1F_Text_KeeganPostBattle:
-	.string "Your skill is real…\n"
-	.string "But our LEADER FLANNERY is strong.\p"
-	.string "If you don't watch yourself, you'll be\n"
-	.string "burned seriously.$"
+	.string "Hey, can you go raise the water back\n"
+	.string "up?$"
 
 LavaridgeTown_Gym_1F_Text_GeraldIntro:
-	.string "Can your POKéMON withstand\n"
-	.string "392-degree heat?$"
+	.string "I can't catch a single fish in these\n"
+	.string "waters!$"
 
 LavaridgeTown_Gym_1F_Text_GeraldDefeat:
-	.string "It didn't burn hotly enough…$"
+	.string "Hey, you're not half bad.$"
 
 LavaridgeTown_Gym_1F_Text_GeraldPostBattle:
-	.string "The temperature of magma is\n"
-	.string "392 degrees.\p"
-	.string "Your POKéMON beat me, so they should\n"
-	.string "easily survive in magma.$"
+	.string "I guess the fish wouldn't survive with\n"
+	.string "the water being drained.$"
 
 LavaridgeTown_Gym_1F_Text_DanielleIntro:
-	.string "Um…\n"
-	.string "Okay, I'll battle with you.$"
+	.string "You didn't have to battle me, you know.$"
 
 LavaridgeTown_Gym_1F_Text_DanielleDefeat:
 	.string "Oh, but you're too strong.$"
 
 LavaridgeTown_Gym_1F_Text_DaniellePostBattle:
-	.string "I'm going to be a pretty and strong\n"
-	.string "TRAINER just like FLANNERY.$"
+	.string "How do you like our gym?\p"
+	.string "I helped WATARU set it up.$"
 
 LavaridgeTown_Gym_B1F_Text_JaceIntro:
-	.string "Come on, get with it!\n"
-	.string "Let's go before my feelings cool!$"
+	.string "You're not lost, are you?$"
 
 LavaridgeTown_Gym_B1F_Text_JaceDefeat:
-	.string "It's so hot, and yet my heart is\n"
-	.string "clutched by ice…$"
+	.string "Hmm... You might have what it takes...$"
 
 LavaridgeTown_Gym_B1F_Text_JacePostBattle:
-	.string "The way the battling spirit burns\n"
-	.string "within you, you may stand a chance\l"
-	.string "against our LEADER.$"
+	.string "Can you find your way though our maze?$"
 
 LavaridgeTown_Gym_B1F_Text_JeffIntro:
-	.string "See how the flames blaze wildly?\n"
-	.string "They flare in anticipation of my win!$"
+	.string "I hope you know how to swim!$"
 
 LavaridgeTown_Gym_B1F_Text_JeffDefeat:
 	.string "Something didn't go right.$"
 
 LavaridgeTown_Gym_B1F_Text_JeffPostBattle:
-	.string "Well, so what? I say so what?\n"
-	.string "I can walk on hot coals barefoot!\p"
-	.string "…Don't even think about trying it!$"
+	.string "Knowing how to swim opens up the world\n"
+	.string "just a little bit more.$"
 
 LavaridgeTown_Gym_B1F_Text_EliIntro:
-	.string "As much as I love mountains,\n"
-	.string "I especially love volcanoes.$"
+	.string "Oh, I think I hooked a big one!$"
 
 LavaridgeTown_Gym_B1F_Text_EliDefeat:
-	.string "Well, it seems to me I lost without\n"
-	.string "ever being in control.$"
+	.string "You were too much for my line to handle.$"
 
 LavaridgeTown_Gym_B1F_Text_EliPostBattle:
-	.string "I stay here because I became a fan\n"
-	.string "of FLANNERY's power.\p"
-	.string "Hehehehe.$"
+	.string "Maybe I can get a better fishing rod\n"
+	.string "from my buddy in town.$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryIntro:
-	.string "Welcome… No, wait.\p"
-	.string "Puny TRAINER, how good to see you've\n"
-	.string "made it here!\p"
-	.string "I have been entrusted with the…\n"
-	.string "No, wait.\p"
-	.string "I am FLANNERY, and I'm the GYM\n"
-	.string "LEADER here!\p"
-	.string "Uh…\n"
-	.string "Dare not underestimate me, though\l"
-	.string "I have been LEADER only a short time!\p"
-	.string "With skills inherited from my grand-\n"
-	.string "father, I shall, uh…demonstrate the\l"
-	.string "hot moves we have honed on this land!$"
+	.string "Welcome, TRAINER.\p"
+	.string "I am the Ecruteak City Gym Leader,\n"
+	.string "WATARU.\p"
+	.string "...\p"
+	.string "You may not believe it, but I can tell a\n"
+	.string "lot about a person I've just met simply\l"
+	.string "by the feel of their aura.\p"
+	.string "You emit a calm, yet powerful aura\n"
+	.string "similar to my own.\p"
+	.string "But let's not waste any time.\p"
+	.string "As you and I both know, the truly\n"
+	.string "powerful let their actions speak for\l"
+	.string "them.$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryDefeat:
-	.string "Oh…\n"
-	.string "I guess I was trying too hard…\p"
-	.string "I… I've only recently become\n"
-	.string "a GYM LEADER.\p"
-	.string "I tried too hard to be someone\n"
-	.string "I'm not.\p"
-	.string "I have to do things my natural way. If\n"
-	.string "I don't, my POKéMON will be confused.\p"
-	.string "Thanks for teaching me that.\n"
-	.string "For that, you deserve this.$"
+	.string "Marvelous, I knew my intuition was\n"
+	.string "correct.\p"
+	.string "With your skill, I wouldn't be surprised\n"
+	.string "to see you claim the title of CHAMPION\l"
+	.string "some day.\p"
+	.string "Here, you are certainly deserving of\n"
+	.string "this...$"
 
 LavaridgeTown_Gym_1F_Text_ReceivedHeatBadge:
-	.string "{PLAYER} received the HEAT BADGE\n"
-	.string "from FLANNERY.$"
+	.string "{PLAYER} received the TORRENT BADGE\n"
+	.string "from WATARU.$"
 
 LavaridgeTown_Gym_1F_Text_ExplainHeatBadgeTakeThis:
-	.string "If you have a HEAT BADGE, all POKéMON\n"
-	.string "up to Level 50, even those you get in\l"
-	.string "trades from other people, will obey\l"
-	.string "you completely.\p"
-	.string "And, it lets POKéMON use the HM move\n"
-	.string "STRENGTH outside of battle.\p"
-	.string "This is a token of my appreciation.\n"
-	.string "Don't be shy about taking it!$"
+	.string "With the TORRENT BADGE, all POKéMON up\n"
+	.string "to Level 50 will obey you completely.\l"
+	.string "Even those that you receive in trades.\p"
+	.string "It will also allow you to use the HM\n"
+	.string "move, Strength, outside of battle.\p"
+	.string "...\p"
+	.string "You should also take this...$"
 
 LavaridgeTown_Gym_1F_Text_ExplainOverheat:
-	.string "That TM50 contains OVERHEAT.\p"
-	.string "That move inflicts serious damage on\n"
-	.string "the opponent.\p"
-	.string "But it also sharply cuts the SP. ATK\n"
-	.string "of the POKéMON using it. It might not\l"
-	.string "be suitable for longer battles.$"
-
-LavaridgeTown_Gym_1F_Text_RegisteredFlannery:
-	.string "Registered GYM LEADER FLANNERY\n"
-	.string "in the POKéNAV.$"
+	.string "That TM contains the move Scald.\p"
+	.string "It is a very powerful WATER-type move\n"
+	.string "that may leave your foe with a burn.\p"
+	.string "Consider it a special gift from myself.$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryPostBattle:
-	.string "Your power reminds me of someone…\p"
-	.string "Oh! I know! You battle like NORMAN,\n"
-	.string "the GYM LEADER of PETALBURG.$"
+	.string "Your aura reminds me of another person\n"
+	.string "besides myself.\p"
+	.string "Could it be...$"
 
 LavaridgeTown_Gym_1F_Text_GymStatue:
 	.string "LAVARIDGE TOWN POKéMON GYM$"
@@ -367,37 +1073,3 @@ LavaridgeTown_Gym_1F_Text_GymStatueCertified:
 	.string "LAVARIDGE TOWN POKéMON GYM\p"
 	.string "FLANNERY'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
-
-LavaridgeTown_Gym_1F_Text_FlanneryPreRematch:
-	.string "FLANNERY: Losing a battle isn't going\n"
-	.string "to deflate me.\p"
-	.string "I love POKéMON.\n"
-	.string "I love to battle.\l"
-	.string "And… I love this GYM!\p"
-	.string "Let's exchange superhot moves\n"
-	.string "in another battle!$"
-
-LavaridgeTown_Gym_1F_Text_FlanneryRematchDefeat:
-	.string "Whew!\n"
-	.string "On the verge of eruption!$"
-
-LavaridgeTown_Gym_1F_Text_FlanneryPostRematch:
-	.string "FLANNERY: I lost the match,\n"
-	.string "but I'm completely satisfied.\p"
-	.string "It's not often I get to enjoy a battle\n"
-	.string "this heated.\p"
-	.string "Let's have another one like this\n"
-	.string "again sometime!$"
-
-LavaridgeTown_Gym_1F_Text_FlanneryRematchNeedTwoMons:
-	.string "FLANNERY: Losing a battle isn't going\n"
-	.string "to deflate me.\p"
-	.string "I love POKéMON.\n"
-	.string "I love to battle.\l"
-	.string "And… I love this GYM!\p"
-	.string "Let's exchange superhot moves\n"
-	.string "in another battle!\p"
-	.string "Oh, wait. Do you only have one POKéMON\n"
-	.string "that can battle?\p"
-	.string "I hate to say this, but when you come\n"
-	.string "see me, bring at least two POKéMON.$"

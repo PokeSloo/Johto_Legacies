@@ -193,7 +193,7 @@ RustboroCity_Gym_Text_MarcPostBattle:
 
 RustboroCity_Gym_Text_RoxanneIntro:
 	.string "Welcome, challenger. I am FALKNER,\n"
-	.string "Violet City's gym leader and master of\l"
+	.string "Violet City's Gym Leader and master of\l"
 	.string "the skies...\p"
 	.string "Yeah, yeah, go ahead and laugh.\p"
 	.string "Twenty years of losing to children\n"

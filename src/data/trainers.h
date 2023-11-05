@@ -2415,9 +2415,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_COLE] =
     {
-        .trainerClass = TRAINER_CLASS_KINDLER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_KINDLER,
+        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
+        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_M,
         .trainerName = _("COLE"),
         .items = {},
         .doubleBattle = FALSE,
@@ -2427,9 +2427,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_JEFF] =
     {
-        .trainerClass = TRAINER_CLASS_KINDLER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_KINDLER,
+        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
+        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_M,
         .trainerName = _("JEFF"),
         .items = {},
         .doubleBattle = FALSE,
@@ -2439,9 +2439,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_AXLE] =
     {
-        .trainerClass = TRAINER_CLASS_KINDLER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_KINDLER,
+        .trainerClass = TRAINER_CLASS_TUBER_M,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL,
+        .trainerPic = TRAINER_PIC_TUBER_M,
         .trainerName = _("AXLE"),
         .items = {},
         .doubleBattle = FALSE,
@@ -2451,9 +2451,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_JACE] =
     {
-        .trainerClass = TRAINER_CLASS_KINDLER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_KINDLER,
+        .trainerClass = TRAINER_CLASS_SAILOR,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SAILOR,
         .trainerName = _("JACE"),
         .items = {},
         .doubleBattle = FALSE,
@@ -2463,10 +2463,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_KEEGAN] =
     {
-        .trainerClass = TRAINER_CLASS_KINDLER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_KINDLER,
-        .trainerName = _("KEEGAN"),
+        .trainerClass = TRAINER_CLASS_TUBER_F,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_GIRL,
+        .trainerPic = TRAINER_PIC_TUBER_F,
+        .trainerName = _("KELCI"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
@@ -6023,9 +6023,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ELI] =
     {
-        .trainerClass = TRAINER_CLASS_HIKER,
+        .trainerClass = TRAINER_CLASS_FISHERMAN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_HIKER,
+        .trainerPic = TRAINER_PIC_FISHERMAN,
         .trainerName = _("ELI"),
         .items = {},
         .doubleBattle = FALSE,
@@ -7787,9 +7787,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_GERALD] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerClass = TRAINER_CLASS_FISHERMAN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_FISHERMAN,
         .trainerName = _("GERALD"),
         .items = {ITEM_HYPER_POTION, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
@@ -7811,10 +7811,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_DANIELLE] =
     {
-        .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("DANIELLE"),
+        .trainerClass = TRAINER_CLASS_SAILOR,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SAILOR,
+        .trainerName = _("DANIEL"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,

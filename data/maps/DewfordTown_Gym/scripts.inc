@@ -510,7 +510,7 @@ DewfordTown_Gym_EventScript_GymStatue::
 	end
 
 DewfordTown_Gym_Text_GymGuideAdvice:
-	.string "AZALEA's GYM LEADER ALICIA may just be\n"
+	.string "AZALEA's Gym Leader ALICIA may just be\n"
 	.string "a little girl, but don't underestimate\l"
 	.string "her!\p"
 	.string "She is a FAIRY-type master!\p"
