@@ -1,0 +1,15 @@
+mapscripts Route116_TunnelersRestHouse_MapScripts {}
+
+script Route116_TunnelersRestHouse_EventScript_Girl {
+    lock
+    msgbox(format("Howdy! Welcome to Moomoo Farm!\pWould you like to buy some milk?"))
+    waitmessage
+    pokemart (Route116_TunnelersRestHouse_MartItems)
+    msgbox (format("Don't be shy, we have plenty to sell."))
+    release
+    end
+}
+
+mart Route116_TunnelersRestHouse_MartItems {
+    ITEM_MOOMOO_MILK
+}

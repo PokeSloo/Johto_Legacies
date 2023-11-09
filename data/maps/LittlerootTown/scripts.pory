@@ -21,12 +21,7 @@ movement LittlerootTown_PlayerWalkRight {
 }
 
 script LittlerootTown_EventScript_NewFatMan {
-	lock
-	faceplayer
-	msgbox (format("Here, have some rare candies."))
-	waitmessage
-	giveitem (ITEM_RARE_CANDY, 50)
-	release
+	msgbox (format("...\pYou're a pretty quiet one aren't you?\pI almost didn't even wake up from my nap.\pYou remind me of someone else who used to live here."), MSGBOX_NPC)
 	end
 }
 
@@ -41,10 +36,6 @@ script LittlerootTown_EventScript_Girl {
 }
 
 raw`
-LittlerootTown_EventScript_FatMan::
-	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC
-	end
-
 LittlerootTown_EventScript_TownSign::
 	msgbox LittlerootTown_Text_TownSign, MSGBOX_SIGN
 	end
@@ -56,11 +47,6 @@ LittlerootTown_EventScript_BirchsLabSign::
 LittlerootTown_EventScript_BrendansHouseSign::
 	msgbox LittlerootTown_Text_ProfBirchsHouse, MSGBOX_SIGN
 	return
-
-LittlerootTown_Text_CanUsePCToStoreItems:
-	.string "If you use a PC, you can store items\n"
-	.string "and POKéMON.\p"
-	.string "The power of science is staggering!$"
 
 LittlerootTown_Text_TownSign:
 	.string "NEW BARK TOWN\n"

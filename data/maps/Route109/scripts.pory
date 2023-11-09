@@ -1,0 +1,186 @@
+const BLACKBELT_ID_1 = 23
+const BLACKBELT_ID_2 = 24
+const BLACKBELT_ID_3 = 25
+
+mapscripts Route109_MapScripts {}
+
+script Route109_EventScript_FarmSign {
+	msgbox(format("Moomoo Farm\nEnjoy Our Fresh and Tasty Milk"), MSGBOX_SIGN)
+	end
+}
+
+script Route109_EventScript_Trigger {
+	lock
+	if (flag(FLAG_HIDE_RT39_BOULDERS)) {
+		release
+		end
+	}
+	applymovement (BLACKBELT_ID_1, Route109_Movement_BlackBelt_Approach)
+	applymovement (BLACKBELT_ID_2, Route109_Movement_BlackBelt_Approach)
+	applymovement (BLACKBELT_ID_3, Route109_Movement_BlackBelt_ApproachAround)
+	waitmovement (0)
+	msgbox(format("Hey, nice work pushing those boulders kid!\pDon't worry, we'll take it from here."))
+	waitmessage
+	closemessage
+	fadescreen (FADE_TO_BLACK)
+	removeobject(BLACKBELT_ID_1)
+	removeobject(BLACKBELT_ID_2)
+	removeobject(BLACKBELT_ID_3)
+	removeobject(19)
+	removeobject(20)
+	removeobject(21)
+	removeobject(22)
+	setflag(FLAG_HIDE_RT39_BOULDERS)
+	delay(30)
+	waitse
+	playse(SE_M_STRENGTH)
+	waitse
+	playse(SE_M_STRENGTH)
+	waitse
+	playse(SE_M_STRENGTH)
+	waitse
+	playse(SE_M_STRENGTH)
+	waitse
+	playse(SE_M_STRENGTH)
+	waitse
+	delay(30)
+	fadescreen (FADE_FROM_BLACK)
+	release
+	end
+}
+
+movement Route109_Movement_BlackBelt_Approach {
+	walk_up * 7
+	walk_in_place_right
+}
+
+movement Route109_Movement_BlackBelt_ApproachAround {
+	walk_up * 9
+	walk_right * 2
+}
+
+raw`
+Route109_EventScript_Woman::
+	msgbox Route109_Text_LittleKidsDartAround, MSGBOX_NPC
+	end
+
+Route109_EventScript_Zigzagoon::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_MILTANK, CRY_MODE_NORMAL
+	msgbox Route109_Text_ZigzagoonCry, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+Route109_EventScript_SeashoreHouseSign::
+	msgbox Route109_Text_SeashoreHouseSign, MSGBOX_SIGN
+	end
+
+Route109_EventScript_TrainerTipsSign::
+	msgbox Route109_Text_TrainerTipsSign, MSGBOX_SIGN
+	end
+
+Route109_EventScript_Ricky::
+	trainerbattle_single TRAINER_RICKY_1, Route109_Text_RickyIntro, Route109_Text_RickyDefeated, Route109_EventScript_RickyRegisterMatchCallAfterBattle
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, Route109_EventScript_RickyRematch
+	msgbox Route109_Text_RickyPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Route109_EventScript_RickyRegisterMatchCallAfterBattle::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	msgbox Route109_Text_RickyRegister, MSGBOX_DEFAULT
+	register_matchcall TRAINER_RICKY_1
+	release
+	end
+
+Route109_EventScript_RickyRematch::
+	trainerbattle_rematch TRAINER_RICKY_1, Route109_Text_RickyRematchIntro, Route109_Text_RickyRematchDefeated
+	msgbox Route109_Text_RickyRematchPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route109_EventScript_Alice::
+	trainerbattle_single TRAINER_ALICE, Route109_Text_AliceIntro, Route109_Text_AliceDefeated
+	msgbox Route109_Text_AlicePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route109_EventScript_Huey::
+	trainerbattle_single TRAINER_HUEY, Route109_Text_HueyIntro, Route109_Text_HueyDefeated
+	msgbox Route109_Text_HueyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route109_EventScript_Lola::
+	trainerbattle_single TRAINER_LOLA_1, Route109_Text_LolaIntro, Route109_Text_LolaDefeated, Route109_EventScript_LolaRegisterMatchCallAfterBattle
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, Route109_EventScript_LolaRematch
+	msgbox Route109_Text_LolaPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Route109_EventScript_LolaRegisterMatchCallAfterBattle::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	msgbox Route109_Text_LolaRegister, MSGBOX_DEFAULT
+	register_matchcall TRAINER_LOLA_1
+	release
+	end
+
+Route109_EventScript_LolaRematch::
+	trainerbattle_rematch TRAINER_LOLA_1, Route109_Text_LolaRematchIntro, Route109_Text_LolaRematchDefeated
+	msgbox Route109_Text_LolaRematchPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route109_EventScript_Austina::
+	trainerbattle_single TRAINER_AUSTINA, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
+	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route109_EventScript_Carter::
+	trainerbattle_single TRAINER_CARTER, Route109_Text_CarterIntro, Route109_Text_CarterDefeated
+	msgbox Route109_Text_CarterPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route109_EventScript_Paul::
+	trainerbattle_double TRAINER_MEL_AND_PAUL, Route109_Text_PaulIntro, Route109_Text_PaulDefeated, Route109_Text_PaulNotEnoughPokemon
+	msgbox Route109_Text_PaulPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route109_EventScript_Mel::
+	trainerbattle_double TRAINER_MEL_AND_PAUL, Route109_Text_MelIntro, Route109_Text_MelDefeated, Route109_Text_MelNotEnoughPokemon
+	msgbox Route109_Text_MelPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route109_EventScript_Hailey::
+	trainerbattle_single TRAINER_HAILEY, Route109_Text_HaileyIntro, Route109_Text_HaileyDefeated
+	msgbox Route109_Text_HaileyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route109_EventScript_Elijah::
+	trainerbattle_single TRAINER_ELIJAH, Route109_Text_ElijahIntro, Route109_Text_ElijahDefeated
+	msgbox Route109_Text_ElijahPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route109_Text_LittleKidsDartAround:
+	.string "My my, these girls of mine can sure be\n"
+	.string "rowdy!\p"
+	.string "Perhaps battling a strong TRAINER will\n"
+	.string "tucker them out.$"
+
+Route109_Text_ZigzagoonCry:
+	.string "MILTANK: Moo moo?$"
+
+Route109_Text_SeashoreHouseSign:
+	.string "ROUTE 39\n"
+	.string "{DOWN_ARROW} South to OLIVINE CITY$"
+
+Route109_Text_TrainerTipsSign:
+	.string "TRAINER TIPS\p"
+	.string "POKéMON at the same level may not\n"
+	.string "always have identical stats.\p"
+	.string "POKéMON raised by TRAINERS are said\n"
+	.string "to grow stronger than wild POKéMON.$"
+`

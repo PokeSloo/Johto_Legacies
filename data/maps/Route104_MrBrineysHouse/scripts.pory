@@ -1,0 +1,11 @@
+mapscripts Route104_MrBrineysHouse_MapScripts {}
+
+script Route104_MrBrineysHouse_EventScript_Man {
+    msgbox(format("Welcome to our farm.\pIf you would like to buy some Moomoo Milk, then speak to my grandaughter in the stable."), MSGBOX_NPC)
+    end
+}
+
+script Route104_MrBrineysHouse_EventScript_Woman {
+    msgbox(format("Life on the farm can feel slow at times, but I'm just glad I get to spend so much time with my family."), MSGBOX_NPC)
+    end
+}

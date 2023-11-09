@@ -798,25 +798,26 @@ Route109_Text_DavidPostBattle:
 	.string "with POKéMON battles!$"
 
 Route109_Text_AliceIntro:
-	.string "Are you properly protected against\n"
-	.string "the sun?$"
+	.string "Yeehaw! Show me what you've got!$"
 
 Route109_Text_AliceDefeated:
-	.string "Ouch, ouch, ouch!$"
+	.string "You're not too bad for a city slicker!$"
 
 Route109_Text_AlicePostBattle:
-	.string "Cheeks are the most prone to burning!$"
+	.string "Life on the farm can be more\n"
+	.string "entertaining than you think!$"
 
 Route109_Text_HueyIntro:
-	.string "I've laid anchor in ports around\n"
-	.string "the world, but SLATEPORT's the best.$"
+	.string "Me crewmates sailed off without me, now\n"
+	.string "I'm mad!$"
 
 Route109_Text_HueyDefeated:
-	.string "You're the best!$"
+	.string "That didn't help, now I'm even more\n"
+	.string "angry!$"
 
 Route109_Text_HueyPostBattle:
-	.string "In the best port was the best\n"
-	.string "TRAINER…$"
+	.string "Maybe I'll go to the sweet shop in\n"
+	.string "Olivine and cool my head.$"
 
 Route109_Text_EdmondIntro:
 	.string "Urrrrppp…\n"
@@ -832,69 +833,68 @@ Route109_Text_EdmondPostBattle:
 	.string "I'm a SAILOR, but…$"
 
 Route109_Text_RickyIntro:
-	.string "I'm thirsty… I could go for a SODA POP\n"
-	.string "at the SEASHORE HOUSE…$"
+	.string "Headed to Olivine, are you?$"
 
 Route109_Text_RickyDefeated:
-	.string "Groan…$"
+	.string "Say, you're not half bad!$"
 
 Route109_Text_RickyPostBattle:
-	.string "I'm getting famished… My inner tube\n"
-	.string "looks like a giant doughnut…$"
+	.string "Olivine has to be one of my favorite\n"
+	.string "port towns, for sure.$"
 
 Route109_Text_RickyRegister:
-	.string "Will you have another match with me\n"
-	.string "when I'm not all thirsty?$"
+	.string "How about another match sometime?$"
 
 Route109_Text_RickyRematchIntro:
-	.string "I'm hungry, but I've got enough pep in\n"
-	.string "me for a battle!$"
+	.string "You showed up at the perfect time, I\n"
+	.string "was itching for another match!$"
 
 Route109_Text_RickyRematchDefeated:
-	.string "I lost…\n"
-	.string "It's because I'm hungry…$"
+	.string "Good match, good match.$"
 
 Route109_Text_RickyRematchPostBattle:
-	.string "When you eat on a beach, everything\n"
-	.string "seems to taste a little better.$"
+	.string "Olivine has to be one of my favorite\n"
+	.string "port towns, by a long shot!$"
 
 Route109_Text_LolaIntro:
-	.string "Doesn't a beach umbrella look like\n"
-	.string "a giant flower?$"
+	.string "Your hands aren't calloused at all!\p"
+	.string "You wouldn't last 2 seconds on the\n"
+	.string "farm!$"
 
 Route109_Text_LolaDefeated:
-	.string "Mommy!$"
+	.string "No fair, your POKéMON did all the work\n"
+	.string "for you!$"
 
 Route109_Text_LolaPostBattle:
-	.string "If you look at the beach from the sky,\n"
-	.string "it looks like a big flower garden!$"
+	.string "Farm life is tough, but I wouldn't trade\n"
+	.string "it for the world!$"
 
 Route109_Text_LolaRegister:
-	.string "Me?\n"
-	.string "I'm here every day!$"
+	.string "You may not be rugged, but your POKéMON\n"
+	.string "sure are.\p"
+	.string "I wouldn't mind battling you again\n"
+	.string "sometime...$"
 
 Route109_Text_LolaRematchIntro:
-	.string "I'm not losing to you again!\n"
-	.string "That's why I have my inner tube!$"
+	.string "Hey! I think I'm starting to see little\n"
+	.string "callouses forming on your hands!$"
 
 Route109_Text_LolaRematchDefeated:
-	.string "Mommy!$"
+	.string "Your POKéMON sure are tough!$"
 
 Route109_Text_LolaRematchPostBattle:
-	.string "If I have an inner tube, me and my\n"
-	.string "POKéMON's cuteness goes way up!$"
+	.string "I'm going to put your POKéMON to work\n"
+	.string "on the farm!$"
 
 Route109_Text_AustinaIntro:
-	.string "I can't swim without my inner tube,\n"
-	.string "but I won't lose at POKéMON!$"
+	.string "Saddle up partner!$"
 
 Route109_Text_AustinaDefeated:
-	.string "Did I lose because I have an inner\n"
-	.string "tube?$"
+	.string "No! I fell off!$"
 
 Route109_Text_AustinaPostBattle:
-	.string "My inner tube is a fashion item.\n"
-	.string "I can't be seen without it.$"
+	.string "You know what they say, if you fall off\n"
+	.string "your Ponyta, you've gotta get back on!$"
 
 Route109_Text_GwenIntro:
 	.string "Hi, big TRAINER.\n"
@@ -907,50 +907,51 @@ Route109_Text_GwenPostBattle:
 	.string "How did you get to be so strong?$"
 
 Route109_Text_CarterIntro:
-	.string "Wahahah! This dude's going to catch\n"
-	.string "himself a big one!$"
+	.string "Aah! I broke my rod reeling in a big one!\p"
+	.string "Now I'm going to take my anger out on\n"
+	.string "you!$"
 
 Route109_Text_CarterDefeated:
-	.string "This dude just lost one…$"
+	.string "Broke my rod, and now my spirit...$"
 
 Route109_Text_CarterPostBattle:
-	.string "This dude thinks you're a big one.\n"
-	.string "No, you're a big-one-to-be!$"
+	.string "What do you want now?\p"
+	.string "What else will you take from me?$"
 
 Route109_Text_PaulIntro:
-	.string "PAUL: Well, this is a mood-breaker.\p"
-	.string "I wish you wouldn't disturb our\n"
-	.string "precious time together.$"
+	.string "PAUL: Really kid? You want a battle now\n"
+	.string "of all times?$"
 
 Route109_Text_PaulDefeated:
-	.string "PAUL: Well, I give up.$"
+	.string "PAUL: Well that's just great!$"
 
 Route109_Text_PaulPostBattle:
-	.string "PAUL: Well, don't tell anyone that\n"
-	.string "we're here.\l"
-	.string "This is just our private world of two!$"
+	.string "PAUL: Hey, uh, could you leave us alone\n"
+	.string "now?$"
 
 Route109_Text_PaulNotEnoughPokemon:
-	.string "PAUL: We're totally, deeply in love.\n"
-	.string "That's why we make our POKéMON battle\l"
-	.string "together.$"
+	.string "PAUL: Really kid? You want a battle now\n"
+	.string "of all times?\p"
+	.string "...\p"
+	.string "You don't even have two POKéMON!\p"
+	.string "Get lost!$"
 
 Route109_Text_MelIntro:
-	.string "MEL: We're, like, totally in love.\n"
-	.string "Our romance is heating up all of HOENN!$"
+	.string "MEL: I'll show you what true love is\n"
+	.string "capable of!$"
 
 Route109_Text_MelDefeated:
-	.string "MEL: We lost, and it's my fault!\n"
-	.string "PAUL will hate me!$"
+	.string "MEL: Oh no... Is our love not true?$"
 
 Route109_Text_MelPostBattle:
-	.string "MEL: Um, PAUL, are you angry with me?\n"
-	.string "Please don't be angry.$"
+	.string "MEL: PAUL is so possessive, but I love\n"
+	.string "it!$"
 
 Route109_Text_MelNotEnoughPokemon:
-	.string "MEL: We're, like, deeply and truly in love.\n"
-	.string "That's why we make our POKéMON\l"
-	.string "battle together.$"
+	.string "MEL: I'll show you what true love is\n"
+	.string "capable of!\p"
+	.string "...\p"
+	.string "When you bring more POKéMON that is...$"
 
 Route109_Text_ChandlerIntro:
 	.string "Tadaah! See?\n"
@@ -965,28 +966,26 @@ Route109_Text_ChandlerPostBattle:
 	.string "tube, too…$"
 
 Route109_Text_HaileyIntro:
-	.string "I can't swim, so I'm pretending\n"
-	.string "to swim.$"
+	.string "I'll show you what it means to be farm\n"
+	.string "tough!$"
 
 Route109_Text_HaileyDefeated:
-	.string "I thought so!\n"
-	.string "I didn't think we could win.$"
+	.string "How could this happen?$"
 
 Route109_Text_HaileyPostBattle:
-	.string "When I learn how to swim, I think\n"
-	.string "my POKéMON will become tougher.$"
+	.string "Farm life toughens a person up, y'all\n"
+	.string "city folk just don't get it.$"
 
 Route109_Text_ElijahIntro:
-	.string "For a guy as macho as me, this kind\n"
-	.string "of POKéMON is the perfect match!$"
+	.string "Let me show you what it means to rock!$"
 
 Route109_Text_ElijahDefeated:
-	.string "I'm cool even in defeat, hey?$"
+	.string "I got rolled!$"
 
 Route109_Text_ElijahPostBattle:
-	.string "For a guy as macho as me, a port\n"
-	.string "is the perfect setting!\p"
-	.string "I guess I'll head for SLATEPORT.$"
+	.string "One day, I hope to join The\n"
+	.string "Thunderbolts, and play around the\l"
+	.string "world!$"
 
 Route110_Text_JacobIntro:
 	.string "Whoa! Watch it!\n"

@@ -1,20 +1,28 @@
 SkyPillar_2F_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, CaveHole_CheckFallDownHole
-	map_script MAP_SCRIPT_ON_TRANSITION, SkyPillar_2F_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, SkyPillar_2F_SetHoleWarp
 	.byte 0
 
-SkyPillar_2F_OnTransition:
-	call_if_lt VAR_SKY_PILLAR_STATE, 2, SkyPillar_2F_EventScript_CleanFloor
-	copyvar VAR_ICE_STEP_COUNT, 1
+
+SkyPillar_2F_EventScript_Chandler::
+	trainerbattle_single TRAINER_CHANDLER, Route109_Text_ChandlerIntro, Route109_Text_ChandlerDefeated
+	msgbox Route109_Text_ChandlerPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-SkyPillar_2F_EventScript_CleanFloor::
-	setmaplayoutindex LAYOUT_SKY_PILLAR_2F_CLEAN
-	return
-
-SkyPillar_2F_SetHoleWarp:
-	setstepcallback STEP_CB_CRACKED_FLOOR
-	setholewarp MAP_SKY_PILLAR_1F
+SkyPillar_2F_EventScript_Edmond::
+	trainerbattle_single TRAINER_EDMOND, Route109_Text_EdmondIntro, Route109_Text_EdmondDefeated
+	msgbox Route109_Text_EdmondPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+SkyPillar_2F_EventScript_David::
+	trainerbattle_single TRAINER_DAVID, Route109_Text_DavidIntro, Route109_Text_DavidDefeated
+	msgbox Route109_Text_DavidPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+SkyPillar_2F_EventScript_Gwen::
+	trainerbattle_single TRAINER_GWEN, Route109_Text_GwenIntro, Route109_Text_GwenDefeated
+	msgbox Route109_Text_GwenPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+SkyPillar_2F_EventScript_Shirley::
+	trainerbattle_single TRAINER_SHIRLEY, MtChimney_Text_ShirleyIntro, MtChimney_Text_ShirleyDefeat
+	msgbox MtChimney_Text_ShirleyPostBattle, MSGBOX_AUTOCLOSE
+	end

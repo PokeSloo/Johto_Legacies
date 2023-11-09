@@ -502,11 +502,6 @@ MtChimney_EventScript_Sheila::
 	msgbox MtChimney_Text_SheilaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-MtChimney_EventScript_Shirley::
-	trainerbattle_single TRAINER_SHIRLEY, MtChimney_Text_ShirleyIntro, MtChimney_Text_ShirleyDefeat
-	msgbox MtChimney_Text_ShirleyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 MtChimney_EventScript_Grunt1::
 	trainerbattle_single TRAINER_GRUNT_MT_CHIMNEY_1, MtChimney_Text_Grunt1Intro, MtChimney_Text_Grunt1Defeat
 	msgbox MtChimney_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE

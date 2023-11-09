@@ -23,12 +23,7 @@ LittlerootTown_PlayerWalkRight:
 	step_end
 
 LittlerootTown_EventScript_NewFatMan::
-	lock
-	faceplayer
-	msgbox LittlerootTown_EventScript_NewFatMan_Text_0
-	waitmessage
-	giveitem ITEM_RARE_CANDY, 50
-	release
+	msgbox LittlerootTown_EventScript_NewFatMan_Text_0, MSGBOX_NPC
 	end
 
 
@@ -42,10 +37,6 @@ LittlerootTown_EventScript_Girl::
 	end
 
 
-LittlerootTown_EventScript_FatMan::
-	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC
-	end
-
 LittlerootTown_EventScript_TownSign::
 	msgbox LittlerootTown_Text_TownSign, MSGBOX_SIGN
 	end
@@ -57,11 +48,6 @@ LittlerootTown_EventScript_BirchsLabSign::
 LittlerootTown_EventScript_BrendansHouseSign::
 	msgbox LittlerootTown_Text_ProfBirchsHouse, MSGBOX_SIGN
 	return
-
-LittlerootTown_Text_CanUsePCToStoreItems:
-	.string "If you use a PC, you can store items\n"
-	.string "and POKéMON.\p"
-	.string "The power of science is staggering!$"
 
 LittlerootTown_Text_TownSign:
 	.string "NEW BARK TOWN\n"
@@ -81,7 +67,12 @@ LittlerootTown_Trigger_Text_0:
 	.string "there without a POKéMON of your own.$"
 
 LittlerootTown_EventScript_NewFatMan_Text_0:
-	.string "Here, have some rare candies.$"
+	.string "...\p"
+	.string "You're a pretty quiet one aren't you?\p"
+	.string "I almost didn't even wake up from my\n"
+	.string "nap.\p"
+	.string "You remind me of someone else who used\n"
+	.string "to live here.$"
 
 LittlerootTown_EventScript_Boy_Text_0:
 	.string "Have you been to Goldenrod City?\p"

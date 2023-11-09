@@ -26,35 +26,22 @@
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_BOY_2",
-      "x": 12,
-      "y": 23,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "5",
-      "script": "Route109_EventScript_David",
-      "flag": "0"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 16,
-      "y": 20,
+      "x": 20,
+      "y": 17,
       "elevation": 1,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN",
+      "movement_range_x": 3,
+      "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "5",
+      "trainer_sight_or_berry_tree_id": "4",
       "script": "Route109_EventScript_Alice",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
       "x": 28,
-      "y": 17,
+      "y": 20,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
       "movement_range_x": 0,
@@ -74,19 +61,6 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "6",
-      "script": "Route109_EventScript_Edmond",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BOY_2",
-      "x": 21,
-      "y": 11,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
       "script": "Route109_EventScript_Ricky",
       "flag": "0"
     },
@@ -113,7 +87,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route109_EventScript_SeashoreHouseGirl",
+      "script": "Route109_EventScript_Zigzagoon",
       "flag": "0"
     },
     {
@@ -131,27 +105,14 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 21,
-      "y": 17,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route109_EventScript_Gwen",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 20,
+      "x": 16,
       "y": 21,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
+      "trainer_sight_or_berry_tree_id": "4",
       "script": "Route109_EventScript_Austina",
       "flag": "0"
     },
@@ -178,20 +139,20 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route109_EventScript_SandCastleBoy",
+      "script": "Route109_EventScript_Zigzagoon",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ZIGZAGOON_2",
-      "x": 17,
-      "y": 23,
+      "x": 21,
+      "y": 20,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route109_EventScript_SoftSandGirl",
+      "script": "Route109_EventScript_Zigzagoon",
       "flag": "0"
     },
     {
@@ -212,7 +173,7 @@
       "x": 22,
       "y": 34,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -225,7 +186,7 @@
       "x": 23,
       "y": 34,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -243,7 +204,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route109_EventScript_OldMan",
+      "script": "Route109_EventScript_Zigzagoon",
       "flag": "0"
     },
     {
@@ -268,21 +229,8 @@
       "movement_range_x": 6,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "6",
-      "script": "Route109_EventScript_Hailey",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
-      "x": 17,
-      "y": 15,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "Route109_EventScript_Chandler",
+      "script": "Route109_EventScript_Hailey",
       "flag": "0"
     },
     {
@@ -362,6 +310,45 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route112_EventScript_Hiker",
       "flag": "FLAG_HIDE_RT39_BOULDERS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+      "x": 28,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_RT39_BOULDERS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+      "x": 27,
+      "y": 17,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_RT39_BOULDERS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+      "x": 26,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_RT39_BOULDERS"
     }
   ],
   "warp_events": [
@@ -381,21 +368,47 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route109_EventScript_Trigger"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route109_EventScript_Trigger"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route109_EventScript_Trigger"
+    }
   ],
   "bg_events": [
     {
       "type": "sign",
-      "x": 21,
-      "y": 6,
+      "x": 30,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route109_EventScript_SeashoreHouseSign"
     },
     {
       "type": "sign",
-      "x": 30,
-      "y": 8,
+      "x": 29,
+      "y": 44,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route109_EventScript_TrainerTipsSign"
@@ -437,7 +450,7 @@
       "x": 26,
       "y": 35,
       "elevation": 3,
-      "item": "ITEM_HEART_SCALE",
+      "item": "ITEM_BOTTLE_CAP",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_109_HEART_SCALE_2"
     },
     {
@@ -445,8 +458,16 @@
       "x": 12,
       "y": 8,
       "elevation": 3,
-      "item": "ITEM_HEART_SCALE",
+      "item": "ITEM_GOLD_BOTTLE_CAP",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_109_HEART_SCALE_3"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route109_EventScript_FarmSign"
     }
   ]
 }

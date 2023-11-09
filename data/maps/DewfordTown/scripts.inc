@@ -192,11 +192,9 @@ DewfordTown_EventScript_SailToSlateport::
 	end
 
 DewfordTown_EventScript_LandedSlateportDeliverGoods::
-	msgbox DewfordTown_Text_BrineyLandedInSlateportDeliverGoods, MSGBOX_DEFAULT
 	return
 
 DewfordTown_EventScript_LandedSlateport::
-	msgbox DewfordTown_Text_BrineyLandedInSlateport, MSGBOX_DEFAULT
 	return
 
 DewfordTown_Movement_SailToPetalburg:
