@@ -699,7 +699,7 @@
 #define FLAG_ODD_KEYSTONE_ITEM_BALL  0x291 // Hides item ball, found in dark cave
 #define FLAG_DARK_CAVE_TM28  0x292 // Dark cave item ball
 #define FLAG_SLUDGE_BOMB_ITEM  0x293 // In goldenrod sewer
-#define FLAG_UNUSED_0x294  0x294 // Unused Flag
+#define FLAG_HIDE_RAIKOU_RT39  0x294 // Also activates roaming
 #define FLAG_UNUSED_0x295  0x295 // Unused Flag
 #define FLAG_UNUSED_0x296  0x296 // Unused Flag
 #define FLAG_UNUSED_0x297  0x297 // Unused Flag

@@ -900,11 +900,11 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
     SPECIES_PAL(GLASTRIER, gMonPalette_Glastrier),
     SPECIES_PAL(SPECTRIER, gMonPalette_Spectrier),
     SPECIES_PAL(CALYREX, gMonPalette_Calyrex),
-    SPECIES_PAL(WYRDEER, gMonPalette_CircledQuestionMark), // gMonPalette_Wyrdeer),
+    SPECIES_PAL(WYRDEER, gMonPalette_Wyrdeer), // gMonPalette_Wyrdeer),
     SPECIES_PAL(KLEAVOR, gMonPalette_Kleavor),
     SPECIES_PAL(URSALUNA, gMonPalette_Ursaluna),
-    SPECIES_PAL(BASCULEGION, gMonPalette_CircledQuestionMark), // gMonPalette_Basculegion),
-    SPECIES_PAL(SNEASLER, gMonPalette_CircledQuestionMark), // gMonPalette_Sneasler),
+    SPECIES_PAL(BASCULEGION, gMonPalette_Basculegion), // gMonPalette_Basculegion),
+    SPECIES_PAL(SNEASLER, gMonPalette_Sneasler), // gMonPalette_Sneasler),
     SPECIES_PAL(OVERQWIL, gMonPalette_Overqwil),
     SPECIES_PAL(ENAMORUS, gMonPalette_CircledQuestionMark), // gMonPalette_Enamorus),
 
@@ -1322,6 +1322,6 @@ const struct CompressedSpritePalette gMonPaletteTableFemale[] =
     SPECIES_PAL(FRILLISH, gMonPalette_FrillishF),
     SPECIES_PAL(JELLICENT, gMonPalette_JellicentF),
     SPECIES_PAL(PYROAR, gMonPalette_PyroarF),
-    SPECIES_PAL(BASCULEGION, gMonPalette_CircledQuestionMark), // gMonPalette_BasculegionF),
+    SPECIES_PAL(BASCULEGION, gMonPalette_BasculegionF), // gMonPalette_BasculegionF),
 #endif
 };

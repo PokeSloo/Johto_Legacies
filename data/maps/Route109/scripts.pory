@@ -1,6 +1,7 @@
 const BLACKBELT_ID_1 = 23
 const BLACKBELT_ID_2 = 24
 const BLACKBELT_ID_3 = 25
+const RAIKOU_ID = 26
 
 mapscripts Route109_MapScripts {}
 
@@ -49,6 +50,145 @@ script Route109_EventScript_Trigger {
 	end
 }
 
+script Route109_EventScript_RaikouTrigger1 {
+	lock
+	if (flag(FLAG_HIDE_RAIKOU_RT39)) {
+		release
+		end
+	}
+	else {
+		applymovement (OBJ_EVENT_ID_PLAYER, Route109_Movement_PlayerDown1)
+    	waitmovement (0)
+		goto (Route109_EventScript_RaikouMain)
+		end
+	}
+}
+
+script Route109_EventScript_RaikouTrigger2 {
+	lock
+	if (flag(FLAG_HIDE_RAIKOU_RT39)) {
+		release
+		end
+	}
+	else {
+		applymovement (OBJ_EVENT_ID_PLAYER, Route109_Movement_PlayerDown2)
+    	waitmovement (0)
+		goto (Route109_EventScript_RaikouMain)
+		end
+	}
+}
+
+script Route109_EventScript_RaikouTrigger3 {
+	lock
+	if (flag(FLAG_HIDE_RAIKOU_RT39)) {
+		release
+		end
+	}
+	else {
+		applymovement (OBJ_EVENT_ID_PLAYER, Route109_Movement_PlayerDown3)
+    	waitmovement (0)
+		goto (Route109_EventScript_RaikouMain)
+		end
+	}
+}
+
+script Route109_EventScript_RaikouTrigger4 {
+	lock
+	if (flag(FLAG_HIDE_RAIKOU_RT39)) {
+		release
+		end
+	}
+	else {
+		applymovement (OBJ_EVENT_ID_PLAYER, Route109_Movement_PlayerDown4)
+    	waitmovement (0)
+		goto (Route109_EventScript_RaikouMain)
+		end
+	}
+}
+
+script Route109_EventScript_RaikouMain {
+	fadeoutbgm (1)
+    playse (SE_PIN)
+    applymovement (RAIKOU_ID, Route109_LookUpExclamation)
+    waitmovement (0)
+    waitse
+    delay (60)
+	playmoncry (SPECIES_RAIKOU, CRY_MODE_NORMAL)
+    setvar (VAR_0x8004, 1)  // vertical pan
+	setvar (VAR_0x8005, 1)  // horizontal pan
+	setvar (VAR_0x8006, 8)  // num shakes
+	setvar (VAR_0x8007, 5)  // shake delay
+	special (ShakeCamera)
+	waitstate
+    delay (60)
+	playse(SE_LEDGE)
+	applymovement (RAIKOU_ID, Route109_JumpUp)
+    waitmovement (0)
+	waitse
+	playse(SE_LEDGE)
+	applymovement (RAIKOU_ID, Route109_JumpLeft)
+    waitmovement (0)
+	waitse
+	playse(SE_LEDGE)
+	applymovement (RAIKOU_ID, Route109_JumpUp)
+    waitmovement (0)
+	waitse
+	applymovement (OBJ_EVENT_ID_PLAYER, Route109_Movement_PlayerFaceLeft)
+    waitmovement (0)
+	playse(SE_LEDGE)
+	applymovement (RAIKOU_ID, Route109_JumpUp)
+    waitmovement (0)
+	waitse
+	applymovement (OBJ_EVENT_ID_PLAYER, Route109_Movement_PlayerFaceUp)
+    waitmovement (0)
+	playse (SE_FLEE)
+    applymovement (RAIKOU_ID, Route109_RaikouFlee)
+    waitmovement (0)
+	applymovement (OBJ_EVENT_ID_PLAYER, Route109_Movement_PlayerFaceRight)
+    waitmovement (0)
+	playse(SE_LEDGE)
+	applymovement (RAIKOU_ID, Route109_JumpRight)
+    waitmovement (0)
+	waitse
+	playse(SE_LEDGE)
+	applymovement (RAIKOU_ID, Route109_JumpRight)
+    waitmovement (0)
+	waitse
+	applymovement (RAIKOU_ID, Route109_RaikouExit)
+    waitmovement (0)
+	removeobject (RAIKOU_ID)
+	setflag (FLAG_HIDE_RAIKOU_RT39)
+	setflag (FLAG_LATIOS_OR_LATIAS_ROAMING)
+    setvar (VAR_0x8004, 0)
+    special (InitRoamer)
+    copyvar (VAR_ROAMER_POKEMON, VAR_RESULT)
+	fadeinbgm (1)
+    release
+    end	
+}
+
+movement Route109_Movement_PlayerDown1 {
+	walk_down
+	walk_right * 2
+	walk_down * 2
+}
+
+movement Route109_Movement_PlayerDown2 {
+	walk_down
+	walk_right
+	walk_down * 2
+}
+
+movement Route109_Movement_PlayerDown3 {
+	walk_down * 3
+}
+
+movement Route109_Movement_PlayerDown4 {
+	walk_down
+	walk_left
+	walk_down * 2
+}
+
 movement Route109_Movement_BlackBelt_Approach {
 	walk_up * 7
 	walk_in_place_right
@@ -57,6 +197,44 @@ movement Route109_Movement_BlackBelt_Approach {
 movement Route109_Movement_BlackBelt_ApproachAround {
 	walk_up * 9
 	walk_right * 2
+}
+
+movement Route109_LookUpExclamation {
+	emote_exclamation_mark
+	walk_in_place_up
+}
+
+movement Route109_JumpUp {
+	jump_2_up
+}
+
+movement Route109_JumpLeft {
+	jump_2_left
+}
+
+movement Route109_Movement_PlayerFaceLeft {
+	face_left
+}
+
+movement Route109_Movement_PlayerFaceUp {
+	face_up
+}
+
+movement Route109_Movement_PlayerFaceRight {
+	face_right
+}
+
+movement Route109_RaikouFlee {
+	walk_fast_right
+    walk_faster_right * 3
+}
+
+movement Route109_JumpRight {
+	jump_2_right
+}
+
+movement Route109_RaikouExit {
+	walk_faster_right * 4
 }
 
 raw`

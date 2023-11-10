@@ -48,6 +48,147 @@ Route109_EventScript_Trigger_2:
 	end
 
 
+Route109_EventScript_RaikouTrigger1::
+	lock
+	goto_if_set FLAG_HIDE_RAIKOU_RT39, Route109_EventScript_RaikouTrigger1_1
+	applymovement OBJ_EVENT_ID_PLAYER, Route109_Movement_PlayerDown1
+	waitmovement 0
+	goto Route109_EventScript_RaikouMain
+	end
+
+Route109_EventScript_RaikouTrigger1_1:
+	release
+	end
+
+
+Route109_EventScript_RaikouTrigger2::
+	lock
+	goto_if_set FLAG_HIDE_RAIKOU_RT39, Route109_EventScript_RaikouTrigger2_1
+	applymovement OBJ_EVENT_ID_PLAYER, Route109_Movement_PlayerDown2
+	waitmovement 0
+	goto Route109_EventScript_RaikouMain
+	end
+
+Route109_EventScript_RaikouTrigger2_1:
+	release
+	end
+
+
+Route109_EventScript_RaikouTrigger3::
+	lock
+	goto_if_set FLAG_HIDE_RAIKOU_RT39, Route109_EventScript_RaikouTrigger3_1
+	applymovement OBJ_EVENT_ID_PLAYER, Route109_Movement_PlayerDown3
+	waitmovement 0
+	goto Route109_EventScript_RaikouMain
+	end
+
+Route109_EventScript_RaikouTrigger3_1:
+	release
+	end
+
+
+Route109_EventScript_RaikouTrigger4::
+	lock
+	goto_if_set FLAG_HIDE_RAIKOU_RT39, Route109_EventScript_RaikouTrigger4_1
+	applymovement OBJ_EVENT_ID_PLAYER, Route109_Movement_PlayerDown4
+	waitmovement 0
+	goto Route109_EventScript_RaikouMain
+	end
+
+Route109_EventScript_RaikouTrigger4_1:
+	release
+	end
+
+
+Route109_EventScript_RaikouMain::
+	fadeoutbgm 1
+	playse SE_PIN
+	applymovement 26, Route109_LookUpExclamation
+	waitmovement 0
+	waitse
+	delay 60
+	playmoncry SPECIES_RAIKOU, CRY_MODE_NORMAL
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 8
+	setvar VAR_0x8007, 5
+	special ShakeCamera
+	waitstate
+	delay 60
+	playse SE_LEDGE
+	applymovement 26, Route109_JumpUp
+	waitmovement 0
+	waitse
+	playse SE_LEDGE
+	applymovement 26, Route109_JumpLeft
+	waitmovement 0
+	waitse
+	playse SE_LEDGE
+	applymovement 26, Route109_JumpUp
+	waitmovement 0
+	waitse
+	applymovement OBJ_EVENT_ID_PLAYER, Route109_Movement_PlayerFaceLeft
+	waitmovement 0
+	playse SE_LEDGE
+	applymovement 26, Route109_JumpUp
+	waitmovement 0
+	waitse
+	applymovement OBJ_EVENT_ID_PLAYER, Route109_Movement_PlayerFaceUp
+	waitmovement 0
+	playse SE_FLEE
+	applymovement 26, Route109_RaikouFlee
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Route109_Movement_PlayerFaceRight
+	waitmovement 0
+	playse SE_LEDGE
+	applymovement 26, Route109_JumpRight
+	waitmovement 0
+	waitse
+	playse SE_LEDGE
+	applymovement 26, Route109_JumpRight
+	waitmovement 0
+	waitse
+	applymovement 26, Route109_RaikouExit
+	waitmovement 0
+	removeobject 26
+	setflag FLAG_HIDE_RAIKOU_RT39
+	setflag FLAG_LATIOS_OR_LATIAS_ROAMING
+	setvar VAR_0x8004, 0
+	special InitRoamer
+	copyvar VAR_ROAMER_POKEMON, VAR_RESULT
+	fadeinbgm 1
+	release
+	end
+
+
+Route109_Movement_PlayerDown1:
+	walk_down
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	step_end
+
+Route109_Movement_PlayerDown2:
+	walk_down
+	walk_right
+	walk_down
+	walk_down
+	step_end
+
+Route109_Movement_PlayerDown3:
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Route109_Movement_PlayerDown4:
+	walk_down
+	walk_left
+	walk_down
+	walk_down
+	step_end
+
 Route109_Movement_BlackBelt_Approach:
 	walk_up
 	walk_up
@@ -71,6 +212,49 @@ Route109_Movement_BlackBelt_ApproachAround:
 	walk_up
 	walk_right
 	walk_right
+	step_end
+
+Route109_LookUpExclamation:
+	emote_exclamation_mark
+	walk_in_place_up
+	step_end
+
+Route109_JumpUp:
+	jump_2_up
+	step_end
+
+Route109_JumpLeft:
+	jump_2_left
+	step_end
+
+Route109_Movement_PlayerFaceLeft:
+	face_left
+	step_end
+
+Route109_Movement_PlayerFaceUp:
+	face_up
+	step_end
+
+Route109_Movement_PlayerFaceRight:
+	face_right
+	step_end
+
+Route109_RaikouFlee:
+	walk_fast_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	step_end
+
+Route109_JumpRight:
+	jump_2_right
+	step_end
+
+Route109_RaikouExit:
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
 	step_end
 
 Route109_EventScript_Woman::
