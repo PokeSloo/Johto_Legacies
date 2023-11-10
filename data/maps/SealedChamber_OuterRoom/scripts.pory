@@ -1,11 +1,16 @@
 mapscripts SealedChamber_OuterRoom_MapScripts {}
 
-script SealedChamber_OuterRoom_EventScript_ItemDampRock{
+script SealedChamber_OuterRoom_EventScript_ItemDampRock {
 	finditem (ITEM_DAMP_ROCK)
 	end
 }
 
-script SealedChamber_OuterRoom_EventScript_ItemHMFlash{
+script SealedChamber_OuterRoom_EventScript_ItemHMFlash {
 	finditem (ITEM_HM05_FLASH)
+	end
+}
+
+script SealedChamber_OuterRoom_EventScript_ItemKingsRock {
+	finditem (ITEM_KINGS_ROCK)
 	end
 }

@@ -126,6 +126,47 @@ MtPyre_5F_EventScript_OliverResearching::
 	end
 
 
+MtPyre_5F_EventScript_HallowedTower::
+	lock
+	checkitem ITEM_ODD_KEYSTONE
+	compare VAR_RESULT, TRUE
+	goto_if_eq MtPyre_5F_EventScript_HallowedTower_1
+	msgbox MtPyre_5F_EventScript_HallowedTower_Text_3
+	release
+	end
+
+MtPyre_5F_EventScript_HallowedTower_1:
+	msgbox MtPyre_5F_EventScript_HallowedTower_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq MtPyre_5F_EventScript_HallowedTower_4
+	msgbox MtPyre_5F_EventScript_HallowedTower_Text_1
+	waitmessage
+	waitse
+	playmoncry SPECIES_SPIRITOMB, CRY_MODE_NORMAL
+	msgbox MtPyre_5F_EventScript_HallowedTower_Text_2
+	waitmessage
+	waitmoncry
+	setwildbattle SPECIES_SPIRITOMB, 25
+	dowildbattle
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, MtPyre_5F_EventScript_DefeatedSpiritomb
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, MtPyre_5F_EventScript_DefeatedSpiritomb
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MtPyre_5F_EventScript_DefeatedSpiritomb
+	removeitem ITEM_ODD_KEYSTONE, 1
+	release
+	end
+
+MtPyre_5F_EventScript_HallowedTower_4:
+	release
+	end
+
+
+MtPyre_5F_EventScript_DefeatedSpiritomb::
+	removeitem ITEM_ODD_KEYSTONE, 1
+	release
+	end
+
+
 MtPyre_5F_Main_Text_0:
 	.string "OLIVER: Are you alright, {PLAYER}?\p"
 	.string "That was a big fall, I didn't expect the\n"
@@ -166,3 +207,20 @@ MtPyre_5F_EventScript_OliverResearching_Text_0:
 	.string "I haven't discovered anything yet, but\n"
 	.string "I will keep researching these\l"
 	.string "catacombs.$"
+
+MtPyre_5F_EventScript_HallowedTower_Text_0:
+	.string "It's a Hollowed Tower. There is a strong\n"
+	.string "presence... It appears ready to emerge!\p"
+	.string "Would you like to insert the Odd\n"
+	.string "Keystone?$"
+
+MtPyre_5F_EventScript_HallowedTower_Text_1:
+	.string "{PLAYER} inserted the Odd Keystone\n"
+	.string "into the Hollowed Tower...$"
+
+MtPyre_5F_EventScript_HallowedTower_Text_2:
+	.string "Yulaaah!$"
+
+MtPyre_5F_EventScript_HallowedTower_Text_3:
+	.string "It's a Hollowed Tower. It appears to\n"
+	.string "have been built many years ago.$"

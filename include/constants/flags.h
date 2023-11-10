@@ -696,9 +696,9 @@
 #define FLAG_HIDE_OLIVINE_GYM_TRAINER_2  0x28E // Unhide after battling them in town
 #define FLAG_HIDE_OLIVINE_GYM_TRAINER_3  0x28F // Unhide after battling them in town
 #define FLAG_HIDE_KIZU_PHOENIX  0x290 // Grunts and whatnot
-#define FLAG_UNUSED_0x291  0x291 // Unused Flag
-#define FLAG_UNUSED_0x292  0x292 // Unused Flag
-#define FLAG_UNUSED_0x293  0x293 // Unused Flag
+#define FLAG_ODD_KEYSTONE_ITEM_BALL  0x291 // Hides item ball, found in dark cave
+#define FLAG_DARK_CAVE_TM28  0x292 // Dark cave item ball
+#define FLAG_SLUDGE_BOMB_ITEM  0x293 // In goldenrod sewer
 #define FLAG_UNUSED_0x294  0x294 // Unused Flag
 #define FLAG_UNUSED_0x295  0x295 // Unused Flag
 #define FLAG_UNUSED_0x296  0x296 // Unused Flag

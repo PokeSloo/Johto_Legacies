@@ -11,3 +11,8 @@ SealedChamber_OuterRoom_EventScript_ItemHMFlash::
 	finditem ITEM_HM05_FLASH
 	end
 
+
+SealedChamber_OuterRoom_EventScript_ItemKingsRock::
+	finditem ITEM_KINGS_ROCK
+	end
+

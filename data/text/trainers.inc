@@ -72,132 +72,124 @@ Route102_Text_TianaPostBattle:
 	.string "I have to catch more POKéMON.$"
 
 Route103_Text_DaisyIntro:
-	.string "Did you feel the tug of our\n"
-	.string "soul-soothing fragrance?$"
+	.string "Were you drawn in by my sweet aroma?$"
 
 Route103_Text_DaisyDefeated:
-	.string "You weren't led astray by our aroma…$"
+	.string "I should've tried a different\n"
+	.string "fragrance.$"
 
 Route103_Text_DaisyPostBattle:
-	.string "Aromatherapy is a form of mental\n"
-	.string "healing that works with fragrances.$"
+	.string "Different aromas can affect your\n"
+	.string "mental state, some can put your mind at\l"
+	.string "ease.$"
 
 Route103_Text_AmyIntro:
-	.string "AMY: I'm AMY.\n"
-	.string "And this is my little sister LIV.\l"
-	.string "We battle together!$"
+	.string "MAY: FAYE, FAYE, this TRAINER looks\n"
+	.string "strong!$"
 
 Route103_Text_AmyDefeated:
-	.string "AMY: Uh-oh, we lost.$"
+	.string "MAY: Oh no, FAYE, we lost!$"
 
 Route103_Text_AmyPostBattle:
-	.string "AMY: You have to think about all\n"
-	.string "kinds of things when you're battling\l"
-	.string "against two TRAINERS.$"
+	.string "MAY: FAYE and I do everything together,\n"
+	.string "we are inseparable!$"
 
 Route103_Text_AmyNotEnoughPokemon:
-	.string "AMY: Uh-oh, you have only one\n"
-	.string "POKéMON with you.\l"
-	.string "You can't battle us like that.$"
+	.string "MAY: FAYE, FAYE, this TRAINER doesn't\n"
+	.string "have enough POKéMON to battle us.\p"
+	.string "How unfortunate.$"
 
 Route103_Text_LivIntro:
-	.string "LIV: We battle together as one\n"
-	.string "team.$"
+	.string "FAYE: MAY, MAY, this TRAINER looks\n"
+	.string "strong!$"
 
 Route103_Text_LivDefeated:
-	.string "LIV: Oh, we lost, big sister…$"
+	.string "FAYE: Oh no, MAY, we lost!$"
 
 Route103_Text_LivPostBattle:
-	.string "LIV: We work perfectly together,\n"
-	.string "me and my big sister…\p"
-	.string "But we still lost…$"
+	.string "FAYE: MAY and I do everything together,\n"
+	.string "we are inseparable!$"
 
 Route103_Text_AmyLivRegister:
-	.string "LIV: Really, we're a lot better…\n"
-	.string "It's true! We'll show you next time!$"
+	.string "MAY: FAYE, FAYE, let's register this\n"
+	.string "TRAINER...$"
 
 Route103_Text_LivNotEnoughPokemon:
-	.string "LIV: If you want to battle us,\n"
-	.string "you have to have two POKéMON!\l"
-	.string "It's not fair if you don't!$"
+	.string "FAYE: MAY, MAY, this TRAINER doesn't\n"
+	.string "have enough POKéMON to battle us.\p"
+	.string "How unfortunate.$"
 
 Route103_Text_AmyRematchIntro:
-	.string "AMY: I'm AMY.\n"
-	.string "And this is my little sister LIV.\l"
-	.string "We battle together!$"
+	.string "MAY: FAYE, FAYE, this TRAINER came back\n"
+	.string "for a rematch!$"
 
 Route103_Text_AmyRematchDefeated:
-	.string "AMY: Aww, boo!\n"
-	.string "We couldn't win again…$"
+	.string "MAY: Oh no, FAYE, we lost again!$"
 
 Route103_Text_AmyRematchPostBattle:
-	.string "AMY: You have to think about all\n"
-	.string "kinds of things when you're battling\l"
-	.string "against two TRAINERS.$"
+	.string "MAY: FAYE and I do everything together,\n"
+	.string "we are inseparable!$"
 
 Route103_Text_AmyRematchNotEnoughPokemon:
-	.string "AMY: Uh-oh, you have only one\n"
-	.string "POKéMON with you.\l"
-	.string "You can't battle us like that.$"
+	.string "MAY: FAYE, FAYE, this TRAINER doesn't\n"
+	.string "have enough POKéMON to battle us.\p"
+	.string "How unfortunate.$"
 
 Route103_Text_LivRematchIntro:
-	.string "LIV: We battle together as one\n"
-	.string "team.$"
+	.string "FAYE: MAY, MAY, this TRAINER came back\n"
+	.string "for a rematch!$"
 
 Route103_Text_LivRematchDefeated:
-	.string "LIV: Awww, we lost again…\n"
-	.string "Big sister…$"
+	.string "FAYE: Oh no, MAY, we lost again!$"
 
 Route103_Text_LivRematchPostBattle:
-	.string "LIV: We work perfectly together,\n"
-	.string "me and my big sister…\p"
-	.string "But why did we lose again?$"
+	.string "FAYE: MAY and I do everything together,\n"
+	.string "we are inseparable!$"
 
 Route103_Text_LivRematchNotEnoughPokemon:
-	.string "LIV: If you want to battle us, you\n"
-	.string "have to have two POKéMON!\l"
-	.string "It's not fair if you don't!$"
+	.string "FAYE: MAY, MAY, this TRAINER doesn't\n"
+	.string "have enough POKéMON to battle us.\p"
+	.string "How unfortunate.$"
 
 Route103_Text_AndrewIntro:
-	.string "Gah! My fishing line's all snarled up!\n"
-	.string "I'm getting frustrated and mean!\l"
-	.string "That's it! Battle me!$"
+	.string "Do you know where the secret fishing\n"
+	.string "spot is...?$"
 
 Route103_Text_AndrewDefeated:
-	.string "Gah! Lost it!\n"
-	.string "I'm even more annoyed now!$"
+	.string "If you didn't know, just say so!$"
 
 Route103_Text_AndrewPostBattle:
-	.string "Gah, I'm still boiling mad…\n"
-	.string "Grrrrr…$"
+	.string "I heard about a secret fishing spot\n"
+	.string "somewhere around here that has\l"
+	.string "DRAGONS, where could it be?$"
 
 Route103_Text_MiguelIntro:
-	.string "My POKéMON is delightfully adorable!\n"
-	.string "Don't be shy--I'll show you!$"
+	.string "Go, my beautiful POKéMON!$"
 
 Route103_Text_MiguelDefeated:
-	.string "Oh, my gosh!\n"
-	.string "My darling POKéMON!$"
+	.string "You didn't have to be so mean to her...$"
 
 Route103_Text_MiguelPostBattle:
-	.string "My delightful POKéMON looks darling\n"
-	.string "even when it's fainted!$"
+	.string "My Jynx is the most beautiful POKéMON\n"
+	.string "around, and you won't convince me\l"
+	.string "otherwise!$"
 
 Route103_Text_MiguelRegister:
 	.string "I'll get you to come out and look in\n"
 	.string "on my delightful POKéMON again!$"
 
 Route103_Text_MiguelRematchIntro:
-	.string "Hi, you! My delightfully adorable\n"
-	.string "POKéMON has become more darling!$"
+	.string "Let me show you how much more beautiful\n"
+	.string "my Jynx has become!$"
 
 Route103_Text_MiguelRematchDefeated:
-	.string "Oh!\n"
-	.string "My darling POKéMON!$"
+	.string "You're still so mean to her.\n"
+	.string "Just let her have this win.$"
 
 Route103_Text_MiguelRematchPostBattle:
-	.string "The more I spend time with it,\n"
-	.string "the more adorable my POKéMON becomes.$"
+	.string "My Jynx is the most beautiful POKéMON\n"
+	.string "around, and you won't convince me\l"
+	.string "otherwise!$"
 
 Route103_Text_PeteIntro:
 	.string "This sort of distance…\n"
@@ -224,28 +216,26 @@ Route103_Text_IsabellePostBattle:
 	.string "Sorry for almost crashing into you.$"
 
 Route103_Text_RhettIntro:
-	.string "Whoa!\n"
-	.string "How'd you get into a space this small?$"
+	.string "Kiyah!$"
 
 Route103_Text_RhettDefeated:
-	.string "Whoa!\n"
-	.string "The kid can rock!$"
+	.string "Sorry, I thought you were someone\n"
+	.string "else...$"
 
 Route103_Text_RhettPostBattle:
-	.string "Do you like cramped quarters\n"
-	.string "like this?$"
+	.string "You should be more careful, I almost\n"
+	.string "kicked you in the neck when you walked\l"
+	.string "around that tree.$"
 
 Route103_Text_MarcosIntro:
-	.string "Did my guitar's wailing draw you in?$"
+	.string "Let me play you the songs of my people!$"
 
 Route103_Text_MarcosDefeated:
-	.string "My one-man show is ruined…$"
+	.string "You have offended my people!$"
 
 Route103_Text_MarcosPostBattle:
-	.string "I was playing my guitar where few\n"
-	.string "people were around, but a lot of fans\l"
-	.string "have gathered.\p"
-	.string "Heh, maybe I should turn pro.$"
+	.string "My people only know one sound, and that\n"
+	.string "is rock!$"
 
 Route104_Text_GinaIntro:
 	.string "TINA: Are you prepared for a double\n"

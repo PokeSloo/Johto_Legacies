@@ -3,11 +3,11 @@ Route102_EventScript_ItemPotion::
 	end
 
 Route103_EventScript_ItemGuardSpec::
-	finditem ITEM_GUARD_SPEC
+	finditem ITEM_ROCKY_HELMET
 	end
 
 Route103_EventScript_ItemPPUp::
-	finditem ITEM_PP_UP
+	finditem ITEM_HEAVY_DUTY_BOOTS
 	end
 
 Route104_EventScript_ItemPPUp::
@@ -315,7 +315,7 @@ MauvilleCity_EventScript_ItemXSpeed::
 	end
 
 RustboroCity_EventScript_ItemXDefend::
-	finditem ITEM_X_DEFENSE
+	finditem ITEM_TM47
 	end
 
 LilycoveCity_EventScript_ItemMaxRepel::
@@ -327,7 +327,7 @@ MossdeepCity_EventScript_ItemNetBall::
 	end
 
 PetalburgWoods_EventScript_ItemXAttack::
-	finditem ITEM_X_ATTACK
+	finditem ITEM_TM09
 	end
 
 PetalburgWoods_EventScript_ItemGreatBall::
@@ -507,7 +507,7 @@ MtPyre_4F_EventScript_ItemSeaIncense::
 	end
 
 MtPyre_5F_EventScript_ItemLaxIncense::
-	finditem ITEM_LAX_INCENSE
+	finditem ITEM_CLEANSE_TAG
 	end
 
 MtPyre_6F_EventScript_ItemTM30::
@@ -579,7 +579,7 @@ SeafloorCavern_Room9_EventScript_ItemTM26::
 	end
 
 Route110_TrickHousePuzzle1_EventScript_ItemOrangeMail::
-	finditem ITEM_HEAVY_DUTY_BOOTS
+	finditem ITEM_EJECT_PACK
 	end
 
 Route110_TrickHousePuzzle2_EventScript_ItemHarborMail::

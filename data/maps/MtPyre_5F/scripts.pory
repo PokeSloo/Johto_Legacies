@@ -113,3 +113,44 @@ script MtPyre_5F_EventScript_OliverResearching {
     msgbox (format("OLIVER: Oh, it's {PLAYER}.\pI haven't discovered anything yet, but I will keep researching these catacombs."), MSGBOX_NPC)
     end
 }
+
+script MtPyre_5F_EventScript_HallowedTower {
+    lock
+    checkitem (ITEM_ODD_KEYSTONE)
+    if (var(VAR_RESULT) == TRUE) {
+        msgbox(format("It's a Hollowed Tower. There is a strong presence... It appears ready to emerge!\pWould you like to insert the Odd Keystone?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            release
+            end
+        }
+        else {
+            msgbox(format("{PLAYER} inserted the Odd Keystone into the Hollowed Tower..."))
+            waitmessage
+            waitse
+	        playmoncry (SPECIES_SPIRITOMB, CRY_MODE_NORMAL)
+            msgbox(format("Yulaaah!"))
+            waitmessage
+            waitmoncry
+            setwildbattle (SPECIES_SPIRITOMB, 25)
+            dowildbattle
+            specialvar (VAR_RESULT, GetBattleOutcome)
+	        goto_if_eq (VAR_RESULT, B_OUTCOME_WON, MtPyre_5F_EventScript_DefeatedSpiritomb)
+	        goto_if_eq (VAR_RESULT, B_OUTCOME_RAN, MtPyre_5F_EventScript_DefeatedSpiritomb)
+	        goto_if_eq (VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MtPyre_5F_EventScript_DefeatedSpiritomb)
+            removeitem (ITEM_ODD_KEYSTONE, 1)
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("It's a Hollowed Tower. It appears to have been built many years ago."))
+        release
+        end
+    }
+}
+
+script MtPyre_5F_EventScript_DefeatedSpiritomb {
+    removeitem (ITEM_ODD_KEYSTONE, 1)
+    release
+    end
+}

@@ -52,6 +52,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SealedChamber_OuterRoom_EventScript_ItemDampRock",
       "flag": "FLAG_ITEM_SLOWPOKE_WELL_DAMP_ROCK"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 22,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SealedChamber_OuterRoom_EventScript_ItemKingsRock",
+      "flag": "FLAG_RECEIVED_KINGS_ROCK"
     }
   ],
   "warp_events": [
