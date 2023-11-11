@@ -1,29 +1,49 @@
 FortreeCity_House3_MapScripts::
 	.byte 0
 
-FortreeCity_House3_EventScript_Maniac::
-	msgbox FortreeCity_House3_Text_MetStevenHadAmazingPokemon, MSGBOX_NPC
-	end
-
 FortreeCity_House3_EventScript_SchoolKidM::
 	msgbox FortreeCity_House3_Text_OhYouHavePokedex, MSGBOX_NPC
 	end
 
-FortreeCity_House3_Text_MetStevenHadAmazingPokemon:
-	.string "While speaking about POKéDEXES,\n"
-	.string "I remembered something.\p"
-	.string "I met this TRAINER, STEVEN, when\n"
-	.string "I was searching for rare stones.\p"
-	.string "Hoo, boy, he had some amazing POKéMON\n"
-	.string "with him.\p"
-	.string "They weren't just rare, they were\n"
-	.string "trained to terrifying extremes!\p"
-	.string "He might even be stronger than the\n"
-	.string "GYM LEADER in this town…$"
-
 FortreeCity_House3_Text_OhYouHavePokedex:
-	.string "What's that thing you have there?\p"
-	.string "… … … … … …\p"
-	.string "Oh, it's called a POKéDEX?\n"
-	.string "It's really awesome!$"
+	.string "The Olivine Gym Leader, CHARLIE, is also\n"
+	.string "the lead singer for The Thunderbolts!\p"
+	.string "I heard he appeared out of nowhere\n"
+	.string "seven years ago.\p"
+	.string "He says he's from the Lunoh region, but\n"
+	.string "I've never heard of it.$"
 
+FortreeCity_House3_EventScript_DowsingMan::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_DOWSING_ROD, FortreeCity_House3_EventScript_DowsingMan_1
+	msgbox FortreeCity_House3_EventScript_DowsingMan_Text_1
+	giveitem ITEM_DOWSING_MACHINE
+	msgbox FortreeCity_House3_EventScript_DowsingMan_Text_2
+	setflag FLAG_RECEIVED_DOWSING_ROD
+	release
+	end
+
+FortreeCity_House3_EventScript_DowsingMan_1:
+	msgbox FortreeCity_House3_EventScript_DowsingMan_Text_0
+	release
+	end
+
+
+FortreeCity_House3_EventScript_DowsingMan_Text_0:
+	.string "You know, there's a man in Ecruteak who\n"
+	.string "collects Bottle Caps.\p"
+	.string "You should pay him a visit if you find\n"
+	.string "any with that Dowsing Machine.$"
+
+FortreeCity_House3_EventScript_DowsingMan_Text_1:
+	.string "Oh man, I'm getting too old to travel\n"
+	.string "around searching for hidden treasures.\p"
+	.string "You look like a spry young TRAINER.\p"
+	.string "Here, you can have this.$"
+
+FortreeCity_House3_EventScript_DowsingMan_Text_2:
+	.string "That Dowsing Machine will point you\n"
+	.string "toward hidden items.\p"
+	.string "I'm sure you'll make better use of it\n"
+	.string "than me.$"

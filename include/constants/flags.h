@@ -700,9 +700,9 @@
 #define FLAG_DARK_CAVE_TM28  0x292 // Dark cave item ball
 #define FLAG_SLUDGE_BOMB_ITEM  0x293 // In goldenrod sewer
 #define FLAG_HIDE_RAIKOU_RT39  0x294 // Also activates roaming
-#define FLAG_UNUSED_0x295  0x295 // Unused Flag
-#define FLAG_UNUSED_0x296  0x296 // Unused Flag
-#define FLAG_UNUSED_0x297  0x297 // Unused Flag
+#define FLAG_RECEIVED_DOWSING_ROD  0x295 // Olivine old man
+#define FLAG_SECOND_OLIVINE_TRADE  0x296 // First uses old fortree flag
+#define FLAG_RECEIVED_SACHET  0x297 // Beauty in Olivine Sweet Shop
 #define FLAG_UNUSED_0x298  0x298 // Unused Flag
 #define FLAG_UNUSED_0x299  0x299 // Unused Flag
 #define FLAG_UNUSED_0x29A  0x29A // Unused Flag

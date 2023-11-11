@@ -114,26 +114,28 @@ MoveTutor_Text_MetronomeTaught:
 	.string "use it, too?$"
 
 MoveTutor_Text_SleepTalkTeach:
-	.string "Humph! My wife relies on HIDDEN\n"
-	.string "POWER to stay awake.\p"
-	.string "She should just take a nap like I do,\n"
-	.string "and SLEEP TALK.\p"
-	.string "I can teach your POKéMON how to\n"
-	.string "SLEEP TALK instead. Interested?$"
+	.string "...\p"
+	.string "...No, I don't want anymore...\p"
+	.string "...I've had enough!\p"
+	.string "...Khuh!\p"
+	.string "Ah! Sorry, I must have been talking in\n"
+	.string "my sleep.\p"
+	.string "If you want, I can teach one of your\n"
+	.string "POKéMON how to do the same.\p"
+	.string "Are you interested?$"
 
 MoveTutor_Text_SleepTalkDeclined:
-	.string "Oh, fine, fine. You want to stay awake\n"
-	.string "with HIDDEN POWER, too…$"
+	.string "Well, if you ever change your mind, I'll\n"
+	.string "be here napping...$"
 
 MoveTutor_Text_SleepTalkWhichMon:
-	.string "Ah, an appreciative child!\n"
+	.string "Ah, an avid napper!\n"
 	.string "Which POKéMON should I teach?$"
 
 MoveTutor_Text_SleepTalkTaught:
-	.string "I've never once gotten my wife's\n"
-	.string "coin trick right.\p"
-	.string "I would be happy if I got it right\n"
-	.string "even as I SLEEP TALK…$"
+	.string "...\p"
+	.string "...Huh, no...I...\p"
+	.string "...Yeah...$"
 
 MoveTutor_Text_SubstituteTeach:
 	.string "When I see the wide world from up\n"

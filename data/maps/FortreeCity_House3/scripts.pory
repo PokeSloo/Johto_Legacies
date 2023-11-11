@@ -1,0 +1,34 @@
+raw`
+FortreeCity_House3_MapScripts::
+	.byte 0
+
+FortreeCity_House3_EventScript_SchoolKidM::
+	msgbox FortreeCity_House3_Text_OhYouHavePokedex, MSGBOX_NPC
+	end
+
+FortreeCity_House3_Text_OhYouHavePokedex:
+	.string "The Olivine Gym Leader, CHARLIE, is also\n"
+	.string "the lead singer for The Thunderbolts!\p"
+	.string "I heard he appeared out of nowhere\n"
+	.string "seven years ago.\p"
+	.string "He says he's from the Lunoh region, but\n"
+	.string "I've never heard of it.$"
+`
+
+script FortreeCity_House3_EventScript_DowsingMan {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_DOWSING_ROD)) {
+        msgbox(format("You know, there's a man in Ecruteak who collects Bottle Caps.\pYou should pay him a visit if you find any with that Dowsing Machine."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Oh man, I'm getting too old to travel around searching for hidden treasures.\pYou look like a spry young TRAINER.\pHere, you can have this."))
+        giveitem(ITEM_DOWSING_MACHINE)
+        msgbox(format("That Dowsing Machine will point you toward hidden items.\pI'm sure you'll make better use of it than me."))
+        setflag(FLAG_RECEIVED_DOWSING_ROD)
+        release
+        end
+    }
+}

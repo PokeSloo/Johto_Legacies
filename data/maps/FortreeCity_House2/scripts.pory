@@ -1,0 +1,39 @@
+mapscripts FortreeCity_House2_MapScripts {}
+
+script FortreeCity_House2_EventScript_Clerk {
+    lock
+    msgbox (format("Welcome!\pHow may I serve you?"))
+    waitmessage
+    pokemartdecoration2 (FortreeCity_House2_MartDolls)
+    msgbox (format("Please come again."))
+    release
+    end
+}
+
+mart FortreeCity_House2_MartDolls {
+    DECOR_TOGEPI_DOLL
+    DECOR_CYNDAQUIL_DOLL
+    DECOR_CHIKORITA_DOLL
+    DECOR_TOTODILE_DOLL
+    DECOR_MEOWTH_DOLL
+    DECOR_CLEFAIRY_DOLL
+    DECOR_DITTO_DOLL 
+    DECOR_SMOOCHUM_DOLL
+    DECOR_TREECKO_DOLL
+    DECOR_TORCHIC_DOLL
+    DECOR_MUDKIP_DOLL
+    DECOR_LOTAD_DOLL
+    DECOR_SEEDOT_DOLL
+    DECOR_WAILMER_DOLL
+    DECOR_RHYDON_DOLL
+}
+
+script FortreeCity_House2_EventScript_Lass {
+    msgbox(format("I don't know why, but the Ditto Doll is my favorite!\pIt's just so soft and squishy!"), MSGBOX_NPC)
+    end
+}
+
+script FortreeCity_House2_EventScript_OldWoman {
+    msgbox(format("My husband and I probably spend half the day napping, I'm sure you will too when you're our age."), MSGBOX_NPC)
+    end
+}

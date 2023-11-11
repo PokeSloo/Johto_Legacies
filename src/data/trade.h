@@ -1037,35 +1037,35 @@ static const struct InGameTrade sIngameTrades[] =
     },
     [INGAME_TRADE_HORSEA] =
     {
-        .nickname = _("SEASOR"),
-        .species = SPECIES_HORSEA,
+        .nickname = _("ESCARGO"),
+        .species = SPECIES_KARRABLAST,
         .ivs = {5, 4, 4, 4, 5, 4},
         .abilityNum = 0,
         .otId = 46285,
         .conditions = {5, 5, 5, 5, 30},
         .personality = 0x7F,
-        .heldItem = ITEM_WAVE_MAIL,
+        .heldItem = ITEM_METAL_COAT,
         .mailNum = 1,
-        .otName = _("SKYLAR"),
+        .otName = _("GARY"),
         .otGender = MALE,
         .sheen = 10,
-        .requestedSpecies = SPECIES_BAGON
+        .requestedSpecies = SPECIES_SHELMET
     },
     [INGAME_TRADE_MEOWTH] =
     {
-        .nickname = _("MEOWOW"),
-        .species = SPECIES_MEOWTH,
+        .nickname = _("NEENJA"),
+        .species = SPECIES_SHELMET,
         .ivs = {4, 5, 4, 5, 4, 4},
         .abilityNum = 0,
         .otId = 91481,
         .conditions = {5, 5, 5, 30, 5},
         .personality = 0x8B,
-        .heldItem = ITEM_RETRO_MAIL,
+        .heldItem = ITEM_SILVER_POWDER,
         .mailNum = 2,
-        .otName = _("ISIS"),
-        .otGender = FEMALE,
+        .otName = _("LARRY"),
+        .otGender = MALE,
         .sheen = 10,
-        .requestedSpecies = SPECIES_SKITTY
+        .requestedSpecies = SPECIES_KARRABLAST
     }
 };
 

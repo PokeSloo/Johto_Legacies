@@ -1,14 +1,9 @@
 FortreeCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, FortreeCity_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, FortreeCity_OnResume
 	.byte 0
 
 FortreeCity_OnTransition:
 	setflag FLAG_VISITED_FORTREE_CITY
-	end
-
-FortreeCity_OnResume:
-	setstepcallback STEP_CB_FORTREE_BRIDGE
 	end
 
 FortreeCity_EventScript_Man::
@@ -18,7 +13,7 @@ FortreeCity_EventScript_Man::
 FortreeCity_EventScript_Woman::
 	lock
 	faceplayer
-	goto_if_set FLAG_KECLEON_FLED_FORTREE, FortreeCity_EventScript_WomanGymAccessible
+	goto_if_set FLAG_BADGE05_GET, FortreeCity_EventScript_WomanGymAccessible
 	msgbox FortreeCity_Text_SomethingBlockingGym, MSGBOX_DEFAULT
 	release
 	end
@@ -52,105 +47,69 @@ FortreeCity_EventScript_GymSign::
 	msgbox FortreeCity_Text_GymSign, MSGBOX_SIGN
 	end
 
-FortreeCity_EventScript_Kecleon::
-	lock
-	faceplayer
-	checkitem ITEM_DEVON_SCOPE
-	goto_if_eq VAR_RESULT, TRUE, FortreeCity_EventScript_AskUseDevonScope
-	msgbox FortreeCity_Text_SomethingUnseeable, MSGBOX_DEFAULT
-	release
+FortreeCity_EventScript_SweetShopSign::
+	msgbox FortreeCity_Text_SweetShopSign, MSGBOX_SIGN
 	end
 
-FortreeCity_EventScript_AskUseDevonScope::
-	msgbox FortreeCity_Text_UnseeableUseDevonScope, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, FortreeCity_EventScript_UseDevonScope
-	release
+FortreeCity_EventScript_DollShopSign::
+	msgbox FortreeCity_Text_DollShopSign, MSGBOX_SIGN
 	end
 
-FortreeCity_EventScript_UseDevonScope::
-	msgbox FortreeCity_Text_UsedDevonScopePokemonFled, MSGBOX_DEFAULT
-	closemessage
-	applymovement VAR_LAST_TALKED, Movement_KecleonAppears
-	waitmovement 0
-	waitse
-	playmoncry SPECIES_KECLEON, CRY_MODE_ENCOUNTER
-	delay 40
-	waitmoncry
-	applymovement VAR_LAST_TALKED, FortreeCity_Movement_KecleonFlee
-	waitmovement 0
-	removeobject VAR_LAST_TALKED
-	setflag FLAG_KECLEON_FLED_FORTREE
-	release
+FortreeCity_EventScript_LighthouseSign::
+	msgbox FortreeCity_Text_LighthouseSign, MSGBOX_SIGN
 	end
-
-FortreeCity_Movement_KecleonFlee:
-	walk_right
-	step_end
 
 FortreeCity_Text_SawGiganticPokemonInSky:
-	.string "No one believes me, but I saw this\n"
-	.string "gigantic POKéMON in the sky.\p"
-	.string "It seemed to squirm as it flew toward\n"
-	.string "ROUTE 131.\p"
-	.string "By the way… Sniff…\n"
-	.string "Um… You, uh…smell singed.\p"
-	.string "Were you at a volcano or something?$"
+	.string "Cargo ships regularly come to this port\n"
+	.string "from Roujem City on the Golden Islands,\l"
+	.string "I wonder what they're transporting.$"
 
 FortreeCity_Text_SomethingBlockingGym:
-	.string "I want to go to the POKéMON GYM,\n"
-	.string "but something's blocking the way.\p"
-	.string "After all the bother I went through\n"
-	.string "training on ROUTE 120…$"
+	.string "The Thunderbolts will be putting on\n"
+	.string "another concert soon, I can't wait!$"
 
 FortreeCity_Text_ThisTimeIllBeatWinona:
-	.string "I've got my pride-and-joy POKéMON\n"
-	.string "with me. This time, I'll beat WINONA.$"
+	.string "That concert was great!\p"
+	.string "They even played my favorite song.$"
 
 FortreeCity_Text_TreesGrowByDrinkingRainwater:
-	.string "The ground absorbs rainwater, and\n"
-	.string "trees grow by drinking that water…\p"
-	.string "Our FORTREE CITY exists because\n"
-	.string "there's both water and soil.$"
+	.string "I love the feel and smell of the ocean\n"
+	.string "breeze, that's why I moved here!$"
 
 FortreeCity_Text_EveryoneHealthyAndLively:
-	.string "The CITY consists of homes built on\n"
-	.string "trees.\p"
-	.string "Perhaps because of that lifestyle,\n"
-	.string "everyone is healthy and lively.\p"
-	.string "Why, even myself--I feel as if I've\n"
-	.string "grown thirty years younger.$"
+	.string "The Olivine Sweet Shop has so much to\n"
+	.string "choose from, I can't make up my mind.\p"
+	.string "Maybe I'll just buy one of everything.$"
 
 FortreeCity_Text_BugPokemonComeThroughWindow:
-	.string "Living on top of trees is okay.\p"
-	.string "But sometimes BUG POKéMON come in\n"
-	.string "through windows.\l"
-	.string "It can be really startling.$"
+	.string "The gym here is also used as a concert\n"
+	.string "hall, people come from all over the\l"
+	.string "world to hear The Thunderbolts play\l"
+	.string "live!$"
 
 FortreeCity_Text_PokemonThatEvolveWhenTraded:
-	.string "There are POKéMON that evolve when\n"
-	.string "you trade them! That's what I heard.$"
-
-FortreeCity_Text_SomethingUnseeable:
-	.string "Something unseeable is in the way.$"
-
-FortreeCity_Text_UnseeableUseDevonScope:
-	.string "Something unseeable is in the way.\p"
-	.string "Want to use the DEVON SCOPE?$"
-
-FortreeCity_Text_UsedDevonScopePokemonFled:
-	.string "{PLAYER} used the DEVON SCOPE.\p"
-	.string "An invisible POKéMON became completely\n"
-	.string "visible!\p"
-	.string "The startled POKéMON fled!$"
+	.string "Urp...\p"
+	.string "You wouldn't expect a sailor to get\n"
+	.string "seasick, but crossing the Goldenvine\l"
+	.string "Sea always does a number on me...$"
 
 FortreeCity_Text_CitySign:
-	.string "FORTREE CITY\n"
-	.string "“The treetop city that frolics with\l"
-	.string "nature.”$"
+	.string "OLIVINE CITY\n"
+	.string "“The Port with Sea Breezes.”$"
 
 FortreeCity_Text_GymSign:
-	.string "FORTREE CITY POKéMON GYM\n"
-	.string "LEADER: WINONA\p"
-	.string "“The bird user taking flight into\n"
-	.string "the world.”$"
+	.string "OLIVINE CITY POKéMON GYM\n"
+	.string "LEADER: CHARLIE\p"
+	.string "“The electrified rockstar.”$"
+
+FortreeCity_Text_SweetShopSign:
+	.string "OLIVINE SWEET SHOP$"
+
+FortreeCity_Text_DollShopSign:
+	.string "OLIVINE DOLL SHOP$"
+
+FortreeCity_Text_LighthouseSign:
+	.string "Olivine's Lighthouse\p"
+	.string "It is also known as\n"
+	.string "the GLITTER LIGHTHOUSE.$"
 

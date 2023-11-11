@@ -1,0 +1,48 @@
+mapscripts FortreeCity_House4_MapScripts {}
+
+script FortreeCity_House4_EventScript_Clerk {
+    lock
+    msgbox (format("Welcome!\pHow may I serve you?"))
+    waitmessage
+    pokemart (FortreeCity_House4_MartItems)
+    msgbox (format("Please come again."))
+    release
+    end
+}
+
+mart FortreeCity_House4_MartItems {
+    ITEM_RAGE_CANDY_BAR
+    ITEM_STRAWBERRY_SWEET
+    ITEM_LOVE_SWEET
+    ITEM_CLOVER_SWEET
+    ITEM_BERRY_SWEET
+    ITEM_STAR_SWEET
+    ITEM_WHIPPED_DREAM
+    ITEM_TART_APPLE
+    ITEM_SWEET_APPLE
+}
+
+script FortreeCity_House4_EventScript_Boy {
+    msgbox(format("I let my Milcery hold a Clover Sweet, and it evolved after growing a level.\pHow crazy is that!?"), MSGBOX_NPC)
+    end
+}
+
+script FortreeCity_House4_EventScript_Tourist {
+    msgbox(format("I read reviews about this shop online.\pThe candy isn't too terrible, I guess."), MSGBOX_NPC)
+    end
+}
+
+script FortreeCity_House4_EventScript_Beauty {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_SACHET)) {
+        msgbox(format("Ah, you smell much better now.\pHow did you get so stinky before?"))
+        release
+        end
+    }
+    msgbox(format("Ugh, I'm sorry to tell you, but you stink!\pYou smell like you've been crawling around in a sewer.\pHere, maybe this will help you..."))
+    giveitem(ITEM_SACHET)
+    setflag(FLAG_RECEIVED_SACHET)
+    release
+    end
+}
