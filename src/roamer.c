@@ -52,9 +52,6 @@ static const u8 sRoamerLocations[][6] =
     { MAP_NUM(ROUTE119), MAP_NUM(ROUTE101), MAP_NUM(ROUTE120), ___, ___, ___ },
     { MAP_NUM(ROUTE120), MAP_NUM(ROUTE119), MAP_NUM(ROUTE130), ___, ___, ___ },
     { MAP_NUM(ROUTE130), MAP_NUM(ROUTE120), MAP_NUM(ROUTE114), ___, ___, ___ },
-    { ___, ___, ___, ___, ___, ___ },
-    { ___, ___, ___, ___, ___, ___ },
-    { ___, ___, ___, ___, ___, ___ },
 };
 
 #undef ___
