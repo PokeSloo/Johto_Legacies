@@ -28,15 +28,12 @@ SkyPillar_2F_EventScript_Shirley::
 	end
 
 MtChimney_Text_ShirleyIntro:
-	.string "Since I bathed in the hot springs,\n"
-	.string "I've been feeling great!\l"
-	.string "I'm sure I'm going to win!$"
+	.string "Dead end, old sport!$"
 
 MtChimney_Text_ShirleyDefeat:
-	.string "Yowch!\n"
-	.string "I'm getting a chill out of the water.$"
+	.string "Hmph! You certainly gave me a run for my\n"
+	.string "money!$"
 
 MtChimney_Text_ShirleyPostBattle:
-	.string "I'll have to take another dip in the\n"
-	.string "hot springs. Want to join me?\p"
-	.string "Just joking!$"
+	.string "Navigating this old lighthouse can be a\n"
+	.string "bit tricky, don't you think?$"

@@ -703,11 +703,11 @@
 #define FLAG_RECEIVED_DOWSING_ROD  0x295 // Olivine old man
 #define FLAG_SECOND_OLIVINE_TRADE  0x296 // First uses old fortree flag
 #define FLAG_RECEIVED_SACHET  0x297 // Beauty in Olivine Sweet Shop
-#define FLAG_UNUSED_0x298  0x298 // Unused Flag
-#define FLAG_UNUSED_0x299  0x299 // Unused Flag
-#define FLAG_UNUSED_0x29A  0x29A // Unused Flag
-#define FLAG_UNUSED_0x29B  0x29B // Unused Flag
-#define FLAG_UNUSED_0x29C  0x29C // Unused Flag
+#define FLAG_HIDE_DRUMMER_SWEET_SHOP  0x298 // Olivine Gym Trainer
+#define FLAG_HIDE_BEAUTY_MART  0x299 // Olivine Gym Trainer
+#define FLAG_HIDE_GUITARIST_LIGHTHOUSE  0x29A // Olivine Gym Trainer
+#define FLAG_TALKED_TO_CHARLIE  0x29B // Start looking for Gym Trainers
+#define FLAG_RECEIVED_LEFTOVERS  0x29C // From lighthouse ampharos
 #define FLAG_UNUSED_0x29D  0x29D // Unused Flag
 #define FLAG_UNUSED_0x29E  0x29E // Unused Flag
 #define FLAG_UNUSED_0x29F  0x29F // Unused Flag

@@ -1,0 +1,49 @@
+mapscripts SkyPillar_1F_MapScripts {}
+
+script SkyPillar_1F_EventScript_Child {
+    msgbox(format("Lighthouses are so fun!\pYou can see really far from the top!"), MSGBOX_NPC)
+    end
+}
+
+script SkyPillar_1F_EventScript_Tourist {
+    msgbox(format("I can tell this guy is a local, but he won't give me a tour of the lighthouse.\pIt's really the least he can do to thank me, since I'm here spending my money in his town."), MSGBOX_NPC)
+    end
+}
+
+script SkyPillar_1F_EventScript_Boy {
+    msgbox(format("Ugh, this man won't leave me alone.\pI'm just trying to enjoy my lunch in peace."), MSGBOX_NPC)
+    end
+}
+
+script SkyPillar_1F_EventScript_Triathlete {
+    msgbox(format("Running up and down stairs can be a pretty intense workout, it's one of my favorite training methods."), MSGBOX_NPC)
+    end
+}
+
+script SkyPillar_1F_EventScript_Guitarist {
+    lock
+    faceplayer
+    if (!flag(FLAG_TALKED_TO_CHARLIE)) {
+        msgbox(format("I came here to relax before our concert tomorrow, but it's way too crowded in here."))
+        release
+        end
+    }
+    else {
+        msgbox(format("I came here to relax before our concert tomorrow, but all the people in here are just amping me up!"))
+        trainerbattle_no_intro (TRAINER_GEORGE, SkyPillar_1F_Text_DefeatedGeorge)
+        msgbox(format("Believe it or not, battling calms my nerves.\p...\pWhat's that? CHARLIE told you to look for me?\pThe concert is tonight!?\pCrap, I could have sworn it was tomorrow!\pI'd better get there now!"))
+        waitmessage
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        removeobject(4)
+        clearflag(FLAG_HIDE_OLIVINE_GYM_TRAINER_3)
+        setflag(FLAG_HIDE_GUITARIST_LIGHTHOUSE)
+        fadescreen(FADE_FROM_BLACK)
+        release
+        end
+    }
+}
+
+text SkyPillar_1F_Text_DefeatedGeorge {
+    format("Alright, that battle cooled me off a bit.")
+}

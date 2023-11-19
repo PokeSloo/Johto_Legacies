@@ -127,7 +127,7 @@ Route115_EventScript_ItemPPUp::
 	end
 
 Route116_EventScript_ItemXSpecial::
-	finditem ITEM_X_SP_ATK
+	finditem ITEM_HM03_SURF
 	end
 
 Route116_EventScript_ItemEther::
@@ -135,7 +135,7 @@ Route116_EventScript_ItemEther::
 	end
 
 Route116_EventScript_ItemRepel::
-	finditem ITEM_REPEL
+	finditem ITEM_MAX_REPEL
 	end
 
 Route116_EventScript_ItemHPUp::
@@ -143,7 +143,7 @@ Route116_EventScript_ItemHPUp::
 	end
 
 Route116_EventScript_ItemPotion::
-	finditem ITEM_POTION
+	finditem ITEM_HYPER_POTION
 	end
 
 Route117_EventScript_ItemGreatBall::
@@ -475,11 +475,11 @@ ScorchedSlab_EventScript_ItemTM11::
 	end
 
 SafariZone_Northwest_EventScript_ItemTM22::
-	finditem ITEM_TM22
+	finditem ITEM_TM37
 	end
 
 SafariZone_North_EventScript_ItemCalcium::
-	finditem ITEM_CALCIUM
+	finditem ITEM_SMOOTH_ROCK
 	end
 
 SafariZone_Southwest_EventScript_ItemMaxRevive::
@@ -491,7 +491,7 @@ SafariZone_Northeast_EventScript_ItemNugget::
 	end
 
 SafariZone_Southeast_EventScript_ItemBigPearl::
-	finditem ITEM_BIG_PEARL
+	finditem ITEM_LIGHT_CLAY
 	end
 
 MtPyre_2F_EventScript_ItemUltraBall::

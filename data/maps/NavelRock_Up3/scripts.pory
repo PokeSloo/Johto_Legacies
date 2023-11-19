@@ -1,0 +1,6 @@
+mapscripts NavelRock_Up3_MapScripts {}
+
+script NavelRock_Up3_EventScript_Guard {
+    msgbox(format("The Safari Zone is just up ahead.\pI wish I could go there and catch some cool POKéMON, unfortunately they have me working here 24/7."), MSGBOX_NPC)
+    end
+}

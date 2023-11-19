@@ -775,17 +775,16 @@ Route108_Text_CarolinaPostBattle:
 	.string "is your favorite?$"
 
 Route109_Text_DavidIntro:
-	.string "Hiyah! Look at my chiseled abs!\n"
-	.string "This is what you call “cut”!$"
+	.string "I knew I heard someone sneaking around\n"
+	.string "the corner!$"
 
 Route109_Text_DavidDefeated:
-	.string "Aiyah!\n"
-	.string "Flubbed out!$"
+	.string "I say, you certainly are a tough one.$"
 
 Route109_Text_DavidPostBattle:
-	.string "Hiyah!\p"
-	.string "My sculpted abs have nothing to do\n"
-	.string "with POKéMON battles!$"
+	.string "You can drop through the floor to\n"
+	.string "descend the lighthouse faster, if your\l"
+	.string "legs can handle the landing, that is.$"
 
 Route109_Text_AliceIntro:
 	.string "Yeehaw! Show me what you've got!$"
@@ -810,17 +809,15 @@ Route109_Text_HueyPostBattle:
 	.string "Olivine and cool my head.$"
 
 Route109_Text_EdmondIntro:
-	.string "Urrrrppp…\n"
-	.string "Battle? With me?$"
+	.string "I made it up one flight of stairs, but\n"
+	.string "now I'm worn out!$"
 
 Route109_Text_EdmondDefeated:
-	.string "Urp… Ooooooohhhhhh…\n"
-	.string "Urrrrpppp…$"
+	.string "Wow, so rude.$"
 
 Route109_Text_EdmondPostBattle:
-	.string "I'm usually stronger than this!\n"
-	.string "I'm just seasick as a dog!\p"
-	.string "I'm a SAILOR, but…$"
+	.string "I swear the brochure said this place\n"
+	.string "had an elevator, what a ripoff!$"
 
 Route109_Text_RickyIntro:
 	.string "Headed to Olivine, are you?$"
@@ -887,14 +884,17 @@ Route109_Text_AustinaPostBattle:
 	.string "your Ponyta, you've gotta get back on!$"
 
 Route109_Text_GwenIntro:
-	.string "Hi, big TRAINER.\n"
-	.string "Will you battle with me?$"
+	.string "A battle? Of course!\p"
+	.string "Allow me to show off my lovely POKéMON!$"
 
 Route109_Text_GwenDefeated:
-	.string "Oh, you're strong.$"
+	.string "I may have lost, but I would say my\n"
+	.string "POKéMON won on cuteness.$"
 
 Route109_Text_GwenPostBattle:
-	.string "How did you get to be so strong?$"
+	.string "How do you choose your POKéMON?\p"
+	.string "Cuteness is the most important factor\n"
+	.string "for me.$"
 
 Route109_Text_CarterIntro:
 	.string "Aah! I broke my rod reeling in a big one!\p"
@@ -944,16 +944,16 @@ Route109_Text_MelNotEnoughPokemon:
 	.string "When you bring more POKéMON that is...$"
 
 Route109_Text_ChandlerIntro:
-	.string "Tadaah! See?\n"
-	.string "My inner tube's round!$"
+	.string "What's this behind your ear?\p"
+	.string "A POKéBALL!$"
 
 Route109_Text_ChandlerDefeated:
-	.string "Oh, oh!\n"
+	.string "Oh, ho!\n"
 	.string "Too bad!$"
 
 Route109_Text_ChandlerPostBattle:
-	.string "After I showed you my round inner\n"
-	.string "tube, too…$"
+	.string "Some people just don't appreciate the\n"
+	.string "wonders of magic.$"
 
 Route109_Text_HaileyIntro:
 	.string "I'll show you what it means to be farm\n"
@@ -3809,37 +3809,41 @@ Route125_Text_ErnestRematchPostBattle:
 	.string "high tide to low tide. Don't forget!$"
 
 Route125_Text_KimIntro:
-	.string "KIM: A funny old man lives in the\n"
-	.string "SHOAL CAVE. Someone told me.\l"
-	.string "Are you going to see him, too?$"
+	.string "EVA: You look like a formidable\n"
+	.string "opponent.\p"
+	.string "Hey SIRI! Let's show them what we're\n"
+	.string "made of!$"
 
 Route125_Text_KimDefeat:
-	.string "KIM: I thought we would win.$"
+	.string "EVA: That's not the battle I wanted to\n"
+	.string "show my junior.$"
 
 Route125_Text_KimPostBattle:
-	.string "KIM: A funny old man lives in the\n"
-	.string "SHOAL CAVE, doesn't he?\p"
-	.string "Let's go see him, IRIS!$"
+	.string "EVA: Hey SIRI! Remind me to find some\n"
+	.string "better POKéMON in the Safari Zone.\p"
+	.string "SIRI: I will write that down for you,\n"
+	.string "EVA.$"
 
 Route125_Text_KimNotEnoughMons:
-	.string "KIM: No, no, no! You need two POKéMON,\n"
-	.string "or it's just no good!$"
+	.string "EVA: Excuse me, but you will need more\n"
+	.string "than one POKéMON to battle us.$"
 
 Route125_Text_IrisIntro:
-	.string "IRIS: KIM, can you tell me what we're\n"
-	.string "looking for out here?$"
+	.string "SIRI: My senior taught me how to handle\n"
+	.string "TRAINERS like you!$"
 
 Route125_Text_IrisDefeat:
-	.string "IRIS: Oh, we came sort of close.$"
+	.string "SIRI: Oh, we came sort of close.$"
 
 Route125_Text_IrisPostBattle:
-	.string "IRIS: KIM, are we really going into\n"
-	.string "the SHOAL CAVE?\l"
-	.string "We'll get all wet.$"
+	.string "EVA: Hey SIRI! Remind me to find some\n"
+	.string "better POKéMON in the Safari Zone.\p"
+	.string "SIRI: I will write that down for you,\n"
+	.string "EVA.$"
 
 Route125_Text_IrisNotEnoughMons:
-	.string "IRIS: Oh, we could never, ever do\n"
-	.string "anything like a 2-on-1 battle.$"
+	.string "SIRI: Excuse me, but you will need more\n"
+	.string "than one POKéMON to battle us.$"
 
 Route125_Text_PresleyIntro:
 	.string "Why would a BIRDKEEPER like me\n"
@@ -3856,18 +3860,17 @@ Route125_Text_PresleyPostBattle:
 	.string "find it!$"
 
 Route125_Text_AuronIntro:
-	.string "Hey! Was it you throwing garbage\n"
-	.string "into the sea?$"
+	.string "Don't bug me kid, I'm on the hunt for\n"
+	.string "buried treasure!$"
 
 Route125_Text_AuronDefeat:
-	.string "Oh, you weren't throwing trash into\n"
-	.string "the sea.$"
+	.string "Hmm... And I thought I was the expert!$"
 
 Route125_Text_AuronPostBattle:
-	.string "I found an unsightly bottle bobbing\n"
-	.string "in the waves earlier.\p"
-	.string "It angers me that someone would\n"
-	.string "pollute the sea!$"
+	.string "I can't find anymore treasure on this\n"
+	.string "beach...\p"
+	.string "I think I've cleared it all out,\n"
+	.string "unfortunately.$"
 
 Route126_Text_BarryIntro:
 	.string "Swimming is a full-body workout!\n"

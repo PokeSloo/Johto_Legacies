@@ -30,7 +30,7 @@
   ],
   "warp_events": [
     {
-      "x": 1,
+      "x": 2,
       "y": 4,
       "elevation": 3,
       "dest_map": "MAP_SKY_PILLAR_2F",
@@ -65,7 +65,7 @@
       "dest_warp_id": 0
     },
     {
-      "x": 7,
+      "x": 6,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_SKY_PILLAR_3F",

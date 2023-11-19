@@ -1,0 +1,28 @@
+mapscripts SkyPillar_Top_MapScripts {}
+
+script SkyPillar_Top_EventScript_Ampharos {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_LEFTOVERS)) {
+        waitse
+        playmoncry (SPECIES_AMPHAROS, CRY_MODE_NORMAL)
+        applymovement (1, LittlerootTown_BrendansHouse_1F_Heart)
+        msgbox (format("AMPHAROS: Ampha! Ampha!"))
+        waitmovement (0)
+        waitmoncry
+        release
+        end
+    }
+    else {
+        waitse
+        playmoncry (SPECIES_AMPHAROS, CRY_MODE_NORMAL)
+        applymovement (1, LittlerootTown_BrendansHouse_1F_Heart)
+        msgbox (format("AMPHAROS: Ampha! Ampha!"))
+        waitmovement (0)
+        waitmoncry
+        giveitem (ITEM_LEFTOVERS)
+        setflag (FLAG_RECEIVED_LEFTOVERS)
+        release
+        end
+    }
+}

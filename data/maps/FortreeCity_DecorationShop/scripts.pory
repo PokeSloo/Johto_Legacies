@@ -1,0 +1,21 @@
+mapscripts FortreeCity_DecorationShop_MapScripts {}
+
+script FortreeCity_DecorationShop_EventScript_FatMan {
+    msgbox(format("I wanted to visit Vermilion City in Kanto, but they said they've had trouble accessing the region lately.\pWhat does that even mean?"), MSGBOX_NPC)
+    end
+}
+
+script FortreeCity_DecorationShop_EventScript_Girl {
+    msgbox(format("I'll be taking my little brother to Apricotta Beach soon, it's lovely this time of year.\pI recommend the trip if you ever get a chance."), MSGBOX_NPC)
+    end
+}
+
+script FortreeCity_DecorationShop_EventScript_Guy {
+    msgbox(format("Yay! I can't wait to go to the nice warm beach!"), MSGBOX_NPC)
+    end
+}
+
+script FortreeCity_DecorationShop_EventScript_Sailor {
+    msgbox(format("I'll take you to Apricotta Beach later."), MSGBOX_NPC)
+    end
+}

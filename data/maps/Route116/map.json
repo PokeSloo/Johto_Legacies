@@ -67,19 +67,6 @@
       "flag": "FLAG_ITEM_ROUTE_116_ETHER"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 13,
-      "y": 19,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route116_EventScript_ItemRepel",
-      "flag": "FLAG_ITEM_ROUTE_116_REPEL"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 25,
       "y": 33,
@@ -145,19 +132,6 @@
       "flag": "FLAG_ITEM_ROUTE_116_HP_UP"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 15,
-      "y": 19,
-      "elevation": 4,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route116_EventScript_ItemXSpecial",
-      "flag": "FLAG_ITEM_ROUTE_116_X_SPECIAL"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
       "x": 10,
       "y": 12,
@@ -167,8 +141,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route116_EventScript_WandasBoyfriend",
-      "flag": "FLAG_HIDE_ROUTE_116_WANDAS_BOYFRIEND"
+      "script": "Route116_EventScript_KarateGuy",
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
@@ -180,21 +154,21 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route116_EventScript_GlassesMan",
-      "flag": "FLAG_HIDE_ROUTE_116_DROPPED_GLASSES_MAN"
+      "script": "Route116_EventScript_Nerd",
+      "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 14,
-      "y": 19,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 11,
+      "y": 21,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route116_EventScript_ItemPotion",
-      "flag": "FLAG_ITEM_ROUTE_116_POTION"
+      "script": "Route116_EventScript_Camper",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -237,7 +211,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route116_EventScript_TunnelersRestHouseSign"
+      "script": "Route116_EventScript_SafariSign"
     },
     {
       "type": "hidden_item",
@@ -252,7 +226,7 @@
       "x": 13,
       "y": 16,
       "elevation": 3,
-      "item": "ITEM_BLACK_GLASSES",
+      "item": "ITEM_BOTTLE_CAP",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_116_BLACK_GLASSES"
     }
   ]

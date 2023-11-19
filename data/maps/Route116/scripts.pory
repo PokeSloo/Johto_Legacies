@@ -1,0 +1,21 @@
+mapscripts Route116_MapScripts {}
+
+script Route116_EventScript_Nerd {
+    msgbox(format("Some sections of the Safari Zone are only accessible if you have the HM move, Surf."), MSGBOX_NPC)
+    end
+}
+
+script Route116_EventScript_KarateGuy {
+    msgbox(format("The Safari Zone actually has a sandstorm section which has all sorts of desert dwelling POKéMON.\pThat's where I found my Scraggy!"), MSGBOX_NPC)
+    end
+}
+
+script Route116_EventScript_Camper {
+    msgbox(format("The Safari Zone has a ton of POKéMON that can't be found anywhere else in Johto, I'm really glad they moved it so close to Olivine."), MSGBOX_NPC)
+    end
+}
+
+script Route116_EventScript_SafariSign {
+    msgbox(format("SAFARI ZONE"), MSGBOX_SIGN)
+    end
+}
