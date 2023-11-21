@@ -1,6 +1,30 @@
 FortreeCity_Mart_MapScripts::
 	.byte 0
 
+
+FortreeCity_Mart_EventScript_Beauty::
+	lock
+	faceplayer
+	goto_if_unset FLAG_TALKED_TO_CHARLIE, FortreeCity_Mart_EventScript_Beauty_1
+	msgbox FortreeCity_Mart_EventScript_Beauty_Text_1
+	trainerbattle_no_intro TRAINER_ALEXIA, FortreeCity_Mart_Text_DefeatedAlexia
+	msgbox FortreeCity_Mart_EventScript_Beauty_Text_2
+	waitmessage
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject 5
+	clearflag FLAG_HIDE_OLIVINE_GYM_TRAINER_1
+	setflag FLAG_HIDE_BEAUTY_MART
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+FortreeCity_Mart_EventScript_Beauty_1:
+	msgbox FortreeCity_Mart_EventScript_Beauty_Text_0
+	release
+	end
+
+
 FortreeCity_Mart_EventScript_Clerk::
 	lock
 	faceplayer
@@ -55,3 +79,33 @@ FortreeCity_Mart_Text_RareCandyMakesMonGrow:
 	.string "amorphous object?\p"
 	.string "I'm still not sure what they are.$"
 
+FortreeCity_Mart_EventScript_Beauty_Text_0:
+	.string "Who, me?\p"
+	.string "Yeah, I play bass for The Thunderbolts.\p"
+	.string "Sorry, I can't sign autographs right\n"
+	.string "now, I'm kind of busy.$"
+
+FortreeCity_Mart_EventScript_Beauty_Text_1:
+	.string "Who, me?\p"
+	.string "Yeah, I play bass for The Thunderbolts.\p"
+	.string "Sorry, I can't sign autographs right\n"
+	.string "now, I'm kind of busy.\p"
+	.string "...\p"
+	.string "Please leave, I don't have time right\n"
+	.string "now...\p"
+	.string "...\p"
+	.string "Really, you're not going to leave me\n"
+	.string "alone?\p"
+	.string "Fine, I'll make you leave!$"
+
+FortreeCity_Mart_EventScript_Beauty_Text_2:
+	.string "...\p"
+	.string "Sorry I went off on you, I just get\n"
+	.string "nervous before we play a show.\p"
+	.string "...\p"
+	.string "Really? CHARLIE was looking for me?\p"
+	.string "Alright, I'd better go!$"
+
+FortreeCity_Mart_Text_DefeatedAlexia::
+	.string "Well, I guess you're better than I\n"
+	.string "thought.$"

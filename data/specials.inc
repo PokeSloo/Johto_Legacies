@@ -539,3 +539,4 @@ gSpecials::
 	def_special TimeTravelBackClock
 	def_special TimeTravelForwardClock
 	def_special FriendshipBreeder
+	def_special DestroyVirtualObjects

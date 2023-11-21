@@ -51,6 +51,29 @@ FortreeCity_House4_EventScript_Beauty_2:
 	end
 
 
+FortreeCity_House4_EventScript_Drummer::
+	lock
+	faceplayer
+	goto_if_unset FLAG_TALKED_TO_CHARLIE, FortreeCity_House4_EventScript_Drummer_1
+	msgbox FortreeCity_House4_EventScript_Drummer_Text_1
+	trainerbattle_no_intro TRAINER_RANDALL, FortreeCity_House4_Text_DefeatedRandall
+	msgbox FortreeCity_House4_EventScript_Drummer_Text_2
+	waitmessage
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject 5
+	clearflag FLAG_HIDE_OLIVINE_GYM_TRAINER_2
+	setflag FLAG_HIDE_DRUMMER_SWEET_SHOP
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+FortreeCity_House4_EventScript_Drummer_1:
+	msgbox FortreeCity_House4_EventScript_Drummer_Text_0
+	release
+	end
+
+
 FortreeCity_House4_EventScript_Clerk_Text_0:
 	.string "Welcome!\p"
 	.string "How may I serve you?$"
@@ -77,3 +100,26 @@ FortreeCity_House4_EventScript_Beauty_Text_1:
 	.string "You smell like you've been crawling\n"
 	.string "around in a sewer.\p"
 	.string "Here, maybe this will help you...$"
+
+FortreeCity_House4_EventScript_Drummer_Text_0:
+	.string "Believe it or not, I'm actually a drummer\n"
+	.string "in a band.\p"
+	.string "I'm also a pretty good POKéMON trainer.$"
+
+FortreeCity_House4_EventScript_Drummer_Text_1:
+	.string "Believe it or not, I'm actually a drummer\n"
+	.string "in a band.\p"
+	.string "I'm also a pretty good POKéMON trainer.\p"
+	.string "What? You don't believe me?\p"
+	.string "I'll show you!$"
+
+FortreeCity_House4_EventScript_Drummer_Text_2:
+	.string "...\p"
+	.string "What's that?\p"
+	.string "The Thunderbolts? Yeah, that's my band!\p"
+	.string "You say CHARLIE is looking for me?\p"
+	.string "Why didn't you say that earlier!?$"
+
+FortreeCity_House4_Text_DefeatedRandall::
+	.string "Hey, you're a pretty good POKéMON\n"
+	.string "trainer too!$"

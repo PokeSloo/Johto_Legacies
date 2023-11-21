@@ -1,0 +1,476 @@
+const CHARLIE_ID = 7
+const BEAUTY_ID = 3
+const DRUMMER_ID = 2
+const GUITAR_ID = 4
+const MOVING_BEAUTY_ID = 9
+const MOVING_DRUMMER_ID = 10
+const MOVING_GUITAR_ID = 11
+const MALE_DUMMY_ID = 6
+const FEMALE_DUMMY_ID = 8
+
+mapscripts PetalburgCity_Gym_MapScripts {}
+
+script PetalburgCity_Gym_EventScript_Guide {
+	lock
+	faceplayer
+	goto_if_set (FLAG_DEFEATED_PETALBURG_GYM, PetalburgCity_Gym_EventScript_GymGuidePostVictory)
+	msgbox (PetalburgCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script PetalburgCity_Gym_EventScript_GymGuidePostVictory {
+	msgbox (PetalburgCity_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+text PetalburgCity_Gym_Text_GymGuideAdvice {
+    format("Hey, how's it going, CHAMPION-bound {PLAYER}?\pThe Gym Leader here, CHARLIE will rock you with his music and shock you with his battling skills!\pHe uses ELECTRIC-type POKéMON, in case you didn't get my pun.\pTry using GROUND-type moves to roll him!\pWell, go for it!")
+}
+
+text PetalburgCity_Gym_Text_GymGuidePostVictory {
+    format("That rocked my socks off!\pAnd I'm not just talking about the concert.\pThat battle was great, I knew you would win!")
+}
+
+script PetalburgCity_Gym_EventScript_GymStatue {
+	lockall
+	goto_if_set (FLAG_BADGE05_GET, PetalburgCity_Gym_EventScript_GymStatueCertified)
+	msgbox (PetalburgCity_Gym_Text_GymStatue, MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+text PetalburgCity_Gym_Text_GymStatue {
+    format("OLIVINE CITY POKéMON GYM\pCHARLIE'S CERTIFIED TRAINERS:\nSHANE")
+}
+
+text PetalburgCity_Gym_EventScript_GymStatueCertified {
+    format("OLIVINE CITY POKéMON GYM\pCHARLIE'S CERTIFIED TRAINERS:\nSHANE, {PLAYER}")
+}
+
+script PetalburgCity_Gym_EventScript_Beauty {
+    lock
+    faceplayer
+    if (flag(FLAG_BADGE05_GET)) {
+        msgbox(format("Whew, now that it's all over my nerves are back to normal, but I'm exhausted!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Deep breaths ALEXIA, you've played this show hundreds of times before..."))
+        release
+        end
+    }
+}
+
+script PetalburgCity_Gym_EventScript_Drummer {
+    lock
+    faceplayer
+    if (flag(FLAG_BADGE05_GET)) {
+        msgbox(format("How was my playing?\pMy head was spinning from the sugar rush, but I'm definitely crashing now..."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Ugh, man, I think I ate too many sweets...\pThis show is going to be rough."))
+        release
+        end
+    }
+}
+
+script PetalburgCity_Gym_EventScript_Guitarist {
+    lock
+    faceplayer
+    if (flag(FLAG_BADGE05_GET)) {
+        msgbox(format("Another great concert, if I do say so myself.\pNow then, time to kick back and try to relax."))
+        release
+        end
+    }
+    else {
+        msgbox(format("I'm all apmed back up again, and ready to start this show!"))
+        release
+        end
+    }
+}
+
+script PetalburgCity_Gym_EventScript_Charlie {
+    lock
+    faceplayer
+    if (flag(FLAG_BADGE05_GET)) {
+        msgbox(format("Yo kid! We should battle again sometime.\pYou have a ton of potential!"))
+        release
+        end
+    }
+    elif (flag(FLAG_HIDE_DRUMMER_SWEET_SHOP) && flag(FLAG_HIDE_BEAUTY_MART) && flag(FLAG_HIDE_GUITARIST_LIGHTHOUSE)) {
+        msgbox(format("Hey! You found all three of my bandmates!\pThat was faster than I expected.\pWe should definitely have time for a battle before the show!\pWell then, bring it on!"))
+        trainerbattle_no_intro (TRAINER_NORMAN_1, PetalburgCity_Gym_Text_CharlieDefeat)
+        message (PetalburgCity_Gym_Text_ReceivedBoltBadge)
+	    waitmessage
+	    call (Common_EventScript_PlayGymBadgeFanfare)
+	    msgbox (PetalburgCity_Gym_Text_ExplainBoltBadgeTakeThis, MSGBOX_DEFAULT)
+	    setflag (FLAG_DEFEATED_PETALBURG_GYM)
+	    setflag (FLAG_BADGE05_GET)
+        giveitem (ITEM_TM24_THUNDERBOLT)
+        msgbox(format("That TM contains the move Thunderbolt! A very powerful ELECTRIC move that has a chance to paralyze your opponent.\pIt's also the inspiration behind my band's name, obviously.\pSay, you should stick around for the show.\pI'll save you a spot in the front row!\pWell, I'd better get to it..."))
+        waitmessage
+        closemessage
+        goto (PetalburgCity_Gym_EventScript_ConcertSetup)
+        end
+    }
+    elif (flag(FLAG_TALKED_TO_CHARLIE)) {
+        msgbox(format("Not all of my bandmates are here yet, there should be three of them total.\pI imagine they're somewhere in Olivine."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Yo! What's up, kid?\pYou're a little early for the concert, you must be here for a battle!\pSorry, you do look like a strong TRAINER, but our battle will have to wait.\pWe'll be putting on a concert soon, and my three bandmates are missing.\p...\pI tell you what, if you can find my bandmates quickly, then I might be able to squeeze in a battle before the concert!\pThey should be somewhere in town."))
+        setflag(FLAG_TALKED_TO_CHARLIE)
+        release
+        end
+    }
+}
+
+text PetalburgCity_Gym_Text_CharlieDefeat {
+    format("Yeah! That was a fantastic battle!\pI feel electrified now! I'm ready to put on the best show of my life!\pHere, you've undoubtedly earned this badge!")
+}
+
+text PetalburgCity_Gym_Text_ReceivedBoltBadge {
+    format("{PLAYER} received the BOLT BADGE from CHARLIE!")
+}
+
+text PetalburgCity_Gym_Text_ExplainBoltBadgeTakeThis {
+    format("That badge will allow your POKéMON to use the HM move Surf outside of battle.\pThat should open up the world for you quite a bit!\pOh, and you can have this!")
+}
+
+script PetalburgCity_Gym_EventScript_ConcertSetup {
+    fadescreenspeed (FADE_TO_BLACK, 14)
+    applymovement (OBJ_EVENT_ID_PLAYER, PetalburgCity_Gym_Movement_Invisible)
+    waitmovement (0)
+    specialvar (VAR_RESULT, GetPlayerFacingDirection)
+    switch (var(VAR_RESULT)) {
+        case DIR_EAST :
+            call (PetalburgCity_Gym_EventScript_FacingEast)
+        case DIR_NORTH :
+            call (PetalburgCity_Gym_EventScript_FacingNorth)
+        case DIR_WEST :
+            call (PetalburgCity_Gym_EventScript_FacingWest)
+        case DIR_SOUTH :
+            call (PetalburgCity_Gym_EventScript_FacingSouth)
+    }
+    clearflag (FLAG_GENERAL_HIDE)
+    addobject(CHARLIE_ID)
+    applymovement (DRUMMER_ID, PetalburgCity_Gym_Movement_FaceDown)
+    applymovement (BEAUTY_ID, PetalburgCity_Gym_Movement_FaceDown)
+    applymovement (GUITAR_ID, PetalburgCity_Gym_Movement_FaceDown)
+    waitmovement (0)
+    checkplayergender
+    if (var(VAR_RESULT) == MALE) {
+        call (PetalburgCity_Gym_EventScript_MalePlayer)
+    }
+    elif (var(VAR_RESULT) == FEMALE) {
+        call (PetalburgCity_Gym_EventScript_FemalePlayer)
+    }
+    call (PetalburgCity_Gym_EventScript_Add_Audience)
+    setmetatile (5, 7, 0x22A, TRUE)
+    setmetatile (6, 7, 0x22B, TRUE)
+    setmetatile (5, 6, 0x222, TRUE)
+    setmetatile (6, 6, 0x223, TRUE)
+    setmetatile (12, 7, 0x22A, TRUE)
+    setmetatile (13, 7, 0x22B, TRUE)
+    setmetatile (12, 6, 0x222, TRUE)
+    setmetatile (13, 6, 0x223, TRUE)
+    special (DrawWholeMapView)
+    fadenewbgm (MUS_HG_NEW_GAME)
+    fadescreenspeed (FADE_FROM_BLACK, 14)
+    goto (PetalburgCity_Gym_EventScript_Concert)
+    end
+}
+
+script PetalburgCity_Gym_EventScript_MalePlayer {
+    addobject(MALE_DUMMY_ID)
+    return
+}
+
+script PetalburgCity_Gym_EventScript_FemalePlayer {
+    addobject(FEMALE_DUMMY_ID)
+    return
+}
+
+script PetalburgCity_Gym_EventScript_FacingEast {
+    applymovement (OBJ_EVENT_ID_PLAYER, PetalburgCity_Gym_Movement_ToStageFromLeft)
+    waitmovement (0)
+    return
+}
+
+script PetalburgCity_Gym_EventScript_FacingNorth {
+    applymovement (OBJ_EVENT_ID_PLAYER, PetalburgCity_Gym_Movement_ToStageFromBottom)
+    waitmovement (0)
+    return
+}
+
+script PetalburgCity_Gym_EventScript_FacingWest {
+    applymovement (OBJ_EVENT_ID_PLAYER, PetalburgCity_Gym_Movement_ToStageFromRight)
+    waitmovement (0)
+    return
+}
+
+script PetalburgCity_Gym_EventScript_FacingSouth {
+    applymovement (OBJ_EVENT_ID_PLAYER, PetalburgCity_Gym_Movement_ToStageFromTop)
+    waitmovement (0)
+    return
+}
+
+movement PetalburgCity_Gym_Movement_Invisible {
+    set_invisible
+}
+
+movement PetalburgCity_Gym_Movement_ToStageFromLeft {
+    walk_faster_right
+    walk_faster_up * 6
+}
+
+movement PetalburgCity_Gym_Movement_ToStageFromBottom {
+    walk_faster_up * 7
+}
+
+movement PetalburgCity_Gym_Movement_ToStageFromRight {
+    walk_faster_left
+    walk_faster_up * 6
+}
+
+movement PetalburgCity_Gym_Movement_ToStageFromTop {
+    walk_faster_up * 5
+}
+
+movement PetalburgCity_Gym_Movement_FaceDown {
+    face_down
+}
+
+script PetalburgCity_Gym_EventScript_Add_Audience {
+    createvobject (OBJ_EVENT_GFX_BEAUTY, 0, 4, 9)
+    createvobject (OBJ_EVENT_GFX_BRANDON, 1, 5, 9)
+    createvobject (OBJ_EVENT_GFX_BEAUTY, 2, 6, 9)
+    createvobject (OBJ_EVENT_GFX_HIKER, 3, 7, 9)
+    createvobject (OBJ_EVENT_GFX_HEX_MANIAC, 4, 8, 9)
+    createvobject (OBJ_EVENT_GFX_WALLACE, 5, 9, 9)
+    createvobject (OBJ_EVENT_GFX_MAN_3, 6, 10, 9)
+    createvobject (OBJ_EVENT_GFX_LASS, 7, 11, 9)
+    createvobject (OBJ_EVENT_GFX_MAN_4, 8, 13, 9)
+    createvobject (OBJ_EVENT_GFX_ANABEL, 9, 14, 9)
+    createvobject (OBJ_EVENT_GFX_BLACK_BELT, 10, 4, 10)
+    createvobject (OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F, 11, 5, 10)
+    createvobject (OBJ_EVENT_GFX_NURSE, 12, 6, 10)
+    createvobject (OBJ_EVENT_GFX_MART_EMPLOYEE, 13, 7, 10)
+    createvobject (OBJ_EVENT_GFX_CAMPER, 14, 8, 10)
+    createvobject (OBJ_EVENT_GFX_PICNICKER, 15, 9, 10)
+    createvobject (OBJ_EVENT_GFX_PSYCHIC_M, 16, 10, 10)
+    createvobject (OBJ_EVENT_GFX_WOMAN_1, 17, 11, 10)
+    createvobject (OBJ_EVENT_GFX_BUG_CATCHER, 18, 12, 10)
+    createvobject (OBJ_EVENT_GFX_FISHERMAN, 19, 13, 10)
+    createvobject (OBJ_EVENT_GFX_WOMAN_2, 20, 14, 10)
+    turnvobject (0, DIR_NORTH)
+    turnvobject (1, DIR_NORTH)
+    turnvobject (2, DIR_NORTH)
+    turnvobject (3, DIR_NORTH)
+    turnvobject (4, DIR_NORTH)
+    turnvobject (5, DIR_NORTH)
+    turnvobject (6, DIR_NORTH)
+    turnvobject (7, DIR_NORTH)
+    turnvobject (8, DIR_NORTH)
+    turnvobject (9, DIR_NORTH)
+    turnvobject (10, DIR_NORTH)
+    turnvobject (11, DIR_NORTH)
+    turnvobject (12, DIR_NORTH)
+    turnvobject (13, DIR_NORTH)
+    turnvobject (14, DIR_NORTH)
+    turnvobject (15, DIR_NORTH)
+    turnvobject (16, DIR_NORTH)
+    turnvobject (17, DIR_NORTH)
+    turnvobject (18, DIR_NORTH)
+    turnvobject (19, DIR_NORTH)
+    turnvobject (20, DIR_NORTH)
+    return
+}
+
+script PetalburgCity_Gym_EventScript_Concert {
+    delay (60)
+    msgbox(format("CHARLIE: Is everybody ready!?"))
+    waitmessage
+    closemessage
+    playse (SE_M_ENCORE2)
+	call (PetalburgCity_Gym_EventScript_Look_Around)
+    waitse
+    msgbox(format("CHARLIE: I'm glad to see so many people made it out here tonight!\pWe'll be sure to put on a great show for you!\pNow, I'm sure everyone will recognize this first song, it's a classic!"))
+    waitmessage
+    closemessage
+    delay (30)
+    playbgm (MUS_RG_VS_GYM_LEADER, FALSE)
+    applymovement(CHARLIE_ID, PetalburgCity_Gym_Movement_CharlieStart)
+    waitmovement (0)
+    playse (SE_M_ENCORE2)
+	call (PetalburgCity_Gym_EventScript_Look_Around)
+    waitse
+    applymovement(CHARLIE_ID, PetalburgCity_Gym_Movement_CharlieContinue)
+    waitmovement (0)
+    playse (SE_M_ENCORE2)
+	call (PetalburgCity_Gym_EventScript_Look_Around)
+    waitse
+    applymovement(CHARLIE_ID, PetalburgCity_Gym_Movement_CharlieThird)
+    waitmovement (0)
+    playse (SE_M_ENCORE2)
+	call (PetalburgCity_Gym_EventScript_Look_Around)
+    waitse
+    applymovement(CHARLIE_ID, PetalburgCity_Gym_Movement_CharlieFinal)
+    waitmovement (0)
+    playse (SE_M_ENCORE2)
+	call (PetalburgCity_Gym_EventScript_Look_Around)
+    waitse
+    goto (PetalburgCity_Gym_EventScript_ConcertEnd)
+    end
+}
+
+movement PetalburgCity_Gym_Movement_CharlieStart {
+    face_right
+    delay_8
+    face_up
+    delay_8
+    face_left
+    delay_16
+    jump_2_left
+    delay_16
+    face_left
+    lock_facing_direction
+    walk_right * 4
+    unlock_facing_direction
+    jump_in_place_down
+}
+
+movement PetalburgCity_Gym_Movement_CharlieContinue {
+    face_left
+    delay_8
+    face_up
+    delay_8
+    face_right
+    delay_16
+    lock_facing_direction
+    walk_slow_left * 2
+    unlock_facing_direction
+    jump_in_place_down
+}
+
+movement PetalburgCity_Gym_Movement_CharlieThird {
+    jump_2_down
+    jump_in_place_left_right
+    walk_slow_right
+    face_right
+    lock_facing_direction
+    walk_slow_left * 2
+    unlock_facing_direction
+    jump_in_place_down
+}
+
+movement PetalburgCity_Gym_Movement_CharlieFinal {
+    face_left
+    delay_8
+    face_up
+    delay_8
+    face_right
+    delay_16
+    jump_2_right
+    face_right
+    lock_facing_direction
+    walk_slow_left
+    unlock_facing_direction
+    jump_2_up
+    face_left
+    delay_8
+    face_down
+    delay_8
+    face_right
+    delay_8
+    face_up
+    delay_8
+    face_left
+    delay_8
+    face_down
+}
+
+script PetalburgCity_Gym_EventScript_Look_Around {
+    turnvobject (0, DIR_EAST)
+    turnvobject (2, DIR_WEST)
+    turnvobject (4, DIR_EAST)
+    turnvobject (6, DIR_WEST)
+    turnvobject (8, DIR_EAST)
+    turnvobject (10, DIR_WEST)
+    turnvobject (12, DIR_EAST)
+    turnvobject (14, DIR_WEST)
+    turnvobject (16, DIR_EAST)
+    turnvobject (18, DIR_WEST)
+    turnvobject (20, DIR_EAST)
+    delay (20)
+    turnvobject (0, DIR_NORTH)
+    turnvobject (2, DIR_NORTH)
+    turnvobject (4, DIR_NORTH)
+    turnvobject (6, DIR_NORTH)
+    turnvobject (8, DIR_NORTH)
+    turnvobject (10, DIR_NORTH)
+    turnvobject (12, DIR_NORTH)
+    turnvobject (14, DIR_NORTH)
+    turnvobject (16, DIR_NORTH)
+    turnvobject (18, DIR_NORTH)
+    turnvobject (20, DIR_NORTH)
+    delay (20)
+    turnvobject (1, DIR_EAST)
+    turnvobject (3, DIR_WEST)
+    turnvobject (5, DIR_EAST)
+    turnvobject (7, DIR_WEST)
+    turnvobject (9, DIR_EAST)
+    turnvobject (11, DIR_WEST)
+    turnvobject (13, DIR_EAST)
+    turnvobject (15, DIR_WEST)
+    turnvobject (17, DIR_EAST)
+    turnvobject (19, DIR_WEST)
+    delay (20)
+    turnvobject (1, DIR_NORTH)
+    turnvobject (3, DIR_NORTH)
+    turnvobject (5, DIR_NORTH)
+    turnvobject (7, DIR_NORTH)
+    turnvobject (9, DIR_NORTH)
+    turnvobject (11, DIR_NORTH)
+    turnvobject (13, DIR_NORTH)
+    turnvobject (15, DIR_NORTH)
+    turnvobject (17, DIR_NORTH)
+    turnvobject (19, DIR_NORTH)
+    return
+}
+
+script PetalburgCity_Gym_EventScript_ConcertEnd {
+    fadescreenspeed (FADE_TO_BLACK, 14)
+    delay(30)
+    removeobject(CHARLIE_ID)
+    removeobject(MALE_DUMMY_ID)
+    removeobject(FEMALE_DUMMY_ID)
+    setflag(FLAG_GENERAL_HIDE)
+    special (DestroyVirtualObjects)
+    setmetatile (5, 7, 0x20A, FALSE)
+    setmetatile (6, 7, 0x20A, FALSE)
+    setmetatile (5, 6, 0x20A, FALSE)
+    setmetatile (6, 6, 0x20A, FALSE)
+    setmetatile (12, 7, 0x20A, FALSE)
+    setmetatile (13, 7, 0x20A, FALSE)
+    setmetatile (12, 6, 0x20A, FALSE)
+    setmetatile (13, 6, 0x20A, FALSE)
+    special (DrawWholeMapView)
+    fadedefaultbgm
+    applymovement (OBJ_EVENT_ID_PLAYER, PetalburgCity_Gym_Movement_VisibleDown)
+    waitmovement (0)
+    fadescreen (FADE_FROM_BLACK)
+    release
+    end
+}
+
+movement PetalburgCity_Gym_Movement_VisibleDown {
+    walk_faster_down * 8
+    set_visible
+}

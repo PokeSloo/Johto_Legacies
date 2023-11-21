@@ -46,3 +46,31 @@ script FortreeCity_House4_EventScript_Beauty {
     release
     end
 }
+
+script FortreeCity_House4_EventScript_Drummer {
+    lock
+    faceplayer
+    if (!flag(FLAG_TALKED_TO_CHARLIE)) {
+        msgbox(format("Believe it or not, I'm actually a drummer in a band.\pI'm also a pretty good POKéMON trainer."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Believe it or not, I'm actually a drummer in a band.\pI'm also a pretty good POKéMON trainer.\pWhat? You don't believe me?\pI'll show you!"))
+        trainerbattle_no_intro (TRAINER_RANDALL, FortreeCity_House4_Text_DefeatedRandall)
+        msgbox(format("...\pWhat's that?\pThe Thunderbolts? Yeah, that's my band!\pYou say CHARLIE is looking for me?\pWhy didn't you say that earlier!?"))
+        waitmessage
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        removeobject(5)
+        clearflag(FLAG_HIDE_OLIVINE_GYM_TRAINER_2)
+        setflag(FLAG_HIDE_DRUMMER_SWEET_SHOP)
+        fadescreen(FADE_FROM_BLACK)
+        release
+        end
+    }
+}
+
+text FortreeCity_House4_Text_DefeatedRandall {
+    format("Hey, you're a pretty good POKéMON trainer too!")
+}

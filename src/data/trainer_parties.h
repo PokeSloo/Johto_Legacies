@@ -829,12 +829,28 @@ static const struct TrainerMonNoItemCustomMoves sParty_Ricky5[] = {
 
 static const struct TrainerMonItemCustomMoves sParty_Randall[] = {
     {
-    .iv = 255,
-    .lvl = 26,
-    .species = SPECIES_SWELLOW,
+    .iv = 155,
+    .lvl = 35,
+    .species = SPECIES_MORPEKO_HANGRY,
     .heldItem = ITEM_NONE,
     .abilityNums = 0,
-    .moves = {MOVE_QUICK_ATTACK, MOVE_AGILITY, MOVE_WING_ATTACK, MOVE_NONE}
+    .moves = {MOVE_QUICK_ATTACK, MOVE_SPARK, MOVE_TORMENT, MOVE_BITE}
+    },
+    {
+    .iv = 155,
+    .lvl = 35,
+    .species = SPECIES_GRAVELER_ALOLAN,
+    .heldItem = ITEM_NONE,
+    .abilityNums = 1,
+    .moves = {MOVE_STEALTH_ROCK, MOVE_ROCK_BLAST, MOVE_BULLDOZE, MOVE_SELF_DESTRUCT}
+    },
+    {
+    .iv = 255,
+    .lvl = 36,
+    .species = SPECIES_GALVANTULA,
+    .heldItem = ITEM_NONE,
+    .abilityNums = 0,
+    .moves = {MOVE_THUNDERBOLT, MOVE_SUCKER_PUNCH, MOVE_BUG_BITE, MOVE_THUNDER_WAVE}
     }
 };
 
@@ -1153,12 +1169,28 @@ static const struct TrainerMonItemCustomMoves sParty_Mary[] = {
 
 static const struct TrainerMonItemCustomMoves sParty_Alexia[] = {
     {
-    .iv = 255,
-    .lvl = 26,
-    .species = SPECIES_WIGGLYTUFF,
+    .iv = 155,
+    .lvl = 35,
+    .species = SPECIES_PACHIRISU,
     .heldItem = ITEM_NONE,
     .abilityNums = 0,
-    .moves = {MOVE_DEFENSE_CURL, MOVE_DOUBLE_EDGE, MOVE_SHADOW_BALL, MOVE_NONE}
+    .moves = {MOVE_NUZZLE, MOVE_THUNDERBOLT, MOVE_CHARM, MOVE_U_TURN}
+    },
+    {
+    .iv = 155,
+    .lvl = 35,
+    .species = SPECIES_RAICHU,
+    .heldItem = ITEM_NONE,
+    .abilityNums = 0,
+    .moves = {MOVE_THUNDERBOLT, MOVE_DOUBLE_TEAM, MOVE_THUNDER_WAVE, MOVE_GRASS_KNOT}
+    },
+    {
+    .iv = 155,
+    .lvl = 36,
+    .species = SPECIES_LANTURN,
+    .heldItem = ITEM_MAGNET,
+    .abilityNums = 0,
+    .moves = {MOVE_THUNDERBOLT, MOVE_CONFUSE_RAY, MOVE_SIGNAL_BEAM, MOVE_FLAIL}
     }
 };
 
@@ -3630,36 +3662,52 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery1[] = {
 
 static const struct TrainerMonItemCustomMoves sParty_Norman1[] = {
     {
-    .iv = 200,
-    .lvl = 27,
-    .species = SPECIES_SPINDA,
-    .heldItem = ITEM_NONE,
-    .abilityNums = 0,
-    .moves = {MOVE_TEETER_DANCE, MOVE_PSYBEAM, MOVE_FACADE, MOVE_ENCORE}
-    },
-    {
-    .iv = 200,
-    .lvl = 27,
-    .species = SPECIES_VIGOROTH,
-    .heldItem = ITEM_NONE,
-    .abilityNums = 0,
-    .moves = {MOVE_SLASH, MOVE_FACADE, MOVE_ENCORE, MOVE_FEINT_ATTACK}
-    },
-    {
-    .iv = 200,
-    .lvl = 29,
-    .species = SPECIES_LINOONE,
-    .heldItem = ITEM_NONE,
-    .abilityNums = 0,
-    .moves = {MOVE_SLASH, MOVE_BELLY_DRUM, MOVE_FACADE, MOVE_HEADBUTT}
+    .iv = 250,
+    .lvl = 40,
+    .species = SPECIES_ELECTRODE_HISUIAN,
+    .heldItem = ITEM_HEAVY_DUTY_BOOTS,
+    .abilityNums = 1,
+    .moves = {MOVE_VOLT_SWITCH, MOVE_ENERGY_BALL, MOVE_THUNDERBOLT, MOVE_EXPLOSION}
     },
     {
     .iv = 250,
-    .lvl = 31,
-    .species = SPECIES_SLAKING,
-    .heldItem = ITEM_SITRUS_BERRY,
+    .lvl = 40,
+    .species = SPECIES_GOLEM_ALOLAN,
+    .heldItem = ITEM_EXPERT_BELT,
+    .abilityNums = 1,
+    .moves = {MOVE_STONE_EDGE, MOVE_EXPLOSION, MOVE_EARTHQUAKE, MOVE_THUNDER_PUNCH}
+    },
+    {
+    .iv = 250,
+    .lvl = 41,
+    .species = SPECIES_MANECTRIC,
+    .heldItem = ITEM_WHITE_HERB,
     .abilityNums = 0,
-    .moves = {MOVE_COUNTER, MOVE_YAWN, MOVE_FACADE, MOVE_FEINT_ATTACK}
+    .moves = {MOVE_THUNDERBOLT, MOVE_OVERHEAT, MOVE_VOLT_SWITCH, MOVE_HIDDEN_POWER}
+    },
+    {
+    .iv = 250,
+    .lvl = 41,
+    .species = SPECIES_EELEKTROSS,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .abilityNums = 0,
+    .moves = {MOVE_THUNDERBOLT, MOVE_GIGA_DRAIN, MOVE_FLAMETHROWER, MOVE_KNOCK_OFF}
+    },
+    {
+    .iv = 250,
+    .lvl = 40,
+    .species = SPECIES_ROTOM_WASH,
+    .heldItem = ITEM_LEFTOVERS,
+    .abilityNums = 0,
+    .moves = {MOVE_VOLT_SWITCH, MOVE_HYDRO_PUMP, MOVE_PAIN_SPLIT, MOVE_THUNDERBOLT}
+    },
+    {
+    .iv = 250,
+    .lvl = 42,
+    .species = SPECIES_TOXTRICITY,
+    .heldItem = ITEM_THROAT_SPRAY,
+    .abilityNums = 0,
+    .moves = {MOVE_OVERDRIVE, MOVE_BOOMBURST, MOVE_SLUDGE_BOMB, MOVE_VOLT_SWITCH}
     }
 };
 
