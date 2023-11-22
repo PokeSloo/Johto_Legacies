@@ -1584,52 +1584,53 @@ Route113_Text_JaylenPostBattle:
 	.string "can, nobody should come here.$"
 
 Route113_Text_DillonIntro:
-	.string "The volcano's eruption is proof that\n"
-	.string "the earth is alive.$"
+	.string "It's pretty cold out here, but don't\n"
+	.string "worry, my POKéMON will be sure to warm\l"
+	.string "you up!$"
 
 Route113_Text_DillonDefeat:
-	.string "You're some kind of strong!$"
+	.string "Wow, that battle got heated!$"
 
 Route113_Text_DillonPostBattle:
-	.string "Ouch! Owww! I can't see!\n"
-	.string "I got ashes in my eyelashes!\p"
-	.string "Get it? Ashes and eyelashes?\p"
-	.string "Okay, that was bad, sorry…$"
+	.string "This snow can be a pain, but my Camerupt\n"
+	.string "keeps me warm.$"
 
 Route113_Text_MadelineIntro:
-	.string "I use this parasol to ward off this\n"
-	.string "filthy, yucky volcanic ash from\l"
-	.string "my dear NUMEL.$"
+	.string "Oh... This will not be an easy battle for\n"
+	.string "me...\p"
+	.string "I can feel it...$"
 
 Route113_Text_MadelineDefeat:
-	.string "Huff, huff…\n"
-	.string "I am exhausted…$"
+	.string "My intuition is never wrong...\n"
+	.string "I knew you would be strong.$"
 
 Route113_Text_MadelinePostBattle:
-	.string "You're very good at this.\n"
-	.string "I must say I'm impressed!$"
+	.string "You will become one of the strongest\n"
+	.string "TRAINERS in this region...\p"
+	.string "I can feel it...$"
 
 Route113_Text_MadelineRegister:
-	.string "Here, slide under my parasol.\n"
-	.string "Let me register you in my POKéNAV.$"
+	.string "...\p"
+	.string "Check your POKéNAV...$"
 
 Route113_Text_MadelineRematchIntro:
-	.string "Oh, hello, hasn't it been a while?\n"
-	.string "May I invite you to battle?$"
+	.string "Let's see if you've improved as much as\n"
+	.string "I expect you have...$"
 
 Route113_Text_MadelineRematchDefeat:
-	.string "Oh, how super!$"
+	.string "Indeed. You're even stronger than I\n"
+	.string "expected.$"
 
 Route113_Text_MadelinePostRematch:
-	.string "You've remained very good at this.\n"
-	.string "I must say I'm impressed!$"
+	.string "You will become one of the strongest\n"
+	.string "TRAINERS in this region...\p"
+	.string "I can feel it...$"
 
 Route113_Text_LaoIntro:
-	.string "From out of the ashes I leap! Hiyah!\n"
-	.string "I challenge thee!$"
+	.string "From behind a tree and in the snow!$"
 
 Route113_Text_LaoDefeat:
-	.string "With honor I admit defeat!$"
+	.string "My sneak attack wasn't sneaky enough!$"
 
 Route113_Text_LaoPostBattle:
 	.string "I must refine the art of concealment.\n"
@@ -1640,11 +1641,11 @@ Route113_Text_LaoRegister:
 	.string "technique of POKéNAV registration!$"
 
 Route113_Text_LaoRematchIntro:
-	.string "From out of the ashes I leap! Hiyah!\n"
-	.string "I challenge thee!$"
+	.string "From behind a tree and in the snow!$"
 
 Route113_Text_LaoRematchDefeat:
-	.string "With honor I admit defeat!$"
+	.string "My sneak attack still isn't sneaky\n"
+	.string "enough!$"
 
 Route113_Text_LaoPostRematch:
 	.string "My flawless concealment was let down\n"
@@ -1652,61 +1653,58 @@ Route113_Text_LaoPostRematch:
 	.string "I bid thee farewell.$"
 
 Route113_Text_LungIntro:
-	.string "Thanks for finding me!\n"
-	.string "But we still have to battle!$"
+	.string "Ninjas strike from the shadows!\p"
+	.string "...Or the snow!$"
 
 Route113_Text_LungDefeat:
-	.string "I'll use my ninjutsu on you…\n"
-	.string "“VOLCANIC ASH SWIRL CLOAK”!\p"
-	.string "…What?\n"
-	.string "It's already over?$"
+	.string "I had the element of surprise, but still\n"
+	.string "lost!$"
 
 Route113_Text_LungPostBattle:
-	.string "You know what's crummy about hiding?\n"
-	.string "It's lonely if no one comes along.$"
+	.string "Now to wait for the snow to bury me\n"
+	.string "again...$"
 
 Route113_Text_ToriIntro:
-	.string "TORI: Both of us, we collect ashes.\n"
-	.string "We battle POKéMON, too.$"
+	.string "TORI: You're no match for my sister!\p"
+	.string "She's the best!$"
 
 Route113_Text_ToriDefeat:
-	.string "TORI: We lost… It's boring, so I'm going\n"
-	.string "to get some more ashes.$"
+	.string "TORI: I've never seen my sister lose\n"
+	.string "before, this can't be happening.$"
 
 Route113_Text_ToriPostBattle:
-	.string "TORI: How much ash do we have?\n"
-	.string "Enough for a WHITE FLUTE, I hope.$"
+	.string "TORI: Do you like the snow?\p"
+	.string "My sister and I love the snow!$"
 
 Route113_Text_ToriNotEnoughMons:
 	.string "TORI: We want to battle 2-on-2.\n"
 	.string "If we didn't, we would lose!$"
 
 Route113_Text_TiaIntro:
-	.string "TIA: Both of us, we collect ashes.\n"
-	.string "We battle POKéMON, too.$"
+	.string "TIA: You're no match for my sister!\p"
+	.string "She's the best!$"
 
 Route113_Text_TiaDefeat:
-	.string "TIA: We couldn't win… It's boring,\n"
-	.string "so I'm getting some more ashes.$"
+	.string "TIA: I've never seen my sister lose\n"
+	.string "before, this can't be happening.$"
 
 Route113_Text_TiaPostBattle:
-	.string "TIA: We have a lot of ashes!\n"
-	.string "I think enough for a WHITE FLUTE!$"
+	.string "TIA: Do you like the snow?\p"
+	.string "My sister and I love the snow!$"
 
 Route113_Text_TiaNotEnoughMons:
 	.string "TIA: We want to battle 2-on-2.\n"
 	.string "If we don't, we won't win!$"
 
 Route113_Text_CobyIntro:
-	.string "Pfft, with these wings I can\n"
-	.string "flick you away!$"
+	.string "I'm getting ready for a big hiking trip!$"
 
 Route113_Text_CobyDefeat:
-	.string "A… What?$"
+	.string "Wait… What happened?$"
 
 Route113_Text_CobyPostBattle:
-	.string "I don't know what to say when I get\n"
-	.string "beaten so easily…$"
+	.string "This area has some of the best hiking\n"
+	.string "trails around!$"
 
 Route113_Text_SophieIntro:
 	.string "I got separated from my tour group,\n"

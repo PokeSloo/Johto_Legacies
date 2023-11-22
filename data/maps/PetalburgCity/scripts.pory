@@ -1,5 +1,5 @@
-const SHANE_LOCAL_ID = 16
-const FOREST_GRUNT_ID = 14
+const SHANE_LOCAL_ID = 14
+const FOREST_GRUNT_ID = 12
 
 raw`
 PetalburgCity_MapScripts::

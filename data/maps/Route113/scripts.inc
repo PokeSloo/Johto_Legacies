@@ -1,25 +1,6 @@
 Route113_MapScripts::
 	.byte 0
 
-Route113_OnResume:
-	setstepcallback STEP_CB_ASH
-	end
-
-Route113_OnTransition:
-	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
-	call Route113_EventScript_CheckSetAshWeather
-	end
-
-Route113_EventScript_CheckSetAshWeather::
-	getplayerxy VAR_TEMP_0, VAR_TEMP_1
-	goto_if_lt VAR_TEMP_0, 19, Route113_EventScript_DontSetAshWeather
-	goto_if_gt VAR_TEMP_0, 84, Route113_EventScript_DontSetAshWeather
-	setweather WEATHER_VOLCANIC_ASH
-	return
-
-Route113_EventScript_DontSetAshWeather::
-	return
-
 Route113_EventScript_Gentleman::
 	msgbox Route113_Text_AshCanBeFashionedIntoGlass, MSGBOX_NPC
 	end
@@ -38,10 +19,6 @@ Route113_EventScript_RouteSignFallarbor::
 
 Route113_EventScript_GlassWorkshopSign::
 	msgbox Route113_Text_GlassWorkshopSign, MSGBOX_SIGN
-	end
-
-Route113_EventScript_TrainerTipsRegisterKeyItems::
-	msgbox Route113_Text_TrainerTipsRegisterKeyItems, MSGBOX_SIGN
 	end
 
 Route113_EventScript_Dillon::
@@ -112,33 +89,26 @@ Route113_EventScript_Coby::
 	end
 
 Route113_Text_AshCanBeFashionedIntoGlass:
-	.string "Wahahaha! Today's technology is a\n"
-	.string "wondrous thing!\p"
-	.string "Take this volcanic ash here.\n"
-	.string "It can be fashioned into glass.$"
+	.string "It's pretty cold out here,\n"
+	.string "unfortunately the water hasn't all\l"
+	.string "frozen yet.\p"
+	.string "You'll need a POKéMON with Surf to reach\n"
+	.string "Mahogany Town.$"
 
 Route113_Text_FunWalkingThroughAsh:
-	.string "It's fun walking through the volcano's\n"
-	.string "ashes on the ground and grass.\p"
-	.string "You can see where you walked--it's\n"
-	.string "really neat!$"
+	.string "If you get too cold out here, you can\n"
+	.string "step into Mt. Mortar.\p"
+	.string "It's actually still pretty warm in there.$"
 
 Route113_Text_RouteSign111:
-	.string "ROUTE 113\n"
-	.string "{RIGHT_ARROW} ROUTE 111$"
+	.string "ROUTE 42\n"
+	.string "{RIGHT_ARROW} East to MAHOGANY TOWN$"
 
 Route113_Text_RouteSignFallarbor:
-	.string "ROUTE 113\n"
-	.string "{LEFT_ARROW} FALLARBOR TOWN$"
-
-Route113_Text_TrainerTipsRegisterKeyItems:
-	.string "TRAINER TIPS\p"
-	.string "You may register one of the KEY ITEMS\n"
-	.string "in your BAG as SELECT.\p"
-	.string "Simply press SELECT to use\n"
-	.string "the registered item conveniently.$"
+	.string "ROUTE 42\n"
+	.string "{LEFT_ARROW} West to ECRUTEAK CITY$"
 
 Route113_Text_GlassWorkshopSign:
-	.string "GLASS WORKSHOP\n"
-	.string "“Turning Volcanic Ash into Glass Items”$"
+	.string "MT. MORTAR\n"
+	.string "Waterfall Cave Inside$"
 

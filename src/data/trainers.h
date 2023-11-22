@@ -3935,9 +3935,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_DILLON] =
     {
-        .trainerClass = TRAINER_CLASS_YOUNGSTER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_YOUNGSTER,
+        .trainerClass = TRAINER_CLASS_KINDLER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_KINDLER,
         .trainerName = _("DILLON"),
         .items = {},
         .doubleBattle = FALSE,
@@ -5219,9 +5219,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_MADELINE_1] =
     {
-        .trainerClass = TRAINER_CLASS_PARASOL_LADY,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_PARASOL_LADY,
+        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("MADELINE"),
         .items = {},
         .doubleBattle = FALSE,
@@ -5255,9 +5255,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_MADELINE_2] =
     {
-        .trainerClass = TRAINER_CLASS_PARASOL_LADY,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_PARASOL_LADY,
+        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("MADELINE"),
         .items = {},
         .doubleBattle = FALSE,
@@ -5267,9 +5267,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_MADELINE_3] =
     {
-        .trainerClass = TRAINER_CLASS_PARASOL_LADY,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_PARASOL_LADY,
+        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("MADELINE"),
         .items = {},
         .doubleBattle = FALSE,
@@ -5279,9 +5279,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_MADELINE_4] =
     {
-        .trainerClass = TRAINER_CLASS_PARASOL_LADY,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_PARASOL_LADY,
+        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("MADELINE"),
         .items = {},
         .doubleBattle = FALSE,
@@ -5291,9 +5291,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_MADELINE_5] =
     {
-        .trainerClass = TRAINER_CLASS_PARASOL_LADY,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_PARASOL_LADY,
+        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("MADELINE"),
         .items = {},
         .doubleBattle = FALSE,
@@ -8519,9 +8519,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_COBY] =
     {
-        .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .trainerPic = TRAINER_PIC_BIRD_KEEPER,
+        .trainerClass = TRAINER_CLASS_HIKER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_HIKER,
         .trainerName = _("COBY"),
         .items = {},
         .doubleBattle = FALSE,

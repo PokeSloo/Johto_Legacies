@@ -83,7 +83,7 @@ Route113_EventScript_ItemMaxEther::
 	end
 
 Route113_EventScript_ItemSuperRepel::
-	finditem ITEM_SUPER_REPEL
+	finditem ITEM_ICY_ROCK
 	end
 
 Route113_EventScript_ItemHyperPotion::
@@ -147,15 +147,15 @@ Route116_EventScript_ItemPotion::
 	end
 
 Route117_EventScript_ItemGreatBall::
-	finditem ITEM_GREAT_BALL
+	finditem ITEM_THROAT_SPRAY
 	end
 
 Route117_EventScript_ItemRevive::
-	finditem ITEM_REVIVE
+	finditem ITEM_TM21
 	end
 
 Route118_EventScript_ItemHyperPotion::
-	finditem ITEM_HYPER_POTION
+	finditem ITEM_WISE_GLASSES
 	end
 
 Route119_EventScript_ItemSuperRepel::
@@ -303,15 +303,15 @@ Route134_EventScript_ItemStarPiece::
 	end
 
 PetalburgCity_EventScript_ItemMaxRevive::
-	finditem ITEM_MAX_REVIVE
+	finditem ITEM_GALARICA_CUFF
 	end
 
 PetalburgCity_EventScript_ItemEther::
-	finditem ITEM_ETHER
+	finditem ITEM_GALARICA_WREATH
 	end
 
 MauvilleCity_EventScript_ItemXSpeed::
-	finditem ITEM_X_SPEED
+	finditem ITEM_TM23
 	end
 
 RustboroCity_EventScript_ItemXDefend::
@@ -335,7 +335,7 @@ PetalburgWoods_EventScript_ItemGreatBall::
 	end
 
 PetalburgWoods_EventScript_ItemEther::
-	finditem ITEM_ETHER
+	finditem ITEM_TM19
 	end
 
 PetalburgWoods_EventScript_ItemParalyzeHeal::

@@ -70,12 +70,12 @@ PetalburgCity_GymTrigger::
 	goto_if_set FLAG_MET_SHANE_AZALEA, PetalburgCity_GymTrigger_2
 	opendoor 22, 33
 	waitdooranim
-	addobject 16
+	addobject 14
 	playbgm MUS_HG_ENCOUNTER_RIVAL, FALSE
 	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerFaceUp
 	waitmovement 0
 	delay 30
-	applymovement 16, PetalburgCity_ShaneWalkOutOfGym
+	applymovement 14, PetalburgCity_ShaneWalkOutOfGym
 	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerBackUp
 	waitmovement 0
 	closedoor 22, 33
@@ -85,9 +85,9 @@ PetalburgCity_GymTrigger::
 	closemessage
 	fadedefaultbgm
 	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerFaceLeft
-	applymovement 16, PetalburgCity_ShaneLeave
+	applymovement 14, PetalburgCity_ShaneLeave
 	waitmovement 0
-	removeobject 16
+	removeobject 14
 	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_1
 	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_2
 	setflag FLAG_HIDE_AZALEA_GYM_TRAINER_3
@@ -183,7 +183,7 @@ PetalburgCity_EventScript_ForestLead::
 	msgbox PetalburgCity_EventScript_ForestLead_Text_1
 	waitmessage
 	closemessage
-	applymovement 14, PetalburgCity_Movement_FaceLeft
+	applymovement 12, PetalburgCity_Movement_FaceLeft
 	waitmovement 0
 	release
 	end
