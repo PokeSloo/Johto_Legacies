@@ -33,3 +33,28 @@ MtPyre_5F_Text_AtsushiDefeat:
 MtPyre_5F_Text_AtsushiPostBattle:
 	.string "If you ever become interested in ruins,\n"
 	.string "us Ruin Maniacs have a club.$"
+
+MtPyre_4F_EventScript_ItemTradeStone::
+	finditem ITEM_BIKE_VOUCHER
+	end
+
+MtPyre_4F_EventScript_ItemLifeOrb::
+	finditem ITEM_LIFE_ORB
+	end
+
+MtPyre_4F_EventScript_ItemReaperCloth::
+	finditem ITEM_REAPER_CLOTH
+	end
+
+MtPyre_4F_EventScript_ItemCharcoal::
+	finditem ITEM_CHARCOAL
+	end
+
+MtPyre_4F_EventScript_ItemEnergyPowder::
+	finditem ITEM_ENERGY_POWDER
+	end
+
+MtPyre_4F_EventScript_ItemHealPowder::
+	finditem ITEM_HEAL_POWDER
+	end
+

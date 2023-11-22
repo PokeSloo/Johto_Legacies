@@ -31,7 +31,7 @@ Route105_EventScript_ItemIron::
 	end
 
 Route106_EventScript_ItemProtein::
-	finditem ITEM_PROTEIN
+	finditem ITEM_MIRACLE_SEED
 	end
 
 Route108_EventScript_ItemStarPiece::
@@ -179,7 +179,7 @@ Route119_EventScript_ItemRareCandy::
 	end
 
 Route119_EventScript_ItemHyperPotion::
-	finditem ITEM_HYPER_POTION
+	finditem ITEM_POTION
 	end
 
 Route119_EventScript_ItemHyperPotion2::
@@ -347,7 +347,7 @@ RusturfTunnel_EventScript_ItemPokeBall::
 	end
 
 RusturfTunnel_EventScript_ItemMaxEther::
-	finditem ITEM_MAX_ETHER
+	finditem ITEM_EVIOLITE
 	end
 
 GraniteCave_1F_EventScript_ItemEscapeRope::
@@ -371,7 +371,7 @@ GraniteCave_B1F_EventScript_ItemMoonStone::
 	end
 
 GraniteCave_B2F_EventScript_ItemRepel::
-	finditem ITEM_REPEL
+	finditem ITEM_MAX_REPEL
 	end
 
 GraniteCave_B2F_EventScript_ItemRareCandy::
@@ -503,7 +503,7 @@ MtPyre_3F_EventScript_ItemSuperRepel::
 	end
 
 MtPyre_4F_EventScript_ItemSeaIncense::
-	finditem ITEM_SEA_INCENSE
+	finditem ITEM_TOXIC_ORB
 	end
 
 MtPyre_5F_EventScript_ItemLaxIncense::
@@ -511,7 +511,7 @@ MtPyre_5F_EventScript_ItemLaxIncense::
 	end
 
 MtPyre_6F_EventScript_ItemTM30::
-	finditem ITEM_TM30
+	finditem ITEM_TM01
 	end
 
 MtPyre_Exterior_EventScript_ItemMaxPotion::
@@ -519,7 +519,7 @@ MtPyre_Exterior_EventScript_ItemMaxPotion::
 	end
 
 MtPyre_Exterior_EventScript_ItemTM48::
-	finditem ITEM_TM48
+	finditem ITEM_TM29
 	end
 
 AquaHideout_B1F_EventScript_ItemMasterBall::

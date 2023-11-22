@@ -16,3 +16,37 @@ GraniteCave_B2F_EventScript_Johnson::
 	msgbox Route116_Text_JohnsonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+GraniteCave_B2F_EventScript_Lapras::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_LAPRAS, CRY_MODE_NORMAL
+	msgbox GraniteCave_B2F_EventScript_Lapras_Text_0
+	waitmessage
+	waitmoncry
+	setwildbattle SPECIES_LAPRAS, 25
+	dowildbattle
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, GraniteCave_B2F_EventScript_DefeatedLapras
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, GraniteCave_B2F_EventScript_DefeatedLapras
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, GraniteCave_B2F_EventScript_DefeatedLapras
+	removeobject 10
+	setflag FLAG_HIDE_UNION_CAVE_LAPRAS
+	release
+	end
+
+
+GraniteCave_B2F_EventScript_DefeatedLapras::
+	removeobject 10
+	setflag FLAG_HIDE_UNION_CAVE_LAPRAS
+	release
+	end
+
+
+GraniteCave_B2F_EventScript_ItemTMRest::
+	finditem ITEM_TM44_REST
+	end
+
+
+GraniteCave_B2F_EventScript_Lapras_Text_0:
+	.string "Lapraaah!$"

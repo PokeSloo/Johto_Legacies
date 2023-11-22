@@ -754,6 +754,21 @@ OldaleTown_PlayerKnockBack:
 	jump_2_right
 	step_end
 
+OldaleTown_EventScript_ItemTM27::
+	finditem ITEM_TM27_RETURN
+	end
+
+
+OldaleTown_EventScript_ItemMysticWater::
+	finditem ITEM_MYSTIC_WATER
+	end
+
+
+OldaleTown_EventScript_ItemPrismScale::
+	finditem ITEM_PRISM_SCALE
+	end
+
+
 OldaleTown_EventScript_TownSign::
 	msgbox OldaleTown_Text_TownSign, MSGBOX_SIGN
 	end

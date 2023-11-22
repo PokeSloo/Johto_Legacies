@@ -141,8 +141,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "GraniteCave_B2F_EventScript_Lapras",
+      "flag": "FLAG_HIDE_UNION_CAVE_LAPRAS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
@@ -182,6 +182,19 @@
       "trainer_sight_or_berry_tree_id": "2",
       "script": "GraniteCave_B2F_EventScript_Dawson",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 17,
+      "y": 27,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GraniteCave_B2F_EventScript_ItemTMRest",
+      "flag": "FLAG_UNION_CAVE_TM_REST"
     }
   ],
   "warp_events": [
@@ -199,18 +212,10 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 17,
-      "y": 27,
-      "elevation": 3,
-      "item": "ITEM_EVERSTONE",
-      "flag": "FLAG_HIDDEN_ITEM_GRANITE_CAVE_B2F_EVERSTONE_1"
-    },
-    {
-      "type": "hidden_item",
       "x": 2,
       "y": 23,
       "elevation": 3,
-      "item": "ITEM_EVERSTONE",
+      "item": "ITEM_FULL_RESTORE",
       "flag": "FLAG_HIDDEN_ITEM_GRANITE_CAVE_B2F_EVERSTONE_2"
     }
   ]

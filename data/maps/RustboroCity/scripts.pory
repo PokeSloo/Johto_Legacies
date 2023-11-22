@@ -78,3 +78,13 @@ script RustboroCity_EventScript_BenchGirl {
 	msgbox (format("Move along kiddo, I'm trying to show my husband a little romance."), MSGBOX_NPC)
 	end
 }
+
+script RustboroCity_EventScript_ItemQuickClaw {
+	finditem (ITEM_QUICK_CLAW)
+	end
+}
+
+script RustboroCity_EventScript_ItemRareCandy {
+	finditem (ITEM_RARE_CANDY)
+	end
+}

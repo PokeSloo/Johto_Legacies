@@ -708,20 +708,20 @@
 #define FLAG_HIDE_GUITARIST_LIGHTHOUSE  0x29A // Olivine Gym Trainer
 #define FLAG_TALKED_TO_CHARLIE  0x29B // Start looking for Gym Trainers
 #define FLAG_RECEIVED_LEFTOVERS  0x29C // From lighthouse ampharos
-#define FLAG_UNUSED_0x29D  0x29D // Unused Flag
-#define FLAG_UNUSED_0x29E  0x29E // Unused Flag
-#define FLAG_UNUSED_0x29F  0x29F // Unused Flag
-#define FLAG_UNUSED_0x2A0  0x2A0 // Unused Flag
-#define FLAG_UNUSED_0x2A1  0x2A1 // Unused Flag
-#define FLAG_UNUSED_0x2A2  0x2A2 // Unused Flag
-#define FLAG_UNUSED_0x2A3  0x2A3 // Unused Flag
-#define FLAG_UNUSED_0x2A4  0x2A4 // Unused Flag
-#define FLAG_UNUSED_0x2A5  0x2A5 // Unused Flag
-#define FLAG_UNUSED_0x2A6  0x2A6 // Unused Flag
-#define FLAG_UNUSED_0x2A7  0x2A7 // Unused Flag
-#define FLAG_UNUSED_0x2A8  0x2A8 // Unused Flag
-#define FLAG_UNUSED_0x2A9  0x2A9 // Unused Flag
-#define FLAG_UNUSED_0x2AA  0x2AA // Unused Flag
+#define FLAG_HIDE_TM_RETURN  0x29D // Cherrygrove item ball
+#define FLAG_HIDE_MYSTIC_WATER  0x29E // Cherrygrove item ball
+#define FLAG_HIDE_PRISM_SCALE  0x29F // Cherrygrove item ball
+#define FLAG_HIDE_TM49_ITEM  0x2A0 // Dark Cave north item ball
+#define FLAG_HIDE_QUICK_CLAW  0x2A1 // Violet City item ball
+#define FLAG_HIDE_VIOLET_RARECANDY  0x2A2 // Violet City item ball
+#define FLAG_ALPH_TRADE_STONE  0x2A3 // Ruins of Alph item ball
+#define FLAG_ALPH_LIFE_ORB  0x2A4 // Ruins of Alph item ball
+#define FLAG_ALPH_REAPER_CLOTH  0x2A5 // Ruins of Alph item ball
+#define FLAG_ALPH_CHARCOAL  0x2A6 // Ruins of Alph item ball
+#define FLAG_ALPH_ENERGY_POWDER  0x2A7 // Ruins of Alph item ball
+#define FLAG_ALPH_HEAL_POWDER  0x2A8 // Ruins of Alph item ball
+#define FLAG_HIDE_UNION_CAVE_LAPRAS  0x2A9 // Union cave
+#define FLAG_UNION_CAVE_TM_REST  0x2AA // Near Lapras
 #define FLAG_UNUSED_0x2AB  0x2AB // Unused Flag
 #define FLAG_UNUSED_0x2AC  0x2AC // Unused Flag
 #define FLAG_UNUSED_0x2AD  0x2AD // Unused Flag

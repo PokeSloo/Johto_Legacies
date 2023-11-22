@@ -82,6 +82,16 @@ RustboroCity_EventScript_BenchGirl::
 	end
 
 
+RustboroCity_EventScript_ItemQuickClaw::
+	finditem ITEM_QUICK_CLAW
+	end
+
+
+RustboroCity_EventScript_ItemRareCandy::
+	finditem ITEM_RARE_CANDY
+	end
+
+
 RustboroCity_Text_CitySign_Text_0:
 	.string "VIOLET CITY\n"
 	.string "“The City of Nostalgic Scents.”$"

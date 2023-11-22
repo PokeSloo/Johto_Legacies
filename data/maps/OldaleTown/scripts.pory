@@ -430,6 +430,21 @@ movement OldaleTown_PlayerKnockBack {
 	jump_2_right
 }
 
+script OldaleTown_EventScript_ItemTM27 {
+	finditem (ITEM_TM27_RETURN)
+	end
+}
+
+script OldaleTown_EventScript_ItemMysticWater {
+	finditem (ITEM_MYSTIC_WATER)
+	end
+}
+
+script OldaleTown_EventScript_ItemPrismScale {
+	finditem (ITEM_PRISM_SCALE)
+	end
+}
+
 raw `
 OldaleTown_EventScript_TownSign::
 	msgbox OldaleTown_Text_TownSign, MSGBOX_SIGN
