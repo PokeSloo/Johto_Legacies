@@ -1,99 +1,100 @@
-.set LOCALID_MOVE_RELEARNER, 1
-
 FallarborTown_MoveRelearnersHouse_MapScripts::
 	.byte 0
 
-FallarborTown_MoveRelearnersHouse_EventScript_MoveRelearner::
-	lockall
-	applymovement LOCALID_MOVE_RELEARNER, Common_Movement_FacePlayer
-	waitmovement 0
-	goto_if_set FLAG_TEMP_1, FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMove
-	msgbox FallarborTown_MoveRelearnersHouse_Text_ImTheMoveTutor, MSGBOX_DEFAULT
-	setflag FLAG_TEMP_1
-	goto FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMove
+
+FallarborTown_MoveRelearnersHouse_EventScript_Gentleman::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_HISUIAN_ZORUA, FallarborTown_MoveRelearnersHouse_EventScript_Gentleman_1
+	msgbox FallarborTown_MoveRelearnersHouse_EventScript_Gentleman_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_Gentleman_4
+	msgbox FallarborTown_MoveRelearnersHouse_EventScript_Gentleman_Text_3
+	givemon SPECIES_ZORUA_HISUIAN, 20, ITEM_SILK_SCARF
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, FallarborTown_MoveRelearnersHouse_EventScript_ReceiveZoruaParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, FallarborTown_MoveRelearnersHouse_EventScript_ReceiveZoruaPC
+	goto Common_EventScript_NoMoreRoomForPokemon
 	end
 
-FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMove::
-	checkitem ITEM_HEART_SCALE
-	goto_if_eq VAR_RESULT, FALSE, FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
-	msgbox FallarborTown_MoveRelearnersHouse_Text_ThatsAHeartScaleWantMeToTeachMove, MSGBOX_YESNO
-	switch VAR_RESULT
-	case NO, FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
-	goto FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon
+FallarborTown_MoveRelearnersHouse_EventScript_Gentleman_1:
+	msgbox FallarborTown_MoveRelearnersHouse_EventScript_Gentleman_Text_0
+	release
 	end
 
-FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon::
-	msgbox FallarborTown_MoveRelearnersHouse_Text_TutorWhichMon, MSGBOX_DEFAULT
-	special ChooseMonForMoveRelearner
-	waitstate
-	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
-	special IsSelectedMonEgg
-	goto_if_eq VAR_RESULT, TRUE, FallarborTown_MoveRelearnersHouse_EventScript_CantTeachEgg
-	goto_if_eq VAR_0x8005, 0, FallarborTown_MoveRelearnersHouse_EventScript_NoMoveToTeachMon
-	goto FallarborTown_MoveRelearnersHouse_EventScript_ChooseMove
+FallarborTown_MoveRelearnersHouse_EventScript_Gentleman_4:
+	msgbox FallarborTown_MoveRelearnersHouse_EventScript_Gentleman_Text_2
+	release
 	end
 
-FallarborTown_MoveRelearnersHouse_EventScript_ChooseMove::
-	msgbox FallarborTown_MoveRelearnersHouse_Text_TeachWhichMove, MSGBOX_DEFAULT
-	special TeachMoveRelearnerMove
-	waitstate
-	goto_if_eq VAR_0x8004, 0, FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon
-	msgbox FallarborTown_MoveRelearnersHouse_Text_HandedOverHeartScale, MSGBOX_DEFAULT
-	removeitem ITEM_HEART_SCALE
-	goto FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
+
+FallarborTown_MoveRelearnersHouse_EventScript_ReceiveZoruaParty::
+	call FallarborTown_MoveRelearnersHouse_EventScript_ReceivedZoruaFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, FallarborTown_MoveRelearnersHouse_EventScript_ExplainZorua
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto FallarborTown_MoveRelearnersHouse_EventScript_ExplainZorua
 	end
 
-FallarborTown_MoveRelearnersHouse_EventScript_NoMoveToTeachMon::
-	msgbox FallarborTown_MoveRelearnersHouse_Text_DontHaveMoveToTeachPokemon, MSGBOX_DEFAULT
-	goto FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon
+
+FallarborTown_MoveRelearnersHouse_EventScript_ReceiveZoruaPC::
+	call FallarborTown_MoveRelearnersHouse_EventScript_ReceivedZoruaFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, FallarborTown_MoveRelearnersHouse_EventScript_SendZoruaToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto FallarborTown_MoveRelearnersHouse_EventScript_SendZoruaToPC
 	end
 
-FallarborTown_MoveRelearnersHouse_EventScript_CantTeachEgg::
-	msgbox FallarborTown_MoveRelearnersHouse_Text_CantTeachEgg, MSGBOX_DEFAULT
-	goto FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon
+
+FallarborTown_MoveRelearnersHouse_EventScript_SendZoruaToPC::
+	call Common_EventScript_TransferredToPC
+	goto FallarborTown_MoveRelearnersHouse_EventScript_ExplainZorua
 	end
 
-FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale::
-	msgbox FallarborTown_MoveRelearnersHouse_Text_ComeBackWithHeartScale, MSGBOX_DEFAULT
-	releaseall
+
+FallarborTown_MoveRelearnersHouse_EventScript_ReceivedZoruaFanfare::
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox FallarborTown_MoveRelearnersHouse_EventScript_ReceivedZoruaFanfare_Text_0
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_ZORUA
+	return
+
+
+FallarborTown_MoveRelearnersHouse_EventScript_ExplainZorua::
+	msgbox FallarborTown_MoveRelearnersHouse_EventScript_ExplainZorua_Text_0
+	setflag FLAG_RECEIVED_HISUIAN_ZORUA
+	release
 	end
 
-FallarborTown_MoveRelearnersHouse_Text_ImTheMoveTutor:
-	.string "I'm the MOVE TUTOR.\p"
-	.string "I know all the moves that POKéMON\n"
-	.string "learn--every one of them--and I can\l"
-	.string "teach POKéMON those moves.\p"
-	.string "I can teach a move to a POKéMON\n"
-	.string "of yours if you'd like.\p"
-	.string "I'll do it for a HEART SCALE.\n"
-	.string "I'm collecting those now.$"
 
-FallarborTown_MoveRelearnersHouse_Text_ThatsAHeartScaleWantMeToTeachMove:
-	.string "Oh! That's it! That's an honest to\n"
-	.string "goodness HEART SCALE!\p"
-	.string "Let me guess, you want me to teach\n"
-	.string "a move?$"
+FallarborTown_MoveRelearnersHouse_EventScript_Gentleman_Text_0:
+	.string "Welcome back, TRAINER.\p"
+	.string "How is that little Zorua doing?\p"
+	.string "Has its malice calmed down any?$"
 
-FallarborTown_MoveRelearnersHouse_Text_TutorWhichMon:
-	.string "Which POKéMON needs tutoring?$"
+FallarborTown_MoveRelearnersHouse_EventScript_Gentleman_Text_1:
+	.string "Ah, you look like a fine young TRAINER!\p"
+	.string "Say, I have a special POKéMON that is in\n"
+	.string "need of a good home.\p"
+	.string "...\p"
+	.string "I must warn you though, this POKéMON\n"
+	.string "exudes a bitter malice that most\l"
+	.string "people are unable to handle.\p"
+	.string "I'm hoping a strong willed individual will\n"
+	.string "be able to calm it.\p"
+	.string "So then, are you interested?$"
 
-FallarborTown_MoveRelearnersHouse_Text_TeachWhichMove:
-	.string "Which move should I teach?$"
+FallarborTown_MoveRelearnersHouse_EventScript_Gentleman_Text_2:
+	.string "Very well, I will wait for someone else\n"
+	.string "then.$"
 
-FallarborTown_MoveRelearnersHouse_Text_DontHaveMoveToTeachPokemon:
-	.string "Sorry…\p"
-	.string "It doesn't appear as if I have any move\n"
-	.string "I can teach that POKéMON.$"
+FallarborTown_MoveRelearnersHouse_EventScript_Gentleman_Text_3:
+	.string "Wonderful!$"
 
-FallarborTown_MoveRelearnersHouse_Text_HandedOverHeartScale:
-	.string "{PLAYER} handed over one HEART SCALE\n"
-	.string "in exchange.$"
+FallarborTown_MoveRelearnersHouse_EventScript_ReceivedZoruaFanfare_Text_0:
+	.string "{PLAYER} received the Zorua!$"
 
-FallarborTown_MoveRelearnersHouse_Text_ComeBackWithHeartScale:
-	.string "If your POKéMON need to learn a move,\n"
-	.string "come back with a HEART SCALE.$"
-
-FallarborTown_MoveRelearnersHouse_Text_CantTeachEgg:
-	.string "Hunh? There isn't a single move that\n"
-	.string "I can teach an EGG.$"
-
+FallarborTown_MoveRelearnersHouse_EventScript_ExplainZorua_Text_0:
+	.string "Please take good care of that POKéMON,\n"
+	.string "it's just misunderstood.$"

@@ -9208,63 +9208,63 @@
             "encounter_rate": 10,
             "mons": [
               {
-                "min_level": 33,
-                "max_level": 33,
+                "min_level": 22,
+                "max_level": 23,
                 "species": "SPECIES_GOLBAT"
               },
               {
-                "min_level": 35,
-                "max_level": 35,
-                "species": "SPECIES_URSARING"
+                "min_level": 20,
+                "max_level": 22,
+                "species": "SPECIES_TEDDIURSA"
               },
               {
-                "min_level": 33,
-                "max_level": 33,
+                "min_level": 22,
+                "max_level": 25,
                 "species": "SPECIES_GRAVELER"
               },
               {
-                "min_level": 35,
-                "max_level": 35,
-                "species": "SPECIES_MACHOKE"
+                "min_level": 20,
+                "max_level": 23,
+                "species": "SPECIES_MACHOP"
               },
               {
-                "min_level": 33,
-                "max_level": 33,
+                "min_level": 20,
+                "max_level": 23,
                 "species": "SPECIES_MIENFOO"
               },
               {
-                "min_level": 37,
-                "max_level": 37,
+                "min_level": 20,
+                "max_level": 23,
                 "species": "SPECIES_SALANDIT"
               },
               {
-                "min_level": 33,
-                "max_level": 33,
+                "min_level": 18,
+                "max_level": 22,
                 "species": "SPECIES_CARKOL"
               },
               {
-                "min_level": 39,
-                "max_level": 39,
-                "species": "SPECIES_CAMERUPT"
+                "min_level": 19,
+                "max_level": 22,
+                "species": "SPECIES_NUMEL"
               },
               {
-                "min_level": 38,
-                "max_level": 38,
+                "min_level": 20,
+                "max_level": 23,
                 "species": "SPECIES_TORKOAL"
               },
               {
-                "min_level": 40,
-                "max_level": 40,
+                "min_level": 20,
+                "max_level": 23,
                 "species": "SPECIES_TORKOAL"
               },
               {
-                "min_level": 38,
-                "max_level": 38,
+                "min_level": 22,
+                "max_level": 25,
                 "species": "SPECIES_MAGMAR"
               },
               {
-                "min_level": 40,
-                "max_level": 40,
+                "min_level": 22,
+                "max_level": 25,
                 "species": "SPECIES_MAGMAR"
               }
             ]

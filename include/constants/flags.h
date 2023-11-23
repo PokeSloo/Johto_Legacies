@@ -722,13 +722,13 @@
 #define FLAG_ALPH_HEAL_POWDER  0x2A8 // Ruins of Alph item ball
 #define FLAG_HIDE_UNION_CAVE_LAPRAS  0x2A9 // Union cave
 #define FLAG_UNION_CAVE_TM_REST  0x2AA // Near Lapras
-#define FLAG_UNUSED_0x2AB  0x2AB // Unused Flag
-#define FLAG_UNUSED_0x2AC  0x2AC // Unused Flag
-#define FLAG_UNUSED_0x2AD  0x2AD // Unused Flag
-#define FLAG_UNUSED_0x2AE  0x2AE // Unused Flag
-#define FLAG_UNUSED_0x2AF  0x2AF // Unused Flag
-#define FLAG_UNUSED_0x2B0  0x2B0 // Unused Flag
-#define FLAG_UNUSED_0x2B1  0x2B1 // Unused Flag
+#define FLAG_MT_MORTAR_SOFTSAND  0x2AB // Mt mortar item
+#define FLAG_MT_MORTAR_MUSCLEBAND  0x2AC // Mt mortar item
+#define FLAG_MT_MORTAR_HYPERPOTION  0x2AD // Mt mortar item
+#define FLAG_MT_MORTAR_MAXREPEL  0x2AE // Mt mortar item
+#define FLAG_MT_MORTAR_ADRENALINE  0x2AF // Mt mortar item
+#define FLAG_RECEIVED_ASSAULT_VEST  0x2B0 // Mahogany town
+#define FLAG_RECEIVED_HISUIAN_ZORUA  0x2B1 // Mahogany town
 #define FLAG_UNUSED_0x2B2  0x2B2 // Unused Flag
 #define FLAG_UNUSED_0x2B3  0x2B3 // Unused Flag
 #define FLAG_UNUSED_0x2B4  0x2B4 // Unused Flag

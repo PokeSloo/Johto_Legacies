@@ -9,16 +9,7 @@ FallarborTown_OnTransition:
 	end
 
 FallarborTown_EventScript_ExpertM::
-	lock
-	faceplayer
-	goto_if_set FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, FallarborTown_EventScript_ExpertMNormal
-	msgbox FallarborTown_Text_ShadyCharactersCozmosHome, MSGBOX_DEFAULT
-	release
-	end
-
-FallarborTown_EventScript_ExpertMNormal::
-	msgbox FallarborTown_Text_RegionKnownForMeteors, MSGBOX_DEFAULT
-	release
+	msgbox FallarborTown_Text_ShadyCharactersCozmosHome, MSGBOX_NPC
 	end
 
 FallarborTown_EventScript_Girl::
@@ -29,11 +20,19 @@ FallarborTown_EventScript_Gentleman::
 	msgbox FallarborTown_Text_HaveYouChallengedFlannery, MSGBOX_NPC
 	end
 
+FallarborTown_EventScript_GymBlock::
+	msgbox FallarborTown_Text_WinterGone, MSGBOX_NPC
+	end
+
+FallarborTown_EventScript_Campers::
+	msgbox FallarborTown_Text_BlockedRoad, MSGBOX_NPC
+	end
+
 FallarborTown_EventScript_Azurill::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_AZURILL, CRY_MODE_NORMAL
+	playmoncry SPECIES_AZURILL, CRY_MODE_WEAK
 	msgbox FallarborTown_Text_Azurill, MSGBOX_DEFAULT
 	waitmoncry
 	release
@@ -47,49 +46,39 @@ FallarborTown_EventScript_TownSign::
 	msgbox FallarborTown_Text_TownSign, MSGBOX_SIGN
 	end
 
-FallarborTown_EventScript_MoveTutorSign::
-	msgbox FallarborTown_Text_MoveTutorSign, MSGBOX_SIGN
-	end
-
 FallarborTown_Text_ShadyCharactersCozmosHome:
-	.string "Something's happening,\n"
-	.string "and I don't like it!\p"
-	.string "I've seen shady characters wandering\n"
-	.string "in and out of PROF. COZMO's home…$"
-
-FallarborTown_Text_RegionKnownForMeteors:
-	.string "This region's been known for meteors\n"
-	.string "since the olden days.\p"
-	.string "They say METEOR FALLS was gouged out\n"
-	.string "by a falling meteorite long ago.$"
+	.string "Some people hate this snowy weather,\n"
+	.string "but I love it.\p"
+	.string "It feels good on my old joints.$"
 
 FallarborTown_Text_MyPreciousAzurill:
-	.string "See! Take a look!\n"
-	.string "This is my precious AZURILL!\p"
-	.string "It's slick and smooth and plushy, too!$"
+	.string "Unlike Marill and Azumarill, my little\n"
+	.string "Azurill isn't a WATER-type, so I don't\l"
+	.string "have to worry about it freezing.$"
 
 FallarborTown_Text_Azurill:
-	.string "AZURILL: Rooreelooo.$"
+	.string "AZURILL: Azuu...$"
 
 FallarborTown_Text_HaveYouChallengedFlannery:
-	.string "Have you already challenged FLANNERY,\n"
-	.string "the LEADER of LAVARIDGE GYM?\p"
-	.string "The girl's grandfather was famous.\n"
-	.string "He was one of the ELITE FOUR in the\l"
-	.string "POKéMON LEAGUE at one point.\p"
-	.string "It wouldn't surprise me to see FLANNERY\n"
-	.string "become a great TRAINER in her own\l"
-	.string "right.$"
+	.string "I tried to visit the Lake of Rage, but\n"
+	.string "the guards wouldn't let me in.\p"
+	.string "Huff, I miss the days before they made\n"
+	.string "it into a fancy resort.$"
 
 FallarborTown_Text_BattleTentSign:
-	.string "BATTLE TENT FALLARBOR SITE\n"
-	.string "“May the Greatest Teams Gather!”$"
+	.string "MAHOGANY HERBAL MEDICINE STORE$"
 
 FallarborTown_Text_TownSign:
-	.string "FALLARBOR TOWN\n"
-	.string "“A farm community with small gardens.”$"
+	.string "MAHOGANY TOWN\n"
+	.string "“Home of the Ninja”$"
 
-FallarborTown_Text_MoveTutorSign:
-	.string "MOVE TUTOR'S HOUSE\n"
-	.string "“New moves taught to POKéMON.”$"
+FallarborTown_Text_WinterGone:
+	.string "If you're looking for the Gym Leader,\n"
+	.string "Winter, she's gone to Ice Path for some\l"
+	.string "training.$"
+
+FallarborTown_Text_BlockedRoad:
+	.string "Sorry, but you can't go this way yet.\p"
+	.string "We're still clearing off the snow from\n"
+	.string "the roads.$"
 

@@ -1627,7 +1627,7 @@ Route113_Text_MadelinePostRematch:
 	.string "I can feel it...$"
 
 Route113_Text_LaoIntro:
-	.string "From behind a tree and in the snow!$"
+	.string "From behind a tree I strike!$"
 
 Route113_Text_LaoDefeat:
 	.string "My sneak attack wasn't sneaky enough!$"
@@ -1641,7 +1641,7 @@ Route113_Text_LaoRegister:
 	.string "technique of POKéNAV registration!$"
 
 Route113_Text_LaoRematchIntro:
-	.string "From behind a tree and in the snow!$"
+	.string "From behind a tree I strike!$"
 
 Route113_Text_LaoRematchDefeat:
 	.string "My sneak attack still isn't sneaky\n"
@@ -1657,12 +1657,12 @@ Route113_Text_LungIntro:
 	.string "...Or the snow!$"
 
 Route113_Text_LungDefeat:
-	.string "I had the element of surprise, but still\n"
-	.string "lost!$"
+	.string "This snow isn't deep enough for a\n"
+	.string "proper sneak attack...$"
 
 Route113_Text_LungPostBattle:
-	.string "Now to wait for the snow to bury me\n"
-	.string "again...$"
+	.string "How much longer until the snow is deep\n"
+	.string "enough to bury myself...$"
 
 Route113_Text_ToriIntro:
 	.string "TORI: You're no match for my sister!\p"

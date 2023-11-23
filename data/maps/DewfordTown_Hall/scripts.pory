@@ -1,0 +1,61 @@
+mapscripts DewfordTown_Hall_MapScripts {}
+
+script DewfordTown_Hall_EventScript_Shopkeep {
+    lock
+    msgbox (format("Welcome!\pHow may I serve you?"))
+    waitmessage
+    pokemart (DewfordTown_Hall_MartItems)
+    msgbox (format("Please come again."))
+    release
+    end
+}
+
+mart DewfordTown_Hall_MartItems {
+    ITEM_HEAL_POWDER
+    ITEM_ENERGY_POWDER
+    ITEM_ENERGY_ROOT
+    ITEM_REVIVAL_HERB
+    ITEM_CHERI_BERRY
+    ITEM_CHESTO_BERRY
+    ITEM_PECHA_BERRY
+    ITEM_RAWST_BERRY
+    ITEM_ASPEAR_BERRY
+}
+
+script DewfordTown_Hall_EventScript_OldMan {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_ASSAULT_VEST)) {
+        msgbox(format("That Assault Vest may not keep you warm, but give it to one of your POKéMON, and they will be a little more protected."))
+        release
+        end
+    }
+    else {
+        msgbox(format("We came in here to get out of the cold, it can be pretty harsh this time of year.\pHere, you should take this..."))
+        giveitem(ITEM_ASSAULT_VEST)
+        msgbox(format("That vest may not keep you warm, but give it to one of your POKéMON, and they will be a little more protected."))
+        setflag(FLAG_RECEIVED_ASSAULT_VEST)
+        release
+        end
+    }
+}
+
+script DewfordTown_Hall_EventScript_Twin {
+    msgbox(format("It's too cold in this town, they really need to turn up their heaters outside."), MSGBOX_NPC)
+    end
+}
+
+script DewfordTown_Hall_EventScript_Woman {
+    msgbox(format("My POKéMON don't seem to like the herbal medicine sold here, but it's cheap.\pThey'll just have to learn to like it, because I'm broke."), MSGBOX_NPC)
+    end
+}
+
+script DewfordTown_Hall_EventScript_BaldMan {
+    msgbox(format("Have you been to the Contest Hall yet?\pI tried entering my Stunfisk into a Beauty Contest, but everyone just laughed at him!\pSome people just don't understand greatness!"), MSGBOX_NPC)
+    end
+}
+
+script DewfordTown_Hall_EventScript_Girl {
+    msgbox(format("I remember them turning the Lake of Rage into a resort when I was a little girl, it really brings in a lot of people now."), MSGBOX_NPC)
+    end
+}

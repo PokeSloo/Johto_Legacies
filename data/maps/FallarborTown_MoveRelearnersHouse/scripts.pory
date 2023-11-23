@@ -1,0 +1,68 @@
+mapscripts FallarborTown_MoveRelearnersHouse_MapScripts {}
+
+script FallarborTown_MoveRelearnersHouse_EventScript_Gentleman {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_HISUIAN_ZORUA)) {
+        msgbox(format("Welcome back, TRAINER.\pHow is that little Zorua doing?\pHas its malice calmed down any?"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Ah, you look like a fine young TRAINER!\pSay, I have a special POKéMON that is in need of a good home.\p...\pI must warn you though, this POKéMON exudes a bitter malice that most people are unable to handle.\pI'm hoping a strong willed individual will be able to calm it.\pSo then, are you interested?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO ) {
+            msgbox(format("Very well, I will wait for someone else then."))
+            release
+            end
+        }
+        else {
+            msgbox(format("Wonderful!"))
+            givemon (SPECIES_ZORUA_HISUIAN, 20, ITEM_SILK_SCARF)
+	        goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PARTY, FallarborTown_MoveRelearnersHouse_EventScript_ReceiveZoruaParty)
+	        goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PC, FallarborTown_MoveRelearnersHouse_EventScript_ReceiveZoruaPC)
+	        goto (Common_EventScript_NoMoreRoomForPokemon)
+            end
+        }
+    }
+}
+
+script FallarborTown_MoveRelearnersHouse_EventScript_ReceiveZoruaParty {
+	call (FallarborTown_MoveRelearnersHouse_EventScript_ReceivedZoruaFanfare)
+	msgbox (gText_NicknameThisPokemon, MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, NO, FallarborTown_MoveRelearnersHouse_EventScript_ExplainZorua)
+	call (Common_EventScript_GetGiftMonPartySlot)
+	call (Common_EventScript_NameReceivedPartyMon)
+	goto (FallarborTown_MoveRelearnersHouse_EventScript_ExplainZorua)
+	end
+}
+
+script FallarborTown_MoveRelearnersHouse_EventScript_ReceiveZoruaPC {
+	call (FallarborTown_MoveRelearnersHouse_EventScript_ReceivedZoruaFanfare)
+	msgbox (gText_NicknameThisPokemon, MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, NO, FallarborTown_MoveRelearnersHouse_EventScript_SendZoruaToPC)
+	call (Common_EventScript_NameReceivedBoxMon)
+	goto (FallarborTown_MoveRelearnersHouse_EventScript_SendZoruaToPC)
+	end
+}
+
+script FallarborTown_MoveRelearnersHouse_EventScript_SendZoruaToPC {
+	call (Common_EventScript_TransferredToPC)
+	goto (FallarborTown_MoveRelearnersHouse_EventScript_ExplainZorua)
+	end
+}
+
+script FallarborTown_MoveRelearnersHouse_EventScript_ReceivedZoruaFanfare {
+	playfanfare (MUS_OBTAIN_ITEM)
+	msgbox(format("{PLAYER} received the Zorua!"))
+	waitmessage
+	waitfanfare
+	bufferspeciesname (STR_VAR_1, SPECIES_ZORUA)
+	return
+}
+
+script FallarborTown_MoveRelearnersHouse_EventScript_ExplainZorua {
+	msgbox(format("Please take good care of that POKéMON, it's just misunderstood."))
+	setflag (FLAG_RECEIVED_HISUIAN_ZORUA)
+	release
+	end
+}

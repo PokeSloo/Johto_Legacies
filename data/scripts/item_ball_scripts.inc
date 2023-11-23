@@ -391,7 +391,7 @@ FieryPath_EventScript_ItemTM06::
 	end
 
 MeteorFalls_1F_1R_EventScript_ItemTM23::
-	finditem ITEM_TM23
+	finditem ITEM_HEAT_ROCK
 	end
 
 MeteorFalls_1F_1R_EventScript_ItemFullHeal::
@@ -407,7 +407,7 @@ MeteorFalls_1F_1R_EventScript_ItemPPUP::
 	end
 
 MeteorFalls_B1F_2R_EventScript_ItemTM02::
-	finditem ITEM_TM02
+	finditem ITEM_TM35
 	end
 
 NewMauville_Inside_EventScript_ItemUltraBall::
