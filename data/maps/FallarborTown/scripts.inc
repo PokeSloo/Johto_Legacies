@@ -79,6 +79,6 @@ FallarborTown_Text_WinterGone:
 
 FallarborTown_Text_BlockedRoad:
 	.string "Sorry, but you can't go this way yet.\p"
-	.string "We're still clearing off the snow from\n"
-	.string "the roads.$"
+	.string "We're still clearing off snow from the\n"
+	.string "roads.$"
 

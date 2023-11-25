@@ -1,14 +1,5 @@
 Route124_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route124_OnTransition
 	.byte 0
-
-Route124_OnTransition:
-	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
-	end
-
-Route124_EventScript_HuntersHouseSign::
-	msgbox Route124_Text_HuntersHouse, MSGBOX_SIGN
-	end
 
 Route124_EventScript_Spencer::
 	trainerbattle_single TRAINER_SPENCER, Route124_Text_SpencerIntro, Route124_Text_SpencerDefeat
@@ -99,6 +90,110 @@ Route124_EventScript_Isabella::
 	msgbox Route124_Text_IsabellaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route124_Text_HuntersHouse:
-	.string "HUNTER'S HOUSE$"
+Route124_EventScript_Whirlpool::
+	lock
+	waitse
+	playse SE_M_WHIRLPOOL
+	specialvar VAR_RESULT, GetPlayerFacingDirection
+	switch VAR_RESULT
+	case DIR_EAST, Route124_EventScript_Whirlpool_3
+	case DIR_NORTH, Route124_EventScript_Whirlpool_4
+	case DIR_WEST, Route124_EventScript_Whirlpool_5
+	case DIR_SOUTH, Route124_EventScript_Whirlpool_6
+Route124_EventScript_Whirlpool_1:
+	waitse
+	release
+	end
 
+Route124_EventScript_Whirlpool_3:
+	call Route124_EventScript_FacingEast
+	goto Route124_EventScript_Whirlpool_1
+
+Route124_EventScript_Whirlpool_4:
+	call Route124_EventScript_FacingNorth
+	goto Route124_EventScript_Whirlpool_1
+
+Route124_EventScript_Whirlpool_5:
+	call Route124_EventScript_FacingWest
+	goto Route124_EventScript_Whirlpool_1
+
+Route124_EventScript_Whirlpool_6:
+	call Route124_EventScript_FacingSouth
+	goto Route124_EventScript_Whirlpool_1
+
+
+Route124_EventScript_FacingEast::
+	applymovement OBJ_EVENT_ID_PLAYER, Route124_Movement_SpinToLeft
+	waitmovement 0
+	return
+
+
+Route124_EventScript_FacingNorth::
+	applymovement OBJ_EVENT_ID_PLAYER, Route124_Movement_SpinToDown
+	waitmovement 0
+	return
+
+
+Route124_EventScript_FacingWest::
+	applymovement OBJ_EVENT_ID_PLAYER, Route124_Movement_SpinToRight
+	waitmovement 0
+	return
+
+
+Route124_EventScript_FacingSouth::
+	applymovement OBJ_EVENT_ID_PLAYER, Route124_Movement_SpinToUp
+	waitmovement 0
+	return
+
+
+Route124_Movement_SpinToLeft:
+	face_up
+	delay_16
+	face_left
+	delay_16
+	face_down
+	delay_16
+	face_right
+	delay_16
+	face_up
+	walk_left
+	step_end
+
+Route124_Movement_SpinToDown:
+	face_left
+	delay_16
+	face_down
+	delay_16
+	face_right
+	delay_16
+	face_up
+	face_left
+	delay_16
+	walk_down
+	step_end
+
+Route124_Movement_SpinToRight:
+	face_down
+	delay_16
+	face_right
+	delay_16
+	face_up
+	face_left
+	delay_16
+	face_down
+	delay_16
+	walk_right
+	step_end
+
+Route124_Movement_SpinToUp:
+	face_right
+	delay_16
+	face_up
+	face_left
+	delay_16
+	face_down
+	delay_16
+	face_right
+	delay_16
+	walk_up
+	step_end
