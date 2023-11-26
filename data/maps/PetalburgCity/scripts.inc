@@ -117,6 +117,7 @@ PetalburgCity_PlayerBackUp:
 	lock_facing_direction
 	walk_down
 	unlock_facing_direction
+	face_up
 	step_end
 
 PetalburgCity_PlayerFaceLeft:

@@ -7,7 +7,6 @@ LavaridgeTown_PokemonCenter_1F_MapScripts::
 
 LavaridgeTown_PokemonCenter_1F_OnTransition:
 	setrespawn HEAL_LOCATION_LAVARIDGE_TOWN
-	call Common_EventScript_UpdateBrineyLocation
 	end
 
 LavaridgeTown_PokemonCenter_1F_EventScript_Nurse::
@@ -31,20 +30,24 @@ LavaridgeTown_PokemonCenter_1F_EventScript_Gentleman::
 	end
 
 LavaridgeTown_PokemonCenter_1F_Text_TrainersPokemonSpendTimeTogether:
-	.string "I think POKéMON get closer to their\n"
-	.string "TRAINERS if they spend time together.\p"
-	.string "The longer the better.\n"
-	.string "That's what I think.$"
+	.string "Hey, you look familiar...\p"
+	.string "Were you on an episode of The\n"
+	.string "Challenge?\p"
+	.string "...\p"
+	.string "I knew it!\p"
+	.string "You were the first person to defeat\n"
+	.string "WHITNEY in years!$"
 
 LavaridgeTown_PokemonCenter_1F_Text_HotSpringCanInvigorate:
-	.string "It's sort of magical how just sitting\n"
-	.string "in a hot-spring pool can invigorate.\p"
-	.string "I wish I could let my POKéMON\n"
-	.string "soak, too.$"
+	.string "I thought my FLYING-type POKéMON\n"
+	.string "would give me an edge against LEE, but\l"
+	.string "he seemed well prepared to deal with\l"
+	.string "them.\p"
+	.string "I'll have to re-think my strategy...$"
 
 LavaridgeTown_PokemonCenter_1F_Text_TrainersShouldRestToo:
-	.string "Hohoho! Hey, kid, you can reach\n"
-	.string "the hot springs from here.\p"
-	.string "If POKéMON are getting rest, so too\n"
-	.string "should their TRAINERS.$"
+	.string "There's nothing more a fisherman such\n"
+	.string "as myself could ask for than to be\l"
+	.string "surrounded by water.\p"
+	.string "Well, maybe a good lure.$"
 

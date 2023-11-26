@@ -7234,21 +7234,36 @@ static const struct TrainerMonNoItemCustomMoves sParty_MayRoute103Mudkip[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRoute110Mudkip[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_MayRoute110Mudkip[] = {
     {
-    .iv = 50,
-    .lvl = 18,
-    .species = SPECIES_WINGULL,
+    .iv = 150,
+    .lvl = 44,
+    .species = SPECIES_KROOKODILE,
+    .moves = {MOVE_FOUL_PLAY, MOVE_DIG, MOVE_SWAGGER, MOVE_GRASS_KNOT}
     },
     {
-    .iv = 50,
-    .lvl = 18,
-    .species = SPECIES_SLUGMA,
+    .iv = 150,
+    .lvl = 45,
+    .species = SPECIES_MALAMAR,
+    .moves = {MOVE_FOUL_PLAY, MOVE_PSYCHO_CUT, MOVE_PLUCK, MOVE_REFLECT}
     },
     {
-    .iv = 100,
-    .lvl = 20,
-    .species = SPECIES_GROVYLE,
+    .iv = 150,
+    .lvl = 44,
+    .species = SPECIES_CACTURNE,
+    .moves = {MOVE_SUCKER_PUNCH, MOVE_ENERGY_BALL, MOVE_SPIKES, MOVE_PIN_MISSILE}
+    },
+    {
+    .iv = 150,
+    .lvl = 45,
+    .species = SPECIES_SHARPEDO,
+    .moves = {MOVE_AQUA_JET, MOVE_ICE_FANG, MOVE_POISON_FANG, MOVE_CRUNCH}
+    },
+    {
+    .iv = 150,
+    .lvl = 46,
+    .species = SPECIES_HOUNDOOM,
+    .moves = {MOVE_FOUL_PLAY, MOVE_FLAMETHROWER, MOVE_THUNDER_FANG, MOVE_HOWL}
     }
 };
 

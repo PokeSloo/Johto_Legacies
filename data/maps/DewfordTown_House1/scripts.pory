@@ -1,0 +1,35 @@
+raw`
+DewfordTown_House1_MapScripts::
+	.byte 0
+
+DewfordTown_House1_EventScript_Zigzagoon::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_WINGULL, CRY_MODE_NORMAL
+	msgbox DewfordTown_House1_Text_Zigzagoon, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+DewfordTown_House1_Text_Zigzagoon:
+	.string "WINGULL: Guguuh!$"
+`
+
+script DewfordTown_House1_EventScript_Woman {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_HM02)) {
+        msgbox(format("Wait... You say you don't even know who I am?\pI guess I gave you that HM for nothing then..."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Oh, dear.\nYou've found my secret retreat.\pPlease don't tell anyone I'm here. I'll make it up to you with this!"))
+        giveitem (ITEM_HM02_FLY)
+        setflag(FLAG_RECEIVED_HM02)
+        msgbox(format("That HM contains the move Fly, it will allow you to travel around much faster than walking or surfing.\pOf course, you will need the Cianwood City gym badge to use it."))
+        release
+        end
+    }
+}

@@ -1,66 +1,97 @@
 LavaridgeTown_HerbShop_MapScripts::
 	.byte 0
 
-LavaridgeTown_HerbShop_EventScript_Clerk::
+
+LavaridgeTown_HerbShop_EventScript_Woman::
+	msgbox LavaridgeTown_HerbShop_EventScript_Woman_Text_0, MSGBOX_NPC
+	end
+
+
+LavaridgeTown_HerbShop_EventScript_Karate::
+	msgbox LavaridgeTown_HerbShop_EventScript_Karate_Text_0, MSGBOX_NPC
+	end
+
+
+LavaridgeTown_HerbShop_EventScript_Trader::
 	lock
 	faceplayer
-	message LavaridgeTown_HerbShop_Text_WelcomeToHerbShop
-	waitmessage
-	pokemart LavaridgeTown_HerbShop_Pokemart
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	goto_if_set FLAG_CIANWOOD_TRADE_COMPLETED, LavaridgeTown_HerbShop_EventScript_TradeCompleted
+	setvar VAR_0x8008, INGAME_TRADE_RIOLU
+	copyvar VAR_0x8004, VAR_0x8008
+	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
+	copyvar VAR_0x8009, VAR_RESULT
+	msgbox LavaridgeTown_HerbShop_Text_YouWillTradeWontYou, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LavaridgeTown_HerbShop_EventScript_DeclineTrade
+	special ChoosePartyMon
+	waitstate
+	copyvar VAR_0x800A, VAR_0x8004
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, LavaridgeTown_HerbShop_EventScript_DeclineTrade
+	copyvar VAR_0x8005, VAR_0x800A
+	specialvar VAR_RESULT, GetTradeSpecies
+	copyvar VAR_0x800B, VAR_RESULT
+	goto_if_ne VAR_RESULT, VAR_0x8009, LavaridgeTown_HerbShop_EventScript_NotRequestedMon
+	copyvar VAR_0x8004, VAR_0x8008
+	copyvar VAR_0x8005, VAR_0x800A
+	special CreateInGameTradePokemon
+	special DoInGameTradeScene
+	waitstate
+	bufferspeciesname STR_VAR_1, VAR_0x8009
+	msgbox LavaridgeTown_HerbShop_Text_MonYouTakeCare, MSGBOX_DEFAULT
+	setflag FLAG_CIANWOOD_TRADE_COMPLETED
 	release
 	end
 
-	.align 2
-LavaridgeTown_HerbShop_Pokemart:
-	.2byte ITEM_ENERGY_POWDER
-	.2byte ITEM_ENERGY_ROOT
-	.2byte ITEM_HEAL_POWDER
-	.2byte ITEM_REVIVAL_HERB
-	.2byte ITEM_NONE
+LavaridgeTown_HerbShop_EventScript_DeclineTrade::
+	msgbox LavaridgeTown_HerbShop_Text_YouWontTradeMe, MSGBOX_DEFAULT
 	release
 	end
 
-LavaridgeTown_HerbShop_EventScript_ExpertM::
-	msgbox LavaridgeTown_HerbShop_Text_HerbalMedicineWorksButMonWillDislike, MSGBOX_NPC
-	end
-
-LavaridgeTown_HerbShop_EventScript_OldMan::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_CHARCOAL, LavaridgeTown_HerbShop_EventScript_ExplainCharcoal
-	msgbox LavaridgeTown_HerbShop_Text_YouveComeToLookAtHerbalMedicine, MSGBOX_DEFAULT
-	giveitem ITEM_CHARCOAL
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_CHARCOAL
+LavaridgeTown_HerbShop_EventScript_NotRequestedMon::
+	bufferspeciesname STR_VAR_1, VAR_0x8009
+	msgbox LavaridgeTown_HerbShop_Text_ThisIsntAMon, MSGBOX_DEFAULT
 	release
 	end
 
-LavaridgeTown_HerbShop_EventScript_ExplainCharcoal::
-	msgbox LavaridgeTown_HerbShop_Text_ExplainCharcoal, MSGBOX_DEFAULT
+LavaridgeTown_HerbShop_EventScript_TradeCompleted::
+	msgbox LavaridgeTown_HerbShop_Text_GoingToMakeVolbeatStrong, MSGBOX_DEFAULT
 	release
 	end
 
-LavaridgeTown_HerbShop_Text_WelcomeToHerbShop:
-	.string "Welcome to the HERB SHOP, home of\n"
-	.string "effective and inexpensive medicine!$"
+LavaridgeTown_HerbShop_Text_YouWillTradeWontYou:
+	.string "My dad trains under LEE, and is\n"
+	.string "obsessed with FIGHTING-type POKéMON,\l"
+	.string "but I want a PSYCHIC-type.\p"
+	.string "Tell me, do you have a {STR_VAR_1},\n"
+	.string "and would you be willing to trade it for\l"
+	.string "my {STR_VAR_2}?$"
 
-LavaridgeTown_HerbShop_Text_YouveComeToLookAtHerbalMedicine:
-	.string "You've come to look at herbal medicine\n"
-	.string "in LAVARIDGE?\p"
-	.string "That's rather commendable.\p"
-	.string "I like you! Take this!$"
+LavaridgeTown_HerbShop_Text_MonYouTakeCare:
+	.string "Yes! One day I'll take on LEE, and he\n"
+	.string "won't know what hit him!$"
 
-LavaridgeTown_HerbShop_Text_ExplainCharcoal:
-	.string "That CHARCOAL I gave you, it's used\n"
-	.string "for making herbal medicine.\p"
-	.string "It also does wonders when held by\n"
-	.string "a POKéMON.\p"
-	.string "It intensifies the power of FIRE-type\n"
-	.string "moves.$"
+LavaridgeTown_HerbShop_Text_ThisIsntAMon:
+	.string "Uh, no, I don't think so.\n"
+	.string "That isn't a {STR_VAR_1}.$"
 
-LavaridgeTown_HerbShop_Text_HerbalMedicineWorksButMonWillDislike:
-	.string "Herbal medicine works impressively well.\n"
-	.string "But your POKéMON will dislike you for it.\l"
-	.string "It must be horribly bitter!$"
+LavaridgeTown_HerbShop_Text_YouWontTradeMe:
+	.string "You don't want to trade?\p"
+	.string "That's fine, I guess...$"
 
+LavaridgeTown_HerbShop_Text_GoingToMakeVolbeatStrong:
+	.string "How is that Riolu doing?\p"
+	.string "I know it's a good POKéMON, but I really\n"
+	.string "wanted a PSYCHIC-type.$"
+
+LavaridgeTown_HerbShop_EventScript_Woman_Text_0:
+	.string "Karate this, karate that.\p"
+	.string "My husband really doesn't understand\n"
+	.string "anything but fighting.\p"
+	.string "I really don't know why I married him.$"
+
+LavaridgeTown_HerbShop_EventScript_Karate_Text_0:
+	.string "I love karate!\p"
+	.string "A tough battle between two master\n"
+	.string "martial artists creates the deepest\l"
+	.string "connection between two people.\p"
+	.string "I can only hope one day, my son grows up\n"
+	.string "to be a karate master!$"

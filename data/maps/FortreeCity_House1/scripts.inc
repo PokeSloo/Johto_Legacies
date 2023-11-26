@@ -92,7 +92,7 @@ FortreeCity_House1_Text_YouWillTradeWontYou:
 	.string "you trade me for my {STR_VAR_2}?$"
 
 FortreeCity_House1_Text_MonYouTakeCare:
-	.string "Aw man, I wanted a {STR_VAR_2}, but\n"
+	.string "Aw man, I wanted a {STR_VAR_1}, but\n"
 	.string "it evolved as soon as I got it.\p"
 	.string "Thanks anyway...$"
 

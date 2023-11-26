@@ -65,27 +65,24 @@ MoveTutor_Text_FuryCutterTaught:
 	.string "the move keeps hitting in succession!$"
 
 MoveTutor_MimicTeach:
-	.string "Ah, young one!\p"
-	.string "I am also a young one, but I mimic\n"
-	.string "the styles and speech of the elderly\l"
-	.string "folks of this town.\p"
-	.string "What do you say, young one?\n"
-	.string "Would you agree to it if I were to\l"
-	.string "offer to teach the move MIMIC?$"
+	.string "What am I doing you ask?\p"
+	.string "I'm mimicking you, of course\p"
+	.string "It's pretty fun, would you like me to\n"
+	.string "teach it to one of your POKéMON?$"
 
 MoveTutor_MimicDeclined:
-	.string "Oh, boo! I wanted to teach MIMIC\n"
-	.string "to your POKéMON!$"
+	.string "Aw, you're no fun!$"
 
 MoveTutor_Text_MimicWhichMon:
-	.string "Fwofwo! And so I shall!\n"
-	.string "Let me see the POKéMON\l"
-	.string "you wish me to teach.$"
+	.string "I knew you were fun!\p"
+	.string "So, which POKéMON should I teach the\n"
+	.string "move Mimic to?$"
 
 MoveTutor_Text_MimicTaught:
-	.string "MIMIC is a move of great depth.\p"
-	.string "Could you execute it to perfection\n"
-	.string "as well as me…?$"
+	.string "You know which POKéMON is the best at\n"
+	.string "mimicry?\p"
+	.string "That's right, Ditto!\p"
+	.string "Ditto is my favorite POKéMON!$"
 
 MoveTutor_Text_MetronomeTeach:
 	.string "I want all sorts of things!\n"

@@ -1,0 +1,164 @@
+const SHANE_LOCAL_ID = 13
+
+mapscripts LavaridgeTown_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag (FLAG_VISITED_LAVARIDGE_TOWN)
+        setflag (FLAG_HIDE_SHANE_CIANWOOD)
+        end
+    }
+}
+
+script LavaridgeTown_EventScript_ShaneTrigger {
+    lock
+    if (flag(FLAG_DEFEATED_SHANE_CIANWOOD)) {
+        release
+        end
+    }
+    opendoor (10, 39)
+    waitdooranim
+    clearflag (FLAG_HIDE_SHANE_CIANWOOD)
+    addobject (SHANE_LOCAL_ID)
+    playbgm (MUS_HG_ENCOUNTER_RIVAL, FALSE)
+    applymovement (OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerFaceUp)
+    waitmovement (0)
+    delay (30)
+    applymovement (SHANE_LOCAL_ID, PetalburgCity_ShaneWalkOutOfGym)
+    applymovement (OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerBackUp)
+    waitmovement (0)
+    closedoor (10, 39)
+    waitdooranim
+    msgbox (format("SHANE: What the hell! I can't believe I lost to some generic bowl cut karate chump!\p...\pOh... It's you...\pHey! I'm sure beating you will cheer me up!"))
+    waitmessage
+    closemessage
+    trainerbattle_no_intro (TRAINER_MAY_ROUTE_110_MUDKIP, LavaridgeTown_Text_ShaneDefeated)
+	msgbox (format ("...\pI think I get it now...\pYou're just like dad...\pThere's something you both have that I can't seem to grasp for myself.\p...\pFine then, I'll just keep training.\pSoon I'll beat you, and then overthrow dad to become the champion myself!\pHe'll have no choice but to acknowledge me then...\p..."))
+	waitmessage
+	closemessage
+    fadedefaultbgm
+    applymovement (OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerFaceRight)
+	applymovement (SHANE_LOCAL_ID, LavaridgeTown_Movement_ShaneExit)
+    waitmovement (0)
+    removeobject (SHANE_LOCAL_ID)
+    setflag (FLAG_HIDE_SHANE_CIANWOOD)
+    setflag (FLAG_DEFEATED_SHANE_CIANWOOD)
+    release
+    end
+}
+
+movement LavaridgeTown_Movement_PlayerFaceRight {
+    delay_16 * 2
+    face_right
+}
+
+movement LavaridgeTown_Movement_ShaneExit {
+    walk_right * 2
+    walk_down
+    walk_right * 3
+    walk_up
+    walk_right * 3
+}
+
+text LavaridgeTown_Text_ShaneDefeated {
+    format("This can't be happening...")
+}
+
+raw`
+LavaridgeTown_EventScript_ExpertM::
+	msgbox LavaridgeTown_Text_HotSpringsNeverRunDry, MSGBOX_NPC
+	end
+
+LavaridgeTown_EventScript_OldMan::
+	msgbox LavaridgeTown_Text_PokemonNippedBackside, MSGBOX_NPC
+	end
+
+LavaridgeTown_EventScript_Twin::
+	msgbox LavaridgeTown_Text_BatheInHotSpringsEveryDay, MSGBOX_NPC
+	end
+
+LavaridgeTown_EventScript_ExpertF::
+	msgbox LavaridgeTown_Text_OhYouLikeHotSprings, MSGBOX_NPC
+	end
+
+LavaridgeTown_EventScript_EggWoman::
+	msgbox LavaridgeTown_Text_EverySoOftenEggFoundAtDayCare, MSGBOX_NPC
+	end
+
+LavaridgeTown_EventScript_Oliver::
+	msgbox LavaridgeTown_Text_OliverWhirl, MSGBOX_NPC
+	end
+
+LavaridgeTown_EventScript_TownSign::
+	msgbox LavaridgeTown_Text_TownSign, MSGBOX_SIGN
+	end
+
+LavaridgeTown_EventScript_GymSign::
+	msgbox LavaridgeTown_Text_GymSign, MSGBOX_SIGN
+	end
+
+LavaridgeTown_EventScript_HerbShopSign::
+	msgbox LavaridgeTown_Text_HerbShopSign, MSGBOX_SIGN
+	end
+
+LavaridgeTown_Text_EverySoOftenEggFoundAtDayCare:
+	.string "When I was a little girl, my mother used\n"
+	.string "to tell me that bad children would be\l"
+	.string "sent to the Whirl Islands as\l"
+	.string "punishment.\p"
+	.string "Can you belive that!?$"
+
+LavaridgeTown_Text_HotSpringsNeverRunDry:
+	.string "You look like you came from far away,\n"
+	.string "where is your hometown?\p"
+	.string "...\p"
+	.string "Cherrygrove, huh?\p"
+	.string "Yes, that is quite far from here...\p"
+	.string "You know what, you should speak to the\n"
+	.string "woman who lives in the lone house north\l"
+	.string "of town.\p"
+	.string "I'm sure you'll find her helpful.$"
+
+LavaridgeTown_Text_PokemonNippedBackside:
+	.string "I've like to help out the Deep Sea Lab\n"
+	.string "researchers.\p"
+	.string "They often need someone to ferry them\n"
+	.string "out to the middle of the sea.\p"
+	.string "They also pay me handsomely, which\n"
+	.string "helps...$"
+
+LavaridgeTown_Text_OhYouLikeHotSprings:
+	.string "You would expect a beach town like\n"
+	.string "Cianwood to be peaceful, but with all\l"
+	.string "the karate guys training at the gym\l"
+	.string "here, things can get pretty wild!$"
+
+LavaridgeTown_Text_BatheInHotSpringsEveryDay:
+	.string "Have you ever made a sandcastle?\p"
+	.string "I'm going to make one big enough for me\n"
+	.string "and my whole family to live inside!$"
+
+LavaridgeTown_Text_OliverWhirl:
+    .string "OLIVER: Oh, {PLAYER}, I didn't expect\n"
+	.string "to see you here.\p"
+	.string "I was planning to explore the Whirl\n"
+	.string "Islands, but unfortunately, they don't\l"
+	.string "appear to be very accessible.\p"
+	.string "My college professor told me about the\n"
+	.string "islands, and the Legendary POKéMON\l"
+	.string "Lugia, which is rumored to reside deep\l"
+	.string "within them.\p"
+	.string "By the way, you should check out the\n"
+	.string "Deep Sea Lab while you're in town, it's\l"
+	.string "very fascinating.$"
+
+LavaridgeTown_Text_TownSign:
+	.string "CIANWOOD CITY\p"
+	.string "“A Port of Crashing Waves”$"
+
+LavaridgeTown_Text_GymSign:
+	.string "CIANWOOD CITY POKéMON GYM\n"
+	.string "LEADER: LEE\l"
+	.string "“The hard-headed fighting champion.”$"
+
+LavaridgeTown_Text_HerbShopSign:
+	.string "CIANWOOD DEEP SEA LAB$"
+`
