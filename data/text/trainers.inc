@@ -4604,111 +4604,106 @@ Route133_Text_ConorPostBattle:
 	.string "Don't lose direction as you grow older.$"
 
 Route134_Text_JackIntro:
-	.string "Even those POKéMON that can swim are\n"
-	.string "carried along by the rapid currents.$"
+	.string "Did you get carried away by the rapids\n"
+	.string "too?$"
 
 Route134_Text_JackDefeat:
 	.string "Aiyeeeeh!$"
 
 Route134_Text_JackPostBattle:
-	.string "I think POKéMON enjoy the fast-running\n"
-	.string "currents around these parts.$"
+	.string "I was exploring the Whirl Islands, but\n"
+	.string "then got too close to the rapids.$"
 
 Route134_Text_LaurelIntro:
-	.string "My LUVDISC are looking for a fun\n"
-	.string "match. Will you join us?$"
+	.string "I rode the rapids too far, now I can't go\n"
+	.string "back!$"
 
 Route134_Text_LaurelDefeat:
 	.string "Oopsie!$"
 
 Route134_Text_LaurelPostBattle:
-	.string "There's a collector who's after\n"
-	.string "the SCALES of LUVDISC.$"
+	.string "If only I had a POKéMON that could dive\n"
+	.string "underneath the rapids, I might be able\l"
+	.string "to get back then...$"
 
 Route134_Text_AlexIntro:
-	.string "Okeydokey! That's enough rest, gang!\n"
-	.string "It's time for a match!$"
+	.string "I don't know how I wound up with this\n"
+	.string "group, but I must protect this item!$"
 
 Route134_Text_AlexDefeat:
-	.string "Tuckered out again…$"
+	.string "I'm a failure as a guardian.$"
 
 Route134_Text_AlexPostBattle:
-	.string "My BIRD POKéMON get tired quickly after\n"
-	.string "a long flight…$"
+	.string "You didn't take the item, did you?$"
 
 Route134_Text_HitoshiIntro:
-	.string "You're a POKéMON TRAINER.\n"
-	.string "No need for words. We battle now.$"
+	.string "You dare step foot upon this small sand\n"
+	.string "island!?\p"
+	.string "We must now do battle!$"
 
 Route134_Text_HitoshiDefeat:
-	.string "… … … … … …\n"
-	.string "… … … … … …$"
+	.string "I concede... This island is yours...$"
 
 Route134_Text_HitoshiPostBattle:
-	.string "It was I who challenged you, and yet\n"
-	.string "I lost. I am deeply shamed…$"
+	.string "I was sharing this island anyway, it\n"
+	.string "wasn't mine alone...$"
 
 Route134_Text_AaronIntro:
-	.string "The savage tide in this area serves to\n"
-	.string "make us stronger than ever.$"
+	.string "Kiyah! I hope you're ready for a kick to\n"
+	.string "the throat!$"
 
 Route134_Text_AaronDefeat:
-	.string "I willingly concede defeat.$"
+	.string "I have been defeated...\n"
+	.string "Please, kick my throat instead...$"
 
 Route134_Text_AaronPostBattle:
-	.string "We will return for more training at\n"
-	.string "METEOR FALLS.\p"
-	.string "If you'd like, you should go, too.\n"
-	.string "It will definitely toughen you up!$"
+	.string "Perhaps life isn't just about endless\n"
+	.string "kicking...$"
 
 Route134_Text_KelvinIntro:
-	.string "O-our boat!\n"
-	.string "The tide carried it away!$"
+	.string "I joined this little group because it\n"
+	.string "looked like it would be fun!$"
 
 Route134_Text_KelvinDefeat:
-	.string "Awawawawah!\n"
-	.string "Please, stop! Please!$"
+	.string "Win or lose, I still had fun.$"
 
 Route134_Text_KelvinPostBattle:
-	.string "If we can't SURF, how are we supposed\n"
-	.string "to get home?\p"
-	.string "Actually, I know a fainted POKéMON\n"
-	.string "can still SURF, but it feels wrong.$"
+	.string "We used to run in circles around this\n"
+	.string "island, but we all got stuck behind the\l"
+	.string "first person that stopped.\p"
+	.string "This pattern is much more effective.$"
 
 Route134_Text_MarleyIntro:
-	.string "Can your POKéMON dodge our\n"
-	.string "lightning-quick attacks?$"
+	.string "My Hitmonchan's punches are too fast,\n"
+	.string "you'll never see them coming!$"
 
 Route134_Text_MarleyDefeat:
-	.string "I never knew such a technique existed!\n"
-	.string "You've defeated us thoroughly.$"
+	.string "I guess a Hitmonchan throwing punches\n"
+	.string "is pretty obvious...$"
 
 Route134_Text_MarleyPostBattle:
-	.string "I haven't lost my passion for speed.\n"
-	.string "I will try harder.$"
+	.string "Don't tell the guy next to me, but\n"
+	.string "punches are way better than kicks!$"
 
 Route134_Text_ReynaIntro:
-	.string "My POKéMON can't be taken down\n"
-	.string "easily!$"
+	.string "I don't even want this little island!$"
 
 Route134_Text_ReynaDefeat:
-	.string "You're kidding!\n"
-	.string "Explain how I lost!$"
+	.string "Were you not challenging me for the\n"
+	.string "island?$"
 
 Route134_Text_ReynaPostBattle:
-	.string "Haha!\n"
-	.string "You won, all right!\p"
-	.string "I'll work my way back up by taking on\n"
-	.string "TRAINERS I happen to meet!$"
+	.string "I landed on this little island, and this\n"
+	.string "man challenged me to a battle.\p"
+	.string "He said we can share it since I beat him.$"
 
 Route134_Text_HudsonIntro:
-	.string "Listen, have you seen another SAILOR\n"
-	.string "around here?$"
+	.string "These rapids will take you all the way\n"
+	.string "to Goldenrod City!$"
 
 Route134_Text_HudsonDefeat:
-	.string "Now, that's something!$"
+	.string "You seem to know what you're doing.$"
 
 Route134_Text_HudsonPostBattle:
-	.string "Our boat drifted out to sea.\p"
-	.string "My buddy's a timid fellow, so I'm\n"
-	.string "worried about him.$"
+	.string "Don't ride the rapids too far, or you may\n"
+	.string "not make it back.$"

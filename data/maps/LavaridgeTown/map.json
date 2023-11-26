@@ -223,15 +223,7 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 2,
-      "elevation": 3,
-      "var": "0",
-      "var_value": "0",
-      "script": "EventScript_RockSmash"
-    }
+
   ],
   "bg_events": [
     {
@@ -244,8 +236,8 @@
     },
     {
       "type": "sign",
-      "x": 1,
-      "y": 9,
+      "x": 13,
+      "y": 40,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LavaridgeTown_EventScript_GymSign"
