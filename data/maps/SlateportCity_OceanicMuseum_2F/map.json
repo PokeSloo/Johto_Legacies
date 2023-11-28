@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SlateportCity_OceanicMuseum_2F_EventScript_CaptStern",
+      "script": "SlateportCity_OceanicMuseum_2F_EventScript_FossilScientist",
       "flag": "0"
     },
     {
@@ -76,7 +76,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SlateportCity_OceanicMuseum_2F_EventScript_MuseumPatron1",
+      "script": "SlateportCity_OceanicMuseum_2F_EventScript_MuseumPatron3",
       "flag": "0"
     },
     {
@@ -102,7 +102,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SlateportCity_OceanicMuseum_2F_EventScript_MuseumPatron3",
+      "script": "SlateportCity_OceanicMuseum_2F_EventScript_MuseumPatron1",
       "flag": "0"
     }
   ],
@@ -119,22 +119,6 @@
 
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SlateportCity_OceanicMuseum_2F_EventScript_WaterQualitySample1"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SlateportCity_OceanicMuseum_2F_EventScript_WaterQualitySample2"
-    },
     {
       "type": "sign",
       "x": 4,
@@ -174,38 +158,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SlateportCity_OceanicMuseum_2F_EventScript_SubmarineReplica"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SlateportCity_OceanicMuseum_2F_EventScript_SSTidalReplica"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SlateportCity_OceanicMuseum_2F_EventScript_SSTidalReplica"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SlateportCity_OceanicMuseum_2F_EventScript_SSAnneReplica"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 0,
-      "elevation": 3,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SlateportCity_OceanicMuseum_2F_EventScript_SSAnneReplica"
     },
     {
       "type": "sign",
@@ -270,22 +222,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SlateportCity_OceanicMuseum_2F_EventScript_PressureExperiment"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SlateportCity_OceanicMuseum_2F_EventScript_SSTidalReplica"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SlateportCity_OceanicMuseum_2F_EventScript_SSTidalReplica"
     }
   ]
 }

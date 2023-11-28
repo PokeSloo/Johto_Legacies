@@ -1,225 +1,788 @@
-.set LOCALID_CAPT_STERN, 1
-.set LOCALID_ARCHIE, 2
-.set LOCALID_GRUNT_1, 3
-.set LOCALID_GRUNT_2, 4
+.set LOCALID_FOSSIL_SCIENTIST, 1
 
 SlateportCity_OceanicMuseum_2F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SlateportCity_OceanicMuseum_2F_OnTransition
 	.byte 0
 
-SlateportCity_OceanicMuseum_2F_EventScript_CaptStern::
+SlateportCity_OceanicMuseum_2F_OnTransition:
+	call_if_eq VAR_FOSSIL_RESURRECTION_STATE, 1, SlateportCity_OceanicMuseum_2F_EventScript_SetFossilReady
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_SetFossilReady::
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 2
+	return
+
+SlateportCity_OceanicMuseum_2F_EventScript_FossilScientist::
 	lock
 	faceplayer
-	msgbox SlateportCity_OceanicMuseum_2F_Text_ThankYouForTheParts, MSGBOX_DEFAULT
-	closemessage
-	playbgm MUS_ENCOUNTER_AQUA, TRUE
-	addobject LOCALID_GRUNT_1
-	applymovement LOCALID_GRUNT_1, SlateportCity_OceanicMuseum_2F_Movement_FirstGruntEnter
-	waitmovement 0
-	addobject LOCALID_GRUNT_2
-	applymovement LOCALID_GRUNT_2, SlateportCity_OceanicMuseum_2F_Movement_SecondGruntEnter
-	waitmovement 0
-	applymovement LOCALID_GRUNT_1, SlateportCity_OceanicMuseum_2F_Movement_FirstGruntApproach
-	applymovement LOCALID_GRUNT_2, SlateportCity_OceanicMuseum_2F_Movement_SecondGruntApproach
-	waitmovement 0
-	call_if_eq VAR_FACING, DIR_SOUTH, SlateportCity_OceanicMuseum_2F_EventScript_PlayerFaceGrunts
-	call_if_eq VAR_FACING, DIR_EAST, SlateportCity_OceanicMuseum_2F_EventScript_PlayerFaceGrunts
-	msgbox SlateportCity_OceanicMuseum_2F_Text_WellTakeThoseParts, MSGBOX_DEFAULT
-	call_if_ne VAR_FACING, DIR_EAST, SlateportCity_OceanicMuseum_2F_EventScript_SternFaceGrunts
-	msgbox SlateportCity_OceanicMuseum_2F_Text_SternWhoAreYou, MSGBOX_DEFAULT
-	msgbox SlateportCity_OceanicMuseum_2F_Text_WereTeamAqua, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_GRUNT_2, SlateportCity_OceanicMuseum_2F_Movement_GruntApproachToBattle
-	waitmovement 0
-	call_if_eq VAR_FACING, DIR_SOUTH, SlateportCity_OceanicMuseum_2F_EventScript_PlayerApproachGruntSouth
-	call_if_eq VAR_FACING, DIR_WEST, SlateportCity_OceanicMuseum_2F_EventScript_PlayerApproachGruntWest
-	trainerbattle_no_intro TRAINER_GRUNT_MUSEUM_1, SlateportCity_OceanicMuseum_2F_Text_Grunt1Defeat
-	msgbox SlateportCity_OceanicMuseum_2F_Text_BossGoingToBeFurious, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_GRUNT_2, SlateportCity_OceanicMuseum_2F_Movement_GruntDefeated
-	waitmovement 0
-	applymovement LOCALID_GRUNT_1, SlateportCity_OceanicMuseum_2F_Movement_GruntApproachToBattle
-	waitmovement 0
-	msgbox SlateportCity_OceanicMuseum_2F_Text_LetMeTakeCareOfThis, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GRUNT_MUSEUM_2, SlateportCity_OceanicMuseum_2F_Text_Grunt2Defeat
-	applymovement LOCALID_GRUNT_1, SlateportCity_OceanicMuseum_2F_Movement_GruntDefeated
-	waitmovement 0
-	applymovement LOCALID_GRUNT_1, Common_Movement_WalkInPlaceFasterDown
-	applymovement LOCALID_GRUNT_2, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	msgbox SlateportCity_OceanicMuseum_2F_Text_MeddlingKid, MSGBOX_DEFAULT
-	closemessage
-	delay 35
-	addobject LOCALID_ARCHIE
-	applymovement LOCALID_ARCHIE, SlateportCity_OceanicMuseum_2F_Movement_ArchieEnter
-	applymovement LOCALID_GRUNT_2, SlateportCity_OceanicMuseum_2F_Movement_GruntMoveForArchie
-	waitmovement 0
-	msgbox SlateportCity_OceanicMuseum_2F_Text_CameToSeeWhatsTakingSoLong, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_ARCHIE, SlateportCity_OceanicMuseum_2F_Movement_ArchieApproachPlayer
-	waitmovement 0
-	msgbox SlateportCity_OceanicMuseum_2F_Text_ArchieWarning, MSGBOX_DEFAULT
-	closemessage
-	savebgm MUS_DUMMY
-	fadedefaultbgm
-	fadescreen FADE_TO_BLACK
-	removeobject LOCALID_ARCHIE
-	removeobject LOCALID_GRUNT_1
-	removeobject LOCALID_GRUNT_2
-	fadescreen FADE_FROM_BLACK
-	delay 30
-	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	msgbox SlateportCity_OceanicMuseum_2F_Text_SternThankYouForSavingUs, MSGBOX_DEFAULT
-	setvar VAR_0x8004, ITEM_DEVON_PARTS
-	call Common_EventScript_PlayerHandedOverTheItem
-	msgbox SlateportCity_OceanicMuseum_2F_Text_SternIveGotToGo, MSGBOX_DEFAULT
-	closemessage
-	fadescreen FADE_TO_BLACK
-	playfanfare MUS_HEAL
-	waitfanfare
-	special HealPlayerParty
-	removeobject LOCALID_CAPT_STERN
-	setflag FLAG_HIDE_ROUTE_110_TEAM_AQUA
-	call_if_eq VAR_REGISTER_BIRCH_STATE, 0, SlateportCity_OceanicMuseum_2F_EventScript_ReadyRegisterBirch
-	setflag FLAG_DELIVERED_DEVON_GOODS
-	clearflag FLAG_HIDE_ROUTE_116_DEVON_EMPLOYEE
-	setflag FLAG_HIDE_RUSTBORO_CITY_DEVON_CORP_3F_EMPLOYEE
-	setvar VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 1
-	fadescreen FADE_FROM_BLACK
+	goto_if_eq VAR_FOSSIL_RESURRECTION_STATE, 2, SlateportCity_OceanicMuseum_2F_EventScript_FossilMonReady
+	goto_if_eq VAR_FOSSIL_RESURRECTION_STATE, 1, SlateportCity_OceanicMuseum_2F_EventScript_StillRegenerating
+	msgbox SlateportCity_OceanicMuseum_2F_Text_DevelopDeviceToResurrectFossils, MSGBOX_DEFAULT
+	checkitem ITEM_OLD_AMBER
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_OceanicMuseum_2F_EventScript_NoticeFossil
+	checkitem ITEM_ROOT_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_OceanicMuseum_2F_EventScript_NoticeFossil
+	checkitem ITEM_CLAW_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_OceanicMuseum_2F_EventScript_NoticeFossil
+	checkitem ITEM_HELIX_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_OceanicMuseum_2F_EventScript_NoticeFossil
+	checkitem ITEM_DOME_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_OceanicMuseum_2F_EventScript_NoticeFossil
+	checkitem ITEM_SKULL_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_OceanicMuseum_2F_EventScript_NoticeFossil
+	checkitem ITEM_ARMOR_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_OceanicMuseum_2F_EventScript_NoticeFossil
+	checkitem ITEM_COVER_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_OceanicMuseum_2F_EventScript_NoticeFossil
+	checkitem ITEM_PLUME_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_OceanicMuseum_2F_EventScript_NoticeFossil
+	checkitem ITEM_JAW_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_OceanicMuseum_2F_EventScript_NoticeFossil
+	checkitem ITEM_SAIL_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_OceanicMuseum_2F_EventScript_NoticeFossil
 	release
 	end
 
-SlateportCity_OceanicMuseum_2F_EventScript_ReadyRegisterBirch::
-	setvar VAR_REGISTER_BIRCH_STATE, 1
-	return
-
-SlateportCity_OceanicMuseum_2F_EventScript_PlayerFaceGrunts::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+SlateportCity_OceanicMuseum_2F_EventScript_NoticeFossil::
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_ExclamationMark
 	waitmovement 0
-	return
-
-SlateportCity_OceanicMuseum_2F_EventScript_SternFaceGrunts::
-	applymovement LOCALID_CAPT_STERN, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_Delay48
 	waitmovement 0
-	return
-
-SlateportCity_OceanicMuseum_2F_EventScript_PlayerApproachGruntSouth::
-	applymovement OBJ_EVENT_ID_PLAYER, SlateportCity_OceanicMuseum_2F_Movement_PlayerApproachGruntSouth
-	waitmovement 0
-	return
-
-SlateportCity_OceanicMuseum_2F_EventScript_PlayerApproachGruntWest::
-	applymovement OBJ_EVENT_ID_PLAYER, SlateportCity_OceanicMuseum_2F_Movement_PlayerApproachGruntWest
-	waitmovement 0
-	return
-
-SlateportCity_OceanicMuseum_2F_Movement_PlayerApproachGruntSouth:
-	walk_left
-	walk_down
-	walk_in_place_faster_left
-	step_end
-
-SlateportCity_OceanicMuseum_2F_Movement_PlayerApproachGruntWest:
-	walk_up
-	walk_left
-	walk_left
-	walk_down
-	walk_in_place_faster_left
-	step_end
-
-SlateportCity_OceanicMuseum_2F_Movement_Unused:
-	walk_up
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	walk_up
-	walk_left
-	walk_left
-	walk_up
-	walk_up
-	delay_8
-	step_end
-
-SlateportCity_OceanicMuseum_2F_Movement_ArchieApproachPlayer:
-	walk_right
-	step_end
-
-SlateportCity_OceanicMuseum_2F_Movement_ArchieEnter:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
-SlateportCity_OceanicMuseum_2F_Movement_GruntApproachToBattle:
-	walk_right
-	step_end
-
-SlateportCity_OceanicMuseum_2F_Movement_FirstGruntEnter:
-	walk_down
-	walk_right
-	walk_in_place_faster_down
-	step_end
-
-SlateportCity_OceanicMuseum_2F_Movement_FirstGruntApproach:
-	walk_down
-	walk_down
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
-SlateportCity_OceanicMuseum_2F_Movement_GruntDefeated:
-	lock_facing_direction
-	walk_left
-	unlock_facing_direction
-	step_end
-
-SlateportCity_OceanicMuseum_2F_Movement_SecondGruntEnter:
-	walk_down
-	step_end
-
-SlateportCity_OceanicMuseum_2F_Movement_SecondGruntApproach:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
-SlateportCity_OceanicMuseum_2F_Movement_GruntMoveForArchie:
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_8
-	walk_fast_down
-	walk_in_place_faster_up
-	step_end
-
-SlateportCity_OceanicMuseum_2F_EventScript_WaterQualitySample1::
-	msgbox SlateportCity_OceanicMuseum_2F_Text_WaterQualitySample1, MSGBOX_SIGN
+	msgbox SlateportCity_OceanicMuseum_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_DeclineGiveFossil
+	goto SlateportCity_OceanicMuseum_2F_EventScript_ChooseFossil
 	end
 
-SlateportCity_OceanicMuseum_2F_EventScript_WaterQualitySample2::
-	msgbox SlateportCity_OceanicMuseum_2F_Text_WaterQualitySample2, MSGBOX_SIGN
+SlateportCity_OceanicMuseum_2F_EventScript_GiveRootFossil::
+	bufferitemname STR_VAR_1, ITEM_ROOT_FOSSIL
+	msgbox SlateportCity_OceanicMuseum_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_ROOT_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 1
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_GiveClawFossil::
+	bufferitemname STR_VAR_1, ITEM_CLAW_FOSSIL
+	msgbox SlateportCity_OceanicMuseum_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_CLAW_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 2
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_GiveOldAmber::
+	bufferitemname STR_VAR_1, ITEM_OLD_AMBER
+	msgbox SlateportCity_OceanicMuseum_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_OLD_AMBER
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 3
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_GiveHelixFossil::
+	bufferitemname STR_VAR_1, ITEM_HELIX_FOSSIL
+	msgbox SlateportCity_OceanicMuseum_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_HELIX_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 4
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_GiveDomeFossil::
+	bufferitemname STR_VAR_1, ITEM_DOME_FOSSIL
+	msgbox SlateportCity_OceanicMuseum_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_DOME_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 5
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_GiveSkullFossil::
+	bufferitemname STR_VAR_1, ITEM_SKULL_FOSSIL
+	msgbox SlateportCity_OceanicMuseum_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_SKULL_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 6
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_GiveArmorFossil::
+	bufferitemname STR_VAR_1, ITEM_ARMOR_FOSSIL
+	msgbox SlateportCity_OceanicMuseum_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_ARMOR_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 7
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_GiveCoverFossil::
+	bufferitemname STR_VAR_1, ITEM_COVER_FOSSIL
+	msgbox SlateportCity_OceanicMuseum_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_COVER_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 8
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_GivePlumeFossil::
+	bufferitemname STR_VAR_1, ITEM_PLUME_FOSSIL
+	msgbox SlateportCity_OceanicMuseum_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_PLUME_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 9
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_GiveJawFossil::
+	bufferitemname STR_VAR_1, ITEM_JAW_FOSSIL
+	msgbox SlateportCity_OceanicMuseum_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_JAW_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 10
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_GiveSailFossil::
+	bufferitemname STR_VAR_1, ITEM_SAIL_FOSSIL
+	msgbox SlateportCity_OceanicMuseum_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_SAIL_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 11
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_DeclineGiveFossil::
+	msgbox SlateportCity_OceanicMuseum_2F_Text_OhIsThatSo, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_StillRegenerating::
+	msgbox SlateportCity_OceanicMuseum_2F_Text_FossilRegeneratorTakesTime, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_FossilMonReady::
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 1, SlateportCity_OceanicMuseum_2F_EventScript_LileepReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 2, SlateportCity_OceanicMuseum_2F_EventScript_AnorithReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 3, SlateportCity_OceanicMuseum_2F_EventScript_AerodactylReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 4, SlateportCity_OceanicMuseum_2F_EventScript_OmanyteReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 5, SlateportCity_OceanicMuseum_2F_EventScript_KabutoReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 6, SlateportCity_OceanicMuseum_2F_EventScript_CranidosReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 7, SlateportCity_OceanicMuseum_2F_EventScript_ShieldonReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 8, SlateportCity_OceanicMuseum_2F_EventScript_TirtougaReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 9, SlateportCity_OceanicMuseum_2F_EventScript_ArchenReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 10, SlateportCity_OceanicMuseum_2F_EventScript_TyruntReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 11, SlateportCity_OceanicMuseum_2F_EventScript_AmauraReady
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_LileepReady::
+	bufferspeciesname STR_VAR_2, SPECIES_LILEEP
+	msgbox SlateportCity_OceanicMuseum_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto SlateportCity_OceanicMuseum_2F_EventScript_ReceiveLileep
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_AnorithReady::
+	bufferspeciesname STR_VAR_2, SPECIES_ANORITH
+	msgbox SlateportCity_OceanicMuseum_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAnorith
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_AerodactylReady::
+	bufferspeciesname STR_VAR_2, SPECIES_AERODACTYL
+	msgbox SlateportCity_OceanicMuseum_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAerodactyl
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_OmanyteReady::
+	bufferspeciesname STR_VAR_2, SPECIES_OMANYTE
+	msgbox SlateportCity_OceanicMuseum_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto SlateportCity_OceanicMuseum_2F_EventScript_ReceiveOmanyte
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_KabutoReady::
+	bufferspeciesname STR_VAR_2, SPECIES_KABUTO
+	msgbox SlateportCity_OceanicMuseum_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto SlateportCity_OceanicMuseum_2F_EventScript_ReceiveKabuto
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_CranidosReady::
+	bufferspeciesname STR_VAR_2, SPECIES_CRANIDOS
+	msgbox SlateportCity_OceanicMuseum_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto SlateportCity_OceanicMuseum_2F_EventScript_ReceiveCranidos
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ShieldonReady::
+	bufferspeciesname STR_VAR_2, SPECIES_SHIELDON
+	msgbox SlateportCity_OceanicMuseum_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto SlateportCity_OceanicMuseum_2F_EventScript_ReceiveShieldon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_TirtougaReady::
+	bufferspeciesname STR_VAR_2, SPECIES_TIRTOUGA
+	msgbox SlateportCity_OceanicMuseum_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto SlateportCity_OceanicMuseum_2F_EventScript_ReceiveTirtouga
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ArchenReady::
+	bufferspeciesname STR_VAR_2, SPECIES_ARCHEN
+	msgbox SlateportCity_OceanicMuseum_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto SlateportCity_OceanicMuseum_2F_EventScript_ReceiveArchen
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_TyruntReady::
+	bufferspeciesname STR_VAR_2, SPECIES_TYRUNT
+	msgbox SlateportCity_OceanicMuseum_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto SlateportCity_OceanicMuseum_2F_EventScript_ReceiveTyrunt
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_AmauraReady::
+	bufferspeciesname STR_VAR_2, SPECIES_AMAURA
+	msgbox SlateportCity_OceanicMuseum_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAmaura
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveLileep::
+	setvar VAR_TEMP_1, SPECIES_LILEEP
+	givemon SPECIES_LILEEP, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveLileepParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveLileepPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveLileepParty::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedLileepFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveLileepPC::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedLileepFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_TransferLileepToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_TransferLileepToPC
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_TransferLileepToPC::
+	call Common_EventScript_TransferredToPC
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceivedLileepFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_LILEEP
+	playfanfare MUS_OBTAIN_ITEM
+	message SlateportCity_OceanicMuseum_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_LILEEP
+	return
+
+SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon::
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 0
+	setflag FLAG_RECEIVED_REVIVED_FOSSIL_MON
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAnorith::
+	setvar VAR_TEMP_1, SPECIES_ANORITH
+	givemon SPECIES_ANORITH, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAnorithParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAnorithPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAnorithParty::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedAnorithFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAnorithPC::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedAnorithFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_TransferAnorithToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_TransferAnorithToPC
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_TransferAnorithToPC::
+	call Common_EventScript_TransferredToPC
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceivedAnorithFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_ANORITH
+	playfanfare MUS_OBTAIN_ITEM
+	message SlateportCity_OceanicMuseum_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_ANORITH
+	return
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAerodactyl::
+	setvar VAR_TEMP_1, SPECIES_AERODACTYL
+	givemon SPECIES_AERODACTYL, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAerodactylParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAerodactylPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAerodactylParty::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedAerodactylFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAerodactylPC::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedAerodactylFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_TransferAerodactylToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_TransferAerodactylToPC
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_TransferAerodactylToPC::
+	call Common_EventScript_TransferredToPC
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceivedAerodactylFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_AERODACTYL
+	playfanfare MUS_OBTAIN_ITEM
+	message SlateportCity_OceanicMuseum_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_AERODACTYL
+	return
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveOmanyte::
+	setvar VAR_TEMP_1, SPECIES_OMANYTE
+	givemon SPECIES_OMANYTE, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveOmanyteParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveOmanytePC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveOmanyteParty::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedOmanyteFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveOmanytePC::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedOmanyteFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_TransferOmanyteToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_TransferOmanyteToPC
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_TransferOmanyteToPC::
+	call Common_EventScript_TransferredToPC
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceivedOmanyteFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_OMANYTE
+	playfanfare MUS_OBTAIN_ITEM
+	message SlateportCity_OceanicMuseum_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_OMANYTE
+	return
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveKabuto::
+	setvar VAR_TEMP_1, SPECIES_KABUTO
+	givemon SPECIES_KABUTO, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveKabutoParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveKabutoPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveKabutoParty::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedKabutoFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveKabutoPC::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedKabutoFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_TransferKabutoToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_TransferKabutoToPC
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_TransferKabutoToPC::
+	call Common_EventScript_TransferredToPC
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceivedKabutoFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_KABUTO
+	playfanfare MUS_OBTAIN_ITEM
+	message SlateportCity_OceanicMuseum_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_KABUTO
+	return
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveCranidos::
+	setvar VAR_TEMP_1, SPECIES_CRANIDOS
+	givemon SPECIES_CRANIDOS, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveCranidosParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveCranidosPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveCranidosParty::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedCranidosFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveCranidosPC::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedCranidosFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_TransferCranidosToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_TransferCranidosToPC
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_TransferCranidosToPC::
+	call Common_EventScript_TransferredToPC
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceivedCranidosFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_CRANIDOS
+	playfanfare MUS_OBTAIN_ITEM
+	message SlateportCity_OceanicMuseum_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_CRANIDOS
+	return
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveShieldon::
+	setvar VAR_TEMP_1, SPECIES_SHIELDON
+	givemon SPECIES_SHIELDON, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveShieldonParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveShieldonPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveShieldonParty::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedShieldonFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveShieldonPC::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedShieldonFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_TransferShieldonToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_TransferShieldonToPC
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_TransferShieldonToPC::
+	call Common_EventScript_TransferredToPC
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceivedShieldonFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_SHIELDON
+	playfanfare MUS_OBTAIN_ITEM
+	message SlateportCity_OceanicMuseum_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_SHIELDON
+	return
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveTirtouga::
+	setvar VAR_TEMP_1, SPECIES_TIRTOUGA
+	givemon SPECIES_TIRTOUGA, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveTirtougaParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveTirtougaPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveTirtougaParty::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedTirtougaFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveTirtougaPC::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedTirtougaFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_TransferTirtougaToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_TransferTirtougaToPC
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_TransferTirtougaToPC::
+	call Common_EventScript_TransferredToPC
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceivedTirtougaFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_TIRTOUGA
+	playfanfare MUS_OBTAIN_ITEM
+	message SlateportCity_OceanicMuseum_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_TIRTOUGA
+	return
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveArchen::
+	setvar VAR_TEMP_1, SPECIES_ARCHEN
+	givemon SPECIES_ARCHEN, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveArchenParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveArchenPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveArchenParty::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedArchenFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveArchenPC::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedArchenFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_TransferArchenToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_TransferArchenToPC
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_TransferArchenToPC::
+	call Common_EventScript_TransferredToPC
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceivedArchenFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_ARCHEN
+	playfanfare MUS_OBTAIN_ITEM
+	message SlateportCity_OceanicMuseum_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_ARCHEN
+	return
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveTyrunt::
+	setvar VAR_TEMP_1, SPECIES_TYRUNT
+	givemon SPECIES_TYRUNT, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveTyruntParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveTyruntPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveTyruntParty::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedTyruntFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveTyruntPC::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedTyruntFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_TransferTyruntToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_TransferTyruntToPC
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_TransferTyruntToPC::
+	call Common_EventScript_TransferredToPC
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceivedTyruntFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_TYRUNT
+	playfanfare MUS_OBTAIN_ITEM
+	message SlateportCity_OceanicMuseum_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_TYRUNT
+	return
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAmaura::
+	setvar VAR_TEMP_1, SPECIES_AMAURA
+	givemon SPECIES_AMAURA, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAmauraParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAmauraPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAmauraParty::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedAmauraFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceiveAmauraPC::
+	call SlateportCity_OceanicMuseum_2F_EventScript_ReceivedAmauraFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_TransferAmauraToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto SlateportCity_OceanicMuseum_2F_EventScript_TransferAmauraToPC
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_TransferAmauraToPC::
+	call Common_EventScript_TransferredToPC
+	goto SlateportCity_OceanicMuseum_2F_EventScript_FinishReceivingMon
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ReceivedAmauraFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_AMAURA
+	playfanfare MUS_OBTAIN_ITEM
+	message SlateportCity_OceanicMuseum_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_AMAURA
+	return
+
+SlateportCity_OceanicMuseum_2F_EventScript_ChooseFossil::
+	message SlateportCity_OceanicMuseum_2F_Text_TwoFossilsPickOne
+	waitmessage
+	scrollingmultichoice 1, 17, 2, 5, TRUE
+	switch VAR_RESULT
+	case 0, SlateportCity_OceanicMuseum_2F_EventScript_ChooseOldAmber
+	case 1, SlateportCity_OceanicMuseum_2F_EventScript_ChooseHelixFossil
+	case 2, SlateportCity_OceanicMuseum_2F_EventScript_ChooseDomeFossil
+	case 3, SlateportCity_OceanicMuseum_2F_EventScript_ChooseRootFossil
+	case 4, SlateportCity_OceanicMuseum_2F_EventScript_ChooseClawFossil
+	case 5, SlateportCity_OceanicMuseum_2F_EventScript_ChooseSkullFossil
+	case 6, SlateportCity_OceanicMuseum_2F_EventScript_ChooseArmorFossil
+	case 7, SlateportCity_OceanicMuseum_2F_EventScript_ChooseCoverFossil
+	case 8, SlateportCity_OceanicMuseum_2F_EventScript_ChoosePlumeFossil
+	case 9, SlateportCity_OceanicMuseum_2F_EventScript_ChooseJawFossil
+	case 10, SlateportCity_OceanicMuseum_2F_EventScript_ChooseSailFossil
+	case MULTI_B_PRESSED, SlateportCity_OceanicMuseum_2F_EventScript_CancelFossilSelect
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ChooseOldAmber::
+	bufferitemname STR_VAR_1, ITEM_OLD_AMBER
+	checkitem ITEM_OLD_AMBER
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_OceanicMuseum_2F_EventScript_DontHaveFossil
+	goto SlateportCity_OceanicMuseum_2F_EventScript_GiveOldAmber
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ChooseHelixFossil::
+	bufferitemname STR_VAR_1, ITEM_HELIX_FOSSIL
+	checkitem ITEM_HELIX_FOSSIL
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_OceanicMuseum_2F_EventScript_DontHaveFossil
+	goto SlateportCity_OceanicMuseum_2F_EventScript_GiveHelixFossil
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ChooseDomeFossil::
+	bufferitemname STR_VAR_1, ITEM_DOME_FOSSIL
+	checkitem ITEM_DOME_FOSSIL
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_OceanicMuseum_2F_EventScript_DontHaveFossil
+	goto SlateportCity_OceanicMuseum_2F_EventScript_GiveDomeFossil
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ChooseClawFossil::
+	bufferitemname STR_VAR_1, ITEM_CLAW_FOSSIL
+	checkitem ITEM_CLAW_FOSSIL
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_OceanicMuseum_2F_EventScript_DontHaveFossil
+	goto SlateportCity_OceanicMuseum_2F_EventScript_GiveClawFossil
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ChooseRootFossil::
+	bufferitemname STR_VAR_1, ITEM_ROOT_FOSSIL
+	checkitem ITEM_ROOT_FOSSIL
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_OceanicMuseum_2F_EventScript_DontHaveFossil
+	goto SlateportCity_OceanicMuseum_2F_EventScript_GiveRootFossil
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ChooseSkullFossil::
+	bufferitemname STR_VAR_1, ITEM_SKULL_FOSSIL
+	checkitem ITEM_SKULL_FOSSIL
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_OceanicMuseum_2F_EventScript_DontHaveFossil
+	goto SlateportCity_OceanicMuseum_2F_EventScript_GiveSkullFossil
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ChooseArmorFossil::
+	bufferitemname STR_VAR_1, ITEM_ARMOR_FOSSIL
+	checkitem ITEM_ARMOR_FOSSIL
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_OceanicMuseum_2F_EventScript_DontHaveFossil
+	goto SlateportCity_OceanicMuseum_2F_EventScript_GiveArmorFossil
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ChooseCoverFossil::
+	bufferitemname STR_VAR_1, ITEM_COVER_FOSSIL
+	checkitem ITEM_COVER_FOSSIL
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_OceanicMuseum_2F_EventScript_DontHaveFossil
+	goto SlateportCity_OceanicMuseum_2F_EventScript_GiveCoverFossil
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ChoosePlumeFossil::
+	bufferitemname STR_VAR_1, ITEM_PLUME_FOSSIL
+	checkitem ITEM_PLUME_FOSSIL
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_OceanicMuseum_2F_EventScript_DontHaveFossil
+	goto SlateportCity_OceanicMuseum_2F_EventScript_GivePlumeFossil
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ChooseJawFossil::
+	bufferitemname STR_VAR_1, ITEM_JAW_FOSSIL
+	checkitem ITEM_JAW_FOSSIL
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_OceanicMuseum_2F_EventScript_DontHaveFossil
+	goto SlateportCity_OceanicMuseum_2F_EventScript_GiveJawFossil
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_ChooseSailFossil::
+	bufferitemname STR_VAR_1, ITEM_SAIL_FOSSIL
+	checkitem ITEM_SAIL_FOSSIL
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_OceanicMuseum_2F_EventScript_DontHaveFossil
+	goto SlateportCity_OceanicMuseum_2F_EventScript_GiveSailFossil
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_DontHaveFossil::
+	msgbox SlateportCity_OceanicMuseum_2F_Text_DontHave, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_CancelFossilSelect::
+	msgbox SlateportCity_OceanicMuseum_2F_Text_OhIsThatSo, MSGBOX_DEFAULT
+	release
 	end
 
 SlateportCity_OceanicMuseum_2F_EventScript_PressureExperiment::
@@ -238,20 +801,12 @@ SlateportCity_OceanicMuseum_2F_EventScript_SurfaceSeawaterDisplay::
 	msgbox SlateportCity_OceanicMuseum_2F_Text_SurfaceSeawaterDisplay, MSGBOX_SIGN
 	end
 
-SlateportCity_OceanicMuseum_2F_EventScript_SSTidalReplica::
-	msgbox SlateportCity_OceanicMuseum_2F_Text_SSTidalReplica, MSGBOX_SIGN
-	end
-
 SlateportCity_OceanicMuseum_2F_EventScript_SubmarineReplica::
 	msgbox SlateportCity_OceanicMuseum_2F_Text_SubmarineReplica, MSGBOX_SIGN
 	end
 
 SlateportCity_OceanicMuseum_2F_EventScript_SubmersibleReplica::
 	msgbox SlateportCity_OceanicMuseum_2F_Text_SumbersibleReplica, MSGBOX_SIGN
-	end
-
-SlateportCity_OceanicMuseum_2F_EventScript_SSAnneReplica::
-	msgbox SlateportCity_OceanicMuseum_2F_Text_SSAnneReplica, MSGBOX_SIGN
 	end
 
 SlateportCity_OceanicMuseum_2F_EventScript_MuseumPatron1::
@@ -272,123 +827,19 @@ SlateportCity_OceanicMuseum_2F_EventScript_MuseumPatron3::
 	release
 	end
 
-SlateportCity_OceanicMuseum_2F_Text_ThankYouForTheParts:
-	.string "Yes? If you're looking for STERN,\n"
-	.string "that would be me.\p"
-	.string "Ah! Those must be the parts I ordered\n"
-	.string "from MR. STONE of DEVON.\p"
-	.string "Thank you! That's great!\n"
-	.string "We can prepare for our expedition now.$"
-
-SlateportCity_OceanicMuseum_2F_Text_WellTakeThoseParts:
-	.string "Hehehe, hold it!\n"
-	.string "We'll take those parts!$"
-
-SlateportCity_OceanicMuseum_2F_Text_SternWhoAreYou:
-	.string "CAPT. STERN: Wh-what?\n"
-	.string "Who are you people?$"
-
-SlateportCity_OceanicMuseum_2F_Text_WereTeamAqua:
-	.string "We're TEAM AQUA!\p"
-	.string "Our BOSS wants those parts!\n"
-	.string "Shut your yap and fork them over!$"
-
-SlateportCity_OceanicMuseum_2F_Text_Grunt1Defeat:
-	.string "Awaaaah!\n"
-	.string "A kid beat me!$"
-
-SlateportCity_OceanicMuseum_2F_Text_BossGoingToBeFurious:
-	.string "Oh, man, what a disaster…\n"
-	.string "The BOSS is going to be furious…$"
-
-SlateportCity_OceanicMuseum_2F_Text_LetMeTakeCareOfThis:
-	.string "Humph, sniveling wimp!\n"
-	.string "Let me take care of this!$"
-
-SlateportCity_OceanicMuseum_2F_Text_Grunt2Defeat:
-	.string "What?!\n"
-	.string "I lost, too!$"
-
-SlateportCity_OceanicMuseum_2F_Text_MeddlingKid:
-	.string "Now what? If we don't get the parts,\n"
-	.string "we're in for it!\p"
-	.string "Arrgh, I didn't count on being meddled\n"
-	.string "with by some meddling kid!$"
-
-SlateportCity_OceanicMuseum_2F_Text_CameToSeeWhatsTakingSoLong:
-	.string "I came to see what was taking so\n"
-	.string "long to snatch some parts, and you\l"
-	.string "simps are held up by a mere child?$"
-
-SlateportCity_OceanicMuseum_2F_Text_ArchieWarning:
-	.string "We are TEAM AQUA,\n"
-	.string "and we love the sea!\p"
-	.string "And I am TEAM AQUA's leader,\n"
-	.string "ARCHIE!\p"
-	.string "What makes you interfere with us?\p"
-	.string "…No! You can't be!\n"
-	.string "You're not one of TEAM MAGMA?\p"
-	.string "Wait, that can't be right.\n"
-	.string "You're not dressed for the part.\p"
-	.string "… … … … … …\n"
-	.string "… … … … … …\p"
-	.string "POKéMON, people… All life depends on\n"
-	.string "the sea.\p"
-	.string "So, TEAM AQUA is dedicated to\n"
-	.string "the expansion of the sea.\p"
-	.string "Don't you agree? What we are doing\n"
-	.string "is a magnificent undertaking.\p"
-	.string "Ah, fine…\n"
-	.string "You're still too young to understand\l"
-	.string "our noble objective.\p"
-	.string "But, I warn you, don't even consider\n"
-	.string "interfering with our plans again.\p"
-	.string "The consequences will cost you\n"
-	.string "dearly!\p"
-	.string "And don't you forget it!$"
-
-SlateportCity_OceanicMuseum_2F_Text_SternThankYouForSavingUs:
-	.string "CAPT. STERN: You're…\n"
-	.string "Ah, okay, you're {PLAYER}{KUN}…\p"
-	.string "Anyway, that was a tense situation!\n"
-	.string "Thank you for saving us!\p"
-	.string "Oh, yes, I almost forgot that you\n"
-	.string "even brought the parts from DEVON!$"
-
-SlateportCity_OceanicMuseum_2F_Text_SternIveGotToGo:
-	.string "CAPT. STERN: Whoops!\n"
-	.string "There's no time to lose!\p"
-	.string "We have to set out on our ocean-floor\n"
-	.string "expedition really soon.\p"
-	.string "Thanks again, but now I've got\n"
-	.string "to go!\p"
-	.string "Feel free to wander around and check\n"
-	.string "out our facilities, though.$"
-
 SlateportCity_OceanicMuseum_2F_Text_RemindsMeOfAbandonedShip:
-	.string "I saw a model of a ship here.\p"
-	.string "It reminded me of the ABANDONED SHIP\n"
-	.string "near DEWFORD TOWN…$"
+	.string "Have you been on a submarine before?\p"
+	.string "They're much more cramped inside than\n"
+	.string "you would imagine.$"
 
 SlateportCity_OceanicMuseum_2F_Text_DontRunInMuseum:
-	.string "Don't you dare run around inside\n"
-	.string "the MUSEUM!$"
+	.string "You must be here because you love\n"
+	.string "learning about the ocean depths.\p"
+	.string "A young scientist in the making!$"
 
 SlateportCity_OceanicMuseum_2F_Text_WantToRideSubmarine:
-	.string "Wow, the submarine's awesome!\n"
-	.string "I want to go for a ride!$"
-
-SlateportCity_OceanicMuseum_2F_Text_WaterQualitySample1:
-	.string "“WATER QUALITY SAMPLE 1,” the\n"
-	.string "label says.\p"
-	.string "The sea is all connected, but the\n"
-	.string "water seems to differ by region.$"
-
-SlateportCity_OceanicMuseum_2F_Text_WaterQualitySample2:
-	.string "“WATER QUALITY SAMPLE 2,” the\n"
-	.string "label says.\p"
-	.string "Does the saltiness of seawater differ\n"
-	.string "by region, too?$"
+	.string "Could you refrain from bothering me?\p"
+	.string "Tcsh! Kids...$"
 
 SlateportCity_OceanicMuseum_2F_Text_PressureExperiment:
 	.string "A rubber ball is expanding and\n"
@@ -402,10 +853,10 @@ SlateportCity_OceanicMuseum_2F_Text_PressureExperiment:
 	.string "thousands of tons on a small area.”$"
 
 SlateportCity_OceanicMuseum_2F_Text_HoennModel:
-	.string "“MODEL OF HOENN REGION”\p"
+	.string "“MODEL OF JOHTO REGION”\p"
 	.string "It's a miniature diorama of the\n"
-	.string "HOENN region.\p"
-	.string "Where is LITTLEROOT TOWN on this?$"
+	.string "JOHTO region.\p"
+	.string "Where is Cherrygrove City on this?$"
 
 SlateportCity_OceanicMuseum_2F_Text_DeepSeawaterDisplay:
 	.string "It's a display on the flow of seawater.\p"
@@ -418,11 +869,6 @@ SlateportCity_OceanicMuseum_2F_Text_SurfaceSeawaterDisplay:
 	.string "“Toward the surface, seawater flows\n"
 	.string "as currents driven by the winds.”$"
 
-SlateportCity_OceanicMuseum_2F_Text_SSTidalReplica:
-	.string "“THE FERRY S.S. TIDAL\p"
-	.string "“A scale replica of the ship under\n"
-	.string "construction at STERN'S SHIPYARD.”$"
-
 SlateportCity_OceanicMuseum_2F_Text_SubmarineReplica:
 	.string "“SUBMARINE EXPLORER 1\p"
 	.string "“A replica of the high-performance\n"
@@ -433,8 +879,54 @@ SlateportCity_OceanicMuseum_2F_Text_SumbersibleReplica:
 	.string "“A replica of a compact, unmanned\n"
 	.string "pod for seafloor exploration.”$"
 
-SlateportCity_OceanicMuseum_2F_Text_SSAnneReplica:
-	.string "“S.S. ANNE\p"
-	.string "“A replica of the luxury liner that\n"
-	.string "circles the globe.”$"
+SlateportCity_OceanicMuseum_2F_Text_DevelopDeviceToResurrectFossils:
+	.string "If you're ever exploring the ocean\n"
+	.string "depths and come across an underwater\l"
+	.string "cave, there could be a POKéMON fossil\l"
+	.string "deep within.\p"
+	.string "They're certainly worth exploring.$"
+
+SlateportCity_OceanicMuseum_2F_Text_WantToBringFossilBackToLife:
+	.string "What's that?\p"
+	.string "You say you have a POKéMON fossil?\p"
+	.string "If you would like, we could bring that\n"
+	.string "POKéMON back to life for you.\p"
+	.string "Would you like to do that now?$"
+
+SlateportCity_OceanicMuseum_2F_Text_OhIsThatSo:
+	.string "Very well.\p"
+	.string "I'll be here if you ever change your\n"
+	.string "mind.$"
+
+SlateportCity_OceanicMuseum_2F_Text_TwoFossilsPickOne:
+	.string "Excelent!\p"
+	.string "And what fossil are you wanting to\n"
+	.string "bring back to life?$"
+
+SlateportCity_OceanicMuseum_2F_Text_HandedFossilToResearcher:
+	.string "Perfect!\n"
+	.string "Let's do this right away.\p"
+	.string "{PLAYER} handed the {STR_VAR_1} to\n"
+	.string "the scientist.$"
+
+SlateportCity_OceanicMuseum_2F_Text_FossilRegeneratorTakesTime:
+	.string "The fossil regeneration process will\n"
+	.string "take some time.\p"
+	.string "Please, have a look around the lab while\n"
+	.string "you wait.$"
+
+SlateportCity_OceanicMuseum_2F_Text_FossilizedMonBroughtBackToLife:
+	.string "Thanks for waiting!\p"
+	.string "Your fossilized POKéMON has been\n"
+	.string "brought back to life!\p"
+	.string "The fossil was an ancient POKéMON.\n"
+	.string "{STR_VAR_2}, to be exact!$"
+
+SlateportCity_OceanicMuseum_2F_Text_ReceivedMonFromResearcher:
+	.string "{PLAYER} received {STR_VAR_2} from\n"
+	.string "the scientist.$"
+
+SlateportCity_OceanicMuseum_2F_Text_DontHave:
+	.string "Oh, I'm sorry, but it doesn't look like\n"
+	.string "you have a {STR_VAR_1}.$"
 

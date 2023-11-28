@@ -17,6 +17,7 @@ script FallarborTown_MoveRelearnersHouse_EventScript_Gentleman {
         }
         else {
             msgbox(format("Wonderful!"))
+			setvar (VAR_TEMP_1, SPECIES_ZORUA_HISUIAN)
             givemon (SPECIES_ZORUA_HISUIAN, 20, ITEM_SILK_SCARF)
 	        goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PARTY, FallarborTown_MoveRelearnersHouse_EventScript_ReceiveZoruaParty)
 	        goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PC, FallarborTown_MoveRelearnersHouse_EventScript_ReceiveZoruaPC)
@@ -52,6 +53,7 @@ script FallarborTown_MoveRelearnersHouse_EventScript_SendZoruaToPC {
 }
 
 script FallarborTown_MoveRelearnersHouse_EventScript_ReceivedZoruaFanfare {
+	bufferspeciesname (STR_VAR_2, SPECIES_ZORUA)
 	playfanfare (MUS_OBTAIN_ITEM)
 	msgbox(format("{PLAYER} received the Zorua!"))
 	waitmessage

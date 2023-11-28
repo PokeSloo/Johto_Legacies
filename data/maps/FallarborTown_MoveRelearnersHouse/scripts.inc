@@ -10,6 +10,7 @@ FallarborTown_MoveRelearnersHouse_EventScript_Gentleman::
 	compare VAR_RESULT, NO
 	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_Gentleman_4
 	msgbox FallarborTown_MoveRelearnersHouse_EventScript_Gentleman_Text_3
+	setvar VAR_TEMP_1, SPECIES_ZORUA_HISUIAN
 	givemon SPECIES_ZORUA_HISUIAN, 20, ITEM_SILK_SCARF
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, FallarborTown_MoveRelearnersHouse_EventScript_ReceiveZoruaParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, FallarborTown_MoveRelearnersHouse_EventScript_ReceiveZoruaPC
@@ -53,6 +54,7 @@ FallarborTown_MoveRelearnersHouse_EventScript_SendZoruaToPC::
 
 
 FallarborTown_MoveRelearnersHouse_EventScript_ReceivedZoruaFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_ZORUA
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox FallarborTown_MoveRelearnersHouse_EventScript_ReceivedZoruaFanfare_Text_0
 	waitmessage

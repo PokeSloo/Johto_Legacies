@@ -405,6 +405,7 @@ Route110_TrickHouseEntrance_EventScript_MiddleLater::
 
 Route110_TrickHouseEntrance_EventScript_MiddleLater_1:
 	msgbox Route110_TrickHouseEntrance_EventScript_MiddleLater_Text_0
+	setvar VAR_TEMP_1, SPECIES_EEVEE
 	givemon SPECIES_EEVEE, 15, ITEM_EVERSTONE
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Route110_TrickHouseEntrance_EventScript_ReceiveEeveeParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Route110_TrickHouseEntrance_EventScript_ReceiveEeveePC
@@ -438,6 +439,7 @@ Route110_TrickHouseEntrance_EventScript_SendEeveeToPC::
 
 
 Route110_TrickHouseEntrance_EventScript_ReceivedEeveeFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_EEVEE
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox Route110_TrickHouseEntrance_EventScript_ReceivedEeveeFanfare_Text_0
 	waitmessage

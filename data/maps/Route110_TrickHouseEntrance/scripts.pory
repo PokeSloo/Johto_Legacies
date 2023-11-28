@@ -382,6 +382,7 @@ script Route110_TrickHouseEntrance_EventScript_KimonoGirl_Middle {
 script Route110_TrickHouseEntrance_EventScript_MiddleLater {
     if (var(VAR_KIMONO_GIRL_COUNT) == 5) {
         msgbox(format("Since you managed to defeat all of us, I would like to present you with a special reward!\pPlease, take this POKéMON."))
+        setvar (VAR_TEMP_1, SPECIES_EEVEE)
         givemon (SPECIES_EEVEE, 15, ITEM_EVERSTONE)
 	    goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PARTY, Route110_TrickHouseEntrance_EventScript_ReceiveEeveeParty)
 	    goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PC, Route110_TrickHouseEntrance_EventScript_ReceiveEeveePC)
@@ -421,7 +422,8 @@ script Route110_TrickHouseEntrance_EventScript_SendEeveeToPC {
 }
 
 script Route110_TrickHouseEntrance_EventScript_ReceivedEeveeFanfare {
-	playfanfare (MUS_OBTAIN_ITEM)
+	bufferspeciesname (STR_VAR_2, SPECIES_EEVEE)
+    playfanfare (MUS_OBTAIN_ITEM)
 	msgbox(format("{PLAYER} received the Eevee!"))
 	waitmessage
 	waitfanfare

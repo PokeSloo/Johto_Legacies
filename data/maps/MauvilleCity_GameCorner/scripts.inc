@@ -168,6 +168,7 @@ MauvilleCity_GameCorner_EventScript_BuyTreeckoDoll::
 	end
 
 MauvilleCity_GameCorner_EventScript_SendPikachuParty::
+	bufferspeciesname STR_VAR_2, SPECIES_PIKACHU
 	playfanfare MUS_OBTAIN_ITEM
 	message MauvilleCity_GameCorner_Text_ObtainedPikachu
 	waitmessage
@@ -184,6 +185,7 @@ MauvilleCity_GameCorner_EventScript_SendPikachuParty::
 	end
 
 MauvilleCity_GameCorner_EventScript_SendPikachuPC::
+	bufferspeciesname STR_VAR_2, SPECIES_PIKACHU
 	playfanfare MUS_OBTAIN_ITEM
 	message MauvilleCity_GameCorner_Text_ObtainedPikachu
 	waitmessage
@@ -222,6 +224,7 @@ MauvilleCity_GameCorner_EventScript_BuyTorchicDoll::
 	end
 
 MauvilleCity_GameCorner_EventScript_SendApplinParty::
+	bufferspeciesname STR_VAR_2, SPECIES_APPLIN
 	playfanfare MUS_OBTAIN_ITEM
 	message MauvilleCity_GameCorner_Text_ObtainedApplin
 	waitmessage
@@ -238,6 +241,7 @@ MauvilleCity_GameCorner_EventScript_SendApplinParty::
 	end
 
 MauvilleCity_GameCorner_EventScript_SendApplinPC::
+	bufferspeciesname STR_VAR_2, SPECIES_APPLIN
 	playfanfare MUS_OBTAIN_ITEM
 	message MauvilleCity_GameCorner_Text_ObtainedApplin
 	waitmessage
@@ -264,6 +268,7 @@ MauvilleCity_GameCorner_EventScript_BuyMudkipDoll::
 	end
 
 MauvilleCity_GameCorner_EventScript_SendPorygonParty::
+	bufferspeciesname STR_VAR_2, SPECIES_PORYGON
 	playfanfare MUS_OBTAIN_ITEM
 	message MauvilleCity_GameCorner_Text_ObtainedPorygon
 	waitmessage
@@ -280,6 +285,7 @@ MauvilleCity_GameCorner_EventScript_SendPorygonParty::
 	end
 
 MauvilleCity_GameCorner_EventScript_SendPorygonPC::
+	bufferspeciesname STR_VAR_2, SPECIES_PORYGON
 	playfanfare MUS_OBTAIN_ITEM
 	message MauvilleCity_GameCorner_Text_ObtainedPorygon
 	waitmessage
