@@ -539,7 +539,7 @@
 // Hidden Items
 #define FLAG_HIDDEN_ITEMS_START                                                         0x1F4
 #define FLAG_HIDDEN_ITEM_LAVARIDGE_TOWN_ICE_HEAL             (FLAG_HIDDEN_ITEMS_START + 0x00)
-#define FLAG_HIDDEN_ITEM_TRICK_HOUSE_NUGGET                  (FLAG_HIDDEN_ITEMS_START + 0x01)
+#define FLAG_HIDDEN_ITEM_TRICK_HOUSE_NUGGET                  (FLAG_HIDDEN_ITEMS_START + 0x01) //Unused now
 #define FLAG_HIDDEN_ITEM_ROUTE_111_STARDUST                  (FLAG_HIDDEN_ITEMS_START + 0x02)
 #define FLAG_HIDDEN_ITEM_ROUTE_113_ETHER                     (FLAG_HIDDEN_ITEMS_START + 0x03)
 #define FLAG_HIDDEN_ITEM_ROUTE_114_CARBOS                    (FLAG_HIDDEN_ITEMS_START + 0x04)
@@ -732,7 +732,7 @@
 #define FLAG_CIANWOOD_TRADE_COMPLETED  0x2B2 // Riolu trade
 #define FLAG_HIDE_SHANE_CIANWOOD  0x2B3 // Battle entering gym
 #define FLAG_DEFEATED_SHANE_CIANWOOD  0x2B4 // In front of gym
-#define FLAG_UNUSED_0x2B5  0x2B5 // Unused Flag
+#define FLAG_DEFEATED_CIANWOOD_GYM_TRAINERS  0x2B5 // Before Lee, gauntlet style
 #define FLAG_UNUSED_0x2B6  0x2B6 // Unused Flag
 #define FLAG_UNUSED_0x2B7  0x2B7 // Unused Flag
 #define FLAG_UNUSED_0x2B8  0x2B8 // Unused Flag

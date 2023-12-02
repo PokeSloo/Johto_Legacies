@@ -182,7 +182,7 @@ LavaridgeTown_EventScript_ShaneTrigger_Text_1:
 	.string "...\p"
 	.string "Fine then, I'll just keep training.\p"
 	.string "Soon I'll beat you, and then overthrow\n"
-	.string "dad to become the champion myself!\p"
+	.string "dad to become the Champion myself!\p"
 	.string "He'll have no choice but to acknowledge\n"
 	.string "me then...\p"
 	.string "...$"

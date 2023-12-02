@@ -1,349 +1,707 @@
-.set LOCALID_TRICK_MASTER, 1
-
 Route110_TrickHouseEnd_MapScripts::
 	.byte 0
 
-Route110_TrickHouseEnd_OnResume:
-	call_if_eq VAR_TEMP_1, 1, Route110_TrickHouseEnd_EventScript_SetDoorClosedMetatile
-	end
 
-Route110_TrickHouseEnd_OnTransition:
-	setvar VAR_TEMP_1, 0
-	setvar VAR_TEMP_2, 0
-	special SetTrickHouseNuggetFlag
-	end
-
-Route110_TrickHouseEnd_OnWarp:
-	map_script_2 VAR_TEMP_2, 0, Route110_TrickHouseEnd_EventScript_SetTrickMasterPos
-	.2byte 0
-
-Route110_TrickHouseEnd_EventScript_SetTrickMasterPos::
-	addobject LOCALID_TRICK_MASTER
-	showobjectat LOCALID_TRICK_MASTER, MAP_ROUTE110_TRICK_HOUSE_END
-	turnobject LOCALID_TRICK_MASTER, DIR_EAST
-	end
-
-Route110_TrickHouseEnd_OnFrame:
-	map_script_2 VAR_TEMP_1, 0, Route110_TrickHouseEnd_EventScript_CloseDoor
-	.2byte 0
-
-Route110_TrickHouseEnd_EventScript_CloseDoor::
-	setvar VAR_TEMP_1, 1
-	call Route110_TrickHouseEnd_EventScript_SetDoorClosedMetatile
-	special DrawWholeMapView
-	end
-
-Route110_TrickHouseEnd_EventScript_SetDoorClosedMetatile::
-	setmetatile 10, 1, METATILE_GenericBuilding_TrickHouse_Door_Closed, TRUE
-	return
-
-Route110_TrickHouseEnd_EventScript_TrickMaster::
+Route110_TrickHouseEnd_EventScript_Lee::
 	lock
 	faceplayer
-	msgbox Route110_TrickHouseEnd_Text_YouveMadeItToMe, MSGBOX_DEFAULT
-	setvar VAR_TEMP_2, 1
-	switch VAR_TRICK_HOUSE_LEVEL
-	case 0, Route110_TrickHouseEnd_EventScript_CompletedPuzzle1
-	case 1, Route110_TrickHouseEnd_EventScript_CompletedPuzzle2
-	case 2, Route110_TrickHouseEnd_EventScript_CompletedPuzzle3
-	case 3, Route110_TrickHouseEnd_EventScript_CompletedPuzzle4
-	case 4, Route110_TrickHouseEnd_EventScript_CompletedPuzzle5
-	case 5, Route110_TrickHouseEnd_EventScript_CompletedPuzzle6
-	case 6, Route110_TrickHouseEnd_EventScript_CompletedPuzzle7
-	case 7, Route110_TrickHouseEnd_EventScript_CompletedPuzzle8
-	end
-
-Route110_TrickHouseEnd_EventScript_CompletedPuzzle1::
-	msgbox Route110_TrickHouseEnd_Text_AllNightToPlantTrees, MSGBOX_DEFAULT
-	msgbox Route110_TrickHouseEnd_Text_YouHaveEarnedThisReward, MSGBOX_DEFAULT
-	setvar VAR_TRICK_HOUSE_PRIZE_PICKUP, 0
-	giveitem ITEM_RARE_CANDY
-	call_if_eq VAR_RESULT, FALSE, Route110_TrickHouseEnd_EventScript_BagFull
-	msgbox Route110_TrickHouseEnd_Text_MakeNewTricksToStumpYou, MSGBOX_DEFAULT
+	goto_if_set FLAG_DEFEATED_FORTREE_GYM, Route110_TrickHouseEnd_EventScript_Lee_1
+	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM_TRAINERS, Route110_TrickHouseEnd_EventScript_Lee_2
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_5
+	waitmessage
 	closemessage
-	call Route110_TrickHouseEnd_EventScript_TrickMasterExit
-	release
-	end
-
-Route110_TrickHouseEnd_EventScript_CompletedPuzzle2::
-	msgbox Route110_TrickHouseEnd_Text_AllNightToMakeMaze, MSGBOX_DEFAULT
-	msgbox Route110_TrickHouseEnd_Text_YouHaveEarnedThisReward, MSGBOX_DEFAULT
-	setvar VAR_TRICK_HOUSE_PRIZE_PICKUP, 0
-	giveitem ITEM_TIMER_BALL
-	call_if_eq VAR_RESULT, FALSE, Route110_TrickHouseEnd_EventScript_BagFull
-	msgbox Route110_TrickHouseEnd_Text_MakeNewTricksToStumpYou, MSGBOX_DEFAULT
-	closemessage
-	call Route110_TrickHouseEnd_EventScript_TrickMasterExit
-	release
-	end
-
-Route110_TrickHouseEnd_EventScript_CompletedPuzzle3::
-	msgbox Route110_TrickHouseEnd_Text_AllNightToPreparePanels, MSGBOX_DEFAULT
-	msgbox Route110_TrickHouseEnd_Text_YouHaveEarnedThisReward, MSGBOX_DEFAULT
-	setvar VAR_TRICK_HOUSE_PRIZE_PICKUP, 0
-	giveitem ITEM_HARD_STONE
-	call_if_eq VAR_RESULT, FALSE, Route110_TrickHouseEnd_EventScript_BagFull
-	msgbox Route110_TrickHouseEnd_Text_MakeNewTricksToStumpYou, MSGBOX_DEFAULT
-	closemessage
-	call Route110_TrickHouseEnd_EventScript_TrickMasterExit
-	release
-	end
-
-Route110_TrickHouseEnd_EventScript_CompletedPuzzle4::
-	msgbox Route110_TrickHouseEnd_Text_AllNightToShoveBoulders, MSGBOX_DEFAULT
-	msgbox Route110_TrickHouseEnd_Text_YouHaveEarnedThisReward, MSGBOX_DEFAULT
-	setvar VAR_TRICK_HOUSE_PRIZE_PICKUP, 0
-	giveitem ITEM_SMOKE_BALL
-	call_if_eq VAR_RESULT, FALSE, Route110_TrickHouseEnd_EventScript_BagFull
-	msgbox Route110_TrickHouseEnd_Text_MakeNewTricksToStumpYou, MSGBOX_DEFAULT
-	closemessage
-	call Route110_TrickHouseEnd_EventScript_TrickMasterExit
-	release
-	end
-
-Route110_TrickHouseEnd_EventScript_CompletedPuzzle5::
-	msgbox Route110_TrickHouseEnd_Text_AllNightToMakeMechadolls, MSGBOX_DEFAULT
-	msgbox Route110_TrickHouseEnd_Text_YouHaveEarnedThisReward, MSGBOX_DEFAULT
-	setvar VAR_TRICK_HOUSE_PRIZE_PICKUP, 0
-	giveitem ITEM_TM12
-	call_if_eq VAR_RESULT, FALSE, Route110_TrickHouseEnd_EventScript_BagFull
-	msgbox Route110_TrickHouseEnd_Text_MakeNewTricksToStumpYou, MSGBOX_DEFAULT
-	closemessage
-	call Route110_TrickHouseEnd_EventScript_TrickMasterExit
-	release
-	end
-
-Route110_TrickHouseEnd_EventScript_CompletedPuzzle6::
-	msgbox Route110_TrickHouseEnd_Text_AllNightToInstallDoors, MSGBOX_DEFAULT
-	msgbox Route110_TrickHouseEnd_Text_YouHaveEarnedThisReward, MSGBOX_DEFAULT
-	setvar VAR_TRICK_HOUSE_PRIZE_PICKUP, 0
-	giveitem ITEM_MAGNET
-	call_if_eq VAR_RESULT, FALSE, Route110_TrickHouseEnd_EventScript_BagFull
-	msgbox Route110_TrickHouseEnd_Text_MakeNewTricksToStumpYou, MSGBOX_DEFAULT
-	closemessage
-	call Route110_TrickHouseEnd_EventScript_TrickMasterExit
-	release
-	end
-
-Route110_TrickHouseEnd_EventScript_CompletedPuzzle7::
-	msgbox Route110_TrickHouseEnd_Text_AllNightSettingUpArrows, MSGBOX_DEFAULT
-	msgbox Route110_TrickHouseEnd_Text_YouHaveEarnedThisReward, MSGBOX_DEFAULT
-	setvar VAR_TRICK_HOUSE_PRIZE_PICKUP, 0
-	giveitem ITEM_PP_MAX
-	call_if_eq VAR_RESULT, FALSE, Route110_TrickHouseEnd_EventScript_BagFull
-	msgbox Route110_TrickHouseEnd_Text_MakeNewTricksToStumpYou, MSGBOX_DEFAULT
-	closemessage
-	call Route110_TrickHouseEnd_EventScript_TrickMasterExit
-	release
-	end
-
-Route110_TrickHouseEnd_EventScript_CompletedPuzzle8::
-	msgbox Route110_TrickHouseEnd_Text_AllNightPolishingFloors, MSGBOX_DEFAULT
-	closemessage
-	call_if_eq VAR_FACING, DIR_SOUTH, Route110_TrickHouseEnd_EventScript_TrickMasterFaceAwaySouth
-	call_if_eq VAR_FACING, DIR_NORTH, Route110_TrickHouseEnd_EventScript_TrickMasterFaceAwayNorth
-	call_if_eq VAR_FACING, DIR_WEST, Route110_TrickHouseEnd_EventScript_TrickMasterFaceAwayWest
-	call_if_eq VAR_FACING, DIR_EAST, Route110_TrickHouseEnd_EventScript_TrickMasterFaceAwayEast
-	delay 30
-	msgbox Route110_TrickHouseEnd_Text_FountainOfIdeasRunDry, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_TRICK_MASTER, Common_Movement_FacePlayer
-	waitmovement 0
-	delay 30
-	msgbox Route110_TrickHouseEnd_Text_DefeatedMePreferWhichTent, MSGBOX_DEFAULT
-	setvar VAR_TRICK_HOUSE_PRIZE_PICKUP, 0
-	call Route110_TrickHouseEnd_EventScript_ChooseTent
-	call_if_eq VAR_RESULT, FALSE, Route110_TrickHouseEnd_EventScript_NoRoomForTent
-	msgbox Route110_TrickHouseEnd_Text_LeavingOnJourney, MSGBOX_DEFAULT
-	call Route110_TrickHouseEnd_EventScript_TrickMasterExit
-	special ResetTrickHouseNuggetFlag
-	release
-	end
-
-Route110_TrickHouseEnd_EventScript_ChooseTent::
-	multichoice 0, 0, MULTI_TENT, TRUE
+	specialvar VAR_RESULT, GetPlayerFacingDirection
 	switch VAR_RESULT
-	case 0, Route110_TrickHouseEnd_EventScript_GiveRedTent
-	goto Route110_TrickHouseEnd_EventScript_GiveBlueTent
-
-Route110_TrickHouseEnd_EventScript_GiveRedTent::
-	givedecoration DECOR_RED_TENT
-	return
-
-Route110_TrickHouseEnd_EventScript_GiveBlueTent::
-	givedecoration DECOR_BLUE_TENT
-	return
-
-Route110_TrickHouseEnd_EventScript_TrickMasterExit::
-	removeobject LOCALID_TRICK_MASTER
-	addvar VAR_TRICK_HOUSE_LEVEL, 1
-	return
-
-Route110_TrickHouseEnd_EventScript_BagFull::
-	call Common_EventScript_BagIsFull
-	msgbox Route110_TrickHouseEnd_Text_NoRoomForThis, MSGBOX_DEFAULT
-	setvar VAR_TRICK_HOUSE_PRIZE_PICKUP, 1
-	return
-
-Route110_TrickHouseEnd_EventScript_NoRoomForTent::
-	call Common_EventScript_NoRoomForDecor
-	msgbox Route110_TrickHouseEnd_Text_NoRoomInPC, MSGBOX_DEFAULT
-	setvar VAR_TRICK_HOUSE_PRIZE_PICKUP, 1
-	return
-
-Route110_TrickHouseEnd_EventScript_TrickMasterFaceAwaySouth::
-	applymovement LOCALID_TRICK_MASTER, Common_Movement_WalkInPlaceFasterDown
+	case DIR_EAST, Route110_TrickHouseEnd_EventScript_Lee_8
+	case DIR_NORTH, Route110_TrickHouseEnd_EventScript_Lee_9
+	case DIR_WEST, Route110_TrickHouseEnd_EventScript_Lee_10
+	case DIR_SOUTH, Route110_TrickHouseEnd_EventScript_Lee_11
+Route110_TrickHouseEnd_EventScript_Lee_6:
+	applymovement 1, Route110_TrickHouseEnd_Movement_StepDown
 	waitmovement 0
-	return
-
-Route110_TrickHouseEnd_EventScript_TrickMasterFaceAwayNorth::
-	applymovement LOCALID_TRICK_MASTER, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	return
-
-Route110_TrickHouseEnd_EventScript_TrickMasterFaceAwayWest::
-	applymovement LOCALID_TRICK_MASTER, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	return
-
-Route110_TrickHouseEnd_EventScript_TrickMasterFaceAwayEast::
-	applymovement LOCALID_TRICK_MASTER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	return
-
-Route110_TrickHouseEnd_EventScript_TrickMasterExitTrigger::
-	lockall
-	turnobject LOCALID_TRICK_MASTER, DIR_WEST
-	playse SE_PIN
-	applymovement LOCALID_TRICK_MASTER, Common_Movement_ExclamationMark
-	waitmovement 0
-	delay 20
-	applymovement LOCALID_TRICK_MASTER, Route110_TrickHouseEnd_Movement_TrickMasterSurprise
-	waitmovement 0
-	playse SE_M_EXPLOSION
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	msgbox Route110_TrickHouseEnd_Text_YoureIgnoringMe, MSGBOX_DEFAULT
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_6
+	waitmessage
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_KeepPlayerInRoom
+	applymovement 2, Route110_TrickHouseEnd_Movement_StepUp
+	applymovement 3, Route110_TrickHouseEnd_Movement_StepUp
+	applymovement 4, Route110_TrickHouseEnd_Movement_StepUp
+	applymovement 5, Route110_TrickHouseEnd_Movement_StepUp
+	applymovement 6, Route110_TrickHouseEnd_Movement_StepUp
+	applymovement 7, Route110_TrickHouseEnd_Movement_StepUp
 	waitmovement 0
-	delay 4
-	turnobject LOCALID_TRICK_MASTER, DIR_EAST
-	releaseall
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_StepUp
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_7
+	waitmessage
+	closemessage
+	applymovement 1, Route110_TrickHouseEnd_Movement_StepDown
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_8
+	waitmessage
+	closemessage
+	applymovement 2, Route110_TrickHouseEnd_Movement_StepLeft
+	applymovement 3, Route110_TrickHouseEnd_Movement_StepLeft
+	applymovement 4, Route110_TrickHouseEnd_Movement_StepLeft
+	applymovement 5, Route110_TrickHouseEnd_Movement_StepLeft
+	applymovement 6, Route110_TrickHouseEnd_Movement_StepLeft
+	applymovement 7, Route110_TrickHouseEnd_Movement_StepLeft
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_StepLeft
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_9
+	waitmessage
+	closemessage
+	applymovement 1, Route110_TrickHouseEnd_Movement_StepDown
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_10
+	waitmessage
+	closemessage
+	applymovement 2, Route110_TrickHouseEnd_Movement_StepRight
+	applymovement 3, Route110_TrickHouseEnd_Movement_StepRight
+	applymovement 4, Route110_TrickHouseEnd_Movement_StepRight
+	applymovement 5, Route110_TrickHouseEnd_Movement_StepRight
+	applymovement 6, Route110_TrickHouseEnd_Movement_StepRight
+	applymovement 7, Route110_TrickHouseEnd_Movement_StepRight
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_StepRight
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_9
+	waitmessage
+	closemessage
+	applymovement 1, Route110_TrickHouseEnd_Movement_StepDown
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_11
+	waitmessage
+	closemessage
+	applymovement 2, Route110_TrickHouseEnd_Movement_StepUp
+	applymovement 3, Route110_TrickHouseEnd_Movement_StepUp
+	applymovement 4, Route110_TrickHouseEnd_Movement_StepUp
+	applymovement 5, Route110_TrickHouseEnd_Movement_StepUp
+	applymovement 6, Route110_TrickHouseEnd_Movement_StepUp
+	applymovement 7, Route110_TrickHouseEnd_Movement_StepUp
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_StepUp
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_9
+	waitmessage
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_LookAround
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_12
+	waitmessage
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_WalkToLee
+	waitmovement 0
+	applymovement 1, Route110_TrickHouseEnd_Movement_FaceLeft
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_13
+	waitmessage
+	closemessage
+	applymovement 1, Route110_TrickHouseEnd_Movement_LeeWalkBack
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_14
+	waitmessage
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_PlayerToMiddle
+	waitmovement 0
+	delay 30
+	applymovement 3, Route110_TrickHouseEnd_Movement_FirstToPlayer
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_15
+	waitmessage
+	closemessage
+	trainerbattle_no_intro TRAINER_JARED, Route110_TrickHouseEnd_Text_JaredDefeat
+	applymovement 3, Route110_TrickHouseEnd_Movement_FirstToStance
+	waitmovement 0
+	applymovement 6, Route110_TrickHouseEnd_Movement_FirstToStance
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_16
+	waitmessage
+	closemessage
+	trainerbattle_no_intro TRAINER_EDWARDO, Route110_TrickHouseEnd_Text_EdwardoDefeat
+	applymovement 6, Route110_TrickHouseEnd_Movement_FirstToPlayer
+	waitmovement 0
+	applymovement 4, Route110_TrickHouseEnd_Movement_ThirdToPlayer
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_17
+	waitmessage
+	closemessage
+	trainerbattle_no_intro TRAINER_FLINT, Route110_TrickHouseEnd_Text_FlintDefeat
+	applymovement 4, Route110_TrickHouseEnd_Movement_ThirdToStance
+	waitmovement 0
+	applymovement 5, Route110_TrickHouseEnd_Movement_FourthToPlayer
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_18
+	waitmessage
+	closemessage
+	trainerbattle_no_intro TRAINER_ASHLEY, Route110_TrickHouseEnd_Text_AshleyDefeat
+	applymovement 5, Route110_TrickHouseEnd_Movement_FourthToStance
+	waitmovement 0
+	applymovement 2, Route110_TrickHouseEnd_Movement_FifthToPlayer
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_19
+	waitmessage
+	closemessage
+	trainerbattle_no_intro TRAINER_HUMBERTO, Route110_TrickHouseEnd_Text_HumbertoDefeat
+	applymovement 2, Route110_TrickHouseEnd_Movement_FifthToStance
+	waitmovement 0
+	applymovement 7, Route110_TrickHouseEnd_Movement_SixthToPlayer
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_20
+	waitmessage
+	closemessage
+	trainerbattle_no_intro TRAINER_DARIUS, Route110_TrickHouseEnd_Text_DariusDefeat
+	applymovement 7, Route110_TrickHouseEnd_Movement_SixthToStance
+	waitmovement 0
+	applymovement 1, Route110_TrickHouseEnd_Movement_LeeBacktoOriginal
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_FaceUp
+	waitmovement 0
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_21
+	setflag FLAG_DEFEATED_CIANWOOD_GYM_TRAINERS
+	release
 	end
 
-Route110_TrickHouseEnd_Movement_KeepPlayerInRoom:
+Route110_TrickHouseEnd_EventScript_Lee_1:
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_0
+	release
+	end
+
+Route110_TrickHouseEnd_EventScript_Lee_2:
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_1
+	trainerbattle_no_intro TRAINER_WINONA_1, Route110_TrickHouseEnd_Text_LeeDefeat
+	message Route110_TrickHouseEnd_EventScript_Lee_Text_2
+	waitmessage
+	call Common_EventScript_PlayGymBadgeFanfare
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_3
+	setflag FLAG_DEFEATED_FORTREE_GYM
+	setflag FLAG_BADGE06_GET
+	addvar VAR_ECRUTEAK_STATE, 1
+	giveitem ITEM_TM31_BRICK_BREAK
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_4
+	release
+	end
+
+Route110_TrickHouseEnd_EventScript_Lee_8:
+	call Route110_TrickHouseEnd_EventScript_FacingEast
+	goto Route110_TrickHouseEnd_EventScript_Lee_6
+
+Route110_TrickHouseEnd_EventScript_Lee_9:
+	call Route110_TrickHouseEnd_EventScript_FacingNorth
+	goto Route110_TrickHouseEnd_EventScript_Lee_6
+
+Route110_TrickHouseEnd_EventScript_Lee_10:
+	call Route110_TrickHouseEnd_EventScript_FacingWest
+	goto Route110_TrickHouseEnd_EventScript_Lee_6
+
+Route110_TrickHouseEnd_EventScript_Lee_11:
+	call Route110_TrickHouseEnd_EventScript_FacingSouth
+	goto Route110_TrickHouseEnd_EventScript_Lee_6
+
+
+Route110_TrickHouseEnd_EventScript_FacingEast::
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_LineUpFromLeft
+	waitmovement 0
+	return
+
+
+Route110_TrickHouseEnd_EventScript_FacingNorth::
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_LineUpFromBottom
+	waitmovement 0
+	return
+
+
+Route110_TrickHouseEnd_EventScript_FacingWest::
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_LineUpFromRight
+	waitmovement 0
+	return
+
+
+Route110_TrickHouseEnd_EventScript_FacingSouth::
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_LineUpFromTop
+	waitmovement 0
+	return
+
+
+Route110_TrickHouseEnd_Movement_StepUp:
+	walk_in_place_up
+	step_end
+
+Route110_TrickHouseEnd_Movement_StepDown:
+	walk_in_place_down
+	step_end
+
+Route110_TrickHouseEnd_Movement_StepLeft:
+	walk_in_place_left
+	step_end
+
+Route110_TrickHouseEnd_Movement_StepRight:
+	walk_in_place_right
+	step_end
+
+Route110_TrickHouseEnd_Movement_LineUpFromLeft:
+	walk_down
+	walk_right
+	walk_down
+	face_up
+	step_end
+
+Route110_TrickHouseEnd_Movement_LineUpFromBottom:
+	walk_down
+	face_up
+	step_end
+
+Route110_TrickHouseEnd_Movement_LineUpFromRight:
+	walk_down
+	walk_left
+	walk_down
+	face_up
+	step_end
+
+Route110_TrickHouseEnd_Movement_LineUpFromTop:
+	walk_left
+	walk_down
+	walk_down
+	walk_right
+	walk_down
+	face_up
+	step_end
+
+Route110_TrickHouseEnd_Movement_LookAround:
+	walk_in_place_left
+	delay_16
+	delay_16
+	walk_in_place_right
+	delay_16
+	delay_16
+	walk_in_place_up
+	step_end
+
+Route110_TrickHouseEnd_Movement_WalkToLee:
+	walk_up
+	walk_left
+	walk_up
+	face_right
+	step_end
+
+Route110_TrickHouseEnd_Movement_FaceLeft:
+	face_left
+	step_end
+
+Route110_TrickHouseEnd_Movement_FaceUp:
+	face_up
+	step_end
+
+Route110_TrickHouseEnd_Movement_LeeWalkBack:
+	walk_right
+	walk_right
+	face_left
+	step_end
+
+Route110_TrickHouseEnd_Movement_PlayerToMiddle:
+	walk_right
 	walk_down
 	step_end
 
-Route110_TrickHouseEnd_Movement_TrickMasterSurprise:
-	jump_in_place_left
+Route110_TrickHouseEnd_Movement_FirstToPlayer:
+	walk_right
+	walk_right
+	walk_in_place_up
 	step_end
 
-Route110_TrickHouseEnd_Text_YouveMadeItToMe:
-	.string "Aak!\n"
-	.string "You've made it to me?\l"
-	.string "Hmmm… You're sharp!$"
+Route110_TrickHouseEnd_Movement_FirstToStance:
+	walk_left
+	walk_left
+	walk_in_place_up
+	step_end
 
-Route110_TrickHouseEnd_Text_AllNightToPlantTrees:
-	.string "It took me all night to plant all those\n"
-	.string "trees…\p"
-	.string "You're almost my equal in greatness by\n"
-	.string "one, two, three, four, five, six places!$"
+Route110_TrickHouseEnd_Movement_ThirdToPlayer:
+	walk_right
+	walk_up
+	step_end
 
-Route110_TrickHouseEnd_Text_AllNightToMakeMaze:
-	.string "It took me all night to make the maze…\p"
-	.string "You're almost my equal in greatness by\n"
-	.string "one, two, three, four, five places!$"
+Route110_TrickHouseEnd_Movement_ThirdToStance:
+	walk_down
+	walk_left
+	walk_in_place_up
+	step_end
 
-Route110_TrickHouseEnd_Text_AllNightToPreparePanels:
-	.string "It took me all night to prepare\n"
-	.string "the wall panels…\p"
-	.string "You're almost my equal in greatness by\n"
-	.string "one, two, three, four places!$"
+Route110_TrickHouseEnd_Movement_FourthToPlayer:
+	walk_left
+	walk_up
+	step_end
 
-Route110_TrickHouseEnd_Text_AllNightToShoveBoulders:
-	.string "It took me all night to shove in those\n"
-	.string "boulders…\p"
-	.string "You're almost my equal in greatness by\n"
-	.string "one, two, three places!$"
+Route110_TrickHouseEnd_Movement_FourthToStance:
+	walk_down
+	walk_right
+	walk_in_place_up
+	step_end
 
-Route110_TrickHouseEnd_Text_AllNightToMakeMechadolls:
-	.string "It took me all night to make MECHADOLLS\n"
-	.string "and another to think up the quiz…\p"
-	.string "You're almost my equal in greatness by\n"
-	.string "one, two places!$"
+Route110_TrickHouseEnd_Movement_FifthToPlayer:
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	step_end
 
-Route110_TrickHouseEnd_Text_AllNightToInstallDoors:
-	.string "It took me all night to install\n"
-	.string "the doors…\p"
-	.string "You're almost my equal in greatness!$"
+Route110_TrickHouseEnd_Movement_FifthToStance:
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	step_end
 
-Route110_TrickHouseEnd_Text_AllNightSettingUpArrows:
-	.string "It took me all night setting up arrows…\p"
-	.string "You're my equal in greatness!$"
+Route110_TrickHouseEnd_Movement_SixthToPlayer:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	step_end
 
-Route110_TrickHouseEnd_Text_AllNightPolishingFloors:
-	.string "It took me all night polishing floors…\p"
-	.string "You're above me in greatness!\n"
-	.string "Possibly…$"
+Route110_TrickHouseEnd_Movement_SixthToStance:
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
 
-Route110_TrickHouseEnd_Text_FountainOfIdeasRunDry:
-	.string "Wh-what should I do?\n"
-	.string "My fountain of ideas for tricks has\l"
-	.string "run dry…\p"
-	.string "Perhaps it is time I toured the country\n"
-	.string "on a quest to devise new tricks…$"
+Route110_TrickHouseEnd_Movement_LeeBacktoOriginal:
+	walk_left
+	walk_left
+	walk_in_place_down
+	step_end
 
-Route110_TrickHouseEnd_Text_DefeatedMePreferWhichTent:
-	.string "I hate to admit defeat, but you have\n"
-	.string "bested me!\p"
-	.string "Still, you must have been reeled in by\n"
-	.string "my charisma for you to visit me again\l"
-	.string "and again. Yes, you must have!\p"
-	.string "But that has nothing to do with my\n"
-	.string "losing!\p"
-	.string "In recognition of the friendship\n"
-	.string "between you, the driven, and the genius\l"
-	.string "that is myself, I demand that you take\l"
-	.string "this keepsake!\p"
-	.string "Actually there are two--\n"
-	.string "a RED TENT and a BLUE TENT.\l"
-	.string "Which do you prefer?$"
+Route110_TrickHouseEnd_EventScript_GymGuide::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_FORTREE_GYM, Route110_TrickHouseEnd_EventScript_GymGuide_1
+	msgbox Route110_TrickHouseEnd_EventScript_GymGuide_Text_1
+	release
+	end
 
-Route110_TrickHouseEnd_Text_NoRoomInPC:
-	.string "What? No room in your PC?\n"
-	.string "What am I to make of that?\p"
-	.string "I wish I could say that, but I am much\n"
-	.string "too kind and caring, so come back later!$"
+Route110_TrickHouseEnd_EventScript_GymGuide_1:
+	msgbox Route110_TrickHouseEnd_EventScript_GymGuide_Text_0
+	release
+	end
 
-Route110_TrickHouseEnd_Text_LeavingOnJourney:
-	.string "… … … … … …\p"
-	.string "I am leaving on a journey of discovery.\n"
-	.string "A quest in search of new tricks.\p"
-	.string "I wish that you will one day visit and\n"
-	.string "entertain me again.\p"
-	.string "And now, farewell!$"
 
-Route110_TrickHouseEnd_Text_YouHaveEarnedThisReward:
-	.string "Fine!\n"
-	.string "You have earned this reward!$"
+Route110_TrickHouseEnd_EventScript_GymStatue::
+	lockall
+	goto_if_set FLAG_DEFEATED_FORTREE_GYM, Route110_TrickHouseEnd_EventScript_GymStatue_1
+	msgbox Route110_TrickHouseEnd_EventScript_GymStatue_Text_1
+	releaseall
+	end
 
-Route110_TrickHouseEnd_Text_NoRoomForThis:
-	.string "What? Have you no room for this?\n"
-	.string "What manner of items do you carry?\p"
-	.string "But fine, since you've reached me,\n"
-	.string "your reward will be with me till later.$"
+Route110_TrickHouseEnd_EventScript_GymStatue_1:
+	msgbox Route110_TrickHouseEnd_EventScript_GymStatue_Text_0
+	releaseall
+	end
 
-Route110_TrickHouseEnd_Text_MakeNewTricksToStumpYou:
-	.string "Scrub that smug smirk from your face!\n"
-	.string "It's much too early to think you've won!\p"
-	.string "I'll make new tricks to stump you, I will.\n"
-	.string "You may mock me only when you're done.\p"
-	.string "Come back for the next exciting\n"
-	.string "installment!$"
 
-Route110_TrickHouseEnd_Text_YoureIgnoringMe:
-	.string "Now, now! You're ignoring me now?\n"
-	.string "Now that, I consider heartbreaking!$"
+Route110_TrickHouseEnd_EventScript_BlackBelt1::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM_TRAINERS, Route110_TrickHouseEnd_EventScript_BlackBelt1_1
+	msgbox Route110_TrickHouseEnd_Text_BlackBelts
+	waitmessage
+	closemessage
+	applymovement 2, Route110_TrickHouseEnd_Movement_StepUp
+	waitmovement 0
+	release
+	end
 
+Route110_TrickHouseEnd_EventScript_BlackBelt1_1:
+	msgbox Route110_TrickHouseEnd_EventScript_BlackBelt1_Text_0
+	release
+	end
+
+
+Route110_TrickHouseEnd_EventScript_BlackBelt2::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM_TRAINERS, Route110_TrickHouseEnd_EventScript_BlackBelt2_1
+	msgbox Route110_TrickHouseEnd_Text_BlackBelts
+	waitmessage
+	closemessage
+	applymovement 3, Route110_TrickHouseEnd_Movement_StepUp
+	waitmovement 0
+	release
+	end
+
+Route110_TrickHouseEnd_EventScript_BlackBelt2_1:
+	msgbox Route110_TrickHouseEnd_EventScript_BlackBelt2_Text_0
+	release
+	end
+
+
+Route110_TrickHouseEnd_EventScript_BlackBelt3::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM_TRAINERS, Route110_TrickHouseEnd_EventScript_BlackBelt3_1
+	msgbox Route110_TrickHouseEnd_Text_BlackBelts
+	waitmessage
+	closemessage
+	applymovement 4, Route110_TrickHouseEnd_Movement_StepUp
+	waitmovement 0
+	release
+	end
+
+Route110_TrickHouseEnd_EventScript_BlackBelt3_1:
+	msgbox Route110_TrickHouseEnd_EventScript_BlackBelt3_Text_0
+	release
+	end
+
+
+Route110_TrickHouseEnd_EventScript_BlackBelt4::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM_TRAINERS, Route110_TrickHouseEnd_EventScript_BlackBelt4_1
+	msgbox Route110_TrickHouseEnd_Text_BlackBelts
+	waitmessage
+	closemessage
+	applymovement 5, Route110_TrickHouseEnd_Movement_StepUp
+	waitmovement 0
+	release
+	end
+
+Route110_TrickHouseEnd_EventScript_BlackBelt4_1:
+	msgbox Route110_TrickHouseEnd_EventScript_BlackBelt4_Text_0
+	release
+	end
+
+
+Route110_TrickHouseEnd_EventScript_BlackBelt5::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM_TRAINERS, Route110_TrickHouseEnd_EventScript_BlackBelt5_1
+	msgbox Route110_TrickHouseEnd_Text_BlackBelts
+	waitmessage
+	closemessage
+	applymovement 6, Route110_TrickHouseEnd_Movement_StepUp
+	waitmovement 0
+	release
+	end
+
+Route110_TrickHouseEnd_EventScript_BlackBelt5_1:
+	msgbox Route110_TrickHouseEnd_EventScript_BlackBelt5_Text_0
+	release
+	end
+
+
+Route110_TrickHouseEnd_EventScript_BlackBelt6::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM_TRAINERS, Route110_TrickHouseEnd_EventScript_BlackBelt6_1
+	msgbox Route110_TrickHouseEnd_Text_BlackBelts
+	waitmessage
+	closemessage
+	applymovement 7, Route110_TrickHouseEnd_Movement_StepUp
+	waitmovement 0
+	release
+	end
+
+Route110_TrickHouseEnd_EventScript_BlackBelt6_1:
+	msgbox Route110_TrickHouseEnd_EventScript_BlackBelt6_Text_0
+	release
+	end
+
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_0:
+	.string "I must say, that battle with you has\n"
+	.string "inspired me to reach new heights!\p"
+	.string "I will continue to train myself, and I\n"
+	.string "look forward to battling with you again\l"
+	.string "sometime.$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_1:
+	.string "Oh, you're ready for a battle now?\p"
+	.string "Watching you battle my students really\n"
+	.string "pumped me up!\p"
+	.string "Let's waste no more time!$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_2:
+	.string "{PLAYER} received the STORM BADGE\n"
+	.string "from LEE.$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_3:
+	.string "With that badge, all POKéMON up to level\n"
+	.string "70 will obey your command without\l"
+	.string "question!\p"
+	.string "Even POKéMON you've received through\n"
+	.string "trades.\p"
+	.string "It will also allow you to use the HM move\n"
+	.string "Fly outside of battle.\p"
+	.string "...\p"
+	.string "You should also take this.$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_4:
+	.string "That TM contains the move Brick Break!\p"
+	.string "While not the strongest FIGHTING-type\n"
+	.string "move, it will blast through barriers like\l"
+	.string "Light Screen and Reflect.\p"
+	.string "Put it to good use.$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_5:
+	.string "LEE: Who are you? A new student?\p"
+	.string "Perfect timing, we were just getting\n"
+	.string "warmed up.\p"
+	.string "Now line up!$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_6:
+	.string "LEE: Attention!$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_7:
+	.string "ALL: Yes, sensei!\p"
+	.string "LEE: Let's get back to our striking\n"
+	.string "drills!$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_8:
+	.string "LEE: Now, strike left!$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_9:
+	.string "ALL: Osu!$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_10:
+	.string "LEE: Strike right!$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_11:
+	.string "LEE: Strike forward!$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_12:
+	.string "LEE: You in the middle!\p"
+	.string "What's your malfunction?$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_13:
+	.string "...\p"
+	.string "...\p"
+	.string "LEE: What's that?\p"
+	.string "You're just here to battle me?\p"
+	.string "Haha! I must say I'm not very impressed\n"
+	.string "with what I've seen from you so far.\p"
+	.string "...\p"
+	.string "I tell you what...$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_14:
+	.string "LEE: Battle all of my students\n"
+	.string "consecutively!\p"
+	.string "If you win, I may grant you a battle.$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_15:
+	.string "I'm not holding back on you just\n"
+	.string "because you're a kid!$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_16:
+	.string "That last guy was the weakest one of\n"
+	.string "us, I'll show you how it's done!$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_17:
+	.string "That was just beginners luck!\p"
+	.string "There's no way you're beating all of us!$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_18:
+	.string "Alright kid, this is where things get\n"
+	.string "serious!$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_19:
+	.string "You're no joke kid, this is getting\n"
+	.string "interesting!$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_20:
+	.string "I'm the last one, let's see if you can\n"
+	.string "keep it up!$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_21:
+	.string "LEE: Wow, I was wrong about you!\p"
+	.string "You completely blew away my\n"
+	.string "expectations!\p"
+	.string "You have certainly earned a battle!\p"
+	.string "Go heal if you need to, I'll be ready\n"
+	.string "when you are...$"
+
+Route110_TrickHouseEnd_EventScript_GymGuide_Text_0:
+	.string "You did it!\p"
+	.string "I knew you would show him who's boss!$"
+
+Route110_TrickHouseEnd_EventScript_GymGuide_Text_1:
+	.string "Yo! How's it going, CHAMP in the making,\n"
+	.string "{PLAYER}?\p"
+	.string "The head of this dojo, and Cianwood\n"
+	.string "City's gym leader is LEE.\p"
+	.string "Don't let the goofy haircut fool you,\n"
+	.string "he's a master of FIGHTING-type\l"
+	.string "POKéMON!\p"
+	.string "You have some options to try against\n"
+	.string "him: PSYCHIC-type, FLYING-type, or\l"
+	.string "FAIRY-type.\p"
+	.string "Well, good luck! Go for it!$"
+
+Route110_TrickHouseEnd_EventScript_GymStatue_Text_0:
+	.string "CIANWOOD CITY POKéMON GYM\p"
+	.string "LEE'S CERTIFIED TRAINERS:\n"
+	.string "{PLAYER}$"
+
+Route110_TrickHouseEnd_EventScript_GymStatue_Text_1:
+	.string "CIANWOOD CITY POKéMON GYM$"
+
+Route110_TrickHouseEnd_EventScript_BlackBelt1_Text_0:
+	.string "That battle was great!\p"
+	.string "You sure surprised me, kid!$"
+
+Route110_TrickHouseEnd_EventScript_BlackBelt2_Text_0:
+	.string "I really underestimated you!\p"
+	.string "I guess looks really can be deceiving.$"
+
+Route110_TrickHouseEnd_EventScript_BlackBelt3_Text_0:
+	.string "You're good kid, no joke!$"
+
+Route110_TrickHouseEnd_EventScript_BlackBelt4_Text_0:
+	.string "You really mopped the floor with us!\p"
+	.string "I bet you'll go far, kid!$"
+
+Route110_TrickHouseEnd_EventScript_BlackBelt5_Text_0:
+	.string "Your strength reminds me of the\n"
+	.string "POKéMON League Champion!\p"
+	.string "Your hair color too...$"
+
+Route110_TrickHouseEnd_EventScript_BlackBelt6_Text_0:
+	.string "Sorry we were so tough on you kid, I had\n"
+	.string "no idea you were so strong.$"
+
+Route110_TrickHouseEnd_Text_LeeDefeat::
+	.string "From the moment you walked into my gym,\n"
+	.string "I thought you were just some wimpy\l"
+	.string "little kid, but how wrong was I!\p"
+	.string "Stand tall! You have earned my respect,\n"
+	.string "and then some.\p"
+	.string "Take this badge, and wear it proudly!$"
+
+Route110_TrickHouseEnd_Text_JaredDefeat::
+	.string "Wait... it's over already?$"
+
+Route110_TrickHouseEnd_Text_EdwardoDefeat::
+	.string "Whoa, I must be off my game today...$"
+
+Route110_TrickHouseEnd_Text_FlintDefeat::
+	.string "There's no way!\n"
+	.string "You're not just some beginner are you?$"
+
+Route110_TrickHouseEnd_Text_AshleyDefeat::
+	.string "Hey, you're actually not half bad!$"
+
+Route110_TrickHouseEnd_Text_HumbertoDefeat::
+	.string "You're no ordinary kid, I can tell!$"
+
+Route110_TrickHouseEnd_Text_DariusDefeat::
+	.string "That was great! I haven't had a battle\n"
+	.string "like that in years!$"
+
+Route110_TrickHouseEnd_Text_BlackBelts::
+	.string "Not now kid, we're busy.$"
