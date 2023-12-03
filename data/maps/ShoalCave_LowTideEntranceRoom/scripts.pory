@@ -1,0 +1,11 @@
+mapscripts ShoalCave_LowTideEntranceRoom_MapScripts {}
+
+script ShoalCave_LowTideEntranceRoom_EventScript_OldMan {
+    msgbox(format("I dropped my Shell Bell, but the path is too icy for me to go get it.\pWhat a bother."), MSGBOX_NPC)
+    end
+}
+
+script ShoalCave_LowTideEntranceRoom_EventScript_ItemShellBell {
+	finditem (ITEM_SHELL_BELL)
+	end    
+}

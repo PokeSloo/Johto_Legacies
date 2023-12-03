@@ -1,0 +1,65 @@
+const WINTER_ID = 4
+
+mapscripts ShoalCave_LowTideIceRoom_MapScripts {}
+
+script ShoalCave_LowTideIceRoom_EventScript_Winter {
+    lock
+    faceplayer
+    msgbox(format("???: Oh, I didn't expect to see anyone else down here.\pMy name is WINTER, I'm the Mahogany Town gym leader.\pDo you know what I was looking at?"))
+    waitmessage
+    applymovement (WINTER_ID, ShoalCave_LowTideIceRoom_Movement_WinterLookRight)
+    waitmovement (0)
+    msgbox(format("This isn't just any icy rock, it is THE Ice Rock."))
+    waitmessage
+    faceplayer
+    msgbox(format("You can evolve certin POKéMON species if you level them up next to this rock.\pThere's also a similar rock in Ilex Forest.\pOh, but I'm getting carried away.\pWhat, may I ask, brought you here?\p...\pOh! I see.\pYou're a TRAINER, and your name is {PLAYER}.\pI should have known.\pWorry not, I will get back to my gym right away!\pI look forward to our next meeting, {PLAYER}."))
+    waitmessage
+    closemessage
+    specialvar (VAR_RESULT, GetPlayerFacingDirection)
+    switch (var(VAR_RESULT)) {
+        case DIR_EAST :
+            call (ShoalCave_LowTideIceRoom_EventScript_FacingEast)
+        case DIR_NORTH :
+            call (ShoalCave_LowTideIceRoom_EventScript_FacingNorthorSouth)
+        case DIR_SOUTH :
+            call (ShoalCave_LowTideIceRoom_EventScript_FacingNorthorSouth)
+        }
+    removeobject (WINTER_ID)
+    setflag (FLAG_TALKED_TO_WINTER_ICE_PATH)
+    release
+    end
+}
+
+script ShoalCave_LowTideIceRoom_EventScript_FacingEast {
+    applymovement (WINTER_ID, ShoalCave_LowTideIceRoom_Movement_WinterLeaveAround)
+    waitmovement (0)
+    return
+}
+
+script ShoalCave_LowTideIceRoom_EventScript_FacingNorthorSouth {
+    applymovement (WINTER_ID, ShoalCave_LowTideIceRoom_Movement_WinterLeaveMiddle)
+    waitmovement (0)
+    return
+}
+
+movement ShoalCave_LowTideIceRoom_Movement_WinterLookRight {
+    face_right
+}
+
+movement ShoalCave_LowTideIceRoom_Movement_WinterLeaveAround {
+    walk_down
+    walk_left * 6
+    walk_down * 3
+    walk_left
+    walk_down * 2
+}
+
+movement ShoalCave_LowTideIceRoom_Movement_WinterLeaveMiddle {
+    walk_left * 2
+    walk_down
+    walk_left * 4
+    walk_down * 3
+    walk_left
+    walk_down * 2
+    walk_left * 2
+}

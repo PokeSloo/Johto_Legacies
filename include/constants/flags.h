@@ -737,7 +737,7 @@
 #define FLAG_HIDE_OLIVER_KIZU  0x2B7 // Kizu forest event
 #define FLAG_DEFEATED_DAMON_KIZU  0x2B8 // Kizu forest event
 #define FLAG_RT43_ITEM_BALL  0x2B9 // Max revive item ball
-#define FLAG_UNUSED_0x2BA  0x2BA // Unused Flag
+#define FLAG_TALKED_TO_WINTER_ICE_PATH  0x2BA // She leaves and goes back to gym
 #define FLAG_UNUSED_0x2BB  0x2BB // Unused Flag
 
 // Event Flags
@@ -1078,7 +1078,7 @@
 #define FLAG_ITEM_ROUTE_120_NUGGET                                  0x406
 #define FLAG_ITEM_ROUTE_120_FULL_HEAL                               0x407
 #define FLAG_ITEM_ROUTE_123_CALCIUM                                 0x408
-#define FLAG_ITEM_ROUTE_123_RARE_CANDY                              0x409 // Unused Flag, leftover from R/S. In Emerald this is a hidden item and uses a different flag
+#define FLAG_ITEM_ICE_PATH_SHELL_BELL                               0x409 // Was unused, now item in Ice Path
 #define FLAG_ITEM_ROUTE_127_ZINC                                    0x40A
 #define FLAG_ITEM_ROUTE_127_CARBOS                                  0x40B
 #define FLAG_ITEM_ROUTE_132_RARE_CANDY                              0x40C
@@ -1170,9 +1170,9 @@
 #define FLAG_ITEM_NEW_MAUVILLE_FULL_HEAL                            0x462
 #define FLAG_ITEM_NEW_MAUVILLE_PARALYZE_HEAL                        0x463
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_MASTER_BALL                      0x464
-#define FLAG_ITEM_OLD_MAGMA_HIDEOUT_B1F_MASTER_BALL                 0x465 // Unused Flag, leftover from the Ruby Magma hideout
-#define FLAG_ITEM_OLD_MAGMA_HIDEOUT_B1F_MAX_ELIXIR                  0x466 // Unused Flag, leftover from the Ruby Magma hideout
-#define FLAG_ITEM_OLD_MAGMA_HIDEOUT_B2F_NEST_BALL                   0x467 // Unused Flag, leftover from the Ruby Magma hideout
+#define FLAG_ITEM_ICE_PATH_FULL_RESTORE                             0x465 // Was unused, now Ice path
+#define FLAG_ITEM_ICE_PATH_MAX_ELIXIR                               0x466 // Was unused, now Ice path
+#define FLAG_ITEM_ICE_PATH_RAZOR_CLAW                               0x467 // Was unused, now Ice path
 #define FLAG_UNUSED_0x468                                           0x468 // Unused Flag
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A

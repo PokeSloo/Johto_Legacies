@@ -1,0 +1,16 @@
+mapscripts ShoalCave_LowTideStairsRoom_MapScripts {}
+
+script ShoalCave_LowTideStairsRoom_EventScript_ItemFullRestore {
+	finditem (ITEM_FULL_RESTORE)
+	end    
+}
+
+script ShoalCave_LowTideStairsRoom_EventScript_ItemRazorClaw {
+	finditem (ITEM_RAZOR_CLAW)
+	end    
+}
+
+script ShoalCave_LowTideStairsRoom_EventScript_ItemMaxElixer {
+	finditem (ITEM_MAX_ELIXIR)
+	end    
+}

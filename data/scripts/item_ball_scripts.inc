@@ -559,7 +559,7 @@ ShoalCave_LowTideEntranceRoom_EventScript_ItemBigPearl::
 	end
 
 ShoalCave_LowTideInnerRoom_EventScript_ItemRareCandy::
-	finditem ITEM_RARE_CANDY
+	finditem ITEM_TM07
 	end
 
 ShoalCave_LowTideStairsRoom_EventScript_ItemIceHeal::
@@ -567,7 +567,7 @@ ShoalCave_LowTideStairsRoom_EventScript_ItemIceHeal::
 	end
 
 ShoalCave_LowTideIceRoom_EventScript_ItemTM07::
-	finditem ITEM_TM07
+	finditem ITEM_BRIGHT_POWDER
 	end
 
 ShoalCave_LowTideIceRoom_EventScript_ItemNeverMeltIce::

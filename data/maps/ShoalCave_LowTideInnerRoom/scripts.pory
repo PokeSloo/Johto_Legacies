@@ -1,0 +1,6 @@
+mapscripts ShoalCave_LowTideInnerRoom_MapScripts {}
+
+script ShoalCave_LowTideInnerRoom_EventScript_Azumarill {
+    msgbox(format("This POKéMON is frozen solid."), MSGBOX_SIGN)
+    end
+}

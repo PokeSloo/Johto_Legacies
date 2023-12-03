@@ -1,31 +1,18 @@
 ShoalCave_LowTideStairsRoom_MapScripts::
 	.byte 0
 
-ShoalCave_LowTideStairsRoom_OnLoad:
-	call ShoalCave_LowTideStairsRoom_EventScript_SetShoalItemMetatiles
+
+ShoalCave_LowTideStairsRoom_EventScript_ItemFullRestore::
+	finditem ITEM_FULL_RESTORE
 	end
 
-ShoalCave_LowTideStairsRoom_EventScript_SetShoalItemMetatiles::
-	goto_if_set FLAG_RECEIVED_SHOAL_SALT_3, ShoalCave_LowTideStairsRoom_EventScript_SetShoalItemMetatilesEnd
-	setmetatile 11, 11, METATILE_Cave_ShoalCave_DirtPile_Large, TRUE
-	return
 
-ShoalCave_LowTideStairsRoom_EventScript_SetShoalItemMetatilesEnd::
-	return
-
-ShoalCave_LowTideStairsRoom_EventScript_ShoalSalt3::
-	lockall
-	goto_if_set FLAG_RECEIVED_SHOAL_SALT_3, ShoalCave_LowTideStairsRoom_EventScript_ReceivedShoalSalt
-	giveitem ITEM_SHOAL_SALT
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setmetatile 11, 11, METATILE_Cave_ShoalCave_DirtPile_Small, FALSE
-	special DrawWholeMapView
-	setflag FLAG_RECEIVED_SHOAL_SALT_3
-	releaseall
+ShoalCave_LowTideStairsRoom_EventScript_ItemRazorClaw::
+	finditem ITEM_RAZOR_CLAW
 	end
 
-ShoalCave_LowTideStairsRoom_EventScript_ReceivedShoalSalt::
-	msgbox ShoalCave_Text_WasShoalSaltNowNothing, MSGBOX_DEFAULT
-	releaseall
+
+ShoalCave_LowTideStairsRoom_EventScript_ItemMaxElixer::
+	finditem ITEM_MAX_ELIXIR
 	end
 
