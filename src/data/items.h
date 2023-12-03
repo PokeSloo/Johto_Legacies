@@ -9892,7 +9892,7 @@ const struct Item gItems[] =
 
     [ITEM_LIFT_KEY] =
     {
-        .name = _("Lift Key"),
+        .name = _("Resort Pass"),
         .itemId = ITEM_LIFT_KEY,
         .price = 0,
         .description = sLiftKeyDesc,

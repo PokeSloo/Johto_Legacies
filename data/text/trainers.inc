@@ -3967,117 +3967,110 @@ Route126_Text_SiennaPostBattle:
 	.string "I think I'll go for a dive.$"
 
 Route127_Text_CamdenIntro:
-	.string "I can see it in your face.\n"
-	.string "You want to challenge me.$"
+	.string "You'll stay warmer if you keep moving!$"
 
 Route127_Text_CamdenDefeat:
-	.string "Awawawawawa…$"
+	.string "Oh! You got me!$"
 
 Route127_Text_CamdenPostBattle:
-	.string "A well-played match leaves me feeling\n"
-	.string "refreshed and serene.$"
+	.string "Battling is a good way to keep active,\n"
+	.string "and keep your heart rate up.$"
 
 Route127_Text_DonnyIntro:
-	.string "Do you have a rival whom you just\n"
-	.string "hate to lose against?$"
+	.string "Are you looking for a place to ski as\n"
+	.string "well?$"
 
 Route127_Text_DonnyDefeat:
-	.string "Arrrgh!\n"
-	.string "I hate losing!$"
+	.string "Oh, I guess you just wanted a battle.$"
 
 Route127_Text_DonnyPostBattle:
-	.string "If you have a rival, don't you get the\n"
-	.string "feeling that you have to keep getting\l"
-	.string "better?$"
+	.string "I was going to ski here, but I'm afraid\n"
+	.string "I'll slide into the water.$"
 
 Route127_Text_JonahIntro:
-	.string "Through fishing, I have attained a\n"
-	.string "state of becalmed serenity…\p"
-	.string "Please, allow me to demonstrate…$"
+	.string "Wherever you find water, you will find a\n"
+	.string "fisherman!$"
 
 Route127_Text_JonahDefeat:
-	.string "Though I have lost, my heart remains\n"
-	.string "calm…$"
+	.string "Oh, you're too much!$"
 
 Route127_Text_JonahPostBattle:
-	.string "It matters not that I catch nothing.\n"
-	.string "The line remains in the water…$"
+	.string "I like ice fishing, but the edge of the\n"
+	.string "water is pretty slippery.\p"
+	.string "I would hate to fall in!$"
 
 Route127_Text_HenryIntro:
-	.string "Whoops! Don't tell me I snagged\n"
-	.string "a SURFING POKéMON?$"
+	.string "Ice fishing is the best!$"
 
 Route127_Text_HenryDefeat:
-	.string "I can't keep up!$"
+	.string "Snagged my line!$"
 
 Route127_Text_HenryPostBattle:
-	.string "It'd be a handful if I hooked\n"
-	.string "your tough POKéMON!$"
+	.string "The water actually stays warmer\n"
+	.string "underneath the ice.$"
 
 Route127_Text_RogerIntro:
-	.string "Well, hey! This is a match between\n"
-	.string "a POKéMON fan and a fishing buff!$"
+	.string "Oh! I think I caught a big one!$"
 
 Route127_Text_RogerDefeat:
-	.string "No! My line's all tangled!\n"
-	.string "The party's over!$"
+	.string "Actually, I think my line is just frozen\n"
+	.string "to the bottom...$"
 
 Route127_Text_RogerPostBattle:
-	.string "My fishing line's doing a dance!\n"
-	.string "The tangle tango! Hahaha, snarl!$"
+	.string "I miss fishing on the beach.\p"
+	.string "When will it be summer again?$"
 
 Route127_Text_AidanIntro:
-	.string "BIRD POKéMON have excellent vision.\n"
-	.string "They spot prey from great heights.$"
+	.string "The heat from my POKéMON melted a\n"
+	.string "patch of snow!$"
 
 Route127_Text_AidanDefeat:
-	.string "Whew… I give up.$"
+	.string "You burnt me up!$"
 
 Route127_Text_AidanPostBattle:
-	.string "There're lots of diving spots in\n"
-	.string "the sea around here.\p"
-	.string "You can spot them easily from the sky\n"
-	.string "because of their darker color.$"
+	.string "I could melt all the snow in Johto if I\n"
+	.string "wanted to.\p"
+	.string "That would just be too much walking for\n"
+	.string "me...$"
 
 Route127_Text_KojiIntro:
-	.string "Run in your bare feet.\n"
-	.string "That will toughen up your soles!$"
+	.string "Training in the snow is harsh, but it\n"
+	.string "gives great results!$"
 
 Route127_Text_KojiDefeat:
-	.string "Yowch!\n"
-	.string "I got a pebble under a toenail!$"
+	.string "I almost slipped off the bridge!$"
 
 Route127_Text_KojiPostBattle:
-	.string "Going barefoot feels great.\n"
-	.string "But your RUNNING SHOES are cool, too.$"
+	.string "I think my feet are frozen solid, but\n"
+	.string "it's all a part of Master LEE's special\l"
+	.string "training.$"
 
 Route127_Text_KojiRegister:
-	.string "This is what I do to people who beat me!\n"
-	.string "I hope we can do this again.$"
+	.string "You're a tough opponent, we should\n"
+	.string "battle again sometime...$"
 
 Route127_Text_KojiRematchIntro:
-	.string "I still run in my bare feet daily.\n"
-	.string "My soles are tough!$"
+	.string "I'm still here training, but I do have\n"
+	.string "time for another battle!$"
 
 Route127_Text_KojiRematchDefeat:
-	.string "Yowch!\n"
-	.string "Pebbles dug into my arches!$"
+	.string "Almost slipped off the bridge again!$"
 
 Route127_Text_KojiPostRematch:
-	.string "Want to go barefoot for a while?\n"
-	.string "So I can try your RUNNING SHOES?$"
+	.string "I think my feet are frozen solid, but\n"
+	.string "it's all a part of Master LEE's special\l"
+	.string "training.$"
 
 Route127_Text_AthenaIntro:
-	.string "We should have a slow and methodical\n"
-	.string "match.$"
+	.string "The cool weather is perfect for a\n"
+	.string "COOLTRAINER, don't you agree?$"
 
 Route127_Text_AthenaDefeat:
-	.string "You didn't give me the chance to\n"
-	.string "do any strategizing.$"
+	.string "You're too cold for me though!$"
 
 Route127_Text_AthenaPostBattle:
-	.string "When I'm surrounded by the blue sea\n"
-	.string "and sky, it feels as if time slows down.$"
+	.string "What do you mean a COOLTRAINER doesn't\n"
+	.string "have to be in a cool area?$"
 
 Route128_Text_IsaiahIntro:
 	.string "EVER GRANDE CITY is still a long ways\n"
@@ -4200,67 +4193,60 @@ Route128_Text_CarleePostBattle:
 	.string "I need to reapply my sunscreen.$"
 
 Route129_Text_ChaseIntro:
-	.string "This is my first triathlon.\n"
-	.string "I'm all tense and nervous!$"
+	.string "Yo kid, where's your board?$"
 
 Route129_Text_ChaseDefeat:
-	.string "Wroooaaar!\n"
-	.string "I failed to win!$"
+	.string "Chilled to the bone!$"
 
 Route129_Text_ChasePostBattle:
-	.string "If I'm all tensed up, I won't be able to\n"
-	.string "give it my all.$"
+	.string "I scratched up my snowboard when I slid\n"
+	.string "onto this path, this is awful!$"
 
 Route129_Text_AllisonIntro:
-	.string "I'm in the middle of a triathlon,\n"
-	.string "but, sure, why don't we battle?$"
+	.string "Sure, I'll take a quick break from\n"
+	.string "skiing!$"
 
 Route129_Text_AllisonDefeat:
 	.string "I was sure I'd win!$"
 
 Route129_Text_AllisonPostBattle:
-	.string "Do you know what's the greatest thing\n"
-	.string "about triathlons?\p"
-	.string "Testing the limits of your own\n"
-	.string "strength and endurance against\l"
-	.string "Mother Nature!$"
+	.string "They wouldn't let me into the Rage\n"
+	.string "Resort, so I'm skiing around here\l"
+	.string "instead.$"
 
 Route129_Text_ReedIntro:
-	.string "Say hey, hey!\n"
-	.string "Let's get on with it!$"
+	.string "Did you slide across the ice, or walk\n"
+	.string "around?$"
 
 Route129_Text_ReedDefeat:
-	.string "Beat, I'm beaten.\n"
-	.string "That's it, done!$"
+	.string "I slipped up!$"
 
 Route129_Text_ReedPostBattle:
-	.string "There's nothing for a loser.\n"
-	.string "Time for me to beat it home.$"
+	.string "The whole Lake of Rage is frozen right\n"
+	.string "now, I've heard there are still people\l"
+	.string "out on the ice though.$"
 
 Route129_Text_TishaIntro:
-	.string "What's the hurry?\n"
-	.string "Let's take it slow and easy.$"
+	.string "I love skiing almost as much as I love\n"
+	.string "battling!$"
 
 Route129_Text_TishaDefeat:
-	.string "Oh, my.\n"
-	.string "I wanted to relax a little more…$"
+	.string "Well, I guess I don't love losing\n"
+	.string "battles...$"
 
 Route129_Text_TishaPostBattle:
-	.string "Don't you hate making mistakes when\n"
-	.string "you're in a rush?\p"
-	.string "That's why I try to take things\n"
-	.string "slowly.$"
+	.string "Have you ever tried skiing?$"
 
 Route129_Text_ClarenceIntro:
-	.string "Surfing isn't as easy as it seems,\n"
-	.string "isn't that right?$"
+	.string "I'm practicing for the slopes!$"
 
 Route129_Text_ClarenceDefeat:
-	.string "Winning sure isn't easy.$"
+	.string "Maybe I should have practiced my\n"
+	.string "POKéMON battling instead.$"
 
 Route129_Text_ClarencePostBattle:
-	.string "You have your sights on the POKéMON\n"
-	.string "LEAGUE? Keep at it!$"
+	.string "Practice makes perfect.\p"
+	.string "That's what I've always heard at least.$"
 
 Route130_Text_RodneyIntro:
 	.string "What a surprise! I didn't expect to\n"

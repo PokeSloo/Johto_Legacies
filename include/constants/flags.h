@@ -736,7 +736,7 @@
 #define FLAG_HIDE_SHANE_ROUTE_43  0x2B6 // Trying to get through to Rage Resort, unset after Kizu Celebi event
 #define FLAG_HIDE_OLIVER_KIZU  0x2B7 // Kizu forest event
 #define FLAG_DEFEATED_DAMON_KIZU  0x2B8 // Kizu forest event
-#define FLAG_UNUSED_0x2B9  0x2B9 // Unused Flag
+#define FLAG_RT43_ITEM_BALL  0x2B9 // Max revive item ball
 #define FLAG_UNUSED_0x2BA  0x2BA // Unused Flag
 #define FLAG_UNUSED_0x2BB  0x2BB // Unused Flag
 
@@ -1200,7 +1200,7 @@
 #define FLAG_ITEM_ROUTE_123_PP_UP                                   0x480
 #define FLAG_ITEM_ROUTE_123_REVIVAL_HERB                            0x481
 #define FLAG_ITEM_ROUTE_125_BIG_PEARL                               0x482
-#define FLAG_ITEM_ROUTE_127_RARE_CANDY                              0x483
+#define FLAG_ITEM_ROUTE_127_RARE_CANDY                              0x483 // Unused now
 #define FLAG_ITEM_ROUTE_132_PROTEIN                                 0x484
 #define FLAG_ITEM_ROUTE_133_MAX_REVIVE                              0x485
 #define FLAG_ITEM_ROUTE_134_CARBOS                                  0x486

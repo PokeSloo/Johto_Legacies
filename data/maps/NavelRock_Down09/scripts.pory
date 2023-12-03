@@ -1,0 +1,6 @@
+mapscripts NavelRock_Down09_MapScripts {}
+
+script NavelRock_Down09_EventScript_Guard {
+    msgbox(format("Are you headed to the Rage Resort?\pThey won't let you in unless you have a Resort Pass, it's pretty exclusive."), MSGBOX_NPC)
+    end
+}

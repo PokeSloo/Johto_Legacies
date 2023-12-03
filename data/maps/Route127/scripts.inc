@@ -1,17 +1,5 @@
 Route127_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route127_OnTransition
-	map_script MAP_SCRIPT_ON_LOAD, Route127_OnLoad
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route127_OnFrame
 	.byte 0
-
-Route127_OnTransition:
-	end
-
-Route127_OnLoad:
-	end
-
-Route127_OnFrame:
-	.2byte 0
 
 Route127_EventScript_Camden::
 	trainerbattle_single TRAINER_CAMDEN, Route127_Text_CamdenIntro, Route127_Text_CamdenDefeat
@@ -68,4 +56,21 @@ Route127_EventScript_RematchKoji::
 	trainerbattle_rematch TRAINER_KOJI_1, Route127_Text_KojiRematchIntro, Route127_Text_KojiRematchDefeat
 	msgbox Route127_Text_KojiPostRematch, MSGBOX_AUTOCLOSE
 	end
+
+Route127_EventScript_RouteSign::
+	msgbox Route127_Text_RouteSign, MSGBOX_SIGN
+	end
+
+Route127_EventScript_CaveSign::
+	msgbox Route127_Text_CaveSign, MSGBOX_SIGN
+	end
+
+Route127_Text_RouteSign:
+	.string "ROUTE 44\n"
+	.string "{RIGHT_ARROW} East to BLACKTHORN CITY$"
+
+Route127_Text_CaveSign:
+	.string "ICE PATH\p"
+	.string "Careful not to slip, fall over, freeze,\n"
+	.string "and get stuck on the ice.$"
 

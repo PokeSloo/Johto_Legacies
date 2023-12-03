@@ -3759,9 +3759,9 @@ static const u8 sCardKeyDesc[] = _(
     "evolve.");
 
 static const u8 sLiftKeyDesc[] = _(
-    "An elevator key\n"
-    "used in Team\n"
-    "Rocket's Hideout.");
+    "A membership pass\n"
+    "used to enter\n"
+    "Rage Resort.");
 
 static const u8 sSilphScopeDesc[] = _(
     "Makes certain\n"
