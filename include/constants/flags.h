@@ -539,7 +539,7 @@
 // Hidden Items
 #define FLAG_HIDDEN_ITEMS_START                                                         0x1F4
 #define FLAG_HIDDEN_ITEM_LAVARIDGE_TOWN_ICE_HEAL             (FLAG_HIDDEN_ITEMS_START + 0x00)
-#define FLAG_HIDDEN_ITEM_TRICK_HOUSE_NUGGET                  (FLAG_HIDDEN_ITEMS_START + 0x01) //Unused now
+#define FLAG_HIDDEN_ITEM_TRICK_HOUSE_NUGGET                  (FLAG_HIDDEN_ITEMS_START + 0x01) // Used for TM hidden item in Kizu forest now
 #define FLAG_HIDDEN_ITEM_ROUTE_111_STARDUST                  (FLAG_HIDDEN_ITEMS_START + 0x02)
 #define FLAG_HIDDEN_ITEM_ROUTE_113_ETHER                     (FLAG_HIDDEN_ITEMS_START + 0x03)
 #define FLAG_HIDDEN_ITEM_ROUTE_114_CARBOS                    (FLAG_HIDDEN_ITEMS_START + 0x04)
@@ -733,9 +733,9 @@
 #define FLAG_HIDE_SHANE_CIANWOOD  0x2B3 // Battle entering gym
 #define FLAG_DEFEATED_SHANE_CIANWOOD  0x2B4 // In front of gym
 #define FLAG_DEFEATED_CIANWOOD_GYM_TRAINERS  0x2B5 // Before Lee, gauntlet style
-#define FLAG_UNUSED_0x2B6  0x2B6 // Unused Flag
-#define FLAG_UNUSED_0x2B7  0x2B7 // Unused Flag
-#define FLAG_UNUSED_0x2B8  0x2B8 // Unused Flag
+#define FLAG_HIDE_SHANE_ROUTE_43  0x2B6 // Trying to get through to Rage Resort, unset after Kizu Celebi event
+#define FLAG_HIDE_OLIVER_KIZU  0x2B7 // Kizu forest event
+#define FLAG_DEFEATED_DAMON_KIZU  0x2B8 // Kizu forest event
 #define FLAG_UNUSED_0x2B9  0x2B9 // Unused Flag
 #define FLAG_UNUSED_0x2BA  0x2BA // Unused Flag
 #define FLAG_UNUSED_0x2BB  0x2BB // Unused Flag

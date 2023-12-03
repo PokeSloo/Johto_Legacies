@@ -1,0 +1,256 @@
+const CELEBI_ID = 1
+const OLIVER_ID = 2
+const DAMON_ID = 3
+const THORNE_ID = 4
+const PHOENIX_GRUNT_1_ID = 6
+const PHOENIX_GRUNT_2_ID = 7
+const POKEBALL_ID = 5
+
+mapscripts Route122_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag (FLAG_HIDE_KIZU_PHOENIX)
+        end
+    }
+    MAP_SCRIPT_ON_LOAD {
+        if (flag(FLAG_BADGE06_GET)) {
+            setmetatile (10, 8, 0x350, TRUE)
+            setmetatile (11, 8, 0x351, TRUE)
+            setmetatile (12, 8, 0x352, TRUE)
+            setmetatile (10, 7, 0x348, TRUE)
+            setmetatile (11, 7, 0x349, TRUE)
+            setmetatile (12, 7, 0x34A, TRUE)
+            setmetatile (10, 6, 0x340, TRUE)
+            setmetatile (11, 6, 0x341, TRUE)
+            setmetatile (12, 6, 0x342, TRUE)
+            setmetatile (10, 5, 0x338, TRUE)
+            setmetatile (11, 5, 0x339, TRUE)
+            setmetatile (12, 5, 0x33A, TRUE)
+            return
+        }
+        end
+    }
+}
+
+script Route122_EventScript_Oliver {
+    msgbox(format("OLIVER: Well, {PLAYER}, this must be the shrine.\pI wonder if it really has anything to do with Celebi."), MSGBOX_NPC)
+    end
+}
+
+script Route122_EventScript_ItemTM34 {
+	finditem (ITEM_TM34)
+	end
+}
+
+script Route122_EventScript_Shrine {
+    lock
+    if (flag(FLAG_DEFEATED_DAMON_KIZU)) {
+        release
+        end
+    }
+    elif (flag(FLAG_BADGE06_GET)) {
+        fadeoutbgm (1)
+        applymovement (OLIVER_ID, Route122_Movement_OliverMoveIn)
+        waitmovement (0)
+        addobject (CELEBI_ID)
+        applymovement (CELEBI_ID, PetalburgWoods_Movement_CelebiAppears)
+        waitmovement (0)
+        playse (SE_PIN)
+        applymovement (OBJ_EVENT_ID_PLAYER, PetalburgWoods_Movement_Question)
+        applymovement (OLIVER_ID, PetalburgWoods_Movement_Question)
+        waitmovement (0)
+        delay (60)
+        waitse
+        playmoncry (SPECIES_CELEBI, CRY_MODE_NORMAL)
+        waitmoncry
+        applymovement (CELEBI_ID, PetalburgWoods_Movement_CelebiGoRight)
+        waitmovement (0)
+        playse (SE_PIN)
+        applymovement (OBJ_EVENT_ID_PLAYER, PetalburgWoods_Movement_ExclamationRight)
+        applymovement (OLIVER_ID, PetalburgWoods_Movement_ExclamationRight)
+        waitmovement (0)
+        delay (120)
+        setobjectxy (CELEBI_ID, 11, 15)
+        applymovement (CELEBI_ID, PetalburgWoods_Movement_CelebiUp)
+        waitmovement (0)
+        applymovement (OBJ_EVENT_ID_PLAYER, PetalburgWoods_Movement_FaceDown)
+        applymovement (OLIVER_ID, PetalburgWoods_Movement_FaceDown)
+        waitmovement (0)
+        waitse
+        playmoncry (SPECIES_CELEBI, CRY_MODE_NORMAL)
+        waitmoncry
+        playse (SE_LEDGE)
+        applymovement (CELEBI_ID, PetalburgWoods_Movement_CelebiJump)
+        waitmovement (0)
+        playse (SE_LEDGE)
+        applymovement (CELEBI_ID, PetalburgWoods_Movement_CelebiJump)
+        waitmovement (0)
+        delay (30)
+        waitse
+        playse (SE_BALL_THROW)
+        waitse
+        playse (SE_BALL_TRADE)
+        waitse
+        addobject (POKEBALL_ID)
+        removeobject (CELEBI_ID)
+        delay (20)
+        playse (SE_BALL_BOUNCE_1)
+        waitse
+        playse (SE_BALL_BOUNCE_2)
+        waitse
+        playse (SE_BALL_BOUNCE_3)
+        waitse
+        delay (30)
+        playse (SE_CLICK)
+        waitse
+        delay (30)
+        playbgm (MUS_RG_ROCKET_HIDEOUT, FALSE)
+        addobject (THORNE_ID)
+        addobject (PHOENIX_GRUNT_1_ID)
+        addobject (PHOENIX_GRUNT_2_ID)
+        applymovement (THORNE_ID, Route122_Movement_ApproachBall)
+        applymovement (PHOENIX_GRUNT_1_ID, Route122_Movement_ApproachBall)
+        applymovement (PHOENIX_GRUNT_2_ID, Route122_Movement_ApproachBall)
+        waitmovement (0)
+        delay (20)
+        removeobject (POKEBALL_ID)
+        delay (20)
+        applymovement (THORNE_ID, Route122_Movement_ApproachCloser)
+        applymovement (PHOENIX_GRUNT_1_ID, Route122_Movement_ApproachCloser)
+        applymovement (PHOENIX_GRUNT_2_ID, Route122_Movement_ApproachCloser)
+        waitmovement (0)
+        msgbox(format("THORNE: Well done, {PLAYER}.\pI must thank you for luring in Celebi for us.\pWe truly couldn't have done it without you."))
+        waitmessage
+        applymovement (OLIVER_ID, Route122_Movement_StepDown)
+        waitmovement (0)
+        msgbox(format("OLIVER: Professor!?\pWhat are you talking about?\pWhat's going on?\pTHORNE: Oh, OLIVER.\pYou're so unimaginably gullible. Although, that made you the perfect pawn.\pCelebi seems to be drawn to {PLAYER}, so I had you act as my unknowing accomplice and bring {PLAYER} here.\pThis shrine didn't just magically appear, my grunts built it just a few hours ago."))
+        waitmessage
+        applymovement (OLIVER_ID, Route122_Movement_StepDown)
+        waitmovement (0)
+        msgbox(format("OLIVER: I don't believe it...\pAll this time, you've been a part of some weird gang?\pWhat about the university, and your students?\pTHORNE: Working at the university was simply a way for me to research Legendary POKéMON as much as I could.\pAll for the sake of my boss's goal."))
+        waitmessage
+        applymovement (OLIVER_ID, Route122_Movement_StepDown)
+        waitmovement (0)
+        msgbox(format("OLIVER: And who is this boss that uses such underhanded and deceitful tactics?\pTHORNE: Haha, I do not feel obliged to answer that.\pNow, if you'll excuse me, I must take my leave."))
+        waitmessage
+        closemessage
+        applymovement (THORNE_ID, Route122_Movement_StepDown)
+        waitmovement (0)
+        delay (20)
+        msgbox(format("THORNE: DAMON, if you would, take care of these two."))
+        waitmessage
+        closemessage
+        clearflag (FLAG_HIDE_KIZU_PHOENIX)
+        addobject(DAMON_ID)
+        applymovement (DAMON_ID, Route122_Movement_DamonApproach)
+        waitmovement (0)
+        msgbox(format("DAMON: It would be my pleasure!"))
+        waitmessage
+        closemessage
+        applymovement (THORNE_ID, Route122_Movement_ThorneExit)
+        applymovement (PHOENIX_GRUNT_1_ID, Route122_Movement_GruntExit)
+        applymovement (PHOENIX_GRUNT_2_ID, Route122_Movement_GruntExit)
+        waitmovement (0)
+        msgbox(format("THORNE: Until we meet again, {PLAYER} and OLIVER."))
+        waitmessage
+        closemessage
+        applymovement (THORNE_ID, Route122_Movement_GruntExit)
+        waitmovement (0)
+        removeobject (THORNE_ID)
+        removeobject (PHOENIX_GRUNT_1_ID)
+        removeobject (PHOENIX_GRUNT_2_ID)
+        setflag (FLAG_GENERAL_HIDE)
+        applymovement (DAMON_ID, Route122_Movement_DamonCloser)
+        waitmovement (0)
+        msgbox(format("DAMON: I've been looking forward to this, brat!\pYou'll pay for shutting down our Ecruteak base!"))
+        trainerbattle_no_intro (TRAINER_MAY_ROUTE_119_MUDKIP, Route122_Text_DamonDefeated)
+        msgbox(format("DAMON: You may have overwhelming strength, but it won't do you any good!\pTHORNE has already taken Celebi away to a hidden base that you will never find!\pGood riddance, brat!"))
+        waitmessage
+        closemessage
+        applymovement (DAMON_ID, Route122_Movement_DamonExit)
+        waitmovement (0)
+        removeobject (DAMON_ID)
+        setflag (FLAG_HIDE_KIZU_PHOENIX)
+        fadedefaultbgm
+        applymovement (OBJ_EVENT_ID_PLAYER, Route122_Movement_FaceRight)
+        applymovement (OLIVER_ID, Route122_Movement_FaceLeft)
+        waitmovement (0)
+        msgbox(format("OLIVER: This is bad, {PLAYER}, really bad!\pThere's no telling what that evil group will do with Celebi's time traveling abilities."))
+        waitmessage
+        applymovement (OLIVER_ID, Route122_Movement_StepLeft)
+        waitmovement (0)
+        msgbox(format("OLIVER: Gah! I can't believe I trusted PROF. THORNE for so many years!\p{PLAYER}, we have to find them at all costs!\pLet's go!"))
+        waitmessage
+        closemessage
+        applymovement (OLIVER_ID, Route122_Movement_DamonExit)
+        waitmovement (0)
+        applymovement (OBJ_EVENT_ID_PLAYER, PetalburgWoods_Movement_FaceDown)
+        waitmovement (0)
+        removeobject (OLIVER_ID)
+        setflag (FLAG_HIDE_OLIVER_KIZU)
+        clearflag (FLAG_HIDE_SHANE_ROUTE_43)
+        setflag (FLAG_DEFEATED_DAMON_KIZU)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+movement Route122_Movement_OliverMoveIn {
+    face_left
+    emote_question_mark
+    delay_16 * 4
+    walk_left
+    walk_in_place_up
+}
+
+movement Route122_Movement_ApproachBall {
+    walk_up * 3
+}
+
+movement Route122_Movement_DamonApproach {
+    walk_up * 4
+}
+
+movement Route122_Movement_ApproachCloser {
+    walk_up
+}
+
+movement Route122_Movement_StepDown {
+    walk_in_place_down
+}
+
+movement Route122_Movement_ThorneExit {
+    walk_right
+    face_up
+}
+
+movement Route122_Movement_GruntExit {
+    walk_down * 4
+}
+
+movement Route122_Movement_DamonCloser {
+    walk_up * 2
+}
+
+movement Route122_Movement_DamonExit {
+    walk_down * 6
+}
+
+movement Route122_Movement_FaceRight {
+    face_right
+}
+
+movement Route122_Movement_FaceLeft {
+    face_left
+}
+
+movement Route122_Movement_StepLeft {
+    walk_in_place_left
+}
+
+text Route122_Text_DamonDefeated {
+    format("DAMON: How do you keep getting stronger, and stronger!?")
+}

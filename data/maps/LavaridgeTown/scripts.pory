@@ -1,4 +1,5 @@
 const SHANE_LOCAL_ID = 13
+const OLIVER_POST_ID = 14
 
 mapscripts LavaridgeTown_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
@@ -6,6 +7,39 @@ mapscripts LavaridgeTown_MapScripts {
         setflag (FLAG_HIDE_SHANE_CIANWOOD)
         end
     }
+	MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_ECRUTEAK_STATE, 3: LavaridgeTown_EventScript_Oliver_OnFrame
+    ]
+}
+
+script LavaridgeTown_EventScript_Oliver_OnFrame {
+	lock
+	clearflag (FLAG_GENERAL_HIDE)
+	addobject (OLIVER_POST_ID)
+	applymovement (OLIVER_POST_ID, LavaridgeTown_Movement_OliverApproach)
+    waitmovement (0)
+	msgbox(format("OLIVER: {PLAYER}!\pI just heard something incredible!\pMy university professor just told me about a shrine that just mysteriously appeared in Kizu Forest.\pWe should check it out!\pIt might be related to the shrine in Ilex Forest, and the legendary POKéMON, Celebi.\pLet's go, it's just west of Olivine!"))
+	waitmessage
+	closemessage
+	applymovement (OLIVER_POST_ID, LavaridgeTown_Movement_OliverLeave)
+    waitmovement (0)
+	removeobject (OLIVER_POST_ID)
+	setflag (FLAG_GENERAL_HIDE)
+	clearflag (FLAG_HIDE_OLIVER_KIZU)
+	addvar (VAR_ECRUTEAK_STATE, 1)
+	release
+	end
+}
+
+movement LavaridgeTown_Movement_OliverApproach {
+	walk_left * 8
+	walk_up
+}
+
+movement LavaridgeTown_Movement_OliverLeave {
+	walk_right * 3
+	walk_down
+	walk_right * 5
 }
 
 script LavaridgeTown_EventScript_ShaneTrigger {

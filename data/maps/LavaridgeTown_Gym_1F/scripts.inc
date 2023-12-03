@@ -821,6 +821,8 @@ LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated::
 	setvar VAR_0x8008, 4
 	call Common_EventScript_SetGymTrainers
 	setflag FLAG_HIDE_KIZU_PHOENIX
+	setflag FLAG_HIDE_OLIVER_KIZU
+	setflag FLAG_HIDE_SHANE_ROUTE_43
 	setflag FLAG_OLIVER_CATACOMBS_RESEARCH
 	setflag FLAG_HIDE_OLIVINE_GYM_TRAINER_1
 	setflag FLAG_HIDE_OLIVINE_GYM_TRAINER_2

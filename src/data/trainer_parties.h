@@ -7285,21 +7285,46 @@ static const struct TrainerMonNoItemCustomMoves sParty_MayRoute110Mudkip[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRoute119Mudkip[] = {
+static const struct TrainerMonItemCustomMoves sParty_MayRoute119Mudkip[] = {
     {
-    .iv = 100,
-    .lvl = 29,
-    .species = SPECIES_SLUGMA,
+    .iv = 250,
+    .lvl = 48,
+    .species = SPECIES_NOIVERN,
+    .heldItem = ITEM_LEFTOVERS,
+    .abilityNums = 1,
+    .moves = {MOVE_HURRICANE, MOVE_U_TURN, MOVE_TAUNT, MOVE_ROOST}
     },
     {
-    .iv = 100,
-    .lvl = 29,
-    .species = SPECIES_LOMBRE,
+    .iv = 250,
+    .lvl = 48,
+    .species = SPECIES_SCOLIPEDE,
+    .heldItem = ITEM_BLACK_SLUDGE,
+    .abilityNums = 0,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_EARTHQUAKE, MOVE_MEGAHORN, MOVE_POISON_JAB}
     },
     {
-    .iv = 150,
-    .lvl = 31,
-    .species = SPECIES_GROVYLE,
+    .iv = 250,
+    .lvl = 48,
+    .species = SPECIES_MAROWAK_ALOLAN,
+    .heldItem = ITEM_LIFE_ORB,
+    .abilityNums = 2,
+    .moves = {MOVE_SHADOW_BONE, MOVE_FLARE_BLITZ, MOVE_EARTHQUAKE, MOVE_BRICK_BREAK}
+    },
+    {
+    .iv = 250,
+    .lvl = 49,
+    .species = SPECIES_SNEASLER,
+    .heldItem = ITEM_AIR_BALLOON,
+    .abilityNums = 2,
+    .moves = {MOVE_POISON_JAB, MOVE_X_SCISSOR, MOVE_BRICK_BREAK, MOVE_FAKE_OUT}
+    },
+    {
+    .iv = 250,
+    .lvl = 50,
+    .species = SPECIES_HYPNO,
+    .heldItem = ITEM_SHELL_BELL,
+    .abilityNums = 0,
+    .moves = {MOVE_NASTY_PLOT, MOVE_PSYCHIC, MOVE_HYPNOSIS, MOVE_DAZZLING_GLEAM}
     }
 };
 

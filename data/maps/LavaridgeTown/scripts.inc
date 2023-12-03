@@ -1,5 +1,6 @@
 LavaridgeTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LavaridgeTown_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, LavaridgeTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
 LavaridgeTown_MapScripts_MAP_SCRIPT_ON_TRANSITION:
@@ -7,6 +8,53 @@ LavaridgeTown_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setflag FLAG_HIDE_SHANE_CIANWOOD
 	end
 
+LavaridgeTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_ECRUTEAK_STATE, 3, LavaridgeTown_EventScript_Oliver_OnFrame
+	.2byte 0
+
+
+LavaridgeTown_EventScript_Oliver_OnFrame::
+	lock
+	clearflag FLAG_GENERAL_HIDE
+	addobject 14
+	applymovement 14, LavaridgeTown_Movement_OliverApproach
+	waitmovement 0
+	msgbox LavaridgeTown_EventScript_Oliver_OnFrame_Text_0
+	waitmessage
+	closemessage
+	applymovement 14, LavaridgeTown_Movement_OliverLeave
+	waitmovement 0
+	removeobject 14
+	setflag FLAG_GENERAL_HIDE
+	clearflag FLAG_HIDE_OLIVER_KIZU
+	addvar VAR_ECRUTEAK_STATE, 1
+	release
+	end
+
+
+LavaridgeTown_Movement_OliverApproach:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+LavaridgeTown_Movement_OliverLeave:
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
 
 LavaridgeTown_EventScript_ShaneTrigger::
 	lock
@@ -163,6 +211,18 @@ LavaridgeTown_Text_GymSign:
 
 LavaridgeTown_Text_HerbShopSign:
 	.string "CIANWOOD DEEP SEA LAB$"
+
+LavaridgeTown_EventScript_Oliver_OnFrame_Text_0:
+	.string "OLIVER: {PLAYER}!\p"
+	.string "I just heard something incredible!\p"
+	.string "My university professor just told me\n"
+	.string "about a shrine that just mysteriously\l"
+	.string "appeared in Kizu Forest.\p"
+	.string "We should check it out!\p"
+	.string "It might be related to the shrine in\n"
+	.string "Ilex Forest, and the legendary\l"
+	.string "POKéMON, Celebi.\p"
+	.string "Let's go, it's just west of Olivine!$"
 
 LavaridgeTown_EventScript_ShaneTrigger_Text_0:
 	.string "SHANE: What the hell! I can't believe I\n"
