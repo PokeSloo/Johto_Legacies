@@ -82,6 +82,7 @@ Route129_EventScript_Shane_1:
 	case DIR_WEST, Route129_EventScript_Shane_8
 Route129_EventScript_Shane_4:
 	addvar VAR_ECRUTEAK_STATE, 1
+	clearflag FLAG_HIDE_SHANE_RESORT_GATE
 	warpdoor MAP_NAVEL_ROCK_DOWN11, 0
 	waitstate
 	release

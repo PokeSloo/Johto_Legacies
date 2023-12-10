@@ -738,7 +738,7 @@
 #define FLAG_DEFEATED_DAMON_KIZU  0x2B8 // Kizu forest event
 #define FLAG_RT43_ITEM_BALL  0x2B9 // Max revive item ball
 #define FLAG_TALKED_TO_WINTER_ICE_PATH  0x2BA // She leaves and goes back to gym
-#define FLAG_UNUSED_STILL  0x2BB // unused
+#define FLAG_TALKED_TO_RESORT_NURSE  0x2BB // Set after talking to Rage Resort nurse
 
 // Event Flags
 #define FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG                      0x2BC
@@ -1217,8 +1217,8 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_0x493                                           0x493 // Unused Flag
-#define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
+#define FLAG_HIDE_SHANE_RESORT_GATE                                 0x493 // Only shown when passing guards
+#define FLAG_HIDE_SHANE_RESORT_HOUSE                                0x494 // When looking for secret switch
 #define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
 #define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag

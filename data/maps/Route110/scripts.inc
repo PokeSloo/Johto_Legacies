@@ -21,6 +21,8 @@ Route110_OnFrame::
 	applymovement 31, Route110_Movement_ShaneLeaveToResort
 	waitmovement 0
 	removeobject 31
+	setflag FLAG_HIDE_SHANE_RESORT_GATE
+	setflag FLAG_HIDE_SHANE_RESORT_HOUSE
 	addvar VAR_ECRUTEAK_STATE, 1
 	release
 	end

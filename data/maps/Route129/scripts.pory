@@ -78,6 +78,7 @@ script Route129_EventScript_Shane {
             	call (Route129_EventScript_FacingWest)
     	}
 		addvar (VAR_ECRUTEAK_STATE, 1)
+		clearflag (FLAG_HIDE_SHANE_RESORT_GATE)
 		warpdoor (MAP_NAVEL_ROCK_DOWN11, 0)
         waitstate
 		release

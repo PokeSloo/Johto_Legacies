@@ -1,0 +1,32 @@
+mapscripts FallarborTown_CozmosHouse_MapScripts {}
+
+script FallarborTown_CozmosHouse_EventScript_Fisherman {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_SUPER_ROD)) {
+        msgbox(format("You should try ice fishing with that Super Rod, one of my buddies seems to really enjoy it."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Tell me, do you like fishing?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES) {
+            msgbox(format("Great!\pThe world would be better off with more avid fishermen like us!"))
+            release
+            end
+        }
+        else {
+            msgbox(format("Hmm... That's unfortunate...\pPerhaps you just aren't using the right fishing rod.\pHere, try this one out!"))
+            giveitem (ITEM_SUPER_ROD)
+            msgbox(format("A Good Rod is pretty good, but a Super Rod is super!"))
+            setflag (FLAG_RECEIVED_SUPER_ROD)
+            release
+            end
+        }
+    }
+}
+
+script FallarborTown_CozmosHouse_EventScript_Wife {
+    msgbox(format("My husband really loves his fishing.\pWhile he's out there, I just enjoy reading a good book in this cozy little cabin."), MSGBOX_NPC)
+    end
+}

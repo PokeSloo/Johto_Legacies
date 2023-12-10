@@ -21,6 +21,8 @@ script Route110_OnFrame {
     applymovement (SHANE_INITIAL_ID, Route110_Movement_ShaneLeaveToResort)
     waitmovement (0)
     removeobject (SHANE_INITIAL_ID)
+	setflag (FLAG_HIDE_SHANE_RESORT_GATE)
+	setflag (FLAG_HIDE_SHANE_RESORT_HOUSE)
     addvar (VAR_ECRUTEAK_STATE, 1)
     release
     end

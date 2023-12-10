@@ -1,0 +1,49 @@
+mapscripts Route110_SeasideCyclingRoadSouthEntrance_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setrespawn (HEAL_LOCATION_ROUTE_110)
+        end
+    }
+}
+
+script Route110_SeasideCyclingRoadSouthEntrance_EventScript_Nurse {
+    lock
+    faceplayer
+    if (flag(FLAG_TALKED_TO_RESORT_NURSE)) {
+        msgbox(format("Welcome back, would you like me to heal your POKéMON?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("I'll be here if you need me."))
+            release
+            end
+        }
+        else {
+            goto (Route110_SeasideCyclingRoadSouthEntrance_EventScript_Heal)
+        }
+    }
+    else {
+        msgbox(format("Hello, and welcome to\nthe POKéMON CENTER.\pWe restore your...\pSorry, you can take the nurse away from work, but you can't take the work away from the nurse.\pI'm actually just here on vacation.\pAlthough, I can still heal your POKéMON if you would like?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("I'll be here if you need me."))
+            setflag (FLAG_TALKED_TO_RESORT_NURSE)
+            release
+            end
+        }
+        else {
+            setflag (FLAG_TALKED_TO_RESORT_NURSE)
+            goto (Route110_SeasideCyclingRoadSouthEntrance_EventScript_Heal)
+        }
+    }
+}
+
+script Route110_SeasideCyclingRoadSouthEntrance_EventScript_Heal {
+    msgbox(format("Okay, I'll take your POKéMON\nfor a few seconds."))
+    waitmessage
+    closemessage
+    fadescreen (FADE_TO_BLACK)
+    special (HealPlayerParty)
+	playfanfare (MUS_HEAL)
+	waitfanfare
+    fadescreen (FADE_FROM_BLACK)
+    msgbox (format("Thank you for waiting.\pI've restored your POKéMON\nto full health.\pI hope to see you again!"))
+    release
+    end
+}

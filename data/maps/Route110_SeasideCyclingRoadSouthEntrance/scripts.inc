@@ -1,65 +1,80 @@
 Route110_SeasideCyclingRoadSouthEntrance_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route110_SeasideCyclingRoadSouthEntrance_OnTransition
+	map_script MAP_SCRIPT_ON_TRANSITION, Route110_SeasideCyclingRoadSouthEntrance_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
 
-Route110_SeasideCyclingRoadSouthEntrance_OnTransition:
-	call_if_eq VAR_CYCLING_CHALLENGE_STATE, 3, Route110_SeasideCyclingRoadSouthEntrance_EventScript_RestartChallenge
-	call_if_eq VAR_CYCLING_CHALLENGE_STATE, 2, Route110_SeasideCyclingRoadSouthEntrance_EventScript_RestartChallenge
+Route110_SeasideCyclingRoadSouthEntrance_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	setrespawn HEAL_LOCATION_ROUTE_110
 	end
 
-Route110_SeasideCyclingRoadSouthEntrance_EventScript_RestartChallenge::
-	setvar VAR_CYCLING_CHALLENGE_STATE, 1
-	return
 
-Route110_SeasideCyclingRoadSouthEntrance_EventScript_Clerk::
+Route110_SeasideCyclingRoadSouthEntrance_EventScript_Nurse::
 	lock
 	faceplayer
-	msgbox Route110_SeasideCyclingRoadSouthEntrance_Text_GoAllOutOnCyclingRoad, MSGBOX_DEFAULT
+	goto_if_set FLAG_TALKED_TO_RESORT_NURSE, Route110_SeasideCyclingRoadSouthEntrance_EventScript_Nurse_1
+	msgbox Route110_SeasideCyclingRoadSouthEntrance_EventScript_Nurse_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Route110_SeasideCyclingRoadSouthEntrance_EventScript_Nurse_7
+	setflag FLAG_TALKED_TO_RESORT_NURSE
+	goto Route110_SeasideCyclingRoadSouthEntrance_EventScript_Heal
+	return
+
+Route110_SeasideCyclingRoadSouthEntrance_EventScript_Nurse_1:
+	msgbox Route110_SeasideCyclingRoadSouthEntrance_EventScript_Nurse_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Route110_SeasideCyclingRoadSouthEntrance_EventScript_Nurse_4
+	goto Route110_SeasideCyclingRoadSouthEntrance_EventScript_Heal
+	return
+
+Route110_SeasideCyclingRoadSouthEntrance_EventScript_Nurse_4:
+	msgbox Route110_SeasideCyclingRoadSouthEntrance_EventScript_Nurse_Text_1
 	release
 	end
 
-Route110_SeasideCyclingRoadSouthEntrance_EventScript_BikeCheck::
-	lockall
-	specialvar VAR_RESULT, GetPlayerAvatarBike
-	call_if_eq VAR_RESULT, 2, Route110_SeasideCyclingRoadSouthEntrance_EventScript_OnMachBike
-	goto_if_eq VAR_RESULT, 0, Route110_SeasideCyclingRoadSouthEntrance_EventScript_NoBike
-	setflag FLAG_SYS_CYCLING_ROAD
-	setvar VAR_TEMP_1, 1
-	releaseall
+Route110_SeasideCyclingRoadSouthEntrance_EventScript_Nurse_7:
+	msgbox Route110_SeasideCyclingRoadSouthEntrance_EventScript_Nurse_Text_1
+	setflag FLAG_TALKED_TO_RESORT_NURSE
+	release
 	end
 
-Route110_SeasideCyclingRoadSouthEntrance_EventScript_OnMachBike::
-	setvar VAR_CYCLING_CHALLENGE_STATE, 1
-	return
 
-Route110_SeasideCyclingRoadSouthEntrance_EventScript_NoBike::
-	msgbox Route110_SeasideCyclingRoadSouthEntrance_Text_TooDangerousToWalk, MSGBOX_DEFAULT
+Route110_SeasideCyclingRoadSouthEntrance_EventScript_Heal::
+	msgbox Route110_SeasideCyclingRoadSouthEntrance_EventScript_Heal_Text_0
+	waitmessage
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Route110_SeasideCyclingRoadSouthEntrance_Movement_PushPlayerBackFromCounter
-	waitmovement 0
-	releaseall
+	fadescreen FADE_TO_BLACK
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	fadescreen FADE_FROM_BLACK
+	msgbox Route110_SeasideCyclingRoadSouthEntrance_EventScript_Heal_Text_1
+	release
 	end
 
-Route110_SeasideCyclingRoadSouthEntrance_Movement_PushPlayerBackFromCounter:
-	walk_left
-	step_end
 
-Route110_SeasideCyclingRoadSouthEntrance_EventScript_ClearCyclingRoad::
-	lockall
-	setvar VAR_CYCLING_CHALLENGE_STATE, 0
-	clearflag FLAG_SYS_CYCLING_ROAD
-	setvar VAR_TEMP_1, 0
-	releaseall
-	end
+Route110_SeasideCyclingRoadSouthEntrance_EventScript_Nurse_Text_0:
+	.string "Welcome back, would you like me to heal\n"
+	.string "your POKéMON?$"
 
-Route110_SeasideCyclingRoadSouthEntrance_Text_GoAllOutOnCyclingRoad:
-	.string "On CYCLING ROAD, you can go all out\n"
-	.string "and cycle as fast as you'd like.\p"
-	.string "It feels great to go that fast, but try\n"
-	.string "not to crash into anyone!$"
+Route110_SeasideCyclingRoadSouthEntrance_EventScript_Nurse_Text_1:
+	.string "I'll be here if you need me.$"
 
-Route110_SeasideCyclingRoadSouthEntrance_Text_TooDangerousToWalk:
-	.string "Sorry, you can't walk on CYCLING\n"
-	.string "ROAD. It's too dangerous.\p"
-	.string "Please come back with a BIKE.$"
+Route110_SeasideCyclingRoadSouthEntrance_EventScript_Nurse_Text_2:
+	.string "Hello, and welcome to\n"
+	.string "the POKéMON CENTER.\p"
+	.string "We restore your...\p"
+	.string "Sorry, you can take the nurse away from\n"
+	.string "work, but you can't take the work away\l"
+	.string "from the nurse.\p"
+	.string "I'm actually just here on vacation.\p"
+	.string "Although, I can still heal your POKéMON\n"
+	.string "if you would like?$"
 
+Route110_SeasideCyclingRoadSouthEntrance_EventScript_Heal_Text_0:
+	.string "Okay, I'll take your POKéMON\n"
+	.string "for a few seconds.$"
+
+Route110_SeasideCyclingRoadSouthEntrance_EventScript_Heal_Text_1:
+	.string "Thank you for waiting.\p"
+	.string "I've restored your POKéMON\n"
+	.string "to full health.\p"
+	.string "I hope to see you again!$"
