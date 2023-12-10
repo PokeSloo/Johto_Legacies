@@ -1219,8 +1219,8 @@
 
 #define FLAG_HIDE_SHANE_RESORT_GATE                                 0x493 // Only shown when passing guards
 #define FLAG_HIDE_SHANE_RESORT_HOUSE                                0x494 // When looking for secret switch
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
+#define FLAG_SAW_RESORT_GRUNT                                       0x495 // Goes into house after talking to Whitney
+#define FLAG_RAGE_RESORT_LADDER_OPEN                                0x496 // Ladder down to phoenix hideout
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag

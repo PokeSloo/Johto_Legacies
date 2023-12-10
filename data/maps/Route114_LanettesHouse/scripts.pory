@@ -1,0 +1,71 @@
+const SHANE_ID = 1
+
+mapscripts Route114_LanettesHouse_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        if (flag(FLAG_RAGE_RESORT_LADDER_OPEN)) {
+            setmetatile (1, 7, 0x342, FALSE)
+            return
+        }
+        end
+    }
+}
+
+script Route114_LanettesHouse_EventScript_Shane {
+    msgbox(format("You must have been seeing things, there isn't a single soul in here..."), MSGBOX_NPC)
+    end
+}
+
+script Route114_LanettesHouse_EventScript_Poster {
+    lock
+    if (flag(FLAG_RAGE_RESORT_LADDER_OPEN)) {
+        release
+        end
+    }
+    elif (flag(FLAG_SAW_RESORT_GRUNT)) {
+        msgbox(format("Hey!\pA switch behind the poster!?\nLet's push it!"))
+        waitmessage
+        closemessage
+        playse(SE_SWITCH)
+        setmetatile (1, 7, 0x342, FALSE)
+        special (DrawWholeMapView)
+        waitse
+        delay (20)
+        playse(SE_PIN)
+        applymovement (SHANE_ID, Route114_LanettesHouse_Movement_Exclamation)
+        waitmovement (0)
+        waitse
+        delay (30)
+        applymovement (OBJ_EVENT_ID_PLAYER, Route114_LanettesHouse_Movement_StepDown)
+        waitmovement (0)
+        msgbox(format("SHANE: Look!\pA hole just opened up in the floor!\pI bet if we follow that, we'll find where all of these jerks are hiding!"))
+        waitmessage
+        closemessage
+        applymovement (SHANE_ID, Route114_LanettesHouse_Movement_ShanetoHole)
+        waitmovement (0)
+        playse (SE_EXIT)
+        removeobject (SHANE_ID)
+        waitse
+        setflag (FLAG_HIDE_SHANE_RESORT_HOUSE)
+        setflag (FLAG_RAGE_RESORT_LADDER_OPEN)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+movement Route114_LanettesHouse_Movement_Exclamation {
+    emote_exclamation_mark
+    face_down
+}
+
+movement Route114_LanettesHouse_Movement_StepDown {
+    walk_down
+}
+
+movement Route114_LanettesHouse_Movement_ShanetoHole {
+    walk_left * 2
+    walk_down * 3
+}

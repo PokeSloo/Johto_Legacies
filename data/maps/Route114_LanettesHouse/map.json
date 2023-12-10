@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route114_LanettesHouse_EventScript_Shane",
       "flag": "FLAG_HIDE_SHANE_RESORT_HOUSE"
     }
   ],
@@ -44,7 +44,7 @@
       "dest_warp_id": 5
     },
     {
-      "x": 0,
+      "x": 1,
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_MAGMA_HIDEOUT_1F",
@@ -55,6 +55,13 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route114_LanettesHouse_EventScript_Poster"
+    }
   ]
 }

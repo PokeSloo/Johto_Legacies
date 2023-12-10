@@ -1,103 +1,90 @@
 Route114_LanettesHouse_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, Route114_LanettesHouse_MapScripts_MAP_SCRIPT_ON_LOAD
 	.byte 0
 
-Route114_LanettesHouse_OnTransition:
-	setflag FLAG_LANDMARK_LANETTES_HOUSE
+Route114_LanettesHouse_MapScripts_MAP_SCRIPT_ON_LOAD:
+	goto_if_set FLAG_RAGE_RESORT_LADDER_OPEN, Route114_LanettesHouse_MapScripts_MAP_SCRIPT_ON_LOAD_2
 	end
 
-Route114_LanettesHouse_EventScript_Lanette::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_DOLL_LANETTE, Route114_LanettesHouse_EventScript_OfferAdvice
-	setflag FLAG_SYS_PC_LANETTE
-	msgbox Route114_LanettesHouse_Text_EverythingClutteredKeepThis, MSGBOX_DEFAULT
-	givedecoration DECOR_LOTAD_DOLL
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowNoRoomForDecor
-	setflag FLAG_RECEIVED_DOLL_LANETTE
-	release
-	end
-
-Route114_LanettesHouse_EventScript_OfferAdvice::
-	msgbox Route114_LanettesHouse_Text_OrganizeYourBoxes, MSGBOX_DEFAULT
-	release
-	end
-
-Route114_LanettesHouse_EventScript_Notebook::
-	lockall
-	msgbox Route114_LanettesHouse_Text_ResearchNotesPage1, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, Route114_LanettesHouse_EventScript_NotebookPage2
-	msgbox Route114_LanettesHouse_Text_ClosedTheNotebook, MSGBOX_DEFAULT
-	releaseall
-	end
-
-Route114_LanettesHouse_EventScript_NotebookPage2::
-	msgbox Route114_LanettesHouse_Text_ResearchNotesPage2, MSGBOX_YESNO
-	call_if_eq VAR_RESULT, YES, Route114_LanettesHouse_EventScript_NotebookPage3
-	releaseall
-	end
-
-Route114_LanettesHouse_EventScript_NotebookPage3::
-	msgbox Route114_LanettesHouse_Text_ResearchNotesPage3, MSGBOX_DEFAULT
+Route114_LanettesHouse_MapScripts_MAP_SCRIPT_ON_LOAD_2:
+	setmetatile 1, 7, 0x342, FALSE
 	return
 
-Route114_LanettesHouse_EventScript_PC::
-	msgbox Route114_LanettesHouse_Text_EmailFromBill, MSGBOX_SIGN
+
+Route114_LanettesHouse_EventScript_Shane::
+	msgbox Route114_LanettesHouse_EventScript_Shane_Text_0, MSGBOX_NPC
 	end
 
-Route114_LanettesHouse_Text_EverythingClutteredKeepThis:
-	.string "LANETTE: Oh! {PLAYER}{KUN}!\p"
-	.string "I'm sorry everything is so cluttered…\n"
-	.string "When I get engrossed in research,\l"
-	.string "things end up this way…\p"
-	.string "This is embarrassing… Please keep\n"
-	.string "this a secret in exchange for this.$"
 
-Route114_LanettesHouse_Text_OrganizeYourBoxes:
-	.string "May I offer advice about my POKéMON\n"
-	.string "Storage System?\p"
-	.string "You should organize your BOXES so you\n"
-	.string "can tell which POKéMON are in them.$"
+Route114_LanettesHouse_EventScript_Poster::
+	lock
+	goto_if_set FLAG_RAGE_RESORT_LADDER_OPEN, Route114_LanettesHouse_EventScript_Poster_1
+	goto_if_set FLAG_SAW_RESORT_GRUNT, Route114_LanettesHouse_EventScript_Poster_2
+	release
+	end
 
-Route114_LanettesHouse_Text_ResearchNotesPage1:
-	.string "It's LANETTE's research notes.\n"
-	.string "There's information about BOXES.\p"
-	.string "Design BOXES to hold 30 POKéMON each.\p"
-	.string "Each TRAINER should be able to store\n"
-	.string "420 POKéMON on the PC system.\p"
-	.string "Keep reading?$"
+Route114_LanettesHouse_EventScript_Poster_1:
+	release
+	end
 
-Route114_LanettesHouse_Text_ResearchNotesPage2:
-	.string "A marking system should be added to\n"
-	.string "make POKéMON easier to organize.\p"
-	.string "The name and wallpaper design of each\n"
-	.string "BOX will be made changeable to please\l"
-	.string "the stored POKéMON.\p"
-	.string "Keep reading?$"
+Route114_LanettesHouse_EventScript_Poster_2:
+	msgbox Route114_LanettesHouse_EventScript_Poster_Text_0
+	waitmessage
+	closemessage
+	playse SE_SWITCH
+	setmetatile 1, 7, 0x342, FALSE
+	special DrawWholeMapView
+	waitse
+	delay 20
+	playse SE_PIN
+	applymovement 1, Route114_LanettesHouse_Movement_Exclamation
+	waitmovement 0
+	waitse
+	delay 30
+	applymovement OBJ_EVENT_ID_PLAYER, Route114_LanettesHouse_Movement_StepDown
+	waitmovement 0
+	msgbox Route114_LanettesHouse_EventScript_Poster_Text_1
+	waitmessage
+	closemessage
+	applymovement 1, Route114_LanettesHouse_Movement_ShanetoHole
+	waitmovement 0
+	playse SE_EXIT
+	removeobject 1
+	waitse
+	setflag FLAG_HIDE_SHANE_RESORT_HOUSE
+	setflag FLAG_RAGE_RESORT_LADDER_OPEN
+	release
+	end
 
-Route114_LanettesHouse_Text_ResearchNotesPage3:
-	.string "When storing a POKéMON, it should be\n"
-	.string "sent to the BOX inspected last.\p"
-	.string "If that BOX is full, the received\n"
-	.string "POKéMON is stored in the next BOX.\p"
-	.string "In other words, when a BOX is examined,\n"
-	.string "it is automatically selected as the BOX\l"
-	.string "to which POKéMON are sent.$"
 
-Route114_LanettesHouse_Text_ClosedTheNotebook:
-	.string "{PLAYER} closed the notebook.$"
+Route114_LanettesHouse_Movement_Exclamation:
+	emote_exclamation_mark
+	face_down
+	step_end
 
-Route114_LanettesHouse_Text_EmailFromBill:
-	.string "There's an e-mail from someone on\n"
-	.string "the PC.\p"
-	.string "“… … … … … … …\p"
-	.string "“Your Storage System offers more\n"
-	.string "convenience than mine.\p"
-	.string "“It has a lot of user-friendly features\n"
-	.string "that make it fun and useful, too.\p"
-	.string "“It makes me proud that I played\n"
-	.string "a part in its development.\p"
-	.string "“Here's hoping that you'll continue\n"
-	.string "research in Storage Systems.\p"
-	.string "“From BILL\n"
-	.string "… … … … … … … …”$"
+Route114_LanettesHouse_Movement_StepDown:
+	walk_down
+	step_end
 
+Route114_LanettesHouse_Movement_ShanetoHole:
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Route114_LanettesHouse_EventScript_Shane_Text_0:
+	.string "You must have been seeing things, there\n"
+	.string "isn't a single soul in here...$"
+
+Route114_LanettesHouse_EventScript_Poster_Text_0:
+	.string "Hey!\p"
+	.string "A switch behind the poster!?\n"
+	.string "Let's push it!$"
+
+Route114_LanettesHouse_EventScript_Poster_Text_1:
+	.string "SHANE: Look!\p"
+	.string "A hole just opened up in the floor!\p"
+	.string "I bet if we follow that, we'll find where\n"
+	.string "all of these jerks are hiding!$"

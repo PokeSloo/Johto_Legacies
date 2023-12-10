@@ -1,5 +1,6 @@
 const SHANE_INITIAL_ID = 31
 const FOOD_SHANE_ID = 32
+const GRUNT_ID = 33
 
 mapscripts Route110_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
@@ -15,7 +16,7 @@ script Route110_OnFrame {
     delay (30)
     applymovement (SHANE_INITIAL_ID, Route110_Movement_ShaneLookAround)
     waitmovement (0)
-    msgbox(format("SHANE: Alright, we're in.\pThis resort seems pretty big.\pLet's look around for anything suspicious."))
+    msgbox(format("SHANE: Alright, we're in.\pThis resort seems pretty big.\pLet's look around for anything suspicious, and try not to hold me back."))
     waitmessage
     closemessage
     applymovement (SHANE_INITIAL_ID, Route110_Movement_ShaneLeaveToResort)
@@ -79,8 +80,140 @@ script Route110_EventScript_FoodBeauty {
 }
 
 script Route110_EventScript_Whitney {
-	msgbox(format("WHITNEY: Hmm... You look familiar...\p{PLAYER} wasn't it?\pYou know, you were the first person to defeat me in years!\pI'm taking a break right now, but I've been training non-stop since then.\pI hope to have a rematch with you one day."), MSGBOX_NPC)
-	end
+	lock
+	faceplayer
+	if (flag(FLAG_SAW_RESORT_GRUNT)) {
+		msgbox(format("WHITNEY: Hmm... You look familiar...\p{PLAYER} wasn't it?\pYou know, you were the first person to defeat me in years!\pI'm taking a break right now, but I've been training non-stop since then.\pI hope to have a rematch with you one day."))
+		release
+		end
+	}
+	else {
+		msgbox(format("WHITNEY: Hmm... You look familiar...\p{PLAYER} wasn't it?\pYou know, you were the first person to defeat me in years!\pI'm taking a break right now, but I've been training non-stop since then.\pI hope to have a rematch with you one day."))
+		waitmessage
+		closemessage
+		delay (30)
+		addobject (GRUNT_ID)
+		applymovement (GRUNT_ID, Route110_Movement_GrunttoHouse)
+		waitmovement (0)
+		playse (SE_PIN)
+		applymovement (OBJ_EVENT_ID_PLAYER, Route110_Movement_ExclamationLeft)
+		waitmovement (0)
+		waitse
+		applymovement (GRUNT_ID, Route110_Movement_GruntLookAround)
+		waitmovement (0)
+		delay (20)
+		opendoor (78, 27)
+		waitdooranim
+		applymovement (GRUNT_ID, Route110_Movement_StepinHouse)
+		waitmovement (0)
+		removeobject (GRUNT_ID)
+		closedoor (78, 27)
+		waitdooranim
+		applymovement (OBJ_EVENT_ID_PLAYER, Route110_Movement_PlayertoShane)
+		waitmovement (0)
+		playse (SE_PIN)
+		applymovement (FOOD_SHANE_ID, Route110_Movement_QuestionFaceUp)
+		waitmovement (0)
+		waitse
+		msgbox(format("...\pSHANE: What? You saw a grunt?\pWhere were they?"))
+		waitmessage
+		closemessage
+		applymovement (OBJ_EVENT_ID_PLAYER, Route110_Movement_StepLeft)
+		applymovement (FOOD_SHANE_ID, Route110_Movement_StepLeft)
+		waitmovement (0)
+		msgbox(format("...\pIn that house, huh?"))
+		waitmessage
+		applymovement (OBJ_EVENT_ID_PLAYER, Route110_Movement_FaceDown)
+		applymovement (FOOD_SHANE_ID, Route110_Movement_FaceUp)
+		waitmovement (0)
+		msgbox(format("Crap, why now of all times?\pWHITNEY is right there!\p...\pFine, let's check it out."))
+		waitmessage
+		closemessage
+		applymovement (OBJ_EVENT_ID_PLAYER, Route110_Movement_PlayerToHouse)
+		applymovement (FOOD_SHANE_ID, Route110_Movement_ShaneToHouse)
+		waitmovement (0)
+		opendoor (78, 27)
+		waitdooranim
+		applymovement (FOOD_SHANE_ID, Route110_Movement_StepinHouse)
+		waitmovement (0)
+		removeobject (FOOD_SHANE_ID)
+		closedoor (78, 27)
+		waitdooranim
+		clearflag (FLAG_HIDE_SHANE_RESORT_HOUSE)
+		setflag (FLAG_SAW_RESORT_GRUNT)
+		pokenavcall (format("OLIVER: Hello, {PLAYER}, can you\nhear me?\pI'm calling to tell you I just saw\na Team Phoenix grunt go into the\lRage Resort!\pUnortunately, the guards won't let\nme in without a Resort Pass.\p...\pWhat's that?\pYou're there, and you just saw the\ngrunt?\pAlright, this is good.\pJust be careful.\pI'll call in some backup. You know,\nI'm not much of a battler myself.\pOk, good luck!"))
+		waitmessage
+		closemessage
+		applymovement (OBJ_EVENT_ID_PLAYER, Route110_Movement_StepinHouse)
+		waitmovement (0)
+		warpdoor (MAP_ROUTE114_LANETTES_HOUSE, 0)
+        waitstate
+		release
+		end
+	}
+}
+
+movement Route110_Movement_GrunttoHouse {
+	walk_up * 2
+	walk_left * 2
+	walk_up
+}
+
+movement Route110_Movement_ExclamationLeft {
+	emote_exclamation_mark
+	walk_in_place_left
+}
+
+movement Route110_Movement_GruntLookAround {
+	walk_in_place_left
+    delay_16 * 2
+    walk_in_place_right
+    delay_16 * 2
+    face_up
+}
+
+movement Route110_Movement_StepinHouse {
+	walk_up
+}
+
+movement Route110_Movement_PlayertoShane {
+	walk_fast_down * 2
+}
+
+movement Route110_Movement_QuestionFaceUp {
+	emote_question_mark
+	face_up
+}
+
+movement Route110_Movement_StepLeft {
+	walk_in_place_left
+}
+
+movement Route110_Movement_FaceDown {
+	face_down
+}
+
+movement Route110_Movement_FaceUp {
+	face_up
+}
+
+movement Route110_Movement_ShaneToHouse {
+	walk_right * 3
+	walk_down * 2
+	walk_left * 7
+	walk_up
+	walk_left * 2
+	walk_up
+}
+
+movement Route110_Movement_PlayerToHouse {
+	walk_down
+	walk_right * 3
+	walk_down * 2
+	walk_left * 7
+	walk_up
+	walk_left * 2
+	face_up
 }
 
 script Route110_EventScript_FoodShane {

@@ -44,7 +44,7 @@ Route129_EventScript_Shane::
 	applymovement 6, Route129_Movement_Exclamation
 	waitmovement 0
 	waitse
-	delay 60
+	delay 30
 	faceplayer
 	msgbox Route129_EventScript_Shane_Text_1
 	waitmessage

@@ -47,7 +47,7 @@ script Route129_EventScript_Shane {
 	applymovement (SHANE_ID, Route129_Movement_Exclamation)
 	waitmovement (0)
 	waitse
-	delay (60)
+	delay (30)
 	faceplayer
 	msgbox(format("Hey!\pDon't sneak up on me like that!\pI wasn't expecting to see you here, nerd.\pLook, I've got bigger issues than dealing with you right now.\pI saw that Team Chicken jerk, DAMON, and followed him here.\pHe went through this gatehouse, but the guards won't let me through without some kind of Resort Pass."))
 	waitmessage

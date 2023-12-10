@@ -99,9 +99,165 @@ Route110_EventScript_FoodBeauty::
 
 
 Route110_EventScript_Whitney::
-	msgbox Route110_EventScript_Whitney_Text_0, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_set FLAG_SAW_RESORT_GRUNT, Route110_EventScript_Whitney_1
+	msgbox Route110_EventScript_Whitney_Text_0
+	waitmessage
+	closemessage
+	delay 30
+	addobject 33
+	applymovement 33, Route110_Movement_GrunttoHouse
+	waitmovement 0
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_Movement_ExclamationLeft
+	waitmovement 0
+	waitse
+	applymovement 33, Route110_Movement_GruntLookAround
+	waitmovement 0
+	delay 20
+	opendoor 78, 27
+	waitdooranim
+	applymovement 33, Route110_Movement_StepinHouse
+	waitmovement 0
+	removeobject 33
+	closedoor 78, 27
+	waitdooranim
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_Movement_PlayertoShane
+	waitmovement 0
+	playse SE_PIN
+	applymovement 32, Route110_Movement_QuestionFaceUp
+	waitmovement 0
+	waitse
+	msgbox Route110_EventScript_Whitney_Text_1
+	waitmessage
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_Movement_StepLeft
+	applymovement 32, Route110_Movement_StepLeft
+	waitmovement 0
+	msgbox Route110_EventScript_Whitney_Text_2
+	waitmessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_Movement_FaceDown
+	applymovement 32, Route110_Movement_FaceUp
+	waitmovement 0
+	msgbox Route110_EventScript_Whitney_Text_3
+	waitmessage
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_Movement_PlayerToHouse
+	applymovement 32, Route110_Movement_ShaneToHouse
+	waitmovement 0
+	opendoor 78, 27
+	waitdooranim
+	applymovement 32, Route110_Movement_StepinHouse
+	waitmovement 0
+	removeobject 32
+	closedoor 78, 27
+	waitdooranim
+	clearflag FLAG_HIDE_SHANE_RESORT_HOUSE
+	setflag FLAG_SAW_RESORT_GRUNT
+	pokenavcall Route110_EventScript_Whitney_Text_4
+	waitmessage
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_Movement_StepinHouse
+	waitmovement 0
+	warpdoor MAP_ROUTE114_LANETTES_HOUSE, 0
+	waitstate
+	release
 	end
 
+Route110_EventScript_Whitney_1:
+	msgbox Route110_EventScript_Whitney_Text_0
+	release
+	end
+
+
+Route110_Movement_GrunttoHouse:
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+Route110_Movement_ExclamationLeft:
+	emote_exclamation_mark
+	walk_in_place_left
+	step_end
+
+Route110_Movement_GruntLookAround:
+	walk_in_place_left
+	delay_16
+	delay_16
+	walk_in_place_right
+	delay_16
+	delay_16
+	face_up
+	step_end
+
+Route110_Movement_StepinHouse:
+	walk_up
+	step_end
+
+Route110_Movement_PlayertoShane:
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+Route110_Movement_QuestionFaceUp:
+	emote_question_mark
+	face_up
+	step_end
+
+Route110_Movement_StepLeft:
+	walk_in_place_left
+	step_end
+
+Route110_Movement_FaceDown:
+	face_down
+	step_end
+
+Route110_Movement_FaceUp:
+	face_up
+	step_end
+
+Route110_Movement_ShaneToHouse:
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+Route110_Movement_PlayerToHouse:
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_left
+	walk_left
+	face_up
+	step_end
 
 Route110_EventScript_FoodShane::
 	msgbox Route110_EventScript_FoodShane_Text_0, MSGBOX_NPC
@@ -368,7 +524,8 @@ Route110_OnFrame_Text_0:
 	.string "SHANE: Alright, we're in.\p"
 	.string "This resort seems pretty big.\p"
 	.string "Let's look around for anything\n"
-	.string "suspicious.$"
+	.string "suspicious, and try not to hold me\l"
+	.string "back.$"
 
 Route110_EventScript_FoodTourist_Text_0:
 	.string "My gazpacho soup is cold!\p"
@@ -397,6 +554,39 @@ Route110_EventScript_Whitney_Text_0:
 	.string "been training non-stop since then.\p"
 	.string "I hope to have a rematch with you one\n"
 	.string "day.$"
+
+Route110_EventScript_Whitney_Text_1:
+	.string "...\p"
+	.string "SHANE: What? You saw a grunt?\p"
+	.string "Where were they?$"
+
+Route110_EventScript_Whitney_Text_2:
+	.string "...\p"
+	.string "In that house, huh?$"
+
+Route110_EventScript_Whitney_Text_3:
+	.string "Crap, why now of all times?\p"
+	.string "WHITNEY is right there!\p"
+	.string "...\p"
+	.string "Fine, let's check it out.$"
+
+Route110_EventScript_Whitney_Text_4:
+	.string "OLIVER: Hello, {PLAYER}, can you\n"
+	.string "hear me?\p"
+	.string "I'm calling to tell you I just saw\n"
+	.string "a Team Phoenix grunt go into the\l"
+	.string "Rage Resort!\p"
+	.string "Unortunately, the guards won't let\n"
+	.string "me in without a Resort Pass.\p"
+	.string "...\p"
+	.string "What's that?\p"
+	.string "You're there, and you just saw the\n"
+	.string "grunt?\p"
+	.string "Alright, this is good.\p"
+	.string "Just be careful.\p"
+	.string "I'll call in some backup. You know,\n"
+	.string "I'm not much of a battler myself.\p"
+	.string "Ok, good luck!$"
 
 Route110_EventScript_FoodShane_Text_0:
 	.string "SHANE: ...\p"
