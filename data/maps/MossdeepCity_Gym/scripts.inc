@@ -16,6 +16,7 @@ MossdeepCity_Gym_EventScript_WinterDefeated::
 	msgbox MossdeepCity_Gym_EventScript_WinterDefeated_Text_1
 	setflag FLAG_DEFEATED_MOSSDEEP_GYM
 	setflag FLAG_BADGE07_GET
+	clearflag FLAG_HIDE_SHANE_ROUTE_43
 	setvar VAR_0x8008, 7
 	call Common_EventScript_SetGymTrainers
 	giveitem ITEM_TM13

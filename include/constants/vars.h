@@ -266,7 +266,7 @@
 #define VAR_CHERRYGROVE_STATE                0x40F7 // 1 = Got running shoes, 2 = Shane to Newbark, 3 = Talked to Elm, no poke, 4 = Got poke from Elm, 5 = Got balls from aid, 6 = Lose to Shane, 7 = Got Pokenav, 8 = Fell in Alph, 9 = Got fake nugget, 10 = Defeated past Gold
 #define VAR_GOLDENROD_GYM_BONUS_COUNT        0x40F8 // Unused Var
 #define VAR_GYM_LEADERS_ROUND2_COUNT         0x40F9 // Unused Var
-#define VAR_ECRUTEAK_STATE                   0x40FA // 1 = Defeated Thorne, 2 = Got Strength, 3 = Got 6th badge, 4 = Oliver meet outside Cianwood gym
+#define VAR_ECRUTEAK_STATE                   0x40FA // 1 = Defeated Thorne, 2 = Got Strength, 3 = Got 6th badge, 4 = Oliver meet outside Cianwood gym, 5 = Shane outside Resort, 6 = Past resort guards
 #define VAR_THE_CHALLENGE_EVENTS             0x40FB // Used to control the player in goldenrod gym. 1 = Set after all questions, 2 = Defeated Whitney
 #define VAR_KIMONO_GIRL_COUNT                0x40FC // Battled Kimono girls before get Eevee
 #define VAR_OLIVINE_GYM_TRAINER_COUNT        0x40FD // After battling and sending the band back to the gym

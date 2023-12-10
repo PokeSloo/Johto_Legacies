@@ -1,3 +1,5 @@
+const SHANE_ID = 6
+
 raw`
 Route129_MapScripts::
 	.byte 0
@@ -35,4 +37,103 @@ script Route129_EventScript_Sign {
 script Route129_EventScript_ItemMaxRevive {
 	finditem (ITEM_MAX_REVIVE)
 	end
+}
+
+script Route129_EventScript_Shane {
+	lock
+	msgbox(format("SHANE: Man, I can't believe these jerks won't let me through..."))
+	waitmessage
+	playse (SE_PIN)
+	applymovement (SHANE_ID, Route129_Movement_Exclamation)
+	waitmovement (0)
+	waitse
+	delay (60)
+	faceplayer
+	msgbox(format("Hey!\pDon't sneak up on me like that!\pI wasn't expecting to see you here, nerd.\pLook, I've got bigger issues than dealing with you right now.\pI saw that Team Chicken jerk, DAMON, and followed him here.\pHe went through this gatehouse, but the guards won't let me through without some kind of Resort Pass."))
+	waitmessage
+	checkitem (ITEM_LIFT_KEY)
+    if (var(VAR_RESULT) == TRUE) {
+		playse (SE_PIN)
+		applymovement (SHANE_ID, Route129_Movement_Exclamation)
+		waitmovement (0)
+		waitse
+		delay (60)
+		msgbox(format("What?\pHow did a twerp like you get a Resort Pass?\pWell, nevermind that...\p...\pYou say it lets you and one guest into the Rage Resort?\pThat works out perfectly then!\pCome on, I'm going to make these Team Chicken losers regret ever messing with me!"))
+		waitmessage
+		closemessage
+		applymovement (SHANE_ID, Route129_Movement_ShaneEnterGate)
+		waitmovement (0)
+		playse (SE_DOOR)
+		removeobject (SHANE_ID)
+		waitse
+		setflag (FLAG_HIDE_SHANE_ROUTE_43)
+		delay (30)
+		specialvar (VAR_RESULT, GetPlayerFacingDirection)
+    	switch (var(VAR_RESULT)) {
+       		case DIR_EAST :
+            	call (Route129_EventScript_FacingEast)
+        	case DIR_NORTH :
+            	call (Route129_EventScript_FacingNorth)
+        	case DIR_WEST :
+            	call (Route129_EventScript_FacingWest)
+    	}
+		addvar (VAR_ECRUTEAK_STATE, 1)
+		warpdoor (MAP_NAVEL_ROCK_DOWN11, 0)
+        waitstate
+		release
+		end
+	}
+	else {
+		msgbox(format("Hmm... Maybe I can find another way in..."))
+		waitmessage
+		closemessage
+		applymovement (SHANE_ID, Route129_Movement_FaceUp)
+		waitmovement (0)
+		release
+		end
+	}
+}
+
+script Route129_EventScript_FacingEast {
+    applymovement (OBJ_EVENT_ID_PLAYER, Route129_Movement_EnterFromLeft)
+    waitmovement (0)
+    return
+}
+
+script Route129_EventScript_FacingNorth {
+    applymovement (OBJ_EVENT_ID_PLAYER, Route129_Movement_EnterFromBottom)
+    waitmovement (0)
+    return
+}
+
+script Route129_EventScript_FacingWest {
+    applymovement (OBJ_EVENT_ID_PLAYER, Route129_Movement_EnterFromRight)
+    waitmovement (0)
+    return
+}
+
+movement Route129_Movement_Exclamation {
+	emote_exclamation_mark
+}
+
+movement Route129_Movement_FaceUp {
+	face_up
+}
+
+movement Route129_Movement_ShaneEnterGate {
+	walk_up
+}
+
+movement Route129_Movement_EnterFromLeft {
+	walk_right
+	walk_up
+}
+
+movement Route129_Movement_EnterFromBottom {
+	walk_up * 2
+}
+
+movement Route129_Movement_EnterFromRight {
+	walk_left
+	walk_up
 }

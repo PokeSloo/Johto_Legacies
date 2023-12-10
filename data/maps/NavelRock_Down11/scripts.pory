@@ -1,0 +1,124 @@
+const GUARD_1_ID = 1
+const GUARD_2_ID = 2
+const SHANE_ID = 3
+
+mapscripts NavelRock_Down11_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_ECRUTEAK_STATE, 5: NavelRock_Down11_OnFrame
+    ]
+}
+
+script NavelRock_Down11_OnFrame {
+    lock
+    addobject (SHANE_ID)
+    applymovement (OBJ_EVENT_ID_PLAYER, NavelRock_Down11_Movement_PlayerToShane)
+    waitmovement (0)
+    applymovement (OBJ_EVENT_ID_PLAYER, NavelRock_Down11_Movement_PlayerToGuard)
+    applymovement (SHANE_ID, NavelRock_Down11_Movement_ShaneToGuard)
+    waitmovement (0)
+    applymovement (GUARD_1_ID, NavelRock_Down11_Movement_FaceRight)
+    applymovement (GUARD_2_ID, NavelRock_Down11_Movement_FaceLeft)
+    waitmovement (0)
+    msgbox(NavelRock_Down11_Text_Guards)
+    waitmessage
+    msgbox(format("Oh!\pI see you do have a Resort Pass.\pWell then, enjoy your stay at the Rage Resort."))
+    waitmessage
+    closemessage
+    applymovement (OBJ_EVENT_ID_PLAYER, NavelRock_Down11_Movement_Exit)
+    applymovement (SHANE_ID, NavelRock_Down11_Movement_Exit)
+    waitmovement (0)
+    removeobject(SHANE_ID)
+    warpdoor (MAP_ROUTE110, 2)
+    waitstate
+	release
+	end
+}
+
+script NavelRock_Down11_EventScript_TriggerLeft {
+    lock
+    if (flag(FLAG_BADGE07_GET)) {
+        release
+        end
+    }
+    else {
+        applymovement (OBJ_EVENT_ID_PLAYER, NavelRock_Down11_Movement_FaceLeft)
+        applymovement (GUARD_1_ID, NavelRock_Down11_Movement_FaceRight)
+        waitmovement (0)
+        msgbox(NavelRock_Down11_Text_Guards)
+        waitmessage
+        closemessage
+        applymovement (OBJ_EVENT_ID_PLAYER, NavelRock_Down11_Movement_DownOne)
+        waitmovement (0)
+        release
+        end
+    }
+}
+
+script NavelRock_Down11_EventScript_TriggerRight {
+    lock
+    if (flag(FLAG_BADGE07_GET)) {
+        release
+        end
+    }
+    else {
+        applymovement (OBJ_EVENT_ID_PLAYER, NavelRock_Down11_Movement_FaceRight)
+        applymovement (GUARD_2_ID, NavelRock_Down11_Movement_FaceLeft)
+        waitmovement (0)
+        msgbox(NavelRock_Down11_Text_Guards)
+        waitmessage
+        closemessage
+        applymovement (OBJ_EVENT_ID_PLAYER, NavelRock_Down11_Movement_DownOne)
+        waitmovement (0)
+        release
+        end
+    }
+}
+
+movement NavelRock_Down11_Movement_PlayerToShane {
+    walk_up
+}
+
+movement NavelRock_Down11_Movement_PlayerToGuard {
+    walk_up * 2
+    face_left
+}
+
+movement NavelRock_Down11_Movement_ShaneToGuard {
+    walk_up * 2
+    face_right
+}
+
+movement NavelRock_Down11_Movement_FaceRight {
+    face_right
+}
+
+movement NavelRock_Down11_Movement_FaceLeft {
+    face_left
+}
+
+movement NavelRock_Down11_Movement_Exit {
+    walk_up * 2
+}
+
+movement NavelRock_Down11_Movement_DownOne {
+    walk_down
+}
+
+text NavelRock_Down11_Text_Guards {
+    format("Hold it!\pWe can't let anyone through without a Resort Pass.")
+}
+
+script NavelRock_Down11_EventScript_Guard {
+    lock
+    faceplayer
+    if (flag(FLAG_BADGE07_GET)) {
+        msgbox(format("Please enjoy your stay at the Rage Resort."))
+        release
+        end
+    }
+    else {
+        msgbox(format("I'm sorry, but we can't let anyone through here without a Resort Pass."))
+        release
+        end
+    }
+}

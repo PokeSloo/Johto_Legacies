@@ -187,7 +187,6 @@ script Route122_EventScript_Shrine {
         waitmovement (0)
         removeobject (OLIVER_ID)
         setflag (FLAG_HIDE_OLIVER_KIZU)
-        clearflag (FLAG_HIDE_SHANE_ROUTE_43)
         setflag (FLAG_DEFEATED_DAMON_KIZU)
         release
         end

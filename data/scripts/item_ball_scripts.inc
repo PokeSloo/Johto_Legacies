@@ -558,6 +558,10 @@ ShoalCave_LowTideEntranceRoom_EventScript_ItemBigPearl::
 	finditem ITEM_BIG_PEARL
 	end
 
+ShoalCave_LowTideEntranceRoom_EventScript_ItemTradeStone::
+	finditem ITEM_BIKE_VOUCHER
+	end
+
 ShoalCave_LowTideInnerRoom_EventScript_ItemRareCandy::
 	finditem ITEM_TM07
 	end
