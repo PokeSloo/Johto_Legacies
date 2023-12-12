@@ -379,7 +379,7 @@ GraniteCave_B2F_EventScript_ItemRareCandy::
 	end
 
 JaggedPass_EventScript_ItemBurnHeal::
-	finditem ITEM_BURN_HEAL
+	finditem ITEM_BLACK_GLASSES
 	end
 
 FieryPath_EventScript_ItemFireStone::

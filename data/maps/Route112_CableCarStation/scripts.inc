@@ -6,7 +6,7 @@ Route112_CableCarStation_MapScripts::
 	.byte 0
 
 Route112_CableCarStation_OnTransition:
-	setescapewarp MAP_ROUTE112, 28, 28
+	setescapewarp MAP_ROUTE110, 15, 9
 	call_if_eq VAR_CABLE_CAR_STATION_STATE, 2, Route112_CableCarStation_EventScript_MoveAttendantAside
 	end
 
@@ -87,7 +87,7 @@ Route112_CableCarStation_Movement_ExitCableCar:
 	step_end
 
 Route112_CableCarStation_Text_CableCarReadyGetOn:
-	.string "The CABLE CAR is ready to go up.\n"
+	.string "The ski lift is ready to go up.\n"
 	.string "Would you like to be on it?$"
 
 Route112_CableCarStation_Text_StepThisWay:
