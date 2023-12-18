@@ -1,0 +1,232 @@
+mapscripts Route119_House_MapScripts {}
+
+script Route119_House_EventScript_Woman {
+    msgbox(format("My grandpa has always had a brutal rivalry with his sister for as long as I can remember.\pThey won't even stay in the same cabin."), MSGBOX_NPC)
+    end
+}
+
+script Route119_House_EventScript_Tutor {
+    lock
+    faceplayer
+    showmoneybox (0, 0)
+    msgbox(format("You there!\pHow would you like to learn a move from the best tutor in Johto?\pFor just ¥5,000, I can teach your POKéMON a new move.\pDo you accept?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        msgbox(Route119_House_Text_Decline)
+        hidemoneybox
+        release
+        end
+    }
+    else {
+        checkmoney (5000)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("I'm sorry, but it doesn't look like you have enough money.\pPlease come back when you have at least ¥5,000"))
+            waitmessage
+            hidemoneybox
+		    release
+            end
+        }
+        else {
+            goto (Route119_House_EventScript_ChooseMove)
+            end
+        }
+    }
+}
+
+raw`
+Route119_House_EventScript_ChooseMove::
+	message Route119_House_EventScript_ChooseMove_Text_0
+	waitmessage
+	scrollingmultichoice 1, 17, 2, 5, TRUE
+	switch VAR_RESULT
+	case 0, Route119_House_EventScript_ChooseSoftboiled
+	case 1, Route119_House_EventScript_ChooseSeismicToss
+	case 2, Route119_House_EventScript_ChooseDreamEater
+	case 3, Route119_House_EventScript_ChooseMegaPunch
+	case 4, Route119_House_EventScript_ChooseMegaKick
+	case 5, Route119_House_EventScript_ChooseBodySlam
+	case 6, Route119_House_EventScript_ChooseRockSlide
+	case 7, Route119_House_EventScript_ChooseCounter
+	case 8, Route119_House_EventScript_ChooseThunderwave
+	case 9, Route119_House_EventScript_ChooseSwordsDance
+	case 10, Route119_House_EventScript_ChooseWaterPulse
+	case 11, Route119_House_EventScript_ChooseBulletSeed
+	case 12, Route119_House_EventScript_ChooseShockWave
+	case MULTI_B_PRESSED, Route119_House_EventScript_MoveDeclined
+	end
+
+Route119_House_EventScript_ChooseMove_Text_0:
+	.string "Excellent!\p"
+	.string "Which move would you like me to teach?$"
+`
+
+script Route119_House_EventScript_ChooseSoftboiled {
+    buffermovename (STR_VAR_1, MOVE_SOFT_BOILED)
+    msgbox(Route119_House_Text_WhichMon)
+    waitmessage
+    setvar (VAR_0x8005, MOVE_SOFT_BOILED)
+    call (MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq (VAR_RESULT, 0, Route119_House_EventScript_MoveDeclined)
+	goto (Route119_House_EventScript_MoveTaught)
+    end
+}
+
+script Route119_House_EventScript_ChooseSeismicToss {
+    buffermovename (STR_VAR_1, MOVE_SEISMIC_TOSS)
+    msgbox(Route119_House_Text_WhichMon)
+    waitmessage
+    setvar (VAR_0x8005, MOVE_SEISMIC_TOSS)
+    call (MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq (VAR_RESULT, 0, Route119_House_EventScript_MoveDeclined)
+	goto (Route119_House_EventScript_MoveTaught)
+    end
+}
+
+script Route119_House_EventScript_ChooseDreamEater {
+    buffermovename (STR_VAR_1, MOVE_DREAM_EATER)
+    msgbox(Route119_House_Text_WhichMon)
+    waitmessage
+    setvar (VAR_0x8005, MOVE_DREAM_EATER)
+    call (MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq (VAR_RESULT, 0, Route119_House_EventScript_MoveDeclined)
+	goto (Route119_House_EventScript_MoveTaught)
+    end
+}
+
+script Route119_House_EventScript_ChooseMegaPunch {
+    buffermovename (STR_VAR_1, MOVE_MEGA_PUNCH)
+    msgbox(Route119_House_Text_WhichMon)
+    waitmessage
+    setvar (VAR_0x8005, MOVE_MEGA_PUNCH)
+    call (MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq (VAR_RESULT, 0, Route119_House_EventScript_MoveDeclined)
+	goto (Route119_House_EventScript_MoveTaught)
+    end
+}
+
+script Route119_House_EventScript_ChooseMegaKick {
+    buffermovename (STR_VAR_1, MOVE_MEGA_KICK)
+    msgbox(Route119_House_Text_WhichMon)
+    waitmessage
+    setvar (VAR_0x8005, MOVE_MEGA_KICK)
+    call (MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq (VAR_RESULT, 0, Route119_House_EventScript_MoveDeclined)
+	goto (Route119_House_EventScript_MoveTaught)
+    end
+}
+
+script Route119_House_EventScript_ChooseBodySlam {
+    buffermovename (STR_VAR_1, MOVE_BODY_SLAM)
+    msgbox(Route119_House_Text_WhichMon)
+    waitmessage
+    setvar (VAR_0x8005, MOVE_BODY_SLAM)
+    call (MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq (VAR_RESULT, 0, Route119_House_EventScript_MoveDeclined)
+	goto (Route119_House_EventScript_MoveTaught)
+    end
+}
+
+script Route119_House_EventScript_ChooseRockSlide {
+    buffermovename (STR_VAR_1, MOVE_ROCK_SLIDE)
+    msgbox(Route119_House_Text_WhichMon)
+    waitmessage
+    setvar (VAR_0x8005, MOVE_ROCK_SLIDE)
+    call (MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq (VAR_RESULT, 0, Route119_House_EventScript_MoveDeclined)
+	goto (Route119_House_EventScript_MoveTaught)
+    end
+}
+
+script Route119_House_EventScript_ChooseCounter {
+    buffermovename (STR_VAR_1, MOVE_COUNTER)
+    msgbox(Route119_House_Text_WhichMon)
+    waitmessage
+    setvar (VAR_0x8005, MOVE_COUNTER)
+    call (MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq (VAR_RESULT, 0, Route119_House_EventScript_MoveDeclined)
+	goto (Route119_House_EventScript_MoveTaught)
+    end
+}
+
+script Route119_House_EventScript_ChooseThunderwave {
+    buffermovename (STR_VAR_1, MOVE_THUNDER_WAVE)
+    msgbox(Route119_House_Text_WhichMon)
+    waitmessage
+    setvar (VAR_0x8005, MOVE_THUNDER_WAVE)
+    call (MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq (VAR_RESULT, 0, Route119_House_EventScript_MoveDeclined)
+	goto (Route119_House_EventScript_MoveTaught)
+    end
+}
+
+script Route119_House_EventScript_ChooseSwordsDance {
+    buffermovename (STR_VAR_1, MOVE_SWORDS_DANCE)
+    msgbox(Route119_House_Text_WhichMon)
+    waitmessage
+    setvar (VAR_0x8005, MOVE_SWORDS_DANCE)
+    call (MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq (VAR_RESULT, 0, Route119_House_EventScript_MoveDeclined)
+	goto (Route119_House_EventScript_MoveTaught)
+    end
+}
+
+script Route119_House_EventScript_ChooseWaterPulse {
+    buffermovename (STR_VAR_1, MOVE_WATER_PULSE)
+    msgbox(Route119_House_Text_WhichMon)
+    waitmessage
+    setvar (VAR_0x8005, MOVE_WATER_PULSE)
+    call (MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq (VAR_RESULT, 0, Route119_House_EventScript_MoveDeclined)
+	goto (Route119_House_EventScript_MoveTaught)
+    end
+}
+
+script Route119_House_EventScript_ChooseBulletSeed {
+    buffermovename (STR_VAR_1, MOVE_BULLET_SEED)
+    msgbox(Route119_House_Text_WhichMon)
+    waitmessage
+    setvar (VAR_0x8005, MOVE_BULLET_SEED)
+    call (MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq (VAR_RESULT, 0, Route119_House_EventScript_MoveDeclined)
+	goto (Route119_House_EventScript_MoveTaught)
+    end
+}
+
+script Route119_House_EventScript_ChooseShockWave {
+    buffermovename (STR_VAR_1, MOVE_SHOCK_WAVE)
+    msgbox(Route119_House_Text_WhichMon)
+    waitmessage
+    setvar (VAR_0x8005, MOVE_SHOCK_WAVE)
+    call (MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq (VAR_RESULT, 0, Route119_House_EventScript_MoveDeclined)
+	goto (Route119_House_EventScript_MoveTaught)
+    end
+}
+
+script Route119_House_EventScript_MoveTaught {
+    showmoneybox (0, 0)
+    msgbox(format("Great!\pYour POKéMON seems to be a quick learner!"))
+    waitmessage
+    removemoney (5000)
+    updatemoneybox
+	playse (SE_SHOP)
+    waitse
+    msgbox(format("Please don't hesitate to visit again!"))
+    hidemoneybox
+    release
+    end
+}
+
+script Route119_House_EventScript_MoveDeclined {
+    msgbox(Route119_House_Text_Decline)
+    hidemoneybox
+    release
+    end
+}
+
+text Route119_House_Text_Decline {
+    format("Fine then.\pCome back if you change your mind.")
+}
+
+text Route119_House_Text_WhichMon {
+    format("The move {STR_VAR_1}?\pGood choice.\pAnd which POKéMON is {STR_VAR_1} being taught to?")
+}

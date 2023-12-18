@@ -778,6 +778,32 @@ static const u8 sText_NewCover[] = _("Cover Fossil");
 static const u8 sText_NewPlume[] = _("Plume Fossil");
 static const u8 sText_NewJaw[] = _("Jaw Fossil");
 static const u8 sText_NewSail[] = _("Sail Fossil");
+static const u8 sText_NewSoftboiled[] = _("Soft-Boiled");
+static const u8 sText_NewSeismicToss[] = _("Seismic Toss");
+static const u8 sText_NewDreamEater[] = _("Dream Eater");
+static const u8 sText_NewMegaPunch[] = _("Mega Punch");
+static const u8 sText_NewMegaKick[] = _("Mega Kick");
+static const u8 sText_NewBodySlam[] = _("Body Slam");
+static const u8 sText_NewRockSlide[] = _("Rock Slide");
+static const u8 sText_NewCounter[] = _("Counter");
+static const u8 sText_NewThunderwave[] = _("Thunder Wave");
+static const u8 sText_NewSwordsDance[] = _("Swords Dance");
+static const u8 sText_NewWaterPulse[] = _("Water Pulse");
+static const u8 sText_NewBulletSeed[] = _("Bullet Seed");
+static const u8 sText_NewShockWave[] = _("Shock Wave");
+static const u8 sText_NewDefenseCurl[] = _("Defense Curl");
+static const u8 sText_NewSnore[] = _("Snore");
+static const u8 sText_NewMudslap[] = _("Mud-Slap");
+static const u8 sText_NewSwift[] = _("Swift");
+static const u8 sText_NewIcyWind[] = _("Icy Wind");
+static const u8 sText_NewEndure[] = _("Endure");
+static const u8 sText_NewPsychUp[] = _("Psych Up");
+static const u8 sText_NewIcePunch[] = _("Ice Punch");
+static const u8 sText_NewThunderPunch[] = _("Thunder Punch");
+static const u8 sText_NewFirePunch[] = _("Fire Punch");
+static const u8 sText_NewFocusPunch[] = _("Focus Punch");
+static const u8 sText_NewIronTail[] = _("Iron Tail");
+static const u8 sText_NewSnatch[] = _("Snatch");
 
 // Sets of multichoices.
 static const struct ListMenuItem sSet1[] =
@@ -797,17 +823,36 @@ static const struct ListMenuItem sSet1[] =
 
 static const struct ListMenuItem sSet2[] =
 {
-    {sText_NewOldAmber, 0},
-    {sText_NewHelix, 1},
-    {sText_NewDome, 2},
-    {sText_NewRoot, 3},
-    {sText_NewClaw, 4},
-    {sText_NewSkull, 5},
-    {sText_NewArmor, 6},
-    {sText_NewCover, 7},
-    {sText_NewPlume, 8},
-    {sText_NewJaw, 9},
-    {sText_NewSail, 10},
+    {sText_NewSoftboiled, 0},
+    {sText_NewSeismicToss, 1},
+    {sText_NewDreamEater, 2},
+    {sText_NewMegaPunch, 3},
+    {sText_NewMegaKick, 4},
+    {sText_NewBodySlam, 5},
+    {sText_NewRockSlide, 6},
+    {sText_NewCounter, 7},
+    {sText_NewThunderwave, 8},
+    {sText_NewSwordsDance, 9},
+    {sText_NewWaterPulse, 10},
+    {sText_NewBulletSeed, 11},
+    {sText_NewShockWave, 12},
+};
+
+static const struct ListMenuItem sSet3[] =
+{
+    {sText_NewDefenseCurl, 0},
+    {sText_NewSnore, 1},
+    {sText_NewMudslap, 2},
+    {sText_NewSwift, 3},
+    {sText_NewIcyWind, 4},
+    {sText_NewEndure, 5},
+    {sText_NewPsychUp, 6},
+    {sText_NewIcePunch, 7},
+    {sText_NewThunderPunch, 8},
+    {sText_NewFirePunch, 9},
+    {sText_NewFocusPunch, 10},
+    {sText_NewIronTail, 11},
+    {sText_NewSnatch, 12},
 };
 
 // Table of your multichoice sets.
@@ -819,6 +864,7 @@ struct
 {
     {sSet1, ARRAY_COUNT(sSet1)},
     {sSet2, ARRAY_COUNT(sSet2)},
+    {sSet3, ARRAY_COUNT(sSet3)},
 };
 
 static void Task_ScrollingMultichoiceInput(u8 taskId);

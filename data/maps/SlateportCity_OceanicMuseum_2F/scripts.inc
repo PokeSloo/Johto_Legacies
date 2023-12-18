@@ -682,7 +682,7 @@ SlateportCity_OceanicMuseum_2F_EventScript_ReceivedAmauraFanfare::
 SlateportCity_OceanicMuseum_2F_EventScript_ChooseFossil::
 	message SlateportCity_OceanicMuseum_2F_Text_TwoFossilsPickOne
 	waitmessage
-	scrollingmultichoice 1, 17, 2, 5, TRUE
+	scrollingmultichoice 0, 17, 2, 5, TRUE
 	switch VAR_RESULT
 	case 0, SlateportCity_OceanicMuseum_2F_EventScript_ChooseOldAmber
 	case 1, SlateportCity_OceanicMuseum_2F_EventScript_ChooseHelixFossil
