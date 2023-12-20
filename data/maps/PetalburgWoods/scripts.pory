@@ -89,6 +89,7 @@ script PetalburgWoods_EventScript_Shrine {
         fadescreen (FADE_TO_WHITE)
         removeobject (CELEBI_ID)
         playbgm (MUS_RAYQUAZA_APPEARS, FALSE)
+        setwarp (MAP_DESERT_UNDERPASS, 17, 46)
         special (TimeTravelBackClock)
 	    waitstate
         fadedefaultbgm

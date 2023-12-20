@@ -50,7 +50,6 @@ static void Task_TravelForward_HandleInput(u8 taskId);
 static void Task_ViewTTClock_FadeOut(u8 taskId);
 static void Task_ViewTTClock_Exit(u8 taskId);
 static void Task_ViewTTFWClock_FadeOut(u8 taskId);
-static void Task_ViewTTFWClock_Exit(u8 taskId);
 
 #define sTaskId data[0]
 
@@ -1062,7 +1061,7 @@ static void Task_ViewTTClock_FadeOut(u8 taskId)
 static void Task_ViewTTFWClock_FadeOut(u8 taskId)
 {
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-    gTasks[taskId].func = Task_ViewTTFWClock_Exit;
+    gTasks[taskId].func = Task_ViewTTClock_Exit;
 }
 
 static void Task_ViewClock_Exit(u8 taskId)
@@ -1076,16 +1075,6 @@ static void Task_ViewTTClock_Exit(u8 taskId)
     if (!gPaletteFade.active)
         gFieldCallback = NULL;
         SetMainCallback2(CB2_LoadMap);
-        SetWarpDestination(MAP_GROUP(DESERT_UNDERPASS), MAP_NUM(DESERT_UNDERPASS), WARP_ID_NONE, 17, 46);
-        WarpIntoMap();
-}
-
-static void Task_ViewTTFWClock_Exit(u8 taskId)
-{
-    if (!gPaletteFade.active)
-        gFieldCallback = NULL;
-        SetMainCallback2(CB2_LoadMap);
-        SetWarpDestination(MAP_GROUP(PETALBURG_WOODS), MAP_NUM(PETALBURG_WOODS), WARP_ID_NONE, 17, 46);
         WarpIntoMap();
 }
 

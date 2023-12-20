@@ -97,6 +97,7 @@ PetalburgWoods_EventScript_Shrine_2:
 	fadescreen FADE_TO_WHITE
 	removeobject 4
 	playbgm MUS_RAYQUAZA_APPEARS, FALSE
+	setwarp MAP_DESERT_UNDERPASS, 17, 46
 	special TimeTravelBackClock
 	waitstate
 	fadedefaultbgm

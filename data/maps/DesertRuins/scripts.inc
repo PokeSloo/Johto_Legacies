@@ -45,6 +45,7 @@ DesertRuins_On_Frame::
 	fadescreen FADE_TO_WHITE
 	removeobject 6
 	playbgm MUS_RAYQUAZA_APPEARS, FALSE
+	setwarp MAP_PETALBURG_WOODS, 17, 46
 	special TimeTravelForwardClock
 	waitstate
 	fadedefaultbgm

@@ -105,3 +105,19 @@ movement MagmaHideout_2F_2R_Movement_ThorneExitDown {
 text MagmaHideout_2F_2R_Text_ThorneDefeated {
     format("THORNE: I've seen you battle enough to know this outcome was inevitable.\pStill, I do hate losing to children.")
 }
+
+script MagmaHideout_2F_2R_EventScript_Test {
+	lock
+	faceplayer
+	msgbox(format("Time travel test"))
+	waitmessage
+	closemessage
+	fadescreen (FADE_TO_WHITE)
+    playbgm (MUS_RAYQUAZA_APPEARS, FALSE)
+    setwarp (MAP_MAGMA_HIDEOUT_1F, 15, 3)
+    special (TimeTravelBackClock)
+	waitstate
+    fadedefaultbgm
+    release
+    end
+}

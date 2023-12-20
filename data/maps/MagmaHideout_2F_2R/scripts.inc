@@ -122,6 +122,22 @@ MagmaHideout_2F_2R_Movement_ThorneExitDown:
 	walk_left
 	step_end
 
+MagmaHideout_2F_2R_EventScript_Test::
+	lock
+	faceplayer
+	msgbox MagmaHideout_2F_2R_EventScript_Test_Text_0
+	waitmessage
+	closemessage
+	fadescreen FADE_TO_WHITE
+	playbgm MUS_RAYQUAZA_APPEARS, FALSE
+	setwarp MAP_MAGMA_HIDEOUT_1F, 15, 3
+	special TimeTravelBackClock
+	waitstate
+	fadedefaultbgm
+	release
+	end
+
+
 MagmaHideout_2F_2R_EventScript_Thorne_Text_0:
 	.string "THORNE: {PLAYER}.\p"
 	.string "I would say it's a pleasant surprise,\n"
@@ -137,6 +153,9 @@ MagmaHideout_2F_2R_EventScript_Thorne_Text_1:
 	.string "Phoenix will surely win this war.\p"
 	.string "I've done my part by delaying you.\p"
 	.string "Now, I'll take my leave.$"
+
+MagmaHideout_2F_2R_EventScript_Test_Text_0:
+	.string "Time travel test$"
 
 MagmaHideout_2F_2R_Text_ThorneDefeated::
 	.string "THORNE: I've seen you battle enough to\n"
