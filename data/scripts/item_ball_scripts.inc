@@ -659,11 +659,11 @@ MagmaHideout_2F_2R_EventScript_ItemFullRestore::
 	end
 
 MagmaHideout_3F_1R_EventScript_ItemNugget::
-	finditem ITEM_NUGGET
+	finditem ITEM_TM39
 	end
 
 MagmaHideout_3F_2R_EventScript_ItemPPMax::
-	finditem ITEM_PP_MAX
+	finditem ITEM_CHOICE_SCARF
 	end
 
 MagmaHideout_4F_EventScript_ItemMaxRevive::

@@ -576,7 +576,7 @@ Route110_EventScript_Whitney_Text_4:
 	.string "I'm calling to tell you I just saw\n"
 	.string "a Team Phoenix grunt go into the\l"
 	.string "Rage Resort!\p"
-	.string "Unortunately, the guards won't let\n"
+	.string "Unfortunately, the guards won't let\n"
 	.string "me in without a Resort Pass.\p"
 	.string "...\p"
 	.string "What's that?\p"

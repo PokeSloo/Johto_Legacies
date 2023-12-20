@@ -22,57 +22,122 @@ MagmaHideout_2F_2R_EventScript_Grunt8::
 	end
 
 MagmaHideout_2F_2R_Text_Grunt15Intro:
-	.string "I don't have a bone to pick with you.\n"
-	.string "I'm just following orders!$"
+	.string "I'll stall you for as long as I can!$"
 
 MagmaHideout_2F_2R_Text_Grunt15Defeat:
-	.string "I may have lost, but…$"
+	.string "Sorry Boss, I held off the intruder as\n"
+	.string "long as I could...$"
 
 MagmaHideout_2F_2R_Text_Grunt15PostBattle:
-	.string "We dug up something beyond belief!\n"
-	.string "And, we got the BLUE ORB!\p"
-	.string "All that's left is for our leader to…\n"
-	.string "Fufufu… Fwahahaha!$"
+	.string "Do you really have to keep meddling with\n"
+	.string "us?$"
 
 MagmaHideout_2F_2R_Text_Grunt6Intro:
-	.string "I can't stand heat. Maybe I should've\n"
-	.string "joined TEAM AQUA instead…$"
+	.string "You can try, but you will never stop us\n"
+	.string "for good!$"
 
 MagmaHideout_2F_2R_Text_Grunt6Defeat:
-	.string "Yeah, I really may not be right for\n"
-	.string "TEAM MAGMA…$"
+	.string "We will never give up on our goals...$"
 
 MagmaHideout_2F_2R_Text_Grunt6PostBattle:
-	.string "Don't you get lonely for the sea\n"
-	.string "being in a place like this?$"
+	.string "Very soon, TEAM PHOENIX will be\n"
+	.string "unstoppable!$"
 
 MagmaHideout_2F_2R_Text_Grunt7Intro:
-	.string "You can hear tremors here sometimes.\p"
-	.string "Could it be the volcano rattling?\n"
-	.string "Or is it GROU…\p"
-	.string "Whoops!\n"
-	.string "No, no, never mind!$"
+	.string "You really think you can defeat us all!?$"
 
 MagmaHideout_2F_2R_Text_Grunt7Defeat:
-	.string "You're a fiery battler.\n"
-	.string "Just like a volcano!$"
+	.string "Ok, maybe you can defeat us all...$"
 
 MagmaHideout_2F_2R_Text_Grunt7PostBattle:
-	.string "You just happened to win this time,\n"
-	.string "but that doesn't matter.\p"
-	.string "TEAM MAGMA's goal is about to be\n"
-	.string "reached!$"
+	.string "I've heard you're good, but I didn't\n"
+	.string "know you would be this good.$"
 
 MagmaHideout_2F_2R_Text_Grunt8Intro:
-	.string "One of our guys was freaking out that\n"
-	.string "he lost his MAGMA EMBLEM…\p"
-	.string "Wait a minute!\n"
-	.string "Was it you who found it?$"
+	.string "I'll teach you to take us grunts\n"
+	.string "seriously!$"
 
 MagmaHideout_2F_2R_Text_Grunt8Defeat:
-	.string "I'm having trouble believing this…$"
+	.string "Seriously...?$"
 
 MagmaHideout_2F_2R_Text_Grunt8PostBattle:
-	.string "I'm getting this feeling that our plan\n"
-	.string "is going to end in failure…$"
+	.string "It doesn't matter, you'll never stop our\n"
+	.string "boss...$"
 
+MagmaHideout_2F_2R_EventScript_Thorne::
+	lock
+	faceplayer
+	msgbox MagmaHideout_2F_2R_EventScript_Thorne_Text_0
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TREECKO, MagmaHideout_2F_2R_Text_ThorneDefeated
+	msgbox MagmaHideout_2F_2R_EventScript_Thorne_Text_1
+	waitmessage
+	closemessage
+	specialvar VAR_RESULT, GetPlayerFacingDirection
+	compare VAR_RESULT, DIR_NORTH
+	goto_if_eq MagmaHideout_2F_2R_EventScript_Thorne_2
+	applymovement 7, MagmaHideout_2F_2R_Movement_ThorneExitDown
+	waitmovement 0
+MagmaHideout_2F_2R_EventScript_Thorne_1:
+	removeobject 7
+	setflag FLAG_HIDE_THORNE_RAGE_HIDEOUT
+	release
+	end
+
+MagmaHideout_2F_2R_EventScript_Thorne_2:
+	applymovement 7, MagmaHideout_2F_2R_Movement_ThorneExitAround
+	waitmovement 0
+	goto MagmaHideout_2F_2R_EventScript_Thorne_1
+
+
+MagmaHideout_2F_2R_Movement_ThorneExitAround:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+MagmaHideout_2F_2R_Movement_ThorneExitDown:
+	walk_down
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+MagmaHideout_2F_2R_EventScript_Thorne_Text_0:
+	.string "THORNE: {PLAYER}.\p"
+	.string "I would say it's a pleasant surprise,\n"
+	.string "but truth be told, I was hoping DAMON\l"
+	.string "would have held you off a bit longer.\p"
+	.string "Fortunately, our preparations with\n"
+	.string "Celebi are nearly complete, and our\l"
+	.string "boss's goal is nearly at hand.\p"
+	.string "Now, I will do my part to hold you back!$"
+
+MagmaHideout_2F_2R_EventScript_Thorne_Text_1:
+	.string "I may have lost the battle, but TEAM\n"
+	.string "PHOENIX will surely win this war.\p"
+	.string "I've done my part by delaying you.\p"
+	.string "Now, I'll take my leave.$"
+
+MagmaHideout_2F_2R_Text_ThorneDefeated::
+	.string "THORNE: I've seen you battle enough to\n"
+	.string "know this outcome was inevitable.\p"
+	.string "Still, I do hate losing to children.$"

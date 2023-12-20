@@ -1,10 +1,6 @@
 MagmaHideout_1F_MapScripts::
 	.byte 0
 
-MagmaHideout_1F_OnTransition:
-	setvar VAR_JAGGED_PASS_ASH_WEATHER, 0
-	end
-
 MagmaHideout_1F_EventScript_Grunt1::
 	trainerbattle_single TRAINER_GRUNT_MAGMA_HIDEOUT_1, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat
 	msgbox MagmaHideout_1F_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
@@ -16,37 +12,104 @@ MagmaHideout_1F_EventScript_Grunt2::
 	end
 
 MagmaHideout_1F_Text_Grunt1Intro:
-	.string "When TEAM MAGMA has roll call, we get\n"
-	.string "important guarding assignments in\l"
-	.string "the order that we line up.\p"
-	.string "That's why I'm stuck off in this corner.\n"
-	.string "I'm always late to roll call!$"
+	.string "You're too late now kid, you can't stop\n"
+	.string "our return to greatness!$"
 
 MagmaHideout_1F_Text_Grunt1Defeat:
-	.string "I'm always late for training sessions,\n"
-	.string "too!\p"
-	.string "I hate to say it, but I'm wimpy…$"
+	.string "Doesn't matter, you'll never make it to\n"
+	.string "the boss in time...$"
 
 MagmaHideout_1F_Text_Grunt1PostBattle:
-	.string "Okay, I'll try to put a little more\n"
-	.string "effort into things from now on…$"
+	.string "Good luck finding your way through this\n"
+	.string "cave, hehe.$"
 
 MagmaHideout_1F_Text_Grunt2Intro:
-	.string "Our leader told us to dig into\n"
-	.string "MT. CHIMNEY, so we dug and dug.\p"
-	.string "And in the course of digging, we came\n"
-	.string "across something that blew our minds!\p"
-	.string "What did we find?\p"
-	.string "Fuhahaha!\n"
-	.string "I'll tell you if you beat me!$"
+	.string "What, you again!?$"
 
 MagmaHideout_1F_Text_Grunt2Defeat:
 	.string "Arrgh!\n"
-	.string "Taken down!$"
+	.string "Got me again!$"
 
 MagmaHideout_1F_Text_Grunt2PostBattle:
-	.string "I won't tell you after all.\n"
-	.string "You'll find out when you get there!\p"
-	.string "It'd be better if you saved surprises\n"
-	.string "to the end, don't you think?$"
+	.string "How did you even find this place?\p"
+	.string "We just moved in ourselves.$"
 
+MagmaHideout_1F_EventScript_Trigger_1::
+	lock
+	goto_if_set FLAG_HIDE_SHANE_HIDEOUT_1F, MagmaHideout_1F_EventScript_Trigger_1_2
+	applymovement OBJ_EVENT_ID_PLAYER, MagmaHideout_1F_Movement_ToShane1
+	waitmovement 0
+	goto MagmaHideout_1F_EventScript_Main
+	end
+
+MagmaHideout_1F_EventScript_Trigger_1_2:
+	release
+	end
+
+
+MagmaHideout_1F_EventScript_Trigger_2::
+	lock
+	goto_if_set FLAG_HIDE_SHANE_HIDEOUT_1F, MagmaHideout_1F_EventScript_Trigger_2_2
+	applymovement OBJ_EVENT_ID_PLAYER, MagmaHideout_1F_Movement_ToShane2
+	waitmovement 0
+	goto MagmaHideout_1F_EventScript_Main
+	end
+
+MagmaHideout_1F_EventScript_Trigger_2_2:
+	release
+	end
+
+
+MagmaHideout_1F_EventScript_Main::
+	applymovement 7, MagmaHideout_1F_Movement_FaceUp
+	waitmovement 0
+	msgbox MagmaHideout_1F_EventScript_Main_Text_0
+	waitmessage
+	closemessage
+	applymovement 7, MagmaHideout_1F_Movement_ShaneExit
+	waitmovement 0
+	removeobject 7
+	setflag FLAG_HIDE_SHANE_HIDEOUT_1F
+	release
+	end
+
+
+MagmaHideout_1F_Movement_ToShane1:
+	walk_right
+	walk_right
+	face_down
+	step_end
+
+MagmaHideout_1F_Movement_ToShane2:
+	walk_right
+	walk_down
+	step_end
+
+MagmaHideout_1F_Movement_FaceUp:
+	walk_in_place_up
+	step_end
+
+MagmaHideout_1F_Movement_ShaneExit:
+	walk_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_right
+	walk_fast_right
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+MagmaHideout_1F_EventScript_Main_Text_0:
+	.string "SHANE: It's just some cave, I was\n"
+	.string "expecting some kind of facility.\p"
+	.string "Well, as long as those jerks are in here,\n"
+	.string "I don't care.\p"
+	.string "I'll take them down!\p"
+	.string "...\p"
+	.string "Say, let's make this a little more\n"
+	.string "interesting...\p"
+	.string "We'll see who can get through this cave\n"
+	.string "first.\p"
+	.string "Winner gets the first crack at their\n"
+	.string "boss!\p"
+	.string "Ok, go!$"

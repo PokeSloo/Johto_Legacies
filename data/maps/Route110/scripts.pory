@@ -141,7 +141,7 @@ script Route110_EventScript_Whitney {
 		waitdooranim
 		clearflag (FLAG_HIDE_SHANE_RESORT_HOUSE)
 		setflag (FLAG_SAW_RESORT_GRUNT)
-		pokenavcall (format("OLIVER: Hello, {PLAYER}, can you\nhear me?\pI'm calling to tell you I just saw\na Team Phoenix grunt go into the\lRage Resort!\pUnortunately, the guards won't let\nme in without a Resort Pass.\p...\pWhat's that?\pYou're there, and you just saw the\ngrunt?\pAlright, this is good.\pJust be careful.\pI'll call in some backup. You know,\nI'm not much of a battler myself.\pOk, good luck!"))
+		pokenavcall (format("OLIVER: Hello, {PLAYER}, can you\nhear me?\pI'm calling to tell you I just saw\na Team Phoenix grunt go into the\lRage Resort!\pUnfortunately, the guards won't let\nme in without a Resort Pass.\p...\pWhat's that?\pYou're there, and you just saw the\ngrunt?\pAlright, this is good.\pJust be careful.\pI'll call in some backup. You know,\nI'm not much of a battler myself.\pOk, good luck!"))
 		waitmessage
 		closemessage
 		applymovement (OBJ_EVENT_ID_PLAYER, Route110_Movement_StepinHouse)
