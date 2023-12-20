@@ -40,7 +40,7 @@ MagmaHideout_2F_2R_Text_Grunt6Defeat:
 	.string "We will never give up on our goals...$"
 
 MagmaHideout_2F_2R_Text_Grunt6PostBattle:
-	.string "Very soon, TEAM PHOENIX will be\n"
+	.string "Very soon, Team Phoenix will be\n"
 	.string "unstoppable!$"
 
 MagmaHideout_2F_2R_Text_Grunt7Intro:
@@ -80,6 +80,7 @@ MagmaHideout_2F_2R_EventScript_Thorne::
 MagmaHideout_2F_2R_EventScript_Thorne_1:
 	removeobject 7
 	setflag FLAG_HIDE_THORNE_RAGE_HIDEOUT
+	setflag FLAG_HIDE_SILVER_RAGE_HIDEOUT
 	release
 	end
 
@@ -132,8 +133,8 @@ MagmaHideout_2F_2R_EventScript_Thorne_Text_0:
 	.string "Now, I will do my part to hold you back!$"
 
 MagmaHideout_2F_2R_EventScript_Thorne_Text_1:
-	.string "I may have lost the battle, but TEAM\n"
-	.string "PHOENIX will surely win this war.\p"
+	.string "I may have lost the battle, but Team\n"
+	.string "Phoenix will surely win this war.\p"
 	.string "I've done my part by delaying you.\p"
 	.string "Now, I'll take my leave.$"
 

@@ -40,7 +40,7 @@ MagmaHideout_2F_2R_Text_Grunt6Defeat:
 	.string "We will never give up on our goals...$"
 
 MagmaHideout_2F_2R_Text_Grunt6PostBattle:
-	.string "Very soon, TEAM PHOENIX will be\n"
+	.string "Very soon, Team Phoenix will be\n"
 	.string "unstoppable!$"
 
 MagmaHideout_2F_2R_Text_Grunt7Intro:
@@ -70,7 +70,7 @@ script MagmaHideout_2F_2R_EventScript_Thorne {
     faceplayer
     msgbox(format("THORNE: {PLAYER}.\pI would say it's a pleasant surprise, but truth be told, I was hoping DAMON would have held you off a bit longer.\pFortunately, our preparations with Celebi are nearly complete, and our boss's goal is nearly at hand.\pNow, I will do my part to hold you back!"))
     trainerbattle_no_intro (TRAINER_MAY_ROUTE_103_TREECKO, MagmaHideout_2F_2R_Text_ThorneDefeated)
-	msgbox (format("I may have lost the battle, but TEAM PHOENIX will surely win this war.\pI've done my part by delaying you.\pNow, I'll take my leave."))
+	msgbox (format("I may have lost the battle, but Team Phoenix will surely win this war.\pI've done my part by delaying you.\pNow, I'll take my leave."))
 	waitmessage
 	closemessage
 	specialvar (VAR_RESULT, GetPlayerFacingDirection)
@@ -84,6 +84,7 @@ script MagmaHideout_2F_2R_EventScript_Thorne {
     }
     removeobject (7)
     setflag (FLAG_HIDE_THORNE_RAGE_HIDEOUT)
+	setflag (FLAG_HIDE_SILVER_RAGE_HIDEOUT)
     release
     end
 }

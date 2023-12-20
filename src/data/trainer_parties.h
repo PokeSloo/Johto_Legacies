@@ -10426,25 +10426,50 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GruntMagmaHideout10[] = 
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntMagmaHideout11[] = {
     {
-    .iv = 0,
-    .lvl = 29,
-    .species = SPECIES_BALTOY,
+    .iv = 200,
+    .lvl = 52,
+    .species = SPECIES_BISHARP,
+    },
+    {
+    .iv = 200,
+    .lvl = 53,
+    .species = SPECIES_AMOONGUSS,
     }
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntMagmaHideout12[] = {
     {
-    .iv = 0,
-    .lvl = 29,
-    .species = SPECIES_NUMEL,
+    .iv = 200,
+    .lvl = 52,
+    .species = SPECIES_VENOMOTH,
+    },
+    {
+    .iv = 200,
+    .lvl = 53,
+    .species = SPECIES_COALOSSAL,
+    },
+    {
+    .iv = 200,
+    .lvl = 53,
+    .species = SPECIES_THIEVUL,
     }
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntMagmaHideout13[] = {
     {
-    .iv = 0,
-    .lvl = 29,
-    .species = SPECIES_ZUBAT,
+    .iv = 200,
+    .lvl = 53,
+    .species = SPECIES_ZOROARK,
+    },
+    {
+    .iv = 200,
+    .lvl = 53,
+    .species = SPECIES_GENGAR,
+    },
+    {
+    .iv = 200,
+    .lvl = 54,
+    .species = SPECIES_WEEZING,
     }
 };
 
