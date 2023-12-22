@@ -7445,7 +7445,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute103Treecko[] = {
     },
     {
     .iv = 250,
-    .lvl = 57,
+    .lvl = 56,
     .species = SPECIES_WEEZING_GALARIAN,
     .heldItem = ITEM_BLACK_SLUDGE,
     .abilityNums = 0,
@@ -7461,7 +7461,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute103Treecko[] = {
     },
     {
     .iv = 250,
-    .lvl = 58,
+    .lvl = 57,
     .species = SPECIES_NIDOKING,
     .heldItem = ITEM_LIFE_ORB,
     .abilityNums = 2,

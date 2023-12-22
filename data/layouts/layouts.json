@@ -3154,10 +3154,10 @@
     {
       "id": "LAYOUT_AQUA_HIDEOUT_UNUSED_RUBY_MAP1",
       "name": "AquaHideout_UnusedRubyMap1_Layout",
-      "width": 28,
-      "height": 30,
+      "width": 21,
+      "height": 17,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Facility",
+      "secondary_tileset": "gTileset_RusturfTunnel",
       "border_filepath": "data/layouts/AquaHideout_UnusedRubyMap1/border.bin",
       "blockdata_filepath": "data/layouts/AquaHideout_UnusedRubyMap1/map.bin"
     },

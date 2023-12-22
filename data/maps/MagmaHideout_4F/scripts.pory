@@ -1,0 +1,232 @@
+const SHANE_ID = 1
+const ARIANA_ID = 6
+const DAMON_ID = 5
+const SILVER_ID = 11
+const FERALIGATR_ID = 12
+const SCIENTIST_1_ID = 10
+const SCIENTIST_2_ID = 9
+
+mapscripts MagmaHideout_4F_MapScripts {}
+
+script MagmaHideout_4F_EventScript_MainTrigger {
+    lock
+    applymovement (OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_PlayerToAriana)
+	waitmovement (0)
+    playse (SE_PIN)
+    applymovement (DAMON_ID, MagmaHideout_4F_Movement_DamonExclamationDown)
+    applymovement (SCIENTIST_1_ID, MagmaHideout_4F_Movement_DamonExclamationDown)
+    applymovement (SCIENTIST_2_ID, MagmaHideout_4F_Movement_DamonExclamationDown)
+	waitmovement (0)
+    waitse
+    delay (30)
+    applymovement (DAMON_ID, MagmaHideout_4F_Movement_StepRight)
+	waitmovement (0)
+    msgbox(format("DAMON: Boss...\p...\p???: Your persistence certainly lives up to the rumors."))
+    waitmessage
+    applymovement (DAMON_ID, MagmaHideout_4F_Movement_FaceDown)
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_FaceDown)
+	waitmovement (0)
+    msgbox(format("Fortunately, we are always one step ahead of you...\pSHANE: Hey assholes!"))
+    waitmessage
+    closemessage
+    playse (SE_PIN)
+    applymovement (OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_DamonExclamationDown)
+	waitmovement (0)
+    waitse
+    delay (30)
+    addobject (SHANE_ID)
+    applymovement (SHANE_ID, MagmaHideout_4F_Movement_ShaneEnter)
+	waitmovement (0)
+    applymovement (OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_FaceLeft)
+	waitmovement (0)
+    msgbox(format("SHANE: I don't know how you managed to get here before me, {PLAYER}.\pIt's going to be really tough to make good on my bet with you..."))
+    waitmessage
+    closemessage
+    applymovement (SHANE_ID, MagmaHideout_4F_Movement_FaceUp)
+    applymovement (OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_FaceUp)
+	waitmovement (0)
+    delay (30)
+    msgbox(format("???: So, you're both here.\pHow wonderful...\pI suppose I should introduce myself.\pMy name is ARIANA.\pI formed Team Phoenix after the fall of Team Rocket, nearly twenty years ago."))
+    waitmessage
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_StepRight)
+	waitmovement (0)
+    msgbox(format("Team Rocket was an unstoppable force back then.\pOur power and influence felt unlimited."))
+    waitmessage
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_StepDown)
+	waitmovement (0)
+    msgbox(format("It was all thanks to our leader, the great GIOVANNI!\pHe had an absolute mastery over POKéMON, the likes of which the world had never seen.\pI knew everything would be perfect as long as I kept by his side...\p...\pBut then, that brat from Pallet Town appeared..."))
+    waitmessage
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_StepDown)
+	waitmovement (0)
+    msgbox(format("That brat ruined everything!\pHe took down Team Rocket overnight, we were absolutely humiliated!\p...\pThen... our GIOVANNI left us...\pConsumed by a profound sense of uncertainty and doubt, GIOVANNI disbanded Team Rocket and vanished from the world, and my life...\pAt the time, I tried patching the gang back together, but that too, ended in failure...\pWithout GIOVANNI'S guidance, Team Rocket was just an empty husk of what it once was..."))
+    waitmessage
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_StepUp)
+	waitmovement (0)
+    msgbox(format("That's where Celebi comes in...\pI'm going to use Celebi's time traveling abilities to ensure that RED brat never gets the chance!"))
+    waitmessage
+    applymovement (SHANE_ID, MagmaHideout_4F_Movement_StepUp)
+	waitmovement (0)
+    msgbox(format("SHANE: Blah, blah, blah!"))
+    waitmessage
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_StepDown)
+	waitmovement (0)
+    msgbox(format("Don't you ever shut up, you old hag?"))
+    waitmessage
+    playse (SE_PIN)
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_Exclamation)
+	waitmovement (0)
+    waitse
+    delay (30)
+    msgbox(format("SHANE: Nobody cares about your sob story.\pIt doesn't matter, because we're going to take you down right now!"))
+    waitmessage
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_StepDown)
+	waitmovement (0)
+    msgbox(format("ARIANA: Hehe! You sure are lively!\pAs much as I would love to teach you some manners, you arrived a little too late.\pOur time machine is now fully operational!"))
+    waitmessage
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_StepRight)
+	waitmovement (0)
+    msgbox(format("Now, it is time!\pActivate the machine!"))
+    waitmessage
+    applymovement (SCIENTIST_2_ID, MagmaHideout_4F_Movement_StepUp)
+	waitmovement (0)
+    msgbox(format("SCIENTIST: Yes, Ma'am!"))
+    waitmessage
+    closemessage
+    fadeoutbgm (1)
+    playse (SE_PC_ON)
+    waitse
+    delay (30)
+    playse (SE_SELECT)
+    waitse
+    playse (SE_SELECT)
+    waitse
+    playse (SE_PC_LOGIN)
+    waitse
+    delay (30)
+    fadescreenspeed (FADE_TO_WHITE, 8)
+    playbgm (MUS_RAYQUAZA_APPEARS, FALSE)
+    setwarp (MAP_AQUA_HIDEOUT_UNUSED_RUBY_MAP1, 6, 8)
+    special (TimeTravelBackClock)
+	waitstate
+    fadedefaultbgm
+    release
+    end
+}
+
+movement MagmaHideout_4F_Movement_PlayerToAriana {
+    walk_up * 7
+}
+
+movement MagmaHideout_4F_Movement_DamonExclamationDown {
+    emote_exclamation_mark
+    walk_in_place_down
+}
+
+movement MagmaHideout_4F_Movement_Exclamation {
+    emote_exclamation_mark
+}
+
+movement MagmaHideout_4F_Movement_StepRight {
+    walk_in_place_right
+}
+
+movement MagmaHideout_4F_Movement_FaceDown {
+    face_down
+}
+
+movement MagmaHideout_4F_Movement_ShaneEnter {
+    walk_up * 4
+    walk_left
+    walk_up * 2
+    face_right
+}
+
+movement MagmaHideout_4F_Movement_FaceLeft {
+    face_left
+}
+
+movement MagmaHideout_4F_Movement_FaceUp {
+    face_up
+}
+
+movement MagmaHideout_4F_Movement_StepDown {
+    walk_in_place_down
+}
+
+movement MagmaHideout_4F_Movement_StepUp {
+    walk_in_place_up
+}
+
+raw`
+MagmaHideout_4F_EventScript_Grunt11::
+	trainerbattle_single TRAINER_GRUNT_MAGMA_HIDEOUT_11, MagmaHideout_4F_Text_Grunt11Intro, MagmaHideout_4F_Text_Grunt11Defeat
+	msgbox MagmaHideout_4F_Text_Grunt11PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+MagmaHideout_4F_EventScript_Grunt12::
+	trainerbattle_single TRAINER_GRUNT_MAGMA_HIDEOUT_12, MagmaHideout_4F_Text_Grunt12Intro, MagmaHideout_4F_Text_Grunt12Defeat
+	msgbox MagmaHideout_4F_Text_Grunt12PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+MagmaHideout_4F_EventScript_Grunt13::
+	trainerbattle_single TRAINER_GRUNT_MAGMA_HIDEOUT_13, MagmaHideout_4F_Text_Grunt13Intro, MagmaHideout_4F_Text_Grunt13Defeat
+	msgbox MagmaHideout_4F_Text_Grunt13PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+MagmaHideout_4F_EventScript_Tabitha::
+	trainerbattle_single TRAINER_TABITHA_MAGMA_HIDEOUT, MagmaHideout_4F_Text_TabithaIntro, MagmaHideout_4F_Text_TabithaDefeat
+	msgbox MagmaHideout_4F_Text_TabithaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+MagmaHideout_4F_Text_Grunt11Intro:
+	.string "Just turn back now kid, none of this\n"
+	.string "concerns you!$"
+
+MagmaHideout_4F_Text_Grunt11Defeat:
+	.string "You were just too much for me to handle.$"
+
+MagmaHideout_4F_Text_Grunt11PostBattle:
+	.string "What is so wrong about wanting\n"
+	.string "unlimited power and money?$"
+
+MagmaHideout_4F_Text_Grunt12Intro:
+	.string "Muahaha, very soon Team Phoenix will\n"
+	.string "become the most powerful organization\l"
+	.string "in the world!$"
+
+MagmaHideout_4F_Text_Grunt12Defeat:
+	.string "Stop trying to ruin our plans!$"
+
+MagmaHideout_4F_Text_Grunt12PostBattle:
+	.string "I'm sorry boss, I couldn't hold off the\n"
+	.string "intruder very long.$"
+
+MagmaHideout_4F_Text_Grunt13Intro:
+	.string "I will stop you no matter what!\p"
+	.string "For Team Phoenix!$"
+
+MagmaHideout_4F_Text_Grunt13Defeat:
+	.string "I have failed...$"
+
+MagmaHideout_4F_Text_Grunt13PostBattle:
+	.string "You're dead wrong if you think this is\n"
+	.string "the end of Team Phoenix!$"
+
+MagmaHideout_4F_Text_TabithaIntro:
+	.string "Hehehe!\n"
+	.string "You made it this far, so I'll tell you!\p"
+	.string "That's right!\n"
+	.string "Up ahead, GROUDON is sleeping!\p"
+	.string "MAXIE went to GROUDON just seconds\n"
+	.string "ago!\p"
+	.string "It's going to awaken real soon!\n"
+	.string "Hehe! Hehehe!$"
+
+MagmaHideout_4F_Text_TabithaDefeat:
+	.string "Taken down again…\n"
+	.string "Hehe…$"
+
+MagmaHideout_4F_Text_TabithaPostBattle:
+	.string "…And while you wasted time with me,\n"
+	.string "MAXIE should have awakened GROUDON…$"
+`

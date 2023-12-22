@@ -114,7 +114,7 @@ script MagmaHideout_2F_2R_EventScript_Test {
 	closemessage
 	fadescreen (FADE_TO_WHITE)
     playbgm (MUS_RAYQUAZA_APPEARS, FALSE)
-    setwarp (MAP_MAGMA_HIDEOUT_1F, 15, 3)
+    setwarp (MAP_AQUA_HIDEOUT_UNUSED_RUBY_MAP1, 6, 8)
     special (TimeTravelBackClock)
 	waitstate
     fadedefaultbgm
