@@ -105,7 +105,7 @@ script MagmaHideout_4F_EventScript_MainTrigger {
     delay (30)
     fadescreenspeed (FADE_TO_WHITE, 8)
     playbgm (MUS_RAYQUAZA_APPEARS, FALSE)
-    setwarp (MAP_AQUA_HIDEOUT_UNUSED_RUBY_MAP1, 6, 8)
+    setwarp (MAP_AQUA_HIDEOUT_UNUSED_RUBY_MAP1, 5, 8)
     special (TimeTravelBackClock)
 	waitstate
     fadedefaultbgm
