@@ -15,6 +15,9 @@ mapscripts MagmaHideout_4F_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_ECRUTEAK_STATE, 7: MagmaHideout_4F_EventScript_OnFrameAfterPallet
     ]
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+        VAR_ECRUTEAK_STATE, 7: MagmaHideout_4F_EventScript_OnWarp
+    ]
 }
 
 script MagmaHideout_4F_EventScript_SetUpAfterPallet {
@@ -26,10 +29,13 @@ script MagmaHideout_4F_EventScript_SetUpAfterPallet {
 	return
 }
 
+script MagmaHideout_4F_EventScript_OnWarp {
+    applymovement (OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_FaceUp)
+	end
+}
+
 script MagmaHideout_4F_EventScript_OnFrameAfterPallet {
     lock
-    applymovement (OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_FaceUp)
-	waitmovement (0)
     delay (30)
     msgbox(format("ARIANA: ...\pYears of research and careful planning...\pAll for what?\pTo be ruined by a couple of children...?"))
     waitmessage

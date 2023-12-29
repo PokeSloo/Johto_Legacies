@@ -15,43 +15,43 @@
   "connections": 0,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_HOOH",
-      "x": 25,
-      "y": 7,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_JOG_IN_PLACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "BattleFrontier_RankingHall_EventScript_Attendant",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
-      "x": 27,
-      "y": 16,
+      "graphics_id": "OBJ_EVENT_GFX_MR_BRINEYS_BOAT",
+      "x": 7,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "BattleFrontier_RankingHall_EventScript_NinjaBoy",
-      "flag": "0"
+      "script": "NULL",
+      "flag": "FLAG_GENERAL_HIDE"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BOY_3",
-      "x": 26,
-      "y": 16,
+      "graphics_id": "OBJ_EVENT_GFX_MR_BRINEYS_BOAT",
+      "x": 9,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "BattleFrontier_RankingHall_EventScript_Boy",
-      "flag": "0"
+      "script": "NULL",
+      "flag": "FLAG_GENERAL_HIDE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MR_BRINEYS_BOAT",
+      "x": 7,
+      "y": 10,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_GENERAL_HIDE"
     }
   ],
   "warp_events": [
@@ -59,109 +59,14 @@
       "x": 23,
       "y": 18,
       "elevation": 0,
-      "dest_map": "MAP_SLATEPORT_CITY",
-      "dest_warp_id": 14
+      "dest_map": "MAP_MAGMA_HIDEOUT_2F_2R",
+      "dest_warp_id": 4
     }
   ],
   "coord_events": [
 
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": 26,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "BattleFrontier_RankingHall_EventScript_TowerSinglesRecords"
-    },
-    {
-      "type": "sign",
-      "x": 26,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "BattleFrontier_RankingHall_EventScript_TowerDoublesRecords"
-    },
-    {
-      "type": "sign",
-      "x": 26,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "BattleFrontier_RankingHall_EventScript_TowerMultisRecords"
-    },
-    {
-      "type": "sign",
-      "x": 26,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "BattleFrontier_RankingHall_EventScript_TowerLinkRecords"
-    },
-    {
-      "type": "sign",
-      "x": 26,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "BattleFrontier_RankingHall_EventScript_ArenaRecords"
-    },
-    {
-      "type": "sign",
-      "x": 26,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "BattleFrontier_RankingHall_EventScript_PalaceRecords"
-    },
-    {
-      "type": "sign",
-      "x": 26,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "BattleFrontier_RankingHall_EventScript_FactoryRecords"
-    },
-    {
-      "type": "sign",
-      "x": 26,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "BattleFrontier_RankingHall_EventScript_DomeRecords"
-    },
-    {
-      "type": "sign",
-      "x": 26,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "BattleFrontier_RankingHall_EventScript_PikeRecords"
-    },
-    {
-      "type": "sign",
-      "x": 26,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "BattleFrontier_RankingHall_EventScript_PyramidRecords"
-    },
-    {
-      "type": "sign",
-      "x": 26,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "BattleFrontier_RankingHall_EventScript_DomePikeFactoryRecordsSign"
-    },
-    {
-      "type": "sign",
-      "x": 26,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "BattleFrontier_RankingHall_EventScript_PalaceArenaPyramidRecordsSIgn"
-    }
+
   ]
 }

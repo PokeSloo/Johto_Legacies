@@ -1,0 +1,143 @@
+mapscripts BattleFrontier_RankingHall_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_ECRUTEAK_STATE, 7: BattleFrontier_RankingHall_OnFrame
+    ]
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+        VAR_ECRUTEAK_STATE, 7: BattleFrontier_RankingHall_OnWarp
+    ]
+}
+
+script BattleFrontier_RankingHall_OnFrame {
+    lock
+    delay (30)
+    applymovement (OBJ_EVENT_ID_PLAYER, BattleFrontier_RankingHall_Movement_CameraPanUp)
+	waitmovement (0)
+    fadeoutbgm (1)
+    playse (SE_M_SELF_DESTRUCT)
+    addobject (3)
+    applymovement (3, BattleFrontier_RankingHall_Movement_Explosion)
+	waitmovement (0)
+    removeobject (3)
+    waitse
+    playse (SE_M_SELF_DESTRUCT)
+    addobject (2)
+    applymovement (2, BattleFrontier_RankingHall_Movement_Explosion)
+	waitmovement (0)
+    removeobject (2)
+    waitse
+    playse (SE_M_SELF_DESTRUCT)
+    addobject (1)
+    applymovement (1, BattleFrontier_RankingHall_Movement_Explosion)
+	waitmovement (0)
+    removeobject (1)
+    waitse
+    setmetatile (6, 11, 0x212, TRUE)
+    setmetatile (7, 11, 0x213, TRUE)
+    setmetatile (6, 10, 0x20A, TRUE)
+    setmetatile (7, 10, 0x20B, TRUE)
+    setmetatile (9, 6, 0x205, TRUE)
+    setmetatile (10, 6, 0x206, TRUE)
+    setmetatile (7, 3, 0x203, TRUE)
+    setmetatile (8, 3, 0x204, TRUE)
+    setmetatile (5, 6, 0x201, TRUE)
+    setmetatile (5, 7, 0x209, TRUE)
+    setmetatile (11, 11, 0x217, TRUE)
+    special (DrawWholeMapView)
+    playse (SE_M_SELF_DESTRUCT)
+    addobject (3)
+    applymovement (3, BattleFrontier_RankingHall_Movement_Explosion)
+	waitmovement (0)
+    removeobject (3)
+    waitse
+    playse (SE_M_SELF_DESTRUCT)
+    addobject (2)
+    applymovement (2, BattleFrontier_RankingHall_Movement_Explosion)
+	waitmovement (0)
+    removeobject (2)
+    waitse
+    playse (SE_M_SELF_DESTRUCT)
+    addobject (1)
+    applymovement (1, BattleFrontier_RankingHall_Movement_Explosion)
+	waitmovement (0)
+    removeobject (1)
+    waitse
+    setmetatile (7, 9, 0x203, TRUE)
+    setmetatile (8, 9, 0x204, TRUE)
+    setmetatile (8, 8, 0x214, TRUE)
+    setmetatile (9, 10, 0x20D, TRUE)
+    setmetatile (10, 10, 0x20E, TRUE)
+    setmetatile (9, 11, 0x215, TRUE)
+    setmetatile (10, 11, 0x216, TRUE)
+    setmetatile (11, 6, 0x207, TRUE)
+    setmetatile (11, 7, 0x20F, TRUE)
+    setmetatile (5, 5, 0x219, TRUE)
+    special (DrawWholeMapView)
+    playse (SE_M_SELF_DESTRUCT)
+    addobject (3)
+    applymovement (3, BattleFrontier_RankingHall_Movement_Explosion)
+	waitmovement (0)
+    removeobject (3)
+    waitse
+    playse (SE_M_SELF_DESTRUCT)
+    addobject (2)
+    applymovement (2, BattleFrontier_RankingHall_Movement_Explosion)
+	waitmovement (0)
+    removeobject (2)
+    waitse
+    playse (SE_M_SELF_DESTRUCT)
+    addobject (1)
+    applymovement (1, BattleFrontier_RankingHall_Movement_Explosion)
+	waitmovement (0)
+    removeobject (1)
+    waitse
+    setmetatile (8, 11, 0x214, TRUE)
+    setmetatile (6, 4, 0x20A, TRUE)
+    setmetatile (7, 4, 0x20B, TRUE)
+    setmetatile (6, 5, 0x212, TRUE)
+    setmetatile (7, 5, 0x213, TRUE)
+    setmetatile (8, 5, 0x214, TRUE)
+    setmetatile (6, 7, 0x21F, TRUE)
+    setmetatile (7, 7, 0x210, TRUE)
+    setmetatile (6, 8, 0x21A, TRUE)
+    setmetatile (7, 8, 0x21B, TRUE)
+    setmetatile (5, 11, 0x211, TRUE)
+    setmetatile (5, 8, 0x219, TRUE)
+    setmetatile (11, 5, 0x21D, TRUE)
+    setmetatile (11, 9, 0x207, TRUE)
+    setmetatile (11, 10, 0x20F, TRUE)
+    special (DrawWholeMapView)
+    playse (SE_M_EXPLOSION)
+    setvar (VAR_0x8004, 1)  // vertical pan
+	setvar (VAR_0x8005, 1)  // horizontal pan
+	setvar (VAR_0x8006, 24)  // num shakes
+	setvar (VAR_0x8007, 5)  // shake delay
+	special (ShakeCamera)
+	waitstate
+    waitse
+    delay (60)
+    playmoncry (SPECIES_HO_OH, CRY_MODE_NORMAL)
+    waitmoncry
+    delay (60)
+    warpsilent (MAP_MAUVILLE_CITY, 34, 16)
+    waitstate
+    release
+    end
+}
+
+script BattleFrontier_RankingHall_OnWarp {
+    applymovement (OBJ_EVENT_ID_PLAYER, BattleFrontier_RankingHall_Movement_HidePlayer)
+	end
+}
+
+movement BattleFrontier_RankingHall_Movement_HidePlayer {
+    set_invisible
+}
+
+movement BattleFrontier_RankingHall_Movement_CameraPanUp {
+    walk_up * 5
+}
+
+movement BattleFrontier_RankingHall_Movement_Explosion {
+    face_up
+    face_left
+}

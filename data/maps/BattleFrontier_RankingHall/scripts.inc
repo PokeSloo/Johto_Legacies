@@ -1,134 +1,152 @@
 BattleFrontier_RankingHall_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, BattleFrontier_RankingHall_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, BattleFrontier_RankingHall_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
 	.byte 0
 
-BattleFrontier_RankingHall_EventScript_TowerSinglesRecords::
-	lockall
-	setvar VAR_0x8005, RANKING_HALL_TOWER_SINGLES
-	goto BattleFrontier_RankingHall_EventScript_ShowRecords
-	end
+BattleFrontier_RankingHall_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_ECRUTEAK_STATE, 7, BattleFrontier_RankingHall_OnFrame
+	.2byte 0
 
-BattleFrontier_RankingHall_EventScript_TowerDoublesRecords::
-	lockall
-	setvar VAR_0x8005, RANKING_HALL_TOWER_DOUBLES
-	goto BattleFrontier_RankingHall_EventScript_ShowRecords
-	end
+BattleFrontier_RankingHall_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
+	map_script_2 VAR_ECRUTEAK_STATE, 7, BattleFrontier_RankingHall_OnWarp
+	.2byte 0
 
-BattleFrontier_RankingHall_EventScript_TowerMultisRecords::
-	lockall
-	setvar VAR_0x8005, RANKING_HALL_TOWER_MULTIS
-	goto BattleFrontier_RankingHall_EventScript_ShowRecords
-	end
 
-BattleFrontier_RankingHall_EventScript_TowerLinkRecords::
-	lockall
-	setvar VAR_0x8005, RANKING_HALL_TOWER_LINK
-	goto BattleFrontier_RankingHall_EventScript_ShowRecords
-	end
-
-BattleFrontier_RankingHall_EventScript_ArenaRecords::
-	lockall
-	setvar VAR_0x8005, RANKING_HALL_ARENA
-	goto BattleFrontier_RankingHall_EventScript_ShowRecords
-	end
-
-BattleFrontier_RankingHall_EventScript_PalaceRecords::
-	lockall
-	setvar VAR_0x8005, RANKING_HALL_PALACE
-	goto BattleFrontier_RankingHall_EventScript_ShowRecords
-	end
-
-BattleFrontier_RankingHall_EventScript_FactoryRecords::
-	lockall
-	setvar VAR_0x8005, RANKING_HALL_FACTORY
-	goto BattleFrontier_RankingHall_EventScript_ShowRecords
-	end
-
-BattleFrontier_RankingHall_EventScript_DomeRecords::
-	lockall
-	setvar VAR_0x8005, RANKING_HALL_DOME
-	goto BattleFrontier_RankingHall_EventScript_ShowRecords
-	end
-
-BattleFrontier_RankingHall_EventScript_PikeRecords::
-	lockall
-	setvar VAR_0x8005, RANKING_HALL_PIKE
-	goto BattleFrontier_RankingHall_EventScript_ShowRecords
-	end
-
-BattleFrontier_RankingHall_EventScript_PyramidRecords::
-	lockall
-	setvar VAR_0x8005, RANKING_HALL_PYRAMID
-	goto BattleFrontier_RankingHall_EventScript_ShowRecords
-	end
-
-BattleFrontier_RankingHall_EventScript_ShowRecords::
-	special ShowRankingHallRecordsWindow
-	waitbuttonpress
-	special ScrollRankingHallRecordsWindow
-	waitbuttonpress
-	special RemoveRecordsWindow
-	releaseall
-	end
-
-BattleFrontier_RankingHall_EventScript_Attendant::
-	msgbox BattleFrontier_RankingHall_Text_ExplainRankingHall, MSGBOX_NPC
-	end
-
-BattleFrontier_RankingHall_EventScript_DomePikeFactoryRecordsSign::
-	msgbox BattleFrontier_RankingHall_Text_DomePikeFactoryRecords, MSGBOX_SIGN
-	end
-
-BattleFrontier_RankingHall_EventScript_PalaceArenaPyramidRecordsSIgn::
-	msgbox BattleFrontier_RankingHall_Text_PalaceArenaPyramidRecords, MSGBOX_SIGN
-	end
-
-BattleFrontier_RankingHall_EventScript_NinjaBoy::
+BattleFrontier_RankingHall_OnFrame::
 	lock
-	faceplayer
-	msgbox BattleFrontier_RankingHall_Text_IsYourNameOnThisList, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, BattleFrontier_RankingHall_EventScript_NinjaBoyNameOnList
-	msgbox BattleFrontier_RankingHall_Text_WorkHarderIfYouSawFriendsName, MSGBOX_DEFAULT
+	delay 30
+	applymovement OBJ_EVENT_ID_PLAYER, BattleFrontier_RankingHall_Movement_CameraPanUp
+	waitmovement 0
+	fadeoutbgm 1
+	playse SE_M_SELF_DESTRUCT
+	addobject 3
+	applymovement 3, BattleFrontier_RankingHall_Movement_Explosion
+	waitmovement 0
+	removeobject 3
+	waitse
+	playse SE_M_SELF_DESTRUCT
+	addobject 2
+	applymovement 2, BattleFrontier_RankingHall_Movement_Explosion
+	waitmovement 0
+	removeobject 2
+	waitse
+	playse SE_M_SELF_DESTRUCT
+	addobject 1
+	applymovement 1, BattleFrontier_RankingHall_Movement_Explosion
+	waitmovement 0
+	removeobject 1
+	waitse
+	setmetatile 6, 11, 0x212, TRUE
+	setmetatile 7, 11, 0x213, TRUE
+	setmetatile 6, 10, 0x20A, TRUE
+	setmetatile 7, 10, 0x20B, TRUE
+	setmetatile 9, 6, 0x205, TRUE
+	setmetatile 10, 6, 0x206, TRUE
+	setmetatile 7, 3, 0x203, TRUE
+	setmetatile 8, 3, 0x204, TRUE
+	setmetatile 5, 6, 0x201, TRUE
+	setmetatile 5, 7, 0x209, TRUE
+	setmetatile 11, 11, 0x217, TRUE
+	special DrawWholeMapView
+	playse SE_M_SELF_DESTRUCT
+	addobject 3
+	applymovement 3, BattleFrontier_RankingHall_Movement_Explosion
+	waitmovement 0
+	removeobject 3
+	waitse
+	playse SE_M_SELF_DESTRUCT
+	addobject 2
+	applymovement 2, BattleFrontier_RankingHall_Movement_Explosion
+	waitmovement 0
+	removeobject 2
+	waitse
+	playse SE_M_SELF_DESTRUCT
+	addobject 1
+	applymovement 1, BattleFrontier_RankingHall_Movement_Explosion
+	waitmovement 0
+	removeobject 1
+	waitse
+	setmetatile 7, 9, 0x203, TRUE
+	setmetatile 8, 9, 0x204, TRUE
+	setmetatile 8, 8, 0x214, TRUE
+	setmetatile 9, 10, 0x20D, TRUE
+	setmetatile 10, 10, 0x20E, TRUE
+	setmetatile 9, 11, 0x215, TRUE
+	setmetatile 10, 11, 0x216, TRUE
+	setmetatile 11, 6, 0x207, TRUE
+	setmetatile 11, 7, 0x20F, TRUE
+	setmetatile 5, 5, 0x219, TRUE
+	special DrawWholeMapView
+	playse SE_M_SELF_DESTRUCT
+	addobject 3
+	applymovement 3, BattleFrontier_RankingHall_Movement_Explosion
+	waitmovement 0
+	removeobject 3
+	waitse
+	playse SE_M_SELF_DESTRUCT
+	addobject 2
+	applymovement 2, BattleFrontier_RankingHall_Movement_Explosion
+	waitmovement 0
+	removeobject 2
+	waitse
+	playse SE_M_SELF_DESTRUCT
+	addobject 1
+	applymovement 1, BattleFrontier_RankingHall_Movement_Explosion
+	waitmovement 0
+	removeobject 1
+	waitse
+	setmetatile 8, 11, 0x214, TRUE
+	setmetatile 6, 4, 0x20A, TRUE
+	setmetatile 7, 4, 0x20B, TRUE
+	setmetatile 6, 5, 0x212, TRUE
+	setmetatile 7, 5, 0x213, TRUE
+	setmetatile 8, 5, 0x214, TRUE
+	setmetatile 6, 7, 0x21F, TRUE
+	setmetatile 7, 7, 0x210, TRUE
+	setmetatile 6, 8, 0x21A, TRUE
+	setmetatile 7, 8, 0x21B, TRUE
+	setmetatile 5, 11, 0x211, TRUE
+	setmetatile 5, 8, 0x219, TRUE
+	setmetatile 11, 5, 0x21D, TRUE
+	setmetatile 11, 9, 0x207, TRUE
+	setmetatile 11, 10, 0x20F, TRUE
+	special DrawWholeMapView
+	playse SE_M_EXPLOSION
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 24
+	setvar VAR_0x8007, 5
+	special ShakeCamera
+	waitstate
+	waitse
+	delay 60
+	playmoncry SPECIES_HO_OH, CRY_MODE_NORMAL
+	waitmoncry
+	delay 60
+	warpsilent MAP_MAUVILLE_CITY, 34, 16
+	waitstate
 	release
 	end
 
-BattleFrontier_RankingHall_EventScript_NinjaBoyNameOnList::
-	msgbox BattleFrontier_RankingHall_Text_WowThatsSuper, MSGBOX_DEFAULT
-	release
+
+BattleFrontier_RankingHall_OnWarp::
+	applymovement OBJ_EVENT_ID_PLAYER, BattleFrontier_RankingHall_Movement_HidePlayer
 	end
 
-BattleFrontier_RankingHall_EventScript_Boy::
-	msgbox BattleFrontier_RankingHall_Text_MyNamesNotUpThere, MSGBOX_NPC
-	end
 
-BattleFrontier_RankingHall_Text_ExplainRankingHall:
-	.string "This is the RANKING HALL.\p"
-	.string "This is where we recognize the immortal\n"
-	.string "TRAINERS who left great records in\l"
-	.string "BATTLE FRONTIER events.$"
+BattleFrontier_RankingHall_Movement_HidePlayer:
+	set_invisible
+	step_end
 
-BattleFrontier_RankingHall_Text_DomePikeFactoryRecords:
-	.string "BATTLE DOME, BATTLE PIKE,\n"
-	.string "and BATTLE FACTORY Records$"
+BattleFrontier_RankingHall_Movement_CameraPanUp:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
 
-BattleFrontier_RankingHall_Text_PalaceArenaPyramidRecords:
-	.string "BATTLE PALACE, BATTLE ARENA,\n"
-	.string "and BATTLE PYRAMID Records$"
-
-BattleFrontier_RankingHall_Text_IsYourNameOnThisList:
-	.string "Hi, is your name on this list?$"
-
-BattleFrontier_RankingHall_Text_WowThatsSuper:
-	.string "Wow, that's super!\n"
-	.string "I'll have to try harder, too!$"
-
-BattleFrontier_RankingHall_Text_WorkHarderIfYouSawFriendsName:
-	.string "Oh, is that right?\p"
-	.string "If you saw your friend's name up here,\n"
-	.string "I bet it would make you work harder!$"
-
-BattleFrontier_RankingHall_Text_MyNamesNotUpThere:
-	.string "Hmm…\n"
-	.string "My name's not up there…\p"
-	.string "Well, it's only natural since I haven't\n"
-	.string "taken any challenges yet.$"
-
+BattleFrontier_RankingHall_Movement_Explosion:
+	face_up
+	face_left
+	step_end

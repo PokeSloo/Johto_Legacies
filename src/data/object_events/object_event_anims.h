@@ -799,6 +799,42 @@ static const union AnimCmd *const sAnimTable_Inanimate[] = {
     [ANIM_STAY_STILL] = sAnim_StayStill,
 };
 
+static const union AnimCmd sAnim_FlapSouth[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(3, 8),
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(3, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FlapNorth[] =
+{
+    ANIMCMD_FRAME(1, 8),
+    ANIMCMD_FRAME(5, 8),
+    ANIMCMD_FRAME(1, 8),
+    ANIMCMD_FRAME(5, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FlapWest[] =
+{
+    ANIMCMD_FRAME(2, 8),
+    ANIMCMD_FRAME(7, 8),
+    ANIMCMD_FRAME(2, 8),
+    ANIMCMD_FRAME(7, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FlapEast[] =
+{
+    ANIMCMD_FRAME(2, 8, .hFlip = TRUE),
+    ANIMCMD_FRAME(7, 8, .hFlip = TRUE),
+    ANIMCMD_FRAME(2, 8, .hFlip = TRUE),
+    ANIMCMD_FRAME(7, 8, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
 static const union AnimCmd *const sAnimTable_QuintyPlump[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_QuintyPlumpFaceSouth,
     [ANIM_STD_FACE_NORTH] = sAnim_QuintyPlumpFaceNorth,
@@ -846,12 +882,12 @@ static const union AnimCmd *const sAnimTable_Standard[] = {
 };
 
 static const union AnimCmd *const sAnimTable_HoOh[] = {
-    [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
-    [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth,
-    [ANIM_STD_FACE_WEST] = sAnim_FaceWest,
-    [ANIM_STD_FACE_EAST] = sAnim_FaceEast,
-    [ANIM_STD_GO_SOUTH] = sAnim_HoOhFlapWings,
-    [ANIM_STD_GO_NORTH] = sAnim_HoOhStayStill,
+    [ANIM_STD_FACE_SOUTH] = sAnim_FlapSouth,
+    [ANIM_STD_FACE_NORTH] = sAnim_FlapNorth,
+    [ANIM_STD_FACE_WEST] = sAnim_FlapWest,
+    [ANIM_STD_FACE_EAST] = sAnim_FlapEast,
+    [ANIM_STD_GO_SOUTH] = sAnim_GoSouth,
+    [ANIM_STD_GO_NORTH] = sAnim_GoNorth,
     [ANIM_STD_GO_WEST] = sAnim_GoWest,
     [ANIM_STD_GO_EAST] = sAnim_GoEast,
     [ANIM_STD_GO_FAST_SOUTH] = sAnim_GoFastSouth,
