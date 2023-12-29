@@ -11028,10 +11028,10 @@ static const struct TrainerMonItemCustomMoves sParty_MayRustboroTreecko[] = {
     {
     .iv = 255,
     .lvl = 58,
-    .species = SPECIES_SHARPEDO,
+    .species = SPECIES_KROOKODILE,
     .heldItem = ITEM_LIFE_ORB,
-    .abilityNums = 2,
-    .moves = {MOVE_AQUA_JET, MOVE_ICE_FANG, MOVE_EARTHQUAKE, MOVE_CRUNCH}
+    .abilityNums = 0,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_KNOCK_OFF, MOVE_STEALTH_ROCK}
     },
     {
     .iv = 255,

@@ -5,8 +5,304 @@ const SILVER_ID = 11
 const FERALIGATR_ID = 12
 const SCIENTIST_1_ID = 10
 const SCIENTIST_2_ID = 9
+const CELEBI_ID = 7
 
-mapscripts MagmaHideout_4F_MapScripts {}
+mapscripts MagmaHideout_4F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        call_if_eq (VAR_ECRUTEAK_STATE, 7, MagmaHideout_4F_EventScript_SetUpAfterPallet)
+        end
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_ECRUTEAK_STATE, 7: MagmaHideout_4F_EventScript_OnFrameAfterPallet
+    ]
+}
+
+script MagmaHideout_4F_EventScript_SetUpAfterPallet {
+    setobjectxyperm (SHANE_ID, 8, 8)
+	setobjectmovementtype (SHANE_ID, MOVEMENT_TYPE_FACE_UP)
+    setobjectmovementtype (ARIANA_ID, MOVEMENT_TYPE_FACE_DOWN)
+    setobjectmovementtype (DAMON_ID, MOVEMENT_TYPE_FACE_DOWN)
+    setobjectmovementtype (SCIENTIST_1_ID, MOVEMENT_TYPE_FACE_DOWN)
+	return
+}
+
+script MagmaHideout_4F_EventScript_OnFrameAfterPallet {
+    lock
+    applymovement (OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_FaceUp)
+	waitmovement (0)
+    delay (30)
+    msgbox(format("ARIANA: ...\pYears of research and careful planning...\pAll for what?\pTo be ruined by a couple of children...?"))
+    waitmessage
+    applymovement (SHANE_ID, MagmaHideout_4F_Movement_StepUp)
+	waitmovement (0)
+    msgbox(format("SHANE: That's right, you old hag!\pJust give it up already!"))
+    waitmessage
+    closemessage
+    delay (30)
+    playse (SE_M_EXPLOSION)
+    setvar (VAR_0x8004, 1)  // vertical pan
+	setvar (VAR_0x8005, 1)  // horizontal pan
+	setvar (VAR_0x8006, 12)  // num shakes
+	setvar (VAR_0x8007, 5)  // shake delay
+	special (ShakeCamera)
+	waitstate
+    waitse
+    playse (SE_PIN)
+    applymovement (DAMON_ID, MagmaHideout_4F_Movement_DamonExclamationDown)
+    applymovement (SCIENTIST_1_ID, MagmaHideout_4F_Movement_DamonExclamationDown)
+    applymovement (SCIENTIST_2_ID, MagmaHideout_4F_Movement_DamonExclamationDown)
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_DamonExclamationDown)
+    applymovement (SHANE_ID, MagmaHideout_4F_Movement_DamonExclamationDown)
+    applymovement (OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_DamonExclamationDown)
+	waitmovement (0)
+    waitse
+    delay (30)
+    applymovement (SILVER_ID, MagmaHideout_4F_Movement_PlayerToAriana)
+    applymovement (FERALIGATR_ID, MagmaHideout_4F_Movement_PlayerToAriana)
+	waitmovement (0)
+    msgbox(format("DAD: I rushed over as soon as I got the call, but it looks like the battle is already over.\pSHANE, {PLAYER}, you both did well.\pI'll take it from here."))
+    waitmessage
+    closemessage
+    special (SpawnCameraObject)
+    applymovement (SHANE_ID, MagmaHideout_4F_Movement_ShaneOutOfWay)
+    applymovement (OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_PlayerOutOfWay)
+	waitmovement (0)
+    special (RemoveCameraObject)
+    applymovement (SILVER_ID, MagmaHideout_4F_Movement_SilverToAriana)
+    applymovement (FERALIGATR_ID, MagmaHideout_4F_Movement_FeraligatrToAriana)
+	waitmovement (0)
+    applymovement (SHANE_ID, MagmaHideout_4F_Movement_FaceUp)
+    applymovement (OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_FaceUp)
+	waitmovement (0)
+    msgbox(format("DAD: It's been a long time, mother..."))
+    waitmessage
+    playse (SE_PIN)
+    applymovement (SHANE_ID, MagmaHideout_4F_Movement_Question)
+    applymovement (OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_Question)
+	waitmovement (0)
+    waitse
+    delay (30)
+    msgbox(format("ARIANA: So, the Champion himself has decided to grace us with his presence!\pSILVER, dear, you should be on my side...\pI'm only trying to bring your father back to us."))
+    waitmessage
+    applymovement (SILVER_ID, MagmaHideout_4F_Movement_StepUp)
+	waitmovement (0)
+    msgbox(format("DAD: When GIOVANNI left, he told me he was going to reform Team Rocket himself, and use the full potential of his subordinates.\pHe would have taken us with him if he thought we had any potential.\pPower is the only thing that man ever wanted, not a family.\pJust accept it, and move on."))
+    waitmessage
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_StepDown)
+	waitmovement (0)
+    fadeoutbgm (1)
+    msgbox(format("ARIANA: I refuse...\pI will never give up on GIOVANNI!"))
+    waitmessage
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_StepRight)
+	waitmovement (0)
+    msgbox(format("Start the time machine back up!"))
+    waitmessage
+    applymovement (SILVER_ID, MagmaHideout_4F_Movement_StepUp)
+	waitmovement (0)
+    msgbox(format("DAD: Feraligatr!"))
+    waitmessage
+    closemessage
+    applymovement (FERALIGATR_ID, MagmaHideout_4F_Movement_FeraligatrToFront)
+	waitmovement (0)
+    waitse
+	playmoncry (SPECIES_FERALIGATR, CRY_MODE_NORMAL)
+    waitmoncry
+    applymovement (DAMON_ID, MagmaHideout_4F_Movement_DamonAway)
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_ArianaAway)
+	waitmovement (0)
+    playse (SE_M_MEGA_KICK)
+    applymovement (FERALIGATR_ID, MagmaHideout_4F_Movement_FeraligatrRunForward)
+	waitmovement (0)
+    waitse
+    playse (SE_EFFECTIVE)
+    applymovement (FERALIGATR_ID, MagmaHideout_4F_Movement_FeraligatrJumpBack)
+	waitmovement (0)
+    waitse
+    delay (30)
+    playse (SE_ICE_CRACK)
+    setmetatile (9, 4, 0x258, TRUE)
+    setmetatile (9, 3, 0x250, TRUE)
+    special (DrawWholeMapView)
+    waitse
+    delay (30)
+    playse (SE_ICE_CRACK)
+    setmetatile (8, 5, 0x259, TRUE)
+    setmetatile (9, 5, 0x25A, TRUE)
+    setmetatile (10, 5, 0x25B, TRUE)
+    setmetatile (8, 4, 0x251, TRUE)
+    setmetatile (9, 4, 0x252, TRUE)
+    setmetatile (10, 4, 0x253, TRUE)
+    setmetatile (8, 3, 0x249, TRUE)
+    setmetatile (9, 3, 0x24A, TRUE)
+    setmetatile (10, 3, 0x24B, TRUE)
+    special (DrawWholeMapView)
+    waitse
+    delay (30)
+    addobject (CELEBI_ID)
+    playse (SE_ICE_BREAK)
+    setmetatile (8, 5, 0x230, TRUE)
+    setmetatile (9, 5, 0x231, TRUE)
+    setmetatile (10, 5, 0x232, TRUE)
+    setmetatile (8, 4, 0x228, TRUE)
+    setmetatile (9, 4, 0x229, TRUE)
+    setmetatile (10, 4, 0x22A, TRUE)
+    setmetatile (8, 3, 0x220, TRUE)
+    setmetatile (9, 3, 0x221, TRUE)
+    setmetatile (10, 3, 0x222, TRUE)
+    special (DrawWholeMapView)
+    waitse
+    delay (60)
+    applymovement (CELEBI_ID, MagmaHideout_4F_Movement_CelebiDownSlow)
+	waitmovement (0)
+    waitse
+    playmoncry (SPECIES_CELEBI, CRY_MODE_NORMAL)
+    waitmoncry
+    playse (SE_LEDGE)
+    applymovement (CELEBI_ID, MagmaHideout_4F_Movement_CelebiJump)
+    waitmovement (0)
+    playse (SE_LEDGE)
+    applymovement (CELEBI_ID, MagmaHideout_4F_Movement_CelebiJump)
+    waitmovement (0)
+    delay (30)
+    applymovement (CELEBI_ID, PetalburgWoods_Movement_CelebiExit)
+    waitmovement (0)
+    removeobject (CELEBI_ID)
+    applymovement (FERALIGATR_ID, MagmaHideout_4F_Movement_FeraligatrBackToSilver)
+	waitmovement (0)
+    msgbox(format("ARIANA: ..."))
+    waitmessage
+    closemessage
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_ArianaBackToCenter)
+	waitmovement (0)
+    msgbox(format("ARIANA: This can't be...\p...\pWhy does fate insist on hindering me at every single step..."))
+    waitmessage
+    applymovement (SILVER_ID, MagmaHideout_4F_Movement_StepUp)
+	waitmovement (0)
+    msgbox(format("DAD: It's over, mother."))
+    waitmessage
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_StepDown)
+	waitmovement (0)
+    msgbox(format("DAD: Leave the past where it belongs, and focus on the family standing before you.\pGIOVANNI may not come back, but you still have a chance to connect with your own grandchildren."))
+    waitmessage
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_StepDown)
+	waitmovement (0)
+    msgbox(format("ARIANA: My... grandchildren...\p...\pNo...\pIt's too late for that now!"))
+    waitmessage
+    playbgm (MUS_RG_ROCKET_HIDEOUT, TRUE)
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_StepRight)
+	waitmovement (0)
+    msgbox(format("Initiate operation Scorched Earth!"))
+    waitmessage
+    applymovement (SCIENTIST_2_ID, MagmaHideout_4F_Movement_StepUp)
+	waitmovement (0)
+    msgbox(format("SCIENTIST: Yes, Ma'am!"))
+    waitmessage
+    closemessage
+    playse (SE_PIN)
+    applymovement (SILVER_ID, MagmaHideout_4F_Movement_Exclamation)
+	waitmovement (0)
+    waitse
+    delay (30)
+    playse (SE_PC_ON)
+    waitse
+    delay (30)
+    playse (SE_SELECT)
+    waitse
+    playse (SE_SELECT)
+    waitse
+    playse (SE_PC_LOGIN)
+    waitse
+    delay (30)
+    warpsilent (MAP_BATTLE_FRONTIER_RANKING_HALL, 8, 13)
+    waitstate
+    release
+    end
+}
+
+movement MagmaHideout_4F_Movement_ShaneOutOfWay {
+    walk_left
+    walk_down
+    face_right
+}
+
+movement MagmaHideout_4F_Movement_PlayerOutOfWay {
+    walk_right
+    walk_down
+    face_left
+}
+
+movement MagmaHideout_4F_Movement_CameraToPlayer {
+    walk_faster_right
+    walk_faster_down
+}
+
+movement MagmaHideout_4F_Movement_SilverToAriana {
+    walk_up
+}
+
+movement MagmaHideout_4F_Movement_FeraligatrToAriana {
+    walk_up
+    walk_left
+    walk_up
+}
+
+movement MagmaHideout_4F_Movement_Question {
+    emote_question_mark
+}
+
+movement MagmaHideout_4F_Movement_FeraligatrToFront {
+    walk_fast_up
+    walk_fast_right
+    walk_in_place_up
+}
+
+movement MagmaHideout_4F_Movement_DamonAway {
+    walk_fast_left
+    walk_in_place_right
+}
+
+movement MagmaHideout_4F_Movement_ArianaAway {
+    walk_fast_right * 2
+    walk_in_place_left
+}
+
+movement MagmaHideout_4F_Movement_FeraligatrRunForward {
+    walk_in_place_fast_up * 8
+    walk_fast_up * 2
+}
+
+movement MagmaHideout_4F_Movement_FeraligatrJumpBack {
+    lock_facing_direction
+    jump_2_down
+    unlock_facing_direction
+    face_up
+}
+
+movement MagmaHideout_4F_Movement_CelebiDownSlow {
+    walk_slow_down
+}
+
+movement MagmaHideout_4F_Movement_CelebiJump {
+    jump_in_place_down
+}
+
+movement PetalburgWoods_Movement_CelebiExit {
+    lock_facing_direction
+    walk_up
+    walk_fast_up * 5
+    unlock_facing_direction
+}
+
+movement MagmaHideout_4F_Movement_FeraligatrBackToSilver {
+    walk_left
+    walk_down
+    walk_in_place_up
+}
+
+movement MagmaHideout_4F_Movement_ArianaBackToCenter {
+    walk_left * 2
+    walk_in_place_up
+}
 
 script MagmaHideout_4F_EventScript_MainTrigger {
     lock

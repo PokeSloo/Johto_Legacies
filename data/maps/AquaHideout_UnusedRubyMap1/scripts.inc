@@ -92,6 +92,7 @@ AquaHideout_UnusedRubyMap1_DoBattle::
 	compare VAR_RESULT, B_OUTCOME_LOST
 	goto_if_eq AquaHideout_UnusedRubyMap1_PlayerLostTheFight
 	delay 30
+	clearflag FLAG_HIDE_SILVER_RAGE_HIDEOUT
 	addvar VAR_ECRUTEAK_STATE, 1
 	fadescreenspeed FADE_TO_WHITE, 8
 	playbgm MUS_RAYQUAZA_APPEARS, FALSE
@@ -163,7 +164,8 @@ AquaHideout_UnusedRubyMap1_Movement_Up1:
 AquaHideout_UnusedRubyMap1_OnFrame_Text_0:
 	.string "SHANE: What the hell just happened?\p"
 	.string "How did we get outside, and where are\n"
-	.string "we? Some town?$"
+	.string "we?\p"
+	.string "Some small town?$"
 
 AquaHideout_UnusedRubyMap1_OnFrame_Text_1:
 	.string "...\p"

@@ -1,6 +1,317 @@
 MagmaHideout_4F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, MagmaHideout_4F_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, MagmaHideout_4F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
+MagmaHideout_4F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	call_if_eq VAR_ECRUTEAK_STATE, 7, MagmaHideout_4F_EventScript_SetUpAfterPallet
+	end
+
+MagmaHideout_4F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_ECRUTEAK_STATE, 7, MagmaHideout_4F_EventScript_OnFrameAfterPallet
+	.2byte 0
+
+
+MagmaHideout_4F_EventScript_SetUpAfterPallet::
+	setobjectxyperm 1, 8, 8
+	setobjectmovementtype 1, MOVEMENT_TYPE_FACE_UP
+	setobjectmovementtype 6, MOVEMENT_TYPE_FACE_DOWN
+	setobjectmovementtype 5, MOVEMENT_TYPE_FACE_DOWN
+	setobjectmovementtype 10, MOVEMENT_TYPE_FACE_DOWN
+	return
+
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_FaceUp
+	waitmovement 0
+	delay 30
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_0
+	waitmessage
+	applymovement 1, MagmaHideout_4F_Movement_StepUp
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_1
+	waitmessage
+	closemessage
+	delay 30
+	playse SE_M_EXPLOSION
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 12
+	setvar VAR_0x8007, 5
+	special ShakeCamera
+	waitstate
+	waitse
+	playse SE_PIN
+	applymovement 5, MagmaHideout_4F_Movement_DamonExclamationDown
+	applymovement 10, MagmaHideout_4F_Movement_DamonExclamationDown
+	applymovement 9, MagmaHideout_4F_Movement_DamonExclamationDown
+	applymovement 6, MagmaHideout_4F_Movement_DamonExclamationDown
+	applymovement 1, MagmaHideout_4F_Movement_DamonExclamationDown
+	applymovement OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_DamonExclamationDown
+	waitmovement 0
+	waitse
+	delay 30
+	applymovement 11, MagmaHideout_4F_Movement_PlayerToAriana
+	applymovement 12, MagmaHideout_4F_Movement_PlayerToAriana
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_2
+	waitmessage
+	closemessage
+	special SpawnCameraObject
+	applymovement 1, MagmaHideout_4F_Movement_ShaneOutOfWay
+	applymovement OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_PlayerOutOfWay
+	waitmovement 0
+	special RemoveCameraObject
+	applymovement 11, MagmaHideout_4F_Movement_SilverToAriana
+	applymovement 12, MagmaHideout_4F_Movement_FeraligatrToAriana
+	waitmovement 0
+	applymovement 1, MagmaHideout_4F_Movement_FaceUp
+	applymovement OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_FaceUp
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_3
+	waitmessage
+	playse SE_PIN
+	applymovement 1, MagmaHideout_4F_Movement_Question
+	applymovement OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_Question
+	waitmovement 0
+	waitse
+	delay 30
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_4
+	waitmessage
+	applymovement 11, MagmaHideout_4F_Movement_StepUp
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_5
+	waitmessage
+	applymovement 6, MagmaHideout_4F_Movement_StepDown
+	waitmovement 0
+	fadeoutbgm 1
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_6
+	waitmessage
+	applymovement 6, MagmaHideout_4F_Movement_StepRight
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_7
+	waitmessage
+	applymovement 11, MagmaHideout_4F_Movement_StepUp
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_8
+	waitmessage
+	closemessage
+	applymovement 12, MagmaHideout_4F_Movement_FeraligatrToFront
+	waitmovement 0
+	waitse
+	playmoncry SPECIES_FERALIGATR, CRY_MODE_NORMAL
+	waitmoncry
+	applymovement 5, MagmaHideout_4F_Movement_DamonAway
+	applymovement 6, MagmaHideout_4F_Movement_ArianaAway
+	waitmovement 0
+	playse SE_M_MEGA_KICK
+	applymovement 12, MagmaHideout_4F_Movement_FeraligatrRunForward
+	waitmovement 0
+	waitse
+	playse SE_EFFECTIVE
+	applymovement 12, MagmaHideout_4F_Movement_FeraligatrJumpBack
+	waitmovement 0
+	waitse
+	delay 30
+	playse SE_ICE_CRACK
+	setmetatile 9, 4, 0x258, TRUE
+	setmetatile 9, 3, 0x250, TRUE
+	special DrawWholeMapView
+	waitse
+	delay 30
+	playse SE_ICE_CRACK
+	setmetatile 8, 5, 0x259, TRUE
+	setmetatile 9, 5, 0x25A, TRUE
+	setmetatile 10, 5, 0x25B, TRUE
+	setmetatile 8, 4, 0x251, TRUE
+	setmetatile 9, 4, 0x252, TRUE
+	setmetatile 10, 4, 0x253, TRUE
+	setmetatile 8, 3, 0x249, TRUE
+	setmetatile 9, 3, 0x24A, TRUE
+	setmetatile 10, 3, 0x24B, TRUE
+	special DrawWholeMapView
+	waitse
+	delay 30
+	addobject 7
+	playse SE_ICE_BREAK
+	setmetatile 8, 5, 0x230, TRUE
+	setmetatile 9, 5, 0x231, TRUE
+	setmetatile 10, 5, 0x232, TRUE
+	setmetatile 8, 4, 0x228, TRUE
+	setmetatile 9, 4, 0x229, TRUE
+	setmetatile 10, 4, 0x22A, TRUE
+	setmetatile 8, 3, 0x220, TRUE
+	setmetatile 9, 3, 0x221, TRUE
+	setmetatile 10, 3, 0x222, TRUE
+	special DrawWholeMapView
+	waitse
+	delay 60
+	applymovement 7, MagmaHideout_4F_Movement_CelebiDownSlow
+	waitmovement 0
+	waitse
+	playmoncry SPECIES_CELEBI, CRY_MODE_NORMAL
+	waitmoncry
+	playse SE_LEDGE
+	applymovement 7, MagmaHideout_4F_Movement_CelebiJump
+	waitmovement 0
+	playse SE_LEDGE
+	applymovement 7, MagmaHideout_4F_Movement_CelebiJump
+	waitmovement 0
+	delay 30
+	applymovement 7, PetalburgWoods_Movement_CelebiExit
+	waitmovement 0
+	removeobject 7
+	applymovement 12, MagmaHideout_4F_Movement_FeraligatrBackToSilver
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_9
+	waitmessage
+	closemessage
+	applymovement 6, MagmaHideout_4F_Movement_ArianaBackToCenter
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_10
+	waitmessage
+	applymovement 11, MagmaHideout_4F_Movement_StepUp
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_11
+	waitmessage
+	applymovement 6, MagmaHideout_4F_Movement_StepDown
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_12
+	waitmessage
+	applymovement 6, MagmaHideout_4F_Movement_StepDown
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_13
+	waitmessage
+	playbgm MUS_RG_ROCKET_HIDEOUT, TRUE
+	applymovement 6, MagmaHideout_4F_Movement_StepRight
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_14
+	waitmessage
+	applymovement 9, MagmaHideout_4F_Movement_StepUp
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_15
+	waitmessage
+	closemessage
+	playse SE_PIN
+	applymovement 11, MagmaHideout_4F_Movement_Exclamation
+	waitmovement 0
+	waitse
+	delay 30
+	playse SE_PC_ON
+	waitse
+	delay 30
+	playse SE_SELECT
+	waitse
+	playse SE_SELECT
+	waitse
+	playse SE_PC_LOGIN
+	waitse
+	delay 30
+	warpsilent MAP_BATTLE_FRONTIER_RANKING_HALL, 8, 13
+	waitstate
+	release
+	end
+
+
+MagmaHideout_4F_Movement_ShaneOutOfWay:
+	walk_left
+	walk_down
+	face_right
+	step_end
+
+MagmaHideout_4F_Movement_PlayerOutOfWay:
+	walk_right
+	walk_down
+	face_left
+	step_end
+
+MagmaHideout_4F_Movement_CameraToPlayer:
+	walk_faster_right
+	walk_faster_down
+	step_end
+
+MagmaHideout_4F_Movement_SilverToAriana:
+	walk_up
+	step_end
+
+MagmaHideout_4F_Movement_FeraligatrToAriana:
+	walk_up
+	walk_left
+	walk_up
+	step_end
+
+MagmaHideout_4F_Movement_Question:
+	emote_question_mark
+	step_end
+
+MagmaHideout_4F_Movement_FeraligatrToFront:
+	walk_fast_up
+	walk_fast_right
+	walk_in_place_up
+	step_end
+
+MagmaHideout_4F_Movement_DamonAway:
+	walk_fast_left
+	walk_in_place_right
+	step_end
+
+MagmaHideout_4F_Movement_ArianaAway:
+	walk_fast_right
+	walk_fast_right
+	walk_in_place_left
+	step_end
+
+MagmaHideout_4F_Movement_FeraligatrRunForward:
+	walk_in_place_fast_up
+	walk_in_place_fast_up
+	walk_in_place_fast_up
+	walk_in_place_fast_up
+	walk_in_place_fast_up
+	walk_in_place_fast_up
+	walk_in_place_fast_up
+	walk_in_place_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+MagmaHideout_4F_Movement_FeraligatrJumpBack:
+	lock_facing_direction
+	jump_2_down
+	unlock_facing_direction
+	face_up
+	step_end
+
+MagmaHideout_4F_Movement_CelebiDownSlow:
+	walk_slow_down
+	step_end
+
+MagmaHideout_4F_Movement_CelebiJump:
+	jump_in_place_down
+	step_end
+
+PetalburgWoods_Movement_CelebiExit:
+	lock_facing_direction
+	walk_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	unlock_facing_direction
+	step_end
+
+MagmaHideout_4F_Movement_FeraligatrBackToSilver:
+	walk_left
+	walk_down
+	walk_in_place_up
+	step_end
+
+MagmaHideout_4F_Movement_ArianaBackToCenter:
+	walk_left
+	walk_left
+	walk_in_place_up
+	step_end
 
 MagmaHideout_4F_EventScript_MainTrigger::
 	lock
@@ -83,7 +394,7 @@ MagmaHideout_4F_EventScript_MainTrigger::
 	waitmessage
 	applymovement 9, MagmaHideout_4F_Movement_StepUp
 	waitmovement 0
-	msgbox MagmaHideout_4F_EventScript_MainTrigger_Text_13
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_15
 	waitmessage
 	closemessage
 	fadeoutbgm 1
@@ -233,6 +544,87 @@ MagmaHideout_4F_Text_TabithaPostBattle:
 	.string "…And while you wasted time with me,\n"
 	.string "MAXIE should have awakened GROUDON…$"
 
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_0:
+	.string "ARIANA: ...\p"
+	.string "Years of research and careful\n"
+	.string "planning...\p"
+	.string "All for what?\p"
+	.string "To be ruined by a couple of children...?$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_1:
+	.string "SHANE: That's right, you old hag!\p"
+	.string "Just give it up already!$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_2:
+	.string "DAD: I rushed over as soon as I got the\n"
+	.string "call, but it looks like the battle is\l"
+	.string "already over.\p"
+	.string "SHANE, {PLAYER}, you both did well.\p"
+	.string "I'll take it from here.$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_3:
+	.string "DAD: It's been a long time, mother...$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_4:
+	.string "ARIANA: So, the Champion himself has\n"
+	.string "decided to grace us with his presence!\p"
+	.string "SILVER, dear, you should be on my side...\p"
+	.string "I'm only trying to bring your father\n"
+	.string "back to us.$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_5:
+	.string "DAD: When GIOVANNI left, he told me he\n"
+	.string "was going to reform Team Rocket\l"
+	.string "himself, and use the full potential of\l"
+	.string "his subordinates.\p"
+	.string "He would have taken us with him if he\n"
+	.string "thought we had any potential.\p"
+	.string "Power is the only thing that man ever\n"
+	.string "wanted, not a family.\p"
+	.string "Just accept it, and move on.$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_6:
+	.string "ARIANA: I refuse...\p"
+	.string "I will never give up on GIOVANNI!$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_7:
+	.string "Start the time machine back up!$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_8:
+	.string "DAD: Feraligatr!$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_9:
+	.string "ARIANA: ...$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_10:
+	.string "ARIANA: This can't be...\p"
+	.string "...\p"
+	.string "Why does fate insist on hindering me at\n"
+	.string "every single step...$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_11:
+	.string "DAD: It's over, mother.$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_12:
+	.string "DAD: Leave the past where it belongs,\n"
+	.string "and focus on the family standing\l"
+	.string "before you.\p"
+	.string "GIOVANNI may not come back, but you\n"
+	.string "still have a chance to connect with\l"
+	.string "your own grandchildren.$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_13:
+	.string "ARIANA: My... grandchildren...\p"
+	.string "...\p"
+	.string "No...\p"
+	.string "It's too late for that now!$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_14:
+	.string "Initiate operation Scorched Earth!$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_15:
+	.string "SCIENTIST: Yes, Ma'am!$"
+
 MagmaHideout_4F_EventScript_MainTrigger_Text_0:
 	.string "DAMON: Boss...\p"
 	.string "...\p"
@@ -321,6 +713,3 @@ MagmaHideout_4F_EventScript_MainTrigger_Text_11:
 MagmaHideout_4F_EventScript_MainTrigger_Text_12:
 	.string "Now, it is time!\p"
 	.string "Activate the machine!$"
-
-MagmaHideout_4F_EventScript_MainTrigger_Text_13:
-	.string "SCIENTIST: Yes, Ma'am!$"
