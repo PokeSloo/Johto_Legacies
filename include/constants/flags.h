@@ -1224,8 +1224,8 @@
 #define FLAG_HIDE_SHANE_HIDEOUT_1F                                  0x497 // Just after going down ladder
 #define FLAG_HIDE_THORNE_RAGE_HIDEOUT                               0x498 // After battling thorne
 #define FLAG_HIDE_SILVER_RAGE_HIDEOUT                               0x499 // Cleared for Hooh cutscene to keep them there
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
+#define FLAG_CELEBI_TANK_BROKEN                                     0x49A // Broken in cutscene
+#define FLAG_HIDE_SILVER_ECRUTEAK                                   0x49B // Silver, Feraligatr, and Ho-oh
 #define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
 #define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
 #define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag

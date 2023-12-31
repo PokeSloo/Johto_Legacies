@@ -1,14 +1,39 @@
 MagmaHideout_4F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MagmaHideout_4F_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_LOAD, MagmaHideout_4F_MapScripts_MAP_SCRIPT_ON_LOAD
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, MagmaHideout_4F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, MagmaHideout_4F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
 	.byte 0
 
 MagmaHideout_4F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	call_if_eq VAR_ECRUTEAK_STATE, 7, MagmaHideout_4F_EventScript_SetUpAfterPallet
+	call_if_eq VAR_ECRUTEAK_STATE, 8, MagmaHideout_4F_EventScript_SetUpAfterEcruteak
+	end
+
+MagmaHideout_4F_MapScripts_MAP_SCRIPT_ON_LOAD:
+	goto_if_set FLAG_CELEBI_TANK_BROKEN, MagmaHideout_4F_MapScripts_MAP_SCRIPT_ON_LOAD_1
+	return
+
+MagmaHideout_4F_MapScripts_MAP_SCRIPT_ON_LOAD_1:
+	setmetatile 8, 5, 0x230, TRUE
+	setmetatile 9, 5, 0x231, TRUE
+	setmetatile 10, 5, 0x232, TRUE
+	setmetatile 8, 4, 0x228, TRUE
+	setmetatile 9, 4, 0x229, TRUE
+	setmetatile 10, 4, 0x22A, TRUE
+	setmetatile 8, 3, 0x220, TRUE
+	setmetatile 9, 3, 0x221, TRUE
+	setmetatile 10, 3, 0x222, TRUE
 	end
 
 MagmaHideout_4F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	map_script_2 VAR_ECRUTEAK_STATE, 7, MagmaHideout_4F_EventScript_OnFrameAfterPallet
+	map_script_2 VAR_ECRUTEAK_STATE, 8, MagmaHideout_4F_EventScript_OnFrameAfterEcruteak
+	.2byte 0
+
+MagmaHideout_4F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
+	map_script_2 VAR_ECRUTEAK_STATE, 7, MagmaHideout_4F_EventScript_OnWarp
+	map_script_2 VAR_ECRUTEAK_STATE, 8, MagmaHideout_4F_EventScript_OnWarp
 	.2byte 0
 
 
@@ -21,10 +46,28 @@ MagmaHideout_4F_EventScript_SetUpAfterPallet::
 	return
 
 
+MagmaHideout_4F_EventScript_SetUpAfterEcruteak::
+	setobjectxyperm 1, 7, 9
+	setobjectxyperm 5, 7, 6
+	setobjectxyperm 11, 9, 8
+	setobjectxyperm 12, 8, 8
+	setobjectmovementtype 1, MOVEMENT_TYPE_FACE_UP
+	setobjectmovementtype 6, MOVEMENT_TYPE_FACE_DOWN
+	setobjectmovementtype 5, MOVEMENT_TYPE_FACE_DOWN
+	setobjectmovementtype 10, MOVEMENT_TYPE_FACE_DOWN
+	setobjectmovementtype 9, MOVEMENT_TYPE_FACE_DOWN
+	setobjectmovementtype 11, MOVEMENT_TYPE_FACE_UP
+	setobjectmovementtype 12, MOVEMENT_TYPE_FACE_UP
+	return
+
+
+MagmaHideout_4F_EventScript_OnWarp::
+	applymovement OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_FaceUp
+	end
+
+
 MagmaHideout_4F_EventScript_OnFrameAfterPallet::
 	lock
-	applymovement OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_FaceUp
-	waitmovement 0
 	delay 30
 	msgbox MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_0
 	waitmessage
@@ -147,6 +190,7 @@ MagmaHideout_4F_EventScript_OnFrameAfterPallet::
 	special DrawWholeMapView
 	waitse
 	delay 60
+	setflag FLAG_CELEBI_TANK_BROKEN
 	applymovement 7, MagmaHideout_4F_Movement_CelebiDownSlow
 	waitmovement 0
 	waitse
@@ -208,11 +252,281 @@ MagmaHideout_4F_EventScript_OnFrameAfterPallet::
 	playse SE_PC_LOGIN
 	waitse
 	delay 30
+	setflag FLAG_HIDE_SILVER_ECRUTEAK
 	warpsilent MAP_BATTLE_FRONTIER_RANKING_HALL, 8, 13
 	waitstate
 	release
 	end
 
+
+MagmaHideout_4F_EventScript_OnFrameAfterEcruteak::
+	lock
+	delay 30
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_0
+	waitmessage
+	applymovement 11, MagmaHideout_4F_Movement_StepUp
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_1
+	waitmessage
+	closemessage
+	addobject 13
+	addobject 14
+	applymovement 13, MagmaHideout_4F_Movement_PlayerToAriana
+	applymovement 14, MagmaHideout_4F_Movement_PlayerToAriana
+	waitmovement 0
+	applymovement 11, MagmaHideout_4F_Movement_StepDown
+	applymovement 12, MagmaHideout_4F_Movement_StepDown
+	applymovement 1, MagmaHideout_4F_Movement_FaceRight
+	applymovement OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_FaceLeft
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_2
+	waitmessage
+	closemessage
+	applymovement 12, MagmaHideout_4F_Movement_StepRight
+	applymovement 11, MagmaHideout_4F_Movement_SilverOutOfWay
+	waitmovement 0
+	delay 30
+	applymovement 13, MagmaHideout_4F_Movement_Cop1ToAriana
+	applymovement 14, MagmaHideout_4F_Movement_Cop2ToAriana
+	waitmovement 0
+	applymovement 6, MagmaHideout_4F_Movement_StepDown
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_3
+	waitmessage
+	applymovement 11, MagmaHideout_4F_Movement_StepUp
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_4
+	waitmessage
+	closemessage
+	applymovement 6, MagmaHideout_4F_Movement_ArianaExit
+	applymovement 5, MagmaHideout_4F_Movement_DamonExit
+	applymovement 10, MagmaHideout_4F_Movement_Scientist1Exit
+	applymovement 9, MagmaHideout_4F_Movement_Scientist2Exit
+	waitmovement 0
+	applymovement 13, MagmaHideout_4F_Movement_Cop1Exit
+	applymovement 14, MagmaHideout_4F_Movement_Cop2Exit
+	waitmovement 0
+	removeobject 6
+	removeobject 5
+	removeobject 10
+	removeobject 9
+	removeobject 13
+	removeobject 14
+	applymovement 11, MagmaHideout_4F_Movement_SilverBackToCenter
+	waitmovement 0
+	applymovement 12, MagmaHideout_4F_Movement_StepDown
+	applymovement 1, MagmaHideout_4F_Movement_ShaneToCenter
+	applymovement OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_PlayerToCenter
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_5
+	waitmessage
+	applymovement 1, MagmaHideout_4F_Movement_ShaneStepAway
+	waitmovement 0
+	delay 20
+	applymovement OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_StepDown
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_6
+	waitmessage
+	applymovement 11, MagmaHideout_4F_Movement_StepDown
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_7
+	waitmessage
+	closemessage
+	applymovement 1, MagmaHideout_4F_Movement_ShaneExit
+	waitmovement 0
+	removeobject 1
+	applymovement OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_StepUp
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_8
+	waitmessage
+	applymovement 11, MagmaHideout_4F_Movement_StepDown
+	waitmovement 0
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_9
+	waitmessage
+	giveitem ITEM_HM08_DIVE
+	msgbox MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_10
+	waitmessage
+	closemessage
+	applymovement 12, MagmaHideout_4F_Movement_FeraligatrExit
+	applymovement 11, MagmaHideout_4F_Movement_SilverExit
+	waitmovement 0
+	removeobject 11
+	removeobject 12
+	setflag FLAG_HIDE_SILVER_RAGE_HIDEOUT
+	setflag FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS
+	clearflag FLAG_HIDE_SILVER_ECRUTEAK
+	addvar VAR_ECRUTEAK_STATE, 1
+	release
+	end
+
+
+MagmaHideout_4F_Movement_FeraligatrExit:
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+MagmaHideout_4F_Movement_SilverExit:
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+MagmaHideout_4F_Movement_ShaneExit:
+	walk_down
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+MagmaHideout_4F_Movement_ShaneStepAway:
+	face_up
+	lock_facing_direction
+	walk_down
+	unlock_facing_direction
+	step_end
+
+MagmaHideout_4F_Movement_ArianaExit:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+MagmaHideout_4F_Movement_ShaneToCenter:
+	walk_right
+	walk_in_place_up
+	step_end
+
+MagmaHideout_4F_Movement_PlayerToCenter:
+	walk_left
+	walk_in_place_up
+	step_end
+
+MagmaHideout_4F_Movement_DamonExit:
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+MagmaHideout_4F_Movement_Scientist1Exit:
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+MagmaHideout_4F_Movement_Scientist2Exit:
+	walk_left
+	walk_left
+	delay_16
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+MagmaHideout_4F_Movement_Cop1Exit:
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+MagmaHideout_4F_Movement_Cop2Exit:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+MagmaHideout_4F_Movement_FaceRight:
+	face_right
+	step_end
+
+MagmaHideout_4F_Movement_SilverOutOfWay:
+	walk_right
+	walk_in_place_left
+	step_end
+
+MagmaHideout_4F_Movement_Cop1ToAriana:
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_in_place_right
+	step_end
+
+MagmaHideout_4F_Movement_Cop2ToAriana:
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_in_place_left
+	step_end
+
+MagmaHideout_4F_Movement_SilverBackToCenter:
+	walk_left
+	walk_in_place_down
+	step_end
 
 MagmaHideout_4F_Movement_ShaneOutOfWay:
 	walk_left
@@ -624,6 +938,83 @@ MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_14:
 
 MagmaHideout_4F_EventScript_OnFrameAfterPallet_Text_15:
 	.string "SCIENTIST: Yes, Ma'am!$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_0:
+	.string "ARIANA: Hehehe!\p"
+	.string "We rigged the Bell Tower with explosives\n"
+	.string "years ago as a little insurance policy.\p"
+	.string "Now, Ho-oh will go on a rampage,\n"
+	.string "incinerating everything in its path!$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_1:
+	.string "DAD: So, your Celebi plan didn't work out\n"
+	.string "the way you wanted, and now all of\l"
+	.string "Johto must suffer?\p"
+	.string "You disappoint me, mother.\p"
+	.string "You're just like a child throwing a\n"
+	.string "tantrum.$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_2:
+	.string "SILVER, sir, thanks for the help.\p"
+	.string "We'll be taking them into custody now.\p"
+	.string "DAD: You should be thanking my kids,\n"
+	.string "they did most of the work.$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_3:
+	.string "ARIANA: This isn't the last you'll see of\n"
+	.string "Team Phoenix, I guarantee it!$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_4:
+	.string "DAD: First we'll take care of this Ho-oh\n"
+	.string "mess, and then we'll extinguish any\l"
+	.string "flames that are left of your little\l"
+	.string "gang.$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_5:
+	.string "DAD: Good work handling Team Phoenix,\n"
+	.string "it's good to see you two again.\p"
+	.string "Unfortunately, we don't have enough\n"
+	.string "time to catch up.\p"
+	.string "We'll have to take care of this Ho-oh\n"
+	.string "situation as soon as possible.$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_6:
+	.string "SHANE: You show up late to the action,\n"
+	.string "and after so many years of being away\l"
+	.string "from home, and then expect us to be\l"
+	.string "glad to see you?\p"
+	.string "{PLAYER} can help you with this Ho-oh\n"
+	.string "crap.\p"
+	.string "I was only here for one thing, to take\n"
+	.string "down those jerks.\p"
+	.string "I'll see you losers later.$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_7:
+	.string "DAD: SHANE!$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_8:
+	.string "DAD: That boy...\p"
+	.string "We'll talk about this later.\p"
+	.string "{PLAYER}, I'm going to Ecruteak City\n"
+	.string "to hold off Ho-oh for as long as I can.\p"
+	.string "I need to you go to the Whirl Islands.\p"
+	.string "There, you should find the legendary\n"
+	.string "POKéMON, Lugia.\p"
+	.string "If there's anything capable of calming\n"
+	.string "Ho-oh's rampage, perhaps Lugia can...\p"
+	.string "I need you to find Lugia in the Whirl\n"
+	.string "Islands and awaken it.$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_9:
+	.string "Oh, and you'll need this!$"
+
+MagmaHideout_4F_EventScript_OnFrameAfterEcruteak_Text_10:
+	.string "DAD: That HM contains the move Dive.\p"
+	.string "The whirlpools around the Whirl Islands\n"
+	.string "are impassible, but that HM will allow\l"
+	.string "you to dive underneath them.\p"
+	.string "Good luck, {PLAYER}, I know you can do\n"
+	.string "it.$"
 
 MagmaHideout_4F_EventScript_MainTrigger_Text_0:
 	.string "DAMON: Boss...\p"

@@ -218,6 +218,7 @@ script Route117_EventScript_Trigger {
 		pokenavcall (format("Hello? {PLAYER}?\pThis is OLIVER. I'm calling to let you\nknow about my recent findings in the Ruins of Alph.\pI've discovered that the human\nremains we found in the catacombs\ldate back to the same time period\lthat scientists believe is when\lHo-oh resurrected the three\llegendary beasts.\pThis is even more confirmation that\nthe Unown were an ancient group of\lpeople that were resurrected by\lHo-oh!\pOh, I also discovered ancient\nwriting along the back wall of the\lcatacomb chamber we fell into,\lalthough I am still deciphering it.\p...\pWhat's that you say?\pA strange POKéMON in Ilex Forest?\pIt took you to a sort of alternate\nIlex and Azalea town?\pHmm...\pIt's possible you encountered the\nlegendary POKéMON, Celebi.\pCelebi is known as the protector of\nIlex Forest, and according to rumor,\lhas the ability to travel through\ltime!\pI believe that is what you\nexperienced!\pThis is an incredible occurrence,\nand quite frankly, I must say I'm a\lbit jealous of your ability to\lseemingly attract legendary POKéMON.\pWell, keep me posted if anything\nelse interesting happens.\pUntil next time, {PLAYER}."))
 		waitmessage
         setflag(FLAG_OLIVER_CALL_RT_34)
+		setflag(FLAG_HIDE_SILVER_ECRUTEAK)
         release
         end
 	}

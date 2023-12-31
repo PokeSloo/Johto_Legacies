@@ -213,6 +213,7 @@ Route117_EventScript_Trigger::
 	pokenavcall Route117_EventScript_Trigger_Text_0
 	waitmessage
 	setflag FLAG_OLIVER_CALL_RT_34
+	setflag FLAG_HIDE_SILVER_ECRUTEAK
 	release
 	end
 

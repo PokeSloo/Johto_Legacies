@@ -1,12 +1,154 @@
 MauvilleCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MauvilleCity_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_LOAD, MauvilleCity_MapScripts_MAP_SCRIPT_ON_LOAD
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, MauvilleCity_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, MauvilleCity_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
 	.byte 0
 
 MauvilleCity_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setflag FLAG_VISITED_MAUVILLE_CITY
 	setflag FLAG_SYS_TV_START
+	compare VAR_ECRUTEAK_STATE, 9
+	goto_if_eq MauvilleCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
+MauvilleCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 	end
 
+MauvilleCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
+	setweather WEATHER_DROUGHT
+	playbgm MUS_B_PYRAMID, TRUE
+	setobjectxyperm 7, 46, 41
+	goto MauvilleCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+
+MauvilleCity_MapScripts_MAP_SCRIPT_ON_LOAD:
+	goto_if_set FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS, MauvilleCity_MapScripts_MAP_SCRIPT_ON_LOAD_1
+	return
+
+MauvilleCity_MapScripts_MAP_SCRIPT_ON_LOAD_1:
+	setmetatile 36, 11, 0x22E, TRUE
+	setmetatile 30, 12, 0x22F, TRUE
+	setmetatile 35, 12, 0x22F, TRUE
+	setmetatile 33, 14, 0x237, TRUE
+	setmetatile 29, 15, 0x24F, TRUE
+	setmetatile 36, 15, 0x247, TRUE
+	setmetatile 30, 16, 0x237, TRUE
+	setmetatile 37, 16, 0x24F, TRUE
+	setmetatile 29, 17, 0x228, TRUE
+	setmetatile 31, 17, 0x228, TRUE
+	setmetatile 37, 17, 0x24F, TRUE
+	setmetatile 29, 18, 0x226, TRUE
+	setmetatile 36, 18, 0x247, TRUE
+	setmetatile 33, 19, 0x228, TRUE
+	setmetatile 37, 19, 0x237, TRUE
+	setmetatile 39, 19, 0x237, TRUE
+	setmetatile 28, 20, 0x22E, TRUE
+	setmetatile 32, 20, 0x227, TRUE
+	setmetatile 34, 20, 0x228, TRUE
+	setmetatile 35, 20, 0x228, TRUE
+	setmetatile 38, 20, 0x228, TRUE
+	setmetatile 27, 21, 0x22F, TRUE
+	setmetatile 33, 21, 0x228, TRUE
+	setmetatile 36, 21, 0x228, TRUE
+	setmetatile 37, 21, 0x228, TRUE
+	setmetatile 34, 22, 0x228, TRUE
+	setmetatile 29, 23, 0x23F, TRUE
+	end
+
+MauvilleCity_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_ECRUTEAK_STATE, 7, MauvilleCity_OnFrame
+	.2byte 0
+
+MauvilleCity_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
+	map_script_2 VAR_ECRUTEAK_STATE, 7, BattleFrontier_RankingHall_OnWarp
+	.2byte 0
+
+
+MauvilleCity_OnFrame::
+	lock
+	delay 30
+	waitse
+	playmoncry SPECIES_HO_OH, CRY_MODE_NORMAL
+	waitmoncry
+	playse SE_PIN
+	applymovement 8, MauvilleCity_Movement_ExclamationRunAway
+	waitmovement 0
+	waitse
+	addobject 9
+	applymovement 9, MauvilleCity_Movement_HoOhInFrame
+	waitmovement 0
+	delay 30
+	waitse
+	playmoncry SPECIES_HO_OH, CRY_MODE_NORMAL
+	waitmoncry
+	playse SE_M_SACRED_FIRE
+	fadescreenspeed FADE_TO_WHITE, 4
+	waitse
+	playse SE_M_SACRED_FIRE2
+	setmetatile 36, 11, 0x22E, TRUE
+	setmetatile 30, 12, 0x22F, TRUE
+	setmetatile 35, 12, 0x22F, TRUE
+	setmetatile 33, 14, 0x237, TRUE
+	setmetatile 29, 15, 0x24F, TRUE
+	setmetatile 36, 15, 0x247, TRUE
+	setmetatile 30, 16, 0x237, TRUE
+	setmetatile 37, 16, 0x24F, TRUE
+	setmetatile 29, 17, 0x228, TRUE
+	setmetatile 31, 17, 0x228, TRUE
+	setmetatile 37, 17, 0x24F, TRUE
+	setmetatile 29, 18, 0x226, TRUE
+	setmetatile 36, 18, 0x247, TRUE
+	setmetatile 33, 19, 0x228, TRUE
+	setmetatile 37, 19, 0x237, TRUE
+	setmetatile 39, 19, 0x237, TRUE
+	setmetatile 28, 20, 0x22E, TRUE
+	setmetatile 32, 20, 0x227, TRUE
+	setmetatile 34, 20, 0x228, TRUE
+	setmetatile 35, 20, 0x228, TRUE
+	setmetatile 38, 20, 0x228, TRUE
+	setmetatile 27, 21, 0x22F, TRUE
+	setmetatile 33, 21, 0x228, TRUE
+	setmetatile 36, 21, 0x228, TRUE
+	setmetatile 37, 21, 0x228, TRUE
+	setmetatile 34, 22, 0x228, TRUE
+	setmetatile 29, 23, 0x23F, TRUE
+	special DrawWholeMapView
+	setweather WEATHER_DROUGHT
+	doweather
+	waitse
+	fadescreenspeed FADE_FROM_WHITE, 4
+	delay 180
+	playbgm MUS_RG_ROCKET_HIDEOUT, TRUE
+	addvar VAR_ECRUTEAK_STATE, 1
+	warpsilent MAP_MAGMA_HIDEOUT_4F, 10, 9
+	waitstate
+	release
+	end
+
+
+MauvilleCity_Movement_ExclamationRunAway:
+	emote_exclamation_mark
+	walk_in_place_up
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+MauvilleCity_Movement_HoOhInFrame:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
 
 MauvilleCity_EventScript_CitySign::
 	msgbox MauvilleCity_EventScript_CitySign_Text_0, MSGBOX_SIGN

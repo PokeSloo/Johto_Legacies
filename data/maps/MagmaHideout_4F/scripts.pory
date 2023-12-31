@@ -10,13 +10,30 @@ const CELEBI_ID = 7
 mapscripts MagmaHideout_4F_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         call_if_eq (VAR_ECRUTEAK_STATE, 7, MagmaHideout_4F_EventScript_SetUpAfterPallet)
+        call_if_eq (VAR_ECRUTEAK_STATE, 8, MagmaHideout_4F_EventScript_SetUpAfterEcruteak)
         end
+    }
+    MAP_SCRIPT_ON_LOAD {
+        if (flag(FLAG_CELEBI_TANK_BROKEN)) {
+            setmetatile (8, 5, 0x230, TRUE)
+            setmetatile (9, 5, 0x231, TRUE)
+            setmetatile (10, 5, 0x232, TRUE)
+            setmetatile (8, 4, 0x228, TRUE)
+            setmetatile (9, 4, 0x229, TRUE)
+            setmetatile (10, 4, 0x22A, TRUE)
+            setmetatile (8, 3, 0x220, TRUE)
+            setmetatile (9, 3, 0x221, TRUE)
+            setmetatile (10, 3, 0x222, TRUE)
+            end
+        }
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_ECRUTEAK_STATE, 7: MagmaHideout_4F_EventScript_OnFrameAfterPallet
+        VAR_ECRUTEAK_STATE, 8: MagmaHideout_4F_EventScript_OnFrameAfterEcruteak
     ]
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
         VAR_ECRUTEAK_STATE, 7: MagmaHideout_4F_EventScript_OnWarp
+        VAR_ECRUTEAK_STATE, 8: MagmaHideout_4F_EventScript_OnWarp
     ]
 }
 
@@ -26,6 +43,21 @@ script MagmaHideout_4F_EventScript_SetUpAfterPallet {
     setobjectmovementtype (ARIANA_ID, MOVEMENT_TYPE_FACE_DOWN)
     setobjectmovementtype (DAMON_ID, MOVEMENT_TYPE_FACE_DOWN)
     setobjectmovementtype (SCIENTIST_1_ID, MOVEMENT_TYPE_FACE_DOWN)
+	return
+}
+
+script MagmaHideout_4F_EventScript_SetUpAfterEcruteak {
+    setobjectxyperm (SHANE_ID, 7, 9)
+    setobjectxyperm (DAMON_ID, 7, 6)
+    setobjectxyperm (SILVER_ID, 9, 8)
+    setobjectxyperm (FERALIGATR_ID, 8, 8)
+	setobjectmovementtype (SHANE_ID, MOVEMENT_TYPE_FACE_UP)
+    setobjectmovementtype (ARIANA_ID, MOVEMENT_TYPE_FACE_DOWN)
+    setobjectmovementtype (DAMON_ID, MOVEMENT_TYPE_FACE_DOWN)
+    setobjectmovementtype (SCIENTIST_1_ID, MOVEMENT_TYPE_FACE_DOWN)
+    setobjectmovementtype (SCIENTIST_2_ID, MOVEMENT_TYPE_FACE_DOWN)
+    setobjectmovementtype (SILVER_ID, MOVEMENT_TYPE_FACE_UP)
+    setobjectmovementtype (FERALIGATR_ID, MOVEMENT_TYPE_FACE_UP)
 	return
 }
 
@@ -158,6 +190,7 @@ script MagmaHideout_4F_EventScript_OnFrameAfterPallet {
     special (DrawWholeMapView)
     waitse
     delay (60)
+    setflag (FLAG_CELEBI_TANK_BROKEN)
     applymovement (CELEBI_ID, MagmaHideout_4F_Movement_CelebiDownSlow)
 	waitmovement (0)
     waitse
@@ -219,10 +252,206 @@ script MagmaHideout_4F_EventScript_OnFrameAfterPallet {
     playse (SE_PC_LOGIN)
     waitse
     delay (30)
+    setflag (FLAG_HIDE_SILVER_ECRUTEAK)
     warpsilent (MAP_BATTLE_FRONTIER_RANKING_HALL, 8, 13)
     waitstate
     release
     end
+}
+
+script MagmaHideout_4F_EventScript_OnFrameAfterEcruteak {
+    lock
+    delay (30)
+    msgbox(format("ARIANA: Hehehe!\pWe rigged the Bell Tower with explosives years ago as a little insurance policy.\pNow, Ho-oh will go on a rampage, incinerating everything in its path!"))
+    waitmessage
+    applymovement (SILVER_ID, MagmaHideout_4F_Movement_StepUp)
+	waitmovement (0)
+    msgbox(format("DAD: So, your Celebi plan didn't work out the way you wanted, and now all of Johto must suffer?\pYou disappoint me, mother.\pYou're just like a child throwing a tantrum."))
+    waitmessage
+    closemessage
+    addobject (13)
+    addobject (14)
+    applymovement (13, MagmaHideout_4F_Movement_PlayerToAriana)
+    applymovement (14, MagmaHideout_4F_Movement_PlayerToAriana)
+	waitmovement (0)
+    applymovement (SILVER_ID, MagmaHideout_4F_Movement_StepDown)
+    applymovement (FERALIGATR_ID, MagmaHideout_4F_Movement_StepDown)
+    applymovement (SHANE_ID, MagmaHideout_4F_Movement_FaceRight)
+    applymovement (OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_FaceLeft)
+	waitmovement (0)
+    msgbox(format("SILVER, sir, thanks for the help.\pWe'll be taking them into custody now.\pDAD: You should be thanking my kids, they did most of the work."))
+    waitmessage
+    closemessage
+    applymovement (FERALIGATR_ID, MagmaHideout_4F_Movement_StepRight)
+    applymovement (SILVER_ID, MagmaHideout_4F_Movement_SilverOutOfWay)
+    waitmovement (0)
+    delay (30)
+    applymovement (13, MagmaHideout_4F_Movement_Cop1ToAriana)
+    applymovement (14, MagmaHideout_4F_Movement_Cop2ToAriana)
+	waitmovement (0)
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_StepDown)
+	waitmovement (0)
+    msgbox(format("ARIANA: This isn't the last you'll see of Team Phoenix, I guarantee it!"))
+    waitmessage
+    applymovement (SILVER_ID, MagmaHideout_4F_Movement_StepUp)
+	waitmovement (0)
+    msgbox(format("DAD: First we'll take care of this Ho-oh mess, and then we'll extinguish any flames that are left of your little gang."))
+    waitmessage
+    closemessage
+    applymovement (ARIANA_ID, MagmaHideout_4F_Movement_ArianaExit)
+    applymovement (DAMON_ID, MagmaHideout_4F_Movement_DamonExit)
+    applymovement (SCIENTIST_1_ID, MagmaHideout_4F_Movement_Scientist1Exit)
+    applymovement (SCIENTIST_2_ID, MagmaHideout_4F_Movement_Scientist2Exit)
+	waitmovement (0)
+    applymovement (13, MagmaHideout_4F_Movement_Cop1Exit)
+    applymovement (14, MagmaHideout_4F_Movement_Cop2Exit)
+	waitmovement (0)
+    removeobject (ARIANA_ID)
+    removeobject (DAMON_ID)
+    removeobject (SCIENTIST_1_ID)
+    removeobject (SCIENTIST_2_ID)
+    removeobject (13)
+    removeobject (14)
+    applymovement (SILVER_ID, MagmaHideout_4F_Movement_SilverBackToCenter)
+    waitmovement (0)
+    applymovement (FERALIGATR_ID, MagmaHideout_4F_Movement_StepDown)
+	applymovement (SHANE_ID, MagmaHideout_4F_Movement_ShaneToCenter)
+    applymovement (OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_PlayerToCenter)
+	waitmovement (0)
+    msgbox(format("DAD: Good work handling Team Phoenix, it's good to see you two again.\pUnfortunately, we don't have enough time to catch up.\pWe'll have to take care of this Ho-oh situation as soon as possible."))
+    waitmessage
+    applymovement (SHANE_ID, MagmaHideout_4F_Movement_ShaneStepAway)
+    waitmovement (0)
+    delay (20)
+    applymovement (OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_StepDown)
+	waitmovement (0)
+    msgbox(format("SHANE: You show up late to the action, and after so many years of being away from home, and then expect us to be glad to see you?\p{PLAYER} can help you with this Ho-oh crap.\pI was only here for one thing, to take down those jerks.\pI'll see you losers later."))
+    waitmessage
+    applymovement (SILVER_ID, MagmaHideout_4F_Movement_StepDown)
+    waitmovement (0)
+    msgbox(format("DAD: SHANE!"))
+    waitmessage
+    closemessage
+    applymovement (SHANE_ID, MagmaHideout_4F_Movement_ShaneExit)
+	waitmovement (0)
+    removeobject (SHANE_ID)
+    applymovement (OBJ_EVENT_ID_PLAYER, MagmaHideout_4F_Movement_StepUp)
+	waitmovement (0)
+    msgbox(format("DAD: That boy...\pWe'll talk about this later.\p{PLAYER}, I'm going to Ecruteak City to hold off Ho-oh for as long as I can.\pI need to you go to the Whirl Islands.\pThere, you should find the legendary POKéMON, Lugia.\pIf there's anything capable of calming Ho-oh's rampage, perhaps Lugia can...\pI need you to find Lugia in the Whirl Islands and awaken it."))
+    waitmessage
+    applymovement (SILVER_ID, MagmaHideout_4F_Movement_StepDown)
+    waitmovement (0)
+    msgbox(format("Oh, and you'll need this!"))
+    waitmessage
+    giveitem (ITEM_HM08_DIVE)
+    msgbox(format("DAD: That HM contains the move Dive.\pThe whirlpools around the Whirl Islands are impassible, but that HM will allow you to dive underneath them.\pGood luck, {PLAYER}, I know you can do it."))
+    waitmessage
+    closemessage
+    applymovement (FERALIGATR_ID, MagmaHideout_4F_Movement_FeraligatrExit)
+    applymovement (SILVER_ID, MagmaHideout_4F_Movement_SilverExit)
+    waitmovement (0)
+    removeobject (SILVER_ID)
+    removeobject (FERALIGATR_ID)
+    setflag (FLAG_HIDE_SILVER_RAGE_HIDEOUT)
+    setflag (FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS)
+    clearflag (FLAG_HIDE_SILVER_ECRUTEAK)
+    addvar (VAR_ECRUTEAK_STATE, 1)
+    release
+    end
+}
+
+movement MagmaHideout_4F_Movement_FeraligatrExit {
+    walk_right * 2
+    walk_down * 3
+    walk_left
+    walk_down * 5
+}
+
+movement MagmaHideout_4F_Movement_SilverExit {
+    walk_right
+    walk_down * 3
+    walk_left
+    walk_down * 5
+}
+
+movement MagmaHideout_4F_Movement_ShaneExit {
+    walk_down
+    walk_right
+    walk_down * 5
+}
+
+movement MagmaHideout_4F_Movement_ShaneStepAway {
+    face_up
+    lock_facing_direction
+    walk_down
+    unlock_facing_direction
+}
+
+movement MagmaHideout_4F_Movement_ArianaExit {
+    walk_down * 9
+}
+
+movement MagmaHideout_4F_Movement_ShaneToCenter {
+    walk_right
+    walk_in_place_up
+}
+
+movement MagmaHideout_4F_Movement_PlayerToCenter {
+    walk_left
+    walk_in_place_up
+}
+
+movement MagmaHideout_4F_Movement_DamonExit {
+    walk_right * 2
+    walk_down * 9
+}
+
+movement MagmaHideout_4F_Movement_Scientist1Exit {
+    walk_right * 3
+    walk_down * 9
+}
+
+movement MagmaHideout_4F_Movement_Scientist2Exit {
+    walk_left * 2
+    delay_16
+    walk_left
+    walk_down * 9
+}
+
+movement MagmaHideout_4F_Movement_Cop1Exit {
+    walk_right * 2
+    walk_down * 9
+}
+
+movement MagmaHideout_4F_Movement_Cop2Exit {
+    walk_left
+    walk_down * 9
+}
+
+movement MagmaHideout_4F_Movement_FaceRight {
+    face_right
+}
+
+movement MagmaHideout_4F_Movement_SilverOutOfWay {
+    walk_right
+    walk_in_place_left
+}
+
+movement MagmaHideout_4F_Movement_Cop1ToAriana {
+    walk_up * 2
+    walk_left * 2
+    walk_in_place_right
+}
+
+movement MagmaHideout_4F_Movement_Cop2ToAriana {
+    walk_up * 3
+    walk_right
+    walk_in_place_left
+}
+
+movement MagmaHideout_4F_Movement_SilverBackToCenter {
+    walk_left
+    walk_in_place_down
 }
 
 movement MagmaHideout_4F_Movement_ShaneOutOfWay {
