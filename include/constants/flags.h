@@ -591,9 +591,9 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_109_REVIVE                    (FLAG_HIDDEN_ITEMS_START + 0x32)
 #define FLAG_HIDDEN_ITEM_ROUTE_109_GREAT_BALL                (FLAG_HIDDEN_ITEMS_START + 0x33)
 #define FLAG_HIDDEN_ITEM_ROUTE_109_HEART_SCALE_1             (FLAG_HIDDEN_ITEMS_START + 0x34)
-#define FLAG_HIDDEN_ITEM_ROUTE_110_GREAT_BALL                (FLAG_HIDDEN_ITEMS_START + 0x35) // Unused now
-#define FLAG_HIDDEN_ITEM_ROUTE_110_REVIVE                    (FLAG_HIDDEN_ITEMS_START + 0x36) // Unused now
-#define FLAG_HIDDEN_ITEM_ROUTE_110_FULL_HEAL                 (FLAG_HIDDEN_ITEMS_START + 0x37) // Unused now
+#define FLAG_HIDDEN_ITEM_SEWER_AIR_BALLOON                   (FLAG_HIDDEN_ITEMS_START + 0x35)
+#define FLAG_HIDDEN_ITEM_WHIRL_ISLANDS_RAZOR_CLAW            (FLAG_HIDDEN_ITEMS_START + 0x36)
+#define FLAG_HIDDEN_ITEM_WHIRL_ISLANDS_RAZOR_FANG            (FLAG_HIDDEN_ITEMS_START + 0x37)
 #define FLAG_HIDDEN_ITEM_ROUTE_111_PROTEIN                   (FLAG_HIDDEN_ITEMS_START + 0x38)
 #define FLAG_HIDDEN_ITEM_ROUTE_111_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x39)
 #define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_POTION              (FLAG_HIDDEN_ITEMS_START + 0x3A)
@@ -1173,12 +1173,12 @@
 #define FLAG_ITEM_ICE_PATH_FULL_RESTORE                             0x465 // Was unused, now Ice path
 #define FLAG_ITEM_ICE_PATH_MAX_ELIXIR                               0x466 // Was unused, now Ice path
 #define FLAG_ITEM_ICE_PATH_RAZOR_CLAW                               0x467 // Was unused, now Ice path
-#define FLAG_UNUSED_0x468                                           0x468 // Unused Flag
+#define FLAG_HIDDEN_ITEM_WHIRL_ISLANDS_FULL_RESTORE                 0x468
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE                 0x46B
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_NUGGET                           0x46C
-#define FLAG_ITEM_MOSSDEEP_STEVENS_HOUSE_HM08                       0x46D // Unused Flag, leftover from R/S. HM08 is given to the player directly in Emerald
+#define FLAG_HIDDEN_ITEM_WHIRL_ISLANDS_EARTHQUAKE                   0x46D
 #define FLAG_ITEM_ROUTE_119_NUGGET                                  0x46E
 #define FLAG_ITEM_ROUTE_104_POTION                                  0x46F
 #define FLAG_UNUSED_0x470                                           0x470 // Unused Flag
@@ -1226,13 +1226,13 @@
 #define FLAG_HIDE_SILVER_RAGE_HIDEOUT                               0x499 // Cleared for Hooh cutscene to keep them there
 #define FLAG_CELEBI_TANK_BROKEN                                     0x49A // Broken in cutscene
 #define FLAG_HIDE_SILVER_ECRUTEAK                                   0x49B // Silver, Feraligatr, and Ho-oh
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
-#define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
-#define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
-#define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
-#define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
-#define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
-#define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
+#define FLAG_MARINE_CAVE_OPEN                                       0x49C // Underwater route 127
+#define FLAG_FOUND_HELIX_FOSSIL                                     0x49D // Underwater item
+#define FLAG_FOUND_DOME_FOSSIL                                      0x49E // Underwater item
+#define FLAG_FOUND_ROOT_FOSSIL                                      0x49F // Underwater item
+#define FLAG_FOUND_CLAW_FOSSIL                                      0x4A0 // Underwater item
+#define FLAG_FOUND_SKULL_FOSSIL                                     0x4A1 // Underwater item
+#define FLAG_FOUND_ARMOR_FOSSIL                                     0x4A2 // Underwater item
 #define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag
 #define FLAG_UNUSED_0x4A4                                           0x4A4 // Unused Flag
 #define FLAG_UNUSED_0x4A5                                           0x4A5 // Unused Flag

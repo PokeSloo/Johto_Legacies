@@ -11,6 +11,18 @@ SeafloorCavern_Room4_EventScript_Grunt4::
 	msgbox SeafloorCavern_Room4_Text_Grunt4PostBattle, MSGBOX_AUTOCLOSE
 	end
 
+SeafloorCavern_Room4_EventScript_ItemRazorClaw::
+	finditem ITEM_RAZOR_CLAW
+	end
+
+SeafloorCavern_Room4_EventScript_ItemRazorFang::
+	finditem ITEM_RAZOR_FANG
+	end
+
+SeafloorCavern_Room4_EventScript_ItemFullRestore::
+	finditem ITEM_FULL_RESTORE
+	end
+
 SeafloorCavern_Room4_Text_Grunt3Intro:
 	.string "Who are you?\n"
 	.string "Where did you come in from?$"

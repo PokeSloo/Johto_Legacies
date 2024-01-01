@@ -1,0 +1,10 @@
+mapscripts Underwater_Route127_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        if (flag(FLAG_MARINE_CAVE_OPEN)) {
+            setmetatile (58, 6, 0x22E, FALSE)
+            setmetatile (58, 5, 0x226, TRUE)
+            return
+        }
+        end
+    }
+}

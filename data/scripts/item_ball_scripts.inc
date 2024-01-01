@@ -243,15 +243,15 @@ Route123_EventScript_ItemRevivalHerb::
 	end
 
 Route124_EventScript_ItemRedShard::
-	finditem ITEM_RED_SHARD
+	finditem ITEM_PROTECTOR
 	end
 
 Route124_EventScript_ItemBlueShard::
-	finditem ITEM_BLUE_SHARD
+	finditem ITEM_ELECTIRIZER
 	end
 
 Route124_EventScript_ItemYellowShard::
-	finditem ITEM_YELLOW_SHARD
+	finditem ITEM_MAGMARIZER
 	end
 
 Route125_EventScript_ItemBigPearl::

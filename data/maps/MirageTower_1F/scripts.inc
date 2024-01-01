@@ -11,3 +11,8 @@ MirageTower_1F_EventScript_SludgeBomb::
 	finditem ITEM_TM36_SLUDGE_BOMB
 	end
 
+
+MirageTower_1F_EventScript_AirBalloon::
+	finditem ITEM_AIR_BALLOON
+	end
+

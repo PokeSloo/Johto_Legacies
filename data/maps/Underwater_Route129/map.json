@@ -30,8 +30,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Underwater_Route129_EventScript_ItemDomeFossil",
+      "flag": "FLAG_FOUND_DOME_FOSSIL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MOVING_BOX",
@@ -43,8 +43,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Underwater_Route129_EventScript_ItemArmorFossil",
+      "flag": "FLAG_FOUND_ARMOR_FOSSIL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MOVING_BOX",
@@ -56,8 +56,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Underwater_Route129_EventScript_ItemClawFossil",
+      "flag": "FLAG_FOUND_CLAW_FOSSIL"
     }
   ],
   "warp_events": [
