@@ -1233,8 +1233,8 @@
 #define FLAG_FOUND_CLAW_FOSSIL                                      0x4A0 // Underwater item
 #define FLAG_FOUND_SKULL_FOSSIL                                     0x4A1 // Underwater item
 #define FLAG_FOUND_ARMOR_FOSSIL                                     0x4A2 // Underwater item
-#define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag
-#define FLAG_UNUSED_0x4A4                                           0x4A4 // Unused Flag
+#define FLAG_HIDE_AWAKENED_LUGIA                                    0x4A3 // First Lugia, set up Lugia vs Ho-oh event
+#define FLAG_HOOH_VS_LUGIA_COMPLETED                                0x4A4 // After main event in Ecruteak
 #define FLAG_UNUSED_0x4A5                                           0x4A5 // Unused Flag
 #define FLAG_UNUSED_0x4A6                                           0x4A6 // Unused Flag
 #define FLAG_UNUSED_0x4A7                                           0x4A7 // Unused Flag
