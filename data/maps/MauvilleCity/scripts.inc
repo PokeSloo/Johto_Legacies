@@ -527,7 +527,22 @@ MauvilleCity_EventScript_Tourist::
 
 
 MauvilleCity_EventScript_BlackHairBoy::
-	msgbox MauvilleCity_EventScript_BlackHairBoy_Text_0, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_set FLAG_HOOH_VS_LUGIA_COMPLETED, MauvilleCity_EventScript_BlackHairBoy_1
+	goto_if_set FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS, MauvilleCity_EventScript_BlackHairBoy_2
+	msgbox MauvilleCity_EventScript_BlackHairBoy_Text_2
+	release
+	end
+
+MauvilleCity_EventScript_BlackHairBoy_1:
+	msgbox MauvilleCity_EventScript_BlackHairBoy_Text_0
+	release
+	end
+
+MauvilleCity_EventScript_BlackHairBoy_2:
+	msgbox MauvilleCity_EventScript_BlackHairBoy_Text_1
+	release
 	end
 
 
@@ -553,13 +568,25 @@ MauvilleCity_EventScript_GymNerd::
 MauvilleCity_EventScript_KimonoGirl::
 	lock
 	faceplayer
-	goto_if_set FLAG_HIDE_ECRUTEAK_PHOENIX, MauvilleCity_EventScript_KimonoGirl_1
-	msgbox MauvilleCity_EventScript_KimonoGirl_Text_1
+	goto_if_set FLAG_HOOH_VS_LUGIA_COMPLETED, MauvilleCity_EventScript_KimonoGirl_1
+	goto_if_set FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS, MauvilleCity_EventScript_KimonoGirl_2
+	goto_if_set FLAG_HIDE_ECRUTEAK_PHOENIX, MauvilleCity_EventScript_KimonoGirl_3
+	msgbox MauvilleCity_EventScript_KimonoGirl_Text_3
 	release
 	end
 
 MauvilleCity_EventScript_KimonoGirl_1:
 	msgbox MauvilleCity_EventScript_KimonoGirl_Text_0
+	release
+	end
+
+MauvilleCity_EventScript_KimonoGirl_2:
+	msgbox MauvilleCity_EventScript_KimonoGirl_Text_1
+	release
+	end
+
+MauvilleCity_EventScript_KimonoGirl_3:
+	msgbox MauvilleCity_EventScript_KimonoGirl_Text_2
 	release
 	end
 
@@ -617,6 +644,15 @@ MauvilleCity_EventScript_Tourist_Text_0:
 	.string "review!$"
 
 MauvilleCity_EventScript_BlackHairBoy_Text_0:
+	.string "Well, the weather seems to be back to\n"
+	.string "normal now.\p"
+	.string "I wonder what made Ho-oh so angry.$"
+
+MauvilleCity_EventScript_BlackHairBoy_Text_1:
+	.string "Is it hot out here, or is it just me?\p"
+	.string "No, it's definitely hot out here!$"
+
+MauvilleCity_EventScript_BlackHairBoy_Text_2:
 	.string "Have you been to Route 42 recently?\p"
 	.string "It's been snowing non-stop that way,\n"
 	.string "but luckily Ecruteak is still clear.$"
@@ -642,10 +678,20 @@ MauvilleCity_EventScript_GymNerd_Text_0:
 
 MauvilleCity_EventScript_KimonoGirl_Text_0:
 	.string "Welcome to the Ecruteak Dance Theater!\p"
+	.string "Please come in and enjoy yourself!$"
+
+MauvilleCity_EventScript_KimonoGirl_Text_1:
+	.string "Welcome to the Ecruteak Dance Theater!\p"
+	.string "Hmm... It sure has gotten hot here\n"
+	.string "lately.\p"
+	.string "Pretty strange for this time of year.$"
+
+MauvilleCity_EventScript_KimonoGirl_Text_2:
+	.string "Welcome to the Ecruteak Dance Theater!\p"
 	.string "And thank you so much for running off\n"
 	.string "those thugs!$"
 
-MauvilleCity_EventScript_KimonoGirl_Text_1:
+MauvilleCity_EventScript_KimonoGirl_Text_3:
 	.string "Welcome to the Ecruteak Dance Theater!\p"
 	.string "Please come in and enjoy yourself...\p"
 	.string "...\p"

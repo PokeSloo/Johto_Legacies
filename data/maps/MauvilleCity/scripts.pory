@@ -445,8 +445,23 @@ script MauvilleCity_EventScript_Tourist {
 }
 
 script MauvilleCity_EventScript_BlackHairBoy {
-    msgbox(format("Have you been to Route 42 recently?\pIt's been snowing non-stop that way, but luckily Ecruteak is still clear."), MSGBOX_NPC)
-    end
+    lock
+    faceplayer
+    if (flag(FLAG_HOOH_VS_LUGIA_COMPLETED)) {
+        msgbox(format("Well, the weather seems to be back to normal now.\pI wonder what made Ho-oh so angry."))
+        release
+        end
+    }
+    elif (flag(FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS)) {
+        msgbox(format("Is it hot out here, or is it just me?\pNo, it's definitely hot out here!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Have you been to Route 42 recently?\pIt's been snowing non-stop that way, but luckily Ecruteak is still clear."))
+        release
+        end
+    }
 }
 
 script MauvilleCity_EventScript_RichKid {
@@ -472,7 +487,17 @@ script MauvilleCity_EventScript_GymNerd {
 script MauvilleCity_EventScript_KimonoGirl {
     lock
     faceplayer
-    if (flag(FLAG_HIDE_ECRUTEAK_PHOENIX)) {
+    if (flag(FLAG_HOOH_VS_LUGIA_COMPLETED)) {
+        msgbox(format("Welcome to the Ecruteak Dance Theater!\pPlease come in and enjoy yourself!"))
+        release
+        end
+    }
+    elif (flag(FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS)) {
+        msgbox(format("Welcome to the Ecruteak Dance Theater!\pHmm... It sure has gotten hot here lately.\pPretty strange for this time of year."))
+        release
+        end
+    }
+    elif (flag(FLAG_HIDE_ECRUTEAK_PHOENIX)) {
         msgbox(format("Welcome to the Ecruteak Dance Theater!\pAnd thank you so much for running off those thugs!"))
         release
         end

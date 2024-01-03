@@ -52,8 +52,10 @@ PetalburgWoods_Movement_GruntExclamation:
 
 PetalburgWoods_EventScript_Shrine::
 	lock
-	goto_if_set FLAG_ILEX_BLOCKING_GRUNT, PetalburgWoods_EventScript_Shrine_1
-	goto_if_set FLAG_DEFEATED_DEWFORD_GYM, PetalburgWoods_EventScript_Shrine_2
+	goto_if_set FLAG_CAUGHT_CELEBI, PetalburgWoods_EventScript_Shrine_1
+	goto_if_set FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS, PetalburgWoods_EventScript_Shrine_2
+	goto_if_set FLAG_ILEX_BLOCKING_GRUNT, PetalburgWoods_EventScript_Shrine_3
+	goto_if_set FLAG_DEFEATED_DEWFORD_GYM, PetalburgWoods_EventScript_Shrine_4
 	release
 	end
 
@@ -84,16 +86,54 @@ PetalburgWoods_EventScript_Shrine_2:
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, PetalburgWoods_Movement_FaceDown
 	waitmovement 0
-	delay 30
-	playse SE_LEDGE
-	applymovement 4, PetalburgWoods_Movement_CelebiJump
+	waitse
+	playmoncry SPECIES_CELEBI, CRY_MODE_NORMAL
+	waitmoncry
+	applymovement 4, PetalburgWoods_Movement_CelebiToBattlePlayer
 	waitmovement 0
-	playse SE_LEDGE
-	applymovement 4, PetalburgWoods_Movement_CelebiJump
+	setwildbattle SPECIES_CELEBI, 45
+	dowildbattle
+	removeobject 4
+	setflag FLAG_CAUGHT_CELEBI
+	release
+	end
+
+PetalburgWoods_EventScript_Shrine_3:
+	release
+	end
+
+PetalburgWoods_EventScript_Shrine_4:
+	fadeoutbgm 1
+	addobject 4
+	applymovement 4, PetalburgWoods_Movement_CelebiAppears
+	waitmovement 0
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgWoods_Movement_Question
+	waitmovement 0
+	delay 60
+	waitse
+	playmoncry SPECIES_CELEBI, CRY_MODE_NORMAL
+	waitmoncry
+	applymovement 4, PetalburgWoods_Movement_CelebiGoRight
+	waitmovement 0
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgWoods_Movement_ExclamationRight
+	waitmovement 0
+	delay 120
+	setobjectxy 4, 17, 52
+	applymovement 4, PetalburgWoods_Movement_CelebiUp
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgWoods_Movement_FaceDown
 	waitmovement 0
 	waitse
 	playmoncry SPECIES_CELEBI, CRY_MODE_NORMAL
 	waitmoncry
+	playse SE_LEDGE
+	applymovement 4, PetalburgWoods_Movement_CelebiJump
+	waitmovement 0
+	playse SE_LEDGE
+	applymovement 4, PetalburgWoods_Movement_CelebiJump
+	waitmovement 0
 	fadescreen FADE_TO_WHITE
 	removeobject 4
 	playbgm MUS_RAYQUAZA_APPEARS, FALSE

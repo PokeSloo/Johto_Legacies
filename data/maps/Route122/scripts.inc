@@ -39,8 +39,10 @@ Route122_EventScript_ItemTM34::
 
 Route122_EventScript_Shrine::
 	lock
-	goto_if_set FLAG_DEFEATED_DAMON_KIZU, Route122_EventScript_Shrine_1
-	goto_if_set FLAG_BADGE06_GET, Route122_EventScript_Shrine_2
+	goto_if_set FLAG_CAUGHT_CELEBI, Route122_EventScript_Shrine_1
+	goto_if_set FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS, Route122_EventScript_Shrine_2
+	goto_if_set FLAG_DEFEATED_DAMON_KIZU, Route122_EventScript_Shrine_3
+	goto_if_set FLAG_BADGE06_GET, Route122_EventScript_Shrine_4
 	release
 	end
 
@@ -49,6 +51,45 @@ Route122_EventScript_Shrine_1:
 	end
 
 Route122_EventScript_Shrine_2:
+	fadeoutbgm 1
+	addobject 1
+	applymovement 1, PetalburgWoods_Movement_CelebiAppears
+	waitmovement 0
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgWoods_Movement_Question
+	waitmovement 0
+	delay 60
+	waitse
+	playmoncry SPECIES_CELEBI, CRY_MODE_NORMAL
+	waitmoncry
+	applymovement 1, PetalburgWoods_Movement_CelebiGoRight
+	waitmovement 0
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgWoods_Movement_ExclamationRight
+	waitmovement 0
+	delay 120
+	setobjectxy 1, 11, 15
+	applymovement 1, PetalburgWoods_Movement_CelebiUp
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgWoods_Movement_FaceDown
+	waitmovement 0
+	waitse
+	playmoncry SPECIES_CELEBI, CRY_MODE_NORMAL
+	waitmoncry
+	applymovement 1, PetalburgWoods_Movement_CelebiToBattlePlayer
+	waitmovement 0
+	setwildbattle SPECIES_CELEBI, 45
+	dowildbattle
+	removeobject 1
+	setflag FLAG_CAUGHT_CELEBI
+	release
+	end
+
+Route122_EventScript_Shrine_3:
+	release
+	end
+
+Route122_EventScript_Shrine_4:
 	fadeoutbgm 1
 	applymovement 2, Route122_Movement_OliverMoveIn
 	waitmovement 0
@@ -261,6 +302,10 @@ Route122_Movement_FaceLeft:
 
 Route122_Movement_StepLeft:
 	walk_in_place_left
+	step_end
+
+PetalburgWoods_Movement_CelebiToBattlePlayer:
+	walk_up
 	step_end
 
 Route122_EventScript_Oliver_Text_0:
