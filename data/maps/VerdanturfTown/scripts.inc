@@ -1,29 +1,13 @@
-.set LOCALID_TWIN, 2
-
 VerdanturfTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, VerdanturfTown_OnTransition
 	.byte 0
 
 VerdanturfTown_OnTransition:
 	setflag FLAG_VISITED_VERDANTURF_TOWN
-	setvar VAR_CONTEST_HALL_STATE, 0
 	end
 
 VerdanturfTown_EventScript_Twin::
-	lock
-	faceplayer
-	goto_if_set FLAG_RUSTURF_TUNNEL_OPENED, VerdanturfTown_EventScript_TwinTunnelOpen
-	msgbox VerdanturfTown_Text_ManTryingToDigTunnel, MSGBOX_DEFAULT
-	applymovement LOCALID_TWIN, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	release
-	end
-
-VerdanturfTown_EventScript_TwinTunnelOpen::
-	msgbox VerdanturfTown_Text_ManDugTunnelForLove, MSGBOX_DEFAULT
-	applymovement LOCALID_TWIN, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	release
+	msgbox VerdanturfTown_Text_ManTryingToDigTunnel, MSGBOX_NPC
 	end
 
 VerdanturfTown_EventScript_Man::
@@ -35,24 +19,15 @@ VerdanturfTown_EventScript_Camper::
 	end
 
 VerdanturfTown_EventScript_Boy::
-	lock
-	faceplayer
-	goto_if_set FLAG_RUSTURF_TUNNEL_OPENED, VerdanturfTown_EventScript_BoyTunnelOpen
-	msgbox VerdanturfTown_Text_GuyTryingToBustThroughCave, MSGBOX_DEFAULT
-	release
+	msgbox VerdanturfTown_Text_GuyTryingToBustThroughCave, MSGBOX_NPC
 	end
 
-VerdanturfTown_EventScript_BoyTunnelOpen::
-	msgbox VerdanturfTown_Text_EasyToGetToRustboroNow, MSGBOX_DEFAULT
-	release
+VerdanturfTown_EventScript_DenBlocker::
+	msgbox VerdanturfTown_Text_GuyBlockingDen, MSGBOX_NPC
 	end
 
 VerdanturfTown_EventScript_TownSign::
 	msgbox VerdanturfTown_Text_TownSign, MSGBOX_SIGN
-	end
-
-VerdanturfTown_EventScript_WandasHouseSign::
-	msgbox VerdanturfTown_Text_WandasHouse, MSGBOX_SIGN
 	end
 
 VerdanturfTown_EventScript_BattleTentSign::
@@ -64,64 +39,49 @@ VerdanturfTown_EventScript_RusturfTunnelSign::
 	end
 
 VerdanturfTown_Text_ManTryingToDigTunnel:
-	.string "My papa told me.\p"
-	.string "He says this tunnel is full of\n"
-	.string "timid POKéMON.\p"
-	.string "They get all scared of loud noise and\n"
-	.string "make a big uproar.\p"
-	.string "So they had to stop the big tunnel\n"
-	.string "project.\p"
-	.string "But there's one man. He's trying to dig\n"
-	.string "the tunnel by himself!$"
-
-VerdanturfTown_Text_ManDugTunnelForLove:
-	.string "There was a man who dug a tunnel for\n"
-	.string "a lady he loved.\p"
-	.string "I don't really get it, but hey!$"
+	.string "Hey, hey! Are you a TRAINER?\p"
+	.string "I'm going to be a great TRAINER like\n"
+	.string "CLAIR when I grow up!$"
 
 VerdanturfTown_Text_AirCleanHere:
-	.string "The way the winds blow, volcanic ash\n"
-	.string "is never blown in this direction.\p"
-	.string "The air is clean and delicious here.\n"
-	.string "Living here should do wonders for even\l"
-	.string "frail and sickly people.$"
+	.string "You look like a child with great\n"
+	.string "potential.\p"
+	.string "You should speak with my husband\n"
+	.string "inside.\p"
+	.string "We love helping out young TRAINERS like\n"
+	.string "yourself.$"
 
 VerdanturfTown_Text_MakeBattleTentDebut:
-	.string "My POKéMON and I, we've been riding\n"
-	.string "a hot winning streak.\p"
-	.string "So I decided to make my BATTLE TENT\n"
-	.string "debut in this town.$"
+	.string "I've heard the Blackthorn City Gym\n"
+	.string "Leader, CLAIR, is good friends with the\l"
+	.string "POKéMON League Champion.\p"
+	.string "I wonder if that's how they got enough\n"
+	.string "money to fix the bridge in the Dragon's\l"
+	.string "Den.$"
 
 VerdanturfTown_Text_GuyTryingToBustThroughCave:
-	.string "Did you see the cave next to the\n"
-	.string "POKéMON MART?\p"
-	.string "There's a guy in there who's trying to\n"
-	.string "bust up boulders so he can bust out\l"
-	.string "through to the other side.\p"
-	.string "It'd be great if we could go through…\n"
-	.string "It'll make it easy to visit RUSTBORO.$"
+	.string "You came through Ice Path?\p"
+	.string "It's a bit annoying, but that's the only\n"
+	.string "way into the city besides flying.$"
 
-VerdanturfTown_Text_EasyToGetToRustboroNow:
-	.string "That cave next to the POKéMON MART\n"
-	.string "is now a tunnel to the other side.\p"
-	.string "It's great--it's easy to go shop for\n"
-	.string "new DEVON products in RUSTBORO now.$"
+VerdanturfTown_Text_GuyBlockingDen:
+	.string "I'm sorry, but only TRAINERS who have\n"
+	.string "proven themselves by defeating CLAIR\l"
+	.string "may enter the Dragon's Den.$"
 
 VerdanturfTown_Text_TownSign:
-	.string "VERDANTURF TOWN\p"
-	.string "“The windswept highlands with the\n"
-	.string "sweet fragrance of grass.”$"
-
-VerdanturfTown_Text_WandasHouse:
-	.string "WANDA'S HOUSE$"
+	.string "BLACKTHORN CITY\n"
+	.string "“A Quiet Mountain Retreat.”$"
 
 VerdanturfTown_Text_BattleTentSign:
-	.string "BATTLE TENT VERDANTURF SITE\n"
-	.string "“Feast Your Eyes on Battles!”$"
+	.string "TRAINER TIPS\p"
+	.string "Wild POKéMON will appear regularly if\n"
+	.string "you don't run, but walk quietly in the\l"
+	.string "tall grass.\p"
+	.string "If your party POKéMON are tired, it is\n"
+	.string "better to avoid running, and go\l"
+	.string "straight to a POKéMON Center.$"
 
 VerdanturfTown_Text_RusturfTunnelSign:
-	.string "RUSTURF TUNNEL\n"
-	.string "“Linking RUSTBORO and VERDANTURF\p"
-	.string "“The tunnel project has been\n"
-	.string "canceled.”$"
+	.string "Dragon's Den Ahead$"
 

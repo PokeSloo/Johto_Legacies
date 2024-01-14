@@ -12,6 +12,7 @@
 #define INGAME_TRADE_HORSEA 2
 #define INGAME_TRADE_MEOWTH 3
 #define INGAME_TRADE_RIOLU  4
+#define INGAME_TRADE_BELDUM 5
 
 // Flag IDs for sending link data
 #define INITIATE_TRADE  1

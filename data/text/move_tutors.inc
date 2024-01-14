@@ -46,23 +46,32 @@ MoveTutor_Text_RolloutTaught:
 	.string "happy. Come on, let's roll!$"
 
 MoveTutor_Text_FuryCutterTeach:
-	.string "There's a move that gets stronger\n"
-	.string "when you keep using it in a row.\p"
-	.string "It's a BUG-type move, and it is\n"
-	.string "wickedly cool.\p"
-	.string "It's called FURY CUTTER.\n"
-	.string "Want me to teach it to a POKéMON?$"
+	.string "Yo! Have you heard of the move Fury\n"
+	.string "Cutter?\p"
+	.string "It starts off pretty weak, but gains\n"
+	.string "power when used consecutively!\p"
+	.string "It's an awesome BUG-type move!\p"
+	.string "Don't believe me?\p"
+	.string "Here, I'll teach it to one of your\n"
+	.string "POKéMON for free!\p"
+	.string "So how about it?\p"
+	.string "Want me to teach one of your POKéMON\n"
+	.string "the move Fury Cutter?$"
 
 MoveTutor_Text_FuryCutterDeclined:
-	.string "We're not on the same wavelength.$"
+	.string "That's fine.\p"
+	.string "Well, you know where to find me if you\n"
+	.string "ever change your mind.$"
 
 MoveTutor_Text_FuryCutterWhichMon:
-	.string "Yay!\n"
-	.string "Show me which POKéMON I should teach.$"
+	.string "Awesome!\n"
+	.string "So, which POKéMON I should teach?$"
 
 MoveTutor_Text_FuryCutterTaught:
-	.string "I get a thrill watching to see if\n"
-	.string "the move keeps hitting in succession!$"
+	.string "I bet you're catching the BUG-type bug\n"
+	.string "now.\p"
+	.string "Soon, you'll be wearing a straw hat like\n"
+	.string "mine!$"
 
 MoveTutor_MimicTeach:
 	.string "What am I doing you ask?\p"

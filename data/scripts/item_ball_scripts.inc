@@ -555,7 +555,7 @@ Route119_EventScript_ItemNestBall::
 	end
 
 ShoalCave_LowTideEntranceRoom_EventScript_ItemBigPearl::
-	finditem ITEM_BIG_PEARL
+	finditem ITEM_GRIP_CLAW
 	end
 
 ShoalCave_LowTideEntranceRoom_EventScript_ItemTradeStone::

@@ -1075,13 +1075,29 @@ static const struct InGameTrade sIngameTrades[] =
         .abilityNum = 1,
         .otId = 69069,
         .conditions = {5, 5, 5, 30, 5},
-        .personality = 0x8B,
+        .personality = 0x87,
         .heldItem = ITEM_FOCUS_BAND,
         .mailNum = 2,
         .otName = _("LUCAS"),
         .otGender = MALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_HATENNA
+    },
+    [INGAME_TRADE_BELDUM] =
+    {
+        .nickname = _("STEVEN"),
+        .species = SPECIES_BELDUM,
+        .ivs = {5, 5, 5, 5, 5, 5},
+        .abilityNum = 0,
+        .otId = 57343,
+        .conditions = {5, 5, 5, 30, 5},
+        .personality = 0x80,
+        .heldItem = ITEM_TWISTED_SPOON,
+        .mailNum = 2,
+        .otName = _("STEVE"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_LARVITAR
     }
 };
 

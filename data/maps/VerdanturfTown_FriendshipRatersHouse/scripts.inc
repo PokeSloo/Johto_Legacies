@@ -1,104 +1,77 @@
 VerdanturfTown_FriendshipRatersHouse_MapScripts::
 	.byte 0
 
-VerdanturfTown_FriendshipRatersHouse_EventScript_FriendshipRater::
+
+VerdanturfTown_FriendshipRatersHouse_EventScript_OldMan::
 	lock
 	faceplayer
-	msgbox VerdanturfTown_FriendshipRatersHouse_Text_SeeHowMuchPokemonLikesYou, MSGBOX_DEFAULT
-	specialvar VAR_RESULT, GetLeadMonFriendshipScore
-	switch VAR_RESULT
-	case FRIENDSHIP_NONE, VerdanturfTown_FriendshipRatersHouse_EventScript_DetestsYou
-	case FRIENDSHIP_1_TO_49, VerdanturfTown_FriendshipRatersHouse_EventScript_VeryWary
-	case FRIENDSHIP_50_TO_99, VerdanturfTown_FriendshipRatersHouse_EventScript_NotUsedToYou
-	case FRIENDSHIP_100_TO_149, VerdanturfTown_FriendshipRatersHouse_EventScript_GettingUsedToYou
-	case FRIENDSHIP_150_TO_199, VerdanturfTown_FriendshipRatersHouse_EventScript_LikesYouQuiteALot
-	case FRIENDSHIP_200_TO_254, VerdanturfTown_FriendshipRatersHouse_EventScript_VeryHappy
-	case FRIENDSHIP_MAX, VerdanturfTown_FriendshipRatersHouse_EventScript_AdoresYou
+	goto_if_set FLAG_RECEIVED_POKEFLUTE, VerdanturfTown_FriendshipRatersHouse_EventScript_OldMan_1
+	msgbox VerdanturfTown_FriendshipRatersHouse_EventScript_OldMan_Text_1
+	giveitem ITEM_POKE_FLUTE
+	msgbox VerdanturfTown_FriendshipRatersHouse_EventScript_OldMan_Text_2
+	setflag FLAG_RECEIVED_POKEFLUTE
 	release
 	end
 
-VerdanturfTown_FriendshipRatersHouse_EventScript_DetestsYou::
-	msgbox VerdanturfTown_FriendshipRatersHouse_Text_DetestsYou, MSGBOX_DEFAULT
+VerdanturfTown_FriendshipRatersHouse_EventScript_OldMan_1:
+	msgbox VerdanturfTown_FriendshipRatersHouse_EventScript_OldMan_Text_0
 	release
 	end
 
-VerdanturfTown_FriendshipRatersHouse_EventScript_VeryWary::
-	msgbox VerdanturfTown_FriendshipRatersHouse_Text_VeryWary, MSGBOX_DEFAULT
-	release
-	end
 
-VerdanturfTown_FriendshipRatersHouse_EventScript_NotUsedToYou::
-	msgbox VerdanturfTown_FriendshipRatersHouse_Text_NotUsedToYou, MSGBOX_DEFAULT
-	release
-	end
-
-VerdanturfTown_FriendshipRatersHouse_EventScript_GettingUsedToYou::
-	msgbox VerdanturfTown_FriendshipRatersHouse_Text_GettingUsedToYou, MSGBOX_DEFAULT
-	release
-	end
-
-VerdanturfTown_FriendshipRatersHouse_EventScript_LikesYouQuiteALot::
-	msgbox VerdanturfTown_FriendshipRatersHouse_Text_LikesYouQuiteALot, MSGBOX_DEFAULT
-	release
-	end
-
-VerdanturfTown_FriendshipRatersHouse_EventScript_VeryHappy::
-	msgbox VerdanturfTown_FriendshipRatersHouse_Text_VeryHappy, MSGBOX_DEFAULT
-	release
-	end
-
-VerdanturfTown_FriendshipRatersHouse_EventScript_AdoresYou::
-	msgbox VerdanturfTown_FriendshipRatersHouse_Text_AdoresYou, MSGBOX_DEFAULT
-	release
-	end
-
-VerdanturfTown_FriendshipRatersHouse_EventScript_Pikachu::
+VerdanturfTown_FriendshipRatersHouse_EventScript_Girl::
 	lock
 	faceplayer
-	waitse
-	playmoncry SPECIES_PIKACHU, CRY_MODE_NORMAL
-	msgbox VerdanturfTown_FriendshipRatersHouse_Text_Pikachu, MSGBOX_DEFAULT
-	waitmoncry
+	goto_if_set FLAG_RECEIVED_TM42, VerdanturfTown_FriendshipRatersHouse_EventScript_Girl_1
+	msgbox VerdanturfTown_FriendshipRatersHouse_EventScript_Girl_Text_1
+	giveitem ITEM_TM42_FACADE
+	msgbox VerdanturfTown_FriendshipRatersHouse_EventScript_Girl_Text_2
+	setflag FLAG_RECEIVED_TM42
 	release
 	end
 
-VerdanturfTown_FriendshipRatersHouse_Text_SeeHowMuchPokemonLikesYou:
-	.string "Let me see your POKéMON.\n"
-	.string "I'll check to see how much it likes you.\p"
-	.string "Oh.\n"
-	.string "Your POKéMON…$"
+VerdanturfTown_FriendshipRatersHouse_EventScript_Girl_1:
+	msgbox VerdanturfTown_FriendshipRatersHouse_EventScript_Girl_Text_0
+	release
+	end
 
-VerdanturfTown_FriendshipRatersHouse_Text_AdoresYou:
-	.string "It adores you.\n"
-	.string "It can't possibly love you any more.\l"
-	.string "I even feel happy seeing it.$"
 
-VerdanturfTown_FriendshipRatersHouse_Text_VeryHappy:
-	.string "It seems to be very happy.\n"
-	.string "It obviously likes you a whole lot.$"
+VerdanturfTown_FriendshipRatersHouse_EventScript_OldMan_Text_0:
+	.string "Don't fret about taking my old Poké\n"
+	.string "Flute.\p"
+	.string "I don't need it anymore, just the sound\n"
+	.string "of my voice will wake up any sleeping\l"
+	.string "POKéMON! Haha!$"
 
-VerdanturfTown_FriendshipRatersHouse_Text_LikesYouQuiteALot:
-	.string "It likes you quite a lot.\n"
-	.string "It seems to want to be babied a little.$"
+VerdanturfTown_FriendshipRatersHouse_EventScript_OldMan_Text_1:
+	.string "If you've ever had a POKéMON fall\n"
+	.string "asleep during battle, you should know\l"
+	.string "just how annoying it can be.\p"
+	.string "Well, I have a surefire way to wake them\n"
+	.string "up!$"
 
-VerdanturfTown_FriendshipRatersHouse_Text_GettingUsedToYou:
-	.string "It's getting used to you.\n"
-	.string "It seems to believe in you.$"
+VerdanturfTown_FriendshipRatersHouse_EventScript_OldMan_Text_2:
+	.string "Just the sound of that Poké Flute\n"
+	.string "alone will wake up any sleeping\l"
+	.string "POKéMON!\p"
+	.string "It works every time.$"
 
-VerdanturfTown_FriendshipRatersHouse_Text_NotUsedToYou:
-	.string "It's not very used to you yet.\n"
-	.string "It neither loves nor hates you.$"
+VerdanturfTown_FriendshipRatersHouse_EventScript_Girl_Text_0:
+	.string "I still haven't told grandpa to be quiet\n"
+	.string "when I'm trying to sleep.\p"
+	.string "Ugh, someday I'm going to lose it.$"
 
-VerdanturfTown_FriendshipRatersHouse_Text_VeryWary:
-	.string "It's very wary.\n"
-	.string "It has scary viciousness in its eyes.\l"
-	.string "It doesn't like you much at all.$"
+VerdanturfTown_FriendshipRatersHouse_EventScript_Girl_Text_1:
+	.string "I can't get an ounce of sleep around\n"
+	.string "here, grandpa is just too loud!\p"
+	.string "It really makes me mad, but I just don't\n"
+	.string "have the heart to tell him, so I just\l"
+	.string "smile and bear with it.\p"
+	.string "But enough about me.\p"
+	.string "You look like a strong TRAINER, perhaps\n"
+	.string "you could make use of this TM.$"
 
-VerdanturfTown_FriendshipRatersHouse_Text_DetestsYou:
-	.string "This is a little hard for me to say…\p"
-	.string "Your POKéMON simply detests you.\n"
-	.string "Doesn't that make you uncomfortable?$"
-
-VerdanturfTown_FriendshipRatersHouse_Text_Pikachu:
-	.string "PIKACHU: Pika pika!$"
-
+VerdanturfTown_FriendshipRatersHouse_EventScript_Girl_Text_2:
+	.string "That TM contains the move Facade, it\n"
+	.string "will double in power if your POKéMON has\l"
+	.string "a status effect.$"

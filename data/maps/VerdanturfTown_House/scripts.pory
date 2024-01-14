@@ -1,0 +1,24 @@
+mapscripts VerdanturfTown_House_MapScripts {}
+
+script VerdanturfTown_House_EventScript_Expert {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_HM07)) {
+        msgbox(format("That HM will allow you to scale waterfalls.\pYou will need it to cross through Tohjo Falls on your way to the POKéMON League."))
+        release
+        end
+    }
+    elif (flag(FLAG_BADGE08_GET)) {
+        msgbox(format("Oh ho! So you defeated CLAIR?\pI wouldn't doubt such a promising young TRAINER such as yourself.\pHere, please accept this gift."))
+        giveitem(ITEM_HM07_WATERFALL)
+        msgbox(format("That HM contains the move Waterfall.\pAlong with being a powerful WATER-type move, it will allow you to scale waterfalls.\pWith that, all of Johto should be within your reach!"))
+        setflag(FLAG_RECEIVED_HM07)
+        release
+        end
+    }
+    else {
+        msgbox(format("Hmm... I can tell just by looking at you that you are a very promising young TRAINER.\pPlease, come see me after you have defeated CLAIR.\pI will give you a gift."))
+        release
+        end
+    }
+}

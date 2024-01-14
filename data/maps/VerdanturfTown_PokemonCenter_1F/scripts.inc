@@ -7,7 +7,6 @@ VerdanturfTown_PokemonCenter_1F_MapScripts::
 
 VerdanturfTown_PokemonCenter_1F_OnTransition:
 	setrespawn HEAL_LOCATION_VERDANTURF_TOWN
-	call Common_EventScript_UpdateBrineyLocation
 	end
 
 VerdanturfTown_PokemonCenter_1F_EventScript_Nurse::
@@ -26,19 +25,26 @@ VerdanturfTown_PokemonCenter_1F_EventScript_ExpertM::
 	msgbox VerdanturfTown_PokemonCenter_1F_Text_VisitForBattleTent, MSGBOX_NPC
 	end
 
+VerdanturfTown_PokemonCenter_1F_EventScript_Lass::
+	msgbox VerdanturfTown_PokemonCenter_1F_Text_NewLass, MSGBOX_NPC
+	end
+
 VerdanturfTown_PokemonCenter_1F_Text_FaithInYourPokemon:
-	.string "You can't consider yourself a real\n"
-	.string "TRAINER if you don't have faith\l"
-	.string "in your POKéMON.\p"
-	.string "Only those people who can believe\n"
-	.string "in their battling POKéMON can win\l"
-	.string "through to the very end.$"
+	.string "Blackthorn City is great!\p"
+	.string "There are so many hills and caves\n"
+	.string "around, how could anyone not love it?$"
 
 VerdanturfTown_PokemonCenter_1F_Text_VisitForBattleTent:
-	.string "The reason why anyone would visit\n"
-	.string "VERDANTURF…\p"
-	.string "It's the BATTLE TENT. It goes without\n"
-	.string "saying.\p"
-	.string "Or is there somebody here that you\n"
-	.string "came to see?$"
+	.string "I've traveled all across Johto, but\n"
+	.string "there's still one area I have yet to\l"
+	.string "visit.\p"
+	.string "Mt. Silver is only accessible to the few\n"
+	.string "who are skilled enough to have\l"
+	.string "defeated the League Champion, or so\l"
+	.string "the rumors say.$"
+
+VerdanturfTown_PokemonCenter_1F_Text_NewLass:
+	.string "I'm not sure who BILL is, but his\n"
+	.string "POKéMON storage system is great!\p"
+	.string "I use it all the time!$"
 
