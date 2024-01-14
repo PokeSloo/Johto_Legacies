@@ -99,7 +99,7 @@ Route114_EventScript_ItemProtein::
 	end
 
 Route114_EventScript_ItemEnergyPowder::
-	finditem ITEM_ENERGY_POWDER
+	finditem ITEM_UTILITY_UMBRELLA
 	end
 
 Route115_EventScript_ItemSuperPotion::
@@ -644,6 +644,10 @@ ArtisanCave_B1F_EventScript_ItemHPUp::
 
 ArtisanCave_1F_EventScript_ItemCarbos::
 	finditem ITEM_CARBOS
+	end
+
+ArtisanCave_1F_EventScript_ItemPeatBlock::
+	finditem ITEM_CARD_KEY
 	end
 
 MagmaHideout_1F_EventScript_ItemRareCandy::

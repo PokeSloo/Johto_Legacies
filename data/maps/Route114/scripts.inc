@@ -1,23 +1,5 @@
 Route114_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route114_OnTransition
-	map_script MAP_SCRIPT_ON_LOAD, Route114_OnLoad
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route114_OnFrame
 	.byte 0
-
-Route114_OnTransition:
-	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_NORTH, AbnormalWeather_StartGroudonWeather
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_SOUTH, AbnormalWeather_StartGroudonWeather
-	end
-
-Route114_OnLoad:
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_NORTH, AbnormalWeather_EventScript_PlaceTilesRoute114North
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_SOUTH, AbnormalWeather_EventScript_PlaceTilesRoute114South
-	end
-
-Route114_OnFrame:
-	map_script_2 VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_EndEventAndCleanup_1
-	.2byte 0
 
 Route114_EventScript_Man::
 	lock
@@ -73,10 +55,6 @@ Route114_EventScript_MeteorFallsSign::
 
 Route114_EventScript_FossilManiacsHouseSign::
 	msgbox Route114_Text_FossilManiacsHouseSign, MSGBOX_SIGN
-	end
-
-Route114_EventScript_LanettesHouseSign::
-	msgbox Route114_Text_LanettesHouse, MSGBOX_SIGN
 	end
 
 Route114_EventScript_Lenny::
@@ -176,27 +154,31 @@ Route114_EventScript_Kai::
 	msgbox Route114_Text_KaiPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route114_EventScript_ItemTM22::
+	finditem ITEM_TM22_SOLAR_BEAM
+	end
+
 Route114_Text_AllMyMonDoesIsRoarTakeThis:
-	.string "All my POKéMON does is ROAR…\n"
-	.string "No one dares to come near me…\p"
-	.string "Sigh… If you would, please take\n"
-	.string "this TM away…$"
+	.string "I don't have the HM for Flash, but I\n"
+	.string "make my Poochyena stay by the cave\l"
+	.string "entrance.\p"
+	.string "I can always find my way back to him by\n"
+	.string "following the sound of his roars...$"
 
 Route114_Text_ExplainRoar:
-	.string "TM05 contains ROAR.\n"
-	.string "A ROAR sends POKéMON scurrying.$"
+	.string "That TM contains the move Roar.\p"
+	.string "It will make your opponent flee from\n"
+	.string "battle.\p"
+	.string "It's good to use when your matchup is\n"
+	.string "less than ideal.$"
 
 Route114_Text_Poochyena:
 	.string "Bow! Bowwow!$"
 
 Route114_Text_MeteorFallsSign:
-	.string "METEOR FALLS\n"
-	.string "RUSTBORO CITY THROUGH HERE$"
+	.string "ROUTE 45\n"
+	.string "{DOWN_ARROW} Mountain Road ahead$"
 
 Route114_Text_FossilManiacsHouseSign:
-	.string "FOSSIL MANIAC'S HOUSE\n"
-	.string "“Fossils gratefully accepted!”$"
-
-Route114_Text_LanettesHouse:
-	.string "LANETTE'S HOUSE$"
+	.string "DARK CAVE$"
 
