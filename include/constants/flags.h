@@ -189,7 +189,7 @@
 #define FLAG_RECEIVED_TM42                   0xA9
 #define FLAG_RECEIVED_TM40                   0xAA
 #define FLAG_RECEIVED_TM04                   0xAB
-#define FLAG_RECEIVED_TM03                   0xAC
+#define FLAG_RECEIVED_TM02                   0xAC
 #define FLAG_HIDE_SECRET_BASE_TRAINER        0xAD
 #define FLAG_DECORATION_1                    0xAE
 #define FLAG_DECORATION_2                    0xAF
@@ -1238,9 +1238,9 @@
 #define FLAG_CAUGHT_CELEBI                                          0x4A5 // At Ilex or Kizu shrine
 #define FLAG_RECEIVED_POKEFLUTE                                     0x4A6 // Old man in Blackthorn City
 #define FLAG_COMPLETED_BELDUM_TRADE                                 0x4A7 // Blackthorn City house
-#define FLAG_UNUSED_0x4A8                                           0x4A8 // Unused Flag
-#define FLAG_UNUSED_0x4A9                                           0x4A9 // Unused Flag
-#define FLAG_UNUSED_0x4AA                                           0x4AA // Unused Flag
+#define FLAG_BLACKTHORN_GYM_LEFT_EYE                                0x4A8 // Light up left eye
+#define FLAG_BLACKTHORN_GYM_RIGHT_EYE                               0x4A9 // Light up right eye
+#define FLAG_BLACKTHORN_GYM_STATUE_OPEN                             0x4AA // Raise dragon head
 #define FLAG_UNUSED_0x4AB                                           0x4AB // Unused Flag
 #define FLAG_UNUSED_0x4AC                                           0x4AC // Unused Flag
 #define FLAG_UNUSED_0x4AD                                           0x4AD // Unused Flag

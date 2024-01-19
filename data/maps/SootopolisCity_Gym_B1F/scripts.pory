@@ -1,0 +1,333 @@
+mapscripts SootopolisCity_Gym_B1F_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        if (flag(FLAG_BLACKTHORN_GYM_STATUE_OPEN)) {
+            call (SootopolisCity_Gym_B1F_EventScript_RaiseHead)
+            end
+        }
+        elif (flag(FLAG_BLACKTHORN_GYM_LEFT_EYE)) {
+            call (SootopolisCity_Gym_B1F_EventScript_LightLeftEye)
+        }
+        elif (flag(FLAG_BLACKTHORN_GYM_RIGHT_EYE)) {
+            call (SootopolisCity_Gym_B1F_EventScript_LightRightEye)
+        }
+        end
+    }
+}
+
+script SootopolisCity_Gym_B1F_EventScript_RaiseHead {
+    setmetatile (17, 8, 0x240, TRUE)
+    setmetatile (18, 8, 0x241, TRUE)
+    setmetatile (20, 8, 0x242, TRUE)
+    setmetatile (21, 8, 0x243, TRUE)
+    setmetatile (17, 9, 0x226, TRUE)
+    setmetatile (18, 9, 0x248, TRUE)
+    setmetatile (19, 9, 0x249, TRUE)
+    setmetatile (20, 9, 0x24A, TRUE)
+    setmetatile (21, 9, 0x226, TRUE)
+    setmetatile (18, 10, 0x250, TRUE)
+    setmetatile (19, 10, 0x251, TRUE)
+    setmetatile (20, 10, 0x252, TRUE)
+    setmetatile (18, 11, 0x258, TRUE)
+    setmetatile (19, 11, 0x259, TRUE)
+    setmetatile (20, 11, 0x25A, TRUE)
+    setmetatile (18, 12, 0x260, TRUE)
+    setmetatile (19, 12, 0x261, FALSE)
+    setmetatile (20, 12, 0x262, TRUE)
+    setmetatile (18, 13, 0x268, FALSE)
+    setmetatile (19, 13, 0x269, FALSE)
+    setmetatile (20, 13, 0x26A, FALSE)
+    setmetatile (18, 14, 0x270, FALSE)
+    setmetatile (19, 14, 0x271, FALSE)
+    setmetatile (20, 14, 0x272, FALSE)
+    return
+}
+
+script SootopolisCity_Gym_B1F_EventScript_LightLeftEye {
+    setmetatile (18, 11, 0x233, TRUE)
+    setmetatile (18, 12, 0x23B, TRUE)
+    return
+}
+
+script SootopolisCity_Gym_B1F_EventScript_LightRightEye {
+    setmetatile (20, 11, 0x234, TRUE)
+    setmetatile (20, 12, 0x23C, TRUE)
+    return
+}
+
+script SootopolisCity_Gym_B1F_EventScript_LeftButton {
+    lock
+    if (flag(FLAG_BLACKTHORN_GYM_STATUE_OPEN)) {
+        release
+        end
+    }
+    elif (flag(FLAG_BLACKTHORN_GYM_RIGHT_EYE)) {
+        playse (SE_SWITCH)
+        waitse
+        delay (30)
+        playse (SE_EXP_MAX)
+        call (SootopolisCity_Gym_B1F_EventScript_LightLeftEye)
+        special (DrawWholeMapView)
+        waitse
+        delay (30)
+        fadeoutbgm (1)
+        playse (SE_M_EXPLOSION)
+        setvar (VAR_0x8004, 1)  // vertical pan
+	    setvar (VAR_0x8005, 1)  // horizontal pan
+	    setvar (VAR_0x8006, 12)  // num shakes
+	    setvar (VAR_0x8007, 5)  // shake delay
+	    special (ShakeCamera)
+	    waitstate
+        waitse
+        playse (SE_UNLOCK)
+        call (SootopolisCity_Gym_B1F_EventScript_RaiseHead)
+        special (DrawWholeMapView)
+        waitse
+        delay (30)
+        playbgm (MUS_HG_GYM, TRUE)
+        setflag(FLAG_BLACKTHORN_GYM_STATUE_OPEN)
+        release
+        end
+    }
+    elif (flag(FLAG_BLACKTHORN_GYM_LEFT_EYE)) {
+        release
+        end
+    }
+    playse (SE_SWITCH)
+    waitse
+    delay (30)
+    playse (SE_EXP_MAX)
+    call (SootopolisCity_Gym_B1F_EventScript_LightLeftEye)
+    special (DrawWholeMapView)
+    waitse
+    setflag(FLAG_BLACKTHORN_GYM_LEFT_EYE)
+    release
+    end
+}
+
+script SootopolisCity_Gym_B1F_EventScript_RightButton {
+    lock
+    if (flag(FLAG_BLACKTHORN_GYM_STATUE_OPEN)) {
+        release
+        end
+    }
+    elif (flag(FLAG_BLACKTHORN_GYM_LEFT_EYE)) {
+        playse (SE_SWITCH)
+        waitse
+        delay (30)
+        playse (SE_EXP_MAX)
+        call (SootopolisCity_Gym_B1F_EventScript_LightRightEye)
+        special (DrawWholeMapView)
+        waitse
+        delay (30)
+        fadeoutbgm (1)
+        playse (SE_M_EXPLOSION)
+        setvar (VAR_0x8004, 1)  // vertical pan
+	    setvar (VAR_0x8005, 1)  // horizontal pan
+	    setvar (VAR_0x8006, 12)  // num shakes
+	    setvar (VAR_0x8007, 5)  // shake delay
+	    special (ShakeCamera)
+	    waitstate
+        waitse
+        playse (SE_UNLOCK)
+        call (SootopolisCity_Gym_B1F_EventScript_RaiseHead)
+        special (DrawWholeMapView)
+        waitse
+        delay (30)
+        playbgm (MUS_HG_GYM, TRUE)
+        setflag(FLAG_BLACKTHORN_GYM_STATUE_OPEN)
+        release
+        end
+    }
+    elif (flag(FLAG_BLACKTHORN_GYM_RIGHT_EYE)) {
+        release
+        end
+    }
+    playse (SE_SWITCH)
+    waitse
+    delay (30)
+    playse (SE_EXP_MAX)
+    call (SootopolisCity_Gym_B1F_EventScript_LightRightEye)
+    special (DrawWholeMapView)
+    waitse
+    setflag(FLAG_BLACKTHORN_GYM_RIGHT_EYE)
+    release
+    end
+}
+
+raw`
+SootopolisCity_Gym_B1F_EventScript_Andrea::
+	trainerbattle_single TRAINER_ANDREA, SootopolisCity_Gym_B1F_Text_AndreaIntro, SootopolisCity_Gym_B1F_Text_AndreaDefeat
+	msgbox SootopolisCity_Gym_B1F_Text_AndreaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+SootopolisCity_Gym_B1F_EventScript_Crissy::
+	trainerbattle_single TRAINER_CRISSY, SootopolisCity_Gym_B1F_Text_CrissyIntro, SootopolisCity_Gym_B1F_Text_CrissyDefeat
+	msgbox SootopolisCity_Gym_B1F_Text_CrissyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+SootopolisCity_Gym_B1F_EventScript_Brianna::
+	trainerbattle_single TRAINER_BRIANNA, SootopolisCity_Gym_B1F_Text_BriannaIntro, SootopolisCity_Gym_B1F_Text_BriannaDefeat
+	msgbox SootopolisCity_Gym_B1F_Text_BriannaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+SootopolisCity_Gym_B1F_EventScript_Connie::
+	trainerbattle_single TRAINER_CONNIE, SootopolisCity_Gym_B1F_Text_ConnieIntro, SootopolisCity_Gym_B1F_Text_ConnieDefeat
+	msgbox SootopolisCity_Gym_B1F_Text_ConniePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+SootopolisCity_Gym_B1F_EventScript_Bridget::
+	trainerbattle_single TRAINER_BRIDGET, SootopolisCity_Gym_B1F_Text_BridgetIntro, SootopolisCity_Gym_B1F_Text_BridgetDefeat
+	msgbox SootopolisCity_Gym_B1F_Text_BridgetPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+SootopolisCity_Gym_B1F_EventScript_Olivia::
+	trainerbattle_single TRAINER_OLIVIA, SootopolisCity_Gym_B1F_Text_OliviaIntro, SootopolisCity_Gym_B1F_Text_OliviaDefeat
+	msgbox SootopolisCity_Gym_B1F_Text_OliviaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+SootopolisCity_Gym_B1F_EventScript_Tiffany::
+	trainerbattle_single TRAINER_TIFFANY, SootopolisCity_Gym_B1F_Text_TiffanyIntro, SootopolisCity_Gym_B1F_Text_TiffanyDefeat
+	msgbox SootopolisCity_Gym_B1F_Text_TiffanyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+SootopolisCity_Gym_B1F_EventScript_Bethany::
+	trainerbattle_single TRAINER_BETHANY, SootopolisCity_Gym_B1F_Text_BethanyIntro, SootopolisCity_Gym_B1F_Text_BethanyDefeat
+	msgbox SootopolisCity_Gym_B1F_Text_BethanyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+SootopolisCity_Gym_B1F_EventScript_Annika::
+	trainerbattle_single TRAINER_ANNIKA, SootopolisCity_Gym_B1F_Text_AnnikaIntro, SootopolisCity_Gym_B1F_Text_AnnikaDefeat
+	msgbox SootopolisCity_Gym_B1F_Text_AnnikaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+SootopolisCity_Gym_B1F_EventScript_Daphne::
+	trainerbattle_single TRAINER_DAPHNE, SootopolisCity_Gym_B1F_Text_DaphneIntro, SootopolisCity_Gym_B1F_Text_DaphneDefeat
+	msgbox SootopolisCity_Gym_B1F_Text_DaphnePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+SootopolisCity_Gym_B1F_Text_AndreaIntro:
+	.string "Sometimes beauty can be unexpectedly\n"
+	.string "deadly!$"
+
+SootopolisCity_Gym_B1F_Text_AndreaDefeat:
+	.string "My beauty was no match for your raw\n"
+	.string "power!$"
+
+SootopolisCity_Gym_B1F_Text_AndreaPostBattle:
+	.string "I should have spent more time training\n"
+	.string "and less time fixing my makeup...$"
+
+SootopolisCity_Gym_B1F_Text_CrissyIntro:
+	.string "Hey! You didn't even have to battle me!$"
+
+SootopolisCity_Gym_B1F_Text_CrissyDefeat:
+	.string "I get it now...$"
+
+SootopolisCity_Gym_B1F_Text_CrissyPostBattle:
+	.string "I bet you're trying to get as much\n"
+	.string "experience as you can before battling\l"
+	.string "CLAIR.$"
+
+SootopolisCity_Gym_B1F_Text_DaphneIntro:
+	.string "Don't underestimate me just because\n"
+	.string "I'm an old lady.\p"
+	.string "I've got decades more experience than\n"
+	.string "you, kiddo!$"
+
+SootopolisCity_Gym_B1F_Text_DaphneDefeat:
+	.string "It seems quality trumps quantity in\n"
+	.string "terms of experience...$"
+
+SootopolisCity_Gym_B1F_Text_DaphnePostBattle:
+	.string "You battle exceptionally for your age.\p"
+	.string "You should take pride in your skill.$"
+
+SootopolisCity_Gym_B1F_Text_ConnieIntro:
+	.string "What a cute kid, it's a shame what I'm\n"
+	.string "about to do to you.$"
+
+SootopolisCity_Gym_B1F_Text_ConnieDefeat:
+	.string "Oh.\n"
+	.string "You're actually strong.$"
+
+SootopolisCity_Gym_B1F_Text_ConniePostBattle:
+	.string "For such a cute kid, you really pack a\n"
+	.string "powerful punch!$"
+
+SootopolisCity_Gym_B1F_Text_BridgetIntro:
+	.string "DRAGON-types are the epitome of\n"
+	.string "beauty and power!$"
+
+SootopolisCity_Gym_B1F_Text_BridgetDefeat:
+	.string "What a high level you are!$"
+
+SootopolisCity_Gym_B1F_Text_BridgetPostBattle:
+	.string "One day you will be entranced by the\n"
+	.string "allure of DRAGON-type POKéMON as well!$"
+
+SootopolisCity_Gym_B1F_Text_OliviaIntro:
+	.string "Our combined experience equals over\n"
+	.string "100 years!\p"
+	.string "Can you compete with that?$"
+
+SootopolisCity_Gym_B1F_Text_OliviaDefeat:
+	.string "It seems you can compete with us...$"
+
+SootopolisCity_Gym_B1F_Text_OliviaPostBattle:
+	.string "You have great potential, I can't wait\n"
+	.string "to see where you end up in a few\l"
+	.string "decades.$"
+
+SootopolisCity_Gym_B1F_Text_TiffanyIntro:
+	.string "I'll show you what makes DRAGON-type\n"
+	.string "POKéMON the best!$"
+
+SootopolisCity_Gym_B1F_Text_TiffanyDefeat:
+	.string "Wait, no!\n"
+	.string "This isn't right!$"
+
+SootopolisCity_Gym_B1F_Text_TiffanyPostBattle:
+	.string "I still stand by what I said earlier.\p"
+	.string "DRAGON-type POKéMON are the best!$"
+
+SootopolisCity_Gym_B1F_Text_BethanyIntro:
+	.string "I'll show you the result of years of\n"
+	.string "hard work and dedication!$"
+
+SootopolisCity_Gym_B1F_Text_BethanyDefeat:
+	.string "...\n"
+	.string "How is this possible...?$"
+
+SootopolisCity_Gym_B1F_Text_BethanyPostBattle:
+	.string "Tell me child, what is your name?\p"
+	.string "...\p"
+	.string "Yes, I see...\p"
+	.string "It's no wonder you're so powerful...$"
+
+SootopolisCity_Gym_B1F_Text_AnnikaIntro:
+	.string "Our connection with each other is\n"
+	.string "unrivaled, you have no chance!$"
+
+SootopolisCity_Gym_B1F_Text_AnnikaDefeat:
+	.string "You seem to have a great connection of\n"
+	.string "your own.$"
+
+SootopolisCity_Gym_B1F_Text_AnnikaPostBattle:
+	.string "My wife and I have been battling\n"
+	.string "alongside each other for so many years\l"
+	.string "that we know what each other is\l"
+	.string "thinking during battle.$"
+
+SootopolisCity_Gym_B1F_Text_BriannaIntro:
+	.string "You won't lay a finger on my\n"
+	.string "DRAGON-type POKéMON!$"
+
+SootopolisCity_Gym_B1F_Text_BriannaDefeat:
+	.string "Such disrespect towards DRAGON-type\n"
+	.string "POKéMON!$"
+
+SootopolisCity_Gym_B1F_Text_BriannaPostBattle:
+	.string "You have brought shame upon my\n"
+	.string "DRAGON-type POKéMON!\p"
+	.string "I will never forgive you!$"
+`
