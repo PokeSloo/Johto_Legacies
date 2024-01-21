@@ -211,11 +211,11 @@
 #define FLAG_DEFEATED_GRUNT_SPACE_CENTER_1F  0xBF
 #define FLAG_RECEIVED_SUN_STONE_MOSSDEEP     0xC0
 #define FLAG_WALLY_SPEECH                    0xC1
-#define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_1   0xC2 // Leftover from the RS version of Puzzle Room 7, functionally unused
-#define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_2   0xC3 //
-#define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_3   0xC4 //
-#define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_4   0xC5 //
-#define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_5   0xC6 //
+#define FLAG_ITEM_MT_MORTAR_CHOICE_BAND      0xC2 // Hidden item in Mt Mortar
+#define FLAG_ITEM_MT_MORTAR_CHOICE_SPECS     0xC3 // Hidden item in Mt Mortar
+#define FLAG_ITEM_MT_MORTAR_MAX_REVIVE       0xC4 // Hidden item in Mt Mortar
+#define FLAG_ITEM_MT_MORTAR_OVERHEAT_TM      0xC5 // Item ball in Mt Mortar
+#define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_5   0xC6 // Unused
 #define FLAG_RUSTURF_TUNNEL_OPENED           0xC7
 #define FLAG_RECEIVED_RED_SCARF              0xC8
 #define FLAG_RECEIVED_BLUE_SCARF             0xC9

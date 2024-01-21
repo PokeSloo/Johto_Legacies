@@ -2,13 +2,13 @@
   "id": "MAP_METEOR_FALLS_STEVENS_CAVE",
   "name": "MeteorFalls_StevensCave",
   "layout": "LAYOUT_METEOR_FALLS_STEVENS_CAVE",
-  "music": "MUS_NONE",
+  "music": "MUS_HG_BELL_TOWER",
   "region_map_section": "MAPSEC_METEOR_FALLS",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
-  "allow_escaping": true,
+  "allow_escaping": false,
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
@@ -19,13 +19,13 @@
       "x": 14,
       "y": 5,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MeteorFalls_StevensCave_EventScript_Steven",
-      "flag": "0"
+      "script": "MeteorFalls_StevensCave_EventScript_HoOh",
+      "flag": "FLAG_CAUGHT_HO_OH"
     }
   ],
   "warp_events": [
