@@ -1,0 +1,31 @@
+raw`
+OldaleTown_House2_MapScripts::
+	.byte 0
+
+OldaleTown_House2_EventScript_Woman::
+	msgbox OldaleTown_House2_Text_YoullGoFurtherWithStrongPokemon, MSGBOX_NPC
+	end
+
+OldaleTown_House2_Text_YoullGoFurtherWithStrongPokemon:
+	.string "Nice to see you {PLAYER}, how have\n"
+	.string "your parents been?\p"
+	.string "I haven't seen your father in a while.$"
+`
+
+script OldaleTown_House2_EventScript_Man {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_RAIN_DANCE)) {
+        msgbox(format("Some POKéMON moves seem useless at first, but they can be great for support.\pYou need to do your research when building up your POKéMON'S movesets."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Oh, hey {PLAYER}.\pI see you received a POKéMON from PROF. ELM, congrats!\pHere, this should also help you get started."))
+        giveitem(ITEM_TM18)
+        msgbox(format("That TM contains the move Rain Dance.\pIt's not the most powerful TM out there, but it can be useful for support.\pI hope it helps you on your journey."))
+        setflag (FLAG_RECEIVED_RAIN_DANCE)
+        release
+        end
+    }
+}

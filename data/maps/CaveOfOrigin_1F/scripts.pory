@@ -1,0 +1,45 @@
+mapscripts CaveOfOrigin_1F_MapScripts {}
+
+script CaveOfOrigin_1F_EventScript_DenSign {
+    msgbox(format("DRAGON SHRINE\pA shrine revering the Dragon POKéMON that live in DRAGON'S DEN."), MSGBOX_SIGN)
+    end
+}
+
+script CaveOfOrigin_1F_EventScript_Expert {
+    lock
+    faceplayer
+    checkplayergender
+    if (var(VAR_RESULT) == MALE) {
+        call (CaveOfOrigin_1F_EventScript_MalePlayer)
+    }
+    elif (var(VAR_RESULT) == FEMALE) {
+        call (CaveOfOrigin_1F_EventScript_FemalePlayer)
+    }
+    msgbox(format("We have been very grateful for your father's...\pEhrm...\pGenerous contributions."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script CaveOfOrigin_1F_EventScript_MalePlayer {
+    msgbox(format("Hmm... You must be SILVER'S son."))
+    waitmessage
+    return
+}
+
+script CaveOfOrigin_1F_EventScript_FemalePlayer {
+    msgbox(format("Hmm... You must be SILVER'S daughter."))
+    waitmessage
+    return
+}
+
+script CaveOfOrigin_1F_EventScript_ItemDragonFang {
+    finditem (ITEM_DRAGON_FANG)
+	end
+}
+
+script CaveOfOrigin_1F_EventScript_ItemDragonScale {
+    finditem (ITEM_DRAGON_SCALE)
+	end
+}

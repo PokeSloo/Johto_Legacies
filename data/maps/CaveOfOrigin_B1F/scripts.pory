@@ -1,0 +1,188 @@
+mapscripts CaveOfOrigin_B1F_MapScripts {}
+
+script CaveOfOrigin_B1F_EventScript_Master {
+    lock
+    faceplayer
+    dotimebasedevents
+    if (flag (FLAG_RECEIVED_DRAGONS_DEN_MON)) {
+        msgbox(format("Hmm... Good to see you here.\pI trust you are treating Gible well."))
+        release
+        end
+    }
+    elif (flag(FLAG_DENIED_DRAGONS_DEN_MON)) {
+        msgbox(format("You are welcome to try the Dragon Master Challenge again tomorrow.\pPlease, take some time to reflect upon what is truly important in this world."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Hmm... Good to see you here.\pNo need to explain why you came.\pCLAIR sent you here, didn't she?\pShe must have taken a liking to you.\pVery well, are you ready to take the Dragon Master Challenge?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES) {
+            goto (CaveOfOrigin_B1F_EventScript_DragonQuiz)
+        }
+        else {
+            msgbox(format("I see...\pPlease come back when you feel you are more prepared."))
+            release
+            end
+        }
+    }
+}
+
+script CaveOfOrigin_B1F_EventScript_DragonQuiz {
+    clearflag (FLAG_DRAGONS_DEN_WRONG_ANSWER)
+    msgbox(format("Then let's begin.\pWould you say that POKéMON are meant to be our friends?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        msgbox(CaveOfOrigin_B1F_Text_IUnderstand)
+        goto (CaveOfOrigin_B1F_EventScript_DragonQuiz_Q2)
+    }
+    else {
+        msgbox(CaveOfOrigin_B1F_Text_IUnderstand)
+        setflag (FLAG_DRAGONS_DEN_WRONG_ANSWER)
+        goto (CaveOfOrigin_B1F_EventScript_DragonQuiz_Q2)
+    }
+}
+
+script CaveOfOrigin_B1F_EventScript_DragonQuiz_Q2 {
+    msgbox(format("Would you say that cheating is an effective way to win battles?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        msgbox(CaveOfOrigin_B1F_Text_IUnderstand)
+        setflag (FLAG_DRAGONS_DEN_WRONG_ANSWER)
+        goto (CaveOfOrigin_B1F_EventScript_DragonQuiz_Q3)
+    }
+    else {
+        msgbox(CaveOfOrigin_B1F_Text_IUnderstand)
+        goto (CaveOfOrigin_B1F_EventScript_DragonQuiz_Q3)
+    }
+}
+
+script CaveOfOrigin_B1F_EventScript_DragonQuiz_Q3 {
+    msgbox(format("Would you say having fun while battling is more important than winning?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        msgbox(CaveOfOrigin_B1F_Text_IUnderstand)
+        goto (CaveOfOrigin_B1F_EventScript_DragonQuiz_Q4)
+    }
+    else {
+        msgbox(CaveOfOrigin_B1F_Text_IUnderstand)
+        setflag (FLAG_DRAGONS_DEN_WRONG_ANSWER)
+        goto (CaveOfOrigin_B1F_EventScript_DragonQuiz_Q4)
+    }
+}
+
+script CaveOfOrigin_B1F_EventScript_DragonQuiz_Q4 {
+    msgbox(format("Would you say absolute obedience is important for raising POKéMON?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        msgbox(CaveOfOrigin_B1F_Text_IUnderstand)
+        setflag (FLAG_DRAGONS_DEN_WRONG_ANSWER)
+        goto (CaveOfOrigin_B1F_EventScript_DragonQuiz_Q5)
+    }
+    else {
+        msgbox(CaveOfOrigin_B1F_Text_IUnderstand)
+        goto (CaveOfOrigin_B1F_EventScript_DragonQuiz_Q5)
+    }
+}
+
+script CaveOfOrigin_B1F_EventScript_DragonQuiz_Q5 {
+    msgbox(format("Would you say strong POKéMON are more important than weak POKéMON?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        msgbox(CaveOfOrigin_B1F_Text_IUnderstand)
+        setflag (FLAG_DRAGONS_DEN_WRONG_ANSWER)
+        goto (CaveOfOrigin_B1F_EventScript_DragonQuiz_End)
+    }
+    else {
+        msgbox(CaveOfOrigin_B1F_Text_IUnderstand)
+        goto (CaveOfOrigin_B1F_EventScript_DragonQuiz_End)
+    }
+}
+
+script CaveOfOrigin_B1F_EventScript_DragonQuiz_End {
+    if (flag(FLAG_DRAGONS_DEN_WRONG_ANSWER)) {
+        msgbox(format("Hmm... I see...\pUnfortunately, it seems your values do not align with the values of our clan.\pYou are welcome to try again tomorrow.\pPlease, take some time to reflect upon what is truly important in this world."))
+        setflag (FLAG_DENIED_DRAGONS_DEN_MON)
+        release
+        end
+    }
+    else {
+        msgbox(format("Hmm... I see...\nYou care deeply for POKéMON.\pVery commendable.\p{PLAYER}, don't lose that belief.\p...\pDragon POKéMON are symbolic of our clan.\pYou have shown that you can be entrusted with one.\pPlease, take this POKéMON as proof that I now know your worth."))
+		setvar (VAR_TEMP_1, SPECIES_GIBLE)
+        givemon (SPECIES_GIBLE, 20, ITEM_LUCKY_EGG)
+        goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PARTY, CaveOfOrigin_B1F_EventScript_ReceiveGibleParty)
+        goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PC, CaveOfOrigin_B1F_EventScript_ReceiveGiblePC)
+        goto (Common_EventScript_NoMoreRoomForPokemon)
+        end
+    }
+}
+
+script CaveOfOrigin_B1F_EventScript_ReceiveGibleParty {
+	call (CaveOfOrigin_B1F_EventScript_ReceivedGibleFanfare)
+	msgbox (gText_NicknameThisPokemon, MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, NO, CaveOfOrigin_B1F_EventScript_ExplainGible)
+	call (Common_EventScript_GetGiftMonPartySlot)
+	call (Common_EventScript_NameReceivedPartyMon)
+	goto (CaveOfOrigin_B1F_EventScript_ExplainGible)
+	end
+}
+
+script CaveOfOrigin_B1F_EventScript_ReceiveGiblePC {
+	call (CaveOfOrigin_B1F_EventScript_ReceivedGibleFanfare)
+	msgbox (gText_NicknameThisPokemon, MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, NO, CaveOfOrigin_B1F_EventScript_SendGibleToPC)
+	call (Common_EventScript_NameReceivedBoxMon)
+	goto (CaveOfOrigin_B1F_EventScript_SendGibleToPC)
+	end
+}
+
+script CaveOfOrigin_B1F_EventScript_SendGibleToPC {
+	call (Common_EventScript_TransferredToPC)
+	goto (CaveOfOrigin_B1F_EventScript_ExplainGible)
+	end
+}
+
+script CaveOfOrigin_B1F_EventScript_ReceivedGibleFanfare {
+	bufferspeciesname (STR_VAR_2, SPECIES_GIBLE)
+	playfanfare (MUS_OBTAIN_ITEM)
+	msgbox(format("{PLAYER} received Gible from the Dragon Master!"))
+	waitmessage
+	waitfanfare
+	bufferspeciesname (STR_VAR_1, SPECIES_GIBLE)
+	return
+}
+
+script CaveOfOrigin_B1F_EventScript_ExplainGible {
+	msgbox(format("Please take good care of Gible.\pMay it see you through the POKéMON League as a beloved ally."))
+	setflag (FLAG_RECEIVED_DRAGONS_DEN_MON)
+	release
+	end
+}
+
+script CaveOfOrigin_B1F_EventScript_LeftSage {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_DRAGONS_DEN_MON)) {
+        msgbox(format("Only the select few pass the Dragon Master Challenge.\pThere is no denying your great love for POKéMON."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Only the select few pass the Dragon Master Challenge."))
+        release
+        end
+    }
+}
+
+script CaveOfOrigin_B1F_EventScript_RightSage {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_DRAGONS_DEN_MON)) {
+        msgbox(format("Our clan has trained Dragon POKéMON for generations.\pSince you passed the Dragon Master Challenge, you must also see POKéMON as both friends and allies."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Our clan has trained Dragon POKéMON for generations, they are our friends and allies."))
+        release
+        end
+    }
+}
+
+text CaveOfOrigin_B1F_Text_IUnderstand {
+    format("Oh, I understand...")
+}

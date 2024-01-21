@@ -96,8 +96,8 @@
 #define FLAG_RESCUED_BIRCH                       0x52
 #define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0x53
 
-#define FLAG_UNUSED_0x054                    0x54  // Unused Flag
-#define FLAG_UNUSED_0x055                    0x55  // Unused Flag
+#define FLAG_DRAGON_SCALE_BLACKTHORN         0x54  // Item in dragons den
+#define FLAG_DRAGON_FANG_BLACKTHORN          0x55  // Item in dragons den
 
 #define FLAG_HIDE_CONTEST_POKE_BALL          0x56  // Always set after new game, object it hides is added directly
 #define FLAG_MET_RIVAL_MOM                   0x57
@@ -1241,9 +1241,9 @@
 #define FLAG_BLACKTHORN_GYM_LEFT_EYE                                0x4A8 // Light up left eye
 #define FLAG_BLACKTHORN_GYM_RIGHT_EYE                               0x4A9 // Light up right eye
 #define FLAG_BLACKTHORN_GYM_STATUE_OPEN                             0x4AA // Raise dragon head
-#define FLAG_UNUSED_0x4AB                                           0x4AB // Unused Flag
-#define FLAG_UNUSED_0x4AC                                           0x4AC // Unused Flag
-#define FLAG_UNUSED_0x4AD                                           0x4AD // Unused Flag
+#define FLAG_RECEIVED_DRAGONS_DEN_MON                               0x4AB // After answering questions in dragons den
+#define FLAG_DRAGONS_DEN_WRONG_ANSWER                               0x4AC // Will set denied flag at end of quiz
+#define FLAG_RECEIVED_RAIN_DANCE                                    0x4AD // Man in Cherrygrove house
 #define FLAG_UNUSED_0x4AE                                           0x4AE // Unused Flag
 #define FLAG_UNUSED_0x4AF                                           0x4AF // Unused Flag
 #define FLAG_UNUSED_0x4B0                                           0x4B0 // Unused Flag
@@ -1569,7 +1569,7 @@
 #define FLAG_DAILY_CONTEST_LOBBY_RECEIVED_BERRY     (DAILY_FLAGS_START + 0x1)
 #define FLAG_DAILY_SECRET_BASE                      (DAILY_FLAGS_START + 0x2)
 #define FLAG_DAILY_GOLDENROD_GROOMER                (DAILY_FLAGS_START + 0x3)  // Unused Flag
-#define FLAG_UNUSED_0x924                           (DAILY_FLAGS_START + 0x4)  // Unused Flag
+#define FLAG_DENIED_DRAGONS_DEN_MON                 (DAILY_FLAGS_START + 0x4)  // If didn't pass test, can retake next day
 #define FLAG_UNUSED_0x925                           (DAILY_FLAGS_START + 0x5)  // Unused Flag
 #define FLAG_UNUSED_0x926                           (DAILY_FLAGS_START + 0x6)  // Unused Flag
 #define FLAG_UNUSED_0x927                           (DAILY_FLAGS_START + 0x7)  // Unused Flag

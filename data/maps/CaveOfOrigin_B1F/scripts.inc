@@ -1,120 +1,293 @@
-.set LOCALID_WALLACE, 1
-
 CaveOfOrigin_B1F_MapScripts::
 	.byte 0
 
-CaveOfOrigin_B1F_EventScript_Wallace::
+
+CaveOfOrigin_B1F_EventScript_Master::
 	lock
 	faceplayer
-	msgbox CaveOfOrigin_B1F_Text_WallaceStory, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_WALLACE, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	delay 60
-	playse SE_PIN
-	applymovement LOCALID_WALLACE, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_WALLACE, Common_Movement_Delay48
-	waitmovement 0
-	delay 30
-	applymovement LOCALID_WALLACE, Common_Movement_FacePlayer
-	waitmovement 0
-	message CaveOfOrigin_B1F_Text_WhereIsRayquaza
-	waitmessage
-	goto CaveOfOrigin_B1F_EventScript_WheresRayquaza
-
-CaveOfOrigin_B1F_EventScript_WheresRayquaza::
-	multichoice 0, 0, MULTI_WHERES_RAYQUAZA, FALSE
-	switch VAR_RESULT
-	case 0, CaveOfOrigin_B1F_EventScript_AtCaveOfOrigin
-	case 1, CaveOfOrigin_B1F_EventScript_AtMtPyre
-	case 2, CaveOfOrigin_B1F_EventScript_AtSkyPillar
-	case 3, CaveOfOrigin_B1F_EventScript_DontRemember
-	goto CaveOfOrigin_B1F_EventScript_DontRemember
-	end
-
-CaveOfOrigin_B1F_EventScript_AtCaveOfOrigin::
-	message CaveOfOrigin_B1F_Text_ButWereInCaveOfOrigin
-	waitmessage
-	goto CaveOfOrigin_B1F_EventScript_WheresRayquaza
-
-CaveOfOrigin_B1F_EventScript_AtMtPyre::
-	message CaveOfOrigin_B1F_Text_OldLadyDidntMentionThat
-	waitmessage
-	goto CaveOfOrigin_B1F_EventScript_WheresRayquaza
-
-CaveOfOrigin_B1F_EventScript_DontRemember::
-	message CaveOfOrigin_B1F_Text_CantYouRememberSomehow
-	waitmessage
-	goto CaveOfOrigin_B1F_EventScript_WheresRayquaza
-
-CaveOfOrigin_B1F_EventScript_AtSkyPillar::
-	msgbox CaveOfOrigin_B1F_Text_WellHeadToSkyPillar, MSGBOX_DEFAULT
-	closemessage
-	playse SE_EXIT
-	fadescreenspeed FADE_TO_BLACK, 4
-	setflag FLAG_WALLACE_GOES_TO_SKY_PILLAR
-	setvar VAR_SOOTOPOLIS_CITY_STATE, 3
-	removeobject LOCALID_WALLACE
-	clearflag FLAG_HIDE_SKY_PILLAR_WALLACE
-	fadescreen FADE_FROM_BLACK
+	dotimebasedevents
+	goto_if_set FLAG_RECEIVED_DRAGONS_DEN_MON, CaveOfOrigin_B1F_EventScript_Master_1
+	goto_if_set FLAG_DENIED_DRAGONS_DEN_MON, CaveOfOrigin_B1F_EventScript_Master_2
+	msgbox CaveOfOrigin_B1F_EventScript_Master_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq CaveOfOrigin_B1F_EventScript_Master_6
+	msgbox CaveOfOrigin_B1F_EventScript_Master_Text_3
 	release
 	end
 
-CaveOfOrigin_B1F_Text_WallaceStory:
-	.string "Ah, so you are {PLAYER}{KUN}?\n"
-	.string "I've heard tales of your exploits.\p"
-	.string "My name is WALLACE.\p"
-	.string "I was once the GYM LEADER of\n"
-	.string "SOOTOPOLIS, but something came up.\p"
-	.string "So now, I've entrusted my mentor JUAN\n"
-	.string "with the GYM's operation.\p"
-	.string "… … … … … …\n"
-	.string "… … … … … …\p"
-	.string "GROUDON and KYOGRE, the two POKéMON\n"
-	.string "wreaking havoc here, are considered\l"
-	.string "to be super-ancient POKéMON.\p"
-	.string "But there aren't just two super-\n"
-	.string "ancient POKéMON.\p"
-	.string "There is one more somewhere.\p"
-	.string "Somewhere, there is a super-\n"
-	.string "ancient POKéMON named RAYQUAZA.\p"
-	.string "It's said that it was RAYQUAZA that\n"
-	.string "becalmed the two combatants in\l"
-	.string "the distant past.\p"
-	.string "But even I have no clue as to\n"
-	.string "RAYQUAZA's whereabouts…$"
+CaveOfOrigin_B1F_EventScript_Master_1:
+	msgbox CaveOfOrigin_B1F_EventScript_Master_Text_0
+	release
+	end
 
-CaveOfOrigin_B1F_Text_WhereIsRayquaza:
-	.string "WALLACE: {PLAYER}{KUN}, do you perhaps\n"
-	.string "know where RAYQUAZA is now?\p"
-	.string "If you do, please tell me.$"
+CaveOfOrigin_B1F_EventScript_Master_2:
+	msgbox CaveOfOrigin_B1F_EventScript_Master_Text_1
+	release
+	end
 
-CaveOfOrigin_B1F_Text_ButWereInCaveOfOrigin:
-	.string "WALLACE: The CAVE OF ORIGIN?\p"
-	.string "But that's right here!\n"
-	.string "I need you to do better than that!\p"
-	.string "Please, I need you to think about\n"
-	.string "where RAYQUAZA might be right now.$"
+CaveOfOrigin_B1F_EventScript_Master_6:
+	goto CaveOfOrigin_B1F_EventScript_DragonQuiz
+	return
 
-CaveOfOrigin_B1F_Text_OldLadyDidntMentionThat:
-	.string "WALLACE: MT. PYRE?\p"
-	.string "But when I met the old lady there\n"
-	.string "earlier, she made no mention of it.\p"
-	.string "I very much doubt that the old lady\n"
-	.string "would try to hide something from me…\p"
-	.string "{PLAYER}{KUN}, could you think about this\n"
-	.string "more carefully for me?$"
 
-CaveOfOrigin_B1F_Text_CantYouRememberSomehow:
-	.string "WALLACE: Huh? You don't remember?\n"
-	.string "Hmm… That's a problem…\p"
-	.string "Can't you remember somehow?$"
+CaveOfOrigin_B1F_EventScript_DragonQuiz::
+	clearflag FLAG_DRAGONS_DEN_WRONG_ANSWER
+	msgbox CaveOfOrigin_B1F_EventScript_DragonQuiz_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq CaveOfOrigin_B1F_EventScript_DragonQuiz_1
+	msgbox CaveOfOrigin_B1F_Text_IUnderstand
+	setflag FLAG_DRAGONS_DEN_WRONG_ANSWER
+	goto CaveOfOrigin_B1F_EventScript_DragonQuiz_Q2
+	return
 
-CaveOfOrigin_B1F_Text_WellHeadToSkyPillar:
-	.string "WALLACE: The SKY PILLAR?\p"
-	.string "That's it!\n"
-	.string "It must be the SKY PILLAR!\p"
-	.string "{PLAYER}{KUN}, there's not a moment to lose!\n"
-	.string "We'll head to the SKY PILLAR right away!$"
+CaveOfOrigin_B1F_EventScript_DragonQuiz_1:
+	msgbox CaveOfOrigin_B1F_Text_IUnderstand
+	goto CaveOfOrigin_B1F_EventScript_DragonQuiz_Q2
+	return
 
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_Q2::
+	msgbox CaveOfOrigin_B1F_EventScript_DragonQuiz_Q2_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq CaveOfOrigin_B1F_EventScript_DragonQuiz_Q2_1
+	msgbox CaveOfOrigin_B1F_Text_IUnderstand
+	goto CaveOfOrigin_B1F_EventScript_DragonQuiz_Q3
+	return
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_Q2_1:
+	msgbox CaveOfOrigin_B1F_Text_IUnderstand
+	setflag FLAG_DRAGONS_DEN_WRONG_ANSWER
+	goto CaveOfOrigin_B1F_EventScript_DragonQuiz_Q3
+	return
+
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_Q3::
+	msgbox CaveOfOrigin_B1F_EventScript_DragonQuiz_Q3_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq CaveOfOrigin_B1F_EventScript_DragonQuiz_Q3_1
+	msgbox CaveOfOrigin_B1F_Text_IUnderstand
+	setflag FLAG_DRAGONS_DEN_WRONG_ANSWER
+	goto CaveOfOrigin_B1F_EventScript_DragonQuiz_Q4
+	return
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_Q3_1:
+	msgbox CaveOfOrigin_B1F_Text_IUnderstand
+	goto CaveOfOrigin_B1F_EventScript_DragonQuiz_Q4
+	return
+
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_Q4::
+	msgbox CaveOfOrigin_B1F_EventScript_DragonQuiz_Q4_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq CaveOfOrigin_B1F_EventScript_DragonQuiz_Q4_1
+	msgbox CaveOfOrigin_B1F_Text_IUnderstand
+	goto CaveOfOrigin_B1F_EventScript_DragonQuiz_Q5
+	return
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_Q4_1:
+	msgbox CaveOfOrigin_B1F_Text_IUnderstand
+	setflag FLAG_DRAGONS_DEN_WRONG_ANSWER
+	goto CaveOfOrigin_B1F_EventScript_DragonQuiz_Q5
+	return
+
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_Q5::
+	msgbox CaveOfOrigin_B1F_EventScript_DragonQuiz_Q5_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq CaveOfOrigin_B1F_EventScript_DragonQuiz_Q5_1
+	msgbox CaveOfOrigin_B1F_Text_IUnderstand
+	goto CaveOfOrigin_B1F_EventScript_DragonQuiz_End
+	return
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_Q5_1:
+	msgbox CaveOfOrigin_B1F_Text_IUnderstand
+	setflag FLAG_DRAGONS_DEN_WRONG_ANSWER
+	goto CaveOfOrigin_B1F_EventScript_DragonQuiz_End
+	return
+
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_End::
+	goto_if_set FLAG_DRAGONS_DEN_WRONG_ANSWER, CaveOfOrigin_B1F_EventScript_DragonQuiz_End_1
+	msgbox CaveOfOrigin_B1F_EventScript_DragonQuiz_End_Text_1
+	setvar VAR_TEMP_1, SPECIES_GIBLE
+	givemon SPECIES_GIBLE, 20, ITEM_LUCKY_EGG
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, CaveOfOrigin_B1F_EventScript_ReceiveGibleParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, CaveOfOrigin_B1F_EventScript_ReceiveGiblePC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_End_1:
+	msgbox CaveOfOrigin_B1F_EventScript_DragonQuiz_End_Text_0
+	setflag FLAG_DENIED_DRAGONS_DEN_MON
+	release
+	end
+
+
+CaveOfOrigin_B1F_EventScript_ReceiveGibleParty::
+	call CaveOfOrigin_B1F_EventScript_ReceivedGibleFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CaveOfOrigin_B1F_EventScript_ExplainGible
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto CaveOfOrigin_B1F_EventScript_ExplainGible
+	end
+
+
+CaveOfOrigin_B1F_EventScript_ReceiveGiblePC::
+	call CaveOfOrigin_B1F_EventScript_ReceivedGibleFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CaveOfOrigin_B1F_EventScript_SendGibleToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto CaveOfOrigin_B1F_EventScript_SendGibleToPC
+	end
+
+
+CaveOfOrigin_B1F_EventScript_SendGibleToPC::
+	call Common_EventScript_TransferredToPC
+	goto CaveOfOrigin_B1F_EventScript_ExplainGible
+	end
+
+
+CaveOfOrigin_B1F_EventScript_ReceivedGibleFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_GIBLE
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox CaveOfOrigin_B1F_EventScript_ReceivedGibleFanfare_Text_0
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_GIBLE
+	return
+
+
+CaveOfOrigin_B1F_EventScript_ExplainGible::
+	msgbox CaveOfOrigin_B1F_EventScript_ExplainGible_Text_0
+	setflag FLAG_RECEIVED_DRAGONS_DEN_MON
+	release
+	end
+
+
+CaveOfOrigin_B1F_EventScript_LeftSage::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_DRAGONS_DEN_MON, CaveOfOrigin_B1F_EventScript_LeftSage_1
+	msgbox CaveOfOrigin_B1F_EventScript_LeftSage_Text_1
+	release
+	end
+
+CaveOfOrigin_B1F_EventScript_LeftSage_1:
+	msgbox CaveOfOrigin_B1F_EventScript_LeftSage_Text_0
+	release
+	end
+
+
+CaveOfOrigin_B1F_EventScript_RightSage::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_DRAGONS_DEN_MON, CaveOfOrigin_B1F_EventScript_RightSage_1
+	msgbox CaveOfOrigin_B1F_EventScript_RightSage_Text_1
+	release
+	end
+
+CaveOfOrigin_B1F_EventScript_RightSage_1:
+	msgbox CaveOfOrigin_B1F_EventScript_RightSage_Text_0
+	release
+	end
+
+
+CaveOfOrigin_B1F_EventScript_Master_Text_0:
+	.string "Hmm... Good to see you here.\p"
+	.string "I trust you are treating Gible well.$"
+
+CaveOfOrigin_B1F_EventScript_Master_Text_1:
+	.string "You are welcome to try the Dragon\n"
+	.string "Master Challenge again tomorrow.\p"
+	.string "Please, take some time to reflect upon\n"
+	.string "what is truly important in this world.$"
+
+CaveOfOrigin_B1F_EventScript_Master_Text_2:
+	.string "Hmm... Good to see you here.\p"
+	.string "No need to explain why you came.\p"
+	.string "CLAIR sent you here, didn't she?\p"
+	.string "She must have taken a liking to you.\p"
+	.string "Very well, are you ready to take the\n"
+	.string "Dragon Master Challenge?$"
+
+CaveOfOrigin_B1F_EventScript_Master_Text_3:
+	.string "I see...\p"
+	.string "Please come back when you feel you are\n"
+	.string "more prepared.$"
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_Text_0:
+	.string "Then let's begin.\p"
+	.string "Would you say that POKéMON are meant\n"
+	.string "to be our friends?$"
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_Q2_Text_0:
+	.string "Would you say that cheating is an\n"
+	.string "effective way to win battles?$"
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_Q3_Text_0:
+	.string "Would you say having fun while battling\n"
+	.string "is more important than winning?$"
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_Q4_Text_0:
+	.string "Would you say absolute obedience is\n"
+	.string "important for raising POKéMON?$"
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_Q5_Text_0:
+	.string "Would you say strong POKéMON are more\n"
+	.string "important than weak POKéMON?$"
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_End_Text_0:
+	.string "Hmm... I see...\p"
+	.string "Unfortunately, it seems your values do\n"
+	.string "not align with the values of our clan.\p"
+	.string "You are welcome to try again tomorrow.\p"
+	.string "Please, take some time to reflect upon\n"
+	.string "what is truly important in this world.$"
+
+CaveOfOrigin_B1F_EventScript_DragonQuiz_End_Text_1:
+	.string "Hmm... I see...\n"
+	.string "You care deeply for POKéMON.\p"
+	.string "Very commendable.\p"
+	.string "{PLAYER}, don't lose that belief.\p"
+	.string "...\p"
+	.string "Dragon POKéMON are symbolic of our\n"
+	.string "clan.\p"
+	.string "You have shown that you can be\n"
+	.string "entrusted with one.\p"
+	.string "Please, take this POKéMON as proof that\n"
+	.string "I now know your worth.$"
+
+CaveOfOrigin_B1F_EventScript_ReceivedGibleFanfare_Text_0:
+	.string "{PLAYER} received Gible from the\n"
+	.string "Dragon Master!$"
+
+CaveOfOrigin_B1F_EventScript_ExplainGible_Text_0:
+	.string "Please take good care of Gible.\p"
+	.string "May it see you through the POKéMON\n"
+	.string "League as a beloved ally.$"
+
+CaveOfOrigin_B1F_EventScript_LeftSage_Text_0:
+	.string "Only the select few pass the Dragon\n"
+	.string "Master Challenge.\p"
+	.string "There is no denying your great love for\n"
+	.string "POKéMON.$"
+
+CaveOfOrigin_B1F_EventScript_LeftSage_Text_1:
+	.string "Only the select few pass the Dragon\n"
+	.string "Master Challenge.$"
+
+CaveOfOrigin_B1F_EventScript_RightSage_Text_0:
+	.string "Our clan has trained Dragon POKéMON for\n"
+	.string "generations.\p"
+	.string "Since you passed the Dragon Master\n"
+	.string "Challenge, you must also see POKéMON\l"
+	.string "as both friends and allies.$"
+
+CaveOfOrigin_B1F_EventScript_RightSage_Text_1:
+	.string "Our clan has trained Dragon POKéMON for\n"
+	.string "generations, they are our friends and\l"
+	.string "allies.$"
+
+CaveOfOrigin_B1F_Text_IUnderstand::
+	.string "Oh, I understand...$"
