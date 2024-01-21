@@ -1,3 +1,22 @@
 SeafloorCavern_Room8_MapScripts::
 	.byte 0
 
+
+SeafloorCavern_Room8_EventScript_Lugia::
+	lock
+	waitse
+	playmoncry SPECIES_LUGIA, CRY_MODE_NORMAL
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 8
+	setvar VAR_0x8007, 5
+	special ShakeCamera
+	waitstate
+	waitmoncry
+	setwildbattle SPECIES_LUGIA, 70
+	dowildbattle
+	removeobject 1
+	setflag FLAG_CAUGHT_LUGIA
+	release
+	end
+

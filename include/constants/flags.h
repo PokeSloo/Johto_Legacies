@@ -1244,9 +1244,9 @@
 #define FLAG_RECEIVED_DRAGONS_DEN_MON                               0x4AB // After answering questions in dragons den
 #define FLAG_DRAGONS_DEN_WRONG_ANSWER                               0x4AC // Will set denied flag at end of quiz
 #define FLAG_RECEIVED_RAIN_DANCE                                    0x4AD // Man in Cherrygrove house
-#define FLAG_UNUSED_0x4AE                                           0x4AE // Unused Flag
-#define FLAG_UNUSED_0x4AF                                           0x4AF // Unused Flag
-#define FLAG_UNUSED_0x4B0                                           0x4B0 // Unused Flag
+#define FLAG_CAUGHT_ZAPDOS                                          0x4AE // Whirl Islands
+#define FLAG_CAUGHT_MOLTRES                                         0x4AF // Whirl Islands
+#define FLAG_CAUGHT_ARTICUNO                                        0x4B0 // Whirl Islands
 #define FLAG_UNUSED_0x4B1                                           0x4B1 // Unused Flag
 #define FLAG_UNUSED_0x4B2                                           0x4B2 // Unused Flag
 #define FLAG_UNUSED_0x4B3                                           0x4B3 // Unused Flag

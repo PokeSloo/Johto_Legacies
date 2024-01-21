@@ -34,3 +34,20 @@ SeafloorCavern_Room1_Text_Grunt2PostBattle:
 	.string "it's brutal as a ride.\l"
 	.string "It's way too tight in there!$"
 
+SeafloorCavern_Room1_EventScript_Moltres::
+	lock
+	waitse
+	playmoncry SPECIES_MOLTRES, CRY_MODE_NORMAL
+	msgbox SeafloorCavern_Room1_EventScript_Moltres_Text_0
+	waitmessage
+	waitmoncry
+	setwildbattle SPECIES_MOLTRES, 50
+	dowildbattle
+	removeobject 4
+	setflag FLAG_CAUGHT_MOLTRES
+	release
+	end
+
+
+SeafloorCavern_Room1_EventScript_Moltres_Text_0:
+	.string "Gyaoo!$"

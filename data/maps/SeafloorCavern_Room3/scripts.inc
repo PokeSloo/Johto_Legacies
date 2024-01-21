@@ -56,3 +56,20 @@ SeafloorCavern_Room3_Text_Grunt5PostBattle:
 	.string "Maybe…\n"
 	.string "You must be something…$"
 
+SeafloorCavern_Room3_EventScript_Articuno::
+	lock
+	waitse
+	playmoncry SPECIES_ARTICUNO, CRY_MODE_NORMAL
+	msgbox SeafloorCavern_Room3_EventScript_Articuno_Text_0
+	waitmessage
+	waitmoncry
+	setwildbattle SPECIES_ARTICUNO, 50
+	dowildbattle
+	removeobject 8
+	setflag FLAG_CAUGHT_ARTICUNO
+	release
+	end
+
+
+SeafloorCavern_Room3_EventScript_Articuno_Text_0:
+	.string "Gyaoo!$"

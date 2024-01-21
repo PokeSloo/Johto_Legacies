@@ -128,8 +128,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "SeafloorCavern_Room2_EventScript_Zapdos",
+      "flag": "FLAG_CAUGHT_ZAPDOS"
     }
   ],
   "warp_events": [
