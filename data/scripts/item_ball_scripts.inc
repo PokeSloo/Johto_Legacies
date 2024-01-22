@@ -159,19 +159,15 @@ Route118_EventScript_ItemHyperPotion::
 	end
 
 Route119_EventScript_ItemSuperRepel::
-	finditem ITEM_SUPER_REPEL
+	finditem ITEM_MAX_REPEL
 	end
 
 Route119_EventScript_ItemZinc::
 	finditem ITEM_ZINC
 	end
 
-Route119_EventScript_ItemElixir::
-	finditem ITEM_ELIXIR
-	end
-
 Route119_EventScript_ItemLeafStone::
-	finditem ITEM_LEAF_STONE
+	finditem ITEM_PROTECTIVE_PADS
 	end
 
 Route119_EventScript_ItemRareCandy::
@@ -183,7 +179,7 @@ Route119_EventScript_ItemHyperPotion::
 	end
 
 Route119_EventScript_ItemHyperPotion2::
-	finditem ITEM_HYPER_POTION
+	finditem ITEM_FULL_RESTORE
 	end
 
 Route119_EventScript_ItemElixir2::
@@ -343,7 +339,7 @@ PetalburgWoods_EventScript_ItemParalyzeHeal::
 	end
 
 RusturfTunnel_EventScript_ItemPokeBall::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_MOON_STONE
 	end
 
 RusturfTunnel_EventScript_ItemMaxEther::

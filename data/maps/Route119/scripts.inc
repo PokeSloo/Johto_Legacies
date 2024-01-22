@@ -9,10 +9,6 @@ Route119_EventScript_RouteSignFortree::
 	msgbox Route119_Text_RouteSignFortree, MSGBOX_SIGN
 	end
 
-Route119_EventScript_WeatherInstituteSign::
-	msgbox Route119_Text_WeatherInstitute, MSGBOX_SIGN
-	end
-
 Route119_EventScript_Brent::
 	trainerbattle_single TRAINER_BRENT, Route119_Text_BrentIntro, Route119_Text_BrentDefeat
 	msgbox Route119_Text_BrentPostBattle, MSGBOX_AUTOCLOSE
@@ -173,13 +169,11 @@ Route119_Text_DontGoNearWeatherInstitute:
 	.string "WEATHER INSTITUTE.$"
 
 Route119_Text_ThoughtFlyByCatchingBirdMons:
-	.string "I thought you FLY by catching a whole\n"
-	.string "flock of BIRD POKéMON, and then\l"
-	.string "hanging on to them somehow.\p"
-	.string "But it turns out there's an HM move\n"
-	.string "called FLY!\p"
-	.string "I wish I'd known about that a long\n"
-	.string "time ago…$"
+	.string "I'm no TRAINER, but they're all over this\n"
+	.string "route.\p"
+	.string "They're all preparing for the POKéMON\n"
+	.string "League.\p"
+	.string "I'm just out for a stroll.$"
 
 Route119_Text_TallGrassSnaresBikeTires:
 	.string "Tch…\n"
@@ -188,22 +182,15 @@ Route119_Text_TallGrassSnaresBikeTires:
 	.string "There's no way you can cycle here.$"
 
 Route119_Text_CanYourMonMakeSecretBase:
-	.string "Can your POKéMON use its SECRET POWER\n"
-	.string "on a big pile of grass and make a\l"
-	.string "SECRET BASE?$"
+	.string "Someone told me you can go this way to\n"
+	.string "get to Kanto, but I can't figure out how\l"
+	.string "to get past the waterfall in Tohjo\l"
+	.string "Falls.$"
 
 Route119_Text_RouteSignFortree:
-	.string "ROUTE 119\n"
-	.string "{RIGHT_ARROW} FORTREE CITY$"
-
-Route119_Text_WeatherInstitute:
-	.string "WEATHER INSTITUTE$"
+	.string "TOHJO FALLS\p"
+	.string "The link between Kanto and Johto$"
 
 Route119_Text_TrainerTipsDecoration:
-	.string "TRAINER TIPS\p"
-	.string "Up to sixteen decorations and\n"
-	.string "furniture items can be placed in\l"
-	.string "a SECRET BASE.\p"
-	.string "Pick your favorite items and create\n"
-	.string "your very own SECRET BASE exactly the\l"
-	.string "way you want.$"
+	.string "{LEFT_ARROW} West to NEW BARK TOWN\n"
+	.string "{RIGHT_ARROW} East to ROUTE 26$"

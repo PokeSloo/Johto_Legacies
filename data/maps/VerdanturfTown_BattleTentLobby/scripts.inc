@@ -28,8 +28,6 @@ VerdanturfTown_BattleTentLobby_EventScript_GetChallengeStatus::
 
 VerdanturfTown_BattleTentLobby_EventScript_QuitWithoutSaving::
 	lockall
-	msgbox BattleFrontier_BattlePalaceLobby_Text_FailedToSaveBeforeEndingChallenge, MSGBOX_DEFAULT
-	closemessage
 	frontier_set FRONTIER_DATA_CHALLENGE_STATUS, 0
 	setvar VAR_TEMP_0, 255
 	frontier_set FRONTIER_DATA_LVL_MODE, FRONTIER_LVL_50
@@ -64,9 +62,6 @@ VerdanturfTown_BattleTentLobby_EventScript_GivePrize::
 	end
 
 VerdanturfTown_BattleTentLobby_EventScript_NoRoomForPrize::
-	msgbox BattleFrontier_BattlePalaceLobby_Text_NoSpaceForPrize, MSGBOX_DEFAULT
-	waitmessage
-	closemessage
 	setvar VAR_TEMP_0, 255
 	releaseall
 	end
@@ -93,9 +88,6 @@ VerdanturfTown_BattleTentLobby_EventScript_LostChallenge::
 
 VerdanturfTown_BattleTentLobby_EventScript_ResumeChallenge::
 	lockall
-	msgbox BattleFrontier_BattlePalaceLobby_Text_WeHaveBeenWaiting, MSGBOX_DEFAULT
-	message BattleFrontier_BattlePalaceLobby_Text_MustSaveBeforeChallenge
-	waitmessage
 	verdanturftent_save CHALLENGE_STATUS_SAVING
 	playse SE_SAVE
 	waitse
@@ -277,20 +269,6 @@ VerdanturfTown_BattleTentLobby_EventScript_RulesBoard::
 	end
 
 VerdanturfTown_BattleTentLobby_EventScript_ReadRulesBoard::
-	message BattleFrontier_BattlePalaceLobby_Text_ReadWhichHeading
-	waitmessage
-	setvar VAR_0x8004, SCROLL_MULTI_BATTLE_TENT_RULES
-	special ShowScrollableMultichoice
-	waitstate
-	switch VAR_RESULT
-	case 0, VerdanturfTown_BattleTentLobby_EventScript_RulesLevel
-	case 1, VerdanturfTown_BattleTentLobby_EventScript_RulesBasics
-	case 2, VerdanturfTown_BattleTentLobby_EventScript_RulesNature
-	case 3, VerdanturfTown_BattleTentLobby_EventScript_RulesMoves
-	case 4, VerdanturfTown_BattleTentLobby_EventScript_RulesUnderpowered
-	case 5, VerdanturfTown_BattleTentLobby_EventScript_RulesWhenInDanger
-	case 6, VerdanturfTown_BattleTentLobby_EventScript_ExitRules
-	case MULTI_B_PRESSED, VerdanturfTown_BattleTentLobby_EventScript_ExitRules
 	end
 
 VerdanturfTown_BattleTentLobby_EventScript_RulesLevel::
@@ -299,27 +277,22 @@ VerdanturfTown_BattleTentLobby_EventScript_RulesLevel::
 	end
 
 VerdanturfTown_BattleTentLobby_EventScript_RulesBasics::
-	msgbox BattleFrontier_BattlePalaceLobby_Text_ExplainRulesBasics, MSGBOX_DEFAULT
 	goto VerdanturfTown_BattleTentLobby_EventScript_ReadRulesBoard
 	end
 
 VerdanturfTown_BattleTentLobby_EventScript_RulesNature::
-	msgbox BattleFrontier_BattlePalaceLobby_Text_ExplainRulesNature, MSGBOX_DEFAULT
 	goto VerdanturfTown_BattleTentLobby_EventScript_ReadRulesBoard
 	end
 
 VerdanturfTown_BattleTentLobby_EventScript_RulesMoves::
-	msgbox BattleFrontier_BattlePalaceLobby_Text_ExplainRulesMoves, MSGBOX_DEFAULT
 	goto VerdanturfTown_BattleTentLobby_EventScript_ReadRulesBoard
 	end
 
 VerdanturfTown_BattleTentLobby_EventScript_RulesUnderpowered::
-	msgbox BattleFrontier_BattlePalaceLobby_Text_ExplainRulesUnderpowered, MSGBOX_DEFAULT
 	goto VerdanturfTown_BattleTentLobby_EventScript_ReadRulesBoard
 	end
 
 VerdanturfTown_BattleTentLobby_EventScript_RulesWhenInDanger::
-	msgbox BattleFrontier_BattlePalaceLobby_Text_ExplainRulesWhenInDanger, MSGBOX_DEFAULT
 	goto VerdanturfTown_BattleTentLobby_EventScript_ReadRulesBoard
 	end
 

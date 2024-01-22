@@ -1,0 +1,51 @@
+mapscripts BattleFrontier_BattlePalaceLobby_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        if (flag(FLAG_CAUGHT_ROTOM)) {
+            setmetatile (4, 1, 0x002, TRUE)
+            end
+        }
+        elif (flag(FLAG_DIDNT_CATCH_ROTOM)) {
+            setmetatile (4, 1, 0x002, TRUE)
+            end
+        }
+    }
+}
+
+script BattleFrontier_BattlePalaceLobby_EventScript_TV {
+    lock
+    dotimebasedevents
+    if (flag(FLAG_CAUGHT_ROTOM)) {
+        release
+        end
+    }
+    elif (flag(FLAG_DIDNT_CATCH_ROTOM)) {
+        release
+        end
+    }
+    else {
+        waitse
+	    playmoncry (SPECIES_ROTOM, CRY_MODE_NORMAL)
+        msgbox(format("Zzzzt!"))
+        waitmessage
+        waitmoncry
+        setwildbattle (SPECIES_ROTOM, 20)
+        dowildbattle
+        specialvar (VAR_RESULT, GetBattleOutcome)
+	    goto_if_eq (VAR_RESULT, B_OUTCOME_WON, BattleFrontier_BattlePalaceLobby_EventScript_DefeatedRotom)
+	    goto_if_eq (VAR_RESULT, B_OUTCOME_RAN, BattleFrontier_BattlePalaceLobby_EventScript_DefeatedRotom)
+	    goto_if_eq (VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, BattleFrontier_BattlePalaceLobby_EventScript_DefeatedRotom)
+        setmetatile (4, 1, 0x002, TRUE)
+        special (DrawWholeMapView)
+        setflag(FLAG_CAUGHT_ROTOM)
+        release
+        end
+    }
+}
+
+script BattleFrontier_BattlePalaceLobby_EventScript_DefeatedRotom {
+    setmetatile (4, 1, 0x002, TRUE)
+    special (DrawWholeMapView)
+    setflag(FLAG_DIDNT_CATCH_ROTOM)
+    release
+    end
+}
