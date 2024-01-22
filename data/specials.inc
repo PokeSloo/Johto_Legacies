@@ -540,3 +540,11 @@ gSpecials::
 	def_special TimeTravelForwardClock
 	def_special FriendshipBreeder
 	def_special DestroyVirtualObjects
+	def_special CountRotomInParty
+	def_special GetRotomState
+	def_special RotomForgetSpecialMove
+	def_special ChangeRotomForm
+	def_special TeachRotomMove
+	def_special IsSelectedMonRotom
+	def_special DoesRotomKnowSpecialMove
+	def_special GetRotomNewSpecialMove
