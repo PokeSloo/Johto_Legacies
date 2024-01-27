@@ -49,28 +49,21 @@ Route114_Text_FunToThinkAboutBerries:
 	.string "ever want any more.$"
 
 Route120_Text_BerriesExpressionOfLoveIsntIt:
-	.string "BERRIES grow by soaking up sunlight.\p"
-	.string "We help the BERRIES grow by watering\n"
-	.string "them regularly.\p"
-	.string "It's an expression of love, isn't it?$"
-
-Route120_Text_YesYouUnderstand:
-	.string "Yes, yes.\n"
-	.string "You understand what I mean.\p"
-	.string "You should take this.$"
-
-Route120_Text_MakeYourOwnImpressions:
-	.string "Oh… But it is important to make your\n"
-	.string "own impressions, I guess…\p"
-	.string "You can have this.$"
+	.string "I've always lived here with my grandma,\n"
+	.string "she taught me to help others as much as\l"
+	.string "I can.\p"
+	.string "Here, you can have this...$"
 
 Route120_Text_BerryIsRareRaiseItWithCare:
-	.string "I think that BERRY is rare.\n"
-	.string "I hope you raise it with loving care.$"
+	.string "I think that BERRY is pretty rare, I\n"
+	.string "hope you put it to good use.\p"
+	.string "By the way, if your POKéMON are injured,\n"
+	.string "you should see my grandma inside.$"
 
 Route120_Text_IllGetMoreBerriesFromBerryMaster:
-	.string "I'll get more BERRIES from\n"
-	.string "the BERRY MASTER.$"
+	.string "That's all I have for you now, please\n"
+	.string "come back tomorrow if you want another\l"
+	.string "BERRY.$"
 
 LilycoveCity_Text_BerrySuitsYou:
 	.string "When it gets right down to it…\p"

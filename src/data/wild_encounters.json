@@ -4053,12 +4053,12 @@
               {
                 "min_level": 35,
                 "max_level": 38,
-                "species": "SPECIES_TALONFLAME"
+                "species": "SPECIES_SKORUPI"
               },
               {
                 "min_level": 34,
                 "max_level": 38,
-                "species": "SPECIES_PONYTA_GALARIAN"
+                "species": "SPECIES_SKORUPI"
               }
             ]
           },
@@ -4155,64 +4155,64 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 25,
-                "max_level": 25,
+                "min_level": 35,
+                "max_level": 38,
                 "species": "SPECIES_RATICATE"
               },
               {
-                "min_level": 25,
-                "max_level": 25,
+                "min_level": 36,
+                "max_level": 40,
                 "species": "SPECIES_ARBOK"
               },
               {
-                "min_level": 27,
-                "max_level": 27,
+                "min_level": 36,
+                "max_level": 40,
                 "species": "SPECIES_FALINKS"
               },
               {
-                "min_level": 25,
-                "max_level": 25,
-                "species": "SPECIES_DODUO"
+                "min_level": 36,
+                "max_level": 40,
+                "species": "SPECIES_DODRIO"
               },
               {
-                "min_level": 25,
-                "max_level": 25,
+                "min_level": 36,
+                "max_level": 40,
                 "species": "SPECIES_GUMSHOOS"
               },
               {
-                "min_level": 26,
-                "max_level": 26,
+                "min_level": 35,
+                "max_level": 38,
                 "species": "SPECIES_PONYTA"
               },
               {
-                "min_level": 27,
-                "max_level": 27,
+                "min_level": 35,
+                "max_level": 38,
                 "species": "SPECIES_PONYTA_GALARIAN"
               },
               {
-                "min_level": 27,
-                "max_level": 27,
+                "min_level": 36,
+                "max_level": 40,
                 "species": "SPECIES_SANDSLASH"
               },
               {
-                "min_level": 25,
-                "max_level": 25,
-                "species": "SPECIES_FLETCHINDER"
+                "min_level": 35,
+                "max_level": 38,
+                "species": "SPECIES_TALONFLAME"
               },
               {
-                "min_level": 27,
-                "max_level": 27,
-                "species": "SPECIES_FLETCHINDER"
+                "min_level": 35,
+                "max_level": 38,
+                "species": "SPECIES_TALONFLAME"
               },
               {
-                "min_level": 25,
-                "max_level": 25,
-                "species": "SPECIES_FLETCHINDER"
+                "min_level": 36,
+                "max_level": 40,
+                "species": "SPECIES_SCOLIPEDE"
               },
               {
-                "min_level": 25,
-                "max_level": 25,
-                "species": "SPECIES_FLETCHINDER"
+                "min_level": 36,
+                "max_level": 40,
+                "species": "SPECIES_SCOLIPEDE"
               }
             ]
           },

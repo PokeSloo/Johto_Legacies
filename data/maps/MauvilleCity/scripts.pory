@@ -319,7 +319,13 @@ script MauvilleCity_OnFrame_Later {
     removeobject (14)
     applymovement (OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_ShowPlayer)
 	waitmovement (0)
-    msgbox(format("DAD: I knew I could count on you, {PLAYER}.\pLucky for us, it appears that Ho-oh was calmed down by Lugia.\pMy intuition seems to have been correct, plus, you managed to find and awaken Lugia in no time!\pFeraligatr and I barely broke a sweat before you got here.\p...\pBoy, you and your brother sure have grown...\pIt's unfortunate that my duties as League Champion keep me so busy.\pSpeaking of which, you seem to be almost ready to challenge me.\pI see you only need one more badge.\pKeep it up, {PLAYER}!\pWell, I had better get back to the POKéMON League now.\pI look forward to our next meeting."))
+    msgbox(format("DAD: I knew I could count on you, {PLAYER}.\pLucky for us, it appears that Ho-oh was calmed down by Lugia.\pMy intuition seems to have been correct, plus, you managed to find and awaken Lugia in no time!\pFeraligatr and I barely broke a sweat before you got here.\p...\pBoy, you and your brother sure have grown...\pIt's unfortunate that my duties as League Champion keep me so busy.\pSpeaking of which, you seem to be almost ready to challenge me.\pI see you only need one more badge.\pKeep it up, {PLAYER}!"))
+    waitmessage
+    closemessage
+    playse (SE_POKENAV_CALL)
+    waitse
+    delay (30)
+    msgbox(format("DAD: Sorry, it looks like they need me back at the POKéMON League now.\pI hope to see you again soon, {PLAYER}."))
     waitmessage
     closemessage
     applymovement (12, MauvilleCity_Movement_SilverExit)

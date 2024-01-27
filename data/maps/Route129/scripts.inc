@@ -70,7 +70,7 @@ Route129_EventScript_Shane_1:
 	closemessage
 	applymovement 6, Route129_Movement_ShaneEnterGate
 	waitmovement 0
-	playse SE_DOOR
+	playse SE_EXIT
 	removeobject 6
 	waitse
 	setflag FLAG_HIDE_SHANE_ROUTE_43

@@ -341,6 +341,12 @@ MauvilleCity_OnFrame_Later::
 	msgbox MauvilleCity_OnFrame_Later_Text_0
 	waitmessage
 	closemessage
+	playse SE_POKENAV_CALL
+	waitse
+	delay 30
+	msgbox MauvilleCity_OnFrame_Later_Text_1
+	waitmessage
+	closemessage
 	applymovement 12, MauvilleCity_Movement_SilverExit
 	applymovement 11, MauvilleCity_Movement_FeraligatrExit
 	waitmovement 0
@@ -609,10 +615,13 @@ MauvilleCity_OnFrame_Later_Text_0:
 	.string "Speaking of which, you seem to be\n"
 	.string "almost ready to challenge me.\p"
 	.string "I see you only need one more badge.\p"
-	.string "Keep it up, {PLAYER}!\p"
-	.string "Well, I had better get back to the\n"
-	.string "POKéMON League now.\p"
-	.string "I look forward to our next meeting.$"
+	.string "Keep it up, {PLAYER}!$"
+
+MauvilleCity_OnFrame_Later_Text_1:
+	.string "DAD: Sorry, it looks like they need me\n"
+	.string "back at the POKéMON League now.\p"
+	.string "I hope to see you again soon,\n"
+	.string "{PLAYER}.$"
 
 MauvilleCity_EventScript_CitySign_Text_0:
 	.string "ECRUTEAK CITY\n"

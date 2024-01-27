@@ -243,9 +243,9 @@ LavaridgeTown_EventScript_ShaneTrigger_Text_1:
 	.string "Fine then, I'll just keep training.\p"
 	.string "Soon I'll beat you, and then overthrow\n"
 	.string "dad to become the Champion myself!\p"
-	.string "He'll have no choice but to acknowledge\n"
-	.string "me then...\p"
-	.string "...$"
+	.string "Maybe then he'll...\p"
+	.string "...\p"
+	.string "Forget it, I'm out!$"
 
 LavaridgeTown_Text_ShaneDefeated::
 	.string "This can't be happening...$"

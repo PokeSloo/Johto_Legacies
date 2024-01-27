@@ -2895,201 +2895,207 @@ Route119_Text_RachelPostBattle:
 	.string "outcome...$"
 
 Route120_Text_ColinIntro:
-	.string "Do you have any moves that can strike\n"
-	.string "a flying POKéMON?$"
+	.string "Didn't roll your ankle jumping down the\n"
+	.string "ledges, did you?\p"
+	.string "Fwahaha!$"
 
 Route120_Text_ColinDefeat:
-	.string "You soared above me!$"
+	.string "Oh, I guess you rolled me!$"
 
 Route120_Text_ColinPostBattle:
-	.string "The move FLY is convenient,\n"
-	.string "don't you think?\p"
-	.string "While the POKéMON is flying,\n"
-	.string "almost no moves can strike it.$"
+	.string "This rocky terrain isn't for everyone,\n"
+	.string "but I love it!$"
 
 Route120_Text_RobertIntro:
-	.string "My POKéMON is strong!\n"
-	.string "How about yours?$"
+	.string "I have already forseen my victory at\n"
+	.string "the POKéMON League!\p"
+	.string "This battle will be a piece of cake in\n"
+	.string "comparison!$"
 
 Route120_Text_RobertDefeat:
-	.string "Your POKéMON were stronger…$"
+	.string "Unfortunately, I haven't seen how long\n"
+	.string "until I claim victory at the POKéMON\l"
+	.string "League...$"
 
 Route120_Text_RobertPostBattle:
-	.string "A POKéMON that grows steadily is one\n"
-	.string "you can count on.$"
+	.string "My vision of defeating the POKéMON\n"
+	.string "League is still crystal clear in my mind.\p"
+	.string "I just don't know when it will happen...$"
 
 Route120_Text_RobertRegister:
-	.string "You can be counted on to get better.\n"
-	.string "I'd like to register you in my POKéNAV!$"
+	.string "In the meantime, for more training...$"
 
 Route120_Text_RobertRematchIntro:
-	.string "A POKéMON that grows steadily is one\n"
-	.string "you can count on.$"
+	.string "Let me test how much closer I am to\n"
+	.string "defeating the POKéMON League!$"
 
 Route120_Text_RobertRematchDefeat:
-	.string "Your POKéMON are seriously strong.$"
+	.string "Still not my time yet...$"
 
 Route120_Text_RobertPostRematch:
-	.string "My POKéMON are growing stronger.\n"
-	.string "I have to grow stronger, too.$"
+	.string "My vision of defeating the POKéMON\n"
+	.string "League is still crystal clear in my mind.\p"
+	.string "I just don't know when it will happen...$"
 
 Route120_Text_LorenzoIntro:
-	.string "I'll check your POKéMON and see if\n"
-	.string "they're fit for the outdoors.$"
+	.string "This route is pretty rough for a little\n"
+	.string "kid like you.\p"
+	.string "Allow me to test your POKéMON battling\n"
+	.string "skills!$"
 
 Route120_Text_LorenzoDefeat:
-	.string "With POKéMON that strong, you're in\n"
-	.string "no danger of needing rescue!$"
+	.string "Ok, you passed my test.\n"
+	.string "You can go on through.$"
 
 Route120_Text_LorenzoPostBattle:
-	.string "To travel wherever your heart desires\n"
-	.string "with POKéMON…\l"
-	.string "That's the joy of being a TRAINER.$"
+	.string "You know, you're stronger than you look,\n"
+	.string "kid.$"
 
 Route120_Text_JennaIntro:
-	.string "How's your physical fitness?\n"
-	.string "If you're not fit, you could have a\l"
-	.string "rough time in critical situations.$"
+	.string "Are you headed to the rest house too?$"
 
 Route120_Text_JennaDefeat:
-	.string "I'm totally fit, but…$"
+	.string "No, that's fine, really, I'm ok.$"
 
 Route120_Text_JennaPostBattle:
-	.string "Fitness training is in my routine.\n"
-	.string "I always run with my POKéMON.$"
+	.string "I like to train near the rest house so I\n"
+	.string "can heal my POKéMON up frequently.$"
 
 Route120_Text_JeffreyIntro:
-	.string "… … … … … …\n"
-	.string "… … … … … …\l"
-	.string "Want to battle?$"
+	.string "They said BUG-type POKéMON are too\n"
+	.string "weak!\p"
+	.string "I'll show them!\n"
+	.string "I'll show all of you!$"
 
 Route120_Text_JeffreyDefeat:
-	.string "Lost it…$"
+	.string "That wasn't what I meant to show you...$"
 
 Route120_Text_JeffreyPostBattle:
-	.string "… … … … … …\n"
-	.string "… … … … … …\l"
-	.string "I'll try harder…$"
+	.string "One day I'll show you that BUG-type\n"
+	.string "POKéMON can compete with the best of\l"
+	.string "them!$"
 
 Route120_Text_JeffreyRegister:
-	.string "… … … … … …\n"
-	.string "… … … … … …\l"
-	.string "Do you have a POKéNAV…?$"
+	.string "Hey, just give me another chance...\p"
+	.string "Here, give me your POKéNAV!\p"
+	.string "Then someday I can show you the true\n"
+	.string "potential of BUG-type POKéMON!$"
 
 Route120_Text_JeffreyRematchIntro:
-	.string "… … … … … …\n"
-	.string "… … … … … …\l"
-	.string "Want to battle again?$"
+	.string "There you are!\p"
+	.string "I've been training!\p"
+	.string "Now get ready to see the full potential\n"
+	.string "of my BUG-type POKéMON!$"
 
 Route120_Text_JeffreyRematchDefeat:
-	.string "… … … … … …\n"
-	.string "I lost again…$"
+	.string "Maybe BUG-type POKéMON just... Don't...\n"
+	.string "Have potential...\p"
+	.string "No! That can't be it!$"
 
 Route120_Text_JeffreyPostRematch:
-	.string "… … … … … …\n"
-	.string "… … … … … …\l"
-	.string "I'll try harder…\l"
-	.string "For my precious BUG POKéMON…$"
+	.string "One day I'll show you that BUG-type\n"
+	.string "POKéMON can compete with the best of\l"
+	.string "them!$"
 
 Route120_Text_JenniferIntro:
-	.string "POKéMON have many special abilities.\n"
-	.string "If you want to become a first-class\l"
-	.string "TRAINER, learn about them.$"
+	.string "I'll use you as a quick warm up for the\n"
+	.string "POKéMON League!$"
 
 Route120_Text_JenniferDefeat:
-	.string "You're obviously thinking.$"
+	.string "Well then, I guess I'm not ready yet...$"
 
 Route120_Text_JenniferPostBattle:
-	.string "The special abilities of POKéMON\n"
-	.string "will make battle styles change.$"
+	.string "I thought you would be an easy warm up\n"
+	.string "since you're just a kid.\p"
+	.string "I guess looks can be deceiving.$"
 
 Route120_Text_ChipIntro:
-	.string "Who might you be?\p"
-	.string "Are you perhaps searching for ancient\n"
-	.string "ruins that are rumored to possibly\l"
-	.string "exist according to legend?$"
+	.string "We're getting close to Victory Road, one\n"
+	.string "my favorite caves!$"
 
 Route120_Text_ChipDefeat:
-	.string "What a disgraceful setback…$"
+	.string "Well, that certainly ruined my good\n"
+	.string "mood.$"
 
 Route120_Text_ChipPostBattle:
-	.string "That giant rock… I would like to\n"
-	.string "believe it may indeed contain ancient\l"
-	.string "ruins. But I see no entrance.$"
+	.string "I would say Meteor Falls in the Hoenn\n"
+	.string "region is another favorite cave of mine.$"
 
 Route120_Text_ClarissaIntro:
-	.string "Why am I carrying this parasol?\p"
-	.string "I'll tell you if you can win against me.$"
+	.string "I was trying to go to Mt. Silver,\n"
+	.string "but they won't let through!$"
 
 Route120_Text_ClarissaDefeat:
-	.string "A parasol can't ward off POKéMON\n"
-	.string "attacks…$"
+	.string "Maybe I'm not as good as I thought I\n"
+	.string "was...$"
 
 Route120_Text_ClarissaPostBattle:
-	.string "I don't think strong sunlight is good\n"
-	.string "for my POKéMON.\l"
-	.string "So I shield them with my parasol.$"
+	.string "The gatehouse guards wouldn't let me go\n"
+	.string "to Mt. Silver.\p"
+	.string "I wonder why it's so special.$"
 
 Route120_Text_AngelicaIntro:
-	.string "Me, POKéMON, and my parasol…\p"
-	.string "If any one of them is missing,\n"
-	.string "the picture of beauty will be ruined.$"
+	.string "Do you know why we're called\n"
+	.string "COOLTRAINERS?$"
 
 Route120_Text_AngelicaDefeat:
-	.string "You've completely ruined my beauty…$"
+	.string "I was going to say it's because we're\n"
+	.string "too cool to lose...$"
 
 Route120_Text_AngelicaPostBattle:
-	.string "A parasol wouldn't suit you at all.\p"
-	.string "Why, something like this would only\n"
-	.string "get in your way.$"
+	.string "Maybe we're called COOLTRAINERS\n"
+	.string "because we keep our cool even when we\l"
+	.string "lose...?$"
 
 Route120_Text_KeigoIntro:
-	.string "I will adopt the movements of POKéMON\n"
-	.string "and create new ninja techniques.$"
+	.string "So, you saw through my perfect\n"
+	.string "disguise?\p"
+	.string "You must be good!$"
 
 Route120_Text_KeigoDefeat:
-	.string "The creation of new ninja techniques\n"
-	.string "is but a distant dream…$"
+	.string "I knew you would be good!$"
 
 Route120_Text_KeigoPostBattle:
-	.string "Perhaps I ought to apprentice under\n"
-	.string "a ninja sensei.$"
+	.string "Us ninja are based in Mahogany Town,\n"
+	.string "but it's too cold there for me this time\l"
+	.string "of year.$"
 
 Route120_Text_RileyIntro:
-	.string "We ninja conceal ourselves under our\n"
-	.string "camouflage cloaks.\l"
-	.string "I bet you didn't know where I was!$"
+	.string "Like a ninja, you must have a good plan\n"
+	.string "of attack before challenging the\l"
+	.string "POKéMON League!$"
 
 Route120_Text_RileyDefeat:
-	.string "I lost!\n"
-	.string "I should camouflage my shame!$"
+	.string "It appears my well thought out attack\n"
+	.string "did not work on you!$"
 
 Route120_Text_RileyPostBattle:
-	.string "Our camouflage cloaks are all\n"
-	.string "handmade.$"
+	.string "Perhaps I should have disguised myself\n"
+	.string "as a local tree instead...$"
 
 Route120_Text_CallieIntro:
-	.string "If you don't pay attention,\n"
-	.string "you could get hurt!$"
+	.string "Be careful, I'm not just a pretty face!$"
 
 Route120_Text_CallieDefeat:
-	.string "Ouch!\n"
-	.string "I was the one to get hurt.$"
+	.string "Oh, I guess I underestimated you too.$"
 
 Route120_Text_CalliePostBattle:
-	.string "I wonder… Should I evolve my POKéMON?\n"
-	.string "They're cute the way they are, though.$"
+	.string "You know, it takes a lot of work to stay\n"
+	.string "this pretty.\p"
+	.string "You wouldn't get it, you're too young.$"
 
 Route120_Text_LeonelIntro:
-	.string "Your party POKéMON…\n"
-	.string "Do you have different types?$"
+	.string "Haha! Your POKéMON aren't getting tired\n"
+	.string "yet, are they?$"
 
 Route120_Text_LeonelDefeat:
-	.string "I've seen your policy in action!$"
+	.string "Well now my POKéMON need a break!$"
 
 Route120_Text_LeonelPostBattle:
-	.string "I think it's awesome you're so strong\n"
-	.string "battling with your favorite POKéMON.$"
+	.string "Man, this route is longer than I thought\n"
+	.string "it would be.\p"
+	.string "Maybe I should stop by the rest house\n"
+	.string "ahead.$"
 
 Route121_Text_VanessaIntro:
 	.string "Will you play with my delightfully\n"
