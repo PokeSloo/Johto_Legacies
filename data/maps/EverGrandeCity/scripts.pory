@@ -1,0 +1,52 @@
+const SHANE_ID = 1
+
+raw`
+EverGrandeCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, EverGrandeCity_OnTransition
+	.byte 0
+
+EverGrandeCity_OnTransition:
+	setflag FLAG_VISITED_EVER_GRANDE_CITY
+	end
+`
+
+script EverGrandeCity_EventScript_ShaneTrigger {
+    lock
+    if (flag(FLAG_SHANE_EXITED_POKEMON_LEAGUE)) {
+        release
+        end
+    }
+    opendoor (18, 5)
+    waitdooranim
+    addobject (SHANE_ID)
+    applymovement (OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerFaceUp)
+    waitmovement (0)
+    delay (30)
+    applymovement (SHANE_ID, PetalburgCity_ShaneWalkOutOfGym)
+    applymovement (OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerBackUp)
+    waitmovement (0)
+    closedoor (18, 5)
+    waitdooranim
+    msgbox (format("SHANE: ...\pI couldn't beat him...\pDAD's power is just too overwhelming...\pI hate to admit it, but you might have a better chance of beating him than I do...\pTell anyone I said that, and I'll kill you.\p..."))
+    waitmessage
+    applymovement (SHANE_ID, EverGrandeCity_ShaneStepDown)
+    waitmovement (0)
+    msgbox(format("Just... Don't lose.\pGot it?"))
+    waitmessage
+    closemessage
+    applymovement (SHANE_ID, EverGrandeCity_ShaneLeave)
+    waitmovement (0)
+    removeobject (SHANE_ID)
+    setflag (FLAG_SHANE_EXITED_POKEMON_LEAGUE)
+    release
+    end
+}
+
+movement EverGrandeCity_ShaneStepDown {
+    walk_in_place_left
+}
+
+movement EverGrandeCity_ShaneLeave {
+    walk_left
+    walk_down * 7
+}

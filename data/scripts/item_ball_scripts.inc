@@ -623,7 +623,7 @@ VictoryRoad_1F_EventScript_ItemPPUp::
 	end
 
 VictoryRoad_B1F_EventScript_ItemTM29::
-	finditem ITEM_TM29
+	finditem ITEM_BIKE_VOUCHER
 	end
 
 VictoryRoad_B1F_EventScript_ItemFullRestore::
@@ -631,6 +631,14 @@ VictoryRoad_B1F_EventScript_ItemFullRestore::
 	end
 
 VictoryRoad_B2F_EventScript_ItemFullHeal::
+	finditem ITEM_PP_MAX
+	end
+
+VictoryRoad_B2F_EventScript_ItemPeatBlock::
+	finditem ITEM_CARD_KEY
+	end
+
+VictoryRoad_B2F_EventScript_ItemActualFullHeal::
 	finditem ITEM_FULL_HEAL
 	end
 

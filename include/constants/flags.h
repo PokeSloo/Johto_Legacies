@@ -1071,14 +1071,14 @@
 #define FLAG_ITEM_ROUTE_117_REVIVE                                  0x3FF
 #define FLAG_ITEM_ROUTE_119_SUPER_REPEL                             0x400
 #define FLAG_ITEM_ROUTE_119_ZINC                                    0x401
-#define FLAG_ITEM_ROUTE_119_ELIXIR_1                                0x402 // Unused now
+#define FLAG_ITEM_VICTORY_ROAD_NEW_FULL_HEAL                        0x402
 #define FLAG_ITEM_ROUTE_119_LEAF_STONE                              0x403
 #define FLAG_ITEM_ROUTE_119_RARE_CANDY                              0x404
 #define FLAG_ITEM_ROUTE_119_HYPER_POTION_1                          0x405
 #define FLAG_ITEM_ROUTE_120_NUGGET                                  0x406
 #define FLAG_ITEM_ROUTE_120_FULL_HEAL                               0x407
 #define FLAG_ITEM_ROUTE_123_CALCIUM                                 0x408
-#define FLAG_ITEM_ICE_PATH_SHELL_BELL                               0x409 // Was unused, now item in Ice Path
+#define FLAG_ITEM_ICE_PATH_SHELL_BELL                               0x409
 #define FLAG_ITEM_ROUTE_127_ZINC                                    0x40A
 #define FLAG_ITEM_ROUTE_127_CARBOS                                  0x40B
 #define FLAG_ITEM_ROUTE_132_RARE_CANDY                              0x40C
@@ -1153,7 +1153,7 @@
 #define FLAG_ITEM_ROUTE_126_GREEN_SHARD                             0x451
 #define FLAG_ITEM_ROUTE_119_HYPER_POTION_2                          0x452
 #define FLAG_ITEM_ROUTE_120_HYPER_POTION                            0x453
-#define FLAG_ITEM_ROUTE_120_NEST_BALL                               0x454 // Unused now
+#define FLAG_ITEM_VICTORY_ROAD_PEAT_BLOCK                           0x454
 #define FLAG_ITEM_ROUTE_123_ELIXIR                                  0x455
 #define FLAG_ITEM_NEW_MAUVILLE_THUNDER_STONE                        0x456
 #define FLAG_ITEM_FIERY_PATH_FIRE_STONE                             0x457
@@ -1248,7 +1248,7 @@
 #define FLAG_CAUGHT_MOLTRES                                         0x4AF // Whirl Islands
 #define FLAG_CAUGHT_ARTICUNO                                        0x4B0 // Whirl Islands
 #define FLAG_HIDE_SHANE_ROUTE_26                                    0x4B1 // After beating him before Victory Road
-#define FLAG_UNUSED_0x4B2                                           0x4B2 // Unused Flag
+#define FLAG_SHANE_EXITED_POKEMON_LEAGUE                            0x4B2 // After victory road, tells you dad beat him
 #define FLAG_UNUSED_0x4B3                                           0x4B3 // Unused Flag
 #define FLAG_UNUSED_0x4B4                                           0x4B4 // Unused Flag
 #define FLAG_UNUSED_0x4B5                                           0x4B5 // Unused Flag

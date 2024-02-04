@@ -192,7 +192,7 @@ script Route120_EventScript_Shane {
     playbgm (MUS_HG_ENCOUNTER_RIVAL, FALSE)
     msgbox(format("Come on, I still need to get back at you for that battle in Cianwood!"))
     trainerbattle_no_intro (TRAINER_MAY_ROUTE_110_TREECKO, Route120_Text_ShaneDefeat)
-    msgbox(format("SHANE: You may have beat me, but I guarantee it won't happen again!\pI just need to change up my strategy a little bit, and you'll have no chance.\pI'm pretty much ready to take on DAD too.\pJust watch, I'll beat him before you even make it out of Victory Road!\pLater, loser!"))
+    msgbox(format("SHANE: You may have beaten me, but I guarantee it won't happen again!\pI just need to change up my strategy a little bit, and you'll have no chance.\pI'm pretty much ready to take on DAD too.\pJust watch, I'll beat him before you even make it out of Victory Road!\pLater, loser!"))
     waitmessage
     closemessage
     applymovement (SHANE_ID, Route129_Movement_ShaneEnterGate)

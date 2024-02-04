@@ -3,35 +3,68 @@ EverGrandeCity_MapScripts::
 	.byte 0
 
 EverGrandeCity_OnTransition:
-	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
-	end
-
-EverGrandeCity_EventScript_VictoryRoadSign::
-	msgbox EverGrandeCity_Text_EnteringVictoryRoad, MSGBOX_SIGN
-	end
-
-EverGrandeCity_EventScript_CitySign::
-	msgbox EverGrandeCity_Text_CitySign, MSGBOX_SIGN
-	end
-
-EverGrandeCity_EventScript_PokemonLeagueSign::
-	msgbox EverGrandeCity_Text_EnteringPokemonLeague, MSGBOX_SIGN
-	end
-
-EverGrandeCity_EventScript_SetVisitedEverGrande::
 	setflag FLAG_VISITED_EVER_GRANDE_CITY
-	setvar VAR_TEMP_1, 1
 	end
 
-EverGrandeCity_Text_EnteringVictoryRoad:
-	.string "ENTERING VICTORY ROAD$"
+EverGrandeCity_EventScript_ShaneTrigger::
+	lock
+	goto_if_set FLAG_SHANE_EXITED_POKEMON_LEAGUE, EverGrandeCity_EventScript_ShaneTrigger_2
+	opendoor 18, 5
+	waitdooranim
+	addobject 1
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerFaceUp
+	waitmovement 0
+	delay 30
+	applymovement 1, PetalburgCity_ShaneWalkOutOfGym
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerBackUp
+	waitmovement 0
+	closedoor 18, 5
+	waitdooranim
+	msgbox EverGrandeCity_EventScript_ShaneTrigger_Text_0
+	waitmessage
+	applymovement 1, EverGrandeCity_ShaneStepDown
+	waitmovement 0
+	msgbox EverGrandeCity_EventScript_ShaneTrigger_Text_1
+	waitmessage
+	closemessage
+	applymovement 1, EverGrandeCity_ShaneLeave
+	waitmovement 0
+	removeobject 1
+	setflag FLAG_SHANE_EXITED_POKEMON_LEAGUE
+	release
+	end
 
-EverGrandeCity_Text_EnteringPokemonLeague:
-	.string "ENTERING POKéMON LEAGUE\n"
-	.string "CENTER GATE$"
+EverGrandeCity_EventScript_ShaneTrigger_2:
+	release
+	end
 
-EverGrandeCity_Text_CitySign:
-	.string "EVER GRANDE CITY\p"
-	.string "“The paradise of flowers, the sea,\n"
-	.string "and POKéMON.”$"
 
+EverGrandeCity_ShaneStepDown:
+	walk_in_place_left
+	step_end
+
+EverGrandeCity_ShaneLeave:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+EverGrandeCity_EventScript_ShaneTrigger_Text_0:
+	.string "SHANE: ...\p"
+	.string "I couldn't beat him...\p"
+	.string "DAD's power is just too overwhelming...\p"
+	.string "I hate to admit it, but you might have a\n"
+	.string "better chance of beating him than I\l"
+	.string "do...\p"
+	.string "Tell anyone I said that, and I'll kill\n"
+	.string "you.\p"
+	.string "...$"
+
+EverGrandeCity_EventScript_ShaneTrigger_Text_1:
+	.string "Just... Don't lose.\p"
+	.string "Got it?$"

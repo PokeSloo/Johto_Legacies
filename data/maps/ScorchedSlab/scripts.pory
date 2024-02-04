@@ -1,0 +1,81 @@
+const LEFT_GUARD_ID = 2
+const RIGHT_GUARD_ID = 3
+
+mapscripts ScorchedSlab_MapScripts {}
+
+script ScorchedSlab_EventScript_EntranceGuard {
+    msgbox(format("Only TRAINERS who have proven themselves may pass through this station.\pOh, I see you have the eight badges of Johto.\pWell then, go right on through."), MSGBOX_NPC)
+    end
+}
+
+script ScorchedSlab_EventScript_LeftGuard {
+    msgbox(format("This way leads to Mt. Silver.\pOnly TRAINERS who have overcome the POKéMON League may enter this area."), MSGBOX_NPC)
+    end
+}
+
+script ScorchedSlab_EventScript_RightGuard {
+    msgbox(format("This way leads to the Kanto region.\pI'm sorry, but I can't allow you to pass."), MSGBOX_NPC)
+    end
+}
+
+script ScorchedSlab_EventScript_Left_Trigger {
+    lock
+    playse (SE_PIN)
+    applymovement (LEFT_GUARD_ID, ScorchedSlab_Movement_GuardExclamationLeft)
+	waitmovement (0)
+    waitse
+    delay (30)
+    msgbox(format("I'm sorry, but I can't let you go that way.\pMt. Silver is only open to TRAINERS who have overcome the POKéMON League."))
+    waitmessage
+    closemessage
+    applymovement (OBJ_EVENT_ID_PLAYER, ScorchedSlab_Movement_WalkRight)
+	waitmovement (0)
+    applymovement (LEFT_GUARD_ID, ScorchedSlab_Movement_FaceRight)
+	waitmovement (0)
+    release
+    end
+}
+
+script ScorchedSlab_EventScript_Right_Trigger {
+    lock
+    playse (SE_PIN)
+    applymovement (RIGHT_GUARD_ID, ScorchedSlab_Movement_GuardExclamationRight)
+	waitmovement (0)
+    waitse
+    delay (30)
+    msgbox(format("I'm sorry, but I can't let you go that way.\pThe road to Kanto is blocked off for the time being."))
+    waitmessage
+    closemessage
+    applymovement (OBJ_EVENT_ID_PLAYER, ScorchedSlab_Movement_WalkLeft)
+	waitmovement (0)
+    applymovement (RIGHT_GUARD_ID, ScorchedSlab_Movement_FaceLeft)
+	waitmovement (0)
+    release
+    end
+}
+
+movement ScorchedSlab_Movement_GuardExclamationLeft {
+    emote_exclamation_mark
+    walk_in_place_left
+}
+
+movement ScorchedSlab_Movement_FaceRight {
+    face_right
+}
+
+movement ScorchedSlab_Movement_WalkRight {
+    walk_right * 2
+}
+
+movement ScorchedSlab_Movement_GuardExclamationRight {
+    emote_exclamation_mark
+    walk_in_place_right
+}
+
+movement ScorchedSlab_Movement_FaceLeft {
+    face_left
+}
+
+movement ScorchedSlab_Movement_WalkLeft {
+    walk_left * 2
+}

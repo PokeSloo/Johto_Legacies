@@ -1,99 +1,5 @@
-.set LOCALID_WALLY_ENTRANCE, 4
-
 VictoryRoad_1F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, VictoryRoad_1F_OnTransition
 	.byte 0
-
-VictoryRoad_1F_OnTransition:
-	call_if_eq VAR_VICTORY_ROAD_1F_STATE, 1, VictoryRoad_1F_EventScript_SetEntranceWallyPos1
-	call_if_eq VAR_VICTORY_ROAD_1F_STATE, 2, VictoryRoad_1F_EventScript_SetEntranceWallyPos2
-	end
-
-VictoryRoad_1F_EventScript_SetEntranceWallyPos1::
-	setobjectxyperm LOCALID_WALLY_ENTRANCE, 2, 24
-	setobjectmovementtype LOCALID_WALLY_ENTRANCE, MOVEMENT_TYPE_FACE_DOWN
-	return
-
-VictoryRoad_1F_EventScript_SetEntranceWallyPos2::
-	setobjectxyperm LOCALID_WALLY_ENTRANCE, 3, 24
-	setobjectmovementtype LOCALID_WALLY_ENTRANCE, MOVEMENT_TYPE_FACE_DOWN
-	return
-
-VictoryRoad_1F_EventScript_WallyBattleTrigger1::
-	lockall
-	setvar VAR_0x8008, 1
-	addobject LOCALID_WALLY_ENTRANCE
-	applymovement LOCALID_WALLY_ENTRANCE, VictoryRoad_1F_Movement_WallyApproachPlayer1
-	waitmovement 0
-	goto VictoryRoad_1F_EventScript_WallyEntranceBattle
-	end
-
-VictoryRoad_1F_EventScript_WallyBattleTrigger2::
-	lockall
-	setvar VAR_0x8008, 2
-	addobject LOCALID_WALLY_ENTRANCE
-	applymovement LOCALID_WALLY_ENTRANCE, VictoryRoad_1F_Movement_WallyApproachPlayer2
-	waitmovement 0
-	goto VictoryRoad_1F_EventScript_WallyEntranceBattle
-	end
-
-VictoryRoad_1F_EventScript_WallyEntranceBattle::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	msgbox VictoryRoad_1F_Text_WallyNotGoingToLoseAnymore, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_WALLY_VR_1, VictoryRoad_1F_Text_WallyEntranceDefeat
-	msgbox VictoryRoad_1F_Text_WallyPostEntranceBattle, MSGBOX_DEFAULT
-	clearflag FLAG_HIDE_VICTORY_ROAD_ENTRANCE_WALLY
-	copyobjectxytoperm LOCALID_WALLY_ENTRANCE
-	setflag FLAG_DEFEATED_WALLY_VICTORY_ROAD
-	copyvar VAR_VICTORY_ROAD_1F_STATE, VAR_0x8008
-	releaseall
-	end
-
-VictoryRoad_1F_Movement_WallyApproachPlayer1:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	step_end
-
-VictoryRoad_1F_Movement_WallyApproachPlayer2:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	step_end
-
-@ This Wally appears near the entrance once his battle is triggered and remains there until the Hall of Fame is entered
-VictoryRoad_1F_EventScript_EntranceWally::
-	msgbox VictoryRoad_1F_Text_WallyPostEntranceBattle, MSGBOX_NPC
-	end
-
-@ This Wally appears and remains at the exit after the Hall of Fame is entered
-VictoryRoad_1F_EventScript_ExitWally::
-	trainerbattle_single TRAINER_WALLY_VR_2, VictoryRoad_1F_Text_WallyIntro, VictoryRoad_1F_Text_WallyDefeat
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, VictoryRoad_1F_EventScript_RematchWally
-	msgbox VictoryRoad_1F_Text_WallyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-VictoryRoad_1F_EventScript_RematchWally::
-	trainerbattle_rematch TRAINER_WALLY_VR_2, VictoryRoad_1F_Text_WallyIntro, VictoryRoad_1F_Text_WallyDefeat
-	msgbox VictoryRoad_1F_Text_WallyPostBattle, MSGBOX_AUTOCLOSE
-	end
 
 VictoryRoad_1F_EventScript_Edgar::
 	trainerbattle_single TRAINER_EDGAR, VictoryRoad_1F_Text_EdgarIntro, VictoryRoad_1F_Text_EdgarDefeat
@@ -120,101 +26,69 @@ VictoryRoad_1F_EventScript_Katelynn::
 	msgbox VictoryRoad_1F_Text_KatelynnPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-VictoryRoad_1F_Text_WallyNotGoingToLoseAnymore:
-	.string "WALLY: Hi! {PLAYER}!\p"
-	.string "I bet you're surprised to see me here!\p"
-	.string "I made it all the way here, and it's\n"
-	.string "all thanks to you!\p"
-	.string "{PLAYER}, losing to you that time\n"
-	.string "made me stronger!\p"
-	.string "But I'm not going to lose anymore!\p"
-	.string "I'm going to win! For the POKéMON who\n"
-	.string "gave me courage and strength!\p"
-	.string "Okay… Here I come!$"
-
-VictoryRoad_1F_Text_WallyEntranceDefeat:
-	.string "Wow!\n"
-	.string "{PLAYER}, you are strong, after all!$"
-
-VictoryRoad_1F_Text_WallyPostEntranceBattle:
-	.string "WALLY: I couldn't beat you today,\n"
-	.string "{PLAYER}, but one of these days, I'll\l"
-	.string "catch up to you!$"
-
-VictoryRoad_1F_Text_WallyIntro:
-	.string "WALLY: Hi! {PLAYER}!\p"
-	.string "I've gotten stronger since that last\n"
-	.string "time! I wanted to show you, {PLAYER}!\p"
-	.string "Okay… Here I come!$"
-
-VictoryRoad_1F_Text_WallyDefeat:
-	.string "Wow!\n"
-	.string "{PLAYER}, you are strong, after all!$"
-
-VictoryRoad_1F_Text_WallyPostBattle:
-	.string "WALLY: I couldn't beat you this time,\n"
-	.string "too… But one of these days, {PLAYER},\l"
-	.string "I'm going to catch up to you…\p"
-	.string "And challenge the POKéMON LEAGUE!$"
-
 VictoryRoad_1F_Text_EdgarIntro:
-	.string "I've made it this far a couple times,\n"
-	.string "but the last stretch is so long…$"
+	.string "Thought you could sneak past me, huh?$"
 
 VictoryRoad_1F_Text_EdgarDefeat:
-	.string "My dream ends here again…$"
+	.string "Maybe I should have tried to sneak past\n"
+	.string "you instead.$"
 
 VictoryRoad_1F_Text_EdgarPostBattle:
-	.string "You've made it this far. Keep the\n"
-	.string "momentum going and become the\l"
-	.string "CHAMPION! If anyone can, it's you!$"
+	.string "Victory Road gets a little more complex\n"
+	.string "past this point.\p"
+	.string "Good luck, you'll need it.$"
 
 VictoryRoad_1F_Text_AlbertIntro:
-	.string "I didn't come all this way to lose now.\n"
-	.string "That possibility doesn't exist!$"
+	.string "Hey, another red headed TRAINER!\p"
+	.string "Let's hope you're not as strong as that\n"
+	.string "last guy.$"
 
 VictoryRoad_1F_Text_AlbertDefeat:
-	.string "Impossible…\n"
-	.string "I lost?$"
+	.string "Crap, you might actually be stronger\n"
+	.string "than the last guy I battled.$"
 
 VictoryRoad_1F_Text_AlbertPostBattle:
-	.string "I lost here…\p"
-	.string "That means I lack the qualifications\n"
-	.string "to become the CHAMPION…$"
+	.string "I guess I shouldn't expect to find too\n"
+	.string "many easy TRAINERS around here, this is\l"
+	.string "Victory Road, afterall.$"
 
 VictoryRoad_1F_Text_HopeIntro:
-	.string "This seemingly infinite and harsh road\n"
-	.string "lives up to its name of VICTORY.$"
+	.string "You might think you're cool, but are you\n"
+	.string "cool enough to be a COOLTRAINER?$"
 
 VictoryRoad_1F_Text_HopeDefeat:
-	.string "Your battle style is fantastic…$"
+	.string "Ok, I guess you are pretty cool\n"
+	.string "afterall.$"
 
 VictoryRoad_1F_Text_HopePostBattle:
-	.string "You seem to have the potential for\n"
-	.string "becoming the CHAMPION.$"
+	.string "All of us COOLTRAINERS are actually\n"
+	.string "just self-proclaimed, so I guess you\l"
+	.string "could be one too if you really wanted.$"
 
 VictoryRoad_1F_Text_QuincyIntro:
-	.string "What is the VICTORY ROAD?\n"
-	.string "I'll tell you if you win!$"
+	.string "I've been training here for years, but\n"
+	.string "still haven't defeated the POKéMON\l"
+	.string "League.\p"
+	.string "What makes you think you can?$"
 
 VictoryRoad_1F_Text_QuincyDefeat:
-	.string "Okay!\n"
-	.string "Well done!$"
+	.string "I see now, you're just cut from a\n"
+	.string "different cloth.$"
 
 VictoryRoad_1F_Text_QuincyPostBattle:
-	.string "Getting through here safely--that's\n"
-	.string "the final test for any TRAINER aiming\l"
-	.string "to become the POKéMON CHAMPION.\p"
-	.string "That's why it's called the VICTORY\n"
-	.string "ROAD.$"
+	.string "Maybe I should be following whatever\n"
+	.string "training regimen you're on...$"
 
 VictoryRoad_1F_Text_KatelynnIntro:
-	.string "I have nothing to say to anyone\n"
-	.string "that's come this far. Come on!$"
+	.string "They may call this Victory Road, but it\n"
+	.string "will only lead to your defeat!$"
 
 VictoryRoad_1F_Text_KatelynnDefeat:
-	.string "This is a disgrace…$"
+	.string "I guess your defeat won't come at my\n"
+	.string "hand...$"
 
 VictoryRoad_1F_Text_KatelynnPostBattle:
-	.string "Humph, go right on ahead.\n"
-	.string "See if I care.$"
+	.string "I tried to talk tough, but you ended up\n"
+	.string "being really strong.\p"
+	.string "Most kids that come through here just\n"
+	.string "give up.$"

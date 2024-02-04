@@ -2596,62 +2596,62 @@
             "mons": [
               {
                 "min_level": 40,
-                "max_level": 40,
+                "max_level": 42,
                 "species": "SPECIES_GOLBAT"
               },
               {
                 "min_level": 40,
-                "max_level": 40,
+                "max_level": 42,
                 "species": "SPECIES_GRAVELER"
               },
               {
                 "min_level": 40,
-                "max_level": 40,
+                "max_level": 42,
                 "species": "SPECIES_LAIRON"
               },
               {
                 "min_level": 40,
-                "max_level": 40,
+                "max_level": 43,
                 "species": "SPECIES_DONPHAN"
               },
               {
-                "min_level": 36,
-                "max_level": 36,
+                "min_level": 40,
+                "max_level": 43,
                 "species": "SPECIES_URSARING"
               },
               {
                 "min_level": 36,
-                "max_level": 36,
+                "max_level": 38,
                 "species": "SPECIES_PAWNIARD"
               },
               {
                 "min_level": 38,
-                "max_level": 38,
+                "max_level": 40,
                 "species": "SPECIES_ONIX"
               },
               {
                 "min_level": 38,
-                "max_level": 38,
+                "max_level": 40,
                 "species": "SPECIES_RHYHORN"
               },
               {
-                "min_level": 36,
-                "max_level": 36,
+                "min_level": 40,
+                "max_level": 42,
                 "species": "SPECIES_DURANT"
               },
               {
-                "min_level": 36,
-                "max_level": 36,
+                "min_level": 40,
+                "max_level": 42,
                 "species": "SPECIES_HEATMOR"
               },
               {
                 "min_level": 36,
-                "max_level": 36,
+                "max_level": 40,
                 "species": "SPECIES_DURANT"
               },
               {
                 "min_level": 36,
-                "max_level": 36,
+                "max_level": 40,
                 "species": "SPECIES_HEATMOR"
               }
             ]
@@ -8648,62 +8648,62 @@
             "mons": [
               {
                 "min_level": 40,
-                "max_level": 40,
+                "max_level": 42,
                 "species": "SPECIES_GOLBAT"
               },
               {
                 "min_level": 40,
-                "max_level": 40,
+                "max_level": 42,
                 "species": "SPECIES_GRAVELER"
               },
               {
                 "min_level": 40,
-                "max_level": 40,
+                "max_level": 42,
                 "species": "SPECIES_LAIRON"
               },
               {
-                "min_level": 40,
-                "max_level": 40,
+                "min_level": 42,
+                "max_level": 44,
                 "species": "SPECIES_DONPHAN"
               },
               {
-                "min_level": 38,
-                "max_level": 38,
+                "min_level": 42,
+                "max_level": 44,
                 "species": "SPECIES_URSARING"
               },
               {
-                "min_level": 38,
-                "max_level": 38,
+                "min_level": 40,
+                "max_level": 42,
                 "species": "SPECIES_PAWNIARD"
               },
               {
                 "min_level": 42,
-                "max_level": 42,
+                "max_level": 44,
                 "species": "SPECIES_ONIX"
               },
               {
                 "min_level": 40,
-                "max_level": 40,
+                "max_level": 42,
                 "species": "SPECIES_RHYHORN"
               },
               {
-                "min_level": 42,
+                "min_level": 40,
                 "max_level": 42,
                 "species": "SPECIES_DURANT"
               },
               {
-                "min_level": 38,
-                "max_level": 38,
+                "min_level": 40,
+                "max_level": 42,
                 "species": "SPECIES_HEATMOR"
               },
               {
-                "min_level": 20,
-                "max_level": 22,
+                "min_level": 30,
+                "max_level": 32,
                 "species": "SPECIES_AXEW"
               },
               {
-                "min_level": 20,
-                "max_level": 22,
+                "min_level": 30,
+                "max_level": 32,
                 "species": "SPECIES_AXEW"
               }
             ]
@@ -8747,62 +8747,62 @@
             "mons": [
               {
                 "min_level": 40,
-                "max_level": 40,
+                "max_level": 42,
                 "species": "SPECIES_GOLBAT"
               },
               {
                 "min_level": 40,
-                "max_level": 40,
+                "max_level": 42,
                 "species": "SPECIES_GRAVELER"
               },
               {
                 "min_level": 40,
-                "max_level": 40,
+                "max_level": 42,
                 "species": "SPECIES_LAIRON"
               },
               {
-                "min_level": 40,
-                "max_level": 40,
+                "min_level": 42,
+                "max_level": 44,
                 "species": "SPECIES_DONPHAN"
               },
               {
                 "min_level": 42,
-                "max_level": 42,
+                "max_level": 44,
                 "species": "SPECIES_URSARING"
               },
               {
-                "min_level": 42,
+                "min_level": 40,
                 "max_level": 42,
                 "species": "SPECIES_PAWNIARD"
               },
               {
-                "min_level": 44,
+                "min_level": 42,
                 "max_level": 44,
                 "species": "SPECIES_ONIX"
               },
               {
                 "min_level": 40,
-                "max_level": 40,
+                "max_level": 42,
                 "species": "SPECIES_RHYHORN"
               },
               {
-                "min_level": 42,
+                "min_level": 40,
                 "max_level": 42,
                 "species": "SPECIES_DURANT"
               },
               {
-                "min_level": 42,
+                "min_level": 40,
                 "max_level": 42,
                 "species": "SPECIES_HEATMOR"
               },
               {
-                "min_level": 20,
-                "max_level": 22,
+                "min_level": 30,
+                "max_level": 32,
                 "species": "SPECIES_AXEW"
               },
               {
-                "min_level": 20,
-                "max_level": 22,
+                "min_level": 30,
+                "max_level": 32,
                 "species": "SPECIES_AXEW"
               }
             ]
