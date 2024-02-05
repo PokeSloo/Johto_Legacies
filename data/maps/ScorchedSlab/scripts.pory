@@ -9,7 +9,16 @@ script ScorchedSlab_EventScript_EntranceGuard {
 }
 
 script ScorchedSlab_EventScript_LeftGuard {
-    msgbox(format("This way leads to Mt. Silver.\pOnly TRAINERS who have overcome the POKéMON League may enter this area."), MSGBOX_NPC)
+    lock
+    faceplayer
+    msgbox(format("This way leads to Mt. Silver.\pOnly TRAINERS who have overcome the POKéMON League may enter this area."))
+    waitmessage
+    if (flag(FLAG_IS_CHAMPION)) {
+        msgbox(format("You may go on through, you have earned it."))
+        release
+        end
+    }
+    release
     end
 }
 
@@ -20,6 +29,10 @@ script ScorchedSlab_EventScript_RightGuard {
 
 script ScorchedSlab_EventScript_Left_Trigger {
     lock
+    if (flag(FLAG_IS_CHAMPION)) {
+        release
+        end
+    }
     playse (SE_PIN)
     applymovement (LEFT_GUARD_ID, ScorchedSlab_Movement_GuardExclamationLeft)
 	waitmovement (0)

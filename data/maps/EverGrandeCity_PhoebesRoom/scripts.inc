@@ -60,26 +60,26 @@ EverGrandeCity_PhoebesRoom_EventScript_Defeated::
 	end
 
 EverGrandeCity_PhoebesRoom_Text_IntroSpeech:
-	.string "Ahahaha!\p"
-	.string "I'm PHOEBE of the ELITE FOUR.\n"
-	.string "I did my training on MT. PYRE.\p"
-	.string "While I trained, I gained the ability\n"
-	.string "to commune with GHOST-type POKéMON.\p"
-	.string "Yes, the bond I developed with POKéMON\n"
-	.string "is extremely tight.\p"
-	.string "So, come on, just try and see if you can\n"
-	.string "even inflict damage on my POKéMON!$"
+	.string "I am KAZUMA of the Elite Four!\p"
+	.string "I love the explosive power of\n"
+	.string "FIRE-type POKéMON with a burning\l"
+	.string "passion!\p"
+	.string "If you think you can extenguish my\n"
+	.string "roaring flames like a small candle, then\l"
+	.string "think again.\p"
+	.string "Don't be surprised when a pile of ashes\n"
+	.string "is all that's left of your POKéMON!$"
 
 EverGrandeCity_PhoebesRoom_Text_Defeat:
-	.string "Oh, darn.\n"
-	.string "I've gone and lost.$"
+	.string "Hahaha!\n"
+	.string "What a ferocious battle!\p"
+	.string "I haven't had that much fun in years!$"
 
 EverGrandeCity_PhoebesRoom_Text_PostBattleSpeech:
-	.string "There's a definite bond between you\n"
-	.string "and your POKéMON, too.\p"
-	.string "I didn't recognize it, so it's only\n"
-	.string "natural that I lost.\p"
-	.string "Yup, I'd like to see how far your bond\n"
-	.string "will carry you.\p"
-	.string "Go ahead, move on to the next room.$"
+	.string "The clash between our two spirits has\n"
+	.string "led to a victor!\p"
+	.string "Never let anything quell that fiery\n"
+	.string "passion you have.\p"
+	.string "Go on, then.\p"
+	.string "Your next challenge awaits.$"
 

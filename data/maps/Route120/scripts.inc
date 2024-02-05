@@ -229,7 +229,7 @@ Route120_EventScript_Shane_Text_2:
 	.string "for that battle in Cianwood!$"
 
 Route120_EventScript_Shane_Text_3:
-	.string "SHANE: You may have beat me, but I\n"
+	.string "SHANE: You may have beaten me, but I\n"
 	.string "guarantee it won't happen again!\p"
 	.string "I just need to change up my strategy a\n"
 	.string "little bit, and you'll have no chance.\p"

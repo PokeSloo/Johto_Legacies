@@ -1249,7 +1249,7 @@
 #define FLAG_CAUGHT_ARTICUNO                                        0x4B0 // Whirl Islands
 #define FLAG_HIDE_SHANE_ROUTE_26                                    0x4B1 // After beating him before Victory Road
 #define FLAG_SHANE_EXITED_POKEMON_LEAGUE                            0x4B2 // After victory road, tells you dad beat him
-#define FLAG_UNUSED_0x4B3                                           0x4B3 // Unused Flag
+#define FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME                      0x4B3 // Used to move pokemon league blockers out of the way
 #define FLAG_UNUSED_0x4B4                                           0x4B4 // Unused Flag
 #define FLAG_UNUSED_0x4B5                                           0x4B5 // Unused Flag
 #define FLAG_UNUSED_0x4B6                                           0x4B6 // Unused Flag

@@ -10,13 +10,18 @@ EverGrandeCity_PokemonLeague_1F_MapScripts::
 EverGrandeCity_PokemonLeague_1F_OnTransition:
 	setrespawn HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE
 	setflag FLAG_LANDMARK_POKEMON_LEAGUE
-	call_if_unset FLAG_ENTERED_ELITE_FOUR, EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor
+	goto_if_set FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME, EverGrandeCity_PokemonLeague_1F_EventScript_DontBlock
+	goto_if_set FLAG_IS_CHAMPION, EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor
+	goto_if_unset FLAG_ENTERED_ELITE_FOUR, EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor
+	end
+
+EverGrandeCity_PokemonLeague_1F_EventScript_DontBlock::
 	end
 
 EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor::
 	setobjectxyperm LOCALID_GUARD_1, 9, 2
 	setobjectxyperm LOCALID_GUARD_2, 10, 2
-	return
+	end
 
 EverGrandeCity_PokemonLeague_1F_EventScript_Nurse::
 	setvar VAR_0x800B, LOCALID_NURSE
@@ -53,24 +58,18 @@ EverGrandeCity_PokemonLeague_1F_Pokemart:
 @ Its assumed the player has the remaining badges
 EverGrandeCity_PokemonLeague_1F_EventScript_DoorGuard::
 	lockall
+	goto_if_set FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME, EverGrandeCity_PokemonLeague_1F_EventScript_GoForth
+	goto_if_set FLAG_IS_CHAMPION, EverGrandeCity_PokemonLeague_1F_EventScript_NeedNewChamp
 	goto_if_set FLAG_ENTERED_ELITE_FOUR, EverGrandeCity_PokemonLeague_1F_EventScript_GoForth
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	call_if_ge VAR_TEMP_0, 11, EverGrandeCity_PokemonLeague_1F_EventScript_PlayerMoveToFrontFromRight
 	call_if_le VAR_TEMP_0, 8, EverGrandeCity_PokemonLeague_1F_EventScript_PlayerMoveToFrontFromLeft
-	message EverGrandeCity_PokemonLeague_1F_Text_MustHaveAllGymBadges
+	msgbox EverGrandeCity_PokemonLeague_1F_Text_MustHaveAllGymBadges, MSGBOX_DEFAULT
 	waitmessage
-	delay 120
-	goto_if_unset FLAG_BADGE06_GET, EverGrandeCity_PokemonLeague_1F_EventScript_NotAllBadges
 	closemessage
 	applymovement LOCALID_GUARD_1, EverGrandeCity_PokemonLeague_1F_Movement_LeftGuardOutOfWay
 	applymovement LOCALID_GUARD_2, EverGrandeCity_PokemonLeague_1F_Movement_RightGuardOutOfWay
 	waitmovement 0
-	delay 10
-	playfanfare MUS_OBTAIN_BADGE
-	message EverGrandeCity_PokemonLeague_1F_Text_GoForth
-	waitmessage
-	waitfanfare
-	closemessage
 	copyobjectxytoperm LOCALID_GUARD_1
 	copyobjectxytoperm LOCALID_GUARD_2
 	setflag FLAG_ENTERED_ELITE_FOUR
@@ -87,16 +86,20 @@ EverGrandeCity_PokemonLeague_1F_EventScript_PlayerMoveToFrontFromLeft::
 	waitmovement 0
 	return
 
-EverGrandeCity_PokemonLeague_1F_EventScript_NotAllBadges::
-	playse SE_FAILURE
-	msgbox EverGrandeCity_PokemonLeague_1F_Text_HaventObtainedAllBadges, MSGBOX_DEFAULT
-	releaseall
-	end
-
 EverGrandeCity_PokemonLeague_1F_EventScript_GoForth::
 	applymovement VAR_LAST_TALKED, Common_Movement_FacePlayer
 	waitmovement 0
 	msgbox EverGrandeCity_PokemonLeague_1F_Text_GoForth, MSGBOX_DEFAULT
+	closemessage
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	releaseall
+	end
+
+EverGrandeCity_PokemonLeague_1F_EventScript_NeedNewChamp::
+	applymovement VAR_LAST_TALKED, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox EverGrandeCity_PokemonLeague_1F_Text_NeedNewChamp, MSGBOX_DEFAULT
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
@@ -126,18 +129,79 @@ EverGrandeCity_PokemonLeague_1F_Movement_RightGuardOutOfWay:
 	step_end
 
 EverGrandeCity_PokemonLeague_1F_Text_MustHaveAllGymBadges:
-	.string "Beyond this point, only those TRAINERS\n"
-	.string "who have collected all the GYM BADGES\l"
-	.string "are permitted to enter.\p"
-	.string "TRAINER, let us confirm that you have\n"
-	.string "all the GYM BADGES.$"
-
-EverGrandeCity_PokemonLeague_1F_Text_HaventObtainedAllBadges:
-	.string "You haven't obtained all the BADGES.\p"
-	.string "If you're bound for the POKéMON\n"
-	.string "LEAGUE, you must return with them.$"
+	.string "Through this doorway await the Elite\n"
+	.string "Four, and POKéMON League Champion.\p"
+	.string "Once you enter, there is no turning\n"
+	.string "back.\p"
+	.string "If you are fully prepared, then go forth\n"
+	.string "and claim victory!$"
 
 EverGrandeCity_PokemonLeague_1F_Text_GoForth:
-	.string "TRAINER! Believe in yourself and your\n"
-	.string "POKéMON, and go forth!$"
+	.string "If you are fully prepared to face the\n"
+	.string "POKéMON League, then go forth and claim\l"
+	.string "victory!$"
 
+EverGrandeCity_PokemonLeague_1F_Text_NeedNewChamp:
+	.string "I'm sorry, but we are currently\n"
+	.string "searching for a new POKéMON League\l"
+	.string "Champion.\p"
+	.string "Please come back later.$"
+
+EverGrandeCity_PokemonLeague_1F_EventScript_Clerk2::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart EverGrandeCity_PokemonLeague_1F_Pokemart2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+
+	.align 2
+EverGrandeCity_PokemonLeague_1F_Pokemart2:
+	.2byte ITEM_WHITE_HERB
+	.2byte ITEM_POWER_HERB
+	.2byte ITEM_MENTAL_HERB
+	.2byte ITEM_WEAKNESS_POLICY
+	.2byte ITEM_BLUNDER_POLICY
+	.2byte ITEM_ROOM_SERVICE
+	.2byte ITEM_THROAT_SPRAY
+	.2byte ITEM_RED_CARD
+	.2byte ITEM_EJECT_BUTTON
+	.2byte ITEM_AIR_BALLOON
+	.2byte ITEM_FOCUS_SASH
+	.2byte ITEM_NONE
+
+EverGrandeCity_PokemonLeague_1F_EventScript_Beauty::
+	msgbox EverGrandeCity_PokemonLeague_1F_EventScript_Beauty_Text_0, MSGBOX_NPC
+	end
+
+
+EverGrandeCity_PokemonLeague_1F_EventScript_Blackbelt::
+	msgbox EverGrandeCity_PokemonLeague_1F_EventScript_Blackbelt_Text_0, MSGBOX_NPC
+	end
+
+
+EverGrandeCity_PokemonLeague_1F_EventScript_Cowgirl::
+	msgbox EverGrandeCity_PokemonLeague_1F_EventScript_Cowgirl_Text_0, MSGBOX_NPC
+	end
+
+
+EverGrandeCity_PokemonLeague_1F_EventScript_Beauty_Text_0:
+	.string "Let's see, all of my POKéMON are healed\n"
+	.string "up, and I'm stocked up on Full Restores.\p"
+	.string "If only I had a decent battle\n"
+	.string "strategy...$"
+
+EverGrandeCity_PokemonLeague_1F_EventScript_Blackbelt_Text_0:
+	.string "The shop here sells some pretty useful\n"
+	.string "items.\p"
+	.string "Hopefully the Focus Sash I just bought\n"
+	.string "will help me get through the POKéMON\l"
+	.string "League.$"
+
+EverGrandeCity_PokemonLeague_1F_EventScript_Cowgirl_Text_0:
+	.string "I reckon this must be the furthest\n"
+	.string "away from the farm that I've ever been\l"
+	.string "before.$"

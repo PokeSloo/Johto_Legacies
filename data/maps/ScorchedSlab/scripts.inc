@@ -8,7 +8,17 @@ ScorchedSlab_EventScript_EntranceGuard::
 
 
 ScorchedSlab_EventScript_LeftGuard::
-	msgbox ScorchedSlab_EventScript_LeftGuard_Text_0, MSGBOX_NPC
+	lock
+	faceplayer
+	msgbox ScorchedSlab_EventScript_LeftGuard_Text_0
+	waitmessage
+	goto_if_set FLAG_IS_CHAMPION, ScorchedSlab_EventScript_LeftGuard_2
+	release
+	end
+
+ScorchedSlab_EventScript_LeftGuard_2:
+	msgbox ScorchedSlab_EventScript_LeftGuard_Text_1
+	release
 	end
 
 
@@ -19,6 +29,7 @@ ScorchedSlab_EventScript_RightGuard::
 
 ScorchedSlab_EventScript_Left_Trigger::
 	lock
+	goto_if_set FLAG_IS_CHAMPION, ScorchedSlab_EventScript_Left_Trigger_2
 	playse SE_PIN
 	applymovement 2, ScorchedSlab_Movement_GuardExclamationLeft
 	waitmovement 0
@@ -31,6 +42,10 @@ ScorchedSlab_EventScript_Left_Trigger::
 	waitmovement 0
 	applymovement 2, ScorchedSlab_Movement_FaceRight
 	waitmovement 0
+	release
+	end
+
+ScorchedSlab_EventScript_Left_Trigger_2:
 	release
 	end
 
@@ -93,6 +108,10 @@ ScorchedSlab_EventScript_LeftGuard_Text_0:
 	.string "This way leads to Mt. Silver.\p"
 	.string "Only TRAINERS who have overcome the\n"
 	.string "POKéMON League may enter this area.$"
+
+ScorchedSlab_EventScript_LeftGuard_Text_1:
+	.string "You may go on through, you have earned\n"
+	.string "it.$"
 
 ScorchedSlab_EventScript_RightGuard_Text_0:
 	.string "This way leads to the Kanto region.\p"
