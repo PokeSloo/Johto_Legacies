@@ -4926,25 +4926,25 @@ static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     .iv = 255,
     .lvl = 73,
     .species = SPECIES_MAGNEZONE,
-    .heldItem = ITEM_CHOICE_SCARF,
+    .heldItem = ITEM_AIR_BALLOON,
     .abilityNums = 1,
     .moves = {MOVE_THUNDERBOLT, MOVE_FLASH_CANNON, MOVE_HIDDEN_POWER, MOVE_VOLT_SWITCH}
     },
     {
     .iv = 255,
     .lvl = 74,
-    .species = SPECIES_ALAKAZAM_MEGA,
-    .heldItem = ITEM_ALAKAZITE,
+    .species = SPECIES_ALAKAZAM,
+    .heldItem = ITEM_FOCUS_SASH,
     .abilityNums = 2,
-    .moves = {MOVE_PSYCHIC, MOVE_FOCUS_BLAST, MOVE_SHADOW_BALL, MOVE_HIDDEN_POWER}
+    .moves = {MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_FOCUS_BLAST, MOVE_ENERGY_BALL}
     },
     {
     .iv = 255,
     .lvl = 74,
-    .species = SPECIES_DRAGONITE,
-    .heldItem = ITEM_LEFTOVERS,
-    .abilityNums = 2,
-    .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_DRAGON_CLAW, MOVE_THUNDER_PUNCH}
+    .species = SPECIES_SALAMENCE,
+    .heldItem = ITEM_SALAMENCITE,
+    .abilityNums = 0,
+    .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_DOUBLE_EDGE, MOVE_DRAGON_CLAW}
     },
     {
     .iv = 255,
@@ -4960,7 +4960,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     .species = SPECIES_FERALIGATR,
     .heldItem = ITEM_LIFE_ORB,
     .abilityNums = 2,
-    .moves = {MOVE_LIQUIDATION, MOVE_DRAGON_DANCE, MOVE_ICE_PUNCH, MOVE_CRUNCH}
+    .moves = {MOVE_LIQUIDATION, MOVE_DRAGON_DANCE, MOVE_ICE_PUNCH, MOVE_EARTHQUAKE}
     }
 };
 

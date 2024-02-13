@@ -263,7 +263,7 @@
 #define VAR_ROXANNE_CALL_STEP_COUNTER        0x40F4
 #define VAR_SCOTT_BF_CALL_STEP_COUNTER       0x40F5
 #define VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER 0x40F6
-#define VAR_CHERRYGROVE_STATE                0x40F7 // 1 = Got running shoes, 2 = Shane to Newbark, 3 = Talked to Elm, no poke, 4 = Got poke from Elm, 5 = Got balls from aid, 6 = Lose to Shane, 7 = Got Pokenav, 8 = Fell in Alph, 9 = Got fake nugget, 10 = Defeated past Gold
+#define VAR_CHERRYGROVE_STATE                0x40F7 // 1 = Got running shoes, 2 = Shane to Newbark, 3 = Talked to Elm, no poke, 4 = Got poke from Elm, 5 = Got balls from aid, 6 = Lose to Shane, 7 = Got Pokenav, 8 = Fell in Alph, 9 = Got fake nugget, 10 = Defeated past Gold, 11 = Defeated Champion Silver, 12 = Cherrygrove Silver event
 #define VAR_GOLDENROD_GYM_BONUS_COUNT        0x40F8 // Unused Var
 #define VAR_GYM_LEADERS_ROUND2_COUNT         0x40F9 // Unused Var
 #define VAR_ECRUTEAK_STATE                   0x40FA // 1 = Defeated Thorne, 2 = Got Strength, 3 = Got 6th badge, 4 = Oliver meet outside Cianwood gym, 5 = Shane outside Resort, 6 = Past resort guards, 7 = Defeated Ariana, 8 = HoOh burned Ecruteak, 9 = Received Dive from Silver, 10 = Awakened Lugia, 11 = Ho-oh vs Lugia done

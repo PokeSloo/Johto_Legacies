@@ -4771,6 +4771,7 @@ static s16 AI_SetupFirstTurn(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
     case EFFECT_GRASSY_TERRAIN:
     case EFFECT_ELECTRIC_TERRAIN:
     case EFFECT_MISTY_TERRAIN:
+    case EFFECT_SPIKES:
     case EFFECT_STEALTH_ROCK:
     case EFFECT_TOXIC_SPIKES:
     case EFFECT_TRICK_ROOM:
@@ -4784,7 +4785,7 @@ static s16 AI_SetupFirstTurn(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
     case EFFECT_SANDSTORM:
     case EFFECT_HAIL:
     case EFFECT_GEOMANCY:
-        score += 2;
+        score += 20;
         break;
     default:
         break;

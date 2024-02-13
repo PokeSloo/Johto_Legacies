@@ -44,10 +44,10 @@
 #define FLAG_GENERAL_HIDE    0x20 // Hide random things
 #define FLAG_HIDE_ENTEI_EGG  0x21 // Entei egg in first floor of player's house
 #define FLAG_HIDE_SILVER_IN_HOUSE    0x22 // In first floor of player's house
-#define FLAG_HIDE_SHANE_IN_HOUSE    0x23 // In first floor of player's house
+#define FLAG_HIDE_SHANE_IN_HOUSE    0x23 // Set by clock, actually used to hide Red in the Pokemon League
 #define FLAG_HIDE_SHANE_CHERRYGROVE_ESCORT    0x24 // Shane waiting outside player's house
 #define FLAG_HIDE_SHANE_CHERRYGROVE_BATTLE    0x25 // Shane battles you when back to Cherrygrove
-#define FLAG_HIDE_FERALIGATR_IN_HOUSE    0x26 // In first floor of player's house
+#define FLAG_HIDE_FERALIGATR_IN_HOUSE    0x26 // Unused now, set at the clock
 #define FLAG_HIDE_CHIKORITA_BALL    0x27 // Elm's lab
 #define FLAG_HIDE_TOTODILE_BALL   0x28 // Elm's lab
 #define FLAG_HIDE_CYNDAQUIL_BALL    0x29 // Elm's lab
@@ -1250,8 +1250,8 @@
 #define FLAG_HIDE_SHANE_ROUTE_26                                    0x4B1 // After beating him before Victory Road
 #define FLAG_SHANE_EXITED_POKEMON_LEAGUE                            0x4B2 // After victory road, tells you dad beat him
 #define FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME                      0x4B3 // Used to move pokemon league blockers out of the way
-#define FLAG_UNUSED_0x4B4                                           0x4B4 // Unused Flag
-#define FLAG_UNUSED_0x4B5                                           0x4B5 // Unused Flag
+#define FLAG_HIDE_FERALIGATR_POKEMON_LEAGUE                         0x4B4 // Set after defeating Silver
+#define FLAG_HIDE_SILVER_POKEMON_LEAGUE                             0x4B5 // Set after registering in hall of fame
 #define FLAG_UNUSED_0x4B6                                           0x4B6 // Unused Flag
 #define FLAG_UNUSED_0x4B7                                           0x4B7 // Unused Flag
 #define FLAG_UNUSED_0x4B8                                           0x4B8 // Unused Flag

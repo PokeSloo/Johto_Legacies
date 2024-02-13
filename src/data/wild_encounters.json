@@ -5910,63 +5910,63 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 40,
-                "max_level": 40,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_URSARING"
               },
               {
-                "min_level": 40,
-                "max_level": 40,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_DONPHAN"
               },
               {
-                "min_level": 41,
-                "max_level": 41,
+                "min_level": 40,
+                "max_level": 43,
                 "species": "SPECIES_SNEASEL"
               },
               {
-                "min_level": 41,
-                "max_level": 41,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_DODRIO"
               },
               {
-                "min_level": 41,
-                "max_level": 41,
+                "min_level": 40,
+                "max_level": 43,
                 "species": "SPECIES_RUFFLET"
               },
               {
-                "min_level": 42,
-                "max_level": 42,
+                "min_level": 40,
+                "max_level": 43,
                 "species": "SPECIES_VULLABY"
               },
               {
                 "min_level": 43,
-                "max_level": 43,
+                "max_level": 45,
                 "species": "SPECIES_RAPIDASH_GALARIAN"
               },
               {
                 "min_level": 42,
-                "max_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_BOUFFALANT"
               },
               {
-                "min_level": 40,
-                "max_level": 40,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_BOUFFALANT"
               },
               {
-                "min_level": 41,
-                "max_level": 41,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_RAPIDASH"
               },
               {
-                "min_level": 41,
-                "max_level": 41,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_RAPIDASH"
               },
               {
-                "min_level": 40,
-                "max_level": 40,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_RAPIDASH"
               }
             ]
@@ -9982,63 +9982,63 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 40,
-                "max_level": 40,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_URSARING"
               },
               {
-                "min_level": 40,
-                "max_level": 40,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_DONPHAN"
               },
               {
                 "min_level": 40,
-                "max_level": 40,
+                "max_level": 43,
                 "species": "SPECIES_SNEASEL"
               },
               {
-                "min_level": 41,
-                "max_level": 41,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_DODRIO"
               },
               {
-                "min_level": 41,
-                "max_level": 41,
+                "min_level": 40,
+                "max_level": 43,
                 "species": "SPECIES_RUFFLET"
               },
               {
-                "min_level": 41,
-                "max_level": 41,
+                "min_level": 40,
+                "max_level": 43,
                 "species": "SPECIES_VULLABY"
               },
               {
                 "min_level": 43,
-                "max_level": 43,
+                "max_level": 45,
                 "species": "SPECIES_RAPIDASH_GALARIAN"
               },
               {
-                "min_level": 40,
-                "max_level": 41,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_BOUFFALANT"
               },
               {
                 "min_level": 42,
-                "max_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_BOUFFALANT"
               },
               {
-                "min_level": 41,
-                "max_level": 41,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_RAPIDASH"
               },
               {
                 "min_level": 42,
-                "max_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_RAPIDASH"
               },
               {
-                "min_level": 43,
-                "max_level": 43,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_RAPIDASH"
               }
             ]

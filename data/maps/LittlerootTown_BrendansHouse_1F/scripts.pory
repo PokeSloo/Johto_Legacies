@@ -6,32 +6,264 @@ const ENTEI_EGG_ID = 5
 const AZUMARILL_ID = 6
 const FERALIGATR_ID = 7
 
-mapscripts LittlerootTown_BrendansHouse_1F_MapScripts {}
+mapscripts LittlerootTown_BrendansHouse_1F_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_CHERRYGROVE_STATE, 11: LittlerootTown_BrendansHouse_1F_EventScript_OnFrameAfterE4
+    ]
+}
+
+script LittlerootTown_BrendansHouse_1F_EventScript_OnFrameAfterE4 {
+    lock
+    applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
+    waitmovement (0)
+    msgbox(format("MOM: There's my new Champion!\pYou're finally awake."))
+    waitmessage
+    closemessage
+    applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_Movement_PlayerToTable)
+    waitmovement (0)
+    applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceRight)
+    waitmovement (0)
+    delay(30)
+    applymovement (SILVER_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_StepLeft)
+    waitmovement (0)
+    msgbox(format("DAD: Our battle must have exhausted you, {PLAYER}.\pYou've been sleeping all morning!"))
+    waitmessage
+    applymovement (SHANE_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_StepLeft)
+    waitmovement (0)
+    msgbox(format("SHANE: Yeah! It's about time you woke up, you lazy bum!"))
+    waitmessage
+    applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_Movement_StepRight)
+    waitmovement (0)
+    checkplayergender
+    if (var(VAR_RESULT) == MALE) {
+        call (LittlerootTown_BrendansHouse_1F_MalePlayerPostE4)
+    }
+    elif (var(VAR_RESULT) == FEMALE) {
+        call (LittlerootTown_BrendansHouse_1F_FemalePlayerPostE4)
+    }
+    applymovement (SILVER_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_StepLeft)
+    waitmovement (0)
+    msgbox(format("DAD: Thanks LYRA, I'll take it from here."))
+    waitmessage
+    applymovement (SILVER_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_StepDown)
+    applymovement (SHANE_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_StepUp)
+    waitmovement (0)
+    checkplayergender
+    if (var(VAR_RESULT) == MALE) {
+        call (LittlerootTown_BrendansHouse_1F_MalePlayerPostE4Dad)
+    }
+    elif (var(VAR_RESULT) == FEMALE) {
+        call (LittlerootTown_BrendansHouse_1F_FemalePlayerPostE4Dad)
+    }
+    msgbox(format("We must strive to help all of those around us reach their full potential.\pBesides, you shouldn't discount your own growth.\pYou really had me on the ropes through most of our battle!"))
+    waitmessage
+    applymovement (SHANE_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_StepLeft)
+    waitmovement (0)
+    msgbox(format("SHANE: Well, whatever.\p...\pGood job, I guess... {PLAYER}."))
+    waitmessage
+    applymovement (SILVER_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_StepLeft)
+    waitmovement (0)
+    msgbox(format("DAD: Haha, it's a start.\p...\pYou know, I always thought I could balance my POKéMON League duties with my home life, but I was wrong.\pSeeing you kids again made me realize that I want to spend as much time with you all as possible.\pSo, I've decided to retire from the POKéMON League!"))
+    waitmessage
+    playse(SE_PIN)
+    applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_Movement_Exclamation)
+    applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_Movement_Exclamation)
+    applymovement (SHANE_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_Exclamation)
+    waitmovement (0)
+    waitse
+    delay(60)
+    applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_Movement_StepRight)
+    waitmovement (0)
+    msgbox(format("MOM: That's wonderful!\pAlthough, it must have been a difficult decision.\pI know how much the League means to you."))
+    applymovement (SILVER_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_StepLeft)
+    waitmovement (0)
+    msgbox(format("DAD: It was actually an easy choice to make.\p...\pBy the way, an old friend of mine has invited me to the Millennium Comet Festival in Lazulan City."))
+    waitmessage
+    applymovement (SILVER_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_StepDown)
+    waitmovement (0)
+    msgbox(format("{PLAYER}, SHANE, I would like to bring you two along with me."))
+    waitmessage
+    applymovement (SHANE_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_StepUp)
+    waitmovement (0)
+    msgbox(format("SHANE: Really!?\pI've always wanted to visit the Golden Islands!\pI hear there are all kinds of strong TRAINERS that gather there.\pDAD: True, but you two shouldn't have any issues with them.\pHere, you'll need this S.S. Ticket.\pHand it to the captian in Olivine City, and he'll take you to Apricotta Beach, a neighboring island."))
+    waitmessage
+    applymovement (SHANE_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_StepUp)
+    waitmovement (0)
+    msgbox(format("SHANE: This is great!\pI'll head there right now!"))
+    waitmessage
+    closemessage
+    applymovement (SHANE_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_ShaneLeavePostE4)
+    waitmovement (0)
+    playse(SE_EXIT)
+    removeobject (SHANE_POST_E4_ID)
+    waitse
+    applymovement (SILVER_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_SilverToPlayer)
+    waitmovement (0)
+    applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_Movement_StepDown)
+    waitmovement (0)
+    msgbox(format("DAD: Here, {PLAYER}."))
+    waitmessage
+    giveitem (ITEM_SS_TICKET)
+    msgbox(format("DAD: I'll see you in Lazulan City.\pOh, by the way, I have a special gift for you.\pI'll leave it over here in case you need to make room in your party."))
+    waitmessage
+    closemessage
+    applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceLeft)
+    applymovement (SILVER_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_SilverToCounter)
+    waitmovement (0)
+    delay (30)
+    addobject (ENTEI_EGG_ID)
+    clearflag (FLAG_HIDE_ENTEI_EGG)
+    delay (60)
+    applymovement (SILVER_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_SilverToGatr)
+    waitmovement (0)
+    applymovement (FERALIGATR_ID, LittlerootTown_BrendansHouse_1F_Movement_StepRight)
+    waitmovement (0)
+    msgbox(format("DAD: Until next time."))
+    waitmessage
+    closemessage
+    applymovement (SILVER_POST_E4_ID, LittlerootTown_BrendansHouse_1F_Movement_SilverExit)
+    applymovement (FERALIGATR_ID, LittlerootTown_BrendansHouse_1F_Movement_GatrExit)
+    waitmovement (0)
+    playse (SE_EXIT)
+    waitse
+    removeobject(SILVER_POST_E4_ID)
+    removeobject(FERALIGATR_ID)
+    setflag (FLAG_HIDE_SILVER_IN_HOUSE)
+    addvar (VAR_CHERRYGROVE_STATE, 1)
+    release
+    end
+}
+
+script LittlerootTown_BrendansHouse_1F_MalePlayerPostE4 {
+    msgbox(format("MOM: SHANE!\pBe nice to your little brother!\pHe deserves a break."))
+    waitmessage
+    return
+}
+
+script LittlerootTown_BrendansHouse_1F_FemalePlayerPostE4 {
+    msgbox(format("MOM: SHANE!\pBe nice to your little sister!\pShe deserves a break."))
+    waitmessage
+    return
+}
+
+script LittlerootTown_BrendansHouse_1F_MalePlayerPostE4Dad {
+    msgbox(format("Look, SHANE, I can tell you feel like {PLAYER} has surpassed you, and I'm sure it seems unfair, but you shouldn't lash out at him for it.\pA truly confident man would be happy to see his little brother's growth, and be proud of him."))
+    waitmessage
+    return
+}
+
+script LittlerootTown_BrendansHouse_1F_FemalePlayerPostE4Dad {
+    msgbox(format("Look, SHANE, I can tell you feel like {PLAYER} has surpassed you, and I'm sure it seems unfair, but you shouldn't lash out at her for it.\pA truly confident man would be happy to see his little sister's growth, and be proud of her."))
+    waitmessage
+    return
+}
+
+movement LittlerootTown_BrendansHouse_1F_Movement_PlayerToTable {
+    walk_down
+    walk_right
+    walk_down * 3
+    walk_right * 2
+}
+
+movement LittlerootTown_BrendansHouse_1F_Movement_StepLeft {
+    walk_in_place_left
+}
+
+movement LittlerootTown_BrendansHouse_1F_Movement_StepRight {
+    walk_in_place_right
+}
+
+movement LittlerootTown_BrendansHouse_1F_Movement_StepDown {
+    walk_in_place_down
+}
+
+movement LittlerootTown_BrendansHouse_1F_Movement_StepUp {
+    walk_in_place_up
+}
+
+movement LittlerootTown_BrendansHouse_1F_Movement_Exclamation {
+    emote_exclamation_mark
+}
+
+movement LittlerootTown_BrendansHouse_1F_Movement_ShaneLeavePostE4 {
+    walk_down
+    walk_left * 6
+    walk_in_place_down
+}
+
+movement LittlerootTown_BrendansHouse_1F_Movement_SilverToPlayer {
+    walk_down * 2
+    walk_left * 3
+    walk_in_place_up
+}
+
+movement LittlerootTown_BrendansHouse_1F_Movement_SilverToCounter {
+    walk_left
+    walk_up * 4
+    walk_in_place_right
+}
+
+movement LittlerootTown_BrendansHouse_1F_Movement_SilverToGatr {
+    walk_left * 2
+    walk_down * 2
+    walk_in_place_right
+}
+
+movement LittlerootTown_BrendansHouse_1F_Movement_SilverExit {
+    walk_down * 2
+    set_invisible
+}
+
+movement LittlerootTown_BrendansHouse_1F_Movement_GatrExit {
+    walk_right
+    walk_down * 3
+    set_invisible
+}
+
+script LittlerootTown_BrendansHouse_1F_EnteiEgg {
+    lock
+    getpartysize
+    if (var(VAR_RESULT) == PARTY_SIZE) {
+        msgbox (format("It's a POKéMON egg.\pThere's no more room in your party for it."))
+        release
+        end
+    }
+    else {
+	    playfanfare (MUS_OBTAIN_ITEM)
+	    msgbox (format("{PLAYER} received a POKéMON egg!"))
+	    waitfanfare
+	    giveegg (SPECIES_ENTEI)
+        removeobject (ENTEI_EGG_ID)
+        setflag (FLAG_HIDE_ENTEI_EGG)
+        release
+        end
+    }
+}
 
 script LittlerootTown_BrendansHouse_1F_Trigger_1 {
-lockall
-applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
-applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
-waitmovement (0)
-msgbox (Come_Here)
-waitmessage
-closemessage
-applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_WalkDownFromLeft)
-waitmovement (0)
-goto (LittlerootTown_BrendansHouse_1F_Get_Started)
+    lockall
+    applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
+    applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
+    waitmovement (0)
+    msgbox (Come_Here)
+    waitmessage
+    closemessage
+    applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_WalkDownFromLeft)
+    waitmovement (0)
+    goto (LittlerootTown_BrendansHouse_1F_Get_Started)
 }
 
 script LittlerootTown_BrendansHouse_1F_Trigger_2 {
-lockall
-applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
-applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
-waitmovement (0)
-msgbox (Come_Here)
-waitmessage
-closemessage
-applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_WalkDownFromMiddle)
-waitmovement (0)
-goto (LittlerootTown_BrendansHouse_1F_Get_Started)
+    lockall
+    applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
+    applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
+    waitmovement (0)
+    msgbox (Come_Here)
+    waitmessage
+    closemessage
+    applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_WalkDownFromMiddle)
+    waitmovement (0)
+    goto (LittlerootTown_BrendansHouse_1F_Get_Started)
 }
 
 script LittlerootTown_BrendansHouse_1F_Trigger_3 {
@@ -61,7 +293,7 @@ waitmessage
 closemessage
 delay (120)
 clearflag (FLAG_GENERAL_HIDE)
-playse (SE_DOOR)
+playse (SE_EXIT)
 addobject (SHANE_START_ID)
 playbgm (MUS_HG_ENCOUNTER_RIVAL, FALSE)
 applymovement (SHANE_START_ID, LittlerootTown_BrendansHouse_1F_StepDown1)
@@ -88,7 +320,7 @@ waitmessage
 closemessage
 applymovement (SHANE_START_ID, LittlerootTown_BrendansHouse_1F_ShaneLeave)
 waitmovement (0)
-playse (SE_DOOR)
+playse (SE_EXIT)
 removeobject (SHANE_START_ID)
 setflag (FLAG_GENERAL_HIDE)
 fadedefaultbgm

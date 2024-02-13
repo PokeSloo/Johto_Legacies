@@ -45,20 +45,6 @@ EverGrandeCity_HallOfFame_EventScript_EnterHallOfFame::
 	delay 40
 	setvar VAR_TEMP_1, 1
 	call EverGrandeCity_HallOfFame_EventScript_SetGameClearFlags
-	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, EverGrandeCity_HallOfFame_EventScript_GameClearMale
-	goto_if_eq VAR_RESULT, FEMALE, EverGrandeCity_HallOfFame_EventScript_GameClearFemale
-	end
-
-EverGrandeCity_HallOfFame_EventScript_GameClearMale::
-	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
-	fadescreenspeed FADE_TO_BLACK, 24
-	special GameClear
-	waitstate
-	releaseall
-	end
-
-EverGrandeCity_HallOfFame_EventScript_GameClearFemale::
 	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
 	fadescreenspeed FADE_TO_BLACK, 24
 	special GameClear
@@ -84,16 +70,18 @@ EverGrandeCity_HallOfFame_Movement_WalkIntoHallOfFame2:
 	step_end
 
 EverGrandeCity_HallOfFame_Text_HereWeHonorLeagueChampions:
-	.string "WALLACE: This room…\p"
-	.string "This is where we keep records of\n"
-	.string "POKéMON that prevailed through\l"
-	.string "harsh battles.\p"
-	.string "It is here that the LEAGUE CHAMPIONS\n"
-	.string "are honored.$"
+	.string "DAD: This room is where we enter the\n"
+	.string "names of TRAINERS and their POKéMON\l"
+	.string "into the Hall of Fame.\p"
+	.string "It's a special honor awarded only to\n"
+	.string "those who have overcome the POKéMON\l"
+	.string "League challenge.$"
 
 EverGrandeCity_HallOfFame_Text_LetsRecordYouAndYourPartnersNames:
-	.string "WALLACE: Come on, let's record your\n"
-	.string "name as a TRAINER who triumphed over\l"
-	.string "the POKéMON LEAGUE, and the names of\l"
-	.string "the partners who battled with you.$"
+	.string "DAD: You've accomplished so much at\n"
+	.string "such a young age, and I'm overjoyed\l"
+	.string "that I was able to experience your rise\l"
+	.string "firsthand.\p"
+	.string "Now, let's record you and your POKéMON\n"
+	.string "as Champions!$"
 

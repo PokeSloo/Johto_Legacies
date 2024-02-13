@@ -1,17 +1,5 @@
 Route130_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route130_OnTransition
 	.byte 0
-
-Route130_OnTransition:
-	end
-
-Route130_EventScript_SetMirageIslandLayout::
-	setmaplayoutindex LAYOUT_ROUTE130_MIRAGE_ISLAND
-	end
-
-Route130_EventScript_CheckSetAbnormalWeather::
-	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
-	return
 
 Route130_EventScript_Rodney::
 	trainerbattle_single TRAINER_RODNEY, Route130_Text_RodneyIntro, Route130_Text_RodneyDefeat
@@ -27,4 +15,12 @@ Route130_EventScript_Santiago::
 	trainerbattle_single TRAINER_SANTIAGO, Route130_Text_SantiagoIntro, Route130_Text_SantiagoDefeat
 	msgbox Route130_Text_SantiagoPostBattle, MSGBOX_AUTOCLOSE
 	end
+
+Route130_EventScript_RouteSign::
+	msgbox Route130_Text_RouteSign, MSGBOX_SIGN
+	end
+
+Route130_Text_RouteSign:
+	.string "MT. SILVER\n"
+	.string "“Everyone's information exchange!”$"
 
