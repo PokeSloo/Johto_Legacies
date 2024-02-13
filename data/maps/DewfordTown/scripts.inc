@@ -11,6 +11,5 @@ DewfordTown_EventScript_HallSign::
 	end
 
 DewfordTown_Text_HallSign:
-	.string "MT. SILVER\n"
-	.string "“Everyone's information exchange!”$"
+	.string "MT. SILVER$"
 

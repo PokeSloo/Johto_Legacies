@@ -7,7 +7,6 @@ DewfordTown_PokemonCenter_1F_MapScripts::
 
 DewfordTown_PokemonCenter_1F_OnTransition:
 	setrespawn HEAL_LOCATION_DEWFORD_TOWN
-	call Common_EventScript_UpdateBrineyLocation
 	end
 
 DewfordTown_PokemonCenter_1F_EventScript_Nurse::
@@ -27,13 +26,14 @@ DewfordTown_PokemonCenter_1F_EventScript_Man::
 	end
 
 DewfordTown_PokemonCenter_1F_Text_StoneCavern:
-	.string "There's a stone cavern at the edge\n"
-	.string "of town.\p"
-	.string "I've heard you can find rare stones\n"
-	.string "there.$"
+	.string "You're a new face around here, it's\n"
+	.string "always nice to meet a new POKéMON\l"
+	.string "League Champion.$"
 
 DewfordTown_PokemonCenter_1F_Text_FaintedMonCanUseHM:
-	.string "Even if a POKéMON faints and can't\n"
-	.string "battle, it can still use a move learned\l"
-	.string "from a HIDDEN MACHINE (HM).$"
+	.string "The weather up on Mt. Silver has been\n"
+	.string "really strange lately.\p"
+	.string "The snow will just suddenly stop\n"
+	.string "randomly.\p"
+	.string "I'm not too sure what to make of it.$"
 

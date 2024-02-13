@@ -16,11 +16,15 @@ Route130_EventScript_Santiago::
 	msgbox Route130_Text_SantiagoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route130_EventScript_ItemTradeStone::
+	finditem ITEM_BIKE_VOUCHER
+	end
+
 Route130_EventScript_RouteSign::
 	msgbox Route130_Text_RouteSign, MSGBOX_SIGN
 	end
 
 Route130_Text_RouteSign:
-	.string "MT. SILVER\n"
-	.string "“Everyone's information exchange!”$"
+	.string "ROUTE 28\n"
+	.string "{LEFT_ARROW} West to MT. SILVER$"
 
