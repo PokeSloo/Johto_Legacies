@@ -1,5 +1,16 @@
 Route134_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route134_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+Route134_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	goto_if_set FLAG_KYOGRE_RAINY_WEATHER, Route134_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
+Route134_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	end
+
+Route134_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
+	setweather WEATHER_DOWNPOUR
+	goto Route134_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+
 
 Route134_EventScript_Jack::
 	trainerbattle_single TRAINER_JACK, Route134_Text_JackIntro, Route134_Text_JackDefeat
@@ -45,4 +56,3 @@ Route134_EventScript_Kelvin::
 	trainerbattle_single TRAINER_KELVIN, Route134_Text_KelvinIntro, Route134_Text_KelvinDefeat
 	msgbox Route134_Text_KelvinPostBattle, MSGBOX_AUTOCLOSE
 	end
-

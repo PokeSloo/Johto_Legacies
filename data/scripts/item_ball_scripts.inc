@@ -681,3 +681,31 @@ MagmaHideout_4F_EventScript_ItemMaxRevive::
 MagmaHideout_3F_3R_EventScript_ItemEscapeRope::
 	finditem ITEM_ESCAPE_ROPE
 	end
+
+NavelRock_Exterior_EventScript_ItemFullRestore::
+	finditem ITEM_FULL_RESTORE
+	end
+
+NavelRock_Exterior_EventScript_ItemMaxRevive::
+	finditem ITEM_MAX_REVIVE
+	end
+
+NavelRock_Entrance_EventScript_ItemMoonStone::
+	finditem ITEM_MOON_STONE
+	end
+
+NavelRock_Entrance_EventScript_ItemPPMax::
+	finditem ITEM_PP_MAX
+	end
+
+NavelRock_Harbor_EventScript_ItemMaxElixer::
+	finditem ITEM_MAX_ELIXIR
+	end
+
+NavelRock_Fork_EventScript_ItemMaxRepel::
+	finditem ITEM_MAX_REPEL
+	end
+
+NavelRock_Fork_EventScript_ItemBigNugget::
+	finditem ITEM_BIG_NUGGET
+	end

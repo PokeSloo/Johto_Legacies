@@ -3,7 +3,7 @@ Underwater_Route127_MapScripts::
 	.byte 0
 
 Underwater_Route127_MapScripts_MAP_SCRIPT_ON_LOAD:
-	goto_if_set FLAG_MARINE_CAVE_OPEN, Underwater_Route127_MapScripts_MAP_SCRIPT_ON_LOAD_2
+	goto_if_set FLAG_TERRA_CAVE_OPEN, Underwater_Route127_MapScripts_MAP_SCRIPT_ON_LOAD_2
 	end
 
 Underwater_Route127_MapScripts_MAP_SCRIPT_ON_LOAD_2:

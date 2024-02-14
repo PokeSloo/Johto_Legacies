@@ -7,6 +7,12 @@ mapscripts Route104_MapScripts {
         }
         end
     }
+	MAP_SCRIPT_ON_TRANSITION {
+        if (flag (FLAG_GROUDON_DROUGHT_WEATHER)) {
+            setweather (WEATHER_DROUGHT)
+        }
+	    end
+    }
 }
 
 script Route104_EventScript_ShaneCallTrigger {

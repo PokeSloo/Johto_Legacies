@@ -1,0 +1,38 @@
+mapscripts NavelRock_Top_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if (flag (FLAG_DEFEATED_RAYQUAZA)) {
+            setweather (WEATHER_SNOW)
+        }
+	    end
+    }
+}
+
+script NavelRock_Top_EventScript_Rayquaza {
+    lock
+    waitse
+	playmoncry (SPECIES_RAYQUAZA, CRY_MODE_NORMAL)
+    setvar (VAR_0x8004, 1)  // vertical pan
+	setvar (VAR_0x8005, 1)  // horizontal pan
+	setvar (VAR_0x8006, 8)  // num shakes
+	setvar (VAR_0x8007, 5)  // shake delay
+	special (ShakeCamera)
+    waitstate
+    waitmoncry
+    setwildbattle (SPECIES_RAYQUAZA, 70)
+    dowildbattle
+    removeobject(1)
+    setweather (WEATHER_SNOW)
+    doweather
+    delay (30)
+	playse (SE_M_ROCK_THROW)
+    waitse
+    msgbox(format("A distant rumbling could be heard across Johto."))
+    waitmessage
+    closemessage
+    setflag (FLAG_DEFEATED_RAYQUAZA)
+    setflag (FLAG_TERRA_CAVE_OPEN)
+    setflag (FLAG_KYOGRE_RAINY_WEATHER)
+    setflag (FLAG_GROUDON_DROUGHT_WEATHER)
+    release
+    end
+}

@@ -2,10 +2,10 @@
   "id": "MAP_NAVEL_ROCK_TOP",
   "name": "NavelRock_Top",
   "layout": "LAYOUT_NAVEL_ROCK_TOP",
-  "music": "MUS_NONE",
-  "region_map_section": "MAPSEC_NAVEL_ROCK",
+  "music": "MUS_HG_LIGHTHOUSE",
+  "region_map_section": "MAPSEC_DEWFORD_TOWN",
   "requires_flash": false,
-  "weather": "WEATHER_SNOW",
+  "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -24,8 +24,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
-      "flag": "FLAG_HIDE_HO_OH"
+      "script": "NavelRock_Top_EventScript_Rayquaza",
+      "flag": "FLAG_DEFEATED_RAYQUAZA"
     }
   ],
   "warp_events": [
@@ -38,24 +38,9 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 4,
-      "elevation": 3,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "NavelRock_Top_EventScript_HoOh"
-    }
+
   ],
   "bg_events": [
-    {
-      "type": "hidden_item",
-      "x": 5,
-      "y": 5,
-      "elevation": 3,
-      "item": "ITEM_SACRED_ASH",
-      "flag": "FLAG_HIDDEN_ITEM_NAVEL_ROCK_TOP_SACRED_ASH"
-    }
+
   ]
 }

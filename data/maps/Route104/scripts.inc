@@ -1,5 +1,6 @@
 Route104_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, Route104_MapScripts_MAP_SCRIPT_ON_LOAD
+	map_script MAP_SCRIPT_ON_TRANSITION, Route104_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
 
 Route104_MapScripts_MAP_SCRIPT_ON_LOAD:
@@ -10,6 +11,15 @@ Route104_MapScripts_MAP_SCRIPT_ON_LOAD_2:
 	setmetatile 22, 63, 0x0A7, FALSE
 	setmetatile 22, 62, 0x064, TRUE
 	return
+
+Route104_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	goto_if_set FLAG_GROUDON_DROUGHT_WEATHER, Route104_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
+Route104_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	end
+
+Route104_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
+	setweather WEATHER_DROUGHT
+	goto Route104_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
 
 
 Route104_EventScript_ShaneCallTrigger::

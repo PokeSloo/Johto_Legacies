@@ -505,18 +505,18 @@
 #define FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL 0x1D8
 #define FLAG_ENABLE_JUAN_MATCH_CALL          0x1D9
 
-#define FLAG_UNUSED_0x1DA                    0x1DA // Unused Flag
+#define FLAG_MT_SILVER_MOON_STONE            0x1DA
 
 #define FLAG_SHOWN_MYSTIC_TICKET             0x1DB
 #define FLAG_DEFEATED_HO_OH                  0x1DC
 #define FLAG_DEFEATED_LUGIA                  0x1DD
 
-#define FLAG_UNUSED_0x1DE                    0x1DE // Unused Flag
-#define FLAG_UNUSED_0x1DF                    0x1DF // Unused Flag
-#define FLAG_UNUSED_0x1E0                    0x1E0 // Unused Flag
-#define FLAG_UNUSED_0x1E1                    0x1E1 // Unused Flag
-#define FLAG_UNUSED_0x1E2                    0x1E2 // Unused Flag
-#define FLAG_UNUSED_0x1E3                    0x1E3 // Unused Flag
+#define FLAG_MT_SILVER_FULL_RESTORE          0x1DE
+#define FLAG_MT_SILVER_MAX_REVIVE            0x1DF
+#define FLAG_MT_SILVER_MAX_ELIXER            0x1E0
+#define FLAG_MT_SILVER_PP_MAX                0x1E1
+#define FLAG_MT_SILVER_MAX_REPEL             0x1E2
+#define FLAG_MT_SILVER_BIG_NUGGET            0x1E3
 
 // Mystery Gift Flags (Unknown)
 #define FLAG_MYSTERY_GIFT_DONE               0x1E4
@@ -1226,7 +1226,7 @@
 #define FLAG_HIDE_SILVER_RAGE_HIDEOUT                               0x499 // Cleared for Hooh cutscene to keep them there
 #define FLAG_CELEBI_TANK_BROKEN                                     0x49A // Broken in cutscene
 #define FLAG_HIDE_SILVER_ECRUTEAK                                   0x49B // Silver, Feraligatr, and Ho-oh
-#define FLAG_MARINE_CAVE_OPEN                                       0x49C // Underwater route 127
+#define FLAG_KYOGRE_RAINY_WEATHER                                   0x49C // Goldenvine Sea
 #define FLAG_FOUND_HELIX_FOSSIL                                     0x49D // Underwater item
 #define FLAG_FOUND_DOME_FOSSIL                                      0x49E // Underwater item
 #define FLAG_FOUND_ROOT_FOSSIL                                      0x49F // Underwater item
@@ -1252,7 +1252,7 @@
 #define FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME                      0x4B3 // Used to move pokemon league blockers out of the way
 #define FLAG_HIDE_FERALIGATR_POKEMON_LEAGUE                         0x4B4 // Set after defeating Silver
 #define FLAG_HIDE_SILVER_POKEMON_LEAGUE                             0x4B5 // Set after registering in hall of fame
-#define FLAG_UNUSED_0x4B6                                           0x4B6 // Unused Flag
+#define FLAG_GROUDON_DROUGHT_WEATHER                                0x4B6 // Route 32
 #define FLAG_UNUSED_0x4B7                                           0x4B7 // Unused Flag
 #define FLAG_UNUSED_0x4B8                                           0x4B8 // Unused Flag
 #define FLAG_UNUSED_0x4B9                                           0x4B9 // Unused Flag

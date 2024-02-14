@@ -14200,63 +14200,63 @@
             "encounter_rate": 10,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_URSARING"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_DONPHAN"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_ONIX"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 43,
+                "max_level": 46,
                 "species": "SPECIES_GOLBAT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_DURANT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_HEATMOR"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 25,
+                "max_level": 28,
                 "species": "SPECIES_LARVITAR"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 40,
+                "max_level": 43,
                 "species": "SPECIES_SNEASEL"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 46,
                 "species": "SPECIES_AGGRON"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 46,
                 "species": "SPECIES_AGGRON"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_AGGRON"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_AGGRON"
               }
             ]
@@ -14265,28 +14265,28 @@
             "encounter_rate": 4,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 35,
+                "max_level": 45,
                 "species": "SPECIES_SEAKING"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 35,
+                "max_level": 45,
                 "species": "SPECIES_GYARADOS"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 35,
+                "max_level": 45,
                 "species": "SPECIES_BARRASKEWDA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 35,
+                "max_level": 45,
                 "species": "SPECIES_BARRASKEWDA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 35,
+                "max_level": 45,
                 "species": "SPECIES_BARRASKEWDA"
               }
             ]
@@ -14296,52 +14296,52 @@
             "mons": [
               {
                 "min_level": 5,
-                "max_level": 5,
+                "max_level": 10,
                 "species": "SPECIES_MAGIKARP"
               },
               {
                 "min_level": 5,
-                "max_level": 5,
+                "max_level": 10,
                 "species": "SPECIES_GOLDEEN"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 10,
+                "max_level": 30,
                 "species": "SPECIES_MAGIKARP"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 10,
+                "max_level": 30,
                 "species": "SPECIES_GOLDEEN"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 10,
+                "max_level": 30,
                 "species": "SPECIES_ARROKUDA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 25,
+                "max_level": 35,
                 "species": "SPECIES_GYARADOS"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 30,
+                "max_level": 35,
                 "species": "SPECIES_SEAKING"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 35,
+                "max_level": 40,
                 "species": "SPECIES_BARRASKEWDA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 35,
+                "max_level": 40,
                 "species": "SPECIES_BARRASKEWDA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 35,
+                "max_level": 40,
                 "species": "SPECIES_BARRASKEWDA"
               }
             ]
@@ -14354,63 +14354,63 @@
             "encounter_rate": 10,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_URSARING"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_DONPHAN"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_ONIX"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 43,
+                "max_level": 46,
                 "species": "SPECIES_GOLBAT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_DURANT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_HEATMOR"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 25,
+                "max_level": 28,
                 "species": "SPECIES_LARVITAR"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 40,
+                "max_level": 43,
                 "species": "SPECIES_SNEASEL"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 46,
                 "species": "SPECIES_AGGRON"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 46,
                 "species": "SPECIES_AGGRON"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_AGGRON"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_AGGRON"
               }
             ]
@@ -14423,63 +14423,63 @@
             "encounter_rate": 10,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 47,
                 "species": "SPECIES_URSARING"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 47,
                 "species": "SPECIES_DONPHAN"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 48,
                 "species": "SPECIES_MISMAGIUS"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 48,
                 "species": "SPECIES_GOLBAT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 47,
                 "species": "SPECIES_DURANT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 47,
                 "species": "SPECIES_HEATMOR"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 26,
+                "max_level": 29,
                 "species": "SPECIES_LARVITAR"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 43,
+                "max_level": 45,
                 "species": "SPECIES_SNEASEL"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 48,
                 "species": "SPECIES_AGGRON"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 48,
                 "species": "SPECIES_AGGRON"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 47,
                 "species": "SPECIES_AGGRON"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 47,
                 "species": "SPECIES_AGGRON"
               }
             ]
@@ -14492,63 +14492,63 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_URSARING"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_DONPHAN"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_ONIX"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 43,
+                "max_level": 46,
                 "species": "SPECIES_GOLBAT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_DURANT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_HEATMOR"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 25,
+                "max_level": 28,
                 "species": "SPECIES_LARVITAR"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 40,
+                "max_level": 43,
                 "species": "SPECIES_SNEASEL"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 46,
                 "species": "SPECIES_AGGRON"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 46,
                 "species": "SPECIES_AGGRON"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_AGGRON"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_AGGRON"
               }
             ]
@@ -14561,63 +14561,63 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 47,
                 "species": "SPECIES_URSARING"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 47,
                 "species": "SPECIES_DONPHAN"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 48,
                 "species": "SPECIES_MISMAGIUS"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 48,
                 "species": "SPECIES_GOLBAT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 47,
                 "species": "SPECIES_DURANT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 47,
                 "species": "SPECIES_HEATMOR"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 25,
+                "max_level": 29,
                 "species": "SPECIES_LARVITAR"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 43,
+                "max_level": 45,
                 "species": "SPECIES_SNEASEL"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 48,
                 "species": "SPECIES_AGGRON"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 48,
                 "species": "SPECIES_AGGRON"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 48,
                 "species": "SPECIES_AGGRON"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 45,
+                "max_level": 48,
                 "species": "SPECIES_AGGRON"
               }
             ]
