@@ -533,7 +533,7 @@ Route110_TrickHouseEnd_EventScript_Lee_Text_2:
 
 Route110_TrickHouseEnd_EventScript_Lee_Text_3:
 	.string "With that badge, all POKéMON up to level\n"
-	.string "70 will obey your command without\l"
+	.string "75 will obey your command without\l"
 	.string "question!\p"
 	.string "Even POKéMON you've received through\n"
 	.string "trades.\p"

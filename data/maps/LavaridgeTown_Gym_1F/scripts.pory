@@ -1045,7 +1045,7 @@ LavaridgeTown_Gym_1F_Text_ReceivedHeatBadge:
 
 LavaridgeTown_Gym_1F_Text_ExplainHeatBadgeTakeThis:
 	.string "With the TORRENT BADGE, all POKéMON up\n"
-	.string "to Level 50 will obey you completely.\l"
+	.string "to Level 55 will obey you completely.\l"
 	.string "Even those that you receive in trades.\p"
 	.string "It will also allow you to use the HM\n"
 	.string "move, Strength, outside of battle.\p"

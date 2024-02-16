@@ -12,7 +12,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_KYOGRE_FRONT",
@@ -43,10 +43,12 @@
       "x": 9,
       "y": 26,
       "elevation": 3,
-      "var": "VAR_TEMP_1",
-      "var_value": "1",
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
       "script": "MarineCave_End_EventScript_Kyogre"
     }
   ],
-  "bg_events": []
+  "bg_events": [
+
+  ]
 }

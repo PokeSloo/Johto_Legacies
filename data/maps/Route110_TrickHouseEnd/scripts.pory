@@ -22,7 +22,7 @@ script Route110_TrickHouseEnd_EventScript_Lee {
 	    message (format("{PLAYER} received the STORM BADGE from LEE."))
 	    waitmessage
 	    call (Common_EventScript_PlayGymBadgeFanfare)
-	    msgbox(format("With that badge, all POKéMON up to level 70 will obey your command without question!\pEven POKéMON you've received through trades.\pIt will also allow you to use the HM move Fly outside of battle.\p...\pYou should also take this."))
+	    msgbox(format("With that badge, all POKéMON up to level 75 will obey your command without question!\pEven POKéMON you've received through trades.\pIt will also allow you to use the HM move Fly outside of battle.\p...\pYou should also take this."))
 	    setflag (FLAG_DEFEATED_FORTREE_GYM)
 	    setflag (FLAG_BADGE06_GET)
         addvar (VAR_ECRUTEAK_STATE, 1)

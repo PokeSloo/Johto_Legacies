@@ -619,7 +619,7 @@ DewfordTown_Gym_EventScript_Alicia_Text_2:
 
 DewfordTown_Gym_EventScript_Alicia_Text_3:
 	.string "That SPARKLE BADGE will make all\n"
-	.string "POKéMON up to Level 30 listen to you\l"
+	.string "POKéMON up to Level 35 listen to you\l"
 	.string "without question, even the POKéMON\l"
 	.string "you get from trades!\p"
 	.string "You will also be able to use the HM move\n"

@@ -19,13 +19,15 @@ script NavelRock_Top_EventScript_Rayquaza {
     waitstate
     waitmoncry
     setwildbattle (SPECIES_RAYQUAZA, 70)
-    dowildbattle
+    special (BattleSetup_StartLegendaryBattle)
+    waitstate
+    specialvar (VAR_RESULT, GetBattleOutcome)
+	goto_if_eq (VAR_RESULT, B_OUTCOME_RAN, NavelRock_Top_EventScript_RanRayquaza)
+	goto_if_eq (VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, NavelRock_Top_EventScript_RanRayquaza)
     removeobject(1)
     setweather (WEATHER_SNOW)
     doweather
     delay (30)
-	playse (SE_M_ROCK_THROW)
-    waitse
     msgbox(format("A distant rumbling could be heard across Johto."))
     waitmessage
     closemessage
@@ -33,6 +35,19 @@ script NavelRock_Top_EventScript_Rayquaza {
     setflag (FLAG_TERRA_CAVE_OPEN)
     setflag (FLAG_KYOGRE_RAINY_WEATHER)
     setflag (FLAG_GROUDON_DROUGHT_WEATHER)
+    release
+    end
+}
+
+script NavelRock_Top_EventScript_RanRayquaza {
+    removeobject(1)
+    setweather (WEATHER_SNOW)
+    doweather
+    delay (30)
+    msgbox(format("The POKéMON flew away."))
+    waitmessage
+    closemessage
+    setflag (FLAG_DEFEATED_RAYQUAZA)
     release
     end
 }

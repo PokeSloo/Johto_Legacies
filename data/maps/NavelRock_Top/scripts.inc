@@ -24,13 +24,15 @@ NavelRock_Top_EventScript_Rayquaza::
 	waitstate
 	waitmoncry
 	setwildbattle SPECIES_RAYQUAZA, 70
-	dowildbattle
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, NavelRock_Top_EventScript_RanRayquaza
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, NavelRock_Top_EventScript_RanRayquaza
 	removeobject 1
 	setweather WEATHER_SNOW
 	doweather
 	delay 30
-	playse SE_M_ROCK_THROW
-	waitse
 	msgbox NavelRock_Top_EventScript_Rayquaza_Text_0
 	waitmessage
 	closemessage
@@ -42,6 +44,22 @@ NavelRock_Top_EventScript_Rayquaza::
 	end
 
 
+NavelRock_Top_EventScript_RanRayquaza::
+	removeobject 1
+	setweather WEATHER_SNOW
+	doweather
+	delay 30
+	msgbox NavelRock_Top_EventScript_RanRayquaza_Text_0
+	waitmessage
+	closemessage
+	setflag FLAG_DEFEATED_RAYQUAZA
+	release
+	end
+
+
 NavelRock_Top_EventScript_Rayquaza_Text_0:
 	.string "A distant rumbling could be heard\n"
 	.string "across Johto.$"
+
+NavelRock_Top_EventScript_RanRayquaza_Text_0:
+	.string "The POKéMON flew away.$"
