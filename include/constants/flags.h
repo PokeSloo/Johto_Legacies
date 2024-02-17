@@ -1253,9 +1253,9 @@
 #define FLAG_HIDE_FERALIGATR_POKEMON_LEAGUE                         0x4B4 // Set after defeating Silver
 #define FLAG_HIDE_SILVER_POKEMON_LEAGUE                             0x4B5 // Set after registering in hall of fame
 #define FLAG_GROUDON_DROUGHT_WEATHER                                0x4B6 // Route 32
-#define FLAG_UNUSED_0x4B7                                           0x4B7 // Unused Flag
-#define FLAG_UNUSED_0x4B8                                           0x4B8 // Unused Flag
-#define FLAG_UNUSED_0x4B9                                           0x4B9 // Unused Flag
+#define FLAG_SHOWED_SS_TICKET_OLIVINE                               0x4B7 // Set after showing ticket to captain
+#define FLAG_FARAWAY_ISLAND_AVAILABLE                               0x4B8 // Set by me after Red is defeated
+#define FLAG_BIRTH_ISLAND_AVAILABLE                                 0x4B9 // Set by me after player first talks to me
 #define FLAG_UNUSED_0x4BA                                           0x4BA // Unused Flag
 #define FLAG_UNUSED_0x4BB                                           0x4BB // Unused Flag
 #define FLAG_UNUSED_0x4BC                                           0x4BC // Unused Flag

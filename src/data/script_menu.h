@@ -790,6 +790,36 @@ const struct MenuAction MultichoiceList_RotomAppliances[] =
     {gText_Recall},
 };
 
+const struct MenuAction MultichoiceList_OlivineToBirth[] = 
+{
+    {gText_Apricotta},
+    {gText_BirthIsland},
+    {gText_Cancel},
+};
+
+const struct MenuAction MultichoiceList_OlivineToFaraway[] = 
+{
+    {gText_Apricotta},
+    {gText_BirthIsland},
+    {gText_FarawayIsland},
+    {gText_Cancel},
+};
+
+const struct MenuAction MultichoiceList_ApricottaToBirth[] = 
+{
+    {gText_Olivine},
+    {gText_BirthIsland},
+    {gText_Cancel},
+};
+
+const struct MenuAction MultichoiceList_ApricottaToFaraway[] = 
+{
+    {gText_Olivine},
+    {gText_BirthIsland},
+    {gText_FarawayIsland},
+    {gText_Cancel},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -918,6 +948,10 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
     [MULTI_ROTOM_APPLIANCES]           = MULTICHOICE(MultichoiceList_RotomAppliances),
+    [MULTI_OLIVINE_TO_BIRTH]           = MULTICHOICE(MultichoiceList_OlivineToBirth),
+    [MULTI_OLIVINE_TO_FARAWAY]         = MULTICHOICE(MultichoiceList_OlivineToFaraway),
+    [MULTI_APRICOTTA_TO_BIRTH]         = MULTICHOICE(MultichoiceList_ApricottaToBirth),
+    [MULTI_APRICOTTA_TO_FARAWAY]       = MULTICHOICE(MultichoiceList_ApricottaToFaraway),
 };
 
 const u8 *const gStdStrings[] =

@@ -270,7 +270,7 @@
 #define VAR_THE_CHALLENGE_EVENTS             0x40FB // Used to control the player in goldenrod gym. 1 = Set after all questions, 2 = Defeated Whitney
 #define VAR_KIMONO_GIRL_COUNT                0x40FC // Battled Kimono girls before get Eevee
 #define VAR_OLIVINE_GYM_TRAINER_COUNT        0x40FD // After battling and sending the band back to the gym
-#define VAR_UNUSED_0x40FE                    0x40FE // Unused Var
+#define VAR_HARBOR_DEPARTED_FROM             0x40FE // To take back to olivine or apricotta: 1 = olivine, 2 = apricotta
 #define VAR_UNUSED_0x40FF                    0x40FF // Unused Var
 
 #define VARS_END                             0x40FF

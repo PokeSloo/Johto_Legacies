@@ -1,0 +1,119 @@
+mapscripts LilycoveCity_Harbor_MapScripts {}
+
+script LilycoveCity_Harbor_EventScript_Sailor {
+    lock
+    faceplayer
+    if (flag(FLAG_FARAWAY_ISLAND_AVAILABLE)) {
+        goto (LilycoveCity_Harbor_EventScript_ChoiceWithFaraway)
+    }
+    elif (flag(FLAG_BIRTH_ISLAND_AVAILABLE)) {
+        goto (LilycoveCity_Harbor_EventScript_ChoiceWithBirth)
+    }
+    else {
+        msgbox(format("Welcome to the Apricotta Beach harbor!\pWould you like me to take you to Olivine City?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Very well.\pLet me know if you change your mind."))
+            release
+            end
+        }
+        else {
+            call (LilycoveCity_Harbor_EventScript_Depart)
+            warpsilent (MAP_FORTREE_CITY_DECORATION_SHOP, 8, 6)
+            waitstate
+            release
+            end
+        }
+    }
+}
+
+script LilycoveCity_Harbor_EventScript_Depart {
+    msgbox(format("All aboard!"))
+    waitmessage
+    closemessage
+    applymovement (3, LilycoveCity_Harbor_Movement_SailorBoard)
+    waitmovement (0)
+    delay (30)
+    applymovement (OBJ_EVENT_ID_PLAYER, LilycoveCity_Harbor_Movement_PlayerBoard)
+    waitmovement (0)
+    delay (60)
+    playse (SE_RG_SS_ANNE_HORN)
+    applymovement (1, LilycoveCity_Harbor_Movement_ShipLeave)
+    waitmovement (0)
+    waitse
+    return
+}
+
+movement LilycoveCity_Harbor_Movement_SailorBoard {
+    walk_in_place_up
+    set_invisible
+}
+
+movement LilycoveCity_Harbor_Movement_PlayerBoard {
+    walk_up
+    set_invisible
+}
+
+movement LilycoveCity_Harbor_Movement_ShipLeave {
+    delay_16 * 2
+    walk_slow_left * 6
+}
+
+raw`
+LilycoveCity_Harbor_EventScript_ChoiceWithBirth::
+	message LilycoveCity_Harbor_Text_WhereTo
+	waitmessage
+	multichoice 16, 0, MULTI_APRICOTTA_TO_BIRTH, FALSE
+	switch VAR_RESULT
+	case 0, LilycoveCity_Harbor_EventScript_ToOlivine
+	case 1, LilycoveCity_Harbor_EventScript_ToBirth
+	case 2, FortreeCity_DecorationShop_EventScript_Cancel
+	case MULTI_B_PRESSED, FortreeCity_DecorationShop_EventScript_Cancel
+	end
+
+LilycoveCity_Harbor_EventScript_ChoiceWithFaraway::
+	message LilycoveCity_Harbor_Text_WhereTo
+	waitmessage
+	multichoice 16, 0, MULTI_APRICOTTA_TO_FARAWAY, FALSE
+	switch VAR_RESULT
+	case 0, LilycoveCity_Harbor_EventScript_ToOlivine
+	case 1, LilycoveCity_Harbor_EventScript_ToBirth
+    case 2, LilycoveCity_Harbor_EventScript_ToFaraway
+	case 3, FortreeCity_DecorationShop_EventScript_Cancel
+	case MULTI_B_PRESSED, FortreeCity_DecorationShop_EventScript_Cancel
+	end
+`
+
+script LilycoveCity_Harbor_EventScript_ToOlivine {
+    call (LilycoveCity_Harbor_EventScript_Depart)
+    warpsilent (MAP_FORTREE_CITY_DECORATION_SHOP, 8, 6)
+    waitstate
+    release
+    end
+}
+
+script LilycoveCity_Harbor_EventScript_ToBirth {
+    setvar (VAR_HARBOR_DEPARTED_FROM, 2)
+    call (LilycoveCity_Harbor_EventScript_Depart)
+    warpsilent (MAP_BIRTH_ISLAND_EXTERIOR, 15, 21)
+    waitstate
+    release
+    end
+}
+
+script LilycoveCity_Harbor_EventScript_ToFaraway {
+    setvar (VAR_HARBOR_DEPARTED_FROM, 2)
+    call (LilycoveCity_Harbor_EventScript_Depart)
+    warpsilent (MAP_FARAWAY_ISLAND_ENTRANCE, 13, 38)
+    waitstate
+    release
+    end
+}
+
+text LilycoveCity_Harbor_Text_WhereTo {
+    format("Welcome to the Apricotta Beach harbor!\pWhere would you like me to take you?")
+}
+
+script LilycoveCity_Harbor_EventScript_OldLady {
+    msgbox(format("You're dressed mighty heavily, child.\pDon't spend too much time on the beach dressed like that."), MSGBOX_NPC)
+    end
+}

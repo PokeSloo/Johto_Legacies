@@ -1838,3 +1838,7 @@ const u8 gText_Refrigerator[] = _("Refrigerator");
 const u8 gText_ElectricFan[] = _("Electric Fan");
 const u8 gText_Lawnmower[] = _("Lawnmower");
 const u8 gText_Recall[] = _("Recall");
+
+// New ship destinations
+const u8 gText_Apricotta[] = _("APRICOTTA BEACH");
+const u8 gText_Olivine[] = _("OLIVINE CITY");

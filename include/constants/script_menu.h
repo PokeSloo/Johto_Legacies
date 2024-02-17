@@ -123,6 +123,10 @@
 #define MULTI_FALLARBOR_TENT_RULES         112
 #define MULTI_TAG_MATCH_TYPE               113
 #define MULTI_ROTOM_APPLIANCES             114
+#define MULTI_OLIVINE_TO_BIRTH             115
+#define MULTI_OLIVINE_TO_FARAWAY           116
+#define MULTI_APRICOTTA_TO_BIRTH           117
+#define MULTI_APRICOTTA_TO_FARAWAY         118
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

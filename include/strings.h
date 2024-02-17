@@ -3047,4 +3047,8 @@ extern const u8 gText_ElectricFan[];
 extern const u8 gText_Lawnmower[];
 extern const u8 gText_Recall[];
 
+// New ship destinations
+extern const u8 gText_Apricotta[];
+extern const u8 gText_Olivine[];
+
 #endif // GUARD_STRINGS_H

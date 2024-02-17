@@ -16,6 +16,141 @@ script FortreeCity_DecorationShop_EventScript_Guy {
 }
 
 script FortreeCity_DecorationShop_EventScript_Sailor {
-    msgbox(format("I'll take you to Apricotta Beach later."), MSGBOX_NPC)
+    lock
+    faceplayer
+    if (flag(FLAG_FARAWAY_ISLAND_AVAILABLE)) {
+        goto (FortreeCity_DecorationShop_EventScript_ChoiceWithFaraway)
+    }
+    elif (flag(FLAG_BIRTH_ISLAND_AVAILABLE)) {
+        goto (FortreeCity_DecorationShop_EventScript_ChoiceWithBirth)
+    }
+    elif (flag(FLAG_SHOWED_SS_TICKET_OLIVINE)) {
+        msgbox(format("Welcome to the Olivine City harbor!\pWould you like me to take you to Apricotta Beach?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Very well.\pLet me know if you change your mind."))
+            release
+            end
+        }
+        else {
+            call (FortreeCity_DecorationShop_EventScript_Depart)
+            warpsilent (MAP_LILYCOVE_CITY_HARBOR, 8, 11)
+            waitstate
+            release
+            end
+        }
+    }
+    elif (flag(FLAG_IS_CHAMPION)) {
+        setflag (FLAG_SHOWED_SS_TICKET_OLIVINE)
+        msgbox(format("Welcome to the Olivine City harbor!\pMay I please see your ticket?\p...\pYes! That is indeed an S.S. Ticket!\pWould you like me to take you to Apricotta Beach?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Very well.\pLet me know if you change your mind."))
+            release
+            end
+        }
+        else {
+            call (FortreeCity_DecorationShop_EventScript_Depart)
+            warpsilent (MAP_LILYCOVE_CITY_HARBOR, 8, 11)
+            waitstate
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("Welcome to the Olivine City harbor!\pMay I please see your ticket?\p...\pI'm sorry, our services are only available to those who have an S.S. Ticket."))
+        release
+        end
+    }
+}
+
+script FortreeCity_DecorationShop_EventScript_Depart {
+    msgbox(format("All aboard!"))
+    waitmessage
+    closemessage
+    applymovement (1, FortreeCity_DecorationShop_Movement_SailorBoard)
+    waitmovement (0)
+    delay (30)
+    applymovement (OBJ_EVENT_ID_PLAYER, FortreeCity_DecorationShop_Movement_PlayerBoard)
+    waitmovement (0)
+    delay (60)
+    playse (SE_RG_SS_ANNE_HORN)
+    applymovement (5, FortreeCity_DecorationShop_Movement_ShipLeave)
+    waitmovement (0)
+    waitse
+    return
+}
+
+movement FortreeCity_DecorationShop_Movement_SailorBoard {
+    walk_down
+    set_invisible
+}
+
+movement FortreeCity_DecorationShop_Movement_PlayerBoard {
+    walk_down * 2
+    set_invisible
+}
+
+movement FortreeCity_DecorationShop_Movement_ShipLeave {
+    delay_16 * 2
+    walk_slow_left * 6
+}
+
+raw`
+FortreeCity_DecorationShop_EventScript_ChoiceWithBirth::
+	message FortreeCity_DecorationShop_Text_WhereTo
+	waitmessage
+	multichoice 16, 0, MULTI_OLIVINE_TO_BIRTH, FALSE
+	switch VAR_RESULT
+	case 0, FortreeCity_DecorationShop_EventScript_ToApricotta
+	case 1, FortreeCity_DecorationShop_EventScript_ToBirth
+	case 2, FortreeCity_DecorationShop_EventScript_Cancel
+	case MULTI_B_PRESSED, FortreeCity_DecorationShop_EventScript_Cancel
+	end
+
+FortreeCity_DecorationShop_EventScript_ChoiceWithFaraway::
+	message FortreeCity_DecorationShop_Text_WhereTo
+	waitmessage
+	multichoice 16, 0, MULTI_OLIVINE_TO_FARAWAY, FALSE
+	switch VAR_RESULT
+	case 0, FortreeCity_DecorationShop_EventScript_ToApricotta
+	case 1, FortreeCity_DecorationShop_EventScript_ToBirth
+    case 2, FortreeCity_DecorationShop_EventScript_ToFaraway
+	case 3, FortreeCity_DecorationShop_EventScript_Cancel
+	case MULTI_B_PRESSED, FortreeCity_DecorationShop_EventScript_Cancel
+	end
+`
+
+script FortreeCity_DecorationShop_EventScript_ToApricotta {
+    call (FortreeCity_DecorationShop_EventScript_Depart)
+    warpsilent (MAP_LILYCOVE_CITY_HARBOR, 8, 11)
+    waitstate
+    release
     end
+}
+
+script FortreeCity_DecorationShop_EventScript_ToBirth {
+    setvar (VAR_HARBOR_DEPARTED_FROM, 1)
+    call (FortreeCity_DecorationShop_EventScript_Depart)
+    warpsilent (MAP_BIRTH_ISLAND_EXTERIOR, 15, 21)
+    waitstate
+    release
+    end
+}
+
+script FortreeCity_DecorationShop_EventScript_ToFaraway {
+    setvar (VAR_HARBOR_DEPARTED_FROM, 1)
+    call (FortreeCity_DecorationShop_EventScript_Depart)
+    warpsilent (MAP_FARAWAY_ISLAND_ENTRANCE, 13, 38)
+    waitstate
+    release
+    end
+}
+
+script FortreeCity_DecorationShop_EventScript_Cancel {
+    msgbox(format("Very well.\pLet me know if you change your mind."))
+    release
+    end
+}
+
+text FortreeCity_DecorationShop_Text_WhereTo {
+    format("Welcome to the Olivine City harbor!\pWhere would you like me to take you?")
 }
