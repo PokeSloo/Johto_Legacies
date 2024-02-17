@@ -115,3 +115,115 @@ BirthIsland_Exterior_Movement_DeoxysApproach:
 	walk_slow_down
 	walk_slow_down
 	step_end
+
+BirthIsland_Exterior_EventScript_Sailor::
+	lock
+	faceplayer
+	compare VAR_HARBOR_DEPARTED_FROM, 1
+	goto_if_eq BirthIsland_Exterior_EventScript_Sailor_1
+	msgbox BirthIsland_Exterior_EventScript_Sailor_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq BirthIsland_Exterior_EventScript_Sailor_7
+	call BirthIsland_Exterior_EventScript_Depart
+	warpsilent MAP_LILYCOVE_CITY_HARBOR, 8, 11
+	waitstate
+	release
+	end
+
+BirthIsland_Exterior_EventScript_Sailor_1:
+	msgbox BirthIsland_Exterior_EventScript_Sailor_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq BirthIsland_Exterior_EventScript_Sailor_4
+	call BirthIsland_Exterior_EventScript_Depart
+	warpsilent MAP_FORTREE_CITY_DECORATION_SHOP, 8, 6
+	waitstate
+	release
+	end
+
+BirthIsland_Exterior_EventScript_Sailor_4:
+	msgbox BirthIsland_Exterior_EventScript_Sailor_Text_1
+	release
+	end
+
+BirthIsland_Exterior_EventScript_Sailor_7:
+	msgbox BirthIsland_Exterior_EventScript_Sailor_Text_1
+	release
+	end
+
+
+BirthIsland_Exterior_EventScript_Depart::
+	msgbox BirthIsland_Exterior_EventScript_Depart_Text_0
+	waitmessage
+	closemessage
+	applymovement 4, FortreeCity_DecorationShop_Movement_SailorBoard
+	waitmovement 0
+	delay 30
+	specialvar VAR_RESULT, GetPlayerFacingDirection
+	switch VAR_RESULT
+	case DIR_EAST, BirthIsland_Exterior_EventScript_Depart_3
+	case DIR_WEST, BirthIsland_Exterior_EventScript_Depart_4
+	case DIR_SOUTH, BirthIsland_Exterior_EventScript_Depart_5
+BirthIsland_Exterior_EventScript_Depart_1:
+	delay 60
+	playse SE_RG_SS_ANNE_HORN
+	applymovement 3, FortreeCity_DecorationShop_Movement_ShipLeave
+	waitmovement 0
+	waitse
+	return
+
+BirthIsland_Exterior_EventScript_Depart_3:
+	call BirthIsland_Exterior_EventScript_FacingEast
+	goto BirthIsland_Exterior_EventScript_Depart_1
+
+BirthIsland_Exterior_EventScript_Depart_4:
+	call BirthIsland_Exterior_EventScript_FacingWest
+	goto BirthIsland_Exterior_EventScript_Depart_1
+
+BirthIsland_Exterior_EventScript_Depart_5:
+	call BirthIsland_Exterior_EventScript_FacingSouth
+	goto BirthIsland_Exterior_EventScript_Depart_1
+
+
+BirthIsland_Exterior_EventScript_FacingEast::
+	applymovement OBJ_EVENT_ID_PLAYER, BirthIsland_Exterior_Movement_PlayerBoardEast
+	waitmovement 0
+	return
+
+
+BirthIsland_Exterior_EventScript_FacingWest::
+	applymovement OBJ_EVENT_ID_PLAYER, BirthIsland_Exterior_Movement_PlayerBoardWest
+	waitmovement 0
+	return
+
+
+BirthIsland_Exterior_EventScript_FacingSouth::
+	applymovement OBJ_EVENT_ID_PLAYER, FortreeCity_DecorationShop_Movement_PlayerBoard
+	waitmovement 0
+	return
+
+
+BirthIsland_Exterior_Movement_PlayerBoardEast:
+	walk_right
+	walk_down
+	set_invisible
+	step_end
+
+BirthIsland_Exterior_Movement_PlayerBoardWest:
+	walk_left
+	walk_down
+	set_invisible
+	step_end
+
+BirthIsland_Exterior_EventScript_Sailor_Text_0:
+	.string "Would you like to go back to Olivine City\n"
+	.string "now?$"
+
+BirthIsland_Exterior_EventScript_Sailor_Text_1:
+	.string "Let me know when you're ready to leave.$"
+
+BirthIsland_Exterior_EventScript_Sailor_Text_2:
+	.string "Would you like to go back to Apricotta\n"
+	.string "Beach now?$"
+
+BirthIsland_Exterior_EventScript_Depart_Text_0:
+	.string "All aboard!$"

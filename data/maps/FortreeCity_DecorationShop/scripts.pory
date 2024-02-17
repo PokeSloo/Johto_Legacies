@@ -15,6 +15,23 @@ script FortreeCity_DecorationShop_EventScript_Guy {
     end
 }
 
+script FortreeCity_DecorationShop_EventScript_flaggirl {
+    lock
+    faceplayer
+    if (flag(FLAG_BIRTH_ISLAND_AVAILABLE)){
+        setflag (FLAG_FARAWAY_ISLAND_AVAILABLE)
+        msgbox(format("faraway available"))
+        release
+        end
+    }
+    else {
+        setflag (FLAG_BIRTH_ISLAND_AVAILABLE)
+        msgbox(format("birth available"))
+        release
+        end
+    }
+}
+
 script FortreeCity_DecorationShop_EventScript_Sailor {
     lock
     faceplayer
@@ -130,7 +147,7 @@ script FortreeCity_DecorationShop_EventScript_ToApricotta {
 script FortreeCity_DecorationShop_EventScript_ToBirth {
     setvar (VAR_HARBOR_DEPARTED_FROM, 1)
     call (FortreeCity_DecorationShop_EventScript_Depart)
-    warpsilent (MAP_BIRTH_ISLAND_EXTERIOR, 15, 21)
+    warpsilent (MAP_BIRTH_ISLAND_EXTERIOR, 15, 26)
     waitstate
     release
     end

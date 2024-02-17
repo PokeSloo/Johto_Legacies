@@ -17,6 +17,22 @@ FortreeCity_DecorationShop_EventScript_Guy::
 	end
 
 
+FortreeCity_DecorationShop_EventScript_flaggirl::
+	lock
+	faceplayer
+	goto_if_set FLAG_BIRTH_ISLAND_AVAILABLE, FortreeCity_DecorationShop_EventScript_flaggirl_1
+	setflag FLAG_BIRTH_ISLAND_AVAILABLE
+	msgbox FortreeCity_DecorationShop_EventScript_flaggirl_Text_1
+	release
+	end
+
+FortreeCity_DecorationShop_EventScript_flaggirl_1:
+	setflag FLAG_FARAWAY_ISLAND_AVAILABLE
+	msgbox FortreeCity_DecorationShop_EventScript_flaggirl_Text_0
+	release
+	end
+
+
 FortreeCity_DecorationShop_EventScript_Sailor::
 	lock
 	faceplayer
@@ -141,7 +157,7 @@ FortreeCity_DecorationShop_EventScript_ToApricotta::
 FortreeCity_DecorationShop_EventScript_ToBirth::
 	setvar VAR_HARBOR_DEPARTED_FROM, 1
 	call FortreeCity_DecorationShop_EventScript_Depart
-	warpsilent MAP_BIRTH_ISLAND_EXTERIOR, 15, 21
+	warpsilent MAP_BIRTH_ISLAND_EXTERIOR, 15, 26
 	waitstate
 	release
 	end
@@ -178,6 +194,12 @@ FortreeCity_DecorationShop_EventScript_Girl_Text_0:
 FortreeCity_DecorationShop_EventScript_Guy_Text_0:
 	.string "Yay! I can't wait to go to the nice warm\n"
 	.string "beach!$"
+
+FortreeCity_DecorationShop_EventScript_flaggirl_Text_0:
+	.string "faraway available$"
+
+FortreeCity_DecorationShop_EventScript_flaggirl_Text_1:
+	.string "birth available$"
 
 FortreeCity_DecorationShop_EventScript_Sailor_Text_0:
 	.string "Welcome to the Olivine City harbor!\p"

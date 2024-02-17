@@ -43,7 +43,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_SS_TIDAL",
       "x": 15,
-      "y": 25,
+      "y": 30,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -56,25 +56,19 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
       "x": 15,
-      "y": 22,
+      "y": 27,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "BirthIsland_Exterior_EventScript_Sailor",
       "flag": "0"
     }
   ],
   "warp_events": [
-    {
-      "x": 17,
-      "y": 21,
-      "elevation": 0,
-      "dest_map": "MAP_BIRTH_ISLAND_HARBOR",
-      "dest_warp_id": 0
-    }
+
   ],
   "coord_events": [
 

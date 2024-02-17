@@ -102,7 +102,7 @@ LilycoveCity_Harbor_EventScript_ToOlivine::
 LilycoveCity_Harbor_EventScript_ToBirth::
 	setvar VAR_HARBOR_DEPARTED_FROM, 2
 	call LilycoveCity_Harbor_EventScript_Depart
-	warpsilent MAP_BIRTH_ISLAND_EXTERIOR, 15, 21
+	warpsilent MAP_BIRTH_ISLAND_EXTERIOR, 15, 26
 	waitstate
 	release
 	end

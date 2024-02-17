@@ -1,0 +1,85 @@
+raw`
+.set LOCALID_SAILOR, 1
+.set LOCALID_SS_TIDAL, 2
+
+FarawayIsland_Entrance_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, FarawayIsland_Entrance_OnTransition
+	.byte 0
+
+FarawayIsland_Entrance_OnTransition:
+	setflag FLAG_ARRIVED_ON_FARAWAY_ISLAND
+	end
+
+FarawayIsland_Entrance_EventScript_SetCloudsWeather::
+	setweather WEATHER_SUNNY_CLOUDS
+	doweather
+	end
+
+FarawayIsland_Entrance_EventScript_ClearWeather::
+	setweather WEATHER_NONE
+	doweather
+	end
+
+FarawayIsland_Entrance_EventScript_Sign::
+	msgbox FarawayIsland_Entrance_Text_Sign, MSGBOX_SIGN
+	end
+`
+
+script FarawayIsland_Entrance_EventScript_Sailor {
+    lock
+    faceplayer
+    if (var(VAR_HARBOR_DEPARTED_FROM) == 1) {
+        msgbox(format("Would you like to go back to Olivine City now?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Let me know when you're ready to leave."))
+            release
+            end
+        }
+        else {
+            call (FarawayIsland_Entrance_EventScript_Depart)
+            warpsilent (MAP_FORTREE_CITY_DECORATION_SHOP, 8, 6)
+            waitstate
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("Would you like to go back to Apricotta Beach now?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Let me know when you're ready to leave."))
+            release
+            end
+        }
+        else {
+            call (FarawayIsland_Entrance_EventScript_Depart)
+            warpsilent (MAP_LILYCOVE_CITY_HARBOR, 8, 11)
+            waitstate
+            release
+            end
+        }
+    }
+}
+
+script FarawayIsland_Entrance_EventScript_Depart {
+    msgbox(format("All aboard!"))
+    waitmessage
+    closemessage
+    applymovement (1, FortreeCity_DecorationShop_Movement_SailorBoard)
+    waitmovement (0)
+    delay (30)
+    specialvar (VAR_RESULT, GetPlayerFacingDirection)
+        switch (var(VAR_RESULT)) {
+            case DIR_EAST :
+                call (BirthIsland_Exterior_EventScript_FacingEast)
+            case DIR_WEST :
+                call (BirthIsland_Exterior_EventScript_FacingWest)
+            case DIR_SOUTH :
+                call (BirthIsland_Exterior_EventScript_FacingSouth)
+        }
+    delay (60)
+    playse (SE_RG_SS_ANNE_HORN)
+    applymovement (2, FortreeCity_DecorationShop_Movement_ShipLeave)
+    waitmovement (0)
+    waitse
+    return
+}
