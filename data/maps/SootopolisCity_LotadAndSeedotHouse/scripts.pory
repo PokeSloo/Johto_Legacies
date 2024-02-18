@@ -1,0 +1,397 @@
+const OAK_ID = 1
+const BULBABALL_ID = 3
+const SQUIRTBALL_ID = 5
+const CHARBALL_ID = 4
+const NURSE_ID = 2
+
+mapscripts SootopolisCity_LotadAndSeedotHouse_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_1, 0: SootopolisCity_LotadAndSeedotHouse_EventScript_OnFrame
+    ]
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_OnFrame {
+    lock
+    playse (SE_PIN)
+    applymovement (OAK_ID, SootopolisCity_LotadAndSeedotHouse_Movement_StepDown)
+    waitmovement (0)
+    waitse
+    delay(30)
+    msgbox(format("Welcome to the world of POKéMON!"))
+    waitmessage
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_LotadAndSeedotHouse_Movement_PlayerStepIn)
+    waitmovement (0)
+    msgbox(format("This world is inhabited far and wide by... uh... POKéMON!\p...\pAre you a boy, or are you a girl?"))
+    waitmessage
+    playse (SE_PIN)
+    applymovement (OAK_ID, SootopolisCity_LotadAndSeedotHouse_Movement_Exclamation)
+    waitmovement (0)
+    waitse
+    delay(60)
+    msgbox(format("Oh! That's right!"))
+    waitmessage
+    applymovement (OAK_ID, SootopolisCity_LotadAndSeedotHouse_Movement_StepRight)
+    waitmovement (0)
+    msgbox(format("On this table are three POKéBALLS..."))
+    waitmessage
+    if (flag(FLAG_GOT_OAK_POKEMON)) {
+        msgbox(format("Wait...\pWhere did they go...?"))
+        setvar (VAR_TEMP_1, 1)
+        release
+        end
+    }
+    else {
+        msgbox(format("Each one contains a POKéMON!\pYou can have one.\pGo on, choose!"))
+        setvar (VAR_TEMP_1, 1)
+        release
+        end
+    }
+}
+
+movement SootopolisCity_LotadAndSeedotHouse_Movement_Exclamation {
+    emote_exclamation_mark
+    face_down
+}
+
+movement SootopolisCity_LotadAndSeedotHouse_Movement_PlayerStepIn {
+    walk_up * 2
+}
+
+movement SootopolisCity_LotadAndSeedotHouse_Movement_StepRight {
+    walk_in_place_right
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_Oak {
+    msgbox(format("Hmm... Are you a boy, or are you a girl?"), MSGBOX_NPC)
+    end
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_BulbasaurBall {
+    lock
+    showmonpic (SPECIES_BULBASAUR, 10, 3)
+    applymovement (OAK_ID, SootopolisCity_LotadAndSeedotHouse_Movement_StepRight)
+    waitmovement (0)
+    msgbox (format("...You want to go with the GRASS POKéMON, BULBASAUR?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        hidemonpic
+		msgbox (format("I see, most people don't want BULBASAUR..."))
+		release
+		end
+    }
+    else {
+	    hidemonpic
+        setvar (VAR_TEMP_1, SPECIES_BULBASAUR)
+        givemon (SPECIES_BULBASAUR, 5)
+	    goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PARTY, SootopolisCity_LotadAndSeedotHouse_EventScript_ReceiveBulbasaurParty)
+	    goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PC, SootopolisCity_LotadAndSeedotHouse_EventScript_ReceiveBulbasaurPC)
+	    goto (Common_EventScript_NoMoreRoomForPokemon)
+        end
+    }
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_ReceiveBulbasaurParty {
+	call (SootopolisCity_LotadAndSeedotHouse_EventScript_ReceivedBulbasaurFanfare)
+	msgbox (gText_NicknameThisPokemon, MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, NO, SootopolisCity_LotadAndSeedotHouse_EventScript_AfterChosen)
+	call (Common_EventScript_GetGiftMonPartySlot)
+	call (Common_EventScript_NameReceivedPartyMon)
+	goto (SootopolisCity_LotadAndSeedotHouse_EventScript_AfterChosen)
+	end
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_ReceiveBulbasaurPC {
+	call (SootopolisCity_LotadAndSeedotHouse_EventScript_ReceivedBulbasaurFanfare)
+	msgbox (gText_NicknameThisPokemon, MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, NO, SootopolisCity_LotadAndSeedotHouse_EventScript_SendBulbasaurToPC)
+	call (Common_EventScript_NameReceivedBoxMon)
+	goto (SootopolisCity_LotadAndSeedotHouse_EventScript_SendBulbasaurToPC)
+	end
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_SendBulbasaurToPC {
+	call (Common_EventScript_TransferredToPC)
+	goto (SootopolisCity_LotadAndSeedotHouse_EventScript_AfterChosen)
+	end
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_ReceivedBulbasaurFanfare {
+	removeobject (BULBABALL_ID)
+    setflag (FLAG_CHOSE_OAK_BULBASAUR)
+    bufferspeciesname (STR_VAR_2, SPECIES_BULBASAUR)
+	playfanfare (MUS_OBTAIN_ITEM)
+	msgbox(format("{PLAYER} received the BULBASAUR!"))
+	waitmessage
+	waitfanfare
+	bufferspeciesname (STR_VAR_1, SPECIES_BULBASAUR)
+	return
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_SquirtleBall {
+    lock
+    showmonpic (SPECIES_SQUIRTLE, 10, 3)
+    applymovement (OAK_ID, SootopolisCity_LotadAndSeedotHouse_Movement_StepRight)
+    waitmovement (0)
+    msgbox (format("...You want to go with the WATER POKéMON, SQUIRTLE?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        hidemonpic
+		msgbox (format("I see, how disappointing..."))
+		release
+		end
+    }
+    else {
+	    hidemonpic
+        setvar (VAR_TEMP_1, SPECIES_SQUIRTLE)
+        givemon (SPECIES_SQUIRTLE, 5)
+	    goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PARTY, SootopolisCity_LotadAndSeedotHouse_EventScript_ReceiveSquirtleParty)
+	    goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PC, SootopolisCity_LotadAndSeedotHouse_EventScript_ReceiveSquirtlePC)
+	    goto (Common_EventScript_NoMoreRoomForPokemon)
+        end
+    }
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_ReceiveSquirtleParty {
+	call (SootopolisCity_LotadAndSeedotHouse_EventScript_ReceivedSquirtleFanfare)
+	msgbox (gText_NicknameThisPokemon, MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, NO, SootopolisCity_LotadAndSeedotHouse_EventScript_AfterChosen)
+	call (Common_EventScript_GetGiftMonPartySlot)
+	call (Common_EventScript_NameReceivedPartyMon)
+	goto (SootopolisCity_LotadAndSeedotHouse_EventScript_AfterChosen)
+	end
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_ReceiveSquirtlePC {
+	call (SootopolisCity_LotadAndSeedotHouse_EventScript_ReceivedSquirtleFanfare)
+	msgbox (gText_NicknameThisPokemon, MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, NO, SootopolisCity_LotadAndSeedotHouse_EventScript_SendSquirtleToPC)
+	call (Common_EventScript_NameReceivedBoxMon)
+	goto (SootopolisCity_LotadAndSeedotHouse_EventScript_SendSquirtleToPC)
+	end
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_SendSquirtleToPC {
+	call (Common_EventScript_TransferredToPC)
+	goto (SootopolisCity_LotadAndSeedotHouse_EventScript_AfterChosen)
+	end
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_ReceivedSquirtleFanfare {
+	removeobject (SQUIRTBALL_ID)
+    setflag (FLAG_CHOSE_OAK_SQUIRTLE)
+    bufferspeciesname (STR_VAR_2, SPECIES_SQUIRTLE)
+	playfanfare (MUS_OBTAIN_ITEM)
+	msgbox(format("{PLAYER} received the SQUIRTLE!"))
+	waitmessage
+	waitfanfare
+	bufferspeciesname (STR_VAR_1, SPECIES_SQUIRTLE)
+	return
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_CharmanderBall {
+    lock
+    showmonpic (SPECIES_CHARMANDER, 10, 3)
+    applymovement (OAK_ID, SootopolisCity_LotadAndSeedotHouse_Movement_StepRight)
+    waitmovement (0)
+    msgbox (format("...You want to go with the FIRE POKéMON, CHARMANDER?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        hidemonpic
+		msgbox (format("Really? I thought everyone wanted CHARMANDER..."))
+		release
+		end
+    }
+    else {
+	    hidemonpic
+        setvar (VAR_TEMP_1, SPECIES_CHARMANDER)
+        givemon (SPECIES_CHARMANDER, 5)
+	    goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PARTY, SootopolisCity_LotadAndSeedotHouse_EventScript_ReceiveCharmanderParty)
+	    goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PC, SootopolisCity_LotadAndSeedotHouse_EventScript_ReceiveCharmanderPC)
+	    goto (Common_EventScript_NoMoreRoomForPokemon)
+        end
+    }
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_ReceiveCharmanderParty {
+	call (SootopolisCity_LotadAndSeedotHouse_EventScript_ReceivedCharmanderFanfare)
+	msgbox (gText_NicknameThisPokemon, MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, NO, SootopolisCity_LotadAndSeedotHouse_EventScript_AfterChosen)
+	call (Common_EventScript_GetGiftMonPartySlot)
+	call (Common_EventScript_NameReceivedPartyMon)
+	goto (SootopolisCity_LotadAndSeedotHouse_EventScript_AfterChosen)
+	end
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_ReceiveCharmanderPC {
+	call (SootopolisCity_LotadAndSeedotHouse_EventScript_ReceivedCharmanderFanfare)
+	msgbox (gText_NicknameThisPokemon, MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, NO, SootopolisCity_LotadAndSeedotHouse_EventScript_SendCharmanderToPC)
+	call (Common_EventScript_NameReceivedBoxMon)
+	goto (SootopolisCity_LotadAndSeedotHouse_EventScript_SendCharmanderToPC)
+	end
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_SendCharmanderToPC {
+	call (Common_EventScript_TransferredToPC)
+	goto (SootopolisCity_LotadAndSeedotHouse_EventScript_AfterChosen)
+	end
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_ReceivedCharmanderFanfare {
+	removeobject (CHARBALL_ID)
+    setflag (FLAG_CHOSE_OAK_CHARMANDER)
+    bufferspeciesname (STR_VAR_2, SPECIES_CHARMANDER)
+	playfanfare (MUS_OBTAIN_ITEM)
+	msgbox(format("{PLAYER} received the CHARMANDER!"))
+	waitmessage
+	waitfanfare
+	bufferspeciesname (STR_VAR_1, SPECIES_CHARMANDER)
+	return
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_AfterChosen {
+	msgbox(format("You've made a fine choice!"))
+    waitmessage
+    closemessage
+    playse(SE_DOOR)
+    addobject(NURSE_ID)
+    waitse
+    applymovement (OAK_ID, SootopolisCity_LotadAndSeedotHouse_Movement_StepDown)
+    applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_LotadAndSeedotHouse_Movement_StepDown)
+    waitmovement (0)
+    delay(30)
+    msgbox(format("NURSE: It's time for your medication, SAMUEL.\pSAMUEL: Welcome to the world of POKéMON!\pNURSE: No, no, it's me, your nurse.\p...\pW-where did you get these POKéMON?\pYour medication can wait.\pWe'll have to figure out where you found these, and return them to their rightful owner."))
+    waitmessage
+    closemessage
+    if (flag(FLAG_CHOSE_OAK_BULBASAUR)) {
+        goto (SootopolisCity_LotadAndSeedotHouse_EventScript_RemoveSquirtChar)
+    }
+    elif (flag(FLAG_CHOSE_OAK_SQUIRTLE)) {
+        goto (SootopolisCity_LotadAndSeedotHouse_EventScript_RemoveBulbaChar)
+    }
+    else {
+        goto (SootopolisCity_LotadAndSeedotHouse_EventScript_RemoveBulbaSquirt)
+    }
+	end
+}
+
+movement SootopolisCity_LotadAndSeedotHouse_Movement_StepDown {
+    walk_in_place_down
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_RemoveSquirtChar {
+    applymovement(NURSE_ID, SootopolisCity_LotadAndSeedotHouse_Movement_NurseToSquirtFirst)
+    waitmovement (0)
+    delay(20)
+    removeobject(SQUIRTBALL_ID)
+    delay(30)
+    applymovement(NURSE_ID, SootopolisCity_LotadAndSeedotHouse_Movement_NurseToCharFromSquirt)
+    waitmovement (0)
+    delay(20)
+    removeobject(CHARBALL_ID)
+    delay(30)
+    applymovement(NURSE_ID, SootopolisCity_LotadAndSeedotHouse_Movement_StepLeft)
+    applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_LotadAndSeedotHouse_Movement_StepRight)
+    waitmovement (0)
+    msgbox(format("I'm sorry about him..."))
+    waitmessage
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_LotadAndSeedotHouse_Movement_StepDown)
+    applymovement(NURSE_ID, SootopolisCity_LotadAndSeedotHouse_Movement_NurseExitFromChar)
+    waitmovement (0)
+    removeobject (NURSE_ID)
+    playse (SE_EXIT)
+    waitse
+    setflag(FLAG_GOT_OAK_POKEMON)
+    release
+    end
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_RemoveBulbaChar {
+    applymovement(NURSE_ID, SootopolisCity_LotadAndSeedotHouse_Movement_NurseToBulbaFirst)
+    waitmovement (0)
+    delay(20)
+    removeobject(BULBABALL_ID)
+    delay(30)
+    applymovement(NURSE_ID, SootopolisCity_LotadAndSeedotHouse_Movement_NurseToCharFromBulba)
+    waitmovement (0)
+    delay(20)
+    removeobject(CHARBALL_ID)
+    delay(30)
+    applymovement(NURSE_ID, SootopolisCity_LotadAndSeedotHouse_Movement_StepLeft)
+    applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_LotadAndSeedotHouse_Movement_StepRight)
+    waitmovement (0)
+    msgbox(format("I'm sorry about him..."))
+    waitmessage
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_LotadAndSeedotHouse_Movement_StepDown)
+    applymovement(NURSE_ID, SootopolisCity_LotadAndSeedotHouse_Movement_NurseExitFromChar)
+    waitmovement (0)
+    removeobject (NURSE_ID)
+    playse (SE_EXIT)
+    waitse
+    setflag(FLAG_GOT_OAK_POKEMON)
+    release
+    end
+}
+
+script SootopolisCity_LotadAndSeedotHouse_EventScript_RemoveBulbaSquirt {
+    applymovement(NURSE_ID, SootopolisCity_LotadAndSeedotHouse_Movement_NurseToBulbaFirst)
+    waitmovement (0)
+    delay(20)
+    removeobject(BULBABALL_ID)
+    delay(30)
+    applymovement(NURSE_ID, SootopolisCity_LotadAndSeedotHouse_Movement_NurseToCharFromSquirt)
+    waitmovement (0)
+    delay(20)
+    removeobject(SQUIRTBALL_ID)
+    delay(30)
+    applymovement(NURSE_ID, SootopolisCity_LotadAndSeedotHouse_Movement_StepRight)
+    applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_LotadAndSeedotHouse_Movement_StepLeft)
+    waitmovement (0)
+    msgbox(format("I'm sorry about him..."))
+    waitmessage
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_LotadAndSeedotHouse_Movement_StepDown)
+    applymovement(NURSE_ID, SootopolisCity_LotadAndSeedotHouse_Movement_NurseExitFromSquirt)
+    waitmovement (0)
+    removeobject (NURSE_ID)
+    playse (SE_EXIT)
+    waitse
+    setflag(FLAG_GOT_OAK_POKEMON)
+    release
+    end
+}
+
+movement SootopolisCity_LotadAndSeedotHouse_Movement_NurseToSquirtFirst {
+    walk_up
+    walk_right
+    walk_up * 2
+}
+
+movement SootopolisCity_LotadAndSeedotHouse_Movement_NurseToCharFromSquirt {
+    walk_right
+    walk_in_place_up
+}
+
+movement SootopolisCity_LotadAndSeedotHouse_Movement_NurseToBulbaFirst {
+    walk_up * 3
+}
+
+movement SootopolisCity_LotadAndSeedotHouse_Movement_NurseToCharFromBulba {
+    walk_down
+    walk_right * 2
+    walk_up
+}
+
+movement SootopolisCity_LotadAndSeedotHouse_Movement_StepLeft {
+    walk_in_place_left
+}
+
+movement SootopolisCity_LotadAndSeedotHouse_Movement_NurseExitFromChar {
+    walk_down * 2
+    walk_left
+    walk_down
+}
+
+movement SootopolisCity_LotadAndSeedotHouse_Movement_NurseExitFromSquirt {
+    walk_down * 3
+}

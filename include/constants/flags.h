@@ -1256,11 +1256,11 @@
 #define FLAG_SHOWED_SS_TICKET_OLIVINE                               0x4B7 // Set after showing ticket to captain
 #define FLAG_FARAWAY_ISLAND_AVAILABLE                               0x4B8 // Set by me after Red is defeated
 #define FLAG_BIRTH_ISLAND_AVAILABLE                                 0x4B9 // Set by me after player first talks to me
-#define FLAG_UNUSED_0x4BA                                           0x4BA // Unused Flag
-#define FLAG_UNUSED_0x4BB                                           0x4BB // Unused Flag
-#define FLAG_UNUSED_0x4BC                                           0x4BC // Unused Flag
-#define FLAG_UNUSED_0x4BD                                           0x4BD // Unused Flag
-#define FLAG_UNUSED_0x4BE                                           0x4BE // Unused Flag
+#define FLAG_DEFEATED_RED                                           0x4BA // Pokemon league second champion
+#define FLAG_CHOSE_OAK_BULBASAUR                                    0x4BB // Apricotta Beach Oak
+#define FLAG_CHOSE_OAK_SQUIRTLE                                     0x4BC // Apricotta Beach Oak
+#define FLAG_CHOSE_OAK_CHARMANDER                                   0x4BD // Apricotta Beach Oak
+#define FLAG_GOT_OAK_POKEMON                                        0x4BE // Apricotta Beach Oak
 #define FLAG_UNUSED_0x4BF                                           0x4BF // Unused Flag
 #define FLAG_UNUSED_0x4C0                                           0x4C0 // Unused Flag
 #define FLAG_UNUSED_0x4C1                                           0x4C1 // Unused Flag

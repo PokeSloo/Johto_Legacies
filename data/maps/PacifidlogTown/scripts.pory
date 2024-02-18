@@ -84,3 +84,61 @@ script PacifidlogTown_EventScript_Tourist {
     msgbox(format("Ugh, this beach is too hot, and some sand got in my shorts!\pThis is just awful!"), MSGBOX_NPC)
     end
 }
+
+script PacifidlogTown_EventScript_Me {
+    lock
+    faceplayer
+    if (flag(FLAG_FARAWAY_ISLAND_AVAILABLE)) {
+        msgbox(format("Yo, {PLAYER}, I hope you've enjoyed my game.\pHave you tried the contest hall, and battle tower yet?\pI updated the POKéMON there too, you know.\pWelp, take it easy, {PLAYER}."))
+        release
+        end
+    }
+    elif (flag(FLAG_DEFEATED_RED)) {
+        if (!flag(FLAG_BIRTH_ISLAND_AVAILABLE)) {
+            msgbox(format("I know what you must be thinking, “Who is this strange, bald man, why did I stop to talk to him, and why is he so attractive?”\pOk, maybe not that last part.\pNo, I'm not Saitama.\pI'm Sloo, I created this hack!\pI spent a lot of time and effort making this game, so I'm taking a well deserved vacation.\pBy the way, I would like to personally congratulate you on completing the main story!"))
+            waitmessage
+            closemessage
+            special (DoDomeConfetti)
+	        playse (SE_APPLAUSE)
+            waitse
+            msgbox(format("As a reward for getting this far, I will grant you access to Birth Island!"))
+            waitmessage
+            playfanfare (MUS_OBTAIN_ITEM)
+            waitfanfare
+            msgbox(format("Just speak to the ship captain at the harbor either here, or in Olivine City.\pOh, and I see you've already defeated the POKéMON League a second time!\pIn that case, I will give you another reward!\pI'll grant you access to Faraway Island as well.\pI hope you've enjoyed playing my game!\pUntil next time, {PLAYER}."))
+            setflag (FLAG_BIRTH_ISLAND_AVAILABLE)
+            setflag (FLAG_FARAWAY_ISLAND_AVAILABLE)
+            release
+            end
+        }
+        msgbox(format("How's it going, {PLAYER}?\pHey! I see you defeated Red.\pCongrats! I'm sure that wasn't an easy battle.\pAs promised, I will give you another reward.\pTalk to one of the ship captains, and they'll now take you to Faraway Island!"))
+        waitmessage
+        playfanfare (MUS_OBTAIN_ITEM)
+        waitfanfare
+        msgbox(format("I also added a little something extra there for you.\pUntil next time, {PLAYER}."))
+        setflag (FLAG_FARAWAY_ISLAND_AVAILABLE)
+        release
+        end
+    }
+    elif (flag(FLAG_BIRTH_ISLAND_AVAILABLE)) {
+        msgbox(format("How's it going, {PLAYER}?\pAre you still enjoying my game?\pRemember, if you defeat the POKéMON League a second time, I will give you another reward.\pKeep at it!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("I know what you must be thinking, “Who is this strange, bald man, why did I stop to talk to him, and why is he so attractive?”\pOk, maybe not that last part.\pNo, I'm not Saitama.\pI'm Sloo, I created this hack!\pI spent a lot of time and effort making this game, so I'm taking a well deserved vacation.\pBy the way, I would like to personally congratulate you on completing the main story!"))
+        waitmessage
+        closemessage
+        special (DoDomeConfetti)
+	    playse (SE_APPLAUSE)
+        waitse
+        msgbox(format("As a reward for getting this far, I will grant you access to Birth Island!"))
+        waitmessage
+        playfanfare (MUS_OBTAIN_ITEM)
+        waitfanfare
+        msgbox(format("Just speak to the ship captain at the harbor either here, or in Olivine City.\pOh, and if you manage to defeat the POKéMON League a second time, I will give you another reward!\pOf course, there's still quite a lot you'll have to do before the next Champion shows up.\pWell, good luck.\pI hope you've enjoyed playing so far, and I hope you will enjoy the rest of the game!"))
+        setflag (FLAG_BIRTH_ISLAND_AVAILABLE)
+        release
+        end
+    }
+}
