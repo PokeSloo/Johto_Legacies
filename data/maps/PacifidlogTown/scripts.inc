@@ -1,14 +1,9 @@
 PacifidlogTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PacifidlogTown_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, PacifidlogTown_OnResume
 	.byte 0
 
 PacifidlogTown_OnTransition:
 	setflag FLAG_VISITED_PACIFIDLOG_TOWN
-	end
-
-PacifidlogTown_OnResume:
-	setstepcallback STEP_CB_PACIFIDLOG_BRIDGE
 	end
 
 PacifidlogTown_EventScript_NinjaBoy::
@@ -28,27 +23,96 @@ PacifidlogTown_EventScript_TownSign::
 	end
 
 PacifidlogTown_Text_FastRunningCurrent:
-	.string "The sea between PACIFIDLOG and\n"
-	.string "SLATEPORT has a fast-running tide.\p"
-	.string "If you decide to SURF, you could end\n"
-	.string "up swept away somewhere else.$"
+	.string "Luckily for me, my kids love playing at\n"
+	.string "the beach.\p"
+	.string "I can keep them entertained and get a\n"
+	.string "tan at the same time!$"
 
 PacifidlogTown_Text_NeatHousesOnWater:
-	.string "See, isn't it neat?\n"
-	.string "These houses are on water!\p"
-	.string "I was born here!$"
+	.string "I built a huge sand castle, but a group\n"
+	.string "of KRABBY popped out from underneath\l"
+	.string "and destroyed it!$"
 
 PacifidlogTown_Text_SkyPillarTooScary:
-	.string "The SKY PILLAR?\p"
-	.string "…Oh, you must mean that tall, tall\n"
-	.string "tower a little further out.\p"
-	.string "If you asked me, I wouldn't climb it.\n"
-	.string "It's too scary to get up that high.\p"
-	.string "Life at sea level in PACIFIDLOG,\n"
-	.string "that suits me fine.$"
+	.string "Don't tell my wife, but I snuck off to do\n"
+	.string "a little fishing while we're here\l"
+	.string "visiting her father in the retirement\l"
+	.string "home.$"
 
 PacifidlogTown_Text_TownSign:
-	.string "PACIFIDLOG TOWN\p"
-	.string "“Where the morning sun smiles upon\n"
-	.string "the waters.”$"
+	.string "APRICOTTA BEACH\p"
+	.string "“The relaxing tropical beach town.”$"
 
+PacifidlogTown_EventScript_HarborSign::
+	msgbox PacifidlogTown_EventScript_HarborSign_Text_0, MSGBOX_SIGN
+	end
+
+
+PacifidlogTown_EventScript_CaveSign::
+	msgbox PacifidlogTown_EventScript_CaveSign_Text_0, MSGBOX_SIGN
+	end
+
+
+PacifidlogTown_EventScript_RetirementSign::
+	msgbox PacifidlogTown_EventScript_RetirementSign_Text_0, MSGBOX_SIGN
+	end
+
+
+PacifidlogTown_EventScript_TuberF::
+	msgbox PacifidlogTown_EventScript_TuberF_Text_0, MSGBOX_NPC
+	end
+
+
+PacifidlogTown_EventScript_OldWoman::
+	msgbox PacifidlogTown_EventScript_OldWoman_Text_0, MSGBOX_NPC
+	end
+
+
+PacifidlogTown_EventScript_Artist::
+	msgbox PacifidlogTown_EventScript_Artist_Text_0, MSGBOX_NPC
+	end
+
+
+PacifidlogTown_EventScript_Beauty::
+	msgbox PacifidlogTown_EventScript_Beauty_Text_0, MSGBOX_NPC
+	end
+
+
+PacifidlogTown_EventScript_Tourist::
+	msgbox PacifidlogTown_EventScript_Tourist_Text_0, MSGBOX_NPC
+	end
+
+
+PacifidlogTown_EventScript_HarborSign_Text_0:
+	.string "APRICOTTA BEACH HARBOR$"
+
+PacifidlogTown_EventScript_CaveSign_Text_0:
+	.string "SEARED CAVE$"
+
+PacifidlogTown_EventScript_RetirementSign_Text_0:
+	.string "APRICOTTA BEACH RETIREMENT COMMUNITY$"
+
+PacifidlogTown_EventScript_TuberF_Text_0:
+	.string "Look! That man's head is so shiny!\p"
+	.string "I can see myself in it!$"
+
+PacifidlogTown_EventScript_OldWoman_Text_0:
+	.string "Hmm... You're not one of mine are you?\p"
+	.string "No, I don't think I had any red-heads.$"
+
+PacifidlogTown_EventScript_Artist_Text_0:
+	.string "'Tis a thing of beauty, this town.\p"
+	.string "Whenever I need a little inspiration, I\n"
+	.string "come to this spot and gaze upon the\l"
+	.string "beach.$"
+
+PacifidlogTown_EventScript_Beauty_Text_0:
+	.string "The beach is nice, but don't forget to\n"
+	.string "wear sunscreen.\p"
+	.string "The damaging rays from the sun can\n"
+	.string "make you look much older!$"
+
+PacifidlogTown_EventScript_Tourist_Text_0:
+	.string "Ugh, this beach is too hot, and some\n"
+	.string "sand got in my shorts!\p"
+	.string "This is just awful!$"

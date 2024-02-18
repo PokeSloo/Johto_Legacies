@@ -218,26 +218,25 @@ MoveTutor_Text_DoubleEdgeTaught:
 	.string "I'll become tough!$"
 
 MoveTutor_Text_ExplosionTeach:
-	.string "I don't intend to be going nowhere\n"
-	.string "fast in the sticks like this forever.\p"
-	.string "You watch me, I'll get out to the city\n"
-	.string "and become a huge hit.\p"
-	.string "Seriously, I'm going to cause\n"
-	.string "a huge EXPLOSION of popularity!\p"
-	.string "If you overheard that, I'll happily\n"
-	.string "teach EXPLOSION to your POKéMON!$"
+	.string "The art of POKéMON battling is an\n"
+	.string "Explosion!\p"
+	.string "Wouldn't you agree?\p"
+	.string "Say, if you want, I can teach one of\n"
+	.string "your POKéMON the move Explosion!\p"
+	.string "Free of charge!\p"
+	.string "What do you say?$"
 
 MoveTutor_Text_ExplosionDeclined:
-	.string "Gaah! You're turning me down because\n"
-	.string "I live in the country?$"
+	.string "Some people just don't appreciate the\n"
+	.string "absolute perfection that is Explosion.$"
 
 MoveTutor_Text_ExplosionWhichMon:
-	.string "Fine! An EXPLOSION it is!\n"
-	.string "Which POKéMON wants to blow up?$"
+	.string "Yes! I could tell you are someone who\n"
+	.string "appreciates the absolute perfection\l"
+	.string "that is Explosion!\p"
+	.string "So, which POKéMON shall I teach?$"
 
 MoveTutor_Text_ExplosionTaught:
-	.string "For a long time, I've taught POKéMON\n"
-	.string "how to use EXPLOSION, but I've yet\l"
-	.string "to ignite my own EXPLOSION…\p"
-	.string "Maybe it's because deep down,\n"
-	.string "I would rather stay here…$"
+	.string "This world would be a much better place\n"
+	.string "if more people were Explosion\l"
+	.string "connoisseurs such as us!$"

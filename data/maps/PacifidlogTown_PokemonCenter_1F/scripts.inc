@@ -30,21 +30,21 @@ PacifidlogTown_PokemonCenter_1F_EventScript_OldMan::
 	end
 
 PacifidlogTown_PokemonCenter_1F_Text_WhatColorTrainerCard:
-	.string "What color is your TRAINER CARD?\n"
-	.string "Mine's copper!$"
+	.string "The POKéMON CENTERS never have my\n"
+	.string "favorite magazine on the shelves.\p"
+	.string "I'm seriously thinking of complaining to\n"
+	.string "the nurse.$"
 
 PacifidlogTown_PokemonCenter_1F_Text_OnColonyOfCorsola:
-	.string "PACIFIDLOG TOWN floats on top of\n"
-	.string "a colony of CORSOLA.\p"
-	.string "If I told you that, would you believe\n"
-	.string "me?$"
+	.string "When I was a little kid, I used to love\n"
+	.string "riding the escalators up and down.\p"
+	.string "...\p"
+	.string "What do you mean, I'm still a little kid!?\p"
+	.string "I take offense to that!$"
 
 PacifidlogTown_PokemonCenter_1F_Text_AncestorsLivedOnBoats:
-	.string "The ancestors of the people in\n"
-	.string "PACIFIDLOG were said to have been\l"
-	.string "born on boats and then lived and died \l"
-	.string "aboard them.\p"
-	.string "I understand that they lived that way\n"
-	.string "because they were searching for\l"
-	.string "something.$"
+	.string "You should get out and enjoy life while\n"
+	.string "you're still young.\p"
+	.string "One day you'll get old, and everything\n"
+	.string "will hurt.$"
 

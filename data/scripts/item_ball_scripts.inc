@@ -383,7 +383,7 @@ FieryPath_EventScript_ItemFireStone::
 	end
 
 FieryPath_EventScript_ItemTM06::
-	finditem ITEM_TM06
+	finditem ITEM_MAX_REVIVE
 	end
 
 MeteorFalls_1F_1R_EventScript_ItemTM23::

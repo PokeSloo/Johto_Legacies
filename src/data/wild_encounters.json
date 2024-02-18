@@ -3040,63 +3040,63 @@
             "encounter_rate": 10,
             "mons": [
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_CAMERUPT"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_COALOSSAL"
               },
               {
-                "min_level": 16,
-                "max_level": 16,
+                "min_level": 42,
+                "max_level": 46,
                 "species": "SPECIES_CENTISKORCH"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_SALAZZLE"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_MAROWAK_ALOLAN"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 42,
+                "max_level": 45,
                 "species": "SPECIES_MAGCARGO"
               },
               {
-                "min_level": 16,
-                "max_level": 16,
+                "min_level": 44,
+                "max_level": 46,
                 "species": "SPECIES_LARVESTA"
               },
               {
                 "min_level": 16,
-                "max_level": 16,
+                "max_level": 20,
                 "species": "SPECIES_PANSEAR"
               },
               {
-                "min_level": 14,
-                "max_level": 14,
+                "min_level": 42,
+                "max_level": 44,
                 "species": "SPECIES_TORKOAL"
               },
               {
-                "min_level": 16,
-                "max_level": 16,
+                "min_level": 44,
+                "max_level": 47,
                 "species": "SPECIES_TURTONATOR"
               },
               {
-                "min_level": 14,
-                "max_level": 14,
+                "min_level": 43,
+                "max_level": 46,
                 "species": "SPECIES_WEEZING_GALARIAN"
               },
               {
-                "min_level": 14,
-                "max_level": 14,
+                "min_level": 43,
+                "max_level": 46,
                 "species": "SPECIES_WEEZING_GALARIAN"
               }
             ]

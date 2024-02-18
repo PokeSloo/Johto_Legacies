@@ -13,12 +13,14 @@ FallarborTown_Mart_EventScript_Clerk::
 
 	.align 2
 FallarborTown_Mart_Pokemart:
-	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_SUPER_POTION
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_FULL_RESTORE
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_REVIVE
+	.2byte ITEM_MAX_REPEL
 	.2byte ITEM_ESCAPE_ROPE
-	.2byte ITEM_SUPER_REPEL
 	.2byte ITEM_X_SP_ATK
 	.2byte ITEM_X_SPEED
 	.2byte ITEM_X_ATTACK
@@ -41,26 +43,23 @@ FallarborTown_Mart_EventScript_Skitty::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_SKITTY, CRY_MODE_NORMAL
+	playmoncry SPECIES_SLOWPOKE, CRY_MODE_NORMAL
 	msgbox FallarborTown_Mart_Text_Skitty, MSGBOX_DEFAULT
 	waitmoncry
 	release
 	end
 
 FallarborTown_Mart_Text_DecidingSkittyEvolve:
-	.string "I'm having a hard time deciding if I\n"
-	.string "should make my SKITTY evolve or not.\p"
-	.string "I only have to use this MOON STONE,\n"
-	.string "but it's so hard to decide…\p"
-	.string "If I make it evolve, it will become\n"
-	.string "much stronger.\p"
-	.string "But it will look so different, too.$"
+	.string "I feel bad for the elderly people in the\n"
+	.string "retirement community here, but at least\l"
+	.string "they get to live so close to the beach!$"
 
 FallarborTown_Mart_Text_Skitty:
-	.string "SKITTY: Miyao?$"
+	.string "SLOWPOKE: Slow?$"
 
 FallarborTown_Mart_Text_SellNuggetIFound:
-	.string "This NUGGET I found here…\n"
-	.string "I suppose I'll have to sell it, seeing\l"
-	.string "as how it has no other use.$"
+	.string "I came here on vacation, but forgot a\n"
+	.string "few things at home.\p"
+	.string "Hopefully I can find everything I need\n"
+	.string "at this mart.$"
 

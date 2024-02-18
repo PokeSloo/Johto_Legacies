@@ -1,0 +1,86 @@
+raw`
+PacifidlogTown_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, PacifidlogTown_OnTransition
+	.byte 0
+
+PacifidlogTown_OnTransition:
+	setflag FLAG_VISITED_PACIFIDLOG_TOWN
+	end
+
+PacifidlogTown_EventScript_NinjaBoy::
+	msgbox PacifidlogTown_Text_NeatHousesOnWater, MSGBOX_NPC
+	end
+
+PacifidlogTown_EventScript_Girl::
+	msgbox PacifidlogTown_Text_FastRunningCurrent, MSGBOX_NPC
+	end
+
+PacifidlogTown_EventScript_Fisherman::
+	msgbox PacifidlogTown_Text_SkyPillarTooScary, MSGBOX_NPC
+	end
+
+PacifidlogTown_EventScript_TownSign::
+	msgbox PacifidlogTown_Text_TownSign, MSGBOX_SIGN
+	end
+
+PacifidlogTown_Text_FastRunningCurrent:
+	.string "Luckily for me, my kids love playing at\n"
+	.string "the beach.\p"
+	.string "I can keep them entertained and get a\n"
+	.string "tan at the same time!$"
+
+PacifidlogTown_Text_NeatHousesOnWater:
+	.string "I built a huge sand castle, but a group\n"
+	.string "of KRABBY popped out from underneath\l"
+	.string "and destroyed it!$"
+
+PacifidlogTown_Text_SkyPillarTooScary:
+	.string "Don't tell my wife, but I snuck off to do\n"
+	.string "a little fishing while we're here\l"
+	.string "visiting her father in the retirement\l"
+	.string "home.$"
+
+PacifidlogTown_Text_TownSign:
+	.string "APRICOTTA BEACH\p"
+	.string "“The relaxing tropical beach town.”$"
+`
+
+script PacifidlogTown_EventScript_HarborSign {
+    msgbox(format("APRICOTTA BEACH HARBOR"), MSGBOX_SIGN)
+    end
+}
+
+script PacifidlogTown_EventScript_CaveSign {
+    msgbox(format("SEARED CAVE"), MSGBOX_SIGN)
+    end
+}
+
+script PacifidlogTown_EventScript_RetirementSign {
+    msgbox(format("APRICOTTA BEACH RETIREMENT COMMUNITY"), MSGBOX_SIGN)
+    end
+}
+
+script PacifidlogTown_EventScript_TuberF {
+    msgbox(format("Look! That man's head is so shiny!\pI can see myself in it!"), MSGBOX_NPC)
+    end
+}
+
+script PacifidlogTown_EventScript_OldWoman {
+    msgbox(format("Hmm... You're not one of mine are you?\pNo, I don't think I had any red-heads."), MSGBOX_NPC)
+    end
+}
+
+script PacifidlogTown_EventScript_Artist {
+    msgbox(format("'Tis a thing of beauty, this town.\pWhenever I need a little inspiration, I come to this spot and gaze upon the beach."), MSGBOX_NPC)
+    end
+}
+
+script PacifidlogTown_EventScript_Beauty {
+    msgbox(format("The beach is nice, but don't forget to wear sunscreen.\pThe damaging rays from the sun can make you look much older!"), MSGBOX_NPC)
+    end
+}
+
+script PacifidlogTown_EventScript_Tourist {
+    msgbox(format("Ugh, this beach is too hot, and some sand got in my shorts!\pThis is just awful!"), MSGBOX_NPC)
+    end
+}

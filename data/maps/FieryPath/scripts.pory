@@ -1,0 +1,6 @@
+mapscripts FieryPath_MapScripts {}
+
+script FieryPath_EventScript_Maniac {
+    msgbox(format("You can't go this way!\pI've dropped three of my rarest POKéMON, and I need to find them!\p...\pYou don't think they fell into..."), MSGBOX_NPC)
+    end
+}

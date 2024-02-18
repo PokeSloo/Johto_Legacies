@@ -2,7 +2,7 @@ PacifidlogTown_House1_MapScripts::
 	.byte 0
 
 PacifidlogTown_House1_EventScript_Man::
-	msgbox PacifidlogTown_House1_Text_RegiStory, MSGBOX_NPC
+	msgbox PacifidlogTown_House1_Text_RegiStory, MSGBOX_SIGN
 	end
 
 PacifidlogTown_House1_EventScript_Woman::
@@ -10,16 +10,16 @@ PacifidlogTown_House1_EventScript_Woman::
 	end
 
 PacifidlogTown_House1_Text_RegiStory:
-	.string "In the HOENN region, there are three\n"
+	.string "In the Hoenn region, there are three\n"
 	.string "POKéMON that represent the power of\l"
 	.string "rock, ice, and steel.\p"
-	.string "Each of them is said to hide away deep\n"
-	.string "inside caves.\p"
-	.string "That's the story I heard when I was\n"
-	.string "just a little kid.$"
+	.string "...\p"
+	.string "Wait, this isn't Hoenn...\p"
+	.string "...\p"
+	.string "Somebody peed in my pants!$"
 
 PacifidlogTown_House1_Text_SixDotsOpenThreeDoors:
-	.string "“Six dots open three doors.”\p"
-	.string "Grandpa used to say that, but I don't\n"
-	.string "know what he meant.$"
+	.string "Ugh, I can't deal with this myself.\p"
+	.string "Where did that husband of mine run off\n"
+	.string "to?$"
 
