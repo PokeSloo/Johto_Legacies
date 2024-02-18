@@ -1261,7 +1261,7 @@
 #define FLAG_CHOSE_OAK_SQUIRTLE                                     0x4BC // Apricotta Beach Oak
 #define FLAG_CHOSE_OAK_CHARMANDER                                   0x4BD // Apricotta Beach Oak
 #define FLAG_GOT_OAK_POKEMON                                        0x4BE // Apricotta Beach Oak
-#define FLAG_UNUSED_0x4BF                                           0x4BF // Unused Flag
+#define FLAG_HIDE_GOLD_ROUTE_G                                      0x4BF // Hidden until after festival
 #define FLAG_UNUSED_0x4C0                                           0x4C0 // Unused Flag
 #define FLAG_UNUSED_0x4C1                                           0x4C1 // Unused Flag
 #define FLAG_UNUSED_0x4C2                                           0x4C2 // Unused Flag

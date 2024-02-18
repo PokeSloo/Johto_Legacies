@@ -255,7 +255,7 @@ Route125_EventScript_ItemBigPearl::
 	end
 
 Route126_EventScript_ItemGreenShard::
-	finditem ITEM_GREEN_SHARD
+	finditem ITEM_PP_UP
 	end
 
 Route127_EventScript_ItemZinc::
@@ -708,4 +708,20 @@ NavelRock_Fork_EventScript_ItemMaxRepel::
 
 NavelRock_Fork_EventScript_ItemBigNugget::
 	finditem ITEM_BIG_NUGGET
+	end
+
+Underwater_Route125_EventScript_ItemCoverFossil::
+	finditem ITEM_COVER_FOSSIL
+	end
+
+Underwater_Route125_EventScript_ItemPlumeFossil::
+	finditem ITEM_PLUME_FOSSIL
+	end
+
+Underwater_Route125_EventScript_ItemJawFossil::
+	finditem ITEM_JAW_FOSSIL
+	end
+
+Underwater_Route125_EventScript_ItemSailFossil::
+	finditem ITEM_SAIL_FOSSIL
 	end

@@ -4535,9 +4535,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_PABLO_1] =
     {
-        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .trainerClass = TRAINER_CLASS_SWIMMER_M,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_M,
+        .trainerPic = TRAINER_PIC_SWIMMER_M,
         .trainerName = _("PABLO"),
         .items = {},
         .doubleBattle = FALSE,
@@ -4607,10 +4607,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ISOBEL] =
     {
-        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .trainerClass = TRAINER_CLASS_SWIMMER_F,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_F,
-        .trainerName = _("ISOBEL"),
+        .trainerPic = TRAINER_PIC_SWIMMER_F,
+        .trainerName = _("BELLA"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
@@ -4643,9 +4643,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_KATELYN_1] =
     {
-        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .trainerClass = TRAINER_CLASS_SWIMMER_F,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_F,
+        .trainerPic = TRAINER_PIC_SWIMMER_F,
         .trainerName = _("KATELYN"),
         .items = {},
         .doubleBattle = FALSE,
@@ -4667,9 +4667,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_KATELYN_2] =
     {
-        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .trainerClass = TRAINER_CLASS_SWIMMER_F,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_F,
+        .trainerPic = TRAINER_PIC_SWIMMER_F,
         .trainerName = _("KATELYN"),
         .items = {},
         .doubleBattle = FALSE,
@@ -4679,9 +4679,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_KATELYN_3] =
     {
-        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .trainerClass = TRAINER_CLASS_SWIMMER_F,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_F,
+        .trainerPic = TRAINER_PIC_SWIMMER_F,
         .trainerName = _("KATELYN"),
         .items = {},
         .doubleBattle = FALSE,
@@ -4691,9 +4691,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_KATELYN_4] =
     {
-        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .trainerClass = TRAINER_CLASS_SWIMMER_F,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_F,
+        .trainerPic = TRAINER_PIC_SWIMMER_F,
         .trainerName = _("KATELYN"),
         .items = {},
         .doubleBattle = FALSE,
@@ -4703,9 +4703,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_KATELYN_5] =
     {
-        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .trainerClass = TRAINER_CLASS_SWIMMER_F,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_F,
+        .trainerPic = TRAINER_PIC_SWIMMER_F,
         .trainerName = _("KATELYN"),
         .items = {},
         .doubleBattle = FALSE,
@@ -8051,9 +8051,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ALEXA] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_COOL,
-        .trainerPic = TRAINER_PIC_COOLTRAINER_F,
+        .trainerClass = TRAINER_CLASS_TUBER_F,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_GIRL,
+        .trainerPic = TRAINER_PIC_TUBER_F,
         .trainerName = _("ALEXA"),
         .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
@@ -8063,10 +8063,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_RUBEN] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
-        .trainerName = _("RUBEN"),
+        .trainerClass = TRAINER_CLASS_PARASOL_LADY,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_PARASOL_LADY,
+        .trainerName = _("RUBY"),
         .items = {ITEM_HYPER_POTION, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
@@ -9853,9 +9853,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_PABLO_2] =
     {
-        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .trainerClass = TRAINER_CLASS_SWIMMER_M,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_M,
+        .trainerPic = TRAINER_PIC_SWIMMER_M,
         .trainerName = _("PABLO"),
         .items = {},
         .doubleBattle = FALSE,
@@ -9865,9 +9865,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_PABLO_3] =
     {
-        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .trainerClass = TRAINER_CLASS_SWIMMER_M,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_M,
+        .trainerPic = TRAINER_PIC_SWIMMER_M,
         .trainerName = _("PABLO"),
         .items = {},
         .doubleBattle = FALSE,
@@ -9877,9 +9877,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_PABLO_4] =
     {
-        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .trainerClass = TRAINER_CLASS_SWIMMER_M,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_M,
+        .trainerPic = TRAINER_PIC_SWIMMER_M,
         .trainerName = _("PABLO"),
         .items = {},
         .doubleBattle = FALSE,
@@ -9889,9 +9889,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_PABLO_5] =
     {
-        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .trainerClass = TRAINER_CLASS_SWIMMER_M,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_M,
+        .trainerPic = TRAINER_PIC_SWIMMER_M,
         .trainerName = _("PABLO"),
         .items = {},
         .doubleBattle = FALSE,
