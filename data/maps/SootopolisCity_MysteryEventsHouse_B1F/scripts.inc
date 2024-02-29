@@ -1,73 +1,70 @@
 SootopolisCity_MysteryEventsHouse_B1F_MapScripts::
 	.byte 0
 
-SootopolisCity_MysteryEventsHouse_B1F_OnTransition:
-	special SetEReaderTrainerGfxId
+
+SootopolisCity_MysteryEventsHouse_B1F_EventScript_Shane::
+	lock
+	faceplayer
+	msgbox SootopolisCity_MysteryEventsHouse_B1F_EventScript_Shane_Text_0
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_TREECKO, SootopolisCity_MysteryEventsHouse_B1F_Text_ShaneDefeat
+	msgbox SootopolisCity_MysteryEventsHouse_B1F_EventScript_Shane_Text_1
+	waitmessage
+	closemessage
+	specialvar VAR_RESULT, GetPlayerFacingDirection
+	compare VAR_RESULT, DIR_SOUTH
+	goto_if_eq SootopolisCity_MysteryEventsHouse_B1F_EventScript_Shane_2
+	applymovement 1, SootopolisCity_MysteryEventsHouse_B1F_Movement_ExitStraight
+	waitmovement 0
+SootopolisCity_MysteryEventsHouse_B1F_EventScript_Shane_1:
+	opendoor 6, 2
+	waitdooranim
+	applymovement 1, SootopolisCity_Movement_WalkUpOneInvis
+	waitmovement 0
+	closedoor 6, 2
+	waitdooranim
+	removeobject 1
+	setflag FLAG_HIDE_SHANE_MEGA_LAB_BASEMENT
+	release
 	end
 
-SootopolisCity_MysteryEventsHouse_B1F_OnFrame:
-	map_script_2 VAR_TEMP_1, 0, SootopolisCity_MysteryEventsHouse_B1F_EventScript_BattleVisitingTrainer
-	.2byte 0
-
-SootopolisCity_MysteryEventsHouse_B1F_EventScript_BattleVisitingTrainer::
-	lockall
-	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_MysteryEventsHouse_B1F_Movement_PlayerEnterBasement
+SootopolisCity_MysteryEventsHouse_B1F_EventScript_Shane_2:
+	applymovement 1, SootopolisCity_MysteryEventsHouse_B1F_Movement_ExitAround
 	waitmovement 0
-	special CopyEReaderTrainerGreeting
-	msgbox gStringVar4, MSGBOX_DEFAULT
-	closemessage
-	setvar VAR_0x8004, SPECIAL_BATTLE_EREADER
-	setvar VAR_0x8005, 0
-	special DoSpecialTrainerBattle
-	waitstate
-	call_if_eq VAR_RESULT, B_OUTCOME_DREW, SootopolisCity_MysteryEventsHouse_B1F_EventScript_BattleTie
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, SootopolisCity_MysteryEventsHouse_B1F_EventScript_BattleWon
-	call_if_eq VAR_RESULT, B_OUTCOME_LOST, SootopolisCity_MysteryEventsHouse_B1F_EventScript_BattleLost
-	closemessage
-	special HealPlayerParty
-	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_MysteryEventsHouse_B1F_Movement_PlayerExitBasement
-	waitmovement 0
-	special LoadPlayerParty
-	setvar VAR_TEMP_1, 1
-	warp MAP_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_1F, 3, 1
-	waitstate
-	releaseall
-	end
+	goto SootopolisCity_MysteryEventsHouse_B1F_EventScript_Shane_1
 
-SootopolisCity_MysteryEventsHouse_B1F_EventScript_BattleTie::
-	setvar VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 3
-	msgbox SootopolisCity_MysteryEventsHouse_B1F_Text_MatchEndedUpDraw, MSGBOX_DEFAULT
-	return
 
-SootopolisCity_MysteryEventsHouse_B1F_EventScript_BattleWon::
-	setvar VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 1
-	special ShowFieldMessageStringVar4
-	waitmessage
-	waitbuttonpress
-	return
-
-SootopolisCity_MysteryEventsHouse_B1F_EventScript_BattleLost::
-	setvar VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 2
-	special ShowFieldMessageStringVar4
-	waitmessage
-	waitbuttonpress
-	return
-
-SootopolisCity_MysteryEventsHouse_B1F_Movement_PlayerEnterBasement:
-	walk_down
-	walk_down
-	walk_down
+SootopolisCity_MysteryEventsHouse_B1F_Movement_ExitAround:
 	walk_right
-	walk_right
-	step_end
-
-SootopolisCity_MysteryEventsHouse_B1F_Movement_PlayerExitBasement:
-	walk_left
+	walk_up
+	walk_up
 	walk_left
 	walk_up
-	walk_up
-	walk_up
-	walk_up
-	delay_8
 	step_end
 
+SootopolisCity_MysteryEventsHouse_B1F_Movement_ExitStraight:
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+SootopolisCity_MysteryEventsHouse_B1F_EventScript_Shane_Text_0:
+	.string "So, you showed up?\p"
+	.string "I knew there was no way you'd wimp out,\n"
+	.string "I bet you're just as excited as I am to\l"
+	.string "test out these Mega Stones!\p"
+	.string "Well, don't keep me waiting.\p"
+	.string "Let's go!$"
+
+SootopolisCity_MysteryEventsHouse_B1F_EventScript_Shane_Text_1:
+	.string "No matter what I do, you always seem to\n"
+	.string "be one step ahead of me.\p"
+	.string "That's fine though.\p"
+	.string "If it weren't for you, I wouldn't have\n"
+	.string "pushed myself nearly as hard as I have.\p"
+	.string "Hell, I probably would only have two gym\n"
+	.string "badges still.\p"
+	.string "One day, I swear I'll surpass you.\p"
+	.string "Just watch me!$"
+
+SootopolisCity_MysteryEventsHouse_B1F_Text_ShaneDefeat::
+	.string "So, that's how it is...$"

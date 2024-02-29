@@ -1,0 +1,425 @@
+const GOLD_ID = 11
+const SILVER_ID = 12
+const SHANE_ID = 13
+const TYPLOSION_ID = 14
+const FERALIGATR_ID = 15
+
+mapscripts SootopolisCity_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+        setflag (FLAG_VISITED_SOOTOPOLIS_CITY)
+	    call_if_eq (VAR_LAZULAN_STATE, 1, SootopolisCity_EventScript_SetUpAfterMegaStone)
+        end
+    }
+}
+
+script SootopolisCity_EventScript_SetUpAfterMegaStone {
+	setobjectxyperm (FERALIGATR_ID, 25, 33)
+	setobjectxyperm (SILVER_ID, 28, 32)
+	setobjectmovementtype (SILVER_ID, MOVEMENT_TYPE_FACE_UP)
+}
+
+script SootopolisCity_EventScript_TriggerLeft {
+	lock
+	applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_PlayerToEdgeLeft)
+    waitmovement (0)
+	goto (SootopolisCity_EventScript_GoldSilverMain)
+}
+
+script SootopolisCity_EventScript_TriggerRight {
+	lock
+	applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_PlayerToEdgeRight)
+    waitmovement (0)
+	goto (SootopolisCity_EventScript_GoldSilverMain)
+}
+
+movement SootopolisCity_Movement_PlayerToEdgeLeft {
+	walk_up * 2
+	walk_left * 2
+}
+
+movement SootopolisCity_Movement_PlayerToEdgeRight {
+	walk_up * 2
+	walk_left * 3
+}
+
+script SootopolisCity_EventScript_GoldSilverMain {
+	applymovement(SILVER_ID, SootopolisCity_Movement_StepRight)
+	applymovement(SHANE_ID, SootopolisCity_Movement_StepRight)
+    waitmovement (0)
+	msgbox(format("DAD: {PLAYER}! Welcome to Lazulan City!\pCome over here, there's someone I would like you to meet."))
+	waitmessage
+	closemessage
+	applymovement(SILVER_ID, SootopolisCity_Movement_SilverUpFaceDown)
+    waitmovement (0)
+	applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_PlayerToAction)
+    waitmovement (0)
+	applymovement(SHANE_ID, SootopolisCity_Movement_StepUp)
+    waitmovement (0)
+	msgbox(format("SHANE: Took you long enough to get here."))
+	waitmessage
+	applymovement(SILVER_ID, SootopolisCity_Movement_StepLeft)
+	applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepLeft)
+	applymovement(SHANE_ID, SootopolisCity_Movement_StepLeft)
+    waitmovement (0)
+	msgbox(format("DAD: This is my old friend, GOLD.\pHe and I have a long history together.\pWe've had our differences in the past, but that was long ago, and I wouldn't be the person I am today if not for him."))
+	waitmessage
+	applymovement(GOLD_ID, SootopolisCity_Movement_StepRight)
+    waitmovement (0)
+	msgbox(format("GOLD: Come on, SILVER, you give me too much credit.\pGlad to meet you, {PLAYER}.\pYour father's told me a lot about you two.\pSo, are you enjoying the Golden Islands so far?\p{PLAYER}: ...\p..."))
+	waitmessage
+	applymovement(GOLD_ID, SootopolisCity_Movement_StepRight)
+    waitmovement (0)
+	msgbox(format("GOLD: Not as talkative as your brother, huh?\pThat's ok, I get it.\pI was exactly the same when I was your age.\pI was so shy, I could barely speak to anyone.\pWell, no need to rush it, I'm sure you'll come out of your shell in time."))
+	waitmessage
+	applymovement(GOLD_ID, SootopolisCity_Movement_StepRight)
+    waitmovement (0)
+	msgbox(format("Now, about why you're all here.\pAre you familiar with the Millennium Comet?\pOnce every thousand years, the Millennium Comet can be seen in the sky for seven nights.\pThey're holding a festival here to celebrate!\pAlthough, the festival won't start for another few days."))
+	waitmessage
+	applymovement(SHANE_ID, SootopolisCity_Movement_StepLeft)
+    waitmovement (0)
+	msgbox(format("SHANE: Is it true that the comet has some kind of connection to the Legendary POKéMON, Jirachi?"))
+	waitmessage
+	applymovement(GOLD_ID, SootopolisCity_Movement_StepRight)
+    waitmovement (0)
+	msgbox(format("GOLD: Well, that is the rumor.\pAlthough, no one has seen Jirachi for centuries, so we can't say for sure."))
+	waitmessage
+	applymovement(SILVER_ID, SootopolisCity_Movement_StepDown)
+    waitmovement (0)
+	msgbox(format("DAD: If you two are lucky, maybe you'll encounter Jirachi while we're here."))
+	waitmessage
+	applymovement(SILVER_ID, SootopolisCity_Movement_StepLeft)
+	applymovement(GOLD_ID, SootopolisCity_Movement_StepRight)
+    waitmovement (0)
+	msgbox(format("GOLD: Hah! From what you've told me, these two might actually be that lucky!\p...\pNow, SHANE and {PLAYER}, there's something I would like to show you.\pPlease, come with me."))
+	waitmessage
+	closemessage
+	applymovement(GOLD_ID, SootopolisCity_Movement_WalkUpOne)
+    waitmovement (0)
+	applymovement(GOLD_ID, SootopolisCity_Movement_WalkUpOne)
+    applymovement(TYPLOSION_ID, SootopolisCity_Movement_TyFollowGold)
+    waitmovement (0)
+	opendoor (45, 27)
+	waitdooranim
+	applymovement(GOLD_ID, SootopolisCity_Movement_WalkUpOneInvis)
+    applymovement(TYPLOSION_ID, SootopolisCity_Movement_UpTwoInvis)
+    waitmovement (0)
+	closedoor (45, 27)
+	waitdooranim
+	removeobject (GOLD_ID)
+	removeobject (TYPLOSION_ID)
+	applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepDown)
+	applymovement(SHANE_ID, SootopolisCity_Movement_StepUp)
+    waitmovement (0)
+	msgbox(format("SHANE: If anyone's going to catch Jirachi, it's going to be me!"))
+	waitmessage
+	closemessage
+	applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepLeft)
+	applymovement(SHANE_ID, SootopolisCity_Movement_ShaneToDoor)
+    waitmovement (0)
+	opendoor (45, 27)
+	waitdooranim
+	applymovement(SHANE_ID, SootopolisCity_Movement_WalkUpOneInvis)
+    waitmovement (0)
+	closedoor (45, 27)
+	waitdooranim
+	removeobject (SHANE_ID)
+	setflag (FLAG_HIDE_SHANE_INITIAL_LAZULAN)
+	applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepUp)
+	applymovement(SILVER_ID, SootopolisCity_Movement_StepDown)
+    waitmovement (0)
+	msgbox(format("DAD: Go on, {PLAYER}.\pI'm going to explore the town some more."))
+	waitmessage
+	closemessage
+	applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_PlayerToDoor)
+    waitmovement (0)
+	warpdoor (MAP_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_1F, 0)
+    waitstate
+    release
+    end
+}
+
+movement SootopolisCity_Movement_StepRight {
+	walk_in_place_right
+}
+
+movement SootopolisCity_Movement_StepLeft {
+	walk_in_place_left
+}
+
+movement SootopolisCity_Movement_StepUp {
+	walk_in_place_up
+}
+
+movement SootopolisCity_Movement_StepDown {
+	walk_in_place_down
+}
+
+movement SootopolisCity_Movement_SilverUpFaceDown {
+	walk_up
+	walk_in_place_down
+}
+
+movement SootopolisCity_Movement_PlayerToAction {
+	walk_left * 3
+	walk_in_place_down
+}
+
+movement SootopolisCity_Movement_WalkUpOne {
+	walk_up
+}
+
+movement SootopolisCity_Movement_TyFollowGold {
+	walk_right
+	walk_in_place_up
+}
+
+movement SootopolisCity_Movement_WalkUpOneInvis {
+	walk_up
+	set_invisible
+}
+
+movement SootopolisCity_Movement_UpTwoInvis {
+	walk_up * 2
+	set_invisible
+}
+
+movement SootopolisCity_Movement_ShaneToDoor {
+	walk_left * 2
+	walk_up * 3
+}
+
+movement SootopolisCity_Movement_PlayerToDoor {
+	walk_left * 2
+	walk_up * 2
+}
+
+script SootopolisCity_EventScript_Kiri {
+	lock
+	faceplayer
+	dotimebasedevents
+	special (GetPlayerBigGuyGirlString)
+	goto_if_set (FLAG_DAILY_SOOTOPOLIS_RECEIVED_BERRY, SootopolisCity_EventScript_KiriReceivedBerry)
+	msgbox (SootopolisCity_Text_NameIsKiriHaveOneOfThese, MSGBOX_DEFAULT)
+	random (NUM_KIRI_BERRIES)
+	addvar (VAR_RESULT, NUM_KIRI_BERRIES_SKIPPED)
+	addvar (VAR_RESULT, FIRST_BERRY_INDEX)
+	giveitem (VAR_RESULT)
+	goto_if_eq (VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag (FLAG_DAILY_SOOTOPOLIS_RECEIVED_BERRY)
+	msgbox (SootopolisCity_Text_GiveYouThisBerryToo, MSGBOX_DEFAULT)
+	random (2)
+	goto_if_eq (VAR_RESULT, 0, SootopolisCity_EventScript_GiveFigyBerry)
+	goto_if_eq (VAR_RESULT, 1, SootopolisCity_EventScript_GiveIapapaBerry)
+	end
+}
+
+script SootopolisCity_EventScript_GiveFigyBerry {
+	giveitem (ITEM_FIGY_BERRY)
+	goto_if_eq (VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	msgbox (SootopolisCity_Text_WhatKindOfWishInYourName, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script SootopolisCity_EventScript_GiveIapapaBerry {
+	giveitem (ITEM_IAPAPA_BERRY)
+	goto_if_eq (VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	msgbox (SootopolisCity_Text_WhatKindOfWishInYourName, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script SootopolisCity_EventScript_KiriReceivedBerry {
+	msgbox (SootopolisCity_Text_LikeSeasonBornIn, MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, YES, SootopolisCity_EventScript_KiriLikeSeasonBornIn)
+	msgbox (SootopolisCity_Text_OhDoesntMatter, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script SootopolisCity_EventScript_KiriLikeSeasonBornIn {
+	msgbox (SootopolisCity_Text_ThenILoveAutumn, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script SootopolisCity_EventScript_Woman2 {
+    lock
+	faceplayer
+	if (flag(FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS)) {
+		msgbox(format("I can't wait for the upcoming festival!\pIt looks like they're setting up a market in the middle of town.\pI bet they'll sell all kinds of rare items!"))
+		release
+		end
+	}
+	else {
+		msgbox(format("Have you stopped by the market in the middle of town yet?\pThey're selling all kinds of rare items you can't buy anywhere else!"))
+		release
+		end
+	}
+}
+
+script SootopolisCity_EventScript_Man {
+    lock
+	faceplayer
+	if (flag(FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS)) {
+		msgbox(format("Hey there! Are you looking forward to the festival?\pI'm still getting set up here, but I'll have some good TM's for sale later!"))
+		release
+		end
+	}
+	else {
+		message (gText_HowMayIServeYou)
+		waitmessage
+		pokemart (SootopolisCity_Mart_Salesman2)
+		msgbox (gText_PleaseComeAgain, MSGBOX_DEFAULT)
+		release
+		end
+	}
+}
+
+mart SootopolisCity_Mart_Salesman2 {
+	ITEM_TM26_EARTHQUAKE
+	ITEM_TM27_RETURN
+}
+
+script SootopolisCity_EventScript_Woman1 {
+    msgbox(format("I heard a rumor that the Legendary POKéMON, Jirachi, can be seen high up in the mountains.\pHmm... We do have Mt. Tempest nearby!"), MSGBOX_NPC)
+	end
+}
+
+script SootopolisCity_EventScript_NinjaBoy {
+    msgbox(format("Oh! You have a Mega Stone!?\pThat's so cool!\pI wish my parents would buy me one!"), MSGBOX_NPC)
+	end
+}
+
+script SootopolisCity_EventScript_Boy1 {
+    msgbox(format("There's a guy in town who is crazy about Heart Scales.\pI don't really get it, but at least he'll trade Exp. Candy for them!"), MSGBOX_NPC)
+	end
+}
+
+script SootopolisCity_EventScript_GymSign {
+	msgbox (SootopolisCity_Text_GymSign, MSGBOX_SIGN)
+	end
+}
+
+script SootopolisCity_EventScript_CitySign {
+	msgbox (SootopolisCity_Text_CitySign, MSGBOX_SIGN)
+	end
+}
+
+script SootopolisCity_EventScript_Boy2 {
+    lock
+	faceplayer
+	if (flag(FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS)) {
+		msgbox(format("Man, there's already starting to be tourists around town.\pWhy does my hometown have to host this festival?"))
+		release
+		end
+	}
+	else {
+		msgbox(format("Whoa, did you see the Kimono Girls dancing around town?\pI can't believe how pretty they are!"))
+		release
+		end
+	}
+}
+
+script SootopolisCity_EventScript_BlackBelt {
+    msgbox(format("Now this is the kind of town I just love!\pYou'll get no complaints from this man!"), MSGBOX_NPC)
+	end
+}
+
+script SootopolisCity_EventScript_Girl {
+    msgbox(format("Somebody needs to sweep all of this sand up, it keeps getting in my sandals, and I hate it!"), MSGBOX_NPC)
+	end
+}
+
+script SootopolisCity_EventScript_Maniac {
+    lock
+	faceplayer
+	if (flag(FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS)) {
+		msgbox(format("Sorry, you'll have to come back later.\pI'm still setting up shop."))
+		release
+		end
+	}
+	else {
+		message (gText_HowMayIServeYou)
+		waitmessage
+		pokemart (SootopolisCity_Mart_Salesman5)
+		msgbox (gText_PleaseComeAgain, MSGBOX_DEFAULT)
+		release
+		end
+	}
+}
+
+mart SootopolisCity_Mart_Salesman5 {
+	ITEM_HP_UP
+	ITEM_PROTEIN
+	ITEM_IRON
+	ITEM_CALCIUM
+	ITEM_ZINC
+	ITEM_CARBOS
+	ITEM_PP_UP
+	ITEM_RARE_CANDY
+}
+
+script SootopolisCity_EventScript_Typhlosion {
+	lock
+    faceplayer
+	waitse
+	playmoncry (SPECIES_TYPHLOSION, CRY_MODE_NORMAL)
+    applymovement (TYPLOSION_ID, LittlerootTown_BrendansHouse_1F_Heart)
+    msgbox (format("TYPHLOSION: Wrrahh!"))
+    waitmovement (0)
+    waitmoncry
+    release
+    end
+}
+
+script SootopolisCity_EventScript_Feraligatr {
+	lock
+    faceplayer
+	waitse
+	playmoncry (SPECIES_FERALIGATR, CRY_MODE_NORMAL)
+    applymovement (FERALIGATR_ID, LittlerootTown_BrendansHouse_1F_Heart)
+    msgbox (format("FERALIGATR: Grrahh!"))
+    waitmovement (0)
+    waitmoncry
+    release
+    end
+}
+
+script SootopolisCity_EventScript_Silver {
+	msgbox(format("DAD: I see you're wearing a Mega Ring now, that's great!\pHave you had a chance to use it yet?\pI really feel like the connection I share with my POKéMON is stronger when I Mega Evolve them."), MSGBOX_NPC)
+	end
+}
+
+script SootopolisCity_EventScript_Gold {
+	lock
+	faceplayer
+	if (flag(FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS)) {
+		msgbox(format("GOLD: Yo, {PLAYER}!\pYour father just told me about how you and SHANE defeated Team Phoenix, and how they were actually formed from the remnants of Team Rocket.\pYou know, I battled them many years ago myself.\pThey forced all of the MAGIKARP in the Lake of Rage to evolve for whatever reason.\pAh, I won't bore you with stories of the past though."))
+		release
+		end
+	}
+	else {
+		msgbox(format("meet at my house"))
+		waitmessage
+		closemessage
+		//applymovement (23, SootopolisCity_Movement_GoldToHisHouse)
+		//applymovement (24, SootopolisCity_Movement_TyphlosionToGoldHouse)
+		//waitmovement (0)
+		removeobject (23)
+		removeobject (24)
+		setflag (FLAG_HIDE_GOLD_LAZULAN)
+		clearflag (FLAG_HIDE_GOLD_ROUTE_G)
+		release
+		end
+	}
+}
+
+raw`
+SootopolisCity_Text_GymSign:
+	.string "MEGA EVOLUTION RESEARCH LAB$"
+
+SootopolisCity_Text_CitySign:
+	.string "LAZULAN CITY\n"
+	.string "“The festive island retreat.”$"
+`

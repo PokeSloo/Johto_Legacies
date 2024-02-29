@@ -195,27 +195,23 @@ MoveTutor_Text_DynamicPunchTaught:
 	.string "using that DYNAMICPUNCH!$"
 
 MoveTutor_Text_DoubleEdgeTeach:
-	.string "Sigh…\p"
-	.string "SOOTOPOLIS's GYM LEADER is really\n"
-	.string "lovably admirable.\p"
-	.string "But that also means I have many\n"
-	.string "rivals for his attention.\p"
-	.string "He's got appeal with a DOUBLE-EDGE.\n"
-	.string "I couldn't even catch his eye.\p"
-	.string "Please, let me teach your POKéMON\n"
-	.string "the move DOUBLE-EDGE!$"
+	.string "Yo kid, do you want me to teach one of\n"
+	.string "your POKéMON the move Double-Edge?\l"
+	.string "I'm too lazy to make a pun about it.$"
 
 MoveTutor_Text_DoubleEdgeDeclined:
-	.string "Oh…\n"
-	.string "Even you rejected me…$"
+	.string "Nah, that's cool.\p"
+	.string "Teaching moves is a lot of work anyway.$"
 
 MoveTutor_Text_DoubleEdgeWhichMon:
-	.string "Okay, which POKéMON should I teach\n"
-	.string "DOUBLE-EDGE?$"
+	.string "Sweet! And which POKéMON should I\n"
+	.string "teach Double-Edge to?$"
 
 MoveTutor_Text_DoubleEdgeTaught:
-	.string "I won't live for love anymore!\n"
-	.string "I'll become tough!$"
+	.string "Double-Edge deals a lot of damage, but\n"
+	.string "also hits with a recoil.\p"
+	.string "You'll have to keep an eye on your own\n"
+	.string "POKéMON's health.$"
 
 MoveTutor_Text_ExplosionTeach:
 	.string "The art of POKéMON battling is an\n"

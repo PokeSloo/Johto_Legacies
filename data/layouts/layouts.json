@@ -4384,7 +4384,7 @@
     {
       "id": "LAYOUT_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_1F",
       "name": "SootopolisCity_MysteryEventsHouse_1F_Layout",
-      "width": 18,
+      "width": 19,
       "height": 9,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BattleFactory",

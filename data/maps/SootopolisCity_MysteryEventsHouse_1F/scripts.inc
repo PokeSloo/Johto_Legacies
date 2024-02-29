@@ -1,228 +1,352 @@
-.set LOCALID_OLD_MAN, 1
-
 SootopolisCity_MysteryEventsHouse_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, SootopolisCity_MysteryEventsHouse_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
-SootopolisCity_MysteryEventsHouse_1F_OnTransition:
-	frontier_checkvisittrainer
-	call_if_eq VAR_RESULT, 0, SootopolisCity_MysteryEventsHouse_1F_EventScript_SetTrainerVisitingLayout
-	call_if_ne VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 0, SootopolisCity_MysteryEventsHouse_1F_EventScript_MoveOldManToDoor
-	end
-
-SootopolisCity_MysteryEventsHouse_1F_EventScript_SetTrainerVisitingLayout::
-	setvar VAR_TEMP_1, 1
-	setobjectxyperm LOCALID_OLD_MAN, 3, 2
-	setobjectmovementtype LOCALID_OLD_MAN, MOVEMENT_TYPE_FACE_DOWN
-	setmaplayoutindex LAYOUT_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_1F_STAIRS_UNBLOCKED
-	return
-
-SootopolisCity_MysteryEventsHouse_1F_EventScript_MoveOldManToDoor::
-	setobjectxyperm LOCALID_OLD_MAN, 2, 2
-	setobjectmovementtype LOCALID_OLD_MAN, MOVEMENT_TYPE_FACE_RIGHT
-	return
-
-SootopolisCity_MysteryEventsHouse_1F_OnFrame:
-	map_script_2 VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 1, SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle
-	map_script_2 VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 2, SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle
-	map_script_2 VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 3, SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle
+SootopolisCity_MysteryEventsHouse_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_LAZULAN_STATE, 0, SootopolisCity_MysteryEventsHouse_1F_OnFrame
 	.2byte 0
 
-SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle::
-	lockall
-	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerExitStairs
+
+SootopolisCity_MysteryEventsHouse_1F_OnFrame::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerToAction
 	waitmovement 0
-	applymovement LOCALID_OLD_MAN, SootopolisCity_MysteryEventsHouse_1F_Movement_OldManWalkBehindPlayer
+	applymovement 4, SootopolisCity_Movement_StepDown
 	waitmovement 0
-	copyobjectxytoperm LOCALID_OLD_MAN
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_0
+	waitmessage
+	applymovement 6, SootopolisCity_Movement_StepUp
 	waitmovement 0
-	call_if_eq VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 1, SootopolisCity_MysteryEventsHouse_1F_EventScript_BattleWonComment
-	call_if_eq VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 2, SootopolisCity_MysteryEventsHouse_1F_EventScript_BattleLostComment
-	call_if_eq VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 3, SootopolisCity_MysteryEventsHouse_1F_EventScript_BattleTiedComment
-	special LoadPlayerParty
-	setvar VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 0
-	releaseall
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_1
+	waitmessage
+	applymovement 4, SootopolisCity_Movement_StepDown
+	waitmovement 0
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_2
+	waitmessage
+	applymovement 4, SootopolisCity_Movement_StepRight
+	waitmovement 0
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_3
+	waitmessage
+	applymovement 4, SootopolisCity_Movement_StepDown
+	waitmovement 0
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_4
+	waitmessage
+	applymovement 4, SootopolisCity_Movement_StepLeft
+	waitmovement 0
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_5
+	waitmessage
+	applymovement 4, SootopolisCity_Movement_StepUp
+	waitmovement 0
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_6
+	waitmessage
+	applymovement 4, SootopolisCity_Movement_StepDown
+	waitmovement 0
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_7
+	waitmessage
+	applymovement 6, SootopolisCity_Movement_StepUp
+	waitmovement 0
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_8
+	waitmessage
+	applymovement 4, SootopolisCity_Movement_StepDown
+	waitmovement 0
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_9
+	waitmessage
+	closemessage
+	applymovement 4, SootopolisCity_MysteryEventsHouse_1F_Movement_WalkDownOne
+	waitmovement 0
+	delay 60
+	applymovement 4, SootopolisCity_MysteryEventsHouse_1F_Movement_WalkLeftDown
+	waitmovement 0
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_10
+	waitmessage
+	goto_if_set FLAG_CHOSE_OAK_BULBASAUR, SootopolisCity_MysteryEventsHouse_1F_OnFrame_2
+	goto_if_set FLAG_CHOSE_OAK_SQUIRTLE, SootopolisCity_MysteryEventsHouse_1F_OnFrame_3
+	call SootopolisCity_MysteryEventsHouse_1F_EventScript_Charmander
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_1:
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_11
+	waitmessage
+	closemessage
+	giveitem ITEM_MEGA_RING
+	waitbuttonpress
+	closemessage
+	applymovement 4, SootopolisCity_MysteryEventsHouse_1F_Movement_WalkRightDown
+	waitmovement 0
+	delay 60
+	applymovement 4, SootopolisCity_MysteryEventsHouse_1F_Movement_WalkUpDown
+	waitmovement 0
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_12
+	waitmessage
+	applymovement 6, SootopolisCity_Movement_StepUp
+	waitmovement 0
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_13
+	waitmessage
+	applymovement 6, SootopolisCity_Movement_StepLeft
+	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepRight
+	waitmovement 0
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_14
+	waitmessage
+	closemessage
+	applymovement 6, SootopolisCity_MysteryEventsHouse_1F_Movement_ShaneToBasement
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepUp
+	waitmovement 0
+	opendoor 12, 1
+	waitdooranim
+	applymovement 6, SootopolisCity_Movement_WalkUpOneInvis
+	waitmovement 0
+	closedoor 12, 1
+	waitdooranim
+	removeobject 6
+	applymovement 4, SootopolisCity_Movement_StepDown
+	waitmovement 0
+	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_15
+	waitmessage
+	closemessage
+	applymovement 4, SootopolisCity_MysteryEventsHouse_1F_Movement_GoldStartLeaving
+	waitmovement 0
+	applymovement 4, SootopolisCity_MysteryEventsHouse_1F_Movement_GoldExit
+	applymovement 5, SootopolisCity_MysteryEventsHouse_1F_Movement_TyphlosionExit
+	waitmovement 0
+	playse SE_EXIT
+	removeobject 4
+	removeobject 5
+	waitse
+	setflag FLAG_RECEIVED_MEGA_STONE_LAZULAN
+	addvar VAR_LAZULAN_STATE, 1
+	release
 	end
 
-SootopolisCity_MysteryEventsHouse_1F_EventScript_BattleWonComment::
-	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_ThatWasSuperlative, MSGBOX_DEFAULT
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_2:
+	call SootopolisCity_MysteryEventsHouse_1F_EventScript_Bulbasaur
+	goto SootopolisCity_MysteryEventsHouse_1F_OnFrame_1
+
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_3:
+	call SootopolisCity_MysteryEventsHouse_1F_EventScript_Squirtle
+	goto SootopolisCity_MysteryEventsHouse_1F_OnFrame_1
+
+
+SootopolisCity_MysteryEventsHouse_1F_EventScript_Bulbasaur::
+	giveitem ITEM_VENUSAURITE
 	return
 
-SootopolisCity_MysteryEventsHouse_1F_EventScript_BattleLostComment::
-	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_TooBadForYou, MSGBOX_DEFAULT
+
+SootopolisCity_MysteryEventsHouse_1F_EventScript_Squirtle::
+	giveitem ITEM_BLASTOISINITE
 	return
 
-SootopolisCity_MysteryEventsHouse_1F_EventScript_BattleTiedComment::
-	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_BrilliantStandoff, MSGBOX_DEFAULT
+
+SootopolisCity_MysteryEventsHouse_1F_EventScript_Charmander::
+	giveitem ITEM_CHARIZARDITE_X
 	return
 
-SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerExitStairs:
+
+SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerToAction:
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	walk_in_place_up
+	step_end
+
+SootopolisCity_MysteryEventsHouse_1F_Movement_WalkDownOne:
 	walk_down
 	step_end
 
-SootopolisCity_MysteryEventsHouse_1F_Movement_OldManWalkBehindPlayer:
-	walk_right
-	walk_in_place_faster_down
+SootopolisCity_MysteryEventsHouse_1F_Movement_WalkLeftDown:
+	walk_left
+	walk_in_place_down
 	step_end
 
-SootopolisCity_MysteryEventsHouse_1F_EventScript_OldMan::
+SootopolisCity_MysteryEventsHouse_1F_Movement_WalkRightDown:
+	walk_right
+	walk_in_place_down
+	step_end
+
+SootopolisCity_MysteryEventsHouse_1F_Movement_WalkUpDown:
+	walk_up
+	walk_in_place_down
+	step_end
+
+SootopolisCity_MysteryEventsHouse_1F_Movement_ShaneToBasement:
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_up
+	step_end
+
+SootopolisCity_MysteryEventsHouse_1F_Movement_GoldStartLeaving:
+	walk_down
+	walk_left
+	step_end
+
+SootopolisCity_MysteryEventsHouse_1F_Movement_GoldExit:
+	walk_left
+	walk_left
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	set_invisible
+	step_end
+
+SootopolisCity_MysteryEventsHouse_1F_Movement_TyphlosionExit:
+	walk_down
+	walk_left
+	walk_left
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	set_invisible
+	step_end
+
+SootopolisCity_MysteryEventsHouse_1F_Scientist1::
+	msgbox SootopolisCity_MysteryEventsHouse_1F_Scientist1_Text_0, MSGBOX_NPC
+	end
+
+
+SootopolisCity_MysteryEventsHouse_1F_Scientist2::
+	msgbox SootopolisCity_MysteryEventsHouse_1F_Scientist2_Text_0, MSGBOX_NPC
+	end
+
+
+SootopolisCity_MysteryEventsHouse_1F_Scientist3::
+	msgbox SootopolisCity_MysteryEventsHouse_1F_Scientist3_Text_0, MSGBOX_NPC
+	end
+
+
+SootopolisCity_MysteryEventsHouse_1F_EventScript_Clerk::
 	lock
 	faceplayer
-	frontier_checkvisittrainer
-	goto_if_eq VAR_RESULT, 1, SootopolisCity_MysteryEventsHouse_1F_EventScript_InvalidVisitingTrainer
-	goto_if_eq VAR_TEMP_1, 1, SootopolisCity_MysteryEventsHouse_1F_EventScript_TrainerVisiting
-	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_OnlyAmusementWatchingBattles, MSGBOX_DEFAULT
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart SootopolisCity_MysteryEventsHouse_1F_Mart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-SootopolisCity_MysteryEventsHouse_1F_EventScript_InvalidVisitingTrainer::
-	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_OnlyAmusementWatchingBattles, MSGBOX_DEFAULT
-	release
-	end
 
-SootopolisCity_MysteryEventsHouse_1F_EventScript_TrainerVisiting::
-	special SavePlayerParty
-	special BufferEReaderTrainerName
-	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_ChallengeVisitingTrainer, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, SootopolisCity_MysteryEventsHouse_1F_EventScript_DeclineBattle
-	call SootopolisCity_MysteryEventsHouse_1F_EventScript_ChooseParty
-	goto_if_eq VAR_RESULT, 0, SootopolisCity_MysteryEventsHouse_1F_EventScript_DeclineBattle
-	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_SaveProgressBeforeBattle, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, SootopolisCity_MysteryEventsHouse_1F_EventScript_DeclineBattle
-	special LoadPlayerParty
-	call Common_EventScript_SaveGame
-	goto_if_eq VAR_RESULT, FALSE, SootopolisCity_MysteryEventsHouse_1F_EventScript_DeclineBattle
-	special SavePlayerParty
-	special ReducePlayerPartyToSelectedMons
-	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_HopeToSeeGoodMatch, MSGBOX_DEFAULT
-	closemessage
-	call_if_eq VAR_FACING, DIR_NORTH, SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementNorth
-	call_if_eq VAR_FACING, DIR_EAST, SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementEast
-	call_if_eq VAR_FACING, DIR_WEST, SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementWest
-	warp MAP_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_B1F, 3, 1
-	waitstate
-	release
-	end
+	.align 2
+SootopolisCity_MysteryEventsHouse_1F_Mart:
+	.2byte ITEM_VENUSAURITE
+	.2byte ITEM_BLASTOISINITE
+	.2byte ITEM_CHARIZARDITE_X
+	.2byte ITEM_CHARIZARDITE_Y
+	.2byte ITEM_SCEPTILITE
+	.2byte ITEM_SWAMPERTITE
+	.2byte ITEM_BLAZIKENITE
+	.2byte ITEM_NONE
 
-SootopolisCity_MysteryEventsHouse_1F_EventScript_DeclineBattle::
-	special LoadPlayerParty
-	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_YouWontBattle, MSGBOX_DEFAULT
-	release
-	end
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_0:
+	.string "GOLD: From what your father told me,\n"
+	.string "you two should be familiar with Mega\l"
+	.string "Evolution.\p"
+	.string "That is, when a fully evolved POKéMON is\n"
+	.string "able to temporarily transform into a\l"
+	.string "more powerful form.$"
 
-SootopolisCity_MysteryEventsHouse_1F_EventScript_ChooseParty::
-	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_KeepItTo3On3, MSGBOX_DEFAULT
-	fadescreen FADE_TO_BLACK
-	special ChooseHalfPartyForBattle
-	waitstate
-	return
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_1:
+	.string "SHANE: Yeah! Dad used that against me\n"
+	.string "in the POKéMON League.\p"
+	.string "I was doing ok until his SALAMENCE Mega\n"
+	.string "Evolved!$"
 
-SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementNorth::
-	applymovement VAR_LAST_TALKED, SootopolisCity_MysteryEventsHouse_1F_Movement_OldManMoveAsideLeft
-	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerEnterBasementNorth
-	waitmovement 0
-	return
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_2:
+	.string "GOLD: Yes, Mega Evolution is very\n"
+	.string "powerful!$"
 
-SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementEast::
-	applymovement VAR_LAST_TALKED, SootopolisCity_MysteryEventsHouse_1F_Movement_OldManMoveAsideRight
-	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerEnterBasementEast
-	waitmovement 0
-	return
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_3:
+	.string "This lab was created to research and\n"
+	.string "understand Mega Stones, and Mega\l"
+	.string "Evolution.$"
 
-SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementWest::
-	applymovement VAR_LAST_TALKED, SootopolisCity_MysteryEventsHouse_1F_Movement_OldManMoveAsideLeft
-	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerEnterBasementWest
-	waitmovement 0
-	return
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_4:
+	.string "According to our research, special\n"
+	.string "meteorites rained down upon the Hoenn\l"
+	.string "region thousands of years ago.\p"
+	.string "These meteorites release a powerful\n"
+	.string "energy which we've learned to harness.\p"
+	.string "Through careful craftsmanship, these\n"
+	.string "meteorites can be turned into Mega\l"
+	.string "Stones, which allow certain species of\l"
+	.string "POKéMON to Mega Evolve!$"
 
-SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerEnterBasementNorth:
-	delay_16
-	walk_up
-	walk_up
-	step_end
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_5:
+	.string "By the way, some Mega Stones can be\n"
+	.string "purchased at the front desk.$"
 
-SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerEnterBasementEast:
-	delay_16
-	walk_right
-	walk_up
-	step_end
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_6:
+	.string "There's also a testing arena in the\n"
+	.string "basement.$"
 
-SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerEnterBasementWest:
-	delay_16
-	walk_left
-	walk_up
-	step_end
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_7:
+	.string "So, are you interested yet?$"
 
-SootopolisCity_MysteryEventsHouse_1F_Movement_OldManMoveAsideLeft:
-	walk_left
-	walk_in_place_faster_right
-	step_end
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_8:
+	.string "SHANE: You bet!\p"
+	.string "This is just the extra boost I needed.$"
 
-SootopolisCity_MysteryEventsHouse_1F_Movement_OldManMoveAsideRight:
-	walk_right
-	walk_in_place_faster_left
-	step_end
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_9:
+	.string "GOLD: Great!\p"
+	.string "Now then, I would like to give each of\n"
+	.string "you a Mega Stone to start you off.$"
 
-SootopolisCity_MysteryEventsHouse_1F_Text_OnlyAmusementWatchingBattles:
-	.string "When I was young, I traveled the world\n"
-	.string "as a POKéMON TRAINER.\p"
-	.string "Now that I've become an old buzzard,\n"
-	.string "my only amusement is watching young\l"
-	.string "TRAINERS battle.$"
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_10:
+	.string "GOLD: Hmm... Hopefully you'll be able to\n"
+	.string "use this one.$"
 
-SootopolisCity_MysteryEventsHouse_1F_Text_DoorAppearsToBeLocked:
-	.string "The door appears to be locked.$"
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_11:
+	.string "GOLD: Oh, and you'll also need this.$"
 
-SootopolisCity_MysteryEventsHouse_1F_Text_ChallengeVisitingTrainer:
-	.string "A TRAINER named {STR_VAR_1}\n"
-	.string "is visiting my home.\p"
-	.string "Would you like to challenge\n"
-	.string "{STR_VAR_1}?$"
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_12:
+	.string "GOLD: Those Mega Rings were also\n"
+	.string "crafted from meteorites, they'll allow\l"
+	.string "you to activate Mega Evolution.$"
 
-SootopolisCity_MysteryEventsHouse_1F_Text_YouWontBattle:
-	.string "You won't battle? I'm disappointed\n"
-	.string "that I can't see you battle…$"
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_13:
+	.string "SHANE: This is awesome!\p"
+	.string "I can't wait to try it out!$"
 
-SootopolisCity_MysteryEventsHouse_1F_Text_KeepItTo3On3:
-	.string "Oh, good, good!\p"
-	.string "But my house isn't all that sturdy.\p"
-	.string "Could I ask you to keep it down to\n"
-	.string "a 3-on-3 match?$"
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_14:
+	.string "{PLAYER}, meet me down in the testing\n"
+	.string "arena for a battle.\p"
+	.string "There's no way I'll lose to you this\n"
+	.string "time!$"
 
-SootopolisCity_MysteryEventsHouse_1F_Text_SaveProgressBeforeBattle:
-	.string "Before you two battle, you should\n"
-	.string "save your progress.$"
+SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_15:
+	.string "GOLD: Well, he sure is enthusiastic.\p"
+	.string "I'll be in town if you need me, it's been\n"
+	.string "a pleasure.$"
 
-SootopolisCity_MysteryEventsHouse_1F_Text_HopeToSeeGoodMatch:
-	.string "I hope to see a good match!$"
+SootopolisCity_MysteryEventsHouse_1F_Scientist1_Text_0:
+	.string "This lab hasn't been as lucrative as you\n"
+	.string "might expect.\p"
+	.string "If not for GOLD's funding, we would have\n"
+	.string "shut down years ago.\p"
+	.string "I wonder how he made all his money.$"
 
-@ Unused
-SootopolisCity_MysteryEventsHouse_1F_Text_StrVar1Tie:
-	.string "{STR_VAR_1}$"
+SootopolisCity_MysteryEventsHouse_1F_Scientist2_Text_0:
+	.string "Some legends say that Rayquaza was the\n"
+	.string "first POKéMON to Mega Evolve.\p"
+	.string "I wonder where it is now...$"
 
-SootopolisCity_MysteryEventsHouse_B1F_Text_MatchEndedUpDraw:
-	.string "The match ended up a draw.$"
-
-SootopolisCity_MysteryEventsHouse_1F_Text_BrilliantStandoff:
-	.string "So, it became a standoff.\p"
-	.string "It was a brilliant match in which\n"
-	.string "neither side conceded a step!$"
-
-@ Unused
-SootopolisCity_MysteryEventsHouse_1F_Text_StrVar1Won:
-	.string "{STR_VAR_1}$"
-
-SootopolisCity_MysteryEventsHouse_1F_Text_ThatWasSuperlative:
-	.string "That was superlative!\p"
-	.string "Why, it was like seeing myself in\n"
-	.string "my youth again!$"
-
-@ Unused
-SootopolisCity_MysteryEventsHouse_1F_Text_StrVar1Lost:
-	.string "{STR_VAR_1}$"
-
-SootopolisCity_MysteryEventsHouse_1F_Text_TooBadForYou:
-	.string "Ah, too bad for you!\p"
-	.string "But it was a good match.\n"
-	.string "I hope you can win next time.$"
-
+SootopolisCity_MysteryEventsHouse_1F_Scientist3_Text_0:
+	.string "Hmm... My notes say that to Mega Evolve\n"
+	.string "in battle, you must press the start\l"
+	.string "button just before selecting an\l"
+	.string "attack.\p"
+	.string "I'm still not really sure what a start\n"
+	.string "button is...$"

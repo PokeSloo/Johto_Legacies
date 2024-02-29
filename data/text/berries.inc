@@ -188,35 +188,31 @@ Route104_PrettyPetalFlowerShop_Text_MachineMixesBerries:
 	.string "make?$"
 
 SootopolisCity_Text_NameIsKiriHaveOneOfThese:
-	.string "Hi, what's your name?\p"
-	.string "… … …  … … …  … … …\n"
-	.string "Okay. That's nice!\p"
-	.string "My name is KIRI.\p"
-	.string "My mommy and daddy named me that so\n"
-	.string "I would grow healthy and warmhearted.\l"
-	.string "That's what they wished.\p"
-	.string "You can have one of these.$"
+	.string "We must always seek to give back to\n"
+	.string "mother nature in whatever ways we can.\p"
+	.string "One way I like to give back to nature is\n"
+	.string "by planting BERRIES.\p"
+	.string "Here, you should plant more BERRIES\n"
+	.string "too.$"
 
 SootopolisCity_Text_GiveYouThisBerryToo:
-	.string "KIRI will give you this BERRY, too!\n"
-	.string "I really like it lots!$"
+	.string "Hmm... Maybe just one more for good\n"
+	.string "measure.$"
 
 SootopolisCity_Text_WhatKindOfWishInYourName:
-	.string "I wonder what kind of wish is included\n"
-	.string "in your name.$"
+	.string "Come back tomorrow, and I should have\n"
+	.string "more for you.$"
 
 SootopolisCity_Text_LikeSeasonBornIn:
-	.string "Spring, summer, autumn, and winter.\p"
-	.string "If you're born in springtime, do you like\n"
-	.string "the spring, and if you're born in the\l"
-	.string "summer, do you like the summer?$"
+	.string "Tell me, have you planted the BERRIES I\n"
+	.string "gave you?$"
 
 SootopolisCity_Text_ThenILoveAutumn:
-	.string "Then KIRI was born in the autumn,\n"
-	.string "so I love the autumn!\p"
-	.string "Which season do you like?$"
+	.string "How wonderful!\p"
+	.string "Mother nature will appreciate your\n"
+	.string "kindness, dear child.$"
 
 SootopolisCity_Text_OhDoesntMatter:
-	.string "Oh…\n"
-	.string "It doesn't matter…\p"
-	.string "There's so much that I want to know…$"
+	.string "That's a shame.\p"
+	.string "There's still plenty of time left in the\n"
+	.string "day though.$"

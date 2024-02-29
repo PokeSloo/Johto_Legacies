@@ -1,0 +1,45 @@
+mapscripts SootopolisCity_MysteryEventsHouse_B1F_MapScripts {}
+
+script SootopolisCity_MysteryEventsHouse_B1F_EventScript_Shane {
+    lock
+    faceplayer
+    msgbox(format("So, you showed up?\pI knew there was no way you'd wimp out, I bet you're just as excited as I am to test out these Mega Stones!\pWell, don't keep me waiting.\pLet's go!"))
+    trainerbattle_no_intro (TRAINER_MAY_ROUTE_119_TREECKO, SootopolisCity_MysteryEventsHouse_B1F_Text_ShaneDefeat)
+    msgbox(format("No matter what I do, you always seem to be one step ahead of me.\pThat's fine though.\pIf it weren't for you, I wouldn't have pushed myself nearly as hard as I have.\pHell, I probably would only have two gym badges still.\pOne day, I swear I'll surpass you.\pJust watch me!"))
+    waitmessage
+    closemessage
+    specialvar (VAR_RESULT, GetPlayerFacingDirection)
+    if (var(VAR_RESULT) == DIR_SOUTH) {
+        applymovement(1, SootopolisCity_MysteryEventsHouse_B1F_Movement_ExitAround)
+        waitmovement (0)
+    }
+    else {
+        applymovement(1, SootopolisCity_MysteryEventsHouse_B1F_Movement_ExitStraight)
+        waitmovement (0)
+    }
+    opendoor (6, 2)
+	waitdooranim
+	applymovement(1, SootopolisCity_Movement_WalkUpOneInvis)
+    waitmovement (0)
+	closedoor (6, 2)
+	waitdooranim
+	removeobject (1)
+    setflag (FLAG_HIDE_SHANE_MEGA_LAB_BASEMENT)
+    release
+    end
+}
+
+movement SootopolisCity_MysteryEventsHouse_B1F_Movement_ExitAround {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up
+}
+
+movement SootopolisCity_MysteryEventsHouse_B1F_Movement_ExitStraight {
+    walk_up * 3
+}
+
+text SootopolisCity_MysteryEventsHouse_B1F_Text_ShaneDefeat {
+    format("So, that's how it is...")
+}

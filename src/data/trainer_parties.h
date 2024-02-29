@@ -7845,21 +7845,54 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute110Treecko[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRoute119Treecko[] = {
+static const struct TrainerMonItemCustomMoves sParty_MayRoute119Treecko[] = {
     {
-    .iv = 100,
-    .lvl = 29,
-    .species = SPECIES_PELIPPER,
+    .iv = 255,
+    .lvl = 73,
+    .species = SPECIES_GALVANTULA,
+    .heldItem = ITEM_LIFE_ORB,
+    .abilityNums = 0,
+    .moves = {MOVE_STICKY_WEB, MOVE_VOLT_SWITCH, MOVE_BUG_BUZZ, MOVE_THUNDER}
     },
     {
-    .iv = 100,
-    .lvl = 29,
-    .species = SPECIES_LOMBRE,
+    .iv = 255,
+    .lvl = 74,
+    .species = SPECIES_GLISCOR,
+    .heldItem = ITEM_TOXIC_ORB,
+    .abilityNums = 2,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_EARTHQUAKE, MOVE_ROOST, MOVE_FACADE}
     },
     {
-    .iv = 150,
-    .lvl = 31,
-    .species = SPECIES_COMBUSKEN,
+    .iv = 255,
+    .lvl = 74,
+    .species = SPECIES_SHARPEDO,
+    .heldItem = ITEM_FOCUS_SASH,
+    .abilityNums = 2,
+    .moves = {MOVE_ICE_FANG, MOVE_WATERFALL, MOVE_CRUNCH, MOVE_EARTHQUAKE}
+    },
+    {
+    .iv = 255,
+    .lvl = 74,
+    .species = SPECIES_MUK_ALOLAN,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .abilityNums = 0,
+    .moves = {MOVE_KNOCK_OFF, MOVE_SHADOW_SNEAK, MOVE_GUNK_SHOT, MOVE_FIRE_BLAST}
+    },
+    {
+    .iv = 255,
+    .lvl = 75,
+    .species = SPECIES_MEGANIUM,
+    .heldItem = ITEM_LEFTOVERS,
+    .abilityNums = 0,
+    .moves = {MOVE_SUBSTITUTE, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_EARTHQUAKE}
+    },
+    {
+    .iv = 255,
+    .lvl = 75,
+    .species = SPECIES_HOUNDOOM,
+    .heldItem = ITEM_HOUNDOOMINITE,
+    .abilityNums = 1,
+    .moves = {MOVE_NASTY_PLOT, MOVE_FIRE_BLAST, MOVE_SLUDGE_BOMB, MOVE_DARK_PULSE}
     }
 };
 

@@ -1,0 +1,231 @@
+const SHANE_ID = 6
+const GOLD_ID = 4
+const TYPHLOSION_ID = 5
+
+mapscripts SootopolisCity_MysteryEventsHouse_1F_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_LAZULAN_STATE, 0: SootopolisCity_MysteryEventsHouse_1F_OnFrame
+    ]
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_OnFrame {
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerToAction)
+    waitmovement (0)
+    applymovement(GOLD_ID, SootopolisCity_Movement_StepDown)
+    waitmovement (0)
+    msgbox(format("GOLD: From what your father told me, you two should be familiar with Mega Evolution.\pThat is, when a fully evolved POKéMON is able to temporarily transform into a more powerful form."))
+    waitmessage
+    applymovement(SHANE_ID, SootopolisCity_Movement_StepUp)
+    waitmovement (0)
+    msgbox(format("SHANE: Yeah! Dad used that against me in the POKéMON League.\pI was doing ok until his SALAMENCE Mega Evolved!"))
+    waitmessage
+    applymovement(GOLD_ID, SootopolisCity_Movement_StepDown)
+    waitmovement (0)
+    msgbox(format("GOLD: Yes, Mega Evolution is very powerful!"))
+    waitmessage
+    applymovement(GOLD_ID, SootopolisCity_Movement_StepRight)
+    waitmovement (0)
+    msgbox(format("This lab was created to research and understand Mega Stones, and Mega Evolution."))
+    waitmessage
+    applymovement(GOLD_ID, SootopolisCity_Movement_StepDown)
+    waitmovement (0)
+    msgbox(format("According to our research, special meteorites rained down upon the Hoenn region thousands of years ago.\pThese meteorites release a powerful energy which we've learned to harness.\pThrough careful craftsmanship, these meteorites can be turned into Mega Stones, which allow certain species of POKéMON to Mega Evolve!"))
+    waitmessage
+    applymovement(GOLD_ID, SootopolisCity_Movement_StepLeft)
+    waitmovement (0)
+    msgbox(format("By the way, some Mega Stones can be purchased at the front desk."))
+    waitmessage
+    applymovement(GOLD_ID, SootopolisCity_Movement_StepUp)
+    waitmovement (0)
+    msgbox(format("There's also a testing arena in the basement."))
+    waitmessage
+    applymovement(GOLD_ID, SootopolisCity_Movement_StepDown)
+    waitmovement (0)
+    msgbox(format("So, are you interested yet?"))
+    waitmessage
+    applymovement(SHANE_ID, SootopolisCity_Movement_StepUp)
+    waitmovement (0)
+    msgbox(format("SHANE: You bet!\pThis is just the extra boost I needed."))
+    waitmessage
+    applymovement(GOLD_ID, SootopolisCity_Movement_StepDown)
+    waitmovement (0)
+    msgbox(format("GOLD: Great!\pNow then, I would like to give each of you a Mega Stone to start you off."))
+    waitmessage
+    closemessage
+    applymovement(GOLD_ID, SootopolisCity_MysteryEventsHouse_1F_Movement_WalkDownOne)
+    waitmovement (0)
+    delay (60)
+    applymovement(GOLD_ID, SootopolisCity_MysteryEventsHouse_1F_Movement_WalkLeftDown)
+    waitmovement (0)
+    msgbox(format("GOLD: Hmm... Hopefully you'll be able to use this one."))
+    waitmessage
+    if (flag(FLAG_CHOSE_OAK_BULBASAUR)) {
+        call (SootopolisCity_MysteryEventsHouse_1F_EventScript_Bulbasaur)
+    }
+    elif (flag(FLAG_CHOSE_OAK_SQUIRTLE)) {
+        call (SootopolisCity_MysteryEventsHouse_1F_EventScript_Squirtle)
+    }
+    else {
+        call (SootopolisCity_MysteryEventsHouse_1F_EventScript_Charmander)
+    }
+    msgbox(format("GOLD: Oh, and you'll also need this."))
+    waitmessage
+    closemessage
+    giveitem (ITEM_MEGA_RING)
+    waitbuttonpress
+    closemessage
+    applymovement(GOLD_ID, SootopolisCity_MysteryEventsHouse_1F_Movement_WalkRightDown)
+    waitmovement (0)
+    delay (60)
+    applymovement(GOLD_ID, SootopolisCity_MysteryEventsHouse_1F_Movement_WalkUpDown)
+    waitmovement (0)
+    msgbox(format("GOLD: Those Mega Rings were also crafted from meteorites, they'll allow you to activate Mega Evolution."))
+    waitmessage
+    applymovement(SHANE_ID, SootopolisCity_Movement_StepUp)
+    waitmovement (0)
+    msgbox(format("SHANE: This is awesome!\pI can't wait to try it out!"))
+    waitmessage
+    applymovement(SHANE_ID, SootopolisCity_Movement_StepLeft)
+    applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepRight)
+    waitmovement (0)
+    msgbox(format("{PLAYER}, meet me down in the testing arena for a battle.\pThere's no way I'll lose to you this time!"))
+    waitmessage
+    closemessage
+    applymovement(SHANE_ID, SootopolisCity_MysteryEventsHouse_1F_Movement_ShaneToBasement)
+    waitmovement (0)
+    applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepUp)
+    waitmovement (0)
+    opendoor (12, 1)
+	waitdooranim
+	applymovement(SHANE_ID, SootopolisCity_Movement_WalkUpOneInvis)
+    waitmovement (0)
+	closedoor (12, 1)
+	waitdooranim
+	removeobject (SHANE_ID)
+    applymovement(GOLD_ID, SootopolisCity_Movement_StepDown)
+    waitmovement (0)
+    msgbox(format("GOLD: Well, he sure is enthusiastic.\pI'll be in town if you need me, it's been a pleasure."))
+    waitmessage
+    closemessage
+    applymovement(GOLD_ID, SootopolisCity_MysteryEventsHouse_1F_Movement_GoldStartLeaving)
+    waitmovement (0)
+    applymovement(GOLD_ID, SootopolisCity_MysteryEventsHouse_1F_Movement_GoldExit)
+    applymovement(TYPHLOSION_ID, SootopolisCity_MysteryEventsHouse_1F_Movement_TyphlosionExit)
+    waitmovement (0)
+    playse(SE_EXIT)
+    removeobject(GOLD_ID)
+    removeobject(TYPHLOSION_ID)
+    waitse
+    setflag (FLAG_RECEIVED_MEGA_STONE_LAZULAN)
+    addvar (VAR_LAZULAN_STATE, 1)
+    release
+    end
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_EventScript_Bulbasaur {
+    giveitem (ITEM_VENUSAURITE)
+    return
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_EventScript_Squirtle {
+    giveitem (ITEM_BLASTOISINITE)
+    return
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_EventScript_Charmander {
+    giveitem (ITEM_CHARIZARDITE_X)
+    return
+}
+
+movement SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerToAction {
+    walk_up
+    walk_right * 5
+    walk_up
+    walk_right * 2
+    walk_in_place_up
+}
+
+movement SootopolisCity_MysteryEventsHouse_1F_Movement_WalkDownOne {
+    walk_down
+}
+
+movement SootopolisCity_MysteryEventsHouse_1F_Movement_WalkLeftDown {
+    walk_left
+    walk_in_place_down
+}
+
+movement SootopolisCity_MysteryEventsHouse_1F_Movement_WalkRightDown {
+    walk_right
+    walk_in_place_down
+}
+
+movement SootopolisCity_MysteryEventsHouse_1F_Movement_WalkUpDown {
+    walk_up
+    walk_in_place_down
+}
+
+movement SootopolisCity_MysteryEventsHouse_1F_Movement_ShaneToBasement {
+    walk_right
+    walk_up * 3
+    walk_left
+    walk_up
+}
+
+movement SootopolisCity_MysteryEventsHouse_1F_Movement_GoldStartLeaving {
+    walk_down
+    walk_left
+}
+
+movement SootopolisCity_MysteryEventsHouse_1F_Movement_GoldExit {
+    walk_left * 2
+    walk_down
+    walk_left * 4
+    walk_down * 2
+    set_invisible
+}
+
+movement SootopolisCity_MysteryEventsHouse_1F_Movement_TyphlosionExit {
+    walk_down
+    walk_left * 2
+    walk_down
+    walk_left * 4
+    walk_down * 2
+    set_invisible
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_Scientist1 {
+    msgbox(format("This lab hasn't been as lucrative as you might expect.\pIf not for GOLD's funding, we would have shut down years ago.\pI wonder how he made all his money."), MSGBOX_NPC)
+    end
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_Scientist2 {
+    msgbox(format("Some legends say that Rayquaza was the first POKéMON to Mega Evolve.\pI wonder where it is now..."), MSGBOX_NPC)
+    end
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_Scientist3 {
+    msgbox(format("Hmm... My notes say that to Mega Evolve in battle, you must press the start button just before selecting an attack.\pI'm still not really sure what a start button is..."), MSGBOX_NPC)
+    end
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_EventScript_Clerk {
+	lock
+	faceplayer
+	message (gText_HowMayIServeYou)
+	waitmessage
+	pokemart (SootopolisCity_MysteryEventsHouse_1F_Mart)
+	msgbox (gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+mart SootopolisCity_MysteryEventsHouse_1F_Mart {
+    ITEM_VENUSAURITE
+    ITEM_BLASTOISINITE
+    ITEM_CHARIZARDITE_X
+    ITEM_CHARIZARDITE_Y
+    ITEM_SCEPTILITE
+    ITEM_SWAMPERTITE
+    ITEM_BLAZIKENITE
+}
