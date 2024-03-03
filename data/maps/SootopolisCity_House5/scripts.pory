@@ -1,0 +1,43 @@
+mapscripts SootopolisCity_House5_MapScripts {}
+
+script SootopolisCity_House5_EventScript_Collector {
+    lock
+    faceplayer
+    msgbox (format("Hiya! I'm the Heart Scale Maniac!\pMy favorite hobby is collecting Heart Scales. If you have any Heart Scales, I would be willing to trade you for some Exp.Candy.\pSo do we have a deal?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        msgbox (format("Oh, I see.\pWell if you ever change your mind, you know where to find me."))
+        release
+        end
+    }
+    else {
+        goto (SootopolisCity_House5_EventScript_HeartScaleSale)
+        end
+    }
+}
+
+script SootopolisCity_House5_EventScript_HeartScaleSale{
+    checkitem (ITEM_HEART_SCALE)
+    if (var(VAR_RESULT) == TRUE) {
+        msgbox (format("Oh! You have a Heart Scale!\pThat's fantastic!\pHere, you can have an Exp.Candy XL in return."))
+        removeitem (ITEM_HEART_SCALE, 1)
+        giveitem (ITEM_EXP_CANDY_XL)
+        msgbox (format("Pleasure doing business with you!\pNow, do you have any more Heart Scales you would be willing to trade?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox (format("Oh, I see.\pWell if you ever change your mind, you know where to find me."))
+            release
+            end
+        }
+        else {
+            goto (SootopolisCity_House5_EventScript_HeartScaleSale)
+            end
+        }
+    }
+    msgbox (format("Hmmm...\pIt appears you don't have any Heart Scales on you at the moment.\pIf you do find some, you know where to find me."))
+    release
+    end
+}
+
+script SootopolisCity_House5_EventScript_Girl {
+    msgbox(format("My brother has always been crazy about Luvdisc, and their scales.\pThat's the only kind of “Luv” he'll ever be getting, hehe."), MSGBOX_NPC)
+    end
+}

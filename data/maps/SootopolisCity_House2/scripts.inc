@@ -19,16 +19,19 @@ SootopolisCity_House2_EventScript_DontKnowAboutOrbs::
 	return
 
 SootopolisCity_House2_Text_DidYouKnowAboutMtPyreOrbs:
-	.string "MT. PYRE…\p"
-	.string "At its peak are two orbs placed side\n"
-	.string "by side. Did you know?$"
+	.string "I was once a pretty good POKéMON\n"
+	.string "TRAINER myself, believe it or not.\p"
+	.string "At some point, I guess I just lost\n"
+	.string "interest.\p"
+	.string "Are you still enthusiastic about\n"
+	.string "POKéMON?$"
 
 SootopolisCity_House2_Text_YesTwoOrbsSideBySide:
-	.string "Yes, two orbs side by side…\p"
-	.string "The sight of them together…\n"
-	.string "It is somehow soothing…$"
+	.string "Wonderful!\p"
+	.string "I hope you continue to enjoy training\n"
+	.string "POKéMON for many years to come.$"
 
 SootopolisCity_House2_Text_OughtToVisitAndSee:
-	.string "Is that so?\n"
-	.string "Perhaps you ought to visit and see…$"
+	.string "Oh, I see.\p"
+	.string "Such a shame, you're still so young.$"
 

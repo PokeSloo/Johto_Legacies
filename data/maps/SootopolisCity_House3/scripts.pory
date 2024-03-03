@@ -1,0 +1,70 @@
+mapscripts SootopolisCity_House3_MapScripts {}
+
+script SootopolisCity_House3_EventScript_Woman {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_KUBFU)) {
+        msgbox(format("Hmm... You're the TRAINER that took my little Kubfu.\pI hope you're treating it well."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Hmm... You look like a powerful young TRAINER...\pI have a particularly rowdy little POKéMON, and I'm afraid it's just too much for me to handle in my old age.\pTell me, would you take care of it?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO ) {
+            msgbox(format("Hmm... Perhaps you aren't as powerful as I thought you were..."))
+            release
+            end
+        }
+        else {
+            msgbox(format("Oh, what a relief!"))
+			setvar (VAR_TEMP_1, SPECIES_KUBFU)
+            givemon (SPECIES_KUBFU, 20, ITEM_BIG_NUGGET)
+	        goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PARTY, SootopolisCity_House3_EventScript_ReceiveKubfuParty)
+	        goto_if_eq (VAR_RESULT, MON_GIVEN_TO_PC, SootopolisCity_House3_EventScript_ReceiveKubfuPC)
+	        goto (Common_EventScript_NoMoreRoomForPokemon)
+            end
+        }
+    }
+}
+
+script SootopolisCity_House3_EventScript_ReceiveKubfuParty {
+	call (SootopolisCity_House3_EventScript_ReceivedKubfuFanfare)
+	msgbox (gText_NicknameThisPokemon, MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, NO, SootopolisCity_House3_EventScript_ExplainKubfu)
+	call (Common_EventScript_GetGiftMonPartySlot)
+	call (Common_EventScript_NameReceivedPartyMon)
+	goto (SootopolisCity_House3_EventScript_ExplainKubfu)
+	end
+}
+
+script SootopolisCity_House3_EventScript_ReceiveKubfuPC {
+	call (SootopolisCity_House3_EventScript_ReceivedKubfuFanfare)
+	msgbox (gText_NicknameThisPokemon, MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, NO, SootopolisCity_House3_EventScript_SendKubfuToPC)
+	call (Common_EventScript_NameReceivedBoxMon)
+	goto (SootopolisCity_House3_EventScript_SendKubfuToPC)
+	end
+}
+
+script SootopolisCity_House3_EventScript_SendKubfuToPC {
+	call (Common_EventScript_TransferredToPC)
+	goto (SootopolisCity_House3_EventScript_ExplainKubfu)
+	end
+}
+
+script SootopolisCity_House3_EventScript_ReceivedKubfuFanfare {
+	bufferspeciesname (STR_VAR_2, SPECIES_KUBFU)
+	playfanfare (MUS_OBTAIN_ITEM)
+	msgbox(format("{PLAYER} received the Kubfu!"))
+	waitmessage
+	waitfanfare
+	bufferspeciesname (STR_VAR_1, SPECIES_KUBFU)
+	return
+}
+
+script SootopolisCity_House3_EventScript_ExplainKubfu {
+	msgbox(format("Please take good care of that little POKéMON."))
+	setflag (FLAG_RECEIVED_KUBFU)
+	release
+	end
+}

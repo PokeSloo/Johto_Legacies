@@ -1266,7 +1266,7 @@
 #define FLAG_RECEIVED_MEGA_STONE_LAZULAN                            0x4C1 // Received mega stone and mega ring from Gold
 #define FLAG_HIDE_SHANE_MEGA_LAB_BASEMENT                           0x4C2 // After defeating him
 #define FLAG_HIDE_GOLD_LAZULAN                                      0x4C3 // When he leaves for his house
-#define FLAG_UNUSED_0x4C4                                           0x4C4 // Unused Flag
+#define FLAG_RECEIVED_KUBFU                                         0x4C4 // From woman in Lazulan house
 #define FLAG_UNUSED_0x4C5                                           0x4C5 // Unused Flag
 #define FLAG_UNUSED_0x4C6                                           0x4C6 // Unused Flag
 #define FLAG_UNUSED_0x4C7                                           0x4C7 // Unused Flag

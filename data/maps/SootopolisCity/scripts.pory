@@ -415,6 +415,17 @@ script SootopolisCity_EventScript_Gold {
 	}
 }
 
+script SootopolisCity_EventScript_ScrollTest {
+	lock
+	faceplayer
+	msgbox(format("Water scroll test, multi later"))
+	waitmessage
+	closemessage
+	tryspecialevo (EVO_WATER_SCROLL, FALSE, FALSE)
+	release
+	end
+}
+
 raw`
 SootopolisCity_Text_GymSign:
 	.string "MEGA EVOLUTION RESEARCH LAB$"

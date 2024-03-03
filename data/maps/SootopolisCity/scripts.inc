@@ -421,6 +421,17 @@ SootopolisCity_EventScript_Gold_1:
 	end
 
 
+SootopolisCity_EventScript_ScrollTest::
+	lock
+	faceplayer
+	msgbox SootopolisCity_EventScript_ScrollTest_Text_0
+	waitmessage
+	closemessage
+	tryspecialevo EVO_WATER_SCROLL, FALSE, FALSE
+	release
+	end
+
+
 SootopolisCity_Text_GymSign:
 	.string "MEGA EVOLUTION RESEARCH LAB$"
 
@@ -600,3 +611,6 @@ SootopolisCity_EventScript_Gold_Text_0:
 
 SootopolisCity_EventScript_Gold_Text_1:
 	.string "meet at my house$"
+
+SootopolisCity_EventScript_ScrollTest_Text_0:
+	.string "Water scroll test, multi later$"
