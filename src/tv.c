@@ -197,34 +197,34 @@ static const struct {
     u8 location;
 } sPokeOutbreakSpeciesList[] = {
     {
-        .species = SPECIES_SEEDOT,
-        .moves = {MOVE_BIDE, MOVE_HARDEN, MOVE_LEECH_SEED},
-        .level = 3,
-        .location = MAP_NUM(ROUTE102)
+        .species = SPECIES_TREECKO,
+        .moves = {MOVE_POUND, MOVE_LEER, MOVE_ABSORB},
+        .level = 5,
+        .location = MAP_NUM(ROUTE101)
     },
     {
-        .species = SPECIES_NUZLEAF,
-        .moves = {MOVE_HARDEN, MOVE_GROWTH, MOVE_NATURE_POWER, MOVE_LEECH_SEED},
-        .level = 15,
-        .location = MAP_NUM(ROUTE114),
+        .species = SPECIES_TORCHIC,
+        .moves = {MOVE_SCRATCH, MOVE_GROWL, MOVE_EMBER},
+        .level = 5,
+        .location = MAP_NUM(ROUTE102),
     },
     {
-        .species = SPECIES_SEEDOT,
-        .moves = {MOVE_HARDEN, MOVE_GROWTH, MOVE_NATURE_POWER, MOVE_LEECH_SEED},
-        .level = 13,
-        .location = MAP_NUM(ROUTE117),
+        .species = SPECIES_MUDKIP,
+        .moves = {MOVE_TACKLE, MOVE_GROWL, MOVE_WATER_GUN},
+        .level = 5,
+        .location = MAP_NUM(ROUTE103),
     },
     {
-        .species = SPECIES_SEEDOT,
-        .moves = {MOVE_GIGA_DRAIN, MOVE_FRUSTRATION, MOVE_SOLAR_BEAM, MOVE_LEECH_SEED},
-        .level = 25,
-        .location = MAP_NUM(ROUTE120),
-    },
-    {
-        .species = SPECIES_SKITTY,
-        .moves = {MOVE_GROWL, MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_ATTRACT},
-        .level = 8,
+        .species = SPECIES_AUDINO,
+        .moves = {MOVE_BABY_DOLL_EYES, MOVE_REFRESH, MOVE_DISARMING_VOICE, MOVE_DOUBLE_SLAP},
+        .level = 18,
         .location = MAP_NUM(ROUTE116),
+    },
+    {
+        .species = SPECIES_COMFEY,
+        .moves = {MOVE_MAGICAL_LEAF, MOVE_GROWTH, MOVE_WRAP, MOVE_SWEET_KISS},
+        .level = 20,
+        .location = MAP_NUM(ROUTE122),
     }
 };
 

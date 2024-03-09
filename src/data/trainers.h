@@ -4631,9 +4631,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_TALIA] =
     {
-        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .trainerClass = TRAINER_CLASS_SWIMMER_F,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_F,
+        .trainerPic = TRAINER_PIC_SWIMMER_F,
         .trainerName = _("TALIA"),
         .items = {},
         .doubleBattle = FALSE,
@@ -7187,13 +7187,13 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_JONATHAN] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerClass = TRAINER_CLASS_DOME_ACE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,
         .trainerName = _("JONATHAN"),
-        .items = {ITEM_HYPER_POTION, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_Jonathan),
     },
 
@@ -8246,7 +8246,7 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_SIS_AND_BRO,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
         .trainerPic = TRAINER_PIC_SIS_AND_BRO,
-        .trainerName = _("RELI & IAN"),
+        .trainerName = _("KAT & STAN"),
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
@@ -8811,7 +8811,7 @@ const struct Trainer gTrainers[] = {
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_F,
         .trainerName = _("DARCY"),
-        .items = {ITEM_HYPER_POTION, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_Darcy),

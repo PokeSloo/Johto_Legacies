@@ -7,22 +7,6 @@ LilycoveCity_PokemonCenter_1F_MapScripts::
 
 LilycoveCity_PokemonCenter_1F_OnTransition:
 	setrespawn HEAL_LOCATION_LILYCOVE_CITY
-	goto LilycoveCity_PokemonCenter_1F_EventScript_SetLilycoveLadyGfx
-	end
-
-@ SetLilycoveLadyGfx returns TRUE if its the Contest Lady
-LilycoveCity_PokemonCenter_1F_EventScript_SetLilycoveLadyGfx::
-	special SetLilycoveLadyGfx
-	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_PokemonCenter_1F_EventScript_HideContestLadyMon
-	goto_if_eq VAR_RESULT, TRUE, LilycoveCity_PokemonCenter_1F_EventScript_ShowContestLadyMon
-	end
-
-LilycoveCity_PokemonCenter_1F_EventScript_HideContestLadyMon::
-	setflag FLAG_HIDE_LILYCOVE_POKEMON_CENTER_CONTEST_LADY_MON
-	end
-
-LilycoveCity_PokemonCenter_1F_EventScript_ShowContestLadyMon::
-	clearflag FLAG_HIDE_LILYCOVE_POKEMON_CENTER_CONTEST_LADY_MON
 	end
 
 LilycoveCity_PokemonCenter_1F_EventScript_Nurse::
@@ -38,31 +22,29 @@ LilycoveCity_PokemonCenter_1F_EventScript_Boy::
 	end
 
 LilycoveCity_PokemonCenter_1F_EventScript_Maniac::
-	lock
-	faceplayer
-	goto_if_set FLAG_BADGE07_GET, LilycoveCity_PokemonCenter_1F_EventScript_ManiacBadTeamGone
-	msgbox LilycoveCity_PokemonCenter_1F_Text_HeardAboutRottenScoundrels, MSGBOX_DEFAULT
-	release
+	msgbox LilycoveCity_PokemonCenter_1F_Text_HaventSeenRottenScoundrels, MSGBOX_NPC
 	end
 
-LilycoveCity_PokemonCenter_1F_EventScript_ManiacBadTeamGone::
-	msgbox LilycoveCity_PokemonCenter_1F_Text_HaventSeenRottenScoundrels, MSGBOX_DEFAULT
-	release
+LilycoveCity_PokemonCenter_1F_EventScript_Psychic::
+	msgbox LilycoveCity_PokemonCenter_1F_Text_NewText, MSGBOX_NPC
 	end
 
 LilycoveCity_PokemonCenter_1F_Text_HowManyKindsOfPokemon:
-	.string "I wonder how many kinds of POKéMON\n"
-	.string "there are in the world.\p"
-	.string "It'd be great to cross seas and\n"
-	.string "trade POKéMON with people far away.$"
-
-LilycoveCity_PokemonCenter_1F_Text_HeardAboutRottenScoundrels:
-	.string "I've been hearing about some rotten\n"
-	.string "scoundrels who steal POKéMON and rip\l"
-	.string "off METEORITES.$"
+	.string "I thought I could stay here and wait\n"
+	.string "out the rain, but it's still not letting\l"
+	.string "up.\p"
+	.string "I heard about the rainy season before I\n"
+	.string "came here, but come on!$"
 
 LilycoveCity_PokemonCenter_1F_Text_HaventSeenRottenScoundrels:
-	.string "Those rotten scoundrels who steal\n"
-	.string "POKéMON and rip off METEORITES…\p"
-	.string "I haven't seen them around recently.$"
+	.string "The weather up on Mt. Tempest is pretty\n"
+	.string "rough this time of year.\p"
+	.string "Be careful if you decide to climb up the\n"
+	.string "mountain.$"
+
+LilycoveCity_PokemonCenter_1F_Text_NewText:
+	.string "Hmm... I sense you've been through a lot\n"
+	.string "on your journey here.\p"
+	.string "And your future is...\p"
+	.string "Ufufu...$"
 

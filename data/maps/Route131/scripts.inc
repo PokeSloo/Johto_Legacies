@@ -1,19 +1,6 @@
 Route131_MapScripts::
 	.byte 0
 
-Route131_OnTransition:
-	call_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, Route131_EventScript_CheckSetAbnormalWeather
-	call Route131_EventScript_SetLayout
-	end
-
-Route131_EventScript_SetLayout::
-	setmaplayoutindex LAYOUT_ROUTE131_SKY_PILLAR
-	return
-
-Route131_EventScript_CheckSetAbnormalWeather::
-	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
-	return
-
 Route131_EventScript_Richard::
 	trainerbattle_single TRAINER_RICHARD, Route131_Text_RichardIntro, Route131_Text_RichardDefeat
 	msgbox Route131_Text_RichardPostBattle, MSGBOX_AUTOCLOSE
@@ -54,3 +41,50 @@ Route131_EventScript_Kevin::
 	msgbox Route131_Text_KevinPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route131_EventScript_DateGuy::
+	lock
+	faceplayer
+	msgbox Route131_EventScript_DateGuy_Text_0
+	waitmessage
+	closemessage
+	applymovement 9, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
+	end
+
+
+Route131_EventScript_Trigger::
+	lock
+	goto_if_set FLAG_HIDE_SHANE_MEGA_LAB_BASEMENT, Route131_EventScript_Trigger_1
+	msgbox Route131_EventScript_Trigger_Text_0
+	waitmessage
+	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepUp
+	waitmovement 0
+	msgbox Route131_EventScript_Trigger_Text_1
+	waitmessage
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route131_Movement_WalkRight
+	waitmovement 0
+	release
+	end
+
+Route131_EventScript_Trigger_1:
+	release
+	end
+
+
+Route131_Movement_WalkRight:
+	walk_right
+	step_end
+
+Route131_EventScript_DateGuy_Text_0:
+	.string "I've heard this is a really popular date\n"
+	.string "spot, I hope she's enjoying it.$"
+
+Route131_EventScript_Trigger_Text_0:
+	.string "Hey!$"
+
+Route131_EventScript_Trigger_Text_1:
+	.string "I'm trying to show my girl a good time,\n"
+	.string "and you're blocking our view!\p"
+	.string "Get out of here, kid!$"
