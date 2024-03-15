@@ -28,7 +28,7 @@ SootopolisCity_House5_EventScript_HeartScaleSale::
 SootopolisCity_House5_EventScript_HeartScaleSale_2:
 	msgbox SootopolisCity_House5_EventScript_HeartScaleSale_Text_0
 	removeitem ITEM_HEART_SCALE, 1
-	giveitem ITEM_EXP_CANDY_XL
+	giveitem ITEM_EXP_CANDY_L
 	msgbox SootopolisCity_House5_EventScript_HeartScaleSale_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq SootopolisCity_House5_EventScript_HeartScaleSale_4
@@ -62,7 +62,7 @@ SootopolisCity_House5_EventScript_Collector_Text_1:
 SootopolisCity_House5_EventScript_HeartScaleSale_Text_0:
 	.string "Oh! You have a Heart Scale!\p"
 	.string "That's fantastic!\p"
-	.string "Here, you can have an Exp.Candy XL in\n"
+	.string "Here, you can have an Exp.Candy L in\n"
 	.string "return.$"
 
 SootopolisCity_House5_EventScript_HeartScaleSale_Text_1:
@@ -71,7 +71,7 @@ SootopolisCity_House5_EventScript_HeartScaleSale_Text_1:
 	.string "you would be willing to trade?$"
 
 SootopolisCity_House5_EventScript_HeartScaleSale_Text_2:
-	.string "Hmmm...\p"
+	.string "Hmm...\p"
 	.string "It appears you don't have any Heart\n"
 	.string "Scales on you at the moment.\p"
 	.string "If you do find some, you know where to\n"

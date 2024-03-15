@@ -3051,4 +3051,8 @@ extern const u8 gText_Recall[];
 extern const u8 gText_Apricotta[];
 extern const u8 gText_Olivine[];
 
+// Kubfu scrolls
+extern const u8 gText_DarkScroll[];
+extern const u8 gText_WaterScroll[];
+
 #endif // GUARD_STRINGS_H

@@ -66,20 +66,19 @@ Route120_Text_IllGetMoreBerriesFromBerryMaster:
 	.string "BERRY.$"
 
 LilycoveCity_Text_BerrySuitsYou:
-	.string "When it gets right down to it…\p"
-	.string "The same way suits suit me perfectly,\n"
-	.string "a crisp breeze suits the sea.\p"
-	.string "And you, a BERRY suits you to a “T”…\p"
-	.string "Why should that be so?$"
+	.string "This old lady in Lazulan City keeps\n"
+	.string "giving me BERRIES, but I don't have any\l"
+	.string "use for them.\p"
+	.string "Here, you can have one.$"
 
 LilycoveCity_Text_BecauseYoureTrainer:
-	.string "When it gets right down to it…\p"
-	.string "It's because you're a TRAINER!$"
+	.string "I'll probably wind up with another one\n"
+	.string "again tomorrow.\p"
+	.string "Ugh...$"
 
 LilycoveCity_Text_PokeblocksSuitPokemon:
-	.string "When it gets right down to it…\p"
-	.string "The way dignified simplicity suits me,\n"
-	.string "{POKEBLOCK}S perfectly suit POKéMON.$"
+	.string "What are BERRIES good for anyway?\p"
+	.string "All they do is pile up in my bag!$"
 
 Route123_BerryMastersHouse_Text_YoureDeservingOfBerry:
 	.string "You may call me the BERRY MASTER.\p"

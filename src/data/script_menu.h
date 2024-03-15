@@ -820,6 +820,13 @@ const struct MenuAction MultichoiceList_ApricottaToFaraway[] =
     {gText_Cancel},
 };
 
+const struct MenuAction MultichoiceList_KarateScroll[] = 
+{
+    {gText_DarkScroll},
+    {gText_WaterScroll},
+    {gText_Cancel},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -952,6 +959,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_OLIVINE_TO_FARAWAY]         = MULTICHOICE(MultichoiceList_OlivineToFaraway),
     [MULTI_APRICOTTA_TO_BIRTH]         = MULTICHOICE(MultichoiceList_ApricottaToBirth),
     [MULTI_APRICOTTA_TO_FARAWAY]       = MULTICHOICE(MultichoiceList_ApricottaToFaraway),
+    [MULTI_KARATE_SCROLL]              = MULTICHOICE(MultichoiceList_KarateScroll),
 };
 
 const u8 *const gStdStrings[] =

@@ -1842,3 +1842,7 @@ const u8 gText_Recall[] = _("Recall");
 // New ship destinations
 const u8 gText_Apricotta[] = _("APRICOTTA BEACH");
 const u8 gText_Olivine[] = _("OLIVINE CITY");
+
+// Karate Scrolls
+const u8 gText_DarkScroll[] = _("Scroll of Darkness");
+const u8 gText_WaterScroll[] = _("Scroll of Waters");

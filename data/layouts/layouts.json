@@ -1064,10 +1064,10 @@
     {
       "id": "LAYOUT_LILYCOVE_CITY_POKEMON_TRAINER_FAN_CLUB",
       "name": "LilycoveCity_PokemonTrainerFanClub_Layout",
-      "width": 12,
-      "height": 14,
+      "width": 13,
+      "height": 11,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_PetalburgGym",
       "border_filepath": "data/layouts/LilycoveCity_PokemonTrainerFanClub/border.bin",
       "blockdata_filepath": "data/layouts/LilycoveCity_PokemonTrainerFanClub/map.bin"
     },

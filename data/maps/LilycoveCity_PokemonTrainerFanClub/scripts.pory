@@ -1,0 +1,89 @@
+mapscripts LilycoveCity_PokemonTrainerFanClub_MapScripts {}
+
+script LilycoveCity_PokemonTrainerFanClub_EventScript_BlackBelt1 {
+    msgbox(format("The Scroll of Darkness, and the Scroll of Waters...\pI wonder if the master will ever let me see them..."), MSGBOX_NPC)
+    end
+}
+
+script LilycoveCity_PokemonTrainerFanClub_EventScript_BlackBelt2 {
+    msgbox(format("Believe it or not, our master trained the legendary CHUCK!\pThat's ancient history now, though."), MSGBOX_NPC)
+    end
+}
+
+script LilycoveCity_PokemonTrainerFanClub_EventScript_KarateMaster {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_DARKOAL_SCROLL)) {
+        msgbox(format("Hmm...\pI hope you've been treating my star pupil well..."))
+        release
+        end
+    }
+    else {
+        bufferleadmonspeciesname (STR_VAR_1)
+        msgbox(format("Hmm...\pYour {STR_VAR_1}..."))
+        waitmessage
+        specialvar (VAR_RESULT, ScriptGetLeadMonSpecies)
+        if (var(VAR_RESULT) != SPECIES_KUBFU) {
+            msgbox (format("...\pNo, I'm sorry, I was mistaken..."))
+            release
+            end
+        }
+        else {
+            msgbox(format("...\pI've spent years searching for the ultimate disciple to teach my secret techniques to, and that Kubfu of yours..."))
+            waitmessage
+            specialvar (VAR_RESULT, GetLeadMonFriendshipScore)
+            if (var(VAR_RESULT) != FRIENDSHIP_MAX) {
+                msgbox(format("Hmm... Actually...\pIt seems it isn't quite ready yet..."))
+                release
+                end
+            }
+            else {
+                msgbox(format("I can think of no POKéMON I would rather teach!\p...\pNow, I have two different scrolls that I can teach from, the Scroll of Darkness, and the Scroll of Waters.\pI will only show one scroll to your Kubfu, so you must make a choice."))
+                waitmessage
+                goto (LilycoveCity_PokemonTrainerFanClub_EventScript_ScrollChoice)
+            }
+        }
+    }
+}
+
+raw`
+LilycoveCity_PokemonTrainerFanClub_EventScript_ScrollChoice::
+message LilycoveCity_PokemonTrainerFanClub_Text_Choose
+	waitmessage
+	multichoice 16, 0, MULTI_KARATE_SCROLL, FALSE
+	switch VAR_RESULT
+	case 0, LilycoveCity_PokemonTrainerFanClub_EventScript_DarkScroll
+	case 1, LilycoveCity_PokemonTrainerFanClub_EventScript_WaterScroll
+	case MULTI_B_PRESSED, LilycoveCity_PokemonTrainerFanClub_EventScript_Cancel
+	end
+`
+
+text LilycoveCity_PokemonTrainerFanClub_Text_Choose {
+    format("Now then, which scroll will you choose?")
+}
+
+script LilycoveCity_PokemonTrainerFanClub_EventScript_DarkScroll {
+    msgbox(format("A wise decision...\p...\p{PLAYER} showed the Scroll of Darkness to {STR_VAR_1}..."))
+    waitmessage
+    closemessage
+    setflag (FLAG_RECEIVED_DARKOAL_SCROLL)
+    tryspecialevo (EVO_DARK_SCROLL, FALSE, FALSE)
+    release
+    end
+}
+
+script LilycoveCity_PokemonTrainerFanClub_EventScript_WaterScroll {
+    msgbox(format("A wise decision...\p...\p{PLAYER} showed the Scroll of Waters to {STR_VAR_1}..."))
+    waitmessage
+    closemessage
+    setflag (FLAG_RECEIVED_DARKOAL_SCROLL)
+    tryspecialevo (EVO_WATER_SCROLL, FALSE, FALSE)
+    release
+    end
+}
+
+script LilycoveCity_PokemonTrainerFanClub_EventScript_Cancel {
+    msgbox(format("Very well then...\pMaybe some other time."))
+    release
+    end
+}

@@ -1489,6 +1489,11 @@ u16 ScriptGetPartyMonSpecies(void)
     return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES2, NULL);
 }
 
+u16 ScriptGetLeadMonSpecies(void)
+{
+    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_SPECIES2, NULL);
+}
+
 // Removed for Emerald
 void TryInitBattleTowerAwardManObjectEvent(void)
 {

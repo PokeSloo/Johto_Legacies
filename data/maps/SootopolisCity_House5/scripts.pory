@@ -18,9 +18,9 @@ script SootopolisCity_House5_EventScript_Collector {
 script SootopolisCity_House5_EventScript_HeartScaleSale{
     checkitem (ITEM_HEART_SCALE)
     if (var(VAR_RESULT) == TRUE) {
-        msgbox (format("Oh! You have a Heart Scale!\pThat's fantastic!\pHere, you can have an Exp.Candy XL in return."))
+        msgbox (format("Oh! You have a Heart Scale!\pThat's fantastic!\pHere, you can have an Exp.Candy L in return."))
         removeitem (ITEM_HEART_SCALE, 1)
-        giveitem (ITEM_EXP_CANDY_XL)
+        giveitem (ITEM_EXP_CANDY_L)
         msgbox (format("Pleasure doing business with you!\pNow, do you have any more Heart Scales you would be willing to trade?"), MSGBOX_YESNO)
         if (var(VAR_RESULT) == NO) {
             msgbox (format("Oh, I see.\pWell if you ever change your mind, you know where to find me."))
@@ -32,7 +32,7 @@ script SootopolisCity_House5_EventScript_HeartScaleSale{
             end
         }
     }
-    msgbox (format("Hmmm...\pIt appears you don't have any Heart Scales on you at the moment.\pIf you do find some, you know where to find me."))
+    msgbox (format("Hmm...\pIt appears you don't have any Heart Scales on you at the moment.\pIf you do find some, you know where to find me."))
     release
     end
 }
