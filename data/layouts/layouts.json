@@ -2994,7 +2994,7 @@
     {
       "id": "LAYOUT_LILYCOVE_CITY_COVE_LILY_MOTEL_2F",
       "name": "LilycoveCity_CoveLilyMotel_2F_Layout",
-      "width": 12,
+      "width": 13,
       "height": 9,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",

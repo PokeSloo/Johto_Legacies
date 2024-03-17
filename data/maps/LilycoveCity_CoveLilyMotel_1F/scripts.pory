@@ -1,0 +1,219 @@
+mapscripts LilycoveCity_CoveLilyMotel_1F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if (flag(FLAG_DARKOAL_SURGE_PUZZLE_OPEN)) {
+            setobjectxyperm (1, 3, 2)
+            end
+        }
+    }
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan {
+    lock
+    faceplayer
+    if (flag(FLAG_DARKOAL_SURGE_PUZZLE_OPEN)) {
+        if (flag(FLAG_FOUND_SECOND_DARKOAL_PUZZLE_SWITCH)) {
+            msgbox(format("Hey! You found the Master Ball!\pCome back tomorrow, and you can try for another one."))
+            release
+            end
+        }
+        else {
+            msgbox(format("Go on, you have the rest of the day to try and solve the puzzle downstairs."))
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("Hey there, kid.\pHow would you like to win a Master Ball?\pI've set up some pots downstairs to recreate Lt. Surge's gym puzzle from Kanto.\pIf you can pick the second one correctly, you will win a Master Ball!"))
+        waitmessage
+        showmoneybox (0, 0)
+        msgbox(format("For just ¥25,000, I'll give you the rest of the day to try and solve the puzzle.\pYou can play every day, but you'll have to pay me again.\pSo how about it, do you want to play?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Oh, that's too bad.\pCome back and see me if you change your mind."))
+            hidemoneybox
+            release
+            end
+        }
+        else {
+            checkmoney (25000)
+            if (var(VAR_RESULT) == NO) {
+                msgbox (format("Hey now, you don't have enough money!\pCome back when you have at least ¥25,000, kid."))
+		        hidemoneybox
+		        release
+                end
+            }
+            else {
+                removemoney (25000)
+                updatemoneybox
+		        playse (SE_SHOP)
+                waitse
+		        msgbox(format("Great!"))
+		        waitmessage
+		        hidemoneybox
+                msgbox(format("Go on down, and good luck!"))
+                waitmessage
+                closemessage
+                specialvar (VAR_RESULT, GetPlayerFacingDirection)
+                if (var(VAR_RESULT) == DIR_WEST) {
+                    applymovement(OBJ_EVENT_ID_PLAYER, LilycoveCity_CoveLilyMotel_1F_Movement_StepDownFaceUp)
+                    waitmovement (0)
+                }
+                applymovement (1, LilycoveCity_CoveLilyMotel_1F_Movement_SurgeMove)
+                waitmovement (0)
+                setflag (FLAG_DARKOAL_SURGE_PUZZLE_OPEN)
+                clearflag (FLAG_FOUND_FIRST_DARKOAL_PUZZLE_SWITCH)
+                clearflag (FLAG_FOUND_SECOND_DARKOAL_PUZZLE_SWITCH)
+                release
+                end
+            }
+        }
+    }
+}
+
+movement LilycoveCity_CoveLilyMotel_1F_Movement_StepDownFaceUp {
+    walk_down
+    walk_left
+    walk_in_place_up
+}
+
+movement LilycoveCity_CoveLilyMotel_1F_Movement_SurgeMove {
+    walk_right
+    walk_in_place_down
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl {
+    lock
+    faceplayer
+    msgbox(format("Psychic powers are nice, but so is having luck on your side."))
+    waitmessage
+    showmoneybox (0, 0)
+    msgbox(format("I'm holding a coin in one of my hands.\pIt's ¥1,000 to play, but if you guess correctly, I'll give you ¥1,000, and you can guess again for free!\pSo, how about it?\nWant to play?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        msgbox(format("Not feeling very lucky today, huh?"))
+        hidemoneybox
+        release
+        end
+    }
+    else {
+        checkmoney (1000)
+        if (var(VAR_RESULT) == NO) {
+            msgbox (format("Hmm, it doesn't look like you have ¥1,000."))
+		    hidemoneybox
+		    release
+            end
+        }
+        else {
+            removemoney (1000)
+            updatemoneybox
+		    playse (SE_SHOP)
+            waitse
+		    msgbox(format("Wonderful!\pLet's get started."))
+		    goto (LilycoveCity_CoveLilyMotel_1F_EventScript_GuessHand)
+            end
+        }
+    }
+}
+
+raw`
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessHand::
+message LilycoveCity_CoveLilyMotel_1F_Text_LeftRight
+	waitmessage
+	multichoice 16, 0, MULTI_RIGHTLEFT, TRUE
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_1F_EventScript_GuessRight
+	case 1, LilycoveCity_CoveLilyMotel_1F_EventScript_GuessLeft
+	end
+`
+
+text LilycoveCity_CoveLilyMotel_1F_Text_LeftRight {
+    format("Now, is the coin in my left or right hand?")
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_GuessRight {
+    msgbox(format("The right hand, you say?\p..."))
+    waitmessage
+    random (2)
+    switch (var(VAR_RESULT)) {
+        case 0: goto (LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand)
+        case 1: goto (LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand)
+    }
+    end
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_GuessLeft {
+    msgbox(format("The left hand, you say?\p..."))
+    waitmessage
+    random (2)
+    switch (var(VAR_RESULT)) {
+        case 0: goto (LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand)
+        case 1: goto (LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand)
+    }
+    end
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand {
+    waitse
+    playse (SE_SUCCESS)
+    waitse
+    msgbox(format("That's correct!\pHey, maybe you do have psychic powers!"))
+    waitmessage
+    addmoney (1000)
+    updatemoneybox
+	playse (SE_SHOP)
+    waitse
+    msgbox(format("Now then, would you like to play again for another ¥1,000?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        msgbox(format("Not feeling very lucky today, huh?"))
+        hidemoneybox
+        release
+        end
+    }
+    else {
+        checkmoney (1000)
+        if (var(VAR_RESULT) == NO) {
+            msgbox (format("Hmm, it doesn't look like you have ¥1,000."))
+		    hidemoneybox
+		    release
+            end
+        }
+        else {
+            removemoney (1000)
+            updatemoneybox
+		    playse (SE_SHOP)
+            waitse
+		    msgbox(format("Wonderful!\pLet's keep going."))
+		    goto (LilycoveCity_CoveLilyMotel_1F_EventScript_GuessHand)
+            end
+        }
+    }
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand {
+    waitse
+    playse (SE_FAILURE)
+    waitse
+    msgbox(format("Oh, I'm sorry.\pIt looks like lady luck wasn't on your side this time.\pWould you like to try again for another ¥1,000?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        msgbox(format("Not feeling very lucky today, huh?"))
+        hidemoneybox
+        release
+        end
+    }
+    else {
+        checkmoney (1000)
+        if (var(VAR_RESULT) == NO) {
+            msgbox (format("Hmm, it doesn't look like you have ¥1,000."))
+		    hidemoneybox
+		    release
+            end
+        }
+        else {
+            removemoney (1000)
+            updatemoneybox
+		    playse (SE_SHOP)
+            waitse
+		    msgbox(format("Wonderful!\pLet's keep going."))
+		    goto (LilycoveCity_CoveLilyMotel_1F_EventScript_GuessHand)
+            end
+        }
+    }
+}

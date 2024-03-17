@@ -1,131 +1,330 @@
-.set LOCALID_OWNER, 1
-
 LilycoveCity_CoveLilyMotel_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LilycoveCity_CoveLilyMotel_1F_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
 
-LilycoveCity_CoveLilyMotel_1F_EventScript_MotelOwner::
-	lockall
-	goto_if_set FLAG_SYS_GAME_CLEAR, LilycoveCity_CoveLilyMotel_1F_EventScript_GameClear
-	goto_if_set FLAG_BADGE07_GET, LilycoveCity_CoveLilyMotel_1F_EventScript_AquaHideoutBusted
-	msgbox LilycoveCity_CoveLilyMotel_1F_Text_GuestsDoubledByMascot, MSGBOX_DEFAULT
-	applymovement LOCALID_OWNER, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox LilycoveCity_CoveLilyMotel_1F_Text_NoGuestsWithTeamAqua, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_OWNER, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	releaseall
+LilycoveCity_CoveLilyMotel_1F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	goto_if_set FLAG_DARKOAL_SURGE_PUZZLE_OPEN, LilycoveCity_CoveLilyMotel_1F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+	return
+
+LilycoveCity_CoveLilyMotel_1F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	setobjectxyperm 1, 3, 2
 	end
 
-LilycoveCity_CoveLilyMotel_1F_EventScript_AquaHideoutBusted::
-	msgbox LilycoveCity_CoveLilyMotel_1F_Text_MonFoundLostItem, MSGBOX_DEFAULT
-	applymovement LOCALID_OWNER, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox LilycoveCity_CoveLilyMotel_1F_Text_HeardAquaHideoutBusted, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_OWNER, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	releaseall
-	end
 
-LilycoveCity_CoveLilyMotel_1F_EventScript_GameClear::
-	msgbox LilycoveCity_CoveLilyMotel_1F_Text_HouseSittingMonCaughtBurglar, MSGBOX_DEFAULT
-	applymovement LOCALID_OWNER, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox LilycoveCity_CoveLilyMotel_1F_Text_BetterGetWorkingOnGuestsDinner, MSGBOX_DEFAULT
+LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan::
+	lock
+	faceplayer
+	goto_if_set FLAG_DARKOAL_SURGE_PUZZLE_OPEN, LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_1
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_2
+	waitmessage
+	showmoneybox 0, 0
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_3, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_7
+	checkmoney 25000
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_10
+	removemoney 25000
+	updatemoneybox
+	playse SE_SHOP
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_6
+	waitmessage
+	hidemoneybox
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_7
+	waitmessage
 	closemessage
-	applymovement LOCALID_OWNER, Common_Movement_FaceOriginalDirection
+	specialvar VAR_RESULT, GetPlayerFacingDirection
+	compare VAR_RESULT, DIR_WEST
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_14
+LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_13:
+	applymovement 1, LilycoveCity_CoveLilyMotel_1F_Movement_SurgeMove
 	waitmovement 0
-	releaseall
-	end
-
-LilycoveCity_CoveLilyMotel_1F_EventScript_BlockingTV::
-	lockall
-	playse SE_PIN
-	applymovement LOCALID_OWNER, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_OWNER, Common_Movement_Delay48
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	msgbox LilycoveCity_CoveLilyMotel_1F_Text_CantSeeTheTV, MSGBOX_DEFAULT
-	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, LilycoveCity_CoveLilyMotel_1F_Movement_PlayerPushFromTV
-	applymovement LOCALID_OWNER, LilycoveCity_CoveLilyMotel_1F_Movement_OwnerPushPlayer
-	waitmovement 0
-	applymovement LOCALID_OWNER, LilycoveCity_CoveLilyMotel_1F_Movement_OwnerReturn
-	waitmovement 0
+	setflag FLAG_DARKOAL_SURGE_PUZZLE_OPEN
+	clearflag FLAG_FOUND_FIRST_DARKOAL_PUZZLE_SWITCH
+	clearflag FLAG_FOUND_SECOND_DARKOAL_PUZZLE_SWITCH
 	release
 	end
 
-LilycoveCity_CoveLilyMotel_1F_Movement_PlayerPushFromTV:
-	face_right
-	lock_facing_direction
-	walk_left
-	unlock_facing_direction
-	step_end
+LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_1:
+	goto_if_set FLAG_FOUND_SECOND_DARKOAL_PUZZLE_SWITCH, LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_4
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_1
+	release
+	end
 
-LilycoveCity_CoveLilyMotel_1F_Movement_OwnerPushPlayer:
-	walk_up
-	step_end
+LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_4:
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_0
+	release
+	end
 
-LilycoveCity_CoveLilyMotel_1F_Movement_OwnerReturn:
-	face_down
+LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_7:
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_4
+	hidemoneybox
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_10:
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_5
+	hidemoneybox
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_14:
+	applymovement OBJ_EVENT_ID_PLAYER, LilycoveCity_CoveLilyMotel_1F_Movement_StepDownFaceUp
+	waitmovement 0
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_13
+
+
+LilycoveCity_CoveLilyMotel_1F_Movement_StepDownFaceUp:
 	walk_down
-	face_up
+	walk_left
+	walk_in_place_up
 	step_end
 
-LilycoveCity_CoveLilyMotel_1F_Text_GuestsDoubledByMascot:
-	.string "Hm, so they doubled the guests by\n"
-	.string "using POKéMON as attractions?\p"
-	.string "Hm, well, maybe I should make a cute\n"
-	.string "POKéMON our inn's mascot.\p"
-	.string "I wonder if that will attract more\n"
-	.string "guests to stay with us?$"
+LilycoveCity_CoveLilyMotel_1F_Movement_SurgeMove:
+	walk_right
+	walk_in_place_down
+	step_end
 
-LilycoveCity_CoveLilyMotel_1F_Text_NoGuestsWithTeamAqua:
-	.string "Oh, sorry, sorry!\n"
-	.string "I was too involved in watching TV!\p"
-	.string "Since that TEAM AQUA came to town,\n"
-	.string "the tourists have been staying away.$"
+LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl::
+	lock
+	faceplayer
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_0
+	waitmessage
+	showmoneybox 0, 0
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_1
+	checkmoney 1000
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_4
+	removemoney 1000
+	updatemoneybox
+	playse SE_SHOP
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_4
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_GuessHand
+	end
 
-LilycoveCity_CoveLilyMotel_1F_Text_CantSeeTheTV:
-	.string "Hey, down in front!\n"
-	.string "I can't see the TV!$"
+LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_1:
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_2
+	hidemoneybox
+	release
+	end
 
-LilycoveCity_CoveLilyMotel_1F_Text_MonFoundLostItem:
-	.string "Amazing! You're telling me a POKéMON\n"
-	.string "found someone's lost item?\p"
-	.string "That's something. If we had some smart\n"
-	.string "POKéMON like that…\p"
-	.string "We could recover anything that our\n"
-	.string "guests mislaid…$"
+LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_4:
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_3
+	hidemoneybox
+	release
+	end
 
-LilycoveCity_CoveLilyMotel_1F_Text_HeardAquaHideoutBusted:
-	.string "Oh, sorry, sorry!\n"
-	.string "I was too involved in watching TV!\p"
-	.string "I heard that someone busted\n"
-	.string "the TEAM AQUA HIDEOUT.\p"
-	.string "Thanks to that, we just booked\n"
-	.string "a reservation from a big group.\p"
-	.string "It was a company called… Uh…\n"
-	.string "GAME something…$"
 
-LilycoveCity_CoveLilyMotel_1F_Text_HouseSittingMonCaughtBurglar:
-	.string "Amazing! A house-sitting POKéMON\n"
-	.string "caught a burglar?\p"
-	.string "That's something. If we had a tough\n"
-	.string "POKéMON as a security guard…\p"
-	.string "We would be able to provide our guests\n"
-	.string "with greater safety.$"
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessHand::
+message LilycoveCity_CoveLilyMotel_1F_Text_LeftRight
+	waitmessage
+	multichoice 16, 0, MULTI_RIGHTLEFT, TRUE
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_1F_EventScript_GuessRight
+	case 1, LilycoveCity_CoveLilyMotel_1F_EventScript_GuessLeft
+	end
 
-LilycoveCity_CoveLilyMotel_1F_Text_BetterGetWorkingOnGuestsDinner:
-	.string "Oh, sorry, sorry!\n"
-	.string "I was too involved in watching TV.\p"
-	.string "Oh, yes. A big group of guests arrived\n"
-	.string "a little while ago.\p"
-	.string "They booked in as GAME FREAK,\n"
-	.string "so I guess they must make games.\p"
-	.string "Uh-oh, I'd better get working on\n"
-	.string "their dinner!$"
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessRight::
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_GuessRight_Text_0
+	waitmessage
+	random 2
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_1F_EventScript_GuessRight_3
+	case 1, LilycoveCity_CoveLilyMotel_1F_EventScript_GuessRight_4
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessRight_1:
+	end
 
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessRight_3:
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_GuessRight_1
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessRight_4:
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_GuessRight_1
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessLeft::
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_GuessLeft_Text_0
+	waitmessage
+	random 2
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_1F_EventScript_GuessLeft_3
+	case 1, LilycoveCity_CoveLilyMotel_1F_EventScript_GuessLeft_4
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessLeft_1:
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessLeft_3:
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_GuessLeft_1
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessLeft_4:
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_GuessLeft_1
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand::
+	waitse
+	playse SE_SUCCESS
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_Text_0
+	waitmessage
+	addmoney 1000
+	updatemoneybox
+	playse SE_SHOP
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_1
+	checkmoney 1000
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_4
+	removemoney 1000
+	updatemoneybox
+	playse SE_SHOP
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_Text_2
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_GuessHand
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_1:
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_2
+	hidemoneybox
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_4:
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_3
+	hidemoneybox
+	release
+	end
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand::
+	waitse
+	playse SE_FAILURE
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand_1
+	checkmoney 1000
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand_4
+	removemoney 1000
+	updatemoneybox
+	playse SE_SHOP
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_Text_2
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_GuessHand
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand_1:
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_2
+	hidemoneybox
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand_4:
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_3
+	hidemoneybox
+	release
+	end
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_0:
+	.string "Hey! You found the Master Ball!\p"
+	.string "Come back tomorrow, and you can try for\n"
+	.string "another one.$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_1:
+	.string "Go on, you have the rest of the day to\n"
+	.string "try and solve the puzzle downstairs.$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_2:
+	.string "Hey there, kid.\p"
+	.string "How would you like to win a Master Ball?\p"
+	.string "I've set up some pots downstairs to\n"
+	.string "recreate Lt. Surge's gym puzzle from\l"
+	.string "Kanto.\p"
+	.string "If you can pick the second one\n"
+	.string "correctly, you will win a Master Ball!$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_3:
+	.string "For just ¥25,000, I'll give you the rest\n"
+	.string "of the day to try and solve the puzzle.\p"
+	.string "You can play every day, but you'll have\n"
+	.string "to pay me again.\p"
+	.string "So how about it, do you want to play?$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_4:
+	.string "Oh, that's too bad.\p"
+	.string "Come back and see me if you change your\n"
+	.string "mind.$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_5:
+	.string "Hey now, you don't have enough money!\p"
+	.string "Come back when you have at least\n"
+	.string "¥25,000, kid.$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_6:
+	.string "Great!$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_7:
+	.string "Go on down, and good luck!$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_0:
+	.string "Psychic powers are nice, but so is\n"
+	.string "having luck on your side.$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_1:
+	.string "I'm holding a coin in one of my hands.\p"
+	.string "It's ¥1,000 to play, but if you guess\n"
+	.string "correctly, I'll give you ¥1,000, and you\l"
+	.string "can guess again for free!\p"
+	.string "So, how about it?\n"
+	.string "Want to play?$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_2:
+	.string "Not feeling very lucky today, huh?$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_3:
+	.string "Hmm, it doesn't look like you have\n"
+	.string "¥1,000.$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_4:
+	.string "Wonderful!\p"
+	.string "Let's get started.$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessRight_Text_0:
+	.string "The right hand, you say?\p"
+	.string "...$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessLeft_Text_0:
+	.string "The left hand, you say?\p"
+	.string "...$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_Text_0:
+	.string "That's correct!\p"
+	.string "Hey, maybe you do have psychic powers!$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_Text_1:
+	.string "Now then, would you like to play again\n"
+	.string "for another ¥1,000?$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_Text_2:
+	.string "Wonderful!\p"
+	.string "Let's keep going.$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand_Text_0:
+	.string "Oh, I'm sorry.\p"
+	.string "It looks like lady luck wasn't on your\n"
+	.string "side this time.\p"
+	.string "Would you like to try again for another\n"
+	.string "¥1,000?$"
+
+LilycoveCity_CoveLilyMotel_1F_Text_LeftRight::
+	.string "Now, is the coin in my left or right\n"
+	.string "hand?$"

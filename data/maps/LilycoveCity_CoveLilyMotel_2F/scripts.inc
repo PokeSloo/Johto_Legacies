@@ -1,136 +1,569 @@
 LilycoveCity_CoveLilyMotel_2F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LilycoveCity_CoveLilyMotel_2F_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
 
-LilycoveCity_CoveLilyMotel_2F_EventScript_GameDesigner::
-	lock
-	faceplayer
-	call_if_unset FLAG_TEMP_2, LilycoveCity_CoveLilyMotel_2F_EventScript_ShowMeCompletedDex
-	call_if_set FLAG_TEMP_2, LilycoveCity_CoveLilyMotel_2F_EventScript_ShowDiploma
-	specialvar VAR_RESULT, HasAllHoennMons
-	goto_if_eq VAR_RESULT, TRUE, LilycoveCity_CoveLilyMotel_2F_EventScript_AllHoennMonsFanfare
-	release
-	end
-
-LilycoveCity_CoveLilyMotel_2F_EventScript_ShowMeCompletedDex::
-	msgbox LilycoveCity_CoveLilyMotel_2F_Text_ShowMeCompletedDex, MSGBOX_DEFAULT
+LilycoveCity_CoveLilyMotel_2F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	call LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle
 	return
 
-LilycoveCity_CoveLilyMotel_2F_EventScript_AllHoennMonsFanfare::
-	setflag FLAG_TEMP_2
-	playfanfare MUS_OBTAIN_ITEM
-	waitfanfare
-	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ShowDiploma
-	end
 
-LilycoveCity_CoveLilyMotel_2F_EventScript_ShowDiploma::
-	message LilycoveCity_CoveLilyMotel_2F_Text_FilledPokedexGiveYouThis
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	special Special_ShowDiploma
-	waitstate
-	release
-	end
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle::
+	random 15
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_3
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_4
+	case 2, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_5
+	case 3, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_6
+	case 4, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_7
+	case 5, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_8
+	case 6, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_9
+	case 7, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_10
+	case 8, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_11
+	case 9, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_12
+	case 10, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_13
+	case 11, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_14
+	case 12, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_15
+	case 13, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_16
+	case 14, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_17
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1:
+	switch VAR_DARKOAL_SURGE_POT_1
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_20
+	case 2, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_21
+	case 3, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_22
+	case 4, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_23
+	case 5, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_24
+	case 6, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_25
+	case 7, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_26
+	case 8, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_27
+	case 9, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_28
+	case 10, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_29
+	case 11, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_30
+	case 12, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_31
+	case 13, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_32
+	case 14, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_33
+	case 15, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_34
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18:
+	return
 
-LilycoveCity_CoveLilyMotel_2F_EventScript_Programmer::
-	msgbox LilycoveCity_CoveLilyMotel_2F_Text_ImTheProgrammer, MSGBOX_NPC
-	end
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_3:
+	setvar VAR_DARKOAL_SURGE_POT_1, 1
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1
 
-LilycoveCity_CoveLilyMotel_2F_EventScript_GraphicArtist::
-	msgbox LilycoveCity_CoveLilyMotel_2F_Text_ImTheGraphicArtist, MSGBOX_NPC
-	end
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_4:
+	setvar VAR_DARKOAL_SURGE_POT_1, 2
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1
 
-LilycoveCity_CoveLilyMotel_2F_EventScript_FatMan::
-	msgbox LilycoveCity_CoveLilyMotel_2F_Text_GirlsAreCute, MSGBOX_NPC
-	end
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_5:
+	setvar VAR_DARKOAL_SURGE_POT_1, 3
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1
 
-LilycoveCity_CoveLilyMotel_2F_EventScript_Woman::
-	msgbox LilycoveCity_CoveLilyMotel_2F_Text_SeaBreezeTicklesHeart, MSGBOX_NPC
-	end
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_6:
+	setvar VAR_DARKOAL_SURGE_POT_1, 4
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1
 
-LilycoveCity_CoveLilyMotel_2F_EventScript_GameBoyKid::
-	msgbox LilycoveCity_CoveLilyMotel_2F_Text_NeverLeaveWithoutGameBoy, MSGBOX_NPC
-	end
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_7:
+	setvar VAR_DARKOAL_SURGE_POT_1, 5
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1
 
-LilycoveCity_CoveLilyMotel_2F_EventScript_Scott::
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_8:
+	setvar VAR_DARKOAL_SURGE_POT_1, 6
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_9:
+	setvar VAR_DARKOAL_SURGE_POT_1, 7
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_10:
+	setvar VAR_DARKOAL_SURGE_POT_1, 8
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_11:
+	setvar VAR_DARKOAL_SURGE_POT_1, 9
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_12:
+	setvar VAR_DARKOAL_SURGE_POT_1, 10
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_13:
+	setvar VAR_DARKOAL_SURGE_POT_1, 11
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_14:
+	setvar VAR_DARKOAL_SURGE_POT_1, 12
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_15:
+	setvar VAR_DARKOAL_SURGE_POT_1, 13
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_16:
+	setvar VAR_DARKOAL_SURGE_POT_1, 14
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_17:
+	setvar VAR_DARKOAL_SURGE_POT_1, 15
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_1
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_20:
+	random 2
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_36
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_37
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_21:
+	random 3
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_39
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_40
+	case 2, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_41
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_22:
+	random 3
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_43
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_44
+	case 2, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_45
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_23:
+	random 3
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_47
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_48
+	case 2, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_49
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_24:
+	random 2
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_51
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_52
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_25:
+	random 3
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_54
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_55
+	case 2, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_56
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_26:
+	random 4
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_58
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_59
+	case 2, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_60
+	case 3, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_61
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_27:
+	random 4
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_63
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_64
+	case 2, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_65
+	case 3, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_66
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_28:
+	random 4
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_68
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_69
+	case 2, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_70
+	case 3, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_71
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_29:
+	random 3
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_73
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_74
+	case 2, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_75
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_30:
+	random 2
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_77
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_78
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_31:
+	random 3
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_80
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_81
+	case 2, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_82
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_32:
+	random 3
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_84
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_85
+	case 2, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_86
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_33:
+	random 3
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_88
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_89
+	case 2, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_90
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_34:
+	random 2
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_92
+	case 1, LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_93
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_36:
+	setvar VAR_DARKOAL_SURGE_POT_2, 2
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_37:
+	setvar VAR_DARKOAL_SURGE_POT_2, 6
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_39:
+	setvar VAR_DARKOAL_SURGE_POT_2, 1
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_40:
+	setvar VAR_DARKOAL_SURGE_POT_2, 3
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_41:
+	setvar VAR_DARKOAL_SURGE_POT_2, 7
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_43:
+	setvar VAR_DARKOAL_SURGE_POT_2, 2
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_44:
+	setvar VAR_DARKOAL_SURGE_POT_2, 4
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_45:
+	setvar VAR_DARKOAL_SURGE_POT_2, 8
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_47:
+	setvar VAR_DARKOAL_SURGE_POT_2, 3
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_48:
+	setvar VAR_DARKOAL_SURGE_POT_2, 5
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_49:
+	setvar VAR_DARKOAL_SURGE_POT_2, 9
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_51:
+	setvar VAR_DARKOAL_SURGE_POT_2, 4
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_52:
+	setvar VAR_DARKOAL_SURGE_POT_2, 10
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_54:
+	setvar VAR_DARKOAL_SURGE_POT_2, 1
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_55:
+	setvar VAR_DARKOAL_SURGE_POT_2, 7
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_56:
+	setvar VAR_DARKOAL_SURGE_POT_2, 11
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_58:
+	setvar VAR_DARKOAL_SURGE_POT_2, 2
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_59:
+	setvar VAR_DARKOAL_SURGE_POT_2, 6
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_60:
+	setvar VAR_DARKOAL_SURGE_POT_2, 8
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_61:
+	setvar VAR_DARKOAL_SURGE_POT_2, 12
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_63:
+	setvar VAR_DARKOAL_SURGE_POT_2, 3
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_64:
+	setvar VAR_DARKOAL_SURGE_POT_2, 7
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_65:
+	setvar VAR_DARKOAL_SURGE_POT_2, 9
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_66:
+	setvar VAR_DARKOAL_SURGE_POT_2, 13
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_68:
+	setvar VAR_DARKOAL_SURGE_POT_2, 4
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_69:
+	setvar VAR_DARKOAL_SURGE_POT_2, 8
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_70:
+	setvar VAR_DARKOAL_SURGE_POT_2, 10
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_71:
+	setvar VAR_DARKOAL_SURGE_POT_2, 14
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_73:
+	setvar VAR_DARKOAL_SURGE_POT_2, 5
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_74:
+	setvar VAR_DARKOAL_SURGE_POT_2, 9
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_75:
+	setvar VAR_DARKOAL_SURGE_POT_2, 15
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_77:
+	setvar VAR_DARKOAL_SURGE_POT_2, 6
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_78:
+	setvar VAR_DARKOAL_SURGE_POT_2, 12
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_80:
+	setvar VAR_DARKOAL_SURGE_POT_2, 7
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_81:
+	setvar VAR_DARKOAL_SURGE_POT_2, 11
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_82:
+	setvar VAR_DARKOAL_SURGE_POT_2, 13
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_84:
+	setvar VAR_DARKOAL_SURGE_POT_2, 8
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_85:
+	setvar VAR_DARKOAL_SURGE_POT_2, 12
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_86:
+	setvar VAR_DARKOAL_SURGE_POT_2, 14
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_88:
+	setvar VAR_DARKOAL_SURGE_POT_2, 9
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_89:
+	setvar VAR_DARKOAL_SURGE_POT_2, 13
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_90:
+	setvar VAR_DARKOAL_SURGE_POT_2, 15
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_92:
+	setvar VAR_DARKOAL_SURGE_POT_2, 10
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_93:
+	setvar VAR_DARKOAL_SURGE_POT_2, 14
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle_18
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Pot_1::
 	lock
-	faceplayer
-	goto_if_set FLAG_MET_SCOTT_IN_LILYCOVE, LilycoveCity_CoveLilyMotel_2F_EventScript_MetScott
-	msgbox LilycoveCity_CoveLilyMotel_2F_Text_SnoozingPreferBattles, MSGBOX_DEFAULT
-	addvar VAR_SCOTT_STATE, 1
-	setflag FLAG_MET_SCOTT_IN_LILYCOVE
+	setvar VAR_TEMP_1, 1
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle
+	return
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Pot_2::
+	lock
+	setvar VAR_TEMP_1, 2
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle
+	return
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Pot_3::
+	lock
+	setvar VAR_TEMP_1, 3
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle
+	return
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Pot_4::
+	lock
+	setvar VAR_TEMP_1, 4
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle
+	return
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Pot_5::
+	lock
+	setvar VAR_TEMP_1, 5
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle
+	return
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Pot_6::
+	lock
+	setvar VAR_TEMP_1, 6
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle
+	return
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Pot_7::
+	lock
+	setvar VAR_TEMP_1, 7
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle
+	return
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Pot_8::
+	lock
+	setvar VAR_TEMP_1, 8
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle
+	return
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Pot_9::
+	lock
+	setvar VAR_TEMP_1, 9
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle
+	return
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Pot_10::
+	lock
+	setvar VAR_TEMP_1, 10
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle
+	return
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Pot_11::
+	lock
+	setvar VAR_TEMP_1, 11
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle
+	return
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Pot_12::
+	lock
+	setvar VAR_TEMP_1, 12
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle
+	return
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Pot_13::
+	lock
+	setvar VAR_TEMP_1, 13
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle
+	return
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Pot_14::
+	lock
+	setvar VAR_TEMP_1, 14
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle
+	return
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Pot_15::
+	lock
+	setvar VAR_TEMP_1, 15
+	goto LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle
+	return
+
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle::
+	goto_if_set FLAG_FOUND_SECOND_DARKOAL_PUZZLE_SWITCH, LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle_1
+	goto_if_set FLAG_FOUND_FIRST_DARKOAL_PUZZLE_SWITCH, LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle_2
+	goto_if_eq VAR_DARKOAL_SURGE_POT_1, VAR_TEMP_1, LilycoveCity_CoveLilyMotel_2F_EventScript_FoundSwitchOne
+	msgbox LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle_Text_0
 	release
 	end
 
-LilycoveCity_CoveLilyMotel_2F_EventScript_MetScott::
-	msgbox LilycoveCity_CoveLilyMotel_2F_Text_ContestsDoTakeStrategy, MSGBOX_DEFAULT
+LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle_1:
+	msgbox LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle_Text_0
 	release
 	end
 
-LilycoveCity_CoveLilyMotel_2F_Text_ShowMeCompletedDex:
-	.string "I'm the GAME DESIGNER.\p"
-	.string "Oh, is that right?\n"
-	.string "You're working on a POKéDEX?\p"
-	.string "It's tough trying to complete it,\n"
-	.string "but don't give up.\p"
-	.string "If you do complete it, please come\n"
-	.string "show me.$"
+LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle_2:
+	goto_if_eq VAR_DARKOAL_SURGE_POT_2, VAR_TEMP_1, LilycoveCity_CoveLilyMotel_2F_EventScript_FoundSwitchTwo
+	call LilycoveCity_CoveLilyMotel_2F_EventScript_ResetPuzzle
+	clearflag FLAG_FOUND_FIRST_DARKOAL_PUZZLE_SWITCH
+	msgbox LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle_Text_1
+	release
+	end
 
-LilycoveCity_CoveLilyMotel_2F_Text_FilledPokedexGiveYouThis:
-	.string "Wow! That's awesome!\n"
-	.string "Yep, it's totally awesome!\p"
-	.string "This POKéDEX is completely filled!\n"
-	.string "You really must love POKéMON!\p"
-	.string "I'm so impressed!\p"
-	.string "Let me give you something in\n"
-	.string "recognition of your feat!$"
 
-LilycoveCity_CoveLilyMotel_2F_Text_ImTheProgrammer:
-	.string "Me? You're talking to me?\n"
-	.string "I'm the PROGRAMMER.\p"
-	.string "I wonder what the SLOTS are\n"
-	.string "like here.$"
+LilycoveCity_CoveLilyMotel_2F_EventScript_FoundSwitchOne::
+	waitse
+	playse SE_SUCCESS
+	waitse
+	setflag FLAG_FOUND_FIRST_DARKOAL_PUZZLE_SWITCH
+	msgbox LilycoveCity_CoveLilyMotel_2F_EventScript_FoundSwitchOne_Text_0
+	waitse
+	playse SE_SWITCH
+	waitse
+	release
+	end
 
-LilycoveCity_CoveLilyMotel_2F_Text_ImTheGraphicArtist:
-	.string "I'm the GRAPHIC ARTIST! Aren't the\n"
-	.string "POKéMON of HOENN interesting?$"
 
-LilycoveCity_CoveLilyMotel_2F_Text_GirlsAreCute:
-	.string "The girl TUBERS, they're cute, hey?\n"
-	.string "To battle against a cute TUBER…\p"
-	.string "Whoop, it's so awesome!\p"
-	.string "And the TWINS! Aren't they cute?\n"
-	.string "A 2-on-2 battle with TWINS…\p"
-	.string "Whoop, it's unbearably fun!$"
+LilycoveCity_CoveLilyMotel_2F_EventScript_FoundSwitchTwo::
+	waitse
+	playse SE_SUCCESS
+	waitse
+	setflag FLAG_FOUND_SECOND_DARKOAL_PUZZLE_SWITCH
+	msgbox LilycoveCity_CoveLilyMotel_2F_EventScript_FoundSwitchTwo_Text_0
+	giveitem ITEM_MASTER_BALL
+	release
+	end
 
-LilycoveCity_CoveLilyMotel_2F_Text_SeaBreezeTicklesHeart:
-	.string "The sea breeze tickles my heart.\n"
-	.string "It feels wonderful here!$"
 
-LilycoveCity_CoveLilyMotel_2F_Text_NeverLeaveWithoutGameBoy:
-	.string "You never know when and where\n"
-	.string "people will challenge you.\p"
-	.string "That's why I never leave home without\n"
-	.string "my GAME BOY ADVANCE.$"
+LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle_Text_0:
+	.string "This pot is empty.$"
 
-LilycoveCity_CoveLilyMotel_2F_Text_SnoozingPreferBattles:
-	.string "SCOTT: … … … … …\n"
-	.string "… … … … … Zzz…\p"
-	.string "… … … … … Huh?!\n"
-	.string "Oh, sorry, sorry! I was snoozing!\p"
-	.string "I came to check out this POKéMON\n"
-	.string "CONTEST thing.\p"
-	.string "I have to admit, it does look quite\n"
-	.string "entertaining, but…\p"
-	.string "Consider me a purist--I prefer\n"
-	.string "battles and tough TRAINERS.\p"
-	.string "But that's just me.\p"
-	.string "{PLAYER}{KUN}, I hope you'll enjoy everything\n"
-	.string "like the GYMS, CONTESTS, BATTLE TENT,\l"
-	.string "the whole works!$"
+LilycoveCity_CoveLilyMotel_2F_EventScript_PotPuzzle_Text_1:
+	.string "This pot is empty.\p"
+	.string "The switches were reset.$"
 
-LilycoveCity_CoveLilyMotel_2F_Text_ContestsDoTakeStrategy:
-	.string "SCOTT: I think it does take strategy\n"
-	.string "to win a CONTEST.\p"
-	.string "Devising CONTEST strategies is one way\n"
-	.string "of becoming a better TRAINER, I'd say.$"
+LilycoveCity_CoveLilyMotel_2F_EventScript_FoundSwitchOne_Text_0:
+	.string "Hey!\p"
+	.string "There's a secret switch inside this pot!\p"
+	.string "{PLAYER} pressed the secret switch.$"
 
+LilycoveCity_CoveLilyMotel_2F_EventScript_FoundSwitchTwo_Text_0:
+	.string "Hey!\p"
+	.string "There's an item inside this pot!$"

@@ -1268,8 +1268,8 @@
 #define FLAG_HIDE_GOLD_LAZULAN                                      0x4C3 // When he leaves for his house
 #define FLAG_RECEIVED_KUBFU                                         0x4C4 // From woman in Lazulan house
 #define FLAG_RECEIVED_DARKOAL_SCROLL                                0x4C5 // From Darkoal karate master
-#define FLAG_UNUSED_0x4C6                                           0x4C6 // Unused Flag
-#define FLAG_UNUSED_0x4C7                                           0x4C7 // Unused Flag
+#define FLAG_FOUND_FIRST_DARKOAL_PUZZLE_SWITCH                      0x4C6 // Surge puzzle
+#define FLAG_FOUND_SECOND_DARKOAL_PUZZLE_SWITCH                     0x4C7 // Surge puzzle
 #define FLAG_UNUSED_0x4C8                                           0x4C8 // Unused Flag
 #define FLAG_UNUSED_0x4C9                                           0x4C9 // Unused Flag
 #define FLAG_UNUSED_0x4CA                                           0x4CA // Unused Flag
@@ -1568,10 +1568,10 @@
 #define FLAG_UNUSED_0x920                           (DAILY_FLAGS_START + 0x0)  // Unused Flag
 #define FLAG_DAILY_CONTEST_LOBBY_RECEIVED_BERRY     (DAILY_FLAGS_START + 0x1)
 #define FLAG_DAILY_SECRET_BASE                      (DAILY_FLAGS_START + 0x2)
-#define FLAG_DAILY_GOLDENROD_GROOMER                (DAILY_FLAGS_START + 0x3)  // Unused Flag
+#define FLAG_DAILY_GOLDENROD_GROOMER                (DAILY_FLAGS_START + 0x3)  // Goldenrod groomer
 #define FLAG_DENIED_DRAGONS_DEN_MON                 (DAILY_FLAGS_START + 0x4)  // If didn't pass test, can retake next day
 #define FLAG_DIDNT_CATCH_ROTOM                      (DAILY_FLAGS_START + 0x5)  // Turns off tv, but can try again next day
-#define FLAG_UNUSED_0x926                           (DAILY_FLAGS_START + 0x6)  // Unused Flag
+#define FLAG_DARKOAL_SURGE_PUZZLE_OPEN              (DAILY_FLAGS_START + 0x6)  // After paying the man blocking door
 #define FLAG_UNUSED_0x927                           (DAILY_FLAGS_START + 0x7)  // Unused Flag
 #define FLAG_UNUSED_0x928                           (DAILY_FLAGS_START + 0x8)  // Unused Flag
 #define FLAG_UNUSED_0x929                           (DAILY_FLAGS_START + 0x9)  // Unused Flag

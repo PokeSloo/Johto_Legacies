@@ -177,8 +177,7 @@ LilycoveCity_Text_ContestHallSign:
 	.string "MT. TEMPEST$"
 
 LilycoveCity_Text_MotelSign:
-	.string "DARKOAL GAME HOUSE\p"
-	.string "“Come gamble all of your money away!”$"
+	.string "DARKOAL GAME HOUSE$"
 
 LilycoveCity_Text_TrainerFanClubSign:
 	.string "KARATE MASTER'S DOJO$"
