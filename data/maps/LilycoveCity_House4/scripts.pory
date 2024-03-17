@@ -1,0 +1,153 @@
+mapscripts LilycoveCity_House4_MapScripts {}
+
+script LilycoveCity_House4_EventScript_MegaWoman {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_MEWTWONITE)) {
+        msgbox(format("You really do have a large collection of POKéMON.\pAt such a young age too!"))
+        release
+        end
+    }
+    elif (flag(FLAG_RECEIVED_METAGROSSITE)) {
+        msgbox(format("I'm so grateful for you child!\pYou've really helped jog my memory.\pNow, there's one POKéMON that I've never seen before, but I've always wanted to see.\pPlease, could you show me a Mewtwo?\pI'll make it worth your while."))
+        special (ChoosePartyMon)
+	    waitstate
+	    copyvar (VAR_RESULT, VAR_0x8004)
+        if (var(VAR_RESULT) == PARTY_NOTHING_CHOSEN) {
+            msgbox (format("Oh, so you don't have a Mewtwo?"))
+            release
+            end
+        }
+        else {
+            specialvar (VAR_RESULT, ScriptGetPartyMonSpecies)
+            if (var(VAR_RESULT) != SPECIES_MEWTWO) {
+                msgbox (format("Hmm...\pI've never seen a Mewtwo before, but I know for sure that isn't one."))
+                release
+                end
+            }
+            else {
+                msgbox (format("Incredible!\pSo that's a Mewtwo!?\pYou've really helped expand my POKéMON knowledge.\pPlease, take this!"))
+                giveitem (ITEM_MEWTWONITE_X)
+                msgbox(format("Oh, you can also have this!"))
+                giveitem (ITEM_MEWTWONITE_Y)
+                setflag (FLAG_RECEIVED_MEWTWONITE)
+                msgbox (format("Thanks for all of your hard work!\pI don't know what I would have done without you."))
+                release
+                end
+            }
+        }
+    }
+    elif (flag(FLAG_RECEIVED_LOPUNNITE)) {
+        msgbox(format("I haven't left my house in so long, that I've forgotten what some species of POKéMON look like.\pPlease, could you show me a Metagross?\pI'll make it worth your while."))
+        special (ChoosePartyMon)
+	    waitstate
+	    copyvar (VAR_RESULT, VAR_0x8004)
+        if (var(VAR_RESULT) == PARTY_NOTHING_CHOSEN) {
+            msgbox (format("Oh, so you don't have a Metagross?"))
+            release
+            end
+        }
+        else {
+            specialvar (VAR_RESULT, ScriptGetPartyMonSpecies)
+            if (var(VAR_RESULT) != SPECIES_METAGROSS) {
+                msgbox (format("My memory might be going, but I know for sure that is not a Metagross."))
+                release
+                end
+            }
+            else {
+                msgbox (format("Oh yes! That is indeed a Metagross!\pIt's all so clear to me now.\pPlease, take this."))
+                giveitem (ITEM_METAGROSSITE)
+                setflag (FLAG_RECEIVED_METAGROSSITE)
+                msgbox (format("I'll let you know if there are any other POKéMON I want to see."))
+                release
+                end
+            }
+        }
+    }
+    elif (flag(FLAG_RECEIVED_ALTARIANITE)) {
+        msgbox(format("I haven't left my house in so long, that I've forgotten what some species of POKéMON look like.\pPlease, could you show me a Lopunny?\pI'll make it worth your while."))
+        special (ChoosePartyMon)
+	    waitstate
+	    copyvar (VAR_RESULT, VAR_0x8004)
+        if (var(VAR_RESULT) == PARTY_NOTHING_CHOSEN) {
+            msgbox (format("Oh, so you don't have a Lopunny?"))
+            release
+            end
+        }
+        else {
+            specialvar (VAR_RESULT, ScriptGetPartyMonSpecies)
+            if (var(VAR_RESULT) != SPECIES_LOPUNNY) {
+                msgbox (format("My memory might be going, but I know for sure that is not a Lopunny."))
+                release
+                end
+            }
+            else {
+                msgbox (format("Oh yes! That is indeed a Lopunny!\pIt's all so clear to me now.\pPlease, take this."))
+                giveitem (ITEM_LOPUNNITE)
+                setflag (FLAG_RECEIVED_LOPUNNITE)
+                msgbox (format("I'll let you know if there are any other POKéMON I want to see."))
+                release
+                end
+            }
+        }
+    }
+    elif (flag(FLAG_RECEIVED_BEEDRILLITE)) {
+        msgbox(format("I haven't left my house in so long, that I've forgotten what some species of POKéMON look like.\pPlease, could you show me an Altaria?\pI'll make it worth your while."))
+        special (ChoosePartyMon)
+	    waitstate
+	    copyvar (VAR_RESULT, VAR_0x8004)
+        if (var(VAR_RESULT) == PARTY_NOTHING_CHOSEN) {
+            msgbox (format("Oh, so you don't have an Altaria?"))
+            release
+            end
+        }
+        else {
+            specialvar (VAR_RESULT, ScriptGetPartyMonSpecies)
+            if (var(VAR_RESULT) != SPECIES_ALTARIA) {
+                msgbox (format("My memory might be going, but I know for sure that is not an Altaria."))
+                release
+                end
+            }
+            else {
+                msgbox (format("Oh yes! That is indeed an Altaria!\pIt's all so clear to me now.\pPlease, take this."))
+                giveitem (ITEM_ALTARIANITE)
+                setflag (FLAG_RECEIVED_ALTARIANITE)
+                msgbox (format("I'll let you know if there are any other POKéMON I want to see."))
+                release
+                end
+            }
+        }
+    }
+    else {
+        msgbox(format("I haven't left my house in so long, that I've forgotten what some species of POKéMON look like.\pPlease, could you show me a Beedrill?\pI'll make it worth your while."))
+        special (ChoosePartyMon)
+	    waitstate
+	    copyvar (VAR_RESULT, VAR_0x8004)
+        if (var(VAR_RESULT) == PARTY_NOTHING_CHOSEN) {
+            msgbox (format("Oh, so you don't have a Beedrill?"))
+            release
+            end
+        }
+        else {
+            specialvar (VAR_RESULT, ScriptGetPartyMonSpecies)
+            if (var(VAR_RESULT) != SPECIES_BEEDRILL) {
+                msgbox (format("My memory might be going, but I know for sure that is not a Beedrill."))
+                release
+                end
+            }
+            else {
+                msgbox (format("Oh yes! That is indeed a Beedrill!\pIt's all so clear to me now.\pPlease, take this."))
+                giveitem (ITEM_BEEDRILLITE)
+                setflag (FLAG_RECEIVED_BEEDRILLITE)
+                msgbox (format("I'll let you know if there are any other POKéMON I want to see."))
+                release
+                end
+            }
+        }
+    }
+}
+
+script LilycoveCity_House4_EventScript_Man {
+    msgbox(format("My grandma loves seeing different species of POKéMON, but she hasn't been well enough to leave the house in years."), MSGBOX_NPC)
+    end
+}

@@ -234,6 +234,316 @@ LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand_4:
 	end
 
 
+LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd::
+	lock
+	faceplayer
+	goto_if_set FLAG_WON_DARKOAL_TRIVIA_GAME, LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_1
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_4
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_Text_3
+	call LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_NextQuestion
+	call LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_NextQuestion
+	call LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_NextQuestion
+	call LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_Text_4
+	call LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_Text_5
+	giveitem ITEM_ALAKAZITE
+	setflag FLAG_WON_DARKOAL_TRIVIA_GAME
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_Text_6
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_1:
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_Text_0
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_4:
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_Text_2
+	release
+	end
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1::
+	random 2
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_3
+	case 1, LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_4
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_1:
+	return
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_3:
+	call LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_True
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_1
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_4:
+	call LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_False
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_1
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_True::
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_True_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_True_1
+	waitse
+	playse SE_FAILURE
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_True_1:
+	waitse
+	playse SE_SUCCESS
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer
+	return
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_False::
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_False_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_False_1
+	waitse
+	playse SE_FAILURE
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_False_1:
+	waitse
+	playse SE_SUCCESS
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer
+	return
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2::
+	random 2
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_3
+	case 1, LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_4
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_1:
+	return
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_3:
+	call LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_True
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_1
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_4:
+	call LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_False
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_1
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_True::
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_True_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_True_1
+	waitse
+	playse SE_FAILURE
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_True_1:
+	waitse
+	playse SE_SUCCESS
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer
+	return
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_False::
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_False_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_False_1
+	waitse
+	playse SE_FAILURE
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_False_1:
+	waitse
+	playse SE_SUCCESS
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer
+	return
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3::
+	random 2
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_3
+	case 1, LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_4
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_1:
+	return
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_3:
+	call LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_True
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_1
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_4:
+	call LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_False
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_1
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_True::
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_True_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_True_1
+	waitse
+	playse SE_FAILURE
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_True_1:
+	waitse
+	playse SE_SUCCESS
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer
+	return
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_False::
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_False_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_False_1
+	waitse
+	playse SE_FAILURE
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_False_1:
+	waitse
+	playse SE_SUCCESS
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer
+	return
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4::
+	random 2
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_3
+	case 1, LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_4
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_1:
+	return
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_3:
+	call LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_True
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_1
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_4:
+	call LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_False
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_1
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_True::
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_True_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_True_1
+	waitse
+	playse SE_FAILURE
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_True_1:
+	waitse
+	playse SE_SUCCESS
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer
+	return
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_False::
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_False_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_False_1
+	waitse
+	playse SE_FAILURE
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_False_1:
+	waitse
+	playse SE_SUCCESS
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer
+	return
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5::
+	random 2
+	switch VAR_RESULT
+	case 0, LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_3
+	case 1, LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_4
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_1:
+	return
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_3:
+	call LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_True
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_1
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_4:
+	call LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_False
+	goto LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_1
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_True::
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_True_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_True_1
+	waitse
+	playse SE_FAILURE
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_True_1:
+	waitse
+	playse SE_SUCCESS
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer
+	return
+
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_False::
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_False_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_False_1
+	waitse
+	playse SE_FAILURE
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_False_1:
+	waitse
+	playse SE_SUCCESS
+	waitse
+	msgbox LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer
+	return
+
+
 LilycoveCity_CoveLilyMotel_1F_EventScript_SurgePuzzleMan_Text_0:
 	.string "Hey! You found the Master Ball!\p"
 	.string "Come back tomorrow, and you can try for\n"
@@ -325,6 +635,91 @@ LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand_Text_0:
 	.string "Would you like to try again for another\n"
 	.string "¥1,000?$"
 
+LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_Text_0:
+	.string "Hey, there's my fellow trivia nerd!\p"
+	.string "You know, I like to imagine the POKéMON\n"
+	.string "ALAKAZAM is also a huge nerd.$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_Text_1:
+	.string "I'm a huge trivia nerd.\p"
+	.string "If you can answer all five of my\n"
+	.string "questions correctly, then I'll give you\l"
+	.string "a prize.\p"
+	.string "So then, want to test your knowledge?$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_Text_2:
+	.string "Really?\p"
+	.string "And here I thought you might be a huge\n"
+	.string "trivia nerd too...$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_Text_3:
+	.string "Great!\p"
+	.string "Now, for the first question.$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_Text_4:
+	.string "Now, for the final question!$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_Text_5:
+	.string "You've answered all five questions\n"
+	.string "correctly, congratulations!\p"
+	.string "You really know your stuff.\p"
+	.string "Please accept this prize!$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_Text_6:
+	.string "Thanks, that was fun!$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_True_Text_0:
+	.string "Will certin POKéMON species evolve if\n"
+	.string "you level them up next to the Ice\l"
+	.string "Rock?$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_False_Text_0:
+	.string "Will certin POKéMON species evolve if\n"
+	.string "you level them up next to the Frost\l"
+	.string "Rock?$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_True_Text_0:
+	.string "Will a Leaf Stone evolve PETILIL into\n"
+	.string "HISUIAN LILLIGANT?$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_False_Text_0:
+	.string "Will a Sun Stone evolve PETILIL into\n"
+	.string "HISUIAN LILLIGANT?$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_True_Text_0:
+	.string "Are there three computers in PROF.\n"
+	.string "ELM's lab?$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_False_Text_0:
+	.string "Are there two computers in PROF. ELM's\n"
+	.string "lab?$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_True_Text_0:
+	.string "Was the BLACK BELT who appeared on the\n"
+	.string "Night and Dave Show named KATASHI?$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_False_Text_0:
+	.string "Was the BLACK BELT who appeared on the\n"
+	.string "Night and Dave Show named KAKASHI?$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_True_Text_0:
+	.string "Did the gym leader, CHARLIE, have an\n"
+	.string "ALOLAN GOLEM in his party?$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_False_Text_0:
+	.string "Did the gym leader, CHARLIE, have a\n"
+	.string "ZEBSTRIKA in his party?$"
+
 LilycoveCity_CoveLilyMotel_1F_Text_LeftRight::
 	.string "Now, is the coin in my left or right\n"
 	.string "hand?$"
+
+LilycoveCity_CoveLilyMotel_1F_Text_NextQuestion::
+	.string "Alright, next question!$"
+
+LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer::
+	.string "That's correct!$"
+
+LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer::
+	.string "Sorry, but that is incorrect.\p"
+	.string "You're welcome to try again anytime.$"

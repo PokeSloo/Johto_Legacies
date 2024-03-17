@@ -217,3 +217,286 @@ script LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand {
         }
     }
 }
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd {
+    lock
+    faceplayer
+    if (flag(FLAG_WON_DARKOAL_TRIVIA_GAME)) {
+        msgbox(format("Hey, there's my fellow trivia nerd!\pYou know, I like to imagine the POKéMON ALAKAZAM is also a huge nerd."))
+        release
+        end
+    }
+    else {
+        msgbox(format("I'm a huge trivia nerd.\pIf you can answer all five of my questions correctly, then I'll give you a prize.\pSo then, want to test your knowledge?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Really?\pAnd here I thought you might be a huge trivia nerd too..."))
+            release
+            end
+        }
+        else {
+            msgbox(format("Great!\pNow, for the first question."))
+            call (LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1)
+            msgbox(LilycoveCity_CoveLilyMotel_1F_Text_NextQuestion)
+            call (LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2)
+            msgbox(LilycoveCity_CoveLilyMotel_1F_Text_NextQuestion)
+            call (LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3)
+            msgbox(LilycoveCity_CoveLilyMotel_1F_Text_NextQuestion)
+            call (LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4)
+            msgbox(format("Now, for the final question!"))
+            call (LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5)
+            msgbox(format("You've answered all five questions correctly, congratulations!\pYou really know your stuff.\pPlease accept this prize!"))
+            giveitem (ITEM_ALAKAZITE)
+            setflag (FLAG_WON_DARKOAL_TRIVIA_GAME)
+            msgbox(format("Thanks, that was fun!"))
+            release
+            end
+        }
+    }
+}
+
+text LilycoveCity_CoveLilyMotel_1F_Text_NextQuestion {
+    format("Alright, next question!")
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1 {
+    random (2)
+    switch (var(VAR_RESULT)) {
+            case 0: call (LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_True)
+            case 1: call (LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_False)
+        }
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_True {
+    msgbox(format("Will certin POKéMON species evolve if you level them up next to the Ice Rock?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        waitse
+        playse (SE_SUCCESS)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer)
+        return
+    }
+    else {
+        waitse
+        playse (SE_FAILURE)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer)
+        release
+        end
+    }
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Question_1_False {
+    msgbox(format("Will certin POKéMON species evolve if you level them up next to the Frost Rock?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        waitse
+        playse (SE_SUCCESS)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer)
+        return
+    }
+    else {
+        waitse
+        playse (SE_FAILURE)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer)
+        release
+        end
+    }
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2 {
+    random (2)
+    switch (var(VAR_RESULT)) {
+            case 0: call (LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_True)
+            case 1: call (LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_False)
+        }
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_True {
+    msgbox(format("Will a Leaf Stone evolve PETILIL into HISUIAN LILLIGANT?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        waitse
+        playse (SE_SUCCESS)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer)
+        return
+    }
+    else {
+        waitse
+        playse (SE_FAILURE)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer)
+        release
+        end
+    }
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Question_2_False {
+    msgbox(format("Will a Sun Stone evolve PETILIL into HISUIAN LILLIGANT?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        waitse
+        playse (SE_SUCCESS)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer)
+        return
+    }
+    else {
+        waitse
+        playse (SE_FAILURE)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer)
+        release
+        end
+    }
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3 {
+    random (2)
+    switch (var(VAR_RESULT)) {
+            case 0: call (LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_True)
+            case 1: call (LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_False)
+        }
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_True {
+    msgbox(format("Are there three computers in PROF. ELM's lab?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        waitse
+        playse (SE_SUCCESS)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer)
+        return
+    }
+    else {
+        waitse
+        playse (SE_FAILURE)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer)
+        release
+        end
+    }
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Question_3_False {
+    msgbox(format("Are there two computers in PROF. ELM's lab?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        waitse
+        playse (SE_SUCCESS)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer)
+        return
+    }
+    else {
+        waitse
+        playse (SE_FAILURE)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer)
+        release
+        end
+    }
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4 {
+    random (2)
+    switch (var(VAR_RESULT)) {
+            case 0: call (LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_True)
+            case 1: call (LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_False)
+        }
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_True {
+    msgbox(format("Was the BLACK BELT who appeared on the Night and Dave Show named KATASHI?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        waitse
+        playse (SE_SUCCESS)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer)
+        return
+    }
+    else {
+        waitse
+        playse (SE_FAILURE)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer)
+        release
+        end
+    }
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Question_4_False {
+    msgbox(format("Was the BLACK BELT who appeared on the Night and Dave Show named KAKASHI?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        waitse
+        playse (SE_SUCCESS)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer)
+        return
+    }
+    else {
+        waitse
+        playse (SE_FAILURE)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer)
+        release
+        end
+    }
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5 {
+    random (2)
+    switch (var(VAR_RESULT)) {
+            case 0: call (LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_True)
+            case 1: call (LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_False)
+        }
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_True {
+    msgbox(format("Did the gym leader, CHARLIE, have an ALOLAN GOLEM in his party?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        waitse
+        playse (SE_SUCCESS)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer)
+        return
+    }
+    else {
+        waitse
+        playse (SE_FAILURE)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer)
+        release
+        end
+    }
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Question_5_False {
+    msgbox(format("Did the gym leader, CHARLIE, have a ZEBSTRIKA in his party?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        waitse
+        playse (SE_SUCCESS)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer)
+        return
+    }
+    else {
+        waitse
+        playse (SE_FAILURE)
+        waitse
+        msgbox(LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer)
+        release
+        end
+    }
+}
+
+text LilycoveCity_CoveLilyMotel_1F_Text_Correct_Answer {
+    format("That's correct!")
+}
+
+text LilycoveCity_CoveLilyMotel_1F_Text_Wrong_Answer {
+    format("Sorry, but that is incorrect.\pYou're welcome to try again anytime.")
+}

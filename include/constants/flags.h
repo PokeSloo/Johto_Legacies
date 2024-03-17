@@ -1270,12 +1270,12 @@
 #define FLAG_RECEIVED_DARKOAL_SCROLL                                0x4C5 // From Darkoal karate master
 #define FLAG_FOUND_FIRST_DARKOAL_PUZZLE_SWITCH                      0x4C6 // Surge puzzle
 #define FLAG_FOUND_SECOND_DARKOAL_PUZZLE_SWITCH                     0x4C7 // Surge puzzle
-#define FLAG_UNUSED_0x4C8                                           0x4C8 // Unused Flag
-#define FLAG_UNUSED_0x4C9                                           0x4C9 // Unused Flag
-#define FLAG_UNUSED_0x4CA                                           0x4CA // Unused Flag
-#define FLAG_UNUSED_0x4CB                                           0x4CB // Unused Flag
-#define FLAG_UNUSED_0x4CC                                           0x4CC // Unused Flag
-#define FLAG_UNUSED_0x4CD                                           0x4CD // Unused Flag
+#define FLAG_WON_DARKOAL_TRIVIA_GAME                                0x4C8 // Won a mega stone
+#define FLAG_RECEIVED_BEEDRILLITE                                   0x4C9 // Darkoal old woman
+#define FLAG_RECEIVED_ALTARIANITE                                   0x4CA // Darkoal old woman
+#define FLAG_RECEIVED_LOPUNNITE                                     0x4CB // Darkoal old woman
+#define FLAG_RECEIVED_METAGROSSITE                                  0x4CC // Darkoal old woman
+#define FLAG_RECEIVED_MEWTWONITE                                    0x4CD // Darkoal old woman
 #define FLAG_UNUSED_0x4CE                                           0x4CE // Unused Flag
 #define FLAG_UNUSED_0x4CF                                           0x4CF // Unused Flag
 #define FLAG_UNUSED_0x4D0                                           0x4D0 // Unused Flag
