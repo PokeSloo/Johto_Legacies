@@ -26,20 +26,12 @@ LilycoveCity_EventScript_ReceivedBerry::
 	release
 	end
 
-LilycoveCity_EventScript_Man3::
-	msgbox LilycoveCity_Text_ContestHallInTown, MSGBOX_NPC
-	end
-
 LilycoveCity_EventScript_Girl::
 	msgbox LilycoveCity_Text_GoingToMoveDeleterForHMs, MSGBOX_NPC
 	end
 
 LilycoveCity_EventScript_RichBoy::
 	msgbox LilycoveCity_Text_ImFromKanto, MSGBOX_NPC
-	end
-
-LilycoveCity_EventScript_Sailor2::
-	msgbox LilycoveCity_Text_SomeonePuntedTeamAquaOut, MSGBOX_NPC
 	end
 
 LilycoveCity_EventScript_Woman2::
@@ -65,10 +57,6 @@ LilycoveCity_EventScript_ExpertM2::
 
 LilycoveCity_EventScript_Sailor1::
 	msgbox LilycoveCity_Text_HeardTowerCalledSkyPillar, MSGBOX_NPC
-	end
-
-LilycoveCity_EventScript_FatMan::
-	msgbox LilycoveCity_Text_SawTallTowerOnRoute131, MSGBOX_NPC
 	end
 
 LilycoveCity_EventScript_Man1::
@@ -111,63 +99,48 @@ LilycoveCity_EventScript_RivalFlyAway::
 	release
 	end
 
-LilycoveCity_Text_ContestHallInTown:
-	.string "There's a POKéMON CONTEST HALL\n"
-	.string "right in this here town. \p"
-	.string "That means well-raised POKéMON will\n"
-	.string "come from all over the country.\p"
-	.string "My heart swells with excitement!$"
-
 LilycoveCity_Text_GoingToMoveDeleterForHMs:
-	.string "I'm going to teach my POKéMON some new\n"
-	.string "moves for entering a CONTEST.\p"
-	.string "So, I'm going to see the MOVE DELETER\n"
-	.string "and make it forget HM moves.$"
+	.string "The old karate master is a good\n"
+	.string "teacher, but he's so picky about who he\l"
+	.string "will train.\p"
+	.string "I'm not even worthy of learning his most\n"
+	.string "secret techniques.$"
 
 LilycoveCity_Text_ImFromKanto:
-	.string "I came from KANTO.\p"
-	.string "The HOENN region is beautiful with\n"
-	.string "all its water and verdant nature.\p"
-	.string "Hunh? Wait a second…\p"
-	.string "Could there be rare POKéMON that live\n"
-	.string "only in this area?$"
-
-LilycoveCity_Text_SomeonePuntedTeamAquaOut:
-	.string "Ahoy, did you know?\p"
-	.string "Someone punted TEAM AQUA out of\n"
-	.string "the way for us!\p"
-	.string "That got the WAILMER out of the cove,\n"
-	.string "so we can get our boats out again.$"
+	.string "Have you been to the Darkoal Game\n"
+	.string "House yet?\p"
+	.string "I tried the puzzle they have\n"
+	.string "downstairs, but it's too much for me to\l"
+	.string "figure out.$"
 
 LilycoveCity_Text_MissingPokemonCameBack:
-	.string "My missing POKéMON…\n"
-	.string "It came back without me noticing!$"
+	.string "They say it never stops storming up on\n"
+	.string "Mt. Tempest.\p"
+	.string "I can believe that, it's been raining as\n"
+	.string "long as I've lived here at least.$"
 
 LilycoveCity_Text_ImArtDealer:
-	.string "I'm an ART DEALER.\p"
-	.string "I am a buyer and seller of fine art,\n"
-	.string "especially paintings.\p"
-	.string "I've heard that the MUSEUM here has\n"
-	.string "magnificent works on exhibit…$"
+	.string "I saw some weird hooded people going up\n"
+	.string "to Mt. Tempest.\p"
+	.string "I wonder what they're doing up there.$"
 
 LilycoveCity_Text_SeaRemainsForeverYoung:
-	.string "Even as we grow old and wrinkled,\n"
-	.string "the sea remains forever young with\l"
-	.string "the vivid brilliance of life…\p"
-	.string "Fwohoho fwohohohoho…$"
+	.string "The sound of rain can be very peaceful,\n"
+	.string "although it's not as peaceful when\l"
+	.string "you're out in it.$"
 
 LilycoveCity_Text_SixtyYearsAgoHusbandProposed:
-	.string "It was sixty years ago that my husband\n"
-	.string "proposed to me here.\l"
-	.string "The sea remains as beautiful as ever.\p"
-	.string "Mufufufu mufufufufufu…$"
+	.string "All of this rain has really wrinkled up\n"
+	.string "my skin!\p"
+	.string "What?\p"
+	.string "You think I'm naturally wrinkly!?\p"
+	.string "How rude!$"
 
 LilycoveCity_Text_TeamAquaLotGoneForGood:
-	.string "That cave in the cove…\p"
-	.string "I didn't notice it right away,\n"
-	.string "but it's completely empty now.\p"
-	.string "That TEAM AQUA lot, they must\n"
-	.string "have gone away for good.$"
+	.string "My wife hasn't felt well enough to leave\n"
+	.string "the house in years.\p"
+	.string "I wish there was something I could do\n"
+	.string "for her.$"
 
 LilycoveCity_Text_CitySign:
 	.string "DARKOAL CITY\p"
@@ -183,27 +156,16 @@ LilycoveCity_Text_TrainerFanClubSign:
 	.string "KARATE MASTER'S DOJO$"
 
 LilycoveCity_Text_HeardTowerCalledSkyPillar:
-	.string "I heard there's a tower somewhere out\n"
-	.string "on the sea routes.\p"
-	.string "It's called the SKY PILLAR, I hear.$"
-
-LilycoveCity_Text_SawTallTowerOnRoute131:
-	.string "I saw this tall tower somewhere\n"
-	.string "around ROUTE 131.\p"
-	.string "Could that possibly be…?$"
+	.string "So much water around, but not enough to\n"
+	.string "sail on, such a shame.$"
 
 LilycoveCity_Text_JustArrivedAndSawRarePokemon:
-	.string "We just arrived here on our\n"
-	.string "honeymoon vacation.\p"
-	.string "We happened to see a DRAGON-type\n"
-	.string "POKéMON flying way up in the sky.\p"
-	.string "Do cool POKéMON like that live in\n"
-	.string "the HOENN region?$"
+	.string "I like the dark, damp, spooky look of\n"
+	.string "this town.\p"
+	.string "It reminds me of home, ufufufu!$"
 
 LilycoveCity_Text_HoneymoonVowToSeeRarePokemon:
-	.string "On our honeymoon, we vowed to see as\n"
-	.string "many rare POKéMON as we can.\p"
-	.string "So we were delighted to see a rare\n"
-	.string "POKéMON as soon as we arrived.\p"
-	.string "I mean, we are totally happy!$"
+	.string "If I had Rain Dish like Ludicolo, I could\n"
+	.string "soak up all of this rain.\p"
+	.string "I'm sure that would feel great!$"
 
