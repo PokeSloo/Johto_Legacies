@@ -1,0 +1,360 @@
+const THORNE_ID = 2
+const SHANE_ID = 30
+const GRUNT_1_ID = 1
+const GRUNT_2_ID = 29
+const JIRACHI_ID = 3
+const POKEBALL_ID = 31
+
+mapscripts Route111_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag (FLAG_HIDE_SHANE_MT_TEMPEST)
+        end
+    }
+}
+
+script Route111_EventScript_PhoenixTrigger {
+	lock
+	if (flag(FLAG_DEFEATED_PHOENIX_MT_TEMPEST)) {
+		release
+		end
+	}
+	else {
+		delay (30)
+        waitse
+        playse (SE_BALL_THROW)
+        waitse
+        playse (SE_BALL_TRADE)
+        waitse
+        addobject (POKEBALL_ID)
+        removeobject (JIRACHI_ID)
+		setflag(FLAG_HIDE_JIRACHI)
+        delay (20)
+        playse (SE_BALL_BOUNCE_1)
+        waitse
+        playse (SE_BALL_BOUNCE_2)
+        waitse
+        playse (SE_BALL_BOUNCE_3)
+        waitse
+        delay (30)
+        playse (SE_CLICK)
+        waitse
+        delay (30)
+		removeobject(POKEBALL_ID)
+        playbgm (MUS_RG_ROCKET_HIDEOUT, TRUE)
+		delay(30)
+		applymovement(THORNE_ID, Route111_Movement_StepDown)
+		waitmovement (0)
+		applymovement(GRUNT_1_ID, Route111_Movement_StepDown)
+		applymovement(GRUNT_2_ID, Route111_Movement_StepDown)
+		waitmovement (0)
+		msgbox(format("THORNE: {PLAYER}, why am I not surprised to see you here.\pFortunately for me, your arrival was just a moment too late.\pBut I won't waste any time chatting with you now."))
+		waitmessage
+		applymovement(THORNE_ID, Route111_Movement_StepDown)
+		waitmovement (0)
+		checkplayergender
+		if (var(VAR_RESULT) == MALE) {
+    		call (Route111_EventScript_MalePlayer)
+		}
+		elif (var(VAR_RESULT) == FEMALE) {
+    		call (Route111_EventScript_FemalePlayer)
+		}
+		applymovement(GRUNT_1_ID, Route111_Movement_StepDown)
+		applymovement(GRUNT_2_ID, Route111_Movement_StepDown)
+		waitmovement (0)
+		msgbox(format("GRUNTS: Sir!"))
+		waitmessage
+		applymovement(THORNE_ID, Route111_Movement_StepDown)
+		waitmovement (0)
+		msgbox(format("THORNE: {PLAYER}, I hope this will be our last meeting."))
+		waitmessage
+		closemessage
+		setfieldeffectargument (0, THORNE_ID)
+		dofieldeffect (FLDEFF_NPCFLY_OUT)
+		delay (15)
+		removeobject(THORNE_ID)
+		waitfieldeffect (FLDEFF_NPCFLY_OUT)
+		setflag (FLAG_HIDE_THORNE_MT_TEMPEST)
+		delay (30)
+		applymovement(GRUNT_1_ID, Route111_Movement_StepDown)
+		waitmovement (0)
+		msgbox(format("GRUNT: I've heard you're tough, but don't take us GRUNTS too lightly!\pWe've been training as well!\pSHANE: {PLAYER}!"))
+		waitmessage
+		closemessage
+		applymovement(OBJ_EVENT_ID_PLAYER, Route111_Movement_StepDown)
+    	waitmovement (0)
+		clearflag (FLAG_HIDE_SHANE_MT_TEMPEST)
+		addobject (SHANE_ID)
+		applymovement(SHANE_ID, Route111_Movement_ShaneToPlayer)
+		waitmovement (0)
+		msgbox(format("SHANE: I came to this mountain looking for Jirachi, but just found a bunch of Team Chicken jerks!\p...\p...\pYou say that THORNE guy was here too? And he took Jirachi?\pWell why are you just standing around here? Let's go after him!\pBut first..."))
+		waitmessage
+		goto (Route111_EventScript_BattlePrompt)
+	}
+}
+
+script Route111_EventScript_MalePlayer {
+	msgbox(format("You two, delay him for me!"))
+	return
+}
+
+script Route111_EventScript_FemalePlayer {
+	msgbox(format("You two, delay her for me!"))
+	return
+}
+
+script Route111_EventScript_BattlePrompt {
+    msgbox(format("SHANE: Let's destroy these two nerds!\pPick your party members."))
+    waitmessage
+    closemessage
+    goto (Route111_EventScript_ChooseParty)
+}
+
+script Route111_EventScript_ChooseParty {
+    special (SavePlayerParty)
+	fadescreen (FADE_TO_BLACK)
+	special (ChooseHalfPartyForBattle)
+	waitstate
+    goto_if_ne (VAR_RESULT, 0, Route111_EventScript_DoBattle)
+	special (LoadPlayerParty)
+	goto (Route111_EventScript_BattlePrompt)
+}
+
+script Route111_EventScript_DoBattle {
+    applymovement (SHANE_ID, Route111_Movement_ShaneStepUp)
+	applymovement (OBJ_EVENT_ID_PLAYER, Route111_Movement_PlayerStepLeft)
+    waitmovement (0)
+	applymovement(GRUNT_2_ID, Route111_Movement_StepDown)
+	waitmovement (0)
+    msgbox(format("GRUNT: You two sure talk a lot!\pWe'll show you just how cheap all your talk is!"))
+	waitmessage
+	closemessage
+	applymovement(GRUNT_1_ID, Route111_Movement_Grunt1toPlayer)
+	applymovement(GRUNT_2_ID, Route111_Movement_Grunt2toShane)
+	waitmovement (0)
+    multi_2_vs_2 (TRAINER_BRENDAN_LILYCOVE_MUDKIP, Route111_EventScript_Text_Grunt1Defeat, TRAINER_BRENDAN_LILYCOVE_TREECKO, Route111_EventScript_Text_Grunt2Defeat, TRAINER_BRENDAN_LILYCOVE_TORCHIC, TRAINER_BACK_PIC_WALLY)
+    specialvar (VAR_RESULT, GetBattleOutcome)
+    compare (VAR_RESULT, B_OUTCOME_LOST)
+    goto_if_eq (Route111_EventScript_PlayerLostTheFight)
+	delay (30)
+	applymovement(GRUNT_1_ID, Route111_Movement_StepDown)
+	waitmovement (0)
+    msgbox(format("GRUNT: That's fine, our job was just to delay you.\pBy now, there's nothing you can do to stop THORNE and his plans!"))
+	waitmessage
+	applymovement (SHANE_ID, Route111_Movement_StepUp)
+    waitmovement (0)
+	msgbox(format("SHANE: We stopped you jerks before, and we'll stop you again!"))
+	waitmessage
+	closemessage
+	setfieldeffectargument (0, GRUNT_1_ID)
+	dofieldeffect (FLDEFF_NPCFLY_OUT)
+	delay (15)
+	removeobject(GRUNT_1_ID)
+	removeobject(GRUNT_2_ID)
+	waitfieldeffect (FLDEFF_NPCFLY_OUT)
+	setflag (FLAG_DEFEATED_PHOENIX_MT_TEMPEST)
+	delay (30)
+	fadedefaultbgm
+	applymovement (SHANE_ID, Route111_Movement_StepLeft)
+	applymovement (OBJ_EVENT_ID_PLAYER, Route111_Movement_StepRight)
+    waitmovement (0)
+	msgbox(format("SHANE: Man, these jerks are worse than cockroaches!\pAlright, you try and find out where they went, I'm going to tell dad what happened."))
+	waitmessage
+	closemessage
+	applymovement (SHANE_ID, Route111_Movement_ShaneExit)
+    waitmovement (0)
+	removeobject (SHANE_ID)
+	removeobject (22)
+	setflag (FLAG_HIDE_SHANE_MT_TEMPEST)
+	addvar (VAR_LAZULAN_STATE, 1)
+    release
+    end
+}
+
+script Route111_EventScript_PlayerLostTheFight {
+    fadescreen (FADE_TO_BLACK)
+	clearflag (FLAG_HIDE_JIRACHI)
+	clearflag (FLAG_HIDE_THORNE_MT_TEMPEST)
+	special (SetCB2WhiteOut)
+	waitstate
+    release
+    end
+}
+
+text Route111_EventScript_Text_Grunt1Defeat {
+	format("So, the rumors are true!")
+}
+
+text Route111_EventScript_Text_Grunt2Defeat {
+	format("How did you two kids get to be so strong?")
+}
+
+movement Route111_Movement_StepDown {
+	walk_in_place_down
+}
+
+movement Route111_Movement_StepUp {
+	walk_in_place_up
+}
+
+movement Route111_Movement_StepLeft {
+	walk_in_place_left
+}
+
+movement Route111_Movement_StepRight {
+	walk_in_place_right
+}
+
+movement Route111_Movement_ShaneToPlayer {
+	walk_up * 5
+}
+
+movement Route111_Movement_PlayerStepLeft {
+	walk_left
+	walk_in_place_up
+}
+
+movement Route111_Movement_ShaneStepUp {
+	walk_up
+}
+
+movement Route111_Movement_Grunt1toPlayer {
+	walk_right
+	walk_down
+}
+
+movement Route111_Movement_Grunt2toShane {
+	walk_left * 2
+	walk_down
+}
+
+movement Route111_Movement_ShaneExit {
+	walk_down * 6
+}
+
+script Route111_EventScript_Jirachi {
+	lock
+    waitse
+	playmoncry (SPECIES_JIRACHI, CRY_MODE_NORMAL)
+    msgbox(format("Jiraaah!"))
+    waitmessage
+    waitmoncry
+    setwildbattle (SPECIES_JIRACHI, 45)
+    dowildbattle
+    removeobject(JIRACHI_ID)
+    setflag(FLAG_HIDE_JIRACHI)
+    release
+    end
+}
+
+raw`
+Route111_EventScript_Man2::
+	msgbox Route111_Text_WinstrateFamilyDestroyedMe, MSGBOX_NPC
+	end
+
+Route111_EventScript_Drew::
+	trainerbattle_single TRAINER_DREW, Route111_Text_DrewIntro, Route111_Text_DrewDefeat
+	msgbox Route111_Text_DrewPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Heidi::
+	trainerbattle_single TRAINER_HEIDI, Route111_Text_HeidiIntro, Route111_Text_HeidiDefeat
+	msgbox Route111_Text_HeidiPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Beau::
+	trainerbattle_single TRAINER_BEAU, Route111_Text_BeauIntro, Route111_Text_BeauDefeat
+	msgbox Route111_Text_BeauPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Becky::
+	trainerbattle_single TRAINER_BECKY, Route111_Text_BeckyIntro, Route111_Text_BeckyDefeat
+	msgbox Route111_Text_BeckyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Dusty::
+	trainerbattle_single TRAINER_DUSTY_1, Route111_Text_DustyIntro, Route111_Text_DustyDefeat, Route111_EventScript_RegisterDusty
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, Route111_EventScript_RematchDusty
+	msgbox Route111_Text_DustyPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Route111_EventScript_RegisterDusty::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	msgbox Route111_Text_DustyRegister, MSGBOX_DEFAULT
+	register_matchcall TRAINER_DUSTY_1
+	release
+	end
+
+Route111_EventScript_RematchDusty::
+	trainerbattle_rematch TRAINER_DUSTY_1, Route111_Text_DustyRematchIntro, Route111_Text_DustyRematchDefeat
+	msgbox Route111_Text_DustyPostRematch, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Travis::
+	trainerbattle_single TRAINER_TRAVIS, Route111_Text_TravisIntro, Route111_Text_TravisDefeat
+	msgbox Route111_Text_TravisPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Irene::
+	trainerbattle_single TRAINER_IRENE, Route111_Text_IreneIntro, Route111_Text_IreneDefeat
+	msgbox Route111_Text_IrenePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Daisuke::
+	trainerbattle_single TRAINER_DAISUKE, Route111_Text_DaisukeIntro, Route111_Text_DaisukeDefeat
+	msgbox Route111_Text_DaisukePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Wilton::
+	trainerbattle_single TRAINER_WILTON_1, Route111_Text_WiltonIntro, Route111_Text_WiltonDefeat
+	msgbox Route111_Text_WiltonPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Brooke::
+	trainerbattle_single TRAINER_BROOKE_1, Route111_Text_BrookeIntro, Route111_Text_BrookeDefeat
+	msgbox Route111_Text_BrookePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Hayden::
+	trainerbattle_single TRAINER_HAYDEN, Route111_Text_HaydenIntro, Route111_Text_HaydenDefeat
+	msgbox Route111_Text_HaydenPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Bianca::
+	trainerbattle_single TRAINER_BIANCA, Route111_Text_BiancaIntro, Route111_Text_BiancaDefeat
+	msgbox Route111_Text_BiancaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Tyron::
+	trainerbattle_single TRAINER_TYRON, Route111_Text_TyronIntro, Route111_Text_TyronDefeat
+	msgbox Route111_Text_TyronPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Celina::
+	trainerbattle_single TRAINER_CELINA, Route111_Text_CelinaIntro, Route111_Text_CelinaDefeat
+	msgbox Route111_Text_CelinaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Celia::
+	trainerbattle_single TRAINER_CELIA, Route111_Text_CeliaIntro, Route111_Text_CeliaDefeat
+	msgbox Route111_Text_CeliaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Bryan::
+	trainerbattle_single TRAINER_BRYAN, Route111_Text_BryanIntro, Route111_Text_BryanDefeat
+	msgbox Route111_Text_BryanPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Branden::
+	trainerbattle_single TRAINER_BRANDEN, Route111_Text_BrandenIntro, Route111_Text_BrandenDefeat
+	msgbox Route111_Text_BrandenPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route111_Text_WinstrateFamilyDestroyedMe:
+	.string "I don't know why I wanted to check out\n"
+	.string "this mountain.\p"
+	.string "It's way too rainy, and there are\n"
+	.string "TRAINERS everywhere!$"
+`

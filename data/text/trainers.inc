@@ -1214,145 +1214,140 @@ Route110_Text_KalebPostBattle:
 	.string "Snow is overrated.$"
 
 Route111_Text_DrewIntro:
-	.string "Oh, hey! Those GO-GOGGLES suit you.\n"
-	.string "But I think they look better on me.\p"
-	.string "Let's decide who they look better on\n"
-	.string "with a battle!$"
+	.string "Did you take a wrong turn?$"
 
 Route111_Text_DrewDefeat:
-	.string "I couldn't see what was happening at\n"
-	.string "my sides because of the GO-GOGGLES.$"
+	.string "Alrighty then, you just go wherever you\n"
+	.string "want to, ok?$"
 
 Route111_Text_DrewPostBattle:
-	.string "The GO-GOGGLES make it possible to\n"
-	.string "get through sandstorms.\l"
-	.string "That makes me happy!$"
+	.string "I became a ranger because I love\n"
+	.string "nature, but this is a little too much for\l"
+	.string "me.$"
 
 Route111_Text_HeidiIntro:
-	.string "I'm having a picnic in the desert.\p"
-	.string "You can always find a TRAINER,\n"
-	.string "so I can enjoy a battle here, too!$"
+	.string "A group of hooded hoodlums are\n"
+	.string "wandering around on this mountain.\p"
+	.string "You're not with them, are you?$"
 
 Route111_Text_HeidiDefeat:
-	.string "Ohhh! You're mean!$"
+	.string "Ok, I guess you're clear...$"
 
 Route111_Text_HeidiPostBattle:
-	.string "When you're battling in a sandstorm,\n"
-	.string "watch out for your POKéMON's HP.\p"
-	.string "It can faint if you don't keep\n"
-	.string "an eye on it!$"
+	.string "Hmm... You've met those hooded hoodlums\n"
+	.string "before?\p"
+	.string "I knew they were trouble.$"
 
 Route111_Text_BeauIntro:
-	.string "Wearing these GO-GOGGLES makes me\n"
-	.string "feel like a superhero.\l"
-	.string "Right now, nobody can beat me!$"
+	.string "A dangerous mountain like this is no\n"
+	.string "place for children!$"
 
 Route111_Text_BeauDefeat:
-	.string "I can't win on spirit alone…$"
+	.string "Perhaps you are no ordinary child...$"
 
 Route111_Text_BeauPostBattle:
-	.string "I'm going to be a real hero one day.\n"
-	.string "I'm going to work harder to make me\l"
-	.string "and my POKéMON stronger.$"
+	.string "I saw someone out here with an umbrella.\p"
+	.string "Don't they know that could act as a\n"
+	.string "lightning rod?$"
 
 Route111_Text_BeckyIntro:
-	.string "I heard there are fossils to be found\n"
-	.string "in the desert. Where could they be?$"
+	.string "I think I went the wrong way...$"
 
 Route111_Text_BeckyDefeat:
-	.string "I came up short…$"
+	.string "I'm really lost if I'm running across\n"
+	.string "strong TRAINERS like you here.$"
 
 Route111_Text_BeckyPostBattle:
-	.string "If they can find fossils in the desert,\n"
-	.string "it must have been a sea before.$"
+	.string "I may be lost, but at least I know I can\n"
+	.string "get back to Darkoal Town by just\l"
+	.string "descending the mountain.$"
 
 Route111_Text_DustyIntro:
-	.string "For thirty years I have searched for\n"
-	.string "ancient ruins!\l"
-	.string "I am to be challenged?$"
+	.string "Urwrah!\p"
+	.string "I'm just too angry!$"
 
 Route111_Text_DustyDefeat:
-	.string "While I have searched for ruins,\n"
-	.string "I've not searched for strong POKéMON.$"
+	.string "Ok, I've calmed down a little bit.$"
 
 Route111_Text_DustyPostBattle:
-	.string "For thirty years I have searched for\n"
-	.string "ancient ruins!\p"
-	.string "No, wait, was that forty years?\n"
-	.string "Which was it now?$"
+	.string "I've calmed down now, but I still don't\n"
+	.string "have my hiking stick.\p"
+	.string "Why bother hiking this mountain without\n"
+	.string "my stick?$"
 
 Route111_Text_DustyRegister:
-	.string "I haven't been searching for any\n"
-	.string "tough POKéMON.\p"
-	.string "But, for some reason, I sure do like\n"
-	.string "POKéNAVS.$"
+	.string "I came all the way to this mountain, but\n"
+	.string "forgot my favorite hiking boots at\l"
+	.string "home.\p"
+	.string "I was just so upset with myself, but you\n"
+	.string "calmed me down.\p"
+	.string "Say why don't you register me in your\n"
+	.string "POKéNAV in case I lose it again.$"
 
 Route111_Text_DustyRematchIntro:
-	.string "For thirty years I have searched for\n"
-	.string "ancient ruins!\p"
-	.string "No, wait, was that forty years?\n"
-	.string "Anyway, am I to be challenged?$"
+	.string "Graah! I'm mad again!$"
 
 Route111_Text_DustyRematchDefeat:
-	.string "I've found no ruins, nor have I found\n"
-	.string "any strong POKéMON…$"
+	.string "Oh, thanks for calming me down.\p"
+	.string "I don't know what I would do without\n"
+	.string "you.$"
 
 Route111_Text_DustyPostRematch:
-	.string "For thirty years I have searched for\n"
-	.string "ancient ruins!\p"
-	.string "No, wait, was that forty years\n"
-	.string "I've searched?\p"
-	.string "Hmm… It could even be fifty…\n"
-	.string "How long have I been at this?$"
+	.string "You'll never believe it, but I forgot my\n"
+	.string "hiking compass this time.\p"
+	.string "I don't know what I was thinking.$"
 
 Route111_Text_TravisIntro:
-	.string "I'm full of pep!\n"
-	.string "And my POKéMON is peppy, too!$"
+	.string "Ah, hiking doesn't get much better than\n"
+	.string "this!$"
 
 Route111_Text_TravisDefeat:
-	.string "My POKéMON lost its pep…$"
+	.string "A challenging hike, and a challenging\n"
+	.string "battle.\p"
+	.string "What more could I ask for?$"
 
 Route111_Text_TravisPostBattle:
-	.string "When I see a TRAINER with a lot of pep,\n"
-	.string "I can't help looking.$"
+	.string "I do enjoy a good challenge, but I'm\n"
+	.string "afraid to say that you were a bit too\l"
+	.string "much of a challenge for me.$"
 
 Route111_Text_IreneIntro:
-	.string "I don't know where you're going,\n"
-	.string "but would you like to battle?$"
+	.string "Stop right there!\p"
+	.string "We're not supposed to let anyone\n"
+	.string "through.$"
 
 Route111_Text_IreneDefeat:
-	.string "Oh, you're disgustingly good!$"
+	.string "Crap, you're actually strong!$"
 
 Route111_Text_IrenePostBattle:
-	.string "I'm thinking that I should go to\n"
-	.string "MT. CHIMNEY, but the view around\l"
-	.string "here is very nice, too.$"
+	.string "You think you can just do whatever you\n"
+	.string "want because you're strong? Huh?\p"
+	.string "Well, I guess you're not wrong.$"
 
 Route111_Text_DaisukeIntro:
-	.string "To train myself, I challenge all\n"
-	.string "whom I meet!$"
+	.string "I've trained in tough conditions all of\n"
+	.string "my life, do you think you can keep up!?$"
 
 Route111_Text_DaisukeDefeat:
-	.string "Uncle! I give up!$"
+	.string "Finally! A worthy opponent!$"
 
 Route111_Text_DaisukePostBattle:
-	.string "All I can do is keep training until\n"
-	.string "I can defeat strong TRAINERS such\l"
-	.string "as yourself.$"
+	.string "You were the first opponent I lost to in\n"
+	.string "years.\p"
+	.string "I'm grateful, believe it or not.\p"
+	.string "It gets boring to never face a real\n"
+	.string "challenge.$"
 
 Route111_Text_WiltonIntro:
-	.string "Show me how much you've toughened\n"
-	.string "your POKéMON.$"
+	.string "Hey, you look familiar...$"
 
 Route111_Text_WiltonDefeat:
-	.string "I see, you've toughened them\n"
-	.string "considerably.$"
+	.string "Ah, crap!\n"
+	.string "You're THAT kid!$"
 
 Route111_Text_WiltonPostBattle:
-	.string "POKéMON and TRAINERS learn much\n"
-	.string "through battling.\p"
-	.string "What's important is to never give up\n"
-	.string "even if you lose.$"
+	.string "Well, at least you got here pretty late.\p"
+	.string "You shouldn't be able to stop us now.$"
 
 Route111_Text_WiltonRegister:
 	.string "There is much to be learned from\n"
@@ -1373,18 +1368,18 @@ Route111_Text_WiltonPostRematch:
 	.string "aim for the POKéMON LEAGUE.$"
 
 Route111_Text_BrookeIntro:
-	.string "Oh, your POKéMON look like serious\n"
-	.string "actors.\l"
-	.string "I have to ask you for an engagement.$"
+	.string "We heard rumors of a legendary POKéMON\n"
+	.string "somewhere on this mountain!$"
 
 Route111_Text_BrookeDefeat:
-	.string "They didn't just look strong,\n"
-	.string "they are strong!$"
+	.string "Wow, you're a legend yourself!$"
 
 Route111_Text_BrookePostBattle:
-	.string "I thought I was raising my POKéMON\n"
-	.string "diligently, but, oh no, there is still\l"
-	.string "much to be done.$"
+	.string "I only joined Team Phoenix because I\n"
+	.string "heard they were searching for a\l"
+	.string "legendary POKéMON.\p"
+	.string "Who wouldn't want to see a cool POKéMON\n"
+	.string "like that?$"
 
 Route111_Text_BrookeRegister:
 	.string "I wish I could become friends with\n"
@@ -1406,89 +1401,91 @@ Route111_Text_BrookePostRematch:
 	.string "learned better moves…$"
 
 Route111_Text_CeliaIntro:
-	.string "I shouldn't have come to a place like\n"
-	.string "this for a picnic!$"
+	.string "No umbrella?\p"
+	.string "You'll get soaking wet!$"
 
 Route111_Text_CeliaDefeat:
-	.string "Aww!\n"
-	.string "I really shouldn't have come!$"
+	.string "Somehow I was the one who got wet!$"
 
 Route111_Text_CeliaPostBattle:
-	.string "In a sandstorm like this, I can't set\n"
-	.string "the places for a picnic even with my\l"
-	.string "GO-GOGGLES on…$"
+	.string "I don't understand how you people can\n"
+	.string "stand to be out in this much rain\l"
+	.string "without an umbrella.$"
 
 Route111_Text_BryanIntro:
-	.string "How tough are you?\n"
-	.string "We shall expose that secret!$"
+	.string "Whoa! What's the rush, kid?$"
 
 Route111_Text_BryanDefeat:
-	.string "Oh! Your strength!\n"
-	.string "It is shrouded in mystery!$"
+	.string "Hey, you're pretty tough.\p"
+	.string "You must be the kid from Johto that\n"
+	.string "I've heard about.$"
 
 Route111_Text_BryanPostBattle:
-	.string "This desert hoards mysteries in\n"
-	.string "its shifting sands!$"
+	.string "You know, there are a lot of rumors\n"
+	.string "about you that they tell the new\l"
+	.string "grunts.\p"
+	.string "I guess some of those rumors are true.$"
 
 Route111_Text_BrandenIntro:
-	.string "I'll give you some of my sandwich\n"
-	.string "if you'll lose.$"
+	.string "Hold up, I've let enough people slip by\n"
+	.string "me for one day!$"
 
 Route111_Text_BrandenDefeat:
-	.string "Tch! I thought a sandwich would be\n"
-	.string "enough of a bribe…$"
+	.string "Fine then, make it one more person!$"
 
 Route111_Text_BrandenPostBattle:
-	.string "My SANDSHREW loves eating\n"
-	.string "my sandwiches.$"
+	.string "I'm sure to lose my job as a ranger at\n"
+	.string "this rate...$"
 
 Route111_Text_TyronIntro:
-	.string "This is my favorite kind of POKéMON!$"
+	.string "How did I get stuck with this job?\p"
+	.string "I hate the rain!$"
 
 Route111_Text_TyronDefeat:
-	.string "Wait!\n"
-	.string "Did you get a good look at my POKéMON?$"
+	.string "Yeah, well, you're just lucky we're not in\n"
+	.string "strong sunlight!$"
 
 Route111_Text_TyronPostBattle:
-	.string "When having a battle, I get a kick out\n"
-	.string "of showing off my POKéMON.\p"
-	.string "I bet everyone feels that way when\n"
-	.string "they enter a battle!$"
+	.string "I guess I could have used the move\n"
+	.string "Sunny Day to get rid of the rain.\p"
+	.string "Crap, why didn't I think of that before\n"
+	.string "I battled you?$"
 
 Route111_Text_CelinaIntro:
-	.string "Show me how to put a little excitement\n"
-	.string "into my life.$"
+	.string "I remember you from the Ecruteak base!\p"
+	.string "I can finally get my revenge!$"
 
 Route111_Text_CelinaDefeat:
-	.string "Oh… My…\n"
-	.string "That was too much excitement.$"
+	.string "Wait, how did you get this much\n"
+	.string "stronger?\p"
+	.string "That's just unnatural!$"
 
 Route111_Text_CelinaPostBattle:
-	.string "My pulse is still racing.\n"
-	.string "You're one fabulous TRAINER.$"
+	.string "Now I'll have to get twice the revenge...\n"
+	.string "If we ever meet again, that is...$"
 
 Route111_Text_HaydenIntro:
-	.string "When you're as famished as I am,\n"
-	.string "there is no room for pity!$"
+	.string "Hey! Didn't we have you locked up in\n"
+	.string "Goldenrod long ago?$"
 
 Route111_Text_HaydenDefeat:
-	.string "Groan…$"
+	.string "This just isn't my day...$"
 
 Route111_Text_HaydenPostBattle:
-	.string "My stomach is grumbling!\n"
-	.string "Maybe I can grill some BERRIES…$"
+	.string "Now I see how you managed to break\n"
+	.string "yourself out of our cells...$"
 
 Route111_Text_BiancaIntro:
-	.string "Did you come from MAUVILLE?\n"
-	.string "Then you should be full of energy!$"
+	.string "Just turn back now, kid.\p"
+	.string "This is none of your business!$"
 
 Route111_Text_BiancaDefeat:
-	.string "Ooh lala!\n"
-	.string "That's a lot to take!$"
+	.string "Oh...\n"
+	.string "Well, when you put it that way...$"
 
 Route111_Text_BiancaPostBattle:
-	.string "This road here…\n"
-	.string "You have quite a ways to travel.$"
+	.string "Really though, you should just mind\n"
+	.string "your own business!$"
 
 Route112_Text_BriceIntro:
 	.string "Y'all city folk wouldn't last a day out\n"

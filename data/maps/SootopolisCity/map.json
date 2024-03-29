@@ -179,7 +179,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SootopolisCity_EventScript_Silver",
-      "flag": "0"
+      "flag": "FLAG_DEFEATED_PHOENIX_MT_TEMPEST"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WALLACE",
@@ -218,7 +218,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SootopolisCity_EventScript_Feraligatr",
-      "flag": "0"
+      "flag": "FLAG_DEFEATED_PHOENIX_MT_TEMPEST"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",

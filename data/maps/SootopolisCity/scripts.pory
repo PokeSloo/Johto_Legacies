@@ -7,6 +7,7 @@ const FERALIGATR_ID = 15
 mapscripts SootopolisCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
         setflag (FLAG_VISITED_SOOTOPOLIS_CITY)
+		call_if_eq (VAR_LAZULAN_STATE, 2, SootopolisCity_EventScript_SetUpAfterMtTempest)
 	    call_if_eq (VAR_LAZULAN_STATE, 1, SootopolisCity_EventScript_SetUpAfterMegaStone)
         end
     }
@@ -16,6 +17,13 @@ script SootopolisCity_EventScript_SetUpAfterMegaStone {
 	setobjectxyperm (FERALIGATR_ID, 25, 33)
 	setobjectxyperm (SILVER_ID, 28, 32)
 	setobjectmovementtype (SILVER_ID, MOVEMENT_TYPE_FACE_UP)
+}
+
+script SootopolisCity_EventScript_SetUpAfterMtTempest {
+	setobjectxyperm (GOLD_ID, 36, 31)
+	setobjectxyperm (TYPLOSION_ID, 37, 31)
+	setobjectmovementtype (GOLD_ID, MOVEMENT_TYPE_FACE_DOWN)
+	setobjectmovementtype (TYPLOSION_ID, MOVEMENT_TYPE_FACE_DOWN)
 }
 
 script SootopolisCity_EventScript_TriggerLeft {

@@ -59,15 +59,15 @@ Route110_EventScript_ItemElixir::
 	end
 
 Route111_EventScript_ItemTM37::
-	finditem ITEM_TM37
+	finditem ITEM_NUGGET
 	end
 
 Route111_EventScript_ItemStardust::
-	finditem ITEM_STARDUST
+	finditem ITEM_TERRAIN_EXTENDER
 	end
 
 Route111_EventScript_ItemHPUp::
-	finditem ITEM_HP_UP
+	finditem ITEM_MAX_ETHER
 	end
 
 Route111_EventScript_ItemElixir::

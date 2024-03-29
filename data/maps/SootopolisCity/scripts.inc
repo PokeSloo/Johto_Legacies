@@ -4,6 +4,7 @@ SootopolisCity_MapScripts::
 
 SootopolisCity_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setflag FLAG_VISITED_SOOTOPOLIS_CITY
+	call_if_eq VAR_LAZULAN_STATE, 2, SootopolisCity_EventScript_SetUpAfterMtTempest
 	call_if_eq VAR_LAZULAN_STATE, 1, SootopolisCity_EventScript_SetUpAfterMegaStone
 	end
 
@@ -12,6 +13,14 @@ SootopolisCity_EventScript_SetUpAfterMegaStone::
 	setobjectxyperm 15, 25, 33
 	setobjectxyperm 12, 28, 32
 	setobjectmovementtype 12, MOVEMENT_TYPE_FACE_UP
+	return
+
+
+SootopolisCity_EventScript_SetUpAfterMtTempest::
+	setobjectxyperm 11, 36, 31
+	setobjectxyperm 14, 37, 31
+	setobjectmovementtype 11, MOVEMENT_TYPE_FACE_DOWN
+	setobjectmovementtype 14, MOVEMENT_TYPE_FACE_DOWN
 	return
 
 

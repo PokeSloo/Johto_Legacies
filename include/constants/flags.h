@@ -1276,10 +1276,10 @@
 #define FLAG_RECEIVED_LOPUNNITE                                     0x4CB // Darkoal old woman
 #define FLAG_RECEIVED_METAGROSSITE                                  0x4CC // Darkoal old woman
 #define FLAG_RECEIVED_MEWTWONITE                                    0x4CD // Darkoal old woman
-#define FLAG_UNUSED_0x4CE                                           0x4CE // Unused Flag
-#define FLAG_UNUSED_0x4CF                                           0x4CF // Unused Flag
-#define FLAG_UNUSED_0x4D0                                           0x4D0 // Unused Flag
-#define FLAG_UNUSED_0x4D1                                           0x4D1 // Unused Flag
+#define FLAG_DEFEATED_PHOENIX_MT_TEMPEST                            0x4CE // Thorne got away, hides all phoenix grunts
+#define FLAG_HIDE_JIRACHI                                           0x4CF // On Mt Tempest
+#define FLAG_HIDE_SHANE_MT_TEMPEST                                  0x4D0 // Appears for battle
+#define FLAG_HIDE_THORNE_MT_TEMPEST                                 0x4D1 // After he flies off
 #define FLAG_UNUSED_0x4D2                                           0x4D2 // Unused Flag
 #define FLAG_UNUSED_0x4D3                                           0x4D3 // Unused Flag
 #define FLAG_UNUSED_0x4D4                                           0x4D4 // Unused Flag
