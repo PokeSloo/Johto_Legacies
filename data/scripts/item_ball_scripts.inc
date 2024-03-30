@@ -219,23 +219,23 @@ Route121_EventScript_ItemZinc::
 	end
 
 Route123_EventScript_ItemCalcium::
-	finditem ITEM_CALCIUM
+	finditem ITEM_GLALITITE
 	end
 
 Route123_EventScript_ItemUltraBall::
-	finditem ITEM_ULTRA_BALL
+	finditem ITEM_MAWILITE
 	end
 
 Route123_EventScript_ItemElixir::
-	finditem ITEM_ELIXIR
+	finditem ITEM_PIDGEOTITE
 	end
 
 Route123_EventScript_ItemPPUp::
-	finditem ITEM_PP_UP
+	finditem ITEM_MANECTITE
 	end
 
 Route123_EventScript_ItemRevivalHerb::
-	finditem ITEM_REVIVAL_HERB
+	finditem ITEM_MEDICHAMITE
 	end
 
 Route124_EventScript_ItemRedShard::
