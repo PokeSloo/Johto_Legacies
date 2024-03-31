@@ -123,6 +123,7 @@ LittlerootTown_BrendansHouse_1F_EventScript_OnFrameAfterE4_6:
 	removeobject 7
 	setflag FLAG_HIDE_SILVER_IN_HOUSE
 	setflag FLAG_HIDE_GOLD_ROUTE_G
+	setflag FLAG_HIDE_SILVER_OUTSIDE_ROUJEM
 	addvar VAR_CHERRYGROVE_STATE, 1
 	release
 	end

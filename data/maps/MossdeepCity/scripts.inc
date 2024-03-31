@@ -1,10 +1,3 @@
-.set LOCALID_GRUNT_1, 10
-.set LOCALID_GRUNT_2, 11
-.set LOCALID_GRUNT_3, 12
-.set LOCALID_GRUNT_4, 13
-.set LOCALID_MAXIE, 14
-.set LOCALID_SCOTT, 16
-
 MossdeepCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MossdeepCity_OnTransition
 	.byte 0
@@ -14,22 +7,13 @@ MossdeepCity_OnTransition:
 	end
 
 MossdeepCity_EventScript_PokefanF::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_HM08, MossdeepCity_EventScript_PokefanFMagmaGone
-	msgbox MossdeepCity_Text_SpaceCenterReceivedLetter, MSGBOX_DEFAULT
-	release
-	end
-
-MossdeepCity_EventScript_PokefanFMagmaGone::
-	msgbox MossdeepCity_Text_SpaceCenterLaunchingRockets, MSGBOX_DEFAULT
-	release
+	msgbox MossdeepCity_Text_SpaceCenterReceivedLetter, MSGBOX_NPC
 	end
 
 MossdeepCity_EventScript_Sailor::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_HM08, MossdeepCity_EventScript_SailorMagmaGone
+	goto_if_set FLAG_DEFEATED_THORNE_ROUJEM, MossdeepCity_EventScript_SailorMagmaGone
 	msgbox MossdeepCity_Text_MossdeepTargetedByMagma, MSGBOX_DEFAULT
 	release
 	end
@@ -55,10 +39,6 @@ MossdeepCity_EventScript_Woman::
 	msgbox MossdeepCity_Text_SpecialSpaceCenterRock, MSGBOX_NPC
 	end
 
-MossdeepCity_EventScript_WhiteRock::
-	msgbox MossdeepCity_Text_ItsAWhiteRock, MSGBOX_SIGN
-	end
-
 MossdeepCity_EventScript_GymSign::
 	msgbox MossdeepCity_Text_GymSign, MSGBOX_SIGN
 	end
@@ -71,361 +51,186 @@ MossdeepCity_EventScript_SpaceCenterSign::
 	msgbox MossdeepCity_Text_SpaceCenterSign, MSGBOX_SIGN
 	end
 
-MossdeepCity_EventScript_VisitedMossdeep::
-	setflag FLAG_VISITED_MOSSDEEP_CITY
-	setvar VAR_TEMP_1, 1
-	end
-
-MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter::
-	lockall
-	applymovement LOCALID_MAXIE, MossdeepCity_Movement_MaxieGestureToSpaceCenter
-	waitmovement 0
-	applymovement LOCALID_GRUNT_1, MossdeepCity_Movement_GruntFaceSpaceCenter
-	applymovement LOCALID_GRUNT_2, MossdeepCity_Movement_GruntFaceSpaceCenter
-	applymovement LOCALID_GRUNT_3, MossdeepCity_Movement_GruntFaceSpaceCenter
-	applymovement LOCALID_GRUNT_4, MossdeepCity_Movement_GruntFaceSpaceCenter
-	waitmovement 0
-	applymovement LOCALID_MAXIE, MossdeepCity_Movement_MaxieEnterSpaceCenter
-	applymovement LOCALID_GRUNT_1, MossdeepCity_Movement_Grunt1EnterSpaceCenter
-	applymovement LOCALID_GRUNT_2, MossdeepCity_Movement_Grunt2EnterSpaceCenter
-	applymovement LOCALID_GRUNT_3, MossdeepCity_Movement_Grunt3EnterSpaceCenter
-	applymovement LOCALID_GRUNT_4, MossdeepCity_Movement_Grunt4EnterSpaceCenter
-	waitmovement 0
-	removeobject LOCALID_MAXIE
-	removeobject LOCALID_GRUNT_1
-	removeobject LOCALID_GRUNT_2
-	removeobject LOCALID_GRUNT_3
-	removeobject LOCALID_GRUNT_4
-	delay 30
-	setvar VAR_MOSSDEEP_CITY_STATE, 2
-	setflag FLAG_HIDE_MOSSDEEP_CITY_TEAM_MAGMA
-	releaseall
-	end
-
-MossdeepCity_Movement_MaxieGestureToSpaceCenter:
-	delay_16
-	face_right
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	face_left
-	delay_16
-	delay_16
-	step_end
-
-MossdeepCity_Movement_GruntFaceSpaceCenter:
-	face_right
-	delay_16
-	delay_16
-	delay_16
-	step_end
-
-MossdeepCity_Movement_MaxieEnterSpaceCenter:
-	walk_down
-	walk_right
-	walk_right
-	walk_down
-	walk_down
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
-MossdeepCity_Movement_Grunt1EnterSpaceCenter:
-	delay_16
-	delay_8
-	walk_down
-	walk_down
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_down
-	walk_down
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
-MossdeepCity_Movement_Grunt2EnterSpaceCenter:
-	delay_16
-	delay_8
-	walk_down
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_down
-	walk_down
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
-MossdeepCity_Movement_Grunt3EnterSpaceCenter:
-	delay_16
-	delay_8
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_down
-	walk_down
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
-MossdeepCity_Movement_Grunt4EnterSpaceCenter:
-	delay_16
-	delay_8
-	walk_right
-	walk_right
-	walk_right
-	walk_down
-	walk_down
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
 MossdeepCity_EventScript_Man::
-	lock
-	faceplayer
-	msgbox MossdeepCity_Text_SurfExhilarating, MSGBOX_DEFAULT
-	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	release
+	msgbox MossdeepCity_Text_SurfExhilarating, MSGBOX_NPC
 	end
 
 MossdeepCity_EventScript_KingsRockBoy::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_KINGS_ROCK, MossdeepCity_EventScript_ReceivedKingsRock
-	msgbox MossdeepCity_Text_WantKingsRockStevenGaveMe, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MossdeepCity_EventScript_DeclineKingsRock
-	msgbox MossdeepCity_Text_YouCanKeepIt, MSGBOX_DEFAULT
-	giveitem ITEM_KINGS_ROCK
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_KINGS_ROCK
-	release
-	end
-
-MossdeepCity_EventScript_ReceivedKingsRock::
-	msgbox MossdeepCity_Text_StevensHouseOverThere, MSGBOX_DEFAULT
-	release
-	end
-
-MossdeepCity_EventScript_DeclineKingsRock::
-	msgbox MossdeepCity_Text_WhatToDoWithWeirdRock, MSGBOX_DEFAULT
-	release
+	msgbox MossdeepCity_Text_WantKingsRockStevenGaveMe, MSGBOX_NPC
 	end
 
 MossdeepCity_EventScript_BlackBelt::
 	msgbox MossdeepCity_Text_SootopolisNewGymLeader, MSGBOX_NPC
 	end
 
-MossdeepCity_EventScript_Scott::
+MossdeepCity_Text_WantKingsRockStevenGaveMe:
+	.string "You're from Johto?\p"
+	.string "What's that like?\p"
+	.string "...\p"
+	.string "...\p"
+	.string "Huh, that sounds like fun.\p"
+	.string "I should really get out and explore more\n"
+	.string "often.$"
+
+MossdeepCity_Text_WailmerWatching:
+	.string "I really wanted to go to the festival in\n"
+	.string "Lazulan City, but my parents won't let\l"
+	.string "me.\p"
+	.string "This is so unfair!$"
+
+MossdeepCity_Text_SpaceCenterReceivedLetter:
+	.string "They've been really overprotective of\n"
+	.string "the shipyard lately.\p"
+	.string "I wonder what changed.$"
+
+MossdeepCity_Text_MossdeepTargetedByMagma:
+	.string "I just can't stand working for these\n"
+	.string "new managers.\p"
+	.string "There are so many hooded weirdos\n"
+	.string "coming and going, and nobody will tell us\l"
+	.string "workers what's going on.$"
+
+MossdeepCity_Text_FeelReliefOnLand:
+	.string "Hey, you got rid of those jerks!\p"
+	.string "Who knew the new managers were part of\n"
+	.string "some weird gang.$"
+
+MossdeepCity_Text_NiceIfWorldCoveredByFlowers:
+	.string "Ah, to gaze upon the sparkling sea.\p"
+	.string "It's like a medicine for the soul,\n"
+	.string "wouldn't you agree?$"
+
+MossdeepCity_Text_LifeNeedsSeaToLive:
+	.string "This used to be a great place to work,\n"
+	.string "that is, until the new management\l"
+	.string "showed up.$"
+
+MossdeepCity_Text_SurfExhilarating:
+	.string "Ugh...\p"
+	.string "This job was easier when we didn't have\n"
+	.string "so many shipping containers coming\l"
+	.string "through.\p"
+	.string "The higher ups won't even tell me what's\n"
+	.string "in them.$"
+
+MossdeepCity_Text_SpecialSpaceCenterRock:
+	.string "Have you heard of a TRAINER named RED?\p"
+	.string "Nobody really knows anything about him\n"
+	.string "except that he is exceptionally\l"
+	.string "powerful.\p"
+	.string "He must spend all of his time training.$"
+
+MossdeepCity_Text_GymSign:
+	.string "ROUJEM SHIPYARD$"
+
+MossdeepCity_Text_CitySign:
+	.string "ROUJEM CITY\n"
+	.string "“Shipping hub of the East.”$"
+
+MossdeepCity_Text_SpaceCenterSign:
+	.string "NO TRESPASSING!$"
+
+MossdeepCity_Text_SootopolisNewGymLeader:
+	.string "My boyfriend likes to collect\n"
+	.string "meteorites.\p"
+	.string "I don't know what they're good for\n"
+	.string "though, they just look like normal rocks\l"
+	.string "to me.$"
+
+MossdeepCity_EventScript_PhoenixGrunt::
 	lock
-	faceplayer
-	msgbox MossdeepCity_Text_ScottSomethingWrongWithTown, MSGBOX_DEFAULT
+	msgbox MossdeepCity_EventScript_PhoenixGrunt_Text_0
+	waitmessage
 	closemessage
-	call_if_eq VAR_FACING, DIR_NORTH, MossdeepCity_EventScript_ScottExitNorth
-	call_if_eq VAR_FACING, DIR_EAST, MossdeepCity_EventScript_ScottExitEast
-	addvar VAR_SCOTT_STATE, 1
-	removeobject LOCALID_SCOTT
+	playse SE_PIN
+	applymovement 10, MossdeepCity_Movement_ExclamationRight
+	waitmovement 0
+	waitse
+	delay 30
+	msgbox MossdeepCity_EventScript_PhoenixGrunt_Text_1
+	waitmessage
+	closemessage
+	applymovement 10, SootopolisCity_Movement_StepDown
+	waitmovement 0
 	release
 	end
 
-MossdeepCity_EventScript_ScottExitNorth::
-	applymovement OBJ_EVENT_ID_PLAYER, MossdeepCity_Movement_PlayerWatchScottExit
-	applymovement LOCALID_SCOTT, MossdeepCity_Movement_ScottExitNorth
+
+MossdeepCity_Movement_ExclamationRight:
+	emote_exclamation_mark
+	walk_in_place_right
+	step_end
+
+MossdeepCity_EventScript_Silver::
+	lock
+	faceplayer
+	msgbox MossdeepCity_EventScript_Silver_Text_0
+	waitmessage
+	applymovement 13, SootopolisCity_Movement_StepLeft
+	applymovement 14, SootopolisCity_Movement_StepUp
 	waitmovement 0
-	return
-
-MossdeepCity_EventScript_ScottExitEast::
-	applymovement OBJ_EVENT_ID_PLAYER, MossdeepCity_Movement_PlayerWatchScottExit
-	applymovement LOCALID_SCOTT, MossdeepCity_Movement_ScottExitEast
+	msgbox MossdeepCity_EventScript_Silver_Text_1
+	waitmessage
+	applymovement 15, SootopolisCity_Movement_StepRight
 	waitmovement 0
-	return
+	msgbox MossdeepCity_EventScript_Silver_Text_2
+	waitmessage
+	closemessage
+	applymovement 15, SootopolisCity_Movement_WalkUpOneInvis
+	waitmovement 0
+	playse SE_EXIT
+	waitse
+	removeobject 15
+	faceplayer
+	msgbox MossdeepCity_EventScript_Silver_Text_3
+	waitmessage
+	closemessage
+	applymovement 13, MossdeepCity_Movement_WalkLeft
+	waitmovement 0
+	applymovement 13, SootopolisCity_Movement_WalkUpOneInvis
+	applymovement 14, SootopolisCity_Movement_UpTwoInvis
+	waitmovement 0
+	playse SE_EXIT
+	waitse
+	removeobject 13
+	removeobject 14
+	setflag FLAG_HIDE_SILVER_OUTSIDE_ROUJEM
+	release
+	end
 
-MossdeepCity_Movement_PlayerWatchScottExit:
-	delay_16
-	delay_16
-	walk_in_place_faster_left
-	step_end
 
-MossdeepCity_Movement_ScottExitNorth:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	step_end
-
-MossdeepCity_Movement_ScottExitEast:
-	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
+MossdeepCity_Movement_WalkLeft:
 	walk_left
 	step_end
 
-MossdeepCity_Text_WantKingsRockStevenGaveMe:
-	.string "I got this from STEVEN, but I don't\n"
-	.string "know what it's good for.\p"
-	.string "I think it's called KING'S ROCK.\n"
-	.string "Do you want it?$"
+MossdeepCity_EventScript_PhoenixGrunt_Text_0:
+	.string "Man, what's taking them so long?\p"
+	.string "Mt. Tempest isn't that far away...$"
 
-MossdeepCity_Text_YouCanKeepIt:
-	.string "Why would you want it?\n"
-	.string "You're weird.\p"
-	.string "You can keep it, but keep it a secret\n"
-	.string "from STEVEN.$"
+MossdeepCity_EventScript_PhoenixGrunt_Text_1:
+	.string "Hey!\p"
+	.string "Hasn't anyone ever told you it's rude to\n"
+	.string "eavesdrop?\p"
+	.string "Get lost, kid!$"
 
-MossdeepCity_Text_StevensHouseOverThere:
-	.string "STEVEN's house is right over there!$"
+MossdeepCity_EventScript_Silver_Text_0:
+	.string "DAD: {PLAYER}, good timing.\p"
+	.string "SHANE told me you two battled some\n"
+	.string "Team Phoenix grunts up on Mt. Tempest,\l"
+	.string "so I did some exploring, and found this\l"
+	.string "shady fellow.$"
 
-MossdeepCity_Text_WhatToDoWithWeirdRock:
-	.string "Yeah, you think so, too! What are you\n"
-	.string "supposed to do with some weird rock?$"
+MossdeepCity_EventScript_Silver_Text_1:
+	.string "Now, where were we?\p"
+	.string "That's right, you were going to tell me\n"
+	.string "why you're hanging around this\l"
+	.string "shipping port.$"
 
-MossdeepCity_Text_WailmerWatching:
-	.string "Around MOSSDEEP, you can see wild\n"
-	.string "WAILMER.\p"
-	.string "It's called, uh…\n"
-	.string "What was it now…\p"
-	.string "WAI, WAI, WAI…\p"
-	.string "WAILMER watching!$"
+MossdeepCity_EventScript_Silver_Text_2:
+	.string "GRUNT: I'm not telling you two anything,\n"
+	.string "now get lost!$"
 
-MossdeepCity_Text_SpaceCenterReceivedLetter:
-	.string "The island's SPACE CENTER has been\n"
-	.string "launching huge rockets.\p"
-	.string "There's been some kind of an uproar\n"
-	.string "over a letter they received recently.$"
-
-MossdeepCity_Text_SpaceCenterLaunchingRockets:
-	.string "The island's SPACE CENTER has been\n"
-	.string "launching huge rockets.$"
-
-MossdeepCity_Text_MossdeepTargetedByMagma:
-	.string "I heard from a SAILOR buddy that\n"
-	.string "TEAM AQUA set up shop in LILYCOVE.\p"
-	.string "I also heard that someone came along\n"
-	.string "and wiped the floor with them!\p"
-	.string "But MOSSDEEP here's been targeted\n"
-	.string "by that TEAM MAGMA.\p"
-	.string "If you want to know what they're up to,\n"
-	.string "go visit the SPACE CENTER.$"
-
-MossdeepCity_Text_FeelReliefOnLand:
-	.string "I'm a SAILOR, so the sea's obviously\n"
-	.string "more important to me.\p"
-	.string "But you know? When I get back on land\n"
-	.string "after a long voyage, I do feel relief!$"
-
-MossdeepCity_Text_NiceIfWorldCoveredByFlowers:
-	.string "Wouldn't it be nice?\p"
-	.string "If the whole world was covered in\n"
-	.string "plants and flowers like this island?$"
-
-MossdeepCity_Text_LifeNeedsSeaToLive:
-	.string "All life needs the sea to live, even\n"
-	.string "though it makes its home on the land.\p"
-	.string "Life, having run its course, becomes\n"
-	.string "soil and returns to the land.\p"
-	.string "And the sea is always connected to\n"
-	.string "the land.\p"
-	.string "Yes, like the very shoreline here.$"
-
-MossdeepCity_Text_SurfExhilarating:
-	.string "A voyage on a ship is fine.\p"
-	.string "But crossing the sea with POKéMON\n"
-	.string "using SURF…\p"
-	.string "Now that's an exhilarating trip!\n"
-	.string "Wouldn't you agree, youngster?$"
-
-MossdeepCity_Text_SpecialSpaceCenterRock:
-	.string "This rock has a special meaning to\n"
-	.string "the people at the SPACE CENTER.\p"
-	.string "They put it here as their wish for\n"
-	.string "their rockets to fly safely.\p"
-	.string "When you make a wish, what do you use?\n"
-	.string "Do you wish upon a star?\p"
-	.string "I use a wish tag to make it happen.\n"
-	.string "That's what I do.$"
-
-MossdeepCity_Text_ItsAWhiteRock:
-	.string "It's a white rock.$"
-
-MossdeepCity_Text_GymSign:
-	.string "MOSSDEEP CITY POKéMON GYM\n"
-	.string "LEADERS: LIZA & TATE\p"
-	.string "“The mystic combination!”$"
-
-MossdeepCity_Text_CitySign:
-	.string "MOSSDEEP CITY\n"
-	.string "“Our slogan: Cherish POKéMON!”$"
-
-MossdeepCity_Text_SpaceCenterSign:
-	.string "MOSSDEEP SPACE CENTER\n"
-	.string "“The closest place to space.”$"
-
-MossdeepCity_Text_ScottSomethingWrongWithTown:
-	.string "SCOTT: {PLAYER}{KUN}, feeling good?\n"
-	.string "I'm doing great!\p"
-	.string "I'd heard MOSSDEEP's GYM LEADER is\n"
-	.string "pretty strong, so I decided to come\l"
-	.string "take a look-see for myself.\p"
-	.string "But there's something wrong about\n"
-	.string "this town.\p"
-	.string "People are going on about a warning\n"
-	.string "letter and the SPACE CENTER…\p"
-	.string "I don't think it concerns me in any\n"
-	.string "way, though.$"
-
-MossdeepCity_Text_SootopolisNewGymLeader:
-	.string "Ahh… It feels great letting the waves\n"
-	.string "wash over my feet…\p"
-	.string "Speaking of the waves, you know that\n"
-	.string "island city SOOTOPOLIS?\p"
-	.string "I think the GYM there had a new\n"
-	.string "LEADER come in.\p"
-	.string "People tell me the new LEADER once\n"
-	.string "mentored WALLACE.$"
-
+MossdeepCity_EventScript_Silver_Text_3:
+	.string "DAD: Come on, {PLAYER}, this has to be\n"
+	.string "one of their bases.\p"
+	.string "Let's check it out.$"

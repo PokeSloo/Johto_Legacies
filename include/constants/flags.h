@@ -1280,8 +1280,8 @@
 #define FLAG_HIDE_JIRACHI                                           0x4CF // On Mt Tempest
 #define FLAG_HIDE_SHANE_MT_TEMPEST                                  0x4D0 // Appears for battle
 #define FLAG_HIDE_THORNE_MT_TEMPEST                                 0x4D1 // After he flies off
-#define FLAG_UNUSED_0x4D2                                           0x4D2 // Unused Flag
-#define FLAG_UNUSED_0x4D3                                           0x4D3 // Unused Flag
+#define FLAG_HIDE_SILVER_OUTSIDE_ROUJEM                             0x4D2 // Cleared at Mt Tempest
+#define FLAG_DEFEATED_THORNE_ROUJEM                                 0x4D3 // Free Jirachi too
 #define FLAG_UNUSED_0x4D4                                           0x4D4 // Unused Flag
 #define FLAG_UNUSED_0x4D5                                           0x4D5 // Unused Flag
 #define FLAG_UNUSED_0x4D6                                           0x4D6 // Unused Flag

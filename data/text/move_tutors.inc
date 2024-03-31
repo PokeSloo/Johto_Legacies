@@ -170,29 +170,29 @@ MoveTutor_Text_SubstituteTaught:
 	.string "I hope you'll get that way, too!$"
 
 MoveTutor_Text_DynamicPunchTeach:
-	.string "I can't do this anymore!\p"
-	.string "It's utterly hopeless!\p"
-	.string "I'm a FIGHTING-type TRAINER,\n"
-	.string "so I can't win at the MOSSDEEP GYM\l"
-	.string "no matter how hard I try!\p"
-	.string "Argh! Punch! Punch! Punch!\n"
-	.string "Punch! Punch! Punch!\p"
-	.string "What, don't look at me that way!\n"
-	.string "I'm only hitting the ground!\p"
-	.string "Or do you want me to teach your\n"
-	.string "POKéMON DYNAMICPUNCH?$"
+	.string "Kiyah!\p"
+	.string "You look like a fan of martial arts!\p"
+	.string "You know, I'm something of a martial\n"
+	.string "artist myself.\p"
+	.string "Don't believe me?\p"
+	.string "I could teach your POKéMON a\n"
+	.string "FIGHTING-type move to prove it.\p"
+	.string "So then, would you like me to teach one\n"
+	.string "of your POKéMON the move Dynamic\l"
+	.string "Punch?$"
 
 MoveTutor_Text_DynamicPunchDeclined:
-	.string "Darn! You're even making fun of me?\n"
-	.string "Punch! Punch! Punch!$"
+	.string "What?\p"
+	.string "So you really don't believe me?$"
 
 MoveTutor_Text_DynamicPunchWhichMon:
-	.string "What? You do? You're a good person!\n"
-	.string "Which POKéMON should I teach?$"
+	.string "Yes! I knew you would believe me!\p"
+	.string "So then, which POKéMON shall I teach?$"
 
 MoveTutor_Text_DynamicPunchTaught:
-	.string "I want you to win at the MOSSDEEP GYM\n"
-	.string "using that DYNAMICPUNCH!$"
+	.string "The world would be a better place if\n"
+	.string "more people enjoyed martial arts like\l"
+	.string "you and me.$"
 
 MoveTutor_Text_DoubleEdgeTeach:
 	.string "Yo kid, do you want me to teach one of\n"

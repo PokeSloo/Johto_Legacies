@@ -319,7 +319,7 @@ LilycoveCity_EventScript_ItemMaxRepel::
 	end
 
 MossdeepCity_EventScript_ItemNetBall::
-	finditem ITEM_NET_BALL
+	finditem ITEM_SHARPEDONITE
 	end
 
 PetalburgWoods_EventScript_ItemXAttack::

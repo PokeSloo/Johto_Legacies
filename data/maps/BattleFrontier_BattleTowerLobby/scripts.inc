@@ -17,7 +17,6 @@ BattleFrontier_BattleTowerLobby_OnResume:
 	end
 
 BattleFrontier_BattleTowerLobby_OnTransition:
-	setflag FLAG_LANDMARK_BATTLE_FRONTIER
 	setrespawn HEAL_LOCATION_BATTLE_FRONTIER_OUTSIDE_EAST
 	call BattleFrontier_BattleTowerLobby_EventScript_ShowOrHideReporter
 	apprentice_shouldcheckgone

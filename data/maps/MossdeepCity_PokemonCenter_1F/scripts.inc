@@ -26,13 +26,14 @@ MossdeepCity_PokemonCenter_1F_EventScript_Girl::
 	end
 
 MossdeepCity_PokemonCenter_1F_Text_GymLeaderDuoFormidable:
-	.string "The GYM LEADERS in this town are\n"
-	.string "a formidable duo.\p"
-	.string "Their combination attacks are, like,\n"
-	.string "excellent and wow!$"
+	.string "Those TRAINERS on Route E sure are\n"
+	.string "tough.\p"
+	.string "I wonder what those items they're\n"
+	.string "blocking are...$"
 
 MossdeepCity_PokemonCenter_1F_Text_AbilitiesMightChangeMoves:
-	.string "Depending on the special abilities of\n"
-	.string "POKéMON, some moves might change\l"
-	.string "or not work at all.$"
+	.string "Roujem certainly is a big shipping port.\p"
+	.string "I've heard they are the main\n"
+	.string "distributor connecting Johto to the\l"
+	.string "rest of the world!$"
 

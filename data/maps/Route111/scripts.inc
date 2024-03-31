@@ -169,6 +169,7 @@ Route111_EventScript_DoBattle::
 	removeobject 30
 	removeobject 22
 	setflag FLAG_HIDE_SHANE_MT_TEMPEST
+	clearflag FLAG_HIDE_SILVER_OUTSIDE_ROUJEM
 	addvar VAR_LAZULAN_STATE, 1
 	release
 	end
