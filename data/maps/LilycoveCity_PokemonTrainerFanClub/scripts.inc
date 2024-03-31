@@ -55,6 +55,7 @@ message LilycoveCity_PokemonTrainerFanClub_Text_Choose
 	switch VAR_RESULT
 	case 0, LilycoveCity_PokemonTrainerFanClub_EventScript_DarkScroll
 	case 1, LilycoveCity_PokemonTrainerFanClub_EventScript_WaterScroll
+    case 2, LilycoveCity_PokemonTrainerFanClub_EventScript_Cancel
 	case MULTI_B_PRESSED, LilycoveCity_PokemonTrainerFanClub_EventScript_Cancel
 	end
 

@@ -3306,6 +3306,12 @@ void BufferMonNickname(void)
     StringGet_Nickname(gStringVar1);
 }
 
+void BufferLeadMonNickname(void)
+{
+    GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_NICKNAME, gStringVar1);
+    StringGet_Nickname(gStringVar1);
+}
+
 void IsMonOTIDNotPlayers(void)
 {
     if (GetPlayerIDAsU32() == GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_OT_ID, NULL))

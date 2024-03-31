@@ -3055,4 +3055,10 @@ extern const u8 gText_Olivine[];
 extern const u8 gText_DarkScroll[];
 extern const u8 gText_WaterScroll[];
 
+// Deoxys Form Chamge
+extern const u8 gText_DeoxysNormal[];
+extern const u8 gText_DeoxysAttack[];
+extern const u8 gText_DeoxysDefense[];
+extern const u8 gText_DeoxysSpeed[];
+
 #endif // GUARD_STRINGS_H

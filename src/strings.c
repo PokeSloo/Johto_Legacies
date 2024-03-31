@@ -1846,3 +1846,9 @@ const u8 gText_Olivine[] = _("OLIVINE CITY");
 // Karate Scrolls
 const u8 gText_DarkScroll[] = _("Scroll of Darkness");
 const u8 gText_WaterScroll[] = _("Scroll of Waters");
+
+// Deoxys form options
+const u8 gText_DeoxysNormal[] = _("Normal Form");
+const u8 gText_DeoxysAttack[] = _("Attack Form");
+const u8 gText_DeoxysDefense[] = _("Defense Form");
+const u8 gText_DeoxysSpeed[] = _("Speed Form");

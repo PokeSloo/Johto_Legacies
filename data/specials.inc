@@ -549,3 +549,6 @@ gSpecials::
 	def_special DoesRotomKnowSpecialMove
 	def_special GetRotomNewSpecialMove
 	def_special ScriptGetLeadMonSpecies
+	def_special GetDeoxysState
+	def_special ChangeDeoxysForm
+	def_special BufferLeadMonNickname

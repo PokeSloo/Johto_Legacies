@@ -1,217 +1,146 @@
-.set LOCALID_STEVEN, 1
-.set LOCALID_BELDUM_BALL, 2
-
 MossdeepCity_StevensHouse_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, MossdeepCity_StevensHouse_OnLoad
-	map_script MAP_SCRIPT_ON_TRANSITION, MossdeepCity_StevensHouse_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, MossdeepCity_StevensHouse_OnFrame
 	.byte 0
 
-MossdeepCity_StevensHouse_OnLoad:
-	call_if_unset FLAG_SYS_GAME_CLEAR, MossdeepCity_StevensHouse_EventScript_HideStevensNote
+
+MossdeepCity_StevensHouse_EventScript_Man::
+	msgbox MossdeepCity_StevensHouse_EventScript_Man_Text_0, MSGBOX_NPC
 	end
 
-MossdeepCity_StevensHouse_EventScript_HideStevensNote::
-	setmetatile 6, 4, METATILE_GenericBuilding_TableEdge, TRUE
-	return
 
-MossdeepCity_StevensHouse_OnTransition:
-	call_if_eq VAR_STEVENS_HOUSE_STATE, 2, MossdeepCity_StevensHouse_EventScript_SetStevenPos
-	end
-
-MossdeepCity_StevensHouse_EventScript_SetStevenPos::
-	setobjectxyperm LOCALID_STEVEN, 6, 5
-	setobjectmovementtype LOCALID_STEVEN, MOVEMENT_TYPE_FACE_UP
-	return
-
-MossdeepCity_StevensHouse_OnFrame:
-	map_script_2 VAR_STEVENS_HOUSE_STATE, 1, MossdeepCity_StevensHouse_EventScript_StevenGivesDive
-	.2byte 0
-
-MossdeepCity_StevensHouse_EventScript_StevenGivesDive::
-	lockall
-	applymovement LOCALID_STEVEN, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	playse SE_PIN
-	applymovement LOCALID_STEVEN, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_STEVEN, Common_Movement_Delay48
-	waitmovement 0
-	applymovement LOCALID_STEVEN, MossdeepCity_StevensHouse_Movement_StevenApproachPlayer
-	waitmovement 0
-	msgbox MossdeepCity_StevensHouse_Text_YouveEarnedHMDive, MSGBOX_DEFAULT
-	giveitem ITEM_HM08
-	setflag FLAG_RECEIVED_HM08
-	setflag FLAG_OMIT_DIVE_FROM_STEVEN_LETTER
-	msgbox MossdeepCity_StevensHouse_Text_ExplainDive, MSGBOX_DEFAULT
-	closemessage
-	delay 20
-	applymovement LOCALID_STEVEN, MossdeepCity_StevensHouse_Movement_StevenReturn
-	waitmovement 0
-	setflag FLAG_HIDE_MOSSDEEP_CITY_SCOTT
-	setflag FLAG_HIDE_SEAFLOOR_CAVERN_ENTRANCE_AQUA_GRUNT
-	setvar VAR_STEVENS_HOUSE_STATE, 2
-	releaseall
-	end
-
-MossdeepCity_StevensHouse_Movement_StevenApproachPlayer:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_in_place_faster_down
-	step_end
-
-MossdeepCity_StevensHouse_Movement_StevenReturn:
-	walk_up
-	walk_right
-	walk_right
-	walk_right
-	walk_in_place_faster_up
-	step_end
-
-MossdeepCity_StevensHouse_EventScript_BeldumPokeball::
-	lockall
-	msgbox MossdeepCity_StevensHouse_Text_TakeBallContainingBeldum, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MossdeepCity_StevensHouse_EventScript_LeaveBeldum
-	goto MossdeepCity_StevensHouse_EventScript_GiveBeldum
-	end
-
-MossdeepCity_StevensHouse_EventScript_LeaveBeldum::
-	msgbox MossdeepCity_StevensHouse_Text_LeftPokeBallWhereItWas, MSGBOX_DEFAULT
-	releaseall
-	end
-
-MossdeepCity_StevensHouse_EventScript_GiveBeldum::
-	setvar VAR_TEMP_1, SPECIES_BELDUM
-	givemon SPECIES_BELDUM, 5
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, MossdeepCity_StevensHouse_EventScript_SendBeldumParty
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, MossdeepCity_StevensHouse_EventScript_SendBeldumPC
-	goto Common_EventScript_NoMoreRoomForPokemon
-	end
-
-MossdeepCity_StevensHouse_EventScript_SendBeldumParty::
-	call MossdeepCity_StevensHouse_EventScript_ReceivedBeldumFanfare
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MossdeepCity_StevensHouse_EventScript_ReceivedBeldum
-	call Common_EventScript_GetGiftMonPartySlot
-	call Common_EventScript_NameReceivedPartyMon
-	goto MossdeepCity_StevensHouse_EventScript_ReceivedBeldum
-	end
-
-MossdeepCity_StevensHouse_EventScript_SendBeldumPC::
-	call MossdeepCity_StevensHouse_EventScript_ReceivedBeldumFanfare
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MossdeepCity_StevensHouse_EventScript_BeldumTransferredToPC
-	call Common_EventScript_NameReceivedBoxMon
-	goto MossdeepCity_StevensHouse_EventScript_BeldumTransferredToPC
-	end
-
-MossdeepCity_StevensHouse_EventScript_BeldumTransferredToPC::
-	call Common_EventScript_TransferredToPC
-	goto MossdeepCity_StevensHouse_EventScript_ReceivedBeldum
-	end
-
-MossdeepCity_StevensHouse_EventScript_ReceivedBeldumFanfare::
-	bufferspeciesname STR_VAR_2, SPECIES_BELDUM
-	removeobject LOCALID_BELDUM_BALL
-	playfanfare MUS_OBTAIN_ITEM
-	message MossdeepCity_StevensHouse_Text_ObtainedBeldum
+MossdeepCity_StevensHouse_EventScript_Meteorite::
+	lock
+	msgbox MossdeepCity_StevensHouse_EventScript_Meteorite_Text_0
 	waitmessage
-	waitfanfare
-	bufferspeciesname STR_VAR_1, SPECIES_BELDUM
+	specialvar VAR_RESULT, ScriptGetLeadMonSpecies
+	compare VAR_RESULT, SPECIES_DEOXYS
+	goto_if_eq MossdeepCity_StevensHouse_EventScript_Meteorite_1
+	compare VAR_RESULT, SPECIES_DEOXYS_ATTACK
+	goto_if_eq MossdeepCity_StevensHouse_EventScript_Meteorite_2
+	compare VAR_RESULT, SPECIES_DEOXYS_DEFENSE
+	goto_if_eq MossdeepCity_StevensHouse_EventScript_Meteorite_3
+	compare VAR_RESULT, SPECIES_DEOXYS_SPEED
+	goto_if_eq MossdeepCity_StevensHouse_EventScript_Meteorite_4
+	release
+	end
+
+MossdeepCity_StevensHouse_EventScript_Meteorite_1:
+	goto MossdeepCity_StevensHouse_EventScript_HasDeoxys
 	return
 
-MossdeepCity_StevensHouse_EventScript_ReceivedBeldum::
-	setflag FLAG_HIDE_MOSSDEEP_CITY_STEVENS_HOUSE_BELDUM_POKEBALL
-	setflag FLAG_RECEIVED_BELDUM
-	releaseall
+MossdeepCity_StevensHouse_EventScript_Meteorite_2:
+	goto MossdeepCity_StevensHouse_EventScript_HasDeoxys
+	return
+
+MossdeepCity_StevensHouse_EventScript_Meteorite_3:
+	goto MossdeepCity_StevensHouse_EventScript_HasDeoxys
+	return
+
+MossdeepCity_StevensHouse_EventScript_Meteorite_4:
+	goto MossdeepCity_StevensHouse_EventScript_HasDeoxys
+	return
+
+
+MossdeepCity_StevensHouse_EventScript_HasDeoxys::
+	special BufferLeadMonNickname
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, MossdeepCity_StevensHouse_Exclamation
+	waitmovement 0
+	waitse
+	delay 30
+	msgbox MossdeepCity_StevensHouse_EventScript_HasDeoxys_Text_0
+	waitmessage
+	goto MossdeepCity_StevensHouse_EventScript_DeoxysMultichoice
+	return
+
+
+MossdeepCity_StevensHouse_Exclamation:
+	emote_exclamation_mark
+	step_end
+
+MossdeepCity_StevensHouse_EventScript_DeoxysMultichoice::
+    special GetDeoxysState
+    message MossdeepCity_StevensHouse_Text_ChooseForm
+	waitmessage
+	multichoice 16, 0, MULTI_DEOXYS_FORM, FALSE
+	switch VAR_RESULT
+	case 0, MossdeepCity_StevensHouse_EventScript_NormalForm
+	case 1, MossdeepCity_StevensHouse_EventScript_AttackForm
+    case 2, MossdeepCity_StevensHouse_EventScript_DefenseForm
+    case 3, MossdeepCity_StevensHouse_EventScript_SpeedForm
+    case 4, MossdeepCity_StevensHouse_EventScript_Cancel
+	case MULTI_B_PRESSED, MossdeepCity_StevensHouse_EventScript_Cancel
 	end
 
-MossdeepCity_StevensHouse_EventScript_RockDisplay::
-	msgbox MossdeepCity_StevensHouse_Text_CollectionOfRareRocks, MSGBOX_SIGN
+MossdeepCity_StevensHouse_EventScript_NormalForm::
+	setvar VAR_0x8005, SPECIES_DEOXYS
+	goto MossdeepCity_StevensHouse_EventScript_TryFormChange
+	return
+
+
+MossdeepCity_StevensHouse_EventScript_AttackForm::
+	setvar VAR_0x8005, SPECIES_DEOXYS_ATTACK
+	goto MossdeepCity_StevensHouse_EventScript_TryFormChange
+	return
+
+
+MossdeepCity_StevensHouse_EventScript_DefenseForm::
+	setvar VAR_0x8005, SPECIES_DEOXYS_DEFENSE
+	goto MossdeepCity_StevensHouse_EventScript_TryFormChange
+	return
+
+
+MossdeepCity_StevensHouse_EventScript_SpeedForm::
+	setvar VAR_0x8005, SPECIES_DEOXYS_SPEED
+	goto MossdeepCity_StevensHouse_EventScript_TryFormChange
+	return
+
+
+MossdeepCity_StevensHouse_EventScript_TryFormChange::
+	compare VAR_0x8005, VAR_0x8007
+	goto_if_eq MossdeepCity_StevensHouse_EventScript_AlreadyThatForm
+	special ChangeDeoxysForm
+	playfanfare MUS_LEVEL_UP
+	msgbox MossdeepCity_StevensHouse_EventScript_TryFormChange_Text_0
+	waitfanfare
+	release
 	end
 
-MossdeepCity_StevensHouse_EventScript_Steven::
-	msgbox MossdeepCity_StevensHouse_Text_UnderwateCavernBetweenMossdeepSootopolis, MSGBOX_NPC
+
+MossdeepCity_StevensHouse_EventScript_AlreadyThatForm::
+	msgbox MossdeepCity_StevensHouse_EventScript_AlreadyThatForm_Text_0
+	release
 	end
 
-MossdeepCity_StevensHouse_EventScript_Letter::
-	lockall
-	msgbox MossdeepCity_StevensHouse_Text_LetterFromSteven, MSGBOX_DEFAULT
-	releaseall
+
+MossdeepCity_StevensHouse_EventScript_Cancel::
+	msgbox MossdeepCity_StevensHouse_EventScript_Cancel_Text_0
+	release
 	end
 
-@ Unused, leftover from RS
-MossdeepCity_StevensHouse_EventScript_DiveItemBall::
-	finditem ITEM_HM08
-	setflag FLAG_RECEIVED_HM08
-	end
 
-MossdeepCity_StevensHouse_Text_YouveEarnedHMDive:
-	.string "STEVEN: {PLAYER}{KUN}…\p"
-	.string "As you can see, there's not much here,\n"
-	.string "but this is my home.\p"
-	.string "Thank you for all that you've done.\p"
-	.string "This is my token of appreciation.\n"
-	.string "It's the HIDDEN MACHINE DIVE.\p"
-	.string "No need to be shy--you've earned\n"
-	.string "this HM.$"
+MossdeepCity_StevensHouse_EventScript_Man_Text_0:
+	.string "Meteorites aren't just fancy rocks.\p"
+	.string "They are gifts from outer space, some\n"
+	.string "have even been proven to affect\l"
+	.string "certain POKéMON in various ways.$"
 
-MossdeepCity_StevensHouse_Text_ExplainDive:
-	.string "STEVEN: While you're using SURF, you\n"
-	.string "should notice dark patches of water.\p"
-	.string "Use DIVE if you come to deep water\n"
-	.string "like it. You'll drop to the seafloor.\p"
-	.string "When you want to come back up, use\n"
-	.string "DIVE again.\p"
-	.string "In some places, it won't be possible\n"
-	.string "for you to surface, though.$"
+MossdeepCity_StevensHouse_EventScript_Meteorite_Text_0:
+	.string "It's a meteorite.$"
 
-MossdeepCity_StevensHouse_Text_UnderwateCavernBetweenMossdeepSootopolis:
-	.string "STEVEN: Apparently, there's an\n"
-	.string "underwater cavern between\l"
-	.string "MOSSDEEP and SOOTOPOLIS.\p"
-	.string "You know, the one that CAPT. STERN\n"
-	.string "found in his submarine.$"
+MossdeepCity_StevensHouse_EventScript_HasDeoxys_Text_0:
+	.string "{STR_VAR_1} is reacting to the\n"
+	.string "meteorite...\p"
+	.string "It would like to change forms.$"
 
-MossdeepCity_StevensHouse_Text_TakeBallContainingBeldum:
-	.string "{PLAYER} checked the POKé BALL.\p"
-	.string "It contained the POKéMON\n"
-	.string "BELDUM.\p"
-	.string "Take the POKé BALL?$"
+MossdeepCity_StevensHouse_EventScript_TryFormChange_Text_0:
+	.string "{STR_VAR_1} has changed forms!$"
 
-MossdeepCity_StevensHouse_Text_ObtainedBeldum:
-	.string "{PLAYER} obtained a BELDUM.$"
+MossdeepCity_StevensHouse_EventScript_AlreadyThatForm_Text_0:
+	.string "{STR_VAR_1} is already in that form.$"
 
-@ Unused
-MossdeepCity_StevensHouse_Text_NoSpaceForAnotherMon:
-	.string "There is no space for another POKéMON.$"
+MossdeepCity_StevensHouse_EventScript_Cancel_Text_0:
+	.string "{STR_VAR_1} did not change forms.$"
 
-MossdeepCity_StevensHouse_Text_LeftPokeBallWhereItWas:
-	.string "{PLAYER} left the POKé BALL where\n"
-	.string "it was.$"
-
-MossdeepCity_StevensHouse_Text_LetterFromSteven:
-	.string "It's a letter.\p"
-	.string "… … … … … …\p"
-	.string "To {PLAYER}{KUN}…\p"
-	.string "I've decided to do a little soul-\n"
-	.string "searching and train on the road.\p"
-	.string "I don't plan to return home for some\n"
-	.string "time.\p"
-	.string "I have a favor to ask of you.\p"
-	.string "I want you to take the POKé BALL on\n"
-	.string "the desk.\p"
-	.string "Inside it is a BELDUM, my favorite\n"
-	.string "POKéMON.\p"
-	.string "I'm counting on you.\p"
-	.string "May our paths cross someday.\p"
-	.string "STEVEN STONE$"
-
-MossdeepCity_StevensHouse_Text_CollectionOfRareRocks:
-	.string "It's a collection of rare rocks and\n"
-	.string "stones assembled by STEVEN.$"
-
+MossdeepCity_StevensHouse_Text_ChooseForm::
+	.string "Which form should {STR_VAR_1}\n"
+	.string "change to?$"

@@ -128,6 +128,8 @@
 #define MULTI_APRICOTTA_TO_BIRTH           117
 #define MULTI_APRICOTTA_TO_FARAWAY         118
 #define MULTI_KARATE_SCROLL                119
+#define MULTI_DEOXYS_FORM                  120
+
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

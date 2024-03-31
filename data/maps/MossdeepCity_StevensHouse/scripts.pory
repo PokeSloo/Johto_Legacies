@@ -1,0 +1,108 @@
+mapscripts MossdeepCity_StevensHouse_MapScripts {}
+
+script MossdeepCity_StevensHouse_EventScript_Man {
+    msgbox(format("Meteorites aren't just fancy rocks.\pThey are gifts from outer space, some have even been proven to affect certain POKéMON in various ways."), MSGBOX_NPC)
+    end
+}
+
+script MossdeepCity_StevensHouse_EventScript_Meteorite {
+    lock
+    msgbox(format("It's a meteorite."))
+    waitmessage
+    specialvar (VAR_RESULT, ScriptGetLeadMonSpecies)
+    if (var(VAR_RESULT) == SPECIES_DEOXYS) {
+        goto (MossdeepCity_StevensHouse_EventScript_HasDeoxys)
+    }
+    elif (var(VAR_RESULT) == SPECIES_DEOXYS_ATTACK) {
+        goto (MossdeepCity_StevensHouse_EventScript_HasDeoxys)
+    }
+    elif (var(VAR_RESULT) == SPECIES_DEOXYS_DEFENSE) {
+        goto (MossdeepCity_StevensHouse_EventScript_HasDeoxys)
+    }
+    elif (var(VAR_RESULT) == SPECIES_DEOXYS_SPEED) {
+        goto (MossdeepCity_StevensHouse_EventScript_HasDeoxys)
+    }
+    else {
+        release
+        end
+    }
+}
+
+script MossdeepCity_StevensHouse_EventScript_HasDeoxys {
+    special (BufferLeadMonNickname)
+    playse (SE_PIN)
+    applymovement(OBJ_EVENT_ID_PLAYER, MossdeepCity_StevensHouse_Exclamation)
+    waitmovement (0)
+    waitse
+    delay (30)
+    msgbox(format("{STR_VAR_1} is reacting to the meteorite...\pIt would like to change forms."))
+    waitmessage
+    goto (MossdeepCity_StevensHouse_EventScript_DeoxysMultichoice)
+}
+
+movement MossdeepCity_StevensHouse_Exclamation {
+    emote_exclamation_mark
+}
+
+raw`
+MossdeepCity_StevensHouse_EventScript_DeoxysMultichoice::
+    special GetDeoxysState
+    message MossdeepCity_StevensHouse_Text_ChooseForm
+	waitmessage
+	multichoice 16, 0, MULTI_DEOXYS_FORM, FALSE
+	switch VAR_RESULT
+	case 0, MossdeepCity_StevensHouse_EventScript_NormalForm
+	case 1, MossdeepCity_StevensHouse_EventScript_AttackForm
+    case 2, MossdeepCity_StevensHouse_EventScript_DefenseForm
+    case 3, MossdeepCity_StevensHouse_EventScript_SpeedForm
+    case 4, MossdeepCity_StevensHouse_EventScript_Cancel
+	case MULTI_B_PRESSED, MossdeepCity_StevensHouse_EventScript_Cancel
+	end
+`
+
+text MossdeepCity_StevensHouse_Text_ChooseForm {
+    format("Which form should {STR_VAR_1} change to?")
+}
+
+script MossdeepCity_StevensHouse_EventScript_NormalForm {
+    setvar (VAR_0x8005, SPECIES_DEOXYS)
+    goto (MossdeepCity_StevensHouse_EventScript_TryFormChange)
+}
+
+script MossdeepCity_StevensHouse_EventScript_AttackForm {
+    setvar (VAR_0x8005, SPECIES_DEOXYS_ATTACK)
+    goto (MossdeepCity_StevensHouse_EventScript_TryFormChange)
+}
+
+script MossdeepCity_StevensHouse_EventScript_DefenseForm {
+    setvar (VAR_0x8005, SPECIES_DEOXYS_DEFENSE)
+    goto (MossdeepCity_StevensHouse_EventScript_TryFormChange)
+}
+
+script MossdeepCity_StevensHouse_EventScript_SpeedForm {
+    setvar (VAR_0x8005, SPECIES_DEOXYS_SPEED)
+    goto (MossdeepCity_StevensHouse_EventScript_TryFormChange)
+}
+
+script MossdeepCity_StevensHouse_EventScript_TryFormChange {
+    compare (VAR_0x8005, VAR_0x8007)
+    goto_if_eq (MossdeepCity_StevensHouse_EventScript_AlreadyThatForm)
+    special (ChangeDeoxysForm)
+    playfanfare (MUS_LEVEL_UP)
+    msgbox(format("{STR_VAR_1} has changed forms!"))
+    waitfanfare
+    release
+    end
+}
+
+script MossdeepCity_StevensHouse_EventScript_AlreadyThatForm {
+    msgbox(format("{STR_VAR_1} is already in that form."))
+    release
+    end
+}
+
+script MossdeepCity_StevensHouse_EventScript_Cancel {
+    msgbox(format("{STR_VAR_1} did not change forms."))
+    release
+    end
+}

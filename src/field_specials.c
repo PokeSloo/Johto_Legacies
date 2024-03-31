@@ -4257,3 +4257,22 @@ bool8 DoesRotomKnowSpecialMove(void)
     initialMove = RotomFormToMove(initialSpecies);
     return MonKnowsMove(&gPlayerParty[gSpecialVar_0x8004], initialMove);
 }
+
+// Gets Deoxys's current form, stores in gSpecialVar_0x8007
+void GetDeoxysState (void)
+{
+    gSpecialVar_0x8007 = GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_SPECIES2, NULL);
+}
+
+//Changes Deoxys' form
+void ChangeDeoxysForm (void)
+{
+    u16 currentForm, newForm;
+
+    currentForm = GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_SPECIES2, NULL);
+    newForm = gSpecialVar_0x8005;
+
+    SetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_SPECIES, &newForm);
+    SetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_SPECIES2, &newForm);
+    CalculateMonStats(&gPlayerParty[GetLeadMonIndex()]);
+}
