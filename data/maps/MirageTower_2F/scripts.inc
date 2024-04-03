@@ -43,6 +43,6 @@ MirageTower_3F_EventScript_Potion::
 
 
 MirageTower_3F_EventScript_UltraBall::
-	finditem ITEM_ULTRA_BALL
+	finditem ITEM_UPGRADE
 	end
 

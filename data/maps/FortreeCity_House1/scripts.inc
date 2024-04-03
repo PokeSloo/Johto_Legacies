@@ -80,10 +80,6 @@ FortreeCity_House1_EventScript_Trade2Completed::
 	release
 	end
 
-FortreeCity_House1_EventScript_ExpertF::
-	msgbox FortreeCity_House1_Text_TradingMemoriesWithOthers, MSGBOX_NPC
-	end
-
 FortreeCity_House1_Text_YouWillTradeWontYou:
 	.string "I really want a {STR_VAR_1}, but I\n"
 	.string "don't want to trade with my stupid\l"
@@ -120,3 +116,40 @@ FortreeCity_House1_Text_TradingMemoriesWithOthers:
 	.string "Why can't they just learn to accept\n"
 	.string "what they have?$"
 
+FortreeCity_House1_EventScript_ExpertF::
+	lock
+	faceplayer
+	goto_if_set FLAG_FIND_OUT_GUY_IN_CHERRYGROVE, FortreeCity_House1_EventScript_ExpertF_1
+	goto_if_set FLAG_TOOK_ROUJEM_CRAZY_GIRL_OFFER, FortreeCity_House1_EventScript_ExpertF_2
+	msgbox FortreeCity_House1_Text_TradingMemoriesWithOthers
+	release
+	end
+
+FortreeCity_House1_EventScript_ExpertF_1:
+	msgbox FortreeCity_House1_EventScript_ExpertF_Text_0
+	release
+	end
+
+FortreeCity_House1_EventScript_ExpertF_2:
+	msgbox FortreeCity_House1_EventScript_ExpertF_Text_1
+	setflag FLAG_FIND_OUT_GUY_IN_CHERRYGROVE
+	release
+	end
+
+
+FortreeCity_House1_EventScript_ExpertF_Text_0:
+	.string "It's you again.\p"
+	.string "Did you find the mystery boyfriend?\p"
+	.string "He should still live in Cherrygrove City\n"
+	.string "now.$"
+
+FortreeCity_House1_EventScript_ExpertF_Text_1:
+	.string "What's that?\p"
+	.string "A long distance boyfriend?\p"
+	.string "...\p"
+	.string "Hmm, nobody like that lives here.\p"
+	.string "You must be thinking of the previous\n"
+	.string "resident.\p"
+	.string "I'm pretty sure he moved to Cherrygrove\n"
+	.string "City.\p"
+	.string "Good luck finding him.$"

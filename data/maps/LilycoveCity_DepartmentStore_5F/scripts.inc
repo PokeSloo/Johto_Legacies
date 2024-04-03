@@ -66,6 +66,8 @@ LilycoveCity_DepartmentStore_5F_Pokemart_Cushions:
 	.2byte ITEM_FULL_INCENSE
 	.2byte ITEM_PURE_INCENSE
 	.2byte ITEM_LUCK_INCENSE
+	.2byte ITEM_CRACKED_POT
+	.2byte ITEM_CHIPPED_POT
 	.2byte ITEM_NONE
 	release
 	end

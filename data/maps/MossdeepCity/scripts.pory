@@ -130,7 +130,7 @@ MossdeepCity_Text_GymSign:
 
 MossdeepCity_Text_CitySign:
 	.string "ROUJEM CITY\n"
-	.string "“Shipping hub of the East.”$"
+	.string "“Shipping hub linking Johto to the world.”$"
 
 MossdeepCity_Text_SpaceCenterSign:
 	.string "NO TRESPASSING!$"

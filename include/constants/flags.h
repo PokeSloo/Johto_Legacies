@@ -1282,12 +1282,12 @@
 #define FLAG_HIDE_THORNE_MT_TEMPEST                                 0x4D1 // After he flies off
 #define FLAG_HIDE_SILVER_OUTSIDE_ROUJEM                             0x4D2 // Cleared at Mt Tempest
 #define FLAG_DEFEATED_THORNE_ROUJEM                                 0x4D3 // Free Jirachi too
-#define FLAG_UNUSED_0x4D4                                           0x4D4 // Unused Flag
-#define FLAG_UNUSED_0x4D5                                           0x4D5 // Unused Flag
-#define FLAG_UNUSED_0x4D6                                           0x4D6 // Unused Flag
-#define FLAG_UNUSED_0x4D7                                           0x4D7 // Unused Flag
-#define FLAG_UNUSED_0x4D8                                           0x4D8 // Unused Flag
-#define FLAG_UNUSED_0x4D9                                           0x4D9 // Unused Flag
+#define FLAG_RECEIVED_SCIZORITE                                     0x4D4 // Roujem house item trade
+#define FLAG_RECEIVED_BANETTITE                                     0x4D5 // Roujem scary story lady
+#define FLAG_TOOK_ROUJEM_CRAZY_GIRL_OFFER                           0x4D6 // Look for the guy
+#define FLAG_FIND_OUT_GUY_IN_CHERRYGROVE                            0x4D7 // Stalker girls "boyfriend"
+#define FLAG_RECEIVED_STEELIXITE                                    0x4D8 // From Cherrygrove nerdy guy
+#define FLAG_TOLD_ROUJEM_CRAZY_GIRL_HOENN                           0x4D9 // End of this chain
 #define FLAG_UNUSED_0x4DA                                           0x4DA // Unused Flag
 #define FLAG_UNUSED_0x4DB                                           0x4DB // Unused Flag
 #define FLAG_UNUSED_0x4DC                                           0x4DC // Unused Flag

@@ -1,0 +1,37 @@
+mapscripts MossdeepCity_House3_MapScripts {}
+
+script MossdeepCity_House3_EventScript_CrazyGirl {
+    lock
+    faceplayer
+    if (flag(FLAG_TOLD_ROUJEM_CRAZY_GIRL_HOENN)) {
+        msgbox(format("The Hoenn region...\pThat's a good place for us to start our family..."))
+        release
+        end
+    }
+    elif (flag(FLAG_RECEIVED_STEELIXITE)) {
+        msgbox(format("Have you figured out what's going on with my boyfriend?\p...\pOh, I see.\pSo he moved to the Hoenn region...\pHe'll have to move farther away than that to get rid of me!\pOops, I mean, thanks for the help.\pYou can have this."))
+        giveitem (ITEM_GENGARITE)
+        setflag (FLAG_TOLD_ROUJEM_CRAZY_GIRL_HOENN)
+        release
+        end
+    }
+    elif (flag(FLAG_TOOK_ROUJEM_CRAZY_GIRL_OFFER)) {
+        msgbox(format("Have you figured out what's going on with my boyfriend?\p...\pYou haven't found him yet?\pHe should be in the house in the middle of Olivine City."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Hey, I have an issue you might be able to help with.\pI have a long distance boyfriend in Johto who isn't answering my calls.\pDo you think you can help me figure out what's going on?\pI'll make it worth your while."), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Aww, really?\pI'm just worried about him..."))
+            release
+            end
+        }
+        else {
+            msgbox(format("Really? Great!\pHe lives in the house in the middle of Olivine City.\pThanks a lot for the help!"))
+            setflag (FLAG_TOOK_ROUJEM_CRAZY_GIRL_OFFER)
+            release
+            end
+        }
+    }
+}

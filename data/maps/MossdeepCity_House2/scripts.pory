@@ -1,0 +1,6 @@
+mapscripts MossdeepCity_House2_MapScripts {}
+
+script MossdeepCity_House2_EventScript_Woman {
+    msgbox(format("You're a POKéMON TRAINER, aren't you?\pI can tell by the badges.\pYou know my son really wanted to become a POKéMON TRAINER."), MSGBOX_NPC)
+    end
+}

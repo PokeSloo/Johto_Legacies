@@ -1,0 +1,11 @@
+mapscripts MossdeepCity_House4_MapScripts {}
+
+script MossdeepCity_House4_EventScript_Woman {
+    msgbox(format("I'm glad my husband got an Azurill for our daughter.\pThey really seem to love each other!"), MSGBOX_NPC)
+    end
+}
+
+script MossdeepCity_House4_EventScript_NinjaBoy {
+    msgbox(format("Azurill isn't a WATER-type yet, but he still loves to play in the water with me.\pThe ball on the end of his tail floats like my innertube!"), MSGBOX_NPC)
+    end
+}

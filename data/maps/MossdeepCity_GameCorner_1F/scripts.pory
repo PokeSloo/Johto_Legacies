@@ -1,0 +1,36 @@
+mapscripts MossdeepCity_GameCorner_1F_MapScripts {}
+
+script MossdeepCity_GameCorner_1F_EventScript_StoryGirl {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_BANETTITE)) {
+        msgbox(format("Welcome back child.\pHave you heard any more scary stories lately?"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Tell me child... Do you like scary stories?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("That's a shame.\pSome people just can't handle them."))
+            release
+            end
+        }
+        else {
+            msgbox(format("In that case, I have a particularly scary story..."))
+            waitmessage
+            setweather (WEATHER_SHADE)
+            doweather
+            fadenewbgm (MUS_RG_LAVENDER)
+            msgbox(format("Several years ago, a young boy about your age moved to this island with his mother.\pHe was having trouble making friends, so his mother bought him a stuffed POKéMON doll to cheer him up.\p“I'm not some little kid! Stop treating me like a baby!” The boy said, throwing the doll back at his mother and slamming his bedroom door shut.\pLater that night, the boy woke up with a sharp pain in his left arm.\pHe shifted to lay on his other side when something caught his eye.\pSitting on top of his antique dresser was the POKéMON doll.\pHe went to throw it out, but noticed it had a pin stuck in its left arm.\pWithout putting much thought into it, the boy threw the doll out into the hallway before going back to bed.\pLater that night, he woke up with an even worse pain in his right arm.\pHe sprang out of bed to find the same doll back on his dresser with pin stuck in its right arm this time.\pMore shaken, the boy hastily threw the doll out of his bedroom window.\pWhile laying in bed, contemplating these strange events, the boy eventually fell back to sleep.\pAfter a few hours, the boy woke up with excruciating pain in both of his legs.\pHe stumbled out of bed and immediately fell to the floor.\pSitting right in front of him, was the doll with a pin stuck in each leg.\pIn a panicked state, the boy crawled into the kitchen, clutching the doll.\pHe found the kitchen sink, and stuffed the doll into the drain while turning on the garbage disposal.\pSurely this will put an end to his nightmare, the boy thought.\pBut, when morning came, his mother called for him, and the boy didn't answer.\pAfter a few more tries, she went up to check on him.\pShe opened the bedroom door to find the room empty.\pAs she started to close the door, something caught her eye.\pThere, sitting on the boy's dresser was the doll with a pin stuck in its head!"))
+            fadedefaultbgm
+            setweather (WEATHER_NONE)
+            doweather
+            msgbox(format("The end!\pHehehe! You don't seem to be rattled too badly.\pHere, you can have this."))
+            giveitem (ITEM_BANETTITE)
+            msgbox(format("And don't worry.\pIt's just a story afterall...\pHehehe..."))
+            setflag (FLAG_RECEIVED_BANETTITE)
+            release
+            end
+        }
+    }
+}

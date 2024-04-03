@@ -1,87 +1,122 @@
 MossdeepCity_GameCorner_1F_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, MossdeepCity_GameCorner_1F_OnFrame
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, MossdeepCity_GameCorner_1F_OnWarp
-	map_script MAP_SCRIPT_ON_LOAD, CableClub_OnLoad
 	.byte 0
 
-MossdeepCity_GameCorner_1F_OnWarp:
-	map_script_2 VAR_CABLE_CLUB_STATE, USING_MINIGAME, CableClub_EventScript_CheckTurnAttendant
-	.2byte 0
 
-MossdeepCity_GameCorner_1F_OnFrame:
-	map_script_2 VAR_CABLE_CLUB_STATE, USING_MINIGAME, CableClub_EventScript_ExitMinigameRoom
-	.2byte 0
-
-@ Script is redundant, the label in the goto also does lock and faceplayer
-MossdeepCity_GameCorner_1F_EventScript_InfoMan::
+MossdeepCity_GameCorner_1F_EventScript_StoryGirl::
 	lock
 	faceplayer
-	goto MossdeepCity_GameCorner_1F_EventScript_InfoMan2
+	goto_if_set FLAG_RECEIVED_BANETTITE, MossdeepCity_GameCorner_1F_EventScript_StoryGirl_1
+	msgbox MossdeepCity_GameCorner_1F_EventScript_StoryGirl_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq MossdeepCity_GameCorner_1F_EventScript_StoryGirl_4
+	msgbox MossdeepCity_GameCorner_1F_EventScript_StoryGirl_Text_3
+	waitmessage
+	setweather WEATHER_SHADE
+	doweather
+	fadenewbgm MUS_RG_LAVENDER
+	msgbox MossdeepCity_GameCorner_1F_EventScript_StoryGirl_Text_4
+	fadedefaultbgm
+	setweather WEATHER_NONE
+	doweather
+	msgbox MossdeepCity_GameCorner_1F_EventScript_StoryGirl_Text_5
+	giveitem ITEM_BANETTITE
+	msgbox MossdeepCity_GameCorner_1F_EventScript_StoryGirl_Text_6
+	setflag FLAG_RECEIVED_BANETTITE
 	release
 	end
 
-@ Script is redundant, the label in the goto also does lock and faceplayer
-MossdeepCity_GameCorner_1F_EventScript_OldMan::
-	lock
-	faceplayer
-	goto MossdeepCity_GameCorner_1F_EventScript_OldMan2
+MossdeepCity_GameCorner_1F_EventScript_StoryGirl_1:
+	msgbox MossdeepCity_GameCorner_1F_EventScript_StoryGirl_Text_0
+	release
+	end
+
+MossdeepCity_GameCorner_1F_EventScript_StoryGirl_4:
+	msgbox MossdeepCity_GameCorner_1F_EventScript_StoryGirl_Text_2
 	release
 	end
 
 
-@ Everything below is leftover from RS
-@ The house that was here in RS was moved to Sootopolis and replaced by the Game Corner
-@ The text below is unused and duplicated in its replacement in Sootopolis City
-@ And the BG Door event was moved inaccessibly into a wall
+MossdeepCity_GameCorner_1F_EventScript_StoryGirl_Text_0:
+	.string "Welcome back child.\p"
+	.string "Have you heard any more scary stories\n"
+	.string "lately?$"
 
-RS_MysteryEventsHouse_EventScript_Door::
-	msgbox RS_MysteryEventsHouse_Text_DoorIsLocked, MSGBOX_SIGN
-	end
+MossdeepCity_GameCorner_1F_EventScript_StoryGirl_Text_1:
+	.string "Tell me child... Do you like scary\n"
+	.string "stories?$"
 
-RS_MysteryEventsHouse_Text_OldManGreeting:
-	.string "When I was young, I traveled the world\n"
-	.string "as a POKéMON TRAINER.\p"
-	.string "Now that I've become an old buzzard,\n"
-	.string "my only amusement is watching young\l"
-	.string "TRAINERS battle.$"
+MossdeepCity_GameCorner_1F_EventScript_StoryGirl_Text_2:
+	.string "That's a shame.\p"
+	.string "Some people just can't handle them.$"
 
-RS_MysteryEventsHouse_Text_DoorIsLocked:
-	.string "The door appears to be locked.$"
+MossdeepCity_GameCorner_1F_EventScript_StoryGirl_Text_3:
+	.string "In that case, I have a particularly\n"
+	.string "scary story...$"
 
-RS_MysteryEventsHouse_Text_ChallengeVisitingTrainer:
-	.string "A TRAINER named {STR_VAR_1} is\n"
-	.string "visiting my home.\p"
-	.string "Would you like to challenge\n"
-	.string "{STR_VAR_1}?$"
+MossdeepCity_GameCorner_1F_EventScript_StoryGirl_Text_4:
+	.string "Several years ago, a young boy about\n"
+	.string "your age moved to this island with his\l"
+	.string "mother.\p"
+	.string "He was having trouble making friends,\n"
+	.string "so his mother bought him a stuffed\l"
+	.string "POKéMON doll to cheer him up.\p"
+	.string "“I'm not some little kid! Stop treating\n"
+	.string "me like a baby!” The boy said, throwing\l"
+	.string "the doll back at his mother and\l"
+	.string "slamming his bedroom door shut.\p"
+	.string "Later that night, the boy woke up with a\n"
+	.string "sharp pain in his left arm.\p"
+	.string "He shifted to lay on his other side when\n"
+	.string "something caught his eye.\p"
+	.string "Sitting on top of his antique dresser\n"
+	.string "was the POKéMON doll.\p"
+	.string "He went to throw it out, but noticed it\n"
+	.string "had a pin stuck in its left arm.\p"
+	.string "Without putting much thought into it,\n"
+	.string "the boy threw the doll out into the\l"
+	.string "hallway before going back to bed.\p"
+	.string "Later that night, he woke up with an\n"
+	.string "even worse pain in his right arm.\p"
+	.string "He sprang out of bed to find the same\n"
+	.string "doll back on his dresser with pin stuck\l"
+	.string "in its right arm this time.\p"
+	.string "More shaken, the boy hastily threw the\n"
+	.string "doll out of his bedroom window.\p"
+	.string "While laying in bed, contemplating these\n"
+	.string "strange events, the boy eventually\l"
+	.string "fell back to sleep.\p"
+	.string "After a few hours, the boy woke up with\n"
+	.string "excruciating pain in both of his legs.\p"
+	.string "He stumbled out of bed and immediately\n"
+	.string "fell to the floor.\p"
+	.string "Sitting right in front of him, was the\n"
+	.string "doll with a pin stuck in each leg.\p"
+	.string "In a panicked state, the boy crawled\n"
+	.string "into the kitchen, clutching the doll.\p"
+	.string "He found the kitchen sink, and stuffed\n"
+	.string "the doll into the drain while turning on\l"
+	.string "the garbage disposal.\p"
+	.string "Surely this will put an end to his\n"
+	.string "nightmare, the boy thought.\p"
+	.string "But, when morning came, his mother\n"
+	.string "called for him, and the boy didn't\l"
+	.string "answer.\p"
+	.string "After a few more tries, she went up to\n"
+	.string "check on him.\p"
+	.string "She opened the bedroom door to find\n"
+	.string "the room empty.\p"
+	.string "As she started to close the door,\n"
+	.string "something caught her eye.\p"
+	.string "There, sitting on the boy's dresser was\n"
+	.string "the doll with a pin stuck in its head!$"
 
-RS_MysteryEventsHouse_Text_YouWontBattle:
-	.string "You won't battle? I'm disappointed\n"
-	.string "that I can't see you battle…$"
+MossdeepCity_GameCorner_1F_EventScript_StoryGirl_Text_5:
+	.string "The end!\p"
+	.string "Hehehe! You don't seem to be rattled\n"
+	.string "too badly.\p"
+	.string "Here, you can have this.$"
 
-RS_MysteryEventsHouse_Text_KeepItToA3On3:
-	.string "Oh, good, good!\p"
-	.string "But my house isn't all that sturdy.\p"
-	.string "Could I ask you to keep it down to\n"
-	.string "a 3-on-3 match?$"
-
-RS_MysteryEventsHouse_Text_SaveYourProgress:
-	.string "Before you two battle, you should\n"
-	.string "save your progress.$"
-
-RS_MysteryEventsHouse_Text_HopeToSeeAGoodMatch:
-	.string "I hope to see a good match!$"
-
-RS_MysteryEventsHouse_Text_BattleTie:
-	.string "So, it became a standoff.\p"
-	.string "It was a brilliant match in which\n"
-	.string "neither side conceded a step!$"
-
-RS_MysteryEventsHouse_Text_BattleWon:
-	.string "That was superlative!\p"
-	.string "Why, it was like seeing myself in\n"
-	.string "my youth again!$"
-
-RS_MysteryEventsHouse_Text_BattleLost:
-	.string "Ah, too bad for you!\p"
-	.string "But it was a good match.\n"
-	.string "I hope you can win next time.$"
+MossdeepCity_GameCorner_1F_EventScript_StoryGirl_Text_6:
+	.string "And don't worry.\p"
+	.string "It's just a story afterall...\p"
+	.string "Hehehe...$"

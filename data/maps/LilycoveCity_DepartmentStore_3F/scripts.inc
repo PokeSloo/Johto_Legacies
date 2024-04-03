@@ -22,6 +22,7 @@ LilycoveCity_DepartmentStore_3F_Pokemart_Vitamins:
 	.2byte ITEM_DUSK_STONE
 	.2byte ITEM_DAWN_STONE
 	.2byte ITEM_ICE_STONE
+	.2byte ITEM_OVAL_STONE
 	.2byte ITEM_NONE
 	release
 	end

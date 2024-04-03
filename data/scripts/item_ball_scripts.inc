@@ -607,7 +607,7 @@ Route110_TrickHousePuzzle6_EventScript_ItemGlitterMail::
 	end
 
 Route110_TrickHousePuzzle7_EventScript_ItemTropicMail::
-	finditem ITEM_FULL_HEAL
+	finditem ITEM_DUBIOUS_DISC
 	end
 
 Route110_TrickHousePuzzle8_EventScript_ItemBeadMail::

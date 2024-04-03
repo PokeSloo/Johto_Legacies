@@ -769,6 +769,28 @@ OldaleTown_EventScript_ItemPrismScale::
 	end
 
 
+OldaleTown_EventScript_FootprintsMan::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_STEELIXITE, OldaleTown_EventScript_FootprintsMan_1
+	goto_if_set FLAG_FIND_OUT_GUY_IN_CHERRYGROVE, OldaleTown_EventScript_FootprintsMan_2
+	msgbox OldaleTown_EventScript_FootprintsMan_Text_2
+	release
+	end
+
+OldaleTown_EventScript_FootprintsMan_1:
+	msgbox OldaleTown_EventScript_FootprintsMan_Text_0
+	release
+	end
+
+OldaleTown_EventScript_FootprintsMan_2:
+	msgbox OldaleTown_EventScript_FootprintsMan_Text_1
+	giveitem ITEM_STEELIXITE
+	setflag FLAG_RECEIVED_STEELIXITE
+	release
+	end
+
+
 OldaleTown_EventScript_TownSign::
 	msgbox OldaleTown_Text_TownSign, MSGBOX_SIGN
 	end
@@ -796,10 +818,6 @@ OldaleTown_EventScript_BagIsFull::
 	release
 	end
 
-OldaleTown_EventScript_FootprintsMan::
-	msgbox OldaleTown_Text_FinishedSketchingFootprints, MSGBOX_NPC
-	end
-
 OldaleTown_Text_IWorkAtPokemonMart:
 	.string "Hi!\n"
 	.string "I work at this POKéMON MART.\p"
@@ -813,11 +831,6 @@ OldaleTown_Text_PotionExplanation:
 	.string "A POTION can be used anytime, so it's\n"
 	.string "even more useful than a POKéMON CENTER\l"
 	.string "in certain situations.$"
-
-OldaleTown_Text_FinishedSketchingFootprints:
-	.string "Man, lately my girlfriend can't seem to\n"
-	.string "keep her hands off of me. I had to get\l"
-	.string "out of the house for some fresh air.$"
 
 OldaleTown_Text_TownSign:
 	.string "CHERRYGROVE CITY\n"
@@ -899,6 +912,32 @@ OldaleTown_EventScript_ShaneBattle_Text_0:
 
 OldaleTown_EventScript_ShaneBattle_Text_1:
 	.string "You'll pay for cheating!$"
+
+OldaleTown_EventScript_FootprintsMan_Text_0:
+	.string "Man, it gets exhausting having so many\n"
+	.string "girls chasing after me.$"
+
+OldaleTown_EventScript_FootprintsMan_Text_1:
+	.string "Man, lately my girlfriend can't seem to\n"
+	.string "keep her hands off of me.\p"
+	.string "I had to get out of the house for some\n"
+	.string "fresh air.\p"
+	.string "...\p"
+	.string "What's that?\p"
+	.string "...\p"
+	.string "A long distance girlfriend?\p"
+	.string "Oh god, not this crazy stalker chick\n"
+	.string "again...\p"
+	.string "Look, just tell her I moved to the Hoenn\n"
+	.string "region or something.\p"
+	.string "You can have this for keeping my real\n"
+	.string "location a secret from her.$"
+
+OldaleTown_EventScript_FootprintsMan_Text_2:
+	.string "Man, lately my girlfriend can't seem to\n"
+	.string "keep her hands off of me.\p"
+	.string "I had to get out of the house for some\n"
+	.string "fresh air.$"
 
 OldaleTown_Text_ShaneDefeat::
 	.string "You cheated!$"

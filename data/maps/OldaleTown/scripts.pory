@@ -445,6 +445,28 @@ script OldaleTown_EventScript_ItemPrismScale {
 	end
 }
 
+script OldaleTown_EventScript_FootprintsMan {
+	lock
+	faceplayer
+	if (flag(FLAG_RECEIVED_STEELIXITE)) {
+		msgbox(format("Man, it gets exhausting having so many girls chasing after me."))
+		release
+		end
+	}
+	elif (flag(FLAG_FIND_OUT_GUY_IN_CHERRYGROVE)) {
+		msgbox(format("Man, lately my girlfriend can't seem to keep her hands off of me.\pI had to get out of the house for some fresh air.\p...\pWhat's that?\p...\pA long distance girlfriend?\pOh god, not this crazy stalker chick again...\pLook, just tell her I moved to the Hoenn region or something.\pYou can have this for keeping my real location a secret from her."))
+		giveitem (ITEM_STEELIXITE)
+		setflag (FLAG_RECEIVED_STEELIXITE)
+		release
+		end
+	}
+	else {
+		msgbox(format("Man, lately my girlfriend can't seem to keep her hands off of me.\pI had to get out of the house for some fresh air."))
+		release
+		end
+	}
+}
+
 raw `
 OldaleTown_EventScript_TownSign::
 	msgbox OldaleTown_Text_TownSign, MSGBOX_SIGN
@@ -473,10 +495,6 @@ OldaleTown_EventScript_BagIsFull::
 	release
 	end
 
-OldaleTown_EventScript_FootprintsMan::
-	msgbox OldaleTown_Text_FinishedSketchingFootprints, MSGBOX_NPC
-	end
-
 OldaleTown_Text_IWorkAtPokemonMart:
 	.string "Hi!\n"
 	.string "I work at this POKéMON MART.\p"
@@ -490,11 +508,6 @@ OldaleTown_Text_PotionExplanation:
 	.string "A POTION can be used anytime, so it's\n"
 	.string "even more useful than a POKéMON CENTER\l"
 	.string "in certain situations.$"
-
-OldaleTown_Text_FinishedSketchingFootprints:
-	.string "Man, lately my girlfriend can't seem to\n"
-	.string "keep her hands off of me. I had to get\l"
-	.string "out of the house for some fresh air.$"
 
 OldaleTown_Text_TownSign:
 	.string "CHERRYGROVE CITY\n"

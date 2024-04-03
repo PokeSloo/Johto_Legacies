@@ -1,0 +1,41 @@
+mapscripts MossdeepCity_House1_MapScripts {}
+
+script MossdeepCity_House1_EventScript_Cowgirl {
+    msgbox(format("The cost of living is crazy high on this island.\pI love living here, but it definitely comes at a price."), MSGBOX_NPC)
+    end
+}
+
+script MossdeepCity_House1_EventScript_BugCatcher {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_SCIZORITE)) {
+        msgbox(format("I hope you put that Scizorite to good use.\pThanks to you, I finally got an antique Polteageist!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Just my luck.\pI finally caught a Sinistea with a stamp of authenticity, but I'm flat broke.\pI need a Chipped Pot to evolve my Sinistea, but they're way too expensive!\pHey, if you happen to have a Chipped Pot, then I'll trade you for a Scizorite.\pThey're super rare, and I don't think you'll find one anywhere else.\pSo how about it, do we have a deal?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("That's too bad.\pI guess I'll have to start saving up for it."))
+            release
+            end
+        }
+        else {
+            checkitem (ITEM_CHIPPED_POT)
+            if (var(VAR_RESULT) == TRUE) {
+                msgbox(format("Really!? You'll trade me?\pThat's great!"))
+                removeitem (ITEM_CHIPPED_POT, 1)
+                giveitem (ITEM_SCIZORITE)
+                msgbox(format("I don't know how long it would have taken me to save up for one."))
+                setflag (FLAG_RECEIVED_SCIZORITE)
+                release
+                end
+            }
+            else {
+                msgbox(format("Hey, you don't have a Chipped Pot!\pQuit messing around with me."))
+                release
+                end
+            }
+        }
+    }
+}
