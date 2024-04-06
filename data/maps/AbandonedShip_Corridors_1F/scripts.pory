@@ -1,0 +1,117 @@
+const SILVER_ID = 1
+const FERALIGATR_ID = 2
+
+mapscripts AbandonedShip_Corridors_1F_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        if (flag(FLAG_ROUJEM_PHOENIX_STAIRCASE)) {
+            setmetatile (16, 5, 0x32D, FALSE)
+            setmetatile (17, 5, 0x32E, TRUE)
+            return
+        }
+        end
+    }
+}
+
+script AbandonedShip_Corridors_1F_EventScript_Silver {
+    msgbox(format("DAD: Now where did that grunt go?\pThere must be more to this room than meets the eye...\pA secret switch, perhaps?"), MSGBOX_NPC)
+    end
+}
+
+script AbandonedShip_Corridors_1F_EventScript_Feraligatr {
+    lock
+    faceplayer
+	waitse
+	playmoncry (SPECIES_FERALIGATR, CRY_MODE_NORMAL)
+    applymovement (FERALIGATR_ID, AbandonedShip_Corridors_1F_Movement_Question)
+    msgbox (format("FERALIGATR: Grrhh?"))
+    waitmovement (0)
+    waitmoncry
+    release
+    end
+}
+
+movement AbandonedShip_Corridors_1F_Movement_Question {
+    emote_question_mark
+}
+
+script AbandonedShip_Corridors_1F_EventScript_Computer {
+    lock
+    if (flag(FLAG_ROUJEM_PHOENIX_STAIRCASE)) {
+        msgbox(format("The secret switch has already been pressed."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Hey!\pThere's a secret switch inside this trash can!\p{PLAYER} pressed the secret switch."))
+        waitmessage
+        closemessage
+        playse (SE_SWITCH)
+        setmetatile (16, 5, 0x32D, FALSE)
+        setmetatile (17, 5, 0x32E, TRUE)
+        special (DrawWholeMapView)
+        waitse
+        delay (30)
+        playse (SE_PIN)
+        applymovement (SILVER_ID, AbandonedShip_Corridors_1F_Movement_ExclamationRight)
+        applymovement (FERALIGATR_ID, AbandonedShip_Corridors_1F_Movement_ExclamationRight)
+        applymovement (OBJ_EVENT_ID_PLAYER, AbandonedShip_Corridors_1F_Movement_ExclamationDown)
+        waitmovement (0)
+        waitse
+        delay (30)
+        applymovement (SILVER_ID, AbandonedShip_Corridors_1F_Movement_SilverToCorner)
+        applymovement (FERALIGATR_ID, AbandonedShip_Corridors_1F_Movement_GatrToCorner)
+        waitmovement (0)
+        delay (30)
+        applymovement (SILVER_ID, SootopolisCity_Movement_StepUp)
+        waitmovement (0)
+        msgbox(format("DAD: Good work, {PLAYER}!\pThis staircase must lead down to their base.\pLet's check it out!"))
+        waitmessage
+        closemessage
+        applymovement (SILVER_ID, AbandonedShip_Corridors_1F_Movement_SilverToStairs)
+        applymovement (FERALIGATR_ID, AbandonedShip_Corridors_1F_Movement_GatrToStairs)
+        waitmovement (0)
+        playse (SE_EXIT)
+        waitse
+        removeobject(SILVER_ID)
+        removeobject(FERALIGATR_ID)
+        setflag(FLAG_ROUJEM_PHOENIX_STAIRCASE)
+        release
+        end
+    }
+}
+
+movement AbandonedShip_Corridors_1F_Movement_ExclamationRight {
+    emote_exclamation_mark
+    face_right
+}
+
+movement AbandonedShip_Corridors_1F_Movement_ExclamationDown {
+    emote_exclamation_mark
+    face_down
+}
+
+movement AbandonedShip_Corridors_1F_Movement_SilverToCorner {
+    walk_right
+    walk_up * 2
+    walk_right * 5
+    walk_in_place_down
+}
+
+movement AbandonedShip_Corridors_1F_Movement_GatrToCorner {
+    walk_right * 2
+    walk_up * 2
+    walk_right * 4
+}
+
+movement AbandonedShip_Corridors_1F_Movement_SilverToStairs {
+    walk_down
+    walk_right
+    set_invisible
+}
+
+movement AbandonedShip_Corridors_1F_Movement_GatrToStairs {
+    walk_right
+    walk_down
+    walk_right
+    set_invisible
+}

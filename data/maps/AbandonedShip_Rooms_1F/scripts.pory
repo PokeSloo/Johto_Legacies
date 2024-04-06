@@ -1,0 +1,230 @@
+const SILVER_ID = 5
+const FERALIGATR_ID = 6
+const SILVER2_ID = 7
+const FERALIGATR2_ID = 8
+
+mapscripts AbandonedShip_Rooms_1F_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        if (flag(FLAG_ROUJEM_PHOENIX_DOOR_OPEN)) {
+            setmetatile (15, 1, 0x2CB, TRUE)
+            setmetatile (16, 1, 0x2CC, FALSE)
+            setmetatile (17, 1, 0x2CD, TRUE)
+            setmetatile (15, 0, 0x2C3, TRUE)
+            setmetatile (16, 0, 0x2C4, TRUE)
+            setmetatile (17, 0, 0x2C5, TRUE)
+            return
+        }
+        end
+    }
+}
+
+script AbandonedShip_Rooms_1F_EventScript_Trigger {
+    lock
+    if (flag(FLAG_HIDE_SILVER_ROUJEM_SECOND_FLOOR)) {
+        release
+        end
+    }
+    else {
+        applymovement (SILVER_ID, SootopolisCity_Movement_StepLeft)
+        applymovement (FERALIGATR_ID, SootopolisCity_Movement_StepLeft)
+        waitmovement (0)
+        msgbox(format("DAD: This definitely looks like a Team Phoenix base.\pThey must be holding Jirachi here somewhere.\pLet's go."))
+        waitmessage
+        closemessage
+        applymovement (SILVER_ID, AbandonedShip_Rooms_1F_Movement_WalkDown)
+        applymovement (FERALIGATR_ID, AbandonedShip_Rooms_1F_Movement_WalkDown)
+        waitmovement (0)
+        removeobject(SILVER_ID)
+        removeobject(FERALIGATR_ID)
+        setflag (FLAG_HIDE_SILVER_ROUJEM_SECOND_FLOOR)
+        release
+        end
+    }
+}
+
+movement AbandonedShip_Rooms_1F_Movement_WalkDown {
+    walk_down * 9
+}
+
+script AbandonedShip_Rooms_1F_EventScript_KeyPad {
+        msgbox(format("It's a keypad."), MSGBOX_SIGN)
+        end
+}
+
+script AbandonedShip_Rooms_1F_EventScript_Feraligatr {
+    lock
+    faceplayer
+	waitse
+	playmoncry (SPECIES_FERALIGATR, CRY_MODE_NORMAL)
+    applymovement (FERALIGATR2_ID, AbandonedShip_Corridors_1F_Movement_Question)
+    msgbox (format("FERALIGATR: Grrhh?"))
+    waitmovement (0)
+    waitmoncry
+    release
+    end
+}
+
+script AbandonedShip_Rooms_1F_EventScript_Silver {
+    lock
+    faceplayer
+    applymovement (FERALIGATR2_ID, SootopolisCity_Movement_StepRight)
+    waitmovement (0)
+    if (flag(FLAG_GOT_ROUJEM_PHOENIX_PASSWORD)) {
+        msgbox(format("DAD: They obviously don't want anyone going through this door, so that's exactly where we'll go.\pNow, it looks like we just need a passcode to open it...\p...\pYou figured out the passcode already!?\pYou're good! You must have got that intelligence from your mother."))
+        waitmessage
+        closemessage
+        applymovement (SILVER2_ID, SootopolisCity_Movement_StepUp)
+        waitmovement (0)
+        delay (60)
+        playse (SE_SWITCH)
+        setmetatile (15, 1, 0x2CB, TRUE)
+        setmetatile (16, 1, 0x2CC, FALSE)
+        setmetatile (17, 1, 0x2CD, TRUE)
+        setmetatile (15, 0, 0x2C3, TRUE)
+        setmetatile (16, 0, 0x2C4, TRUE)
+        setmetatile (17, 0, 0x2C5, TRUE)
+        special (DrawWholeMapView)
+        waitse
+        playse(SE_PIN)
+        applymovement (FERALIGATR2_ID, AbandonedShip_Rooms_1F_Movement_ExclamationUp)
+        waitmovement (0)
+        waitse
+        delay (30)
+        applymovement (FERALIGATR2_ID, SootopolisCity_Movement_StepRight)
+        waitmovement (0)
+        faceplayer
+        msgbox(format("DAD: Great!\pNow, let's go see what they have in store for us!"))
+        waitmessage
+        closemessage
+        specialvar (VAR_RESULT, GetPlayerFacingDirection)
+        if (var(VAR_RESULT) == DIR_EAST) {
+            applymovement (SILVER2_ID, AbandonedShip_Rooms_1F_Movement_SilverAround)
+            waitmovement (0)
+            applymovement (OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepLeft)
+            applymovement (FERALIGATR2_ID, AbandonedShip_Rooms_1F_Movement_GatrOutOfWay)
+            waitmovement (0)
+            applymovement (SILVER2_ID, AbandonedShip_Rooms_1F_Movement_SilverExit)
+            waitmovement (0)
+            playse (SE_EXIT)
+            waitse
+            applymovement (FERALIGATR2_ID, AbandonedShip_Rooms_1F_Movement_GatrExit)
+            waitmovement (0)
+            playse (SE_EXIT)
+            waitse
+            removeobject (SILVER2_ID)
+            removeobject (FERALIGATR2_ID)
+            setflag (FLAG_ROUJEM_PHOENIX_DOOR_OPEN)
+            release
+            end
+        }
+        else {
+            applymovement (SILVER2_ID, AbandonedShip_Rooms_1F_Movement_SilverLeft1)
+            waitmovement (0)
+            applymovement (OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepLeft)
+            applymovement (FERALIGATR2_ID, AbandonedShip_Rooms_1F_Movement_GatrOutOfWay)
+            waitmovement (0)
+            applymovement (SILVER2_ID, AbandonedShip_Rooms_1F_Movement_SilverExitFromRight)
+            waitmovement (0)
+            playse (SE_EXIT)
+            waitse
+            applymovement (FERALIGATR2_ID, AbandonedShip_Rooms_1F_Movement_GatrExit)
+            waitmovement (0)
+            playse (SE_EXIT)
+            waitse
+            removeobject (SILVER2_ID)
+            removeobject (FERALIGATR2_ID)
+            setflag (FLAG_ROUJEM_PHOENIX_DOOR_OPEN)
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("DAD: They obviously don't want anyone going through this door, so that's exactly where we'll go.\pNow, it looks like we just need a passcode to open it..."))
+        release
+        end
+    }
+}
+
+movement AbandonedShip_Rooms_1F_Movement_ExclamationUp {
+    emote_exclamation_mark
+    walk_in_place_up
+}
+
+movement AbandonedShip_Rooms_1F_Movement_SilverAround {
+    walk_down
+    walk_left * 2
+    walk_in_place_up
+}
+
+movement AbandonedShip_Rooms_1F_Movement_GatrOutOfWay {
+    walk_left
+    walk_in_place_right
+}
+
+movement AbandonedShip_Rooms_1F_Movement_SilverExit {
+    walk_up * 2
+    set_invisible
+}
+
+movement AbandonedShip_Rooms_1F_Movement_SilverExitFromRight {
+    walk_left
+    walk_up
+    set_invisible
+}
+
+movement AbandonedShip_Rooms_1F_Movement_GatrExit {
+    walk_right
+    walk_up
+    set_invisible
+}
+
+movement AbandonedShip_Rooms_1F_Movement_SilverLeft1 {
+    walk_left
+}
+
+script AbandonedShip_Rooms_1F_EventScript_Scientist1 {
+    msgbox(format("Uh, sorry kid, who are you?\pI'm busy working here."), MSGBOX_NPC)
+    end
+}
+
+script AbandonedShip_Rooms_1F_EventScript_Scientist2 {
+    msgbox(format("Our profits have really taken a hit since our Ecruteak base got shut down.\pI'm still not sure what exactly happened there."), MSGBOX_NPC)
+    end
+}
+
+raw`
+AbandonedShip_Rooms_1F_EventScript_Demetrius::
+	trainerbattle_single TRAINER_DEMETRIUS, AbandonedShip_Rooms_1F_Text_DemetriusIntro, AbandonedShip_Rooms_1F_Text_DemetriusDefeat
+	msgbox AbandonedShip_Rooms_1F_Text_DemetriusPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+AbandonedShip_Rooms_1F_EventScript_Thalia::
+	trainerbattle_single TRAINER_THALIA_1, AbandonedShip_Rooms_1F_Text_ThaliaIntro, AbandonedShip_Rooms_1F_Text_ThaliaDefeat
+	msgbox AbandonedShip_Rooms_1F_Text_ThaliaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+AbandonedShip_Rooms_1F_Text_ThaliaIntro:
+	.string "You're not the kid they said defeated\n"
+	.string "all the grunts on Mt. Tempest, are you?$"
+
+AbandonedShip_Rooms_1F_Text_ThaliaDefeat:
+	.string "I would say my hunch was correct.$"
+
+AbandonedShip_Rooms_1F_Text_ThaliaPostBattle:
+	.string "Kids these days just don't have any\n"
+	.string "manners.\p"
+	.string "Could you find a different hideout to\n"
+	.string "raid?$"
+
+AbandonedShip_Rooms_1F_Text_DemetriusIntro:
+	.string "Yeah, I'm not supposed to let anyone go\n"
+	.string "this way.\p"
+	.string "I'll use force if I have to!$"
+
+AbandonedShip_Rooms_1F_Text_DemetriusDefeat:
+	.string "Man, you're just as strong as the other\n"
+	.string "guy!$"
+
+AbandonedShip_Rooms_1F_Text_DemetriusPostBattle:
+	.string "Uh, please don't go this way?$"
+`

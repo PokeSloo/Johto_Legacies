@@ -24,26 +24,65 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "AbandonedShip_Rooms2_B1F_EventScript_Camper",
-      "flag": "0"
+      "script": "NULL",
+      "flag": "FLAG_DEFEATED_THORNE_ROUJEM"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_STEVEN",
+      "x": 8,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "AbandonedShip_Rooms2_B1F_EventScript_Silver",
+      "flag": "FLAG_DEFEATED_THORNE_ROUJEM"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN",
+      "x": 8,
+      "y": 7,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "AbandonedShip_Rooms2_B1F_EventScript_Feraligatr",
+      "flag": "FLAG_DEFEATED_THORNE_ROUJEM"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_QUINTY_PLUMP",
+      "x": 2,
+      "y": 2,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_GENERAL_HIDE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 10,
-      "y": 7,
+      "x": 2,
+      "y": 2,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "AbandonedShip_Rooms2_B1F_EventScript_ItemDiveBall",
-      "flag": "FLAG_ITEM_ABANDONED_SHIP_ROOMS_2_B1F_DIVE_BALL"
+      "script": "NULL",
+      "flag": "FLAG_GENERAL_HIDE"
     }
   ],
   "warp_events": [
     {
-      "x": 8,
+      "x": 11,
       "y": 1,
       "elevation": 0,
       "dest_map": "MAP_ABANDONED_SHIP_ROOMS_1F",

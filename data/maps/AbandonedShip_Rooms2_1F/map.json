@@ -16,16 +16,16 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
-      "x": 4,
+      "x": 6,
       "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
+      "trainer_sight_or_berry_tree_id": "2",
       "script": "AbandonedShip_Rooms2_1F_EventScript_Dan",
-      "flag": "0"
+      "flag": "FLAG_DEFEATED_THORNE_ROUJEM"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_AZUMARILL",
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_DEFEATED_THORNE_ROUJEM"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -55,29 +55,29 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
-      "x": 7,
-      "y": 2,
+      "x": 8,
+      "y": 4,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "AbandonedShip_Rooms2_1F_EventScript_Garrison",
-      "flag": "0"
+      "flag": "FLAG_DEFEATED_THORNE_ROUJEM"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
-      "x": 9,
-      "y": 6,
+      "x": 4,
+      "y": 8,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
+      "trainer_sight_or_berry_tree_id": "2",
       "script": "AbandonedShip_Rooms2_1F_EventScript_Jani",
-      "flag": "0"
+      "flag": "FLAG_DEFEATED_THORNE_ROUJEM"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PIKACHU_DOLL",
@@ -90,7 +90,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_DEFEATED_THORNE_ROUJEM"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SKITTY",
@@ -103,7 +103,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_DEFEATED_THORNE_ROUJEM"
     }
   ],
   "warp_events": [

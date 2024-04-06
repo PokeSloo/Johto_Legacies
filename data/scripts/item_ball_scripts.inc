@@ -443,7 +443,7 @@ AbandonedShip_Room_B1F_EventScript_ItemTM13::
 	end
 
 AbandonedShip_Rooms2_1F_EventScript_ItemRevive::
-	finditem ITEM_REVIVE
+	finditem ITEM_MAX_REVIVE
 	end
 
 AbandonedShip_CaptainsOffice_EventScript_ItemStorageKey::

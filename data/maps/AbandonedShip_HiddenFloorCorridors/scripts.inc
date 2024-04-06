@@ -131,6 +131,9 @@ AbandonedShip_HiddenFloorCorridors_EventScript_TheDoorIsOpen::
 	releaseall
 	end
 
+AbandonedShip_Text_TheDoorIsOpen:
+	.string "The door is open, dummy.$"
+
 AbandonedShip_HiddenFloorCorridors_Text_Rm1DoorIsLocked:
 	.string "The door is locked.\p"
 	.string "“RM. 1” is painted on the door.$"

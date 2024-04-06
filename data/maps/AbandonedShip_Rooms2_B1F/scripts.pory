@@ -1,0 +1,345 @@
+const THORNE_ID = 1
+const SILVER_ID = 2
+const FERALIGATR_ID = 3
+const JIRACHI_ID = 4
+const POKEBALL_ID = 5
+
+mapscripts AbandonedShip_Rooms2_B1F_MapScripts {}
+
+script AbandonedShip_Rooms2_B1F_EventScript_Feraligatr {
+    lock
+    faceplayer
+	waitse
+	playmoncry (SPECIES_FERALIGATR, CRY_MODE_NORMAL)
+    applymovement (FERALIGATR_ID, AbandonedShip_Rooms2_B1F_Movement_Exclamation)
+    msgbox (format("FERALIGATR: Grrah!"))
+    waitmovement (0)
+    waitmoncry
+    release
+    end
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_Exclamation {
+    emote_exclamation_mark
+}
+
+script AbandonedShip_Rooms2_B1F_EventScript_Silver {
+    lock
+    faceplayer
+    msgbox(format("DAD: Alright {PLAYER}, are you ready for a battle?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        msgbox(format("Well, hurry up and prepare!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Then let's do this!"))
+        waitmessage
+        closemessage
+        applymovement (SILVER_ID, AbandonedShip_Rooms2_B1F_Movement_SilverToAction)
+        applymovement (FERALIGATR_ID, AbandonedShip_Rooms2_B1F_Movement_FeraligatrToAction)
+        specialvar (VAR_RESULT, GetPlayerFacingDirection)
+        if (var(VAR_RESULT) == DIR_WEST) {
+            applymovement (OBJ_EVENT_ID_PLAYER, AbandonedShip_Rooms2_B1F_Movement_PlayerToActionLeft)
+        }
+        else {
+            applymovement (OBJ_EVENT_ID_PLAYER, AbandonedShip_Rooms2_B1F_Movement_PlayerToActionDown)
+        }
+        waitmovement (0)
+        msgbox(format("THORNE: Well well, you've uncovered yet another one of our hideouts.\pI would say I'm surprised, but it's to be expected at this point."))
+        waitmessage
+        applymovement (SILVER_ID, SootopolisCity_Movement_StepUp)
+        waitmovement (0)
+        msgbox(format("DAD: So, we finally meet.\pPROF. THORNE, I presume?"))
+        waitmessage
+        checkplayergender
+        if (var(VAR_RESULT) == MALE) {
+            call (AbandonedShip_Rooms2_B1F_EventScript_MalePlayerDad)
+        }
+        elif (var(VAR_RESULT) == FEMALE) {
+            call (AbandonedShip_Rooms2_B1F_EventScript_FemalePlayerDad)
+        }
+        applymovement (THORNE_ID, SootopolisCity_Movement_StepDown)
+        waitmovement (0)
+        msgbox(format("THORNE: You could say that.\pI am also well acquainted with your mother.\pIn fact, I intend to free her along with the other Phoenix members being held prisoner.\pTell me, do you know of Jirachi's ability to grant wishes?"))
+        waitmessage
+        applymovement (SILVER_ID, SootopolisCity_Movement_StepUp)
+        waitmovement (0)
+        msgbox(format("DAD: I've only heard rumors.\pIt's said that Jirachi is able to grant up to three wishes during the week of the Millennium Comet.\pSo then, you intend to use Jirachi's power to free my mother and your other Team Phoenix thugs?"))
+        waitmessage
+        applymovement (THORNE_ID, SootopolisCity_Movement_StepDown)
+        waitmovement (0)
+        msgbox(format("THORNE: Precisely!\pThis should be a simple task for Jirachi.\pNow, I'll defeat you two and make my wish!"))
+        waitmessage
+        applymovement (SILVER_ID, SootopolisCity_Movement_StepRight)
+        applymovement (OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepLeft)
+        waitmovement (0)
+        goto (AbandonedShip_Rooms2_B1F_EventScript_BattlePrompt)
+    }
+}
+
+script AbandonedShip_Rooms2_B1F_EventScript_MalePlayerDad {
+    msgbox(format("I hear you're well acquainted with my son here."))
+    return
+}
+
+script AbandonedShip_Rooms2_B1F_EventScript_FemalePlayerDad {
+    msgbox(format("I hear you're well acquainted with my daughter here."))
+    return
+}
+
+script AbandonedShip_Rooms2_B1F_EventScript_BattlePrompt {
+    msgbox(format("DAD: Pick your party members, let's end this."))
+    waitmessage
+    closemessage
+    goto (AbandonedShip_Rooms2_B1F_EventScript_ChooseParty)
+}
+
+script AbandonedShip_Rooms2_B1F_EventScript_ChooseParty {
+    special (SavePlayerParty)
+	fadescreen (FADE_TO_BLACK)
+	special (ChooseHalfPartyForBattle)
+	waitstate
+    goto_if_ne (VAR_RESULT, 0, AbandonedShip_Rooms2_B1F_EventScript_DoBattle)
+	special (LoadPlayerParty)
+	goto (AbandonedShip_Rooms2_B1F_EventScript_BattlePrompt)
+}
+
+script AbandonedShip_Rooms2_B1F_EventScript_DoBattle {
+    applymovement (SILVER_ID, SootopolisCity_Movement_StepUp)
+	applymovement (OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepUp)
+    waitmovement (0)
+    multi_2_vs_1 (TRAINER_MAY_LILYCOVE_MUDKIP, AbandonedShip_Rooms2_B1F_EventScript_Text_ThorneDefeat, TRAINER_MAY_LILYCOVE_TREECKO, TRAINER_BACK_PIC_STEVEN)
+    specialvar (VAR_RESULT, GetBattleOutcome)
+    compare (VAR_RESULT, B_OUTCOME_LOST)
+    goto_if_eq (AbandonedShip_Rooms2_B1F_EventScript_PlayerLostTheFight)
+	delay (30)
+	msgbox(format("THORNE: Even after all of my preparation, I was still no match for you two."))
+    waitmessage
+    addobject(POKEBALL_ID)
+    delay (30)
+    playse (SE_PIN)
+    applymovement (THORNE_ID, AbandonedShip_Rooms2_B1F_Movement_StepLeftQuestion)
+    waitmovement (0)
+    waitse
+    msgbox(format("What?"))
+    waitmessage
+    closemessage
+    fadeoutbgm (1)
+    playse (SE_BALL)
+    waitse
+    delay (20)
+    playse (SE_BALL)
+    waitse
+    delay (20)
+    playse (SE_BALL_OPEN)
+    removeobject (POKEBALL_ID)
+    addobject (JIRACHI_ID)
+    waitse
+    delay (30)
+    applymovement (JIRACHI_ID, AbandonedShip_Rooms2_B1F_Movement_JirachiDown1)
+    waitmovement (0)
+    applymovement (THORNE_ID, SootopolisCity_Movement_StepDown)
+    waitmovement (0)
+    waitse
+	playmoncry (SPECIES_JIRACHI, CRY_MODE_NORMAL)
+    waitmoncry
+    playbgm (MUS_HG_GTS, TRUE)
+    applymovement (JIRACHI_ID, AbandonedShip_Rooms2_B1F_Movement_JirachiLeft)
+    waitmovement (0)
+    playse (SE_LEDGE)
+    applymovement (JIRACHI_ID, AbandonedShip_Rooms2_B1F_Movement_JirachiJumpDown)
+    waitmovement (0)
+    waitse
+    applymovement (SILVER_ID, SootopolisCity_Movement_StepDown)
+    applymovement (FERALIGATR_ID, SootopolisCity_Movement_StepDown)
+	applymovement (OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepDown)
+    waitmovement (0)
+    playse (SE_LEDGE)
+    applymovement (JIRACHI_ID, AbandonedShip_Rooms2_B1F_Movement_JirachiJumpRight)
+    waitmovement (0)
+    waitse
+    playse (SE_LEDGE)
+    applymovement (JIRACHI_ID, AbandonedShip_Rooms2_B1F_Movement_JirachiJumpRight)
+    waitmovement (0)
+    waitse
+    applymovement (JIRACHI_ID, AbandonedShip_Rooms2_B1F_Movement_JirachiUp1)
+    waitmovement (0)
+    applymovement (SILVER_ID, SootopolisCity_Movement_StepRight)
+    applymovement (FERALIGATR_ID, SootopolisCity_Movement_StepRight)
+    applymovement (OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepRight)
+    waitmovement (0)
+    delay (30)
+    waitse
+	playmoncry (SPECIES_JIRACHI, CRY_MODE_NORMAL)
+    applymovement (JIRACHI_ID, LittlerootTown_BrendansHouse_1F_Heart)
+    waitmovement (0)
+    waitmoncry
+    delay (30)
+    applymovement (SILVER_ID, SootopolisCity_Movement_StepUp)
+    applymovement (FERALIGATR_ID, SootopolisCity_Movement_StepUp)
+    applymovement (OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepUp)
+    applymovement (JIRACHI_ID, AbandonedShip_Rooms2_B1F_Movement_JirachiExit)
+    waitmovement (0)
+    removeobject (JIRACHI_ID)
+    fadedefaultbgm
+    applymovement (SILVER_ID, SootopolisCity_Movement_StepUp)
+    waitmovement (0)
+    msgbox(format("DAD: Well, THORNE, it looks like you've been utterly defeated.\pIt's time you give up."))
+    waitmessage
+    applymovement (THORNE_ID, SootopolisCity_Movement_StepDown)
+    waitmovement (0)
+    msgbox(format("THORNE: I might be defeated, but I will never give up.\pA phoenix never dies.\pThe same goes for Team Phoenix!\pOne day, we will return."))
+    waitmessage
+    applymovement (SILVER_ID, SootopolisCity_Movement_StepUp)
+    waitmovement (0)
+    msgbox(format("DAD: You'll have plenty of time to think about it with your buddies in prison.\pCome on."))
+    waitmessage
+    closemessage
+    applymovement (SILVER_ID, AbandonedShip_Rooms2_B1F_Movement_WalkUp1)
+    waitmovement (0)
+    applymovement (FERALIGATR_ID, AbandonedShip_Rooms2_B1F_Movement_WalkUp1)
+    waitmovement (0)
+    delay (30)
+    applymovement (SILVER_ID, AbandonedShip_Rooms2_B1F_Movement_WalkRight1)
+    applymovement (THORNE_ID, AbandonedShip_Rooms2_B1F_Movement_WalkDown1)
+    applymovement (FERALIGATR_ID, SootopolisCity_Movement_StepRight)
+    waitmovement (0)
+    delay (30)
+    applymovement (SILVER_ID, SootopolisCity_Movement_StepDown)
+    waitmovement (0)
+    msgbox(format("DAD: By the way, {PLAYER}, GOLD told me he wanted to speak with you.\pHe's still in Lazulan City.\pThe festival should be getting started now, I'll meet you there."))
+    waitmessage
+    closemessage
+    applymovement (OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepRight)
+    applymovement (SILVER_ID, AbandonedShip_Rooms2_B1F_Movement_SilverExit)
+    applymovement (THORNE_ID, AbandonedShip_Rooms2_B1F_Movement_ThorneExit)
+    applymovement (FERALIGATR_ID, AbandonedShip_Rooms2_B1F_Movement_GatrExit)
+    waitmovement (0)
+    playse (SE_EXIT)
+    waitse
+    removeobject (SILVER_ID)
+    removeobject (THORNE_ID)
+    removeobject (FERALIGATR_ID)
+    clearflag (FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS)
+    clearflag (FLAG_HIDE_JIRACHI)
+	setflag (FLAG_DEFEATED_THORNE_ROUJEM)
+	addvar (VAR_LAZULAN_STATE, 1)
+    release
+    end
+}
+
+script AbandonedShip_Rooms2_B1F_EventScript_PlayerLostTheFight {
+    fadescreen (FADE_TO_BLACK)
+	special (SetCB2WhiteOut)
+	waitstate
+    release
+    end
+}
+
+text AbandonedShip_Rooms2_B1F_EventScript_Text_ThorneDefeat {
+    format("Well, this outcome was unexpected...")
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_SilverToAction {
+    walk_left * 5
+    walk_up * 2
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_FeraligatrToAction {
+    walk_up
+    walk_left * 5
+    walk_up
+    walk_left
+    walk_up
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_PlayerToActionLeft {
+    delay_16 * 2
+    walk_left * 6
+    walk_up
+    walk_right
+    walk_up
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_PlayerToActionDown {
+    delay_16 * 2
+    walk_down
+    walk_left * 5
+    walk_up
+    walk_right
+    walk_up
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_StepLeftQuestion {
+    emote_question_mark
+    walk_in_place_left
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_JirachiDown1 {
+    walk_slow_down
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_JirachiLeft {
+    walk_left
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_JirachiJumpDown {
+    jump_2_down
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_JirachiJumpRight {
+    jump_2_right
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_JirachiUp1 {
+    walk_up
+    face_left
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_JirachiExit {
+    walk_up
+    walk_fast_up * 5
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_WalkUp1 {
+    walk_up
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_WalkRight1 {
+    walk_right
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_WalkDown1 {
+    walk_down
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_SilverExit {
+    walk_right
+    walk_down * 3
+    walk_right * 3
+    walk_up * 3
+    walk_right * 3
+    walk_up * 2
+    set_invisible
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_ThorneExit {
+    walk_right * 2
+    walk_down * 3
+    walk_right * 3
+    walk_up * 3
+    walk_right * 3
+    walk_up * 2
+    set_invisible
+}
+
+movement AbandonedShip_Rooms2_B1F_Movement_GatrExit {
+    walk_right * 3
+    walk_down * 3
+    walk_right * 3
+    walk_up * 3
+    walk_right * 3
+    walk_up * 2
+    set_invisible
+}

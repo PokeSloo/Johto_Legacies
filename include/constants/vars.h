@@ -271,7 +271,7 @@
 #define VAR_KIMONO_GIRL_COUNT                0x40FC // Battled Kimono girls before get Eevee
 #define VAR_OLIVINE_GYM_TRAINER_COUNT        0x40FD // After battling and sending the band back to the gym
 #define VAR_HARBOR_DEPARTED_FROM             0x40FE // To take back to olivine or apricotta: 1 = olivine, 2 = apricotta
-#define VAR_LAZULAN_STATE                    0x40FF // 1 = Got mega stone, 2 = Defeated Phoenix Mt Tempest
+#define VAR_LAZULAN_STATE                    0x40FF // 1 = Got mega stone, 2 = Defeated Phoenix Mt Tempest, 3 = Defeated Thorne Roujem
 
 #define VARS_END                             0x40FF
 #define VARS_COUNT                           (VARS_END - VARS_START + 1)

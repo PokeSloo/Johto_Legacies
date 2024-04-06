@@ -1,0 +1,27 @@
+mapscripts AbandonedShip_Rooms_B1F_MapScripts {}
+
+script AbandonedShip_Rooms_B1F_EventScript_Sailor {
+    lock
+    faceplayer
+    if (flag(FLAG_GOT_ROUJEM_PHOENIX_PASSWORD)) {
+        msgbox(format("You have to stop this evil group, for the POKéMON's sake."))
+        release
+        end
+    }
+    else {
+        msgbox(format("You know, I really hate what the new management has done with this shipyard.\pI feel bad for all of these POKéMON that they're forcing us to smuggle.\p...\pWhat's that?\pYou're here to stop them?\pIn that case, you'll need a passcode to get into the basement.\pHere, it's 571943."))
+        waitmessage
+        playfanfare (MUS_OBTAIN_ITEM)
+        msgbox(format("{PLAYER} got the passcode!"))
+        waitmessage
+        waitfanfare
+        msgbox(format("You have to stop them, for the POKéMON's sake."))
+        waitmessage
+        closemessage
+        applymovement (1, SootopolisCity_Movement_StepLeft)
+        waitmovement (0)
+        setflag (FLAG_GOT_ROUJEM_PHOENIX_PASSWORD)
+        release
+        end
+    }
+}
