@@ -1294,7 +1294,7 @@
 #define FLAG_HIDE_SILVER_ROUJEM_SECOND_FLOOR                        0x4DD // In phoenix base
 #define FLAG_HIDE_SHANE_LAZULAN_POST_THORNE                         0x4DE // Set before in house after e4, and after gold battle
 #define FLAG_RECEIVED_SUICUNE_EGG                                   0x4DF // From Gold after defeating him
-#define FLAG_UNUSED_0x4E0                                           0x4E0 // Unused Flag
+#define FLAG_HIDE_REMATCH_WHITNEY                                   0x4E0 // Cleared after defeating Falkner
 #define FLAG_UNUSED_0x4E1                                           0x4E1 // Unused Flag
 #define FLAG_UNUSED_0x4E2                                           0x4E2 // Unused Flag
 #define FLAG_UNUSED_0x4E3                                           0x4E3 // Unused Flag

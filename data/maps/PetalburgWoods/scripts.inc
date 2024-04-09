@@ -137,12 +137,26 @@ PetalburgWoods_EventScript_Shrine_4:
 	fadescreen FADE_TO_WHITE
 	removeobject 4
 	playbgm MUS_RAYQUAZA_APPEARS, FALSE
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq PetalburgWoods_EventScript_Shrine_11
+	compare VAR_RESULT, FEMALE
+	goto_if_eq PetalburgWoods_EventScript_Shrine_12
+PetalburgWoods_EventScript_Shrine_10:
 	setwarp MAP_DESERT_UNDERPASS, 17, 46
 	special TimeTravelBackClock
 	waitstate
 	fadedefaultbgm
 	release
 	end
+
+PetalburgWoods_EventScript_Shrine_11:
+	setvar VAR_0x8004, MALE
+	goto PetalburgWoods_EventScript_Shrine_10
+
+PetalburgWoods_EventScript_Shrine_12:
+	setvar VAR_0x8004, FEMALE
+	goto PetalburgWoods_EventScript_Shrine_10
 
 
 PetalburgWoods_Movement_CelebiAppears:

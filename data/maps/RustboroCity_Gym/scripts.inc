@@ -57,6 +57,21 @@ RustboroCity_Gym_FalknerLeave:
 	walk_left
 	step_end
 
+RustboroCity_Gym_EventScript_FalknerRound2::
+	trainerbattle_double TRAINER_ROXANNE_2, RustboroCity_Gym_Text_FalknerRematchIntro, RustboroCity_Gym_Text_FalknerRematchDefeat, RustboroCity_Gym_Text_FalknerRematchNotEnoughMons, RustboroCity_Gym_EventScript_FalknerRematchDefeated, NO_MUSIC
+	msgbox RustboroCity_Gym_EventScript_FalknerRound2_Text_0
+	release
+	end
+
+
+RustboroCity_Gym_EventScript_FalknerRematchDefeated::
+	msgbox RustboroCity_Gym_EventScript_FalknerRematchDefeated_Text_0
+	clearflag FLAG_HIDE_REMATCH_WHITNEY
+	addvar VAR_GYM_LEADERS_ROUND2_COUNT, 1
+	release
+	end
+
+
 RustboroCity_Gym_EventScript_Josh::
 	trainerbattle_single TRAINER_JOSH, RustboroCity_Gym_Text_JoshIntro, RustboroCity_Gym_Text_JoshDefeat
 	msgbox RustboroCity_Gym_Text_JoshPostBattle, MSGBOX_AUTOCLOSE
@@ -273,3 +288,46 @@ RustboroCity_Gym_Text_RoxanneRegisterCall:
 RustboroCity_Gym_Text_RegisteredRoxanne:
 	.string "Registered GYM LEADER ROXANNE\n"
 	.string "in the POKéNAV.$"
+
+RustboroCity_Gym_EventScript_FalknerRound2_Text_0:
+	.string "Good seeing you again, {PLAYER}.\p"
+	.string "Maybe after enough training, I'll be\n"
+	.string "able to defeat you one day.\p"
+	.string "That's what it means to aim for the sky!$"
+
+RustboroCity_Gym_EventScript_FalknerRematchDefeated_Text_0:
+	.string "I may have lost to you again, but I can\n"
+	.string "guarantee that I won't be losing to any\l"
+	.string "more kids just starting off on their\l"
+	.string "journey!\p"
+	.string "By the way, you should challenge all of\n"
+	.string "the other gym leaders to a rematch as\l"
+	.string "well.\p"
+	.string "I'm sure they will gladly accept.$"
+
+RustboroCity_Gym_Text_FalknerRematchIntro::
+	.string "It's been a while, {PLAYER}.\p"
+	.string "I've heard you defeated the League\n"
+	.string "Champion, that's great!\p"
+	.string "...\p"
+	.string "You don't recognize me?\p"
+	.string "It's me, FALKNER!\p"
+	.string "My POKéMON and I have been undergoing\n"
+	.string "brutal training, and we're ready for a\l"
+	.string "real challenge!\p"
+	.string "Now then, let's see how I stack up to\n"
+	.string "you!$"
+
+RustboroCity_Gym_Text_FalknerRematchDefeat::
+	.string "Of all my losses, I feel like this one is\n"
+	.string "undeniably deserved.\p"
+	.string "I hit you with everything I had, and\n"
+	.string "still lost.\p"
+	.string "You really are a champion!$"
+
+RustboroCity_Gym_Text_FalknerRematchNotEnoughMons::
+	.string "...\p"
+	.string "Although, I really wanted our rematch\n"
+	.string "to be a double battle.\p"
+	.string "Please come back when you have more\n"
+	.string "than one POKéMON with you.$"

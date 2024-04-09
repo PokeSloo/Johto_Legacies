@@ -127,6 +127,13 @@ script PetalburgWoods_EventScript_Shrine {
         fadescreen (FADE_TO_WHITE)
         removeobject (CELEBI_ID)
         playbgm (MUS_RAYQUAZA_APPEARS, FALSE)
+        checkplayergender
+        if (var(VAR_RESULT) == MALE) {
+            setvar (VAR_0x8004, MALE)
+        }
+        elif (var(VAR_RESULT) == FEMALE) {
+            setvar (VAR_0x8004, FEMALE)
+        }
         setwarp (MAP_DESERT_UNDERPASS, 17, 46)
         special (TimeTravelBackClock)
 	    waitstate

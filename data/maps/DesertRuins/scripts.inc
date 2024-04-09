@@ -45,12 +45,26 @@ DesertRuins_On_Frame::
 	fadescreen FADE_TO_WHITE
 	removeobject 6
 	playbgm MUS_RAYQUAZA_APPEARS, FALSE
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq DesertRuins_On_Frame_2
+	compare VAR_RESULT, FEMALE
+	goto_if_eq DesertRuins_On_Frame_3
+DesertRuins_On_Frame_1:
 	setwarp MAP_PETALBURG_WOODS, 17, 46
 	special TimeTravelForwardClock
 	waitstate
 	fadedefaultbgm
 	release
 	end
+
+DesertRuins_On_Frame_2:
+	setvar VAR_0x8004, MALE
+	goto DesertRuins_On_Frame_1
+
+DesertRuins_On_Frame_3:
+	setvar VAR_0x8004, FEMALE
+	goto DesertRuins_On_Frame_1
 
 
 DesertRuins_Movement_WalktoKurts:

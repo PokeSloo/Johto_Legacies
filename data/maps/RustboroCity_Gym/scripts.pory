@@ -55,6 +55,33 @@ movement RustboroCity_Gym_FalknerLeave {
     walk_left * 2
 }
 
+script RustboroCity_Gym_EventScript_FalknerRound2 {
+	trainerbattle_double (TRAINER_ROXANNE_2, RustboroCity_Gym_Text_FalknerRematchIntro, RustboroCity_Gym_Text_FalknerRematchDefeat, RustboroCity_Gym_Text_FalknerRematchNotEnoughMons, RustboroCity_Gym_EventScript_FalknerRematchDefeated, NO_MUSIC)
+	msgbox(format("Good seeing you again, {PLAYER}.\pMaybe after enough training, I'll be able to defeat you one day.\pThat's what it means to aim for the sky!"))
+	release
+	end
+}
+
+script RustboroCity_Gym_EventScript_FalknerRematchDefeated {
+	msgbox(format("I may have lost to you again, but I can guarantee that I won't be losing to any more kids just starting off on their journey!\pBy the way, you should challenge all of the other gym leaders to a rematch as well.\pI'm sure they will gladly accept."))
+	clearflag (FLAG_HIDE_REMATCH_WHITNEY)
+	addvar (VAR_GYM_LEADERS_ROUND2_COUNT, 1)
+	release
+	end
+}
+
+text RustboroCity_Gym_Text_FalknerRematchIntro {
+	format("It's been a while, {PLAYER}.\pI've heard you defeated the League Champion, that's great!\p...\pYou don't recognize me?\pIt's me, FALKNER!\pMy POKéMON and I have been undergoing brutal training, and we're ready for a real challenge!\pNow then, let's see how I stack up to you!")
+}
+
+text RustboroCity_Gym_Text_FalknerRematchDefeat {
+	format("Of all my losses, I feel like this one is undeniably deserved.\pI hit you with everything I had, and still lost.\pYou really are a champion!")
+}
+
+text RustboroCity_Gym_Text_FalknerRematchNotEnoughMons {
+	format("...\pAlthough, I really wanted our rematch to be a double battle.\pPlease come back when you have more than one POKéMON with you.")
+}
+
 raw`
 RustboroCity_Gym_EventScript_Josh::
 	trainerbattle_single TRAINER_JOSH, RustboroCity_Gym_Text_JoshIntro, RustboroCity_Gym_Text_JoshDefeat

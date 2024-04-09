@@ -11963,35 +11963,51 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayRustboroTorchic[] = {
 static const struct TrainerMonItemCustomMoves sParty_Roxanne2[] = {
     {
     .iv = 255,
-    .lvl = 32,
-    .species = SPECIES_GOLEM,
-    .heldItem = ITEM_NONE,
+    .lvl = 83,
+    .species = SPECIES_MASQUERAIN,
+    .heldItem = ITEM_FOCUS_SASH,
     .abilityNums = 0,
-    .moves = {MOVE_PROTECT, MOVE_ROLLOUT, MOVE_MAGNITUDE, MOVE_EXPLOSION}
+    .moves = {MOVE_STICKY_WEB, MOVE_BUG_BUZZ, MOVE_AIR_SLASH, MOVE_HYDRO_PUMP}
     },
     {
     .iv = 255,
-    .lvl = 35,
-    .species = SPECIES_KABUTO,
+    .lvl = 83,
+    .species = SPECIES_GLISCOR,
+    .heldItem = ITEM_TOXIC_ORB,
+    .abilityNums = 2,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_EARTHQUAKE, MOVE_ROOST, MOVE_ICE_FANG}
+    },
+    {
+    .iv = 255,
+    .lvl = 83,
+    .species = SPECIES_STARAPTOR,
+    .heldItem = ITEM_CHOICE_SCARF,
+    .abilityNums = 2,
+    .moves = {MOVE_BRAVE_BIRD, MOVE_CLOSE_COMBAT, MOVE_DOUBLE_EDGE, MOVE_U_TURN}
+    },
+    {
+    .iv = 255,
+    .lvl = 84,
+    .species = SPECIES_ALTARIA,
+    .heldItem = ITEM_LIFE_ORB,
+    .abilityNums = 2,
+    .moves = {MOVE_DRAGON_DANCE, MOVE_ROOST, MOVE_EARTHQUAKE, MOVE_DRAGON_CLAW}
+    },
+    {
+    .iv = 255,
+    .lvl = 84,
+    .species = SPECIES_HAWLUCHA,
     .heldItem = ITEM_SITRUS_BERRY,
-    .abilityNums = 0,
-    .moves = {MOVE_SWORDS_DANCE, MOVE_ICE_BEAM, MOVE_SURF, MOVE_ROCK_SLIDE}
+    .abilityNums = 1,
+    .moves = {MOVE_ACROBATICS, MOVE_HIGH_JUMP_KICK, MOVE_SWORDS_DANCE, MOVE_ROOST}
     },
     {
     .iv = 255,
-    .lvl = 35,
-    .species = SPECIES_ONIX,
-    .heldItem = ITEM_NONE,
-    .abilityNums = 0,
-    .moves = {MOVE_IRON_TAIL, MOVE_EXPLOSION, MOVE_ROAR, MOVE_ROCK_SLIDE}
-    },
-    {
-    .iv = 255,
-    .lvl = 37,
-    .species = SPECIES_NOSEPASS,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .abilityNums = 0,
-    .moves = {MOVE_DOUBLE_TEAM, MOVE_EXPLOSION, MOVE_PROTECT, MOVE_ROCK_SLIDE}
+    .lvl = 85,
+    .species = SPECIES_PIDGEOT,
+    .heldItem = ITEM_PIDGEOTITE,
+    .abilityNums = 2,
+    .moves = {MOVE_HURRICANE, MOVE_HEAT_WAVE, MOVE_U_TURN, MOVE_ROOST}
     }
 };
 

@@ -724,12 +724,26 @@ MagmaHideout_4F_EventScript_MainTrigger::
 	delay 30
 	fadescreenspeed FADE_TO_WHITE, 8
 	playbgm MUS_RAYQUAZA_APPEARS, FALSE
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq MagmaHideout_4F_EventScript_MainTrigger_2
+	compare VAR_RESULT, FEMALE
+	goto_if_eq MagmaHideout_4F_EventScript_MainTrigger_3
+MagmaHideout_4F_EventScript_MainTrigger_1:
 	setwarp MAP_AQUA_HIDEOUT_UNUSED_RUBY_MAP1, 5, 8
 	special TimeTravelBackClock
 	waitstate
 	fadedefaultbgm
 	release
 	end
+
+MagmaHideout_4F_EventScript_MainTrigger_2:
+	setvar VAR_0x8004, MALE
+	goto MagmaHideout_4F_EventScript_MainTrigger_1
+
+MagmaHideout_4F_EventScript_MainTrigger_3:
+	setvar VAR_0x8004, FEMALE
+	goto MagmaHideout_4F_EventScript_MainTrigger_1
 
 
 MagmaHideout_4F_Movement_PlayerToAriana:

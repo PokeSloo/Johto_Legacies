@@ -43,27 +43,11 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 4,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PlayersHouse_2F_EventScript_GameCube"
-    },
-    {
-      "type": "sign",
       "x": 7,
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LittleRootTown_MaysHouse_2F_ShaneJournal"
-    },
-    {
-      "type": "sign",
-      "x": 3,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_MaysHouse_2F_EventScript_WallClock"
     },
     {
       "type": "sign",

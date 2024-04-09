@@ -94,6 +94,13 @@ script AquaHideout_UnusedRubyMap1_DoBattle {
     addvar (VAR_ECRUTEAK_STATE, 1)
     fadescreenspeed (FADE_TO_WHITE, 8)
     playbgm (MUS_RAYQUAZA_APPEARS, FALSE)
+    checkplayergender
+    if (var(VAR_RESULT) == MALE) {
+        setvar (VAR_0x8004, MALE)
+    }
+    elif (var(VAR_RESULT) == FEMALE) {
+        setvar (VAR_0x8004, FEMALE)
+    }
     setwarp (MAP_MAGMA_HIDEOUT_4F, 9, 8)
     special (TimeTravelForwardClock)
 	waitstate

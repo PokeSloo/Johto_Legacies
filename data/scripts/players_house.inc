@@ -5,12 +5,19 @@
 
 LittlerootTown_BrendansHouse_2F_EventScript_WallClock::
 	lockall
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq LittlerootTown_MaysHouse_2F_EventScript_MalePlayer
+	compare VAR_RESULT, FEMALE
+	goto_if_eq LittlerootTown_MaysHouse_2F_EventScript_FemalePlayer
+	end
+
+LittlerootTown_MaysHouse_2F_EventScript_MalePlayer::
 	setvar VAR_0x8004, MALE
 	goto PlayersHouse_2F_EventScript_WallClock
 	end
 
-LittlerootTown_MaysHouse_2F_EventScript_WallClock::
-	lockall
+LittlerootTown_MaysHouse_2F_EventScript_FemalePlayer::
 	setvar VAR_0x8004, FEMALE
 	goto PlayersHouse_2F_EventScript_WallClock
 	end
@@ -26,6 +33,7 @@ PlayersHouse_2F_EventScript_WallClock::
 	setflag FLAG_HIDE_SHANE_IN_HOUSE
 	setflag FLAG_HIDE_FERALIGATR_IN_HOUSE
 	setflag FLAG_HIDE_SHANE_CHERRYGROVE_BATTLE
+	setflag FLAG_HIDE_REMATCH_WHITNEY
 	releaseall
 	end
 

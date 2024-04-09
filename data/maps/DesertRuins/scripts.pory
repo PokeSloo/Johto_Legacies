@@ -45,6 +45,13 @@ script DesertRuins_On_Frame {
     fadescreen (FADE_TO_WHITE)
     removeobject (CELEBI_ID)
     playbgm (MUS_RAYQUAZA_APPEARS, FALSE)
+    checkplayergender
+    if (var(VAR_RESULT) == MALE) {
+        setvar (VAR_0x8004, MALE)
+    }
+    elif (var(VAR_RESULT) == FEMALE) {
+        setvar (VAR_0x8004, FEMALE)
+    }
     setwarp (MAP_PETALBURG_WOODS, 17, 46)
     special (TimeTravelForwardClock)
 	waitstate
