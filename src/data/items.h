@@ -3865,7 +3865,7 @@ const struct Item gItems[] =
     {
         .name = _("Venusaurite"),
         .itemId = ITEM_VENUSAURITE,
-        .price = 1000,
+        .price = 5000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sVenusauriteDesc,
         .pocket = POCKET_ITEMS,
@@ -3878,7 +3878,7 @@ const struct Item gItems[] =
     {
         .name = _("CharizarditeX"),
         .itemId = ITEM_CHARIZARDITE_X,
-        .price = 1000,
+        .price = 5000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sCharizarditeDesc,
         .pocket = POCKET_ITEMS,
@@ -3891,7 +3891,7 @@ const struct Item gItems[] =
     {
         .name = _("CharizarditeY"),
         .itemId = ITEM_CHARIZARDITE_Y,
-        .price = 1000,
+        .price = 5000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sCharizarditeDesc,
         .pocket = POCKET_ITEMS,
@@ -3904,7 +3904,7 @@ const struct Item gItems[] =
     {
         .name = _("Blastoisinite"),
         .itemId = ITEM_BLASTOISINITE,
-        .price = 1000,
+        .price = 5000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sBlastoisiniteDesc,
         .pocket = POCKET_ITEMS,
@@ -3917,7 +3917,7 @@ const struct Item gItems[] =
     {
         .name = _("Beedrillite"),
         .itemId = ITEM_BEEDRILLITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sBeedrilliteDesc,
         .pocket = POCKET_ITEMS,
@@ -3930,7 +3930,7 @@ const struct Item gItems[] =
     {
         .name = _("Pidgeotite"),
         .itemId = ITEM_PIDGEOTITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sPidgeotiteDesc,
         .pocket = POCKET_ITEMS,
@@ -3943,7 +3943,7 @@ const struct Item gItems[] =
     {
         .name = _("Alakazite"),
         .itemId = ITEM_ALAKAZITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sAlakaziteDesc,
         .pocket = POCKET_ITEMS,
@@ -3956,7 +3956,7 @@ const struct Item gItems[] =
     {
         .name = _("Slowbronite"),
         .itemId = ITEM_SLOWBRONITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sSlowbroniteDesc,
         .pocket = POCKET_ITEMS,
@@ -3969,7 +3969,7 @@ const struct Item gItems[] =
     {
         .name = _("Gengarite"),
         .itemId = ITEM_GENGARITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sGengariteDesc,
         .pocket = POCKET_ITEMS,
@@ -3982,7 +3982,7 @@ const struct Item gItems[] =
     {
         .name = _("Kangaskhanite"),
         .itemId = ITEM_KANGASKHANITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sKangaskhaniteDesc,
         .pocket = POCKET_ITEMS,
@@ -3995,7 +3995,7 @@ const struct Item gItems[] =
     {
         .name = _("Pinsirite"),
         .itemId = ITEM_PINSIRITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sPinsiriteDesc,
         .pocket = POCKET_ITEMS,
@@ -4008,7 +4008,7 @@ const struct Item gItems[] =
     {
         .name = _("Gyaradosite"),
         .itemId = ITEM_GYARADOSITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sGyaradositeDesc,
         .pocket = POCKET_ITEMS,
@@ -4021,7 +4021,7 @@ const struct Item gItems[] =
     {
         .name = _("Aerodactylite"),
         .itemId = ITEM_AERODACTYLITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sAerodactyliteDesc,
         .pocket = POCKET_ITEMS,
@@ -4034,7 +4034,7 @@ const struct Item gItems[] =
     {
         .name = _("Mewtwonite X"),
         .itemId = ITEM_MEWTWONITE_X,
-        .price = 1000,
+        .price = 5000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sMewtwoniteDesc,
         .pocket = POCKET_ITEMS,
@@ -4047,7 +4047,7 @@ const struct Item gItems[] =
     {
         .name = _("Mewtwonite Y"),
         .itemId = ITEM_MEWTWONITE_Y,
-        .price = 1000,
+        .price = 5000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sMewtwoniteDesc,
         .pocket = POCKET_ITEMS,
@@ -4060,7 +4060,7 @@ const struct Item gItems[] =
     {
         .name = _("Ampharosite"),
         .itemId = ITEM_AMPHAROSITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sAmpharositeDesc,
         .pocket = POCKET_ITEMS,
@@ -4073,7 +4073,7 @@ const struct Item gItems[] =
     {
         .name = _("Steelixite"),
         .itemId = ITEM_STEELIXITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sSteelixiteDesc,
         .pocket = POCKET_ITEMS,
@@ -4086,7 +4086,7 @@ const struct Item gItems[] =
     {
         .name = _("Scizorite"),
         .itemId = ITEM_SCIZORITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sScizoriteDesc,
         .pocket = POCKET_ITEMS,
@@ -4099,7 +4099,7 @@ const struct Item gItems[] =
     {
         .name = _("Heracronite"),
         .itemId = ITEM_HERACRONITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sHeracroniteDesc,
         .pocket = POCKET_ITEMS,
@@ -4112,7 +4112,7 @@ const struct Item gItems[] =
     {
         .name = _("Houndoominite"),
         .itemId = ITEM_HOUNDOOMINITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sHoundoominiteDesc,
         .pocket = POCKET_ITEMS,
@@ -4125,7 +4125,7 @@ const struct Item gItems[] =
     {
         .name = _("Tyranitarite"),
         .itemId = ITEM_TYRANITARITE,
-        .price = 1000,
+        .price = 4000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sTyranitariteDesc,
         .pocket = POCKET_ITEMS,
@@ -4138,7 +4138,7 @@ const struct Item gItems[] =
     {
         .name = _("Sceptilite"),
         .itemId = ITEM_SCEPTILITE,
-        .price = 1000,
+        .price = 5000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sSceptiliteDesc,
         .pocket = POCKET_ITEMS,
@@ -4151,7 +4151,7 @@ const struct Item gItems[] =
     {
         .name = _("Blazikenite"),
         .itemId = ITEM_BLAZIKENITE,
-        .price = 1000,
+        .price = 5000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sBlazikeniteDesc,
         .pocket = POCKET_ITEMS,
@@ -4164,7 +4164,7 @@ const struct Item gItems[] =
     {
         .name = _("Swampertite"),
         .itemId = ITEM_SWAMPERTITE,
-        .price = 1000,
+        .price = 5000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sSwampertiteDesc,
         .pocket = POCKET_ITEMS,
@@ -4177,7 +4177,7 @@ const struct Item gItems[] =
     {
         .name = _("Gardevoirite"),
         .itemId = ITEM_GARDEVOIRITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sGardevoiriteDesc,
         .pocket = POCKET_ITEMS,
@@ -4190,7 +4190,7 @@ const struct Item gItems[] =
     {
         .name = _("Sablenite"),
         .itemId = ITEM_SABLENITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sSableniteDesc,
         .pocket = POCKET_ITEMS,
@@ -4203,7 +4203,7 @@ const struct Item gItems[] =
     {
         .name = _("Mawilite"),
         .itemId = ITEM_MAWILITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sMawiliteDesc,
         .pocket = POCKET_ITEMS,
@@ -4216,7 +4216,7 @@ const struct Item gItems[] =
     {
         .name = _("Aggronite"),
         .itemId = ITEM_AGGRONITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sAggroniteDesc,
         .pocket = POCKET_ITEMS,
@@ -4229,7 +4229,7 @@ const struct Item gItems[] =
     {
         .name = _("Medichamite"),
         .itemId = ITEM_MEDICHAMITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sMedichamiteDesc,
         .pocket = POCKET_ITEMS,
@@ -4242,7 +4242,7 @@ const struct Item gItems[] =
     {
         .name = _("Manectite"),
         .itemId = ITEM_MANECTITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sManectiteDesc,
         .pocket = POCKET_ITEMS,
@@ -4255,7 +4255,7 @@ const struct Item gItems[] =
     {
         .name = _("Sharpedonite"),
         .itemId = ITEM_SHARPEDONITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sSharpedoniteDesc,
         .pocket = POCKET_ITEMS,
@@ -4268,7 +4268,7 @@ const struct Item gItems[] =
     {
         .name = _("Cameruptite"),
         .itemId = ITEM_CAMERUPTITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sCameruptiteDesc,
         .pocket = POCKET_ITEMS,
@@ -4281,7 +4281,7 @@ const struct Item gItems[] =
     {
         .name = _("Altarianite"),
         .itemId = ITEM_ALTARIANITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sAltarianiteDesc,
         .pocket = POCKET_ITEMS,
@@ -4294,7 +4294,7 @@ const struct Item gItems[] =
     {
         .name = _("Banettite"),
         .itemId = ITEM_BANETTITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sBanettiteDesc,
         .pocket = POCKET_ITEMS,
@@ -4307,7 +4307,7 @@ const struct Item gItems[] =
     {
         .name = _("Absolite"),
         .itemId = ITEM_ABSOLITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sAbsoliteDesc,
         .pocket = POCKET_ITEMS,
@@ -4320,7 +4320,7 @@ const struct Item gItems[] =
     {
         .name = _("Glalitite"),
         .itemId = ITEM_GLALITITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sGlalititeDesc,
         .pocket = POCKET_ITEMS,
@@ -4333,7 +4333,7 @@ const struct Item gItems[] =
     {
         .name = _("Salamencite"),
         .itemId = ITEM_SALAMENCITE,
-        .price = 1000,
+        .price = 4000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sSalamenciteDesc,
         .pocket = POCKET_ITEMS,
@@ -4346,7 +4346,7 @@ const struct Item gItems[] =
     {
         .name = _("Metagrossite"),
         .itemId = ITEM_METAGROSSITE,
-        .price = 1000,
+        .price = 4000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sMetagrossiteDesc,
         .pocket = POCKET_ITEMS,
@@ -4385,7 +4385,7 @@ const struct Item gItems[] =
     {
         .name = _("Lopunnite"),
         .itemId = ITEM_LOPUNNITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sLopunniteDesc,
         .pocket = POCKET_ITEMS,
@@ -4398,7 +4398,7 @@ const struct Item gItems[] =
     {
         .name = _("Garchompite"),
         .itemId = ITEM_GARCHOMPITE,
-        .price = 1000,
+        .price = 4000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sGarchompiteDesc,
         .pocket = POCKET_ITEMS,
@@ -4411,7 +4411,7 @@ const struct Item gItems[] =
     {
         .name = _("Lucarionite"),
         .itemId = ITEM_LUCARIONITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sLucarioniteDesc,
         .pocket = POCKET_ITEMS,
@@ -4424,7 +4424,7 @@ const struct Item gItems[] =
     {
         .name = _("Abomasite"),
         .itemId = ITEM_ABOMASITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sAbomasiteDesc,
         .pocket = POCKET_ITEMS,
@@ -4437,7 +4437,7 @@ const struct Item gItems[] =
     {
         .name = _("Galladite"),
         .itemId = ITEM_GALLADITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sGalladiteDesc,
         .pocket = POCKET_ITEMS,
@@ -4450,7 +4450,7 @@ const struct Item gItems[] =
     {
         .name = _("Audinite"),
         .itemId = ITEM_AUDINITE,
-        .price = 1000,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sAudiniteDesc,
         .pocket = POCKET_ITEMS,

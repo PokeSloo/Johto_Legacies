@@ -1,0 +1,104 @@
+raw`
+Route133_MapScripts::
+	.byte 0
+
+Route133_EventScript_Franklin::
+	trainerbattle_single TRAINER_FRANKLIN, Route133_Text_FranklinIntro, Route133_Text_FranklinDefeat
+	msgbox Route133_Text_FranklinPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route133_EventScript_Debra::
+	trainerbattle_single TRAINER_DEBRA, Route133_Text_DebraIntro, Route133_Text_DebraDefeat
+	msgbox Route133_Text_DebraPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route133_EventScript_Linda::
+	trainerbattle_single TRAINER_LINDA, Route133_Text_LindaIntro, Route133_Text_LindaDefeat
+	msgbox Route133_Text_LindaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route133_EventScript_Warren::
+	trainerbattle_single TRAINER_WARREN, Route133_Text_WarrenIntro, Route133_Text_WarrenDefeat
+	msgbox Route133_Text_WarrenPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route133_EventScript_Beck::
+	trainerbattle_single TRAINER_BECK, Route133_Text_BeckIntro, Route133_Text_BeckDefeat
+	msgbox Route133_Text_BeckPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route133_EventScript_Mollie::
+	trainerbattle_single TRAINER_MOLLIE, Route133_Text_MollieIntro, Route133_Text_MollieDefeat
+	msgbox Route133_Text_MolliePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route133_EventScript_Conor::
+	trainerbattle_single TRAINER_CONOR, Route133_Text_ConorIntro, Route133_Text_ConorDefeat
+	msgbox Route133_Text_ConorPostBattle, MSGBOX_AUTOCLOSE
+	end
+`
+
+script Route133_EventScript_Gold {
+    trainerbattle_single (TRAINER_STEVEN, Route133_Text_GoldIntro, Route133_Text_GoldDefeat, Route133_EventScript_GoldDefeated, NO_MUSIC)
+	if (flag(FLAG_RECEIVED_SUICUNE_EGG)) {
+        msgbox(format("GOLD: Don't tell your father, but I believe you've actually surpassed him in battling skill."))
+        release
+        end
+    }
+    msgbox(format("GOLD: Welcome back, {PLAYER}.\pPlease, take this."))
+    getpartysize
+    if (var(VAR_RESULT) == PARTY_SIZE) {
+        msgbox(format("Unfortunately, it looks like your party is still full.\pPlease come back when you've made some room."))
+        release
+        end
+    }
+    else {
+        setflag (FLAG_RECEIVED_SUICUNE_EGG)
+	    playfanfare (MUS_OBTAIN_ITEM)
+	    msgbox (format("{PLAYER} received a POKéMON egg!"))
+	    waitfanfare
+	    giveegg (SPECIES_SUICUNE)
+        msgbox (format("I'll keep the POKéMON in that egg a surprise.\pIt's more fun that way."))
+        release
+        end
+    }
+}
+
+script Route133_EventScript_GoldDefeated {
+	msgbox(format("There's no doubt in my mind now, you are the very same TRAINER I lost to those many years ago.\pAlthough...\pI don't see how it's possible...\p...\p...\pTime travel, you say?\pYou really are something else, {PLAYER}.\pYou know, there's something I would like you to have..."))
+    getpartysize
+    if (var(VAR_RESULT) == PARTY_SIZE) {
+        msgbox(format("Unfortunately, it looks like your party is full.\pPlease come back when you've made some room."))
+        waitmessage
+        closemessage
+        goto (Route133_EventScript_FalknerCall)
+    }
+    else {
+        setflag (FLAG_RECEIVED_SUICUNE_EGG)
+	    playfanfare (MUS_OBTAIN_ITEM)
+	    msgbox (format("{PLAYER} received a POKéMON egg!"))
+	    waitfanfare
+	    giveegg (SPECIES_SUICUNE)
+        msgbox (format("I'll keep the POKéMON in that egg a surprise.\pIt's more fun that way."))
+        waitmessage
+        closemessage
+        goto (Route133_EventScript_FalknerCall)
+    }
+}
+
+script Route133_EventScript_FalknerCall {
+    delay(60)
+    pokenavcall ("Hello, {PLAYER}?\pThis is FALKNER, I got your number\nfrom PROF. ELM.\pI'm calling to let you know that I've\ncompleted my training.\pIt's been a grueling process, but my\nPOKéMON and I feel like we could take\lon the world now!\pIf you're up for a rematch, then meet\nme in my gym in Violet City.\pI'll be waiting for you.")
+    waitmessage
+    clearflag (FLAG_HIDE_THIN_FALKNER)
+    release
+    end
+}
+
+text Route133_Text_GoldIntro {
+    format("GOLD: Welcome to my private island, {PLAYER}.\pI assume you came prepared for a tough battle.\pI might be your dad's friend, but please, don't hold back on me.\pI know you don't like speaking, so let's let our POKéMON do the speaking for us!\pGive me everything you've got!")
+}
+
+text Route133_Text_GoldDefeat {
+    format("GOLD: ...\pWell, I can't say that I'm happy with a loss, but still, I feel content somehow.")
+}

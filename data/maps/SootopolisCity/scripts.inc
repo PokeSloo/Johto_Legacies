@@ -4,6 +4,7 @@ SootopolisCity_MapScripts::
 
 SootopolisCity_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setflag FLAG_VISITED_SOOTOPOLIS_CITY
+	call_if_eq VAR_LAZULAN_STATE, 3, SootopolisCity_EventScript_SetUpAfterThorne
 	call_if_eq VAR_LAZULAN_STATE, 2, SootopolisCity_EventScript_SetUpAfterMtTempest
 	call_if_eq VAR_LAZULAN_STATE, 1, SootopolisCity_EventScript_SetUpAfterMegaStone
 	end
@@ -17,10 +18,22 @@ SootopolisCity_EventScript_SetUpAfterMegaStone::
 
 
 SootopolisCity_EventScript_SetUpAfterMtTempest::
-	setobjectxyperm 11, 36, 31
-	setobjectxyperm 14, 37, 31
-	setobjectmovementtype 11, MOVEMENT_TYPE_FACE_DOWN
-	setobjectmovementtype 14, MOVEMENT_TYPE_FACE_DOWN
+	setobjectxyperm 23, 36, 31
+	setobjectxyperm 24, 37, 31
+	setobjectmovementtype 23, MOVEMENT_TYPE_FACE_DOWN
+	setobjectmovementtype 24, MOVEMENT_TYPE_FACE_DOWN
+	return
+
+
+SootopolisCity_EventScript_SetUpAfterThorne::
+	setobjectxyperm 23, 30, 4
+	setobjectxyperm 24, 29, 4
+	setobjectmovementtype 23, MOVEMENT_TYPE_FACE_UP
+	setobjectmovementtype 24, MOVEMENT_TYPE_FACE_UP
+	setobjectxyperm 5, 33, 26
+	setobjectmovementtype 5, MOVEMENT_TYPE_FACE_DOWN
+	setobjectxyperm 7, 27, 38
+	setobjectmovementtype 7, MOVEMENT_TYPE_FACE_DOWN
 	return
 
 
@@ -297,8 +310,31 @@ SootopolisCity_EventScript_Man_1:
 
 	.align 2
 SootopolisCity_Mart_Salesman2:
-	.2byte ITEM_TM26_EARTHQUAKE
-	.2byte ITEM_TM27_RETURN
+	.2byte ITEM_TM26
+	.2byte ITEM_TM27
+	.2byte ITEM_TM28
+	.2byte ITEM_TM29
+	.2byte ITEM_TM30
+	.2byte ITEM_TM31
+	.2byte ITEM_TM32
+	.2byte ITEM_TM33
+	.2byte ITEM_TM34
+	.2byte ITEM_TM35
+	.2byte ITEM_TM36
+	.2byte ITEM_TM37
+	.2byte ITEM_TM38
+	.2byte ITEM_TM39
+	.2byte ITEM_TM40
+	.2byte ITEM_TM41
+	.2byte ITEM_TM42
+	.2byte ITEM_TM43
+	.2byte ITEM_TM44
+	.2byte ITEM_TM45
+	.2byte ITEM_TM46
+	.2byte ITEM_TM47
+	.2byte ITEM_TM48
+	.2byte ITEM_TM49
+	.2byte ITEM_TM50
 	.2byte ITEM_NONE
 
 SootopolisCity_EventScript_Woman1::
@@ -379,6 +415,132 @@ SootopolisCity_Mart_Salesman5:
 	.2byte ITEM_RARE_CANDY
 	.2byte ITEM_NONE
 
+SootopolisCity_EventScript_Salesman1::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart SootopolisCity_Mart_Salesman1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+
+	.align 2
+SootopolisCity_Mart_Salesman1:
+	.2byte ITEM_TM01
+	.2byte ITEM_TM02
+	.2byte ITEM_TM03
+	.2byte ITEM_TM04
+	.2byte ITEM_TM05
+	.2byte ITEM_TM06
+	.2byte ITEM_TM07
+	.2byte ITEM_TM08
+	.2byte ITEM_TM09
+	.2byte ITEM_TM10
+	.2byte ITEM_TM11
+	.2byte ITEM_TM12
+	.2byte ITEM_TM13
+	.2byte ITEM_TM14
+	.2byte ITEM_TM15
+	.2byte ITEM_TM16
+	.2byte ITEM_TM17
+	.2byte ITEM_TM18
+	.2byte ITEM_TM19
+	.2byte ITEM_TM20
+	.2byte ITEM_TM21
+	.2byte ITEM_TM22
+	.2byte ITEM_TM23
+	.2byte ITEM_TM24
+	.2byte ITEM_TM25
+	.2byte ITEM_NONE
+
+SootopolisCity_EventScript_Salesman3::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart SootopolisCity_Mart_Salesman3
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+
+	.align 2
+SootopolisCity_Mart_Salesman3:
+	.2byte ITEM_FIRE_STONE
+	.2byte ITEM_WATER_STONE
+	.2byte ITEM_THUNDER_STONE
+	.2byte ITEM_LEAF_STONE
+	.2byte ITEM_SUN_STONE
+	.2byte ITEM_MOON_STONE
+	.2byte ITEM_SHINY_STONE
+	.2byte ITEM_DUSK_STONE
+	.2byte ITEM_DAWN_STONE
+	.2byte ITEM_ICE_STONE
+	.2byte ITEM_OVAL_STONE
+	.2byte ITEM_BIKE_VOUCHER
+	.2byte ITEM_NONE
+
+SootopolisCity_EventScript_Salesman4::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart SootopolisCity_Mart_Salesman4
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+
+	.align 2
+SootopolisCity_Mart_Salesman4:
+	.2byte ITEM_SLOWBRONITE
+	.2byte ITEM_KANGASKHANITE
+	.2byte ITEM_AERODACTYLITE
+	.2byte ITEM_AMPHAROSITE
+	.2byte ITEM_HERACRONITE
+	.2byte ITEM_HOUNDOOMINITE
+	.2byte ITEM_SABLENITE
+	.2byte ITEM_AGGRONITE
+	.2byte ITEM_ABSOLITE
+	.2byte ITEM_SALAMENCITE
+	.2byte ITEM_GARCHOMPITE
+	.2byte ITEM_LUCARIONITE
+	.2byte ITEM_ABOMASITE
+	.2byte ITEM_GALLADITE
+	.2byte ITEM_AUDINITE
+	.2byte ITEM_NONE
+
+SootopolisCity_EventScript_Salesman6::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart SootopolisCity_Mart_Salesman6
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+
+	.align 2
+SootopolisCity_Mart_Salesman6:
+	.2byte ITEM_LIECHI_BERRY
+	.2byte ITEM_GANLON_BERRY
+	.2byte ITEM_SALAC_BERRY
+	.2byte ITEM_PETAYA_BERRY
+	.2byte ITEM_APICOT_BERRY
+	.2byte ITEM_LANSAT_BERRY
+	.2byte ITEM_STARF_BERRY
+	.2byte ITEM_MICLE_BERRY
+	.2byte ITEM_CUSTAP_BERRY
+	.2byte ITEM_JABOCA_BERRY
+	.2byte ITEM_ROWAP_BERRY
+	.2byte ITEM_KEE_BERRY
+	.2byte ITEM_MARANGA_BERRY
+	.2byte ITEM_ENIGMA_BERRY
+	.2byte ITEM_NONE
+
 SootopolisCity_EventScript_Typhlosion::
 	lock
 	faceplayer
@@ -410,13 +572,47 @@ SootopolisCity_EventScript_Silver::
 	end
 
 
+SootopolisCity_EventScript_SilverPostThorne::
+	lock
+	faceplayer
+	goto_if_set FLAG_HIDE_GOLD_LAZULAN, SootopolisCity_EventScript_SilverPostThorne_1
+	msgbox SootopolisCity_EventScript_SilverPostThorne_Text_1
+	release
+	end
+
+SootopolisCity_EventScript_SilverPostThorne_1:
+	msgbox SootopolisCity_EventScript_SilverPostThorne_Text_0
+	release
+	end
+
+
+SootopolisCity_EventScript_ShanePostThorne::
+	msgbox SootopolisCity_EventScript_ShanePostThorne_Text_0, MSGBOX_NPC
+	end
+
+
 SootopolisCity_EventScript_Gold::
 	lock
 	faceplayer
 	goto_if_set FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS, SootopolisCity_EventScript_Gold_1
 	msgbox SootopolisCity_EventScript_Gold_Text_1
 	waitmessage
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq SootopolisCity_EventScript_Gold_5
+	compare VAR_RESULT, FEMALE
+	goto_if_eq SootopolisCity_EventScript_Gold_6
+SootopolisCity_EventScript_Gold_4:
+	msgbox SootopolisCity_EventScript_Gold_Text_2
+	waitmessage
 	closemessage
+	specialvar VAR_RESULT, GetPlayerFacingDirection
+	compare VAR_RESULT, DIR_NORTH
+	goto_if_eq SootopolisCity_EventScript_Gold_10
+SootopolisCity_EventScript_Gold_9:
+	applymovement 23, SootopolisCity_Movement_GoldToHisHouse
+	applymovement 24, SootopolisCity_Movement_TyphlosionToGoldHouse
+	waitmovement 0
 	removeobject 23
 	removeobject 24
 	setflag FLAG_HIDE_GOLD_LAZULAN
@@ -427,6 +623,79 @@ SootopolisCity_EventScript_Gold::
 SootopolisCity_EventScript_Gold_1:
 	msgbox SootopolisCity_EventScript_Gold_Text_0
 	release
+	end
+
+SootopolisCity_EventScript_Gold_5:
+	call SootopolisCity_EventScript_MalePlayerGold
+	goto SootopolisCity_EventScript_Gold_4
+
+SootopolisCity_EventScript_Gold_6:
+	call SootopolisCity_EventScript_FemalePlayerGold
+	goto SootopolisCity_EventScript_Gold_4
+
+SootopolisCity_EventScript_Gold_10:
+	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_PlayerMoveForGold
+	waitmovement 0
+	goto SootopolisCity_EventScript_Gold_9
+
+
+SootopolisCity_EventScript_MalePlayerGold::
+	msgbox SootopolisCity_EventScript_MalePlayerGold_Text_0
+	return
+
+
+SootopolisCity_EventScript_FemalePlayerGold::
+	msgbox SootopolisCity_EventScript_FemalePlayerGold_Text_0
+	return
+
+
+SootopolisCity_Movement_PlayerMoveForGold:
+	walk_left
+	walk_in_place_right
+	step_end
+
+SootopolisCity_Movement_GoldToHisHouse:
+	walk_down
+	walk_right
+	walk_down
+	walk_down
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+SootopolisCity_Movement_TyphlosionToGoldHouse:
+	walk_right
+	walk_down
+	walk_right
+	walk_down
+	walk_down
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+SootopolisCity_EventScript_KimonoGirls::
+	msgbox SootopolisCity_EventScript_KimonoGirls_Text_0, MSGBOX_NPC
+	end
+
+
+SootopolisCity_EventScript_BaldMan::
+	msgbox SootopolisCity_EventScript_BaldMan_Text_0, MSGBOX_NPC
+	end
+
+
+SootopolisCity_EventScript_Beauty::
+	msgbox SootopolisCity_EventScript_Beauty_Text_0, MSGBOX_NPC
+	end
+
+
+SootopolisCity_EventScript_Cowgirl::
+	msgbox SootopolisCity_EventScript_Cowgirl_Text_0, MSGBOX_NPC
 	end
 
 
@@ -593,19 +862,97 @@ SootopolisCity_EventScript_Silver_Text_0:
 	.string "share with my POKéMON is stronger when\l"
 	.string "I Mega Evolve them.$"
 
+SootopolisCity_EventScript_SilverPostThorne_Text_0:
+	.string "DAD: Hey, {PLAYER}, what do you think\n"
+	.string "of the festival?\p"
+	.string "They sure are selling a lot of good\n"
+	.string "items that you can't find anywhere\l"
+	.string "else.$"
+
+SootopolisCity_EventScript_SilverPostThorne_Text_1:
+	.string "DAD: Hey, {PLAYER}, what do you think\n"
+	.string "of the festival?\p"
+	.string "They sure are selling a lot of good\n"
+	.string "items that you can't find anywhere\l"
+	.string "else.\p"
+	.string "By the way, did you talk to GOLD yet?\p"
+	.string "He was looking for you.\p"
+	.string "I think he's on the north side of town\n"
+	.string "now.$"
+
+SootopolisCity_EventScript_ShanePostThorne_Text_0:
+	.string "SHANE: Hey, this festival isn't half bad.\p"
+	.string "I picked up a ton of new Mega Stones\n"
+	.string "from one of the salesmen.$"
+
 SootopolisCity_EventScript_Gold_Text_0:
 	.string "GOLD: Yo, {PLAYER}!\p"
-	.string "Your father just told me about how you\n"
-	.string "and SHANE defeated Team Phoenix, and\l"
-	.string "how they were actually formed from the\l"
+	.string "Your father told me about how you and\n"
+	.string "SHANE defeated Team Phoenix, and how\l"
+	.string "they were actually formed from the\l"
 	.string "remnants of Team Rocket.\p"
 	.string "You know, I battled them many years ago\n"
 	.string "myself.\p"
-	.string "They forced all of the MAGIKARP in the\n"
+	.string "They forced all of the Magikarp in the\n"
 	.string "Lake of Rage to evolve for whatever\l"
 	.string "reason.\p"
 	.string "Ah, I won't bore you with stories of the\n"
 	.string "past though.$"
 
 SootopolisCity_EventScript_Gold_Text_1:
-	.string "meet at my house$"
+	.string "GOLD: There you are, {PLAYER}.\p"
+	.string "You know, from the moment I saw you,\n"
+	.string "I've had this strange feeling nagging\l"
+	.string "at me.\p"
+	.string "I wasn't sure what it was, but as your\n"
+	.string "father told me more about your\l"
+	.string "exploits, it hit me.\p"
+	.string "In all of my years of battling, I've only\n"
+	.string "lost to a single TRAINER.\p"
+	.string "It was someone who I'd never met\n"
+	.string "before, and who I swear vanished\l"
+	.string "before my eyes right after defeating\l"
+	.string "me.$"
+
+SootopolisCity_EventScript_Gold_Text_2:
+	.string "Now, I wouldn't want to disrupt the\n"
+	.string "festival with our battle.\p"
+	.string "So, if you're feeling up to the\n"
+	.string "challenge, then meet me at my private\l"
+	.string "island on Route G.\p"
+	.string "We won't have to worry about collateral\n"
+	.string "damage there.\p"
+	.string "Until next time, {PLAYER}.$"
+
+SootopolisCity_EventScript_MalePlayerGold_Text_0:
+	.string "I know this will sound crazy, but you\n"
+	.string "remind me of that mystery boy.\p"
+	.string "I know I can't go back in time to\n"
+	.string "challenge him to a rematch, but maybe\l"
+	.string "battling with you will bring me some\l"
+	.string "closure.$"
+
+SootopolisCity_EventScript_FemalePlayerGold_Text_0:
+	.string "I know this will sound crazy, but you\n"
+	.string "remind me of that mystery girl.\p"
+	.string "I know I can't go back in time to\n"
+	.string "challenge her to a rematch, but maybe\l"
+	.string "battling with you will bring me some\l"
+	.string "closure.$"
+
+SootopolisCity_EventScript_KimonoGirls_Text_0:
+	.string "I hope you're enjoying the festival!$"
+
+SootopolisCity_EventScript_BaldMan_Text_0:
+	.string "They're selling BERRIES? Really?\p"
+	.string "You could just go pick those out of the\n"
+	.string "ground if you know where to look.$"
+
+SootopolisCity_EventScript_Beauty_Text_0:
+	.string "They actually sell Trade Stones here, I\n"
+	.string "couldn't believe it!$"
+
+SootopolisCity_EventScript_Cowgirl_Text_0:
+	.string "This festival sure is somethin' else.\p"
+	.string "I can't wait to tell everyone at the\n"
+	.string "farm about it!$"

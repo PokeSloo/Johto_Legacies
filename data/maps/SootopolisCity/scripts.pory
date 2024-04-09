@@ -7,6 +7,7 @@ const FERALIGATR_ID = 15
 mapscripts SootopolisCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
         setflag (FLAG_VISITED_SOOTOPOLIS_CITY)
+		call_if_eq (VAR_LAZULAN_STATE, 3, SootopolisCity_EventScript_SetUpAfterThorne)
 		call_if_eq (VAR_LAZULAN_STATE, 2, SootopolisCity_EventScript_SetUpAfterMtTempest)
 	    call_if_eq (VAR_LAZULAN_STATE, 1, SootopolisCity_EventScript_SetUpAfterMegaStone)
         end
@@ -20,10 +21,21 @@ script SootopolisCity_EventScript_SetUpAfterMegaStone {
 }
 
 script SootopolisCity_EventScript_SetUpAfterMtTempest {
-	setobjectxyperm (GOLD_ID, 36, 31)
-	setobjectxyperm (TYPLOSION_ID, 37, 31)
-	setobjectmovementtype (GOLD_ID, MOVEMENT_TYPE_FACE_DOWN)
-	setobjectmovementtype (TYPLOSION_ID, MOVEMENT_TYPE_FACE_DOWN)
+	setobjectxyperm (23, 36, 31)
+	setobjectxyperm (24, 37, 31)
+	setobjectmovementtype (23, MOVEMENT_TYPE_FACE_DOWN)
+	setobjectmovementtype (24, MOVEMENT_TYPE_FACE_DOWN)
+}
+
+script SootopolisCity_EventScript_SetUpAfterThorne {
+	setobjectxyperm (23, 30, 4)
+	setobjectxyperm (24, 29, 4)
+	setobjectmovementtype (23, MOVEMENT_TYPE_FACE_UP)
+	setobjectmovementtype (24, MOVEMENT_TYPE_FACE_UP)
+	setobjectxyperm (5, 33, 26)
+	setobjectmovementtype (5, MOVEMENT_TYPE_FACE_DOWN)
+	setobjectxyperm (7, 27, 38)
+	setobjectmovementtype (7, MOVEMENT_TYPE_FACE_DOWN)
 }
 
 script SootopolisCity_EventScript_TriggerLeft {
@@ -285,8 +297,31 @@ script SootopolisCity_EventScript_Man {
 }
 
 mart SootopolisCity_Mart_Salesman2 {
-	ITEM_TM26_EARTHQUAKE
-	ITEM_TM27_RETURN
+	ITEM_TM26
+	ITEM_TM27
+	ITEM_TM28
+	ITEM_TM29
+	ITEM_TM30
+	ITEM_TM31
+	ITEM_TM32
+	ITEM_TM33
+	ITEM_TM34
+	ITEM_TM35
+	ITEM_TM36
+	ITEM_TM37
+	ITEM_TM38
+	ITEM_TM39
+	ITEM_TM40
+	ITEM_TM41
+	ITEM_TM42
+	ITEM_TM43
+	ITEM_TM44
+	ITEM_TM45
+	ITEM_TM46
+	ITEM_TM47
+	ITEM_TM48
+	ITEM_TM49
+	ITEM_TM50
 }
 
 script SootopolisCity_EventScript_Woman1 {
@@ -368,6 +403,128 @@ mart SootopolisCity_Mart_Salesman5 {
 	ITEM_RARE_CANDY
 }
 
+script SootopolisCity_EventScript_Salesman1 {
+	lock
+	faceplayer
+	message (gText_HowMayIServeYou)
+	waitmessage
+	pokemart (SootopolisCity_Mart_Salesman1)
+	msgbox (gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+mart SootopolisCity_Mart_Salesman1 {
+	ITEM_TM01
+	ITEM_TM02
+	ITEM_TM03
+	ITEM_TM04
+	ITEM_TM05
+	ITEM_TM06
+	ITEM_TM07
+	ITEM_TM08
+	ITEM_TM09
+	ITEM_TM10
+	ITEM_TM11
+	ITEM_TM12
+	ITEM_TM13
+	ITEM_TM14
+	ITEM_TM15
+	ITEM_TM16
+	ITEM_TM17
+	ITEM_TM18
+	ITEM_TM19
+	ITEM_TM20
+	ITEM_TM21
+	ITEM_TM22
+	ITEM_TM23
+	ITEM_TM24
+	ITEM_TM25
+}
+
+script SootopolisCity_EventScript_Salesman3 {
+	lock
+	faceplayer
+	message (gText_HowMayIServeYou)
+	waitmessage
+	pokemart (SootopolisCity_Mart_Salesman3)
+	msgbox (gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+mart SootopolisCity_Mart_Salesman3 {
+	ITEM_FIRE_STONE
+	ITEM_WATER_STONE
+	ITEM_THUNDER_STONE
+	ITEM_LEAF_STONE
+	ITEM_SUN_STONE
+	ITEM_MOON_STONE
+	ITEM_SHINY_STONE
+	ITEM_DUSK_STONE
+	ITEM_DAWN_STONE
+	ITEM_ICE_STONE
+	ITEM_OVAL_STONE
+	ITEM_BIKE_VOUCHER
+}
+
+script SootopolisCity_EventScript_Salesman4 {
+	lock
+	faceplayer
+	message (gText_HowMayIServeYou)
+	waitmessage
+	pokemart (SootopolisCity_Mart_Salesman4)
+	msgbox (gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+mart SootopolisCity_Mart_Salesman4 {
+	ITEM_SLOWBRONITE
+	ITEM_KANGASKHANITE
+	ITEM_AERODACTYLITE
+	ITEM_AMPHAROSITE
+	ITEM_HERACRONITE
+	ITEM_HOUNDOOMINITE
+	ITEM_SABLENITE
+	ITEM_AGGRONITE
+	ITEM_ABSOLITE
+	ITEM_SALAMENCITE
+	ITEM_GARCHOMPITE
+	ITEM_LUCARIONITE
+	ITEM_ABOMASITE
+	ITEM_GALLADITE
+	ITEM_AUDINITE
+}
+
+script SootopolisCity_EventScript_Salesman6 {
+	lock
+	faceplayer
+	message (gText_HowMayIServeYou)
+	waitmessage
+	pokemart (SootopolisCity_Mart_Salesman6)
+	msgbox (gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+mart SootopolisCity_Mart_Salesman6 {
+	ITEM_LIECHI_BERRY
+	ITEM_GANLON_BERRY
+	ITEM_SALAC_BERRY
+	ITEM_PETAYA_BERRY
+	ITEM_APICOT_BERRY
+	ITEM_LANSAT_BERRY
+	ITEM_STARF_BERRY
+	ITEM_MICLE_BERRY
+	ITEM_CUSTAP_BERRY
+	ITEM_JABOCA_BERRY
+	ITEM_ROWAP_BERRY
+	ITEM_KEE_BERRY
+	ITEM_MARANGA_BERRY
+	ITEM_ENIGMA_BERRY
+}
+
 script SootopolisCity_EventScript_Typhlosion {
 	lock
     faceplayer
@@ -399,21 +556,55 @@ script SootopolisCity_EventScript_Silver {
 	end
 }
 
-script SootopolisCity_EventScript_Gold {
+script SootopolisCity_EventScript_SilverPostThorne {
 	lock
 	faceplayer
-	if (flag(FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS)) {
-		msgbox(format("GOLD: Yo, {PLAYER}!\pYour father just told me about how you and SHANE defeated Team Phoenix, and how they were actually formed from the remnants of Team Rocket.\pYou know, I battled them many years ago myself.\pThey forced all of the MAGIKARP in the Lake of Rage to evolve for whatever reason.\pAh, I won't bore you with stories of the past though."))
+	if (flag(FLAG_HIDE_GOLD_LAZULAN)) {
+		msgbox(format("DAD: Hey, {PLAYER}, what do you think of the festival?\pThey sure are selling a lot of good items that you can't find anywhere else."))
 		release
 		end
 	}
 	else {
-		msgbox(format("meet at my house"))
+		msgbox(format("DAD: Hey, {PLAYER}, what do you think of the festival?\pThey sure are selling a lot of good items that you can't find anywhere else.\pBy the way, did you talk to GOLD yet?\pHe was looking for you.\pI think he's on the north side of town now."))
+		release
+		end
+	}
+}
+
+script SootopolisCity_EventScript_ShanePostThorne {
+	msgbox(format("SHANE: Hey, this festival isn't half bad.\pI picked up a ton of new Mega Stones from one of the salesmen."), MSGBOX_NPC)
+	end
+}
+
+script SootopolisCity_EventScript_Gold {
+	lock
+	faceplayer
+	if (flag(FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS)) {
+		msgbox(format("GOLD: Yo, {PLAYER}!\pYour father told me about how you and SHANE defeated Team Phoenix, and how they were actually formed from the remnants of Team Rocket.\pYou know, I battled them many years ago myself.\pThey forced all of the Magikarp in the Lake of Rage to evolve for whatever reason.\pAh, I won't bore you with stories of the past though."))
+		release
+		end
+	}
+	else {
+		msgbox(format("GOLD: There you are, {PLAYER}.\pYou know, from the moment I saw you, I've had this strange feeling nagging at me.\pI wasn't sure what it was, but as your father told me more about your exploits, it hit me.\pIn all of my years of battling, I've only lost to a single TRAINER.\pIt was someone who I'd never met before, and who I swear vanished before my eyes right after defeating me."))
+		waitmessage
+        checkplayergender
+        if (var(VAR_RESULT) == MALE) {
+            call (SootopolisCity_EventScript_MalePlayerGold)
+        }
+        elif (var(VAR_RESULT) == FEMALE) {
+            call (SootopolisCity_EventScript_FemalePlayerGold)
+        }
+		msgbox(format("Now, I wouldn't want to disrupt the festival with our battle.\pSo, if you're feeling up to the challenge, then meet me at my private island on Route G.\pWe won't have to worry about collateral damage there.\pUntil next time, {PLAYER}."))
 		waitmessage
 		closemessage
-		//applymovement (23, SootopolisCity_Movement_GoldToHisHouse)
-		//applymovement (24, SootopolisCity_Movement_TyphlosionToGoldHouse)
-		//waitmovement (0)
+		specialvar (VAR_RESULT, GetPlayerFacingDirection)
+        if (var(VAR_RESULT) == DIR_NORTH) {
+            applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_PlayerMoveForGold)
+    		waitmovement (0)
+        }
+		applymovement (23, SootopolisCity_Movement_GoldToHisHouse)
+		applymovement (24, SootopolisCity_Movement_TyphlosionToGoldHouse)
+		waitmovement (0)
 		removeobject (23)
 		removeobject (24)
 		setflag (FLAG_HIDE_GOLD_LAZULAN)
@@ -421,6 +612,56 @@ script SootopolisCity_EventScript_Gold {
 		release
 		end
 	}
+}
+
+script SootopolisCity_EventScript_MalePlayerGold {
+	msgbox(format("I know this will sound crazy, but you remind me of that mystery boy.\pI know I can't go back in time to challenge him to a rematch, but maybe battling with you will bring me some closure."))
+}
+
+script SootopolisCity_EventScript_FemalePlayerGold {
+	msgbox(format("I know this will sound crazy, but you remind me of that mystery girl.\pI know I can't go back in time to challenge her to a rematch, but maybe battling with you will bring me some closure."))
+}
+
+movement SootopolisCity_Movement_PlayerMoveForGold {
+	walk_left
+	walk_in_place_right
+}
+
+movement SootopolisCity_Movement_GoldToHisHouse {
+	walk_down
+	walk_right
+	walk_down * 2
+	walk_right
+	walk_down * 4
+}
+
+movement SootopolisCity_Movement_TyphlosionToGoldHouse {
+	walk_right
+	walk_down
+	walk_right
+	walk_down * 2
+	walk_right
+	walk_down * 4
+}
+
+script SootopolisCity_EventScript_KimonoGirls {
+	msgbox(format("I hope you're enjoying the festival!"), MSGBOX_NPC)
+	end
+}
+
+script SootopolisCity_EventScript_BaldMan {
+	msgbox(format("They're selling BERRIES? Really?\pYou could just go pick those out of the ground if you know where to look."), MSGBOX_NPC)
+	end
+}
+
+script SootopolisCity_EventScript_Beauty {
+	msgbox(format("They actually sell Trade Stones here, I couldn't believe it!"), MSGBOX_NPC)
+	end
+}
+
+script SootopolisCity_EventScript_Cowgirl {
+	msgbox(format("This festival sure is somethin' else.\pI can't wait to tell everyone at the farm about it!"), MSGBOX_NPC)
+	end
 }
 
 raw`

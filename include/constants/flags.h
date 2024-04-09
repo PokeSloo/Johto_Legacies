@@ -1292,8 +1292,8 @@
 #define FLAG_GOT_ROUJEM_PHOENIX_PASSWORD                            0x4DB // For keypad door
 #define FLAG_ROUJEM_PHOENIX_DOOR_OPEN                               0x4DC // Keypad door open
 #define FLAG_HIDE_SILVER_ROUJEM_SECOND_FLOOR                        0x4DD // In phoenix base
-#define FLAG_UNUSED_0x4DE                                           0x4DE // Unused Flag
-#define FLAG_UNUSED_0x4DF                                           0x4DF // Unused Flag
+#define FLAG_HIDE_SHANE_LAZULAN_POST_THORNE                         0x4DE // Set before in house after e4, and after gold battle
+#define FLAG_RECEIVED_SUICUNE_EGG                                   0x4DF // From Gold after defeating him
 #define FLAG_UNUSED_0x4E0                                           0x4E0 // Unused Flag
 #define FLAG_UNUSED_0x4E1                                           0x4E1 // Unused Flag
 #define FLAG_UNUSED_0x4E2                                           0x4E2 // Unused Flag

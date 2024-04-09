@@ -202,8 +202,8 @@ script AbandonedShip_Rooms2_B1F_EventScript_DoBattle {
     waitmovement (0)
     delay (30)
     applymovement (SILVER_ID, AbandonedShip_Rooms2_B1F_Movement_WalkRight1)
-    applymovement (THORNE_ID, AbandonedShip_Rooms2_B1F_Movement_WalkDown1)
     applymovement (FERALIGATR_ID, SootopolisCity_Movement_StepRight)
+    applymovement (THORNE_ID, AbandonedShip_Rooms2_B1F_Movement_WalkDown1)
     waitmovement (0)
     delay (30)
     applymovement (SILVER_ID, SootopolisCity_Movement_StepDown)
@@ -222,6 +222,7 @@ script AbandonedShip_Rooms2_B1F_EventScript_DoBattle {
     removeobject (THORNE_ID)
     removeobject (FERALIGATR_ID)
     clearflag (FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS)
+    clearflag (FLAG_HIDE_SHANE_LAZULAN_POST_THORNE)
     clearflag (FLAG_HIDE_JIRACHI)
 	setflag (FLAG_DEFEATED_THORNE_ROUJEM)
 	addvar (VAR_LAZULAN_STATE, 1)
@@ -312,6 +313,7 @@ movement AbandonedShip_Rooms2_B1F_Movement_WalkRight1 {
 
 movement AbandonedShip_Rooms2_B1F_Movement_WalkDown1 {
     walk_down
+    walk_in_place_right
 }
 
 movement AbandonedShip_Rooms2_B1F_Movement_SilverExit {

@@ -124,6 +124,7 @@ LittlerootTown_BrendansHouse_1F_EventScript_OnFrameAfterE4_6:
 	setflag FLAG_HIDE_SILVER_IN_HOUSE
 	setflag FLAG_HIDE_GOLD_ROUTE_G
 	setflag FLAG_HIDE_SILVER_OUTSIDE_ROUJEM
+	setflag FLAG_HIDE_SHANE_LAZULAN_POST_THORNE
 	addvar VAR_CHERRYGROVE_STATE, 1
 	release
 	end
