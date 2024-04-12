@@ -12151,35 +12151,51 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne5[] = {
 static const struct TrainerMonItemCustomMoves sParty_Brawly2[] = {
     {
     .iv = 255,
-    .lvl = 33,
-    .species = SPECIES_MACHAMP,
+    .lvl = 84,
+    .species = SPECIES_GRIMMSNARL,
+    .heldItem = ITEM_LIGHT_CLAY,
+    .abilityNums = 0,
+    .moves = {MOVE_REFLECT, MOVE_LIGHT_SCREEN, MOVE_TAUNT, MOVE_DRAIN_PUNCH}
+    },
+    {
+    .iv = 255,
+    .lvl = 84,
+    .species = SPECIES_KLEFKI,
+    .heldItem = ITEM_AIR_BALLOON,
+    .abilityNums = 0,
+    .moves = {MOVE_SPIKES, MOVE_THUNDER_WAVE, MOVE_FOUL_PLAY, MOVE_PLAY_ROUGH}
+    },
+    {
+    .iv = 255,
+    .lvl = 85,
+    .species = SPECIES_HATTERENE,
+    .heldItem = ITEM_LEFTOVERS,
+    .abilityNums = 2,
+    .moves = {MOVE_CALM_MIND, MOVE_DRAINING_KISS, MOVE_PSYSHOCK, MOVE_MYSTICAL_FIRE}
+    },
+    {
+    .iv = 255,
+    .lvl = 85,
+    .species = SPECIES_AZUMARILL,
     .heldItem = ITEM_SITRUS_BERRY,
-    .abilityNums = 0,
-    .moves = {MOVE_KARATE_CHOP, MOVE_ROCK_SLIDE, MOVE_FOCUS_PUNCH, MOVE_BULK_UP}
+    .abilityNums = 1,
+    .moves = {MOVE_BELLY_DRUM, MOVE_PLAY_ROUGH, MOVE_KNOCK_OFF, MOVE_AQUA_JET}
     },
     {
     .iv = 255,
-    .lvl = 33,
-    .species = SPECIES_MEDITITE,
-    .heldItem = ITEM_NONE,
-    .abilityNums = 0,
-    .moves = {MOVE_PSYCHIC, MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_FOCUS_PUNCH}
+    .lvl = 85,
+    .species = SPECIES_RAPIDASH_GALARIAN,
+    .heldItem = ITEM_SHELL_BELL,
+    .abilityNums = 1,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_PLAY_ROUGH, MOVE_HIGH_HORSEPOWER, MOVE_MORNING_SUN}
     },
     {
     .iv = 255,
-    .lvl = 35,
-    .species = SPECIES_HITMONTOP,
-    .heldItem = ITEM_NONE,
-    .abilityNums = 0,
-    .moves = {MOVE_PURSUIT, MOVE_COUNTER, MOVE_PROTECT, MOVE_TRIPLE_KICK}
-    },
-    {
-    .iv = 255,
-    .lvl = 37,
-    .species = SPECIES_HARIYAMA,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .abilityNums = 0,
-    .moves = {MOVE_FAKE_OUT, MOVE_FOCUS_PUNCH, MOVE_BELLY_DRUM, MOVE_EARTHQUAKE}
+    .lvl = 86,
+    .species = SPECIES_MAWILE,
+    .heldItem = ITEM_MAWILITE,
+    .abilityNums = 1,
+    .moves = {MOVE_PLAY_ROUGH, MOVE_THUNDER_PUNCH, MOVE_ICE_PUNCH, MOVE_SUCKER_PUNCH}
     }
 };
 
@@ -13465,16 +13481,16 @@ static const struct TrainerMonItemCustomMoves sParty_Steven[] = {
     {
     .iv = 255,
     .lvl = 82,
-    .species = SPECIES_HERACROSS,
-    .heldItem = ITEM_HERACRONITE,
-    .abilityNums = 0,
-    .moves = {MOVE_SWORDS_DANCE, MOVE_CLOSE_COMBAT, MOVE_ROCK_BLAST, MOVE_PIN_MISSILE}
+    .species = SPECIES_SCIZOR,
+    .heldItem = ITEM_LIFE_ORB,
+    .abilityNums = 1,
+    .moves = {MOVE_BULLET_PUNCH, MOVE_U_TURN, MOVE_KNOCK_OFF, MOVE_SUPERPOWER}
     },
     {
     .iv = 255,
     .lvl = 82,
     .species = SPECIES_GYARADOS,
-    .heldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_GYARADOSITE,
     .abilityNums = 0,
     .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_ICE_FANG, MOVE_WATERFALL}
     },

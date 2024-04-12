@@ -6,12 +6,12 @@ script DewfordTown_Gym_EventScript_Alicia {
     lock
     faceplayer
     if (flag(FLAG_DEFEATED_DEWFORD_GYM)) {
-        msgbox (format("ALICIA: I had a lot of fun playing with you!\pYou're pretty good at battling too, maybe we can battle again someday."))
+        msgbox (format("I had a lot of fun playing with you!\pYou're pretty good at battling too, maybe we can battle again someday."))
         release
         end
     }
     elif (flag(FLAG_FOUND_ALICIA)) {
-        msgbox(format("ALICIA: Do you want to play hide and seek again?\p...\pOh, you're here for a battle?\pWhy didn't you say so earlier, I love POKéMON battles!\pAlright, let's see how strong you are!"))
+        msgbox(format("Do you want to play hide and seek again?\p...\pOh, you're here for a battle?\pWhy didn't you say so earlier, I love POKéMON battles!\pAlright, let's see how strong you are!"))
         trainerbattle_no_intro (TRAINER_BRAWLY_1, DewfordTown_Gym_Text_AliciaDefeat)
         msgbox(format("{PLAYER} received the SPARKLE BADGE from ALICIA!"))
         waitmessage
@@ -20,12 +20,12 @@ script DewfordTown_Gym_EventScript_Alicia {
 	    setflag (FLAG_BADGE02_GET)
         msgbox (format("That SPARKLE BADGE will make all POKéMON up to Level 35 listen to you without question, even the POKéMON you get from trades!\pYou will also be able to use the HM move FLASH outside of battle.\pOh yeah, I would also like you to have this!"))
         giveitem (ITEM_TM43_SECRET_POWER)
-        msgbox (format("That TM contains DRAINING KISS. It may sound like an innocent move, but your POKéMON will absorb over half the damage done to your opponent!"))
+        msgbox (format("That TM contains Draining Kiss. It may sound like an innocent move, but your POKéMON will absorb over half the damage done to your opponent!"))
         release
         end
     }
     else {
-        msgbox(format("ALICIA: I'm so bored!\pThere's nothing fun to do around here.\pYou there, play hide and seek with me!\pI'll hide somewhere in the gym, and you come find me.\pOk, no peeking!"))
+        msgbox(format("I'm so bored!\pThere's nothing fun to do around here.\pYou there, play hide and seek with me!\pI'll hide somewhere in the gym, and you come find me.\pOk, no peeking!"))
         waitmessage
         closemessage
         fadescreen (FADE_TO_BLACK)
@@ -63,7 +63,7 @@ script DewfordTown_Gym_EventScript_AliciaTopArmor {
             playse (SE_LEDGE)
             applymovement (13, DewfordTown_Gym_Movement_JumpOut)
             waitmovement (0)
-            msgbox (format("ALICIA: You found me!\pThat was fun, you're pretty good at hide and seek!"))
+            msgbox (format("You found me!\pThat was fun, you're pretty good at hide and seek!"))
             waitmessage
             closemessage
             fadescreen (FADE_TO_BLACK)
@@ -113,7 +113,7 @@ script DewfordTown_Gym_EventScript_AliciaBottomArmor {
             playse (SE_LEDGE)
             applymovement (11, DewfordTown_Gym_Movement_JumpOut)
             waitmovement (0)
-            msgbox (format("ALICIA: You found me!\pThat was fun, you're pretty good at hide and seek!"))
+            msgbox (format("You found me!\pThat was fun, you're pretty good at hide and seek!"))
             waitmessage
             closemessage
             fadescreen (FADE_TO_BLACK)
@@ -163,7 +163,7 @@ script DewfordTown_Gym_EventScript_AliciaPiano {
             playse (SE_LEDGE)
             applymovement (12, DewfordTown_Gym_Movement_JumpOut)
             waitmovement (0)
-            msgbox (format("ALICIA: You found me!\pThat was fun, you're pretty good at hide and seek!"))
+            msgbox (format("You found me!\pThat was fun, you're pretty good at hide and seek!"))
             waitmessage
             closemessage
             fadescreen (FADE_TO_BLACK)
@@ -213,7 +213,7 @@ script DewfordTown_Gym_EventScript_AliciaTable {
             playse (SE_LEDGE)
             applymovement (10, DewfordTown_Gym_Movement_JumpOut)
             waitmovement (0)
-            msgbox (format("ALICIA: You found me!\pThat was fun, you're pretty good at hide and seek!"))
+            msgbox (format("You found me!\pThat was fun, you're pretty good at hide and seek!"))
             waitmessage
             closemessage
             fadescreen (FADE_TO_BLACK)
@@ -431,6 +431,47 @@ script DewfordTown_Gym_EventScript_Trainer_Defeated {
 script DewfordTown_Gym_EventScript_Maid {
     msgbox(format("Thank you for playing with ALICIA.\pKeeping up with her can be a real hassle sometimes."), MSGBOX_NPC)
     end
+}
+
+script DewfordTown_Gym_EventScript_AliciaRound2 {
+	trainerbattle_double (TRAINER_BRAWLY_2, DewfordTown_Gym_Text_AliciaRematchIntro, DewfordTown_Gym_Text_AliciaRematchDefeat, DewfordTown_Gym_Text_AliciaRematchNotEnoughMons, DewfordTown_Gym_EventScript_AliciaRematchDefeated, NO_MUSIC)
+	msgbox(format("Hey!\pHow did you get so good at battling?\pYou must tell me your secrets!"))
+	if (var(VAR_GYM_LEADERS_ROUND2_COUNT) == 8) {
+        msgbox(format("Oh, by the way, I hear the POKéMON League has a new Champion.\pYou should totally go challenge them!"))
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+script DewfordTown_Gym_EventScript_AliciaRematchDefeated {
+	msgbox(format("That was even more fun than our first battle!\pHmm... You should consider becoming one of my servants.\pThen we could play together all the time!"))
+	addvar (VAR_GYM_LEADERS_ROUND2_COUNT, 1)
+    if (var(VAR_GYM_LEADERS_ROUND2_COUNT) == 8) {
+        msgbox(format("Oh, by the way, I hear the POKéMON League has a new Champion.\pYou should totally go challenge them!"))
+        setflag (FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+text DewfordTown_Gym_Text_AliciaRematchIntro {
+	format("Oh, hey, I remember you!\pAre you here to play another round of hide and seek?\pHehe, I'm just kidding.\pI bet you're here for another POKéMON battle.\pWell, those are really fun too.\pOk, you're on!")
+}
+
+text DewfordTown_Gym_Text_AliciaRematchDefeat {
+	format("Wow!\pYou just keep getting better and better!")
+}
+
+text DewfordTown_Gym_Text_AliciaRematchNotEnoughMons {
+	format("...\pUhm, excuse me, but this will be a double battle.\pPlease come back when you have more than one POKéMON with you.")
 }
 
 raw`

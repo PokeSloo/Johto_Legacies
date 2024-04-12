@@ -444,6 +444,35 @@ DewfordTown_Gym_EventScript_Maid::
 	end
 
 
+DewfordTown_Gym_EventScript_AliciaRound2::
+	trainerbattle_double TRAINER_BRAWLY_2, DewfordTown_Gym_Text_AliciaRematchIntro, DewfordTown_Gym_Text_AliciaRematchDefeat, DewfordTown_Gym_Text_AliciaRematchNotEnoughMons, DewfordTown_Gym_EventScript_AliciaRematchDefeated, NO_MUSIC
+	msgbox DewfordTown_Gym_EventScript_AliciaRound2_Text_0
+	compare VAR_GYM_LEADERS_ROUND2_COUNT, 8
+	goto_if_eq DewfordTown_Gym_EventScript_AliciaRound2_1
+	release
+	end
+
+DewfordTown_Gym_EventScript_AliciaRound2_1:
+	msgbox DewfordTown_Gym_EventScript_AliciaRound2_Text_1
+	release
+	end
+
+
+DewfordTown_Gym_EventScript_AliciaRematchDefeated::
+	msgbox DewfordTown_Gym_EventScript_AliciaRematchDefeated_Text_0
+	addvar VAR_GYM_LEADERS_ROUND2_COUNT, 1
+	compare VAR_GYM_LEADERS_ROUND2_COUNT, 8
+	goto_if_eq DewfordTown_Gym_EventScript_AliciaRematchDefeated_1
+	release
+	end
+
+DewfordTown_Gym_EventScript_AliciaRematchDefeated_1:
+	msgbox DewfordTown_Gym_EventScript_AliciaRound2_Text_1
+	setflag FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME
+	release
+	end
+
+
 DewfordTown_Gym_EventScript_Takao::
 	trainerbattle_single TRAINER_TAKAO, DewfordTown_Gym_Text_TakaoIntro, DewfordTown_Gym_Text_TakaoDefeat
 	msgbox DewfordTown_Gym_Text_TakaoPostBattle, MSGBOX_AUTOCLOSE
@@ -599,14 +628,13 @@ DewfordTown_Gym_Text_GymStatueCertified:
 	.string "SHANE, {PLAYER}$"
 
 DewfordTown_Gym_EventScript_Alicia_Text_0:
-	.string "ALICIA: I had a lot of fun playing with\n"
-	.string "you!\p"
+	.string "I had a lot of fun playing with you!\p"
 	.string "You're pretty good at battling too,\n"
 	.string "maybe we can battle again someday.$"
 
 DewfordTown_Gym_EventScript_Alicia_Text_1:
-	.string "ALICIA: Do you want to play hide and\n"
-	.string "seek again?\p"
+	.string "Do you want to play hide and seek\n"
+	.string "again?\p"
 	.string "...\p"
 	.string "Oh, you're here for a battle?\p"
 	.string "Why didn't you say so earlier, I love\n"
@@ -628,13 +656,13 @@ DewfordTown_Gym_EventScript_Alicia_Text_3:
 	.string "this!$"
 
 DewfordTown_Gym_EventScript_Alicia_Text_4:
-	.string "That TM contains DRAINING KISS. It may\n"
+	.string "That TM contains Draining Kiss. It may\n"
 	.string "sound like an innocent move, but your\l"
 	.string "POKéMON will absorb over half the\l"
 	.string "damage done to your opponent!$"
 
 DewfordTown_Gym_EventScript_Alicia_Text_5:
-	.string "ALICIA: I'm so bored!\p"
+	.string "I'm so bored!\p"
 	.string "There's nothing fun to do around here.\p"
 	.string "You there, play hide and seek with me!\p"
 	.string "I'll hide somewhere in the gym, and you\n"
@@ -642,7 +670,7 @@ DewfordTown_Gym_EventScript_Alicia_Text_5:
 	.string "Ok, no peeking!$"
 
 DewfordTown_Gym_EventScript_AliciaTopArmor_Text_0:
-	.string "ALICIA: You found me!\p"
+	.string "You found me!\p"
 	.string "That was fun, you're pretty good at\n"
 	.string "hide and seek!$"
 
@@ -655,8 +683,48 @@ DewfordTown_Gym_EventScript_Maid_Text_0:
 	.string "Keeping up with her can be a real hassle\n"
 	.string "sometimes.$"
 
+DewfordTown_Gym_EventScript_AliciaRound2_Text_0:
+	.string "Hey!\p"
+	.string "How did you get so good at battling?\p"
+	.string "You must tell me your secrets!$"
+
+DewfordTown_Gym_EventScript_AliciaRound2_Text_1:
+	.string "Oh, by the way, I hear the POKéMON\n"
+	.string "League has a new Champion.\p"
+	.string "You should totally go challenge them!$"
+
+DewfordTown_Gym_EventScript_AliciaRematchDefeated_Text_0:
+	.string "That was even more fun than our first\n"
+	.string "battle!\p"
+	.string "Hmm... You should consider becoming one\n"
+	.string "of my servants.\p"
+	.string "Then we could play together all the\n"
+	.string "time!$"
+
 DewfordTown_Gym_Text_AliciaDefeat::
 	.string "Wow! You're a lot tougher than you look!\p"
 	.string "That was the best battle I've had in a\n"
 	.string "while. Here, I will gladly present you\l"
 	.string "with this gym badge!$"
+
+DewfordTown_Gym_Text_AliciaRematchIntro::
+	.string "Oh, hey, I remember you!\p"
+	.string "Are you here to play another round of\n"
+	.string "hide and seek?\p"
+	.string "Hehe, I'm just kidding.\p"
+	.string "I bet you're here for another POKéMON\n"
+	.string "battle.\p"
+	.string "Well, those are really fun too.\p"
+	.string "Ok, you're on!$"
+
+DewfordTown_Gym_Text_AliciaRematchDefeat::
+	.string "Wow!\p"
+	.string "You just keep getting better and\n"
+	.string "better!$"
+
+DewfordTown_Gym_Text_AliciaRematchNotEnoughMons::
+	.string "...\p"
+	.string "Uhm, excuse me, but this will be a double\n"
+	.string "battle.\p"
+	.string "Please come back when you have more\n"
+	.string "than one POKéMON with you.$"

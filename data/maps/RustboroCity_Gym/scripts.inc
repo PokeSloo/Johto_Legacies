@@ -60,6 +60,13 @@ RustboroCity_Gym_FalknerLeave:
 RustboroCity_Gym_EventScript_FalknerRound2::
 	trainerbattle_double TRAINER_ROXANNE_2, RustboroCity_Gym_Text_FalknerRematchIntro, RustboroCity_Gym_Text_FalknerRematchDefeat, RustboroCity_Gym_Text_FalknerRematchNotEnoughMons, RustboroCity_Gym_EventScript_FalknerRematchDefeated, NO_MUSIC
 	msgbox RustboroCity_Gym_EventScript_FalknerRound2_Text_0
+	compare VAR_GYM_LEADERS_ROUND2_COUNT, 8
+	goto_if_eq RustboroCity_Gym_EventScript_FalknerRound2_1
+	release
+	end
+
+RustboroCity_Gym_EventScript_FalknerRound2_1:
+	msgbox RustboroCity_Gym_EventScript_FalknerRound2_Text_1
 	release
 	end
 
@@ -67,6 +74,7 @@ RustboroCity_Gym_EventScript_FalknerRound2::
 RustboroCity_Gym_EventScript_FalknerRematchDefeated::
 	msgbox RustboroCity_Gym_EventScript_FalknerRematchDefeated_Text_0
 	clearflag FLAG_HIDE_REMATCH_WHITNEY
+	setflag FLAG_HIDE_AND_SEEK_ACTIVE
 	addvar VAR_GYM_LEADERS_ROUND2_COUNT, 1
 	release
 	end
@@ -235,7 +243,7 @@ RustboroCity_Gym_Text_StoneBadgeInfoTakeThis:
 	.string "Oh, I suppose you can have this too...$"
 
 RustboroCity_Gym_Text_ExplainRockTomb:
-	.string "TM40 contains AERIAL ACE...\p"
+	.string "TM40 contains Aerial Ace...\p"
 	.string "It's a move...\p"
 	.string "No...\p"
 	.string "You know what! I'm done with this.\p"
@@ -294,6 +302,11 @@ RustboroCity_Gym_EventScript_FalknerRound2_Text_0:
 	.string "Maybe after enough training, I'll be\n"
 	.string "able to defeat you one day.\p"
 	.string "That's what it means to aim for the sky!$"
+
+RustboroCity_Gym_EventScript_FalknerRound2_Text_1:
+	.string "By the way, I've heard there's a new\n"
+	.string "POKéMON League Champion.\p"
+	.string "Supposedly, they're pretty tough.$"
 
 RustboroCity_Gym_EventScript_FalknerRematchDefeated_Text_0:
 	.string "I may have lost to you again, but I can\n"
