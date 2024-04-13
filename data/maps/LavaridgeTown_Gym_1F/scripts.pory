@@ -1,4 +1,14 @@
 mapscripts LavaridgeTown_Gym_1F_MapScripts {
+    //MAP_SCRIPT_ON_TRANSITION {
+    //    if (flag(FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME)) {
+    //        setweather (WEATHER_NONE)
+    //        end
+    //    }
+    //    if (flag(FLAG_HIDE_AND_SEEK_ACTIVE)) {
+    //        setweather (WEATHER_RAIN)
+    //       end
+    //    }
+    //}
     MAP_SCRIPT_ON_LOAD {
         if (flag(FLAG_ECRUTEAK_GYM_WATER_DOWN)) {
             call (LavaridgeTown_Gym_1F_EventScript_LowerWater)
@@ -844,6 +854,56 @@ script LavaridgeTown_Gym_1F_EventScript_GiveOverheat {
 	return
 }
 
+script LavaridgeTown_Gym_1F_EventScript_WataruRound2 {
+	lock
+    faceplayer
+    if (!flag(FLAG_DEFEATED_WATARU_REMATCH)) {
+        setweather (WEATHER_RAIN)
+        doweather
+    }
+    trainerbattle_double (TRAINER_FLANNERY_2, LavaridgeTown_Gym_1F_Text_WataruRematchIntro, LavaridgeTown_Gym_1F_Text_WataruRematchDefeat, LavaridgeTown_Gym_1F_Text_WataruRematchNotEnoughMons, LavaridgeTown_Gym_1F_EventScript_WataruRematchDefeated, NO_MUSIC)
+	msgbox(format("Your aura reminds me of the previous Champion, Silver..."))
+	if (var(VAR_GYM_LEADERS_ROUND2_COUNT) == 8) {
+        msgbox(format("By the way, I've heard rumors that the POKéMON League has found a new Champion.\pI have no doubt you will claim victory with ease!"))
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+script LavaridgeTown_Gym_1F_EventScript_WataruRematchDefeated {
+    setweather (WEATHER_NONE)
+    doweather
+	msgbox(format("I may have lost to you a second time, but I feel as though I put up a good fight.\pIf another disaster ever befalls Ecruteak City, I will be fully prepared to act."))
+    setflag (FLAG_DEFEATED_WATARU_REMATCH)
+	addvar (VAR_GYM_LEADERS_ROUND2_COUNT, 1)
+    if (var(VAR_GYM_LEADERS_ROUND2_COUNT) == 8) {
+        msgbox(format("By the way, I've heard rumors that the POKéMON League has found a new Champion.\pI have no doubt you will claim victory with ease!"))
+        setflag (FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+text LavaridgeTown_Gym_1F_Text_WataruRematchIntro {
+	format("{PLAYER}, I must thank you for summoning Lugia and calming Ho-oh's rage.\pAs Ecruteak City's gym leader, I should have joined the battle, and held off Ho-oh.\pI am a disgrace to all gym leaders!\pPlease, grant me a POKéMON battle in order to begin my redemption.\pI will prove that I am not worthless!")
+}
+
+text LavaridgeTown_Gym_1F_Text_WataruRematchDefeat {
+	format("A loss, but not a brutal loss...")
+}
+
+text LavaridgeTown_Gym_1F_Text_WataruRematchNotEnoughMons {
+	format("...\pI'm sorry, but I would prefer a double battle.\pPlease come back when you have more than one POKéMON with you.")
+}
+
 raw`
 LavaridgeTown_Gym_1F_EventScript_Cole::
 	trainerbattle_single TRAINER_COLE, LavaridgeTown_Gym_1F_Text_ColeIntro, LavaridgeTown_Gym_1F_Text_ColeDefeat
@@ -921,7 +981,7 @@ LavaridgeTown_Gym_1F_EventScript_GymStatue::
 	end
 
 LavaridgeTown_Gym_1F_Text_GymGuideAdvice:
-	.string "Hey, how's it going, CHAMPION-\n"
+	.string "Hey, how's it going, Champion-\n"
 	.string "bound {PLAYER}?\p"
 	.string "The Ecruteak Gym Leader, WATARU, uses\n"
 	.string "WATER-type POKéMON.\p"
@@ -1034,7 +1094,7 @@ LavaridgeTown_Gym_1F_Text_FlanneryDefeat:
 	.string "Marvelous, I knew my intuition was\n"
 	.string "correct.\p"
 	.string "With your skill, I wouldn't be surprised\n"
-	.string "to see you claim the title of CHAMPION\l"
+	.string "to see you claim the title of Champion\l"
 	.string "some day.\p"
 	.string "Here, you are certainly deserving of\n"
 	.string "this...$"

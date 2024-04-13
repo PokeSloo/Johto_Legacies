@@ -154,6 +154,35 @@ SlateportCity_SternsShipyard_1F_Movement_PlayerToDoor:
 	face_up
 	step_end
 
+SlateportCity_SternsShipyard_1F_EventScript_WhitneyRound2::
+	trainerbattle_double TRAINER_WATTSON_2, SlateportCity_SternsShipyard_1F_Text_WhitneyRematchIntro, SlateportCity_SternsShipyard_1F_Text_WhitneyRematchDefeat, SlateportCity_SternsShipyard_1F_Text_WhitneyRematchNotEnoughMons, SlateportCity_SternsShipyard_1F_EventScript_WhitneyRematchDefeated, NO_MUSIC
+	msgbox SlateportCity_SternsShipyard_1F_EventScript_WhitneyRound2_Text_0
+	compare VAR_GYM_LEADERS_ROUND2_COUNT, 8
+	goto_if_eq SlateportCity_SternsShipyard_1F_EventScript_WhitneyRound2_1
+	release
+	end
+
+SlateportCity_SternsShipyard_1F_EventScript_WhitneyRound2_1:
+	msgbox SlateportCity_SternsShipyard_1F_EventScript_WhitneyRound2_Text_1
+	release
+	end
+
+
+SlateportCity_SternsShipyard_1F_EventScript_WhitneyRematchDefeated::
+	msgbox SlateportCity_SternsShipyard_1F_EventScript_WhitneyRematchDefeated_Text_0
+	addvar VAR_GYM_LEADERS_ROUND2_COUNT, 1
+	compare VAR_GYM_LEADERS_ROUND2_COUNT, 8
+	goto_if_eq SlateportCity_SternsShipyard_1F_EventScript_WhitneyRematchDefeated_1
+	release
+	end
+
+SlateportCity_SternsShipyard_1F_EventScript_WhitneyRematchDefeated_1:
+	msgbox SlateportCity_SternsShipyard_1F_EventScript_WhitneyRound2_Text_1
+	setflag FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME
+	release
+	end
+
+
 SlateportCity_SternsShipyard_1F_EventScript_GymGuide_Text_0:
 	.string "You were great!\p"
 	.string "I watched everything on TV. You're\n"
@@ -314,3 +343,52 @@ SlateportCity_SternsShipyard_1F_EventScript_Left_Guard_Text_3:
 SlateportCity_SternsShipyard_1F_EventScript_Left_Guard_Text_4:
 	.string "This entrance is for The Challenge\n"
 	.string "competitors only.$"
+
+SlateportCity_SternsShipyard_1F_EventScript_WhitneyRound2_Text_0:
+	.string "Maybe someday you could take over as a\n"
+	.string "new host of The Challenge.\p"
+	.string "Although, it's not as entertaining if\n"
+	.string "the challengers never win.$"
+
+SlateportCity_SternsShipyard_1F_EventScript_WhitneyRound2_Text_1:
+	.string "By the way, the POKéMON League\n"
+	.string "supposedly has a new Champion now.\p"
+	.string "You should take them on, I'll be rooting\n"
+	.string "for you!$"
+
+SlateportCity_SternsShipyard_1F_EventScript_WhitneyRematchDefeated_Text_0:
+	.string "Sniffle...\p"
+	.string "Hic...\p"
+	.string "Whew, I'm ok.\p"
+	.string "I gave that battle my all, and I have no\n"
+	.string "regrets.\p"
+	.string "You've clearly put in a lot of effort\n"
+	.string "yourself.\p"
+	.string "The skill you have for battling is a\n"
+	.string "wonderful gift!$"
+
+SlateportCity_SternsShipyard_1F_Text_WhitneyRematchIntro::
+	.string "Hmm, {PLAYER}, right?\p"
+	.string "Sorry, we're not airing a new episode of\n"
+	.string "The Challenge at the moment.\p"
+	.string "Although, I would love to have a\n"
+	.string "rematch with the only person I've lost\l"
+	.string "to in years.\p"
+	.string "I'll tell you what, let's battle right\n"
+	.string "now!\p"
+	.string "I hope you don't mind, but it won't be\n"
+	.string "televised.\p"
+	.string "And just so you know, I've been training\n"
+	.string "hard since you beat me!\p"
+	.string "Alright, let's do this!$"
+
+SlateportCity_SternsShipyard_1F_Text_WhitneyRematchDefeat::
+	.string "After all of that training, I'm still no\n"
+	.string "match for you...$"
+
+SlateportCity_SternsShipyard_1F_Text_WhitneyRematchNotEnoughMons::
+	.string "...\p"
+	.string "Oh, sorry, I really wanted to have a\n"
+	.string "double battle.\p"
+	.string "Please come back when you have more\n"
+	.string "than one POKéMON with you.$"

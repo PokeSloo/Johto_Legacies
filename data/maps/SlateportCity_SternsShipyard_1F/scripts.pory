@@ -154,3 +154,44 @@ movement SlateportCity_SternsShipyard_1F_Movement_PlayerToDoor {
     walk_left
     face_up
 }
+
+script SlateportCity_SternsShipyard_1F_EventScript_WhitneyRound2 {
+	trainerbattle_double (TRAINER_WATTSON_2, SlateportCity_SternsShipyard_1F_Text_WhitneyRematchIntro, SlateportCity_SternsShipyard_1F_Text_WhitneyRematchDefeat, SlateportCity_SternsShipyard_1F_Text_WhitneyRematchNotEnoughMons, SlateportCity_SternsShipyard_1F_EventScript_WhitneyRematchDefeated, NO_MUSIC)
+	msgbox(format("Maybe someday you could take over as a new host of The Challenge.\pAlthough, it's not as entertaining if the challengers never win."))
+	if (var(VAR_GYM_LEADERS_ROUND2_COUNT) == 8) {
+        msgbox(format("By the way, the POKéMON League supposedly has a new Champion now.\pYou should take them on, I'll be rooting for you!"))
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+script SlateportCity_SternsShipyard_1F_EventScript_WhitneyRematchDefeated {
+	msgbox(format("Sniffle...\pHic...\pWhew, I'm ok.\pI gave that battle my all, and I have no regrets.\pYou've clearly put in a lot of effort yourself.\pThe skill you have for battling is a wonderful gift!"))
+	addvar (VAR_GYM_LEADERS_ROUND2_COUNT, 1)
+    if (var(VAR_GYM_LEADERS_ROUND2_COUNT) == 8) {
+        msgbox(format("By the way, the POKéMON League supposedly has a new Champion now.\pYou should take them on, I'll be rooting for you!"))
+        setflag (FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+text SlateportCity_SternsShipyard_1F_Text_WhitneyRematchIntro {
+	format("Hmm, {PLAYER}, right?\pSorry, we're not airing a new episode of The Challenge at the moment.\pAlthough, I would love to have a rematch with the only person I've lost to in years.\pI'll tell you what, let's battle right now!\pI hope you don't mind, but it won't be televised.\pAnd just so you know, I've been training hard since you beat me!\pAlright, let's do this!")
+}
+
+text SlateportCity_SternsShipyard_1F_Text_WhitneyRematchDefeat {
+	format("After all of that training, I'm still no match for you...")
+}
+
+text SlateportCity_SternsShipyard_1F_Text_WhitneyRematchNotEnoughMons {
+	format("...\pOh, sorry, I really wanted to have a double battle.\pPlease come back when you have more than one POKéMON with you.")
+}

@@ -850,6 +850,47 @@ LavaridgeTown_Gym_1F_EventScript_GiveOverheat::
 	return
 
 
+LavaridgeTown_Gym_1F_EventScript_WataruRound2::
+	lock
+	faceplayer
+	goto_if_unset FLAG_DEFEATED_WATARU_REMATCH, LavaridgeTown_Gym_1F_EventScript_WataruRound2_2
+LavaridgeTown_Gym_1F_EventScript_WataruRound2_1:
+	trainerbattle_double TRAINER_FLANNERY_2, LavaridgeTown_Gym_1F_Text_WataruRematchIntro, LavaridgeTown_Gym_1F_Text_WataruRematchDefeat, LavaridgeTown_Gym_1F_Text_WataruRematchNotEnoughMons, LavaridgeTown_Gym_1F_EventScript_WataruRematchDefeated, NO_MUSIC
+	msgbox LavaridgeTown_Gym_1F_EventScript_WataruRound2_Text_0
+	compare VAR_GYM_LEADERS_ROUND2_COUNT, 8
+	goto_if_eq LavaridgeTown_Gym_1F_EventScript_WataruRound2_4
+	release
+	end
+
+LavaridgeTown_Gym_1F_EventScript_WataruRound2_2:
+	setweather WEATHER_RAIN
+	doweather
+	goto LavaridgeTown_Gym_1F_EventScript_WataruRound2_1
+
+LavaridgeTown_Gym_1F_EventScript_WataruRound2_4:
+	msgbox LavaridgeTown_Gym_1F_EventScript_WataruRound2_Text_1
+	release
+	end
+
+
+LavaridgeTown_Gym_1F_EventScript_WataruRematchDefeated::
+	setweather WEATHER_NONE
+	doweather
+	msgbox LavaridgeTown_Gym_1F_EventScript_WataruRematchDefeated_Text_0
+	setflag FLAG_DEFEATED_WATARU_REMATCH
+	addvar VAR_GYM_LEADERS_ROUND2_COUNT, 1
+	compare VAR_GYM_LEADERS_ROUND2_COUNT, 8
+	goto_if_eq LavaridgeTown_Gym_1F_EventScript_WataruRematchDefeated_1
+	release
+	end
+
+LavaridgeTown_Gym_1F_EventScript_WataruRematchDefeated_1:
+	msgbox LavaridgeTown_Gym_1F_EventScript_WataruRound2_Text_1
+	setflag FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME
+	release
+	end
+
+
 LavaridgeTown_Gym_1F_EventScript_Cole::
 	trainerbattle_single TRAINER_COLE, LavaridgeTown_Gym_1F_Text_ColeIntro, LavaridgeTown_Gym_1F_Text_ColeDefeat
 	msgbox LavaridgeTown_Gym_1F_Text_ColePostBattle, MSGBOX_AUTOCLOSE
@@ -926,7 +967,7 @@ LavaridgeTown_Gym_1F_EventScript_GymStatue::
 	end
 
 LavaridgeTown_Gym_1F_Text_GymGuideAdvice:
-	.string "Hey, how's it going, CHAMPION-\n"
+	.string "Hey, how's it going, Champion-\n"
 	.string "bound {PLAYER}?\p"
 	.string "The Ecruteak Gym Leader, WATARU, uses\n"
 	.string "WATER-type POKéMON.\p"
@@ -1039,7 +1080,7 @@ LavaridgeTown_Gym_1F_Text_FlanneryDefeat:
 	.string "Marvelous, I knew my intuition was\n"
 	.string "correct.\p"
 	.string "With your skill, I wouldn't be surprised\n"
-	.string "to see you claim the title of CHAMPION\l"
+	.string "to see you claim the title of Champion\l"
 	.string "some day.\p"
 	.string "Here, you are certainly deserving of\n"
 	.string "this...$"
@@ -1075,3 +1116,44 @@ LavaridgeTown_Gym_1F_Text_GymStatueCertified:
 	.string "LAVARIDGE TOWN POKéMON GYM\p"
 	.string "FLANNERY'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
+
+LavaridgeTown_Gym_1F_EventScript_WataruRound2_Text_0:
+	.string "Your aura reminds me of the previous\n"
+	.string "Champion, Silver...$"
+
+LavaridgeTown_Gym_1F_EventScript_WataruRound2_Text_1:
+	.string "By the way, I've heard rumors that the\n"
+	.string "POKéMON League has found a new\l"
+	.string "Champion.\p"
+	.string "I have no doubt you will claim victory\n"
+	.string "with ease!$"
+
+LavaridgeTown_Gym_1F_EventScript_WataruRematchDefeated_Text_0:
+	.string "I may have lost to you a second time,\n"
+	.string "but I feel as though I put up a good\l"
+	.string "fight.\p"
+	.string "If another disaster ever befalls\n"
+	.string "Ecruteak City, I will be fully prepared\l"
+	.string "to act.$"
+
+LavaridgeTown_Gym_1F_Text_WataruRematchIntro::
+	.string "{PLAYER}, I must thank you for\n"
+	.string "summoning Lugia and calming Ho-oh's\l"
+	.string "rage.\p"
+	.string "As Ecruteak City's gym leader, I should\n"
+	.string "have joined the battle, and held off\l"
+	.string "Ho-oh.\p"
+	.string "I am a disgrace to all gym leaders!\p"
+	.string "Please, grant me a POKéMON battle in\n"
+	.string "order to begin my redemption.\p"
+	.string "I will prove that I am not worthless!$"
+
+LavaridgeTown_Gym_1F_Text_WataruRematchDefeat::
+	.string "A loss, but not a brutal loss...$"
+
+LavaridgeTown_Gym_1F_Text_WataruRematchNotEnoughMons::
+	.string "...\p"
+	.string "I'm sorry, but I would prefer a double\n"
+	.string "battle.\p"
+	.string "Please come back when you have more\n"
+	.string "than one POKéMON with you.$"
