@@ -67,6 +67,35 @@ PetalburgCity_Gym_EventScript_Guitarist_1:
 	end
 
 
+PetalburgCity_Gym_EventScript_CharlieRound2::
+	trainerbattle_double TRAINER_NORMAN_2, PetalburgCity_Gym_Text_CharlieRematchIntro, PetalburgCity_Gym_Text_CharlieRematchDefeat, PetalburgCity_Gym_Text_CharlieRematchNotEnoughMons, PetalburgCity_Gym_EventScript_CharlieRematchDefeated, NO_MUSIC
+	msgbox PetalburgCity_Gym_EventScript_CharlieRound2_Text_0
+	compare VAR_GYM_LEADERS_ROUND2_COUNT, 8
+	goto_if_eq PetalburgCity_Gym_EventScript_CharlieRound2_1
+	release
+	end
+
+PetalburgCity_Gym_EventScript_CharlieRound2_1:
+	msgbox PetalburgCity_Gym_EventScript_CharlieRound2_Text_1
+	release
+	end
+
+
+PetalburgCity_Gym_EventScript_CharlieRematchDefeated::
+	msgbox PetalburgCity_Gym_EventScript_CharlieRematchDefeated_Text_0
+	addvar VAR_GYM_LEADERS_ROUND2_COUNT, 1
+	compare VAR_GYM_LEADERS_ROUND2_COUNT, 8
+	goto_if_eq PetalburgCity_Gym_EventScript_CharlieRematchDefeated_1
+	release
+	end
+
+PetalburgCity_Gym_EventScript_CharlieRematchDefeated_1:
+	msgbox PetalburgCity_Gym_EventScript_CharlieRematchDefeated_Text_1
+	setflag FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME
+	release
+	end
+
+
 PetalburgCity_Gym_EventScript_Charlie::
 	lock
 	faceplayer
@@ -525,6 +554,28 @@ PetalburgCity_Gym_EventScript_Guitarist_Text_1:
 	.string "I'm all apmed back up again, and ready\n"
 	.string "to start this show!$"
 
+PetalburgCity_Gym_EventScript_CharlieRound2_Text_0:
+	.string "Yo kid! That last battle really amped me\n"
+	.string "up!\p"
+	.string "I'll play a song just for you in our next\n"
+	.string "concert.$"
+
+PetalburgCity_Gym_EventScript_CharlieRound2_Text_1:
+	.string "Oh yeah, and I heard the POKéMON\n"
+	.string "League found a new Champion.\p"
+	.string "You should go rock their world!$"
+
+PetalburgCity_Gym_EventScript_CharlieRematchDefeated_Text_0:
+	.string "Battles like that really amp me up!\p"
+	.string "I feel like I could put on the best show\n"
+	.string "of my life right now!\p"
+	.string "Too bad we aren't playing today...$"
+
+PetalburgCity_Gym_EventScript_CharlieRematchDefeated_Text_1:
+	.string "Oh yeah, I heard the POKéMON League\n"
+	.string "found a new Champion.\p"
+	.string "You should go rock their world too!$"
+
 PetalburgCity_Gym_EventScript_Charlie_Text_0:
 	.string "Yo kid! We should battle again sometime.\p"
 	.string "You have a ton of potential!$"
@@ -609,6 +660,28 @@ PetalburgCity_Gym_EventScript_GymStatueCertified::
 	.string "OLIVINE CITY POKéMON GYM\p"
 	.string "CHARLIE'S CERTIFIED TRAINERS:\n"
 	.string "SHANE, {PLAYER}$"
+
+PetalburgCity_Gym_Text_CharlieRematchIntro::
+	.string "Yo kid! Glad to see you again!\p"
+	.string "Sorry, but we aren't putting on a\n"
+	.string "concert today, we're just chilling.\p"
+	.string "...\p"
+	.string "What's that?\p"
+	.string "You want a rematch?\p"
+	.string "Hell yeah!\p"
+	.string "I've been looking forward to facing you\n"
+	.string "again.\p"
+	.string "Let's get this party started!$"
+
+PetalburgCity_Gym_Text_CharlieRematchDefeat::
+	.string "Rock on!\p"
+	.string "You keep blowing my expectations away!$"
+
+PetalburgCity_Gym_Text_CharlieRematchNotEnoughMons::
+	.string "...\p"
+	.string "Oh, bummer, I wanted a double battle.\p"
+	.string "Come back when you have more than one\n"
+	.string "POKéMON with you.$"
 
 PetalburgCity_Gym_Text_CharlieDefeat::
 	.string "Yeah! That was a fantastic battle!\p"

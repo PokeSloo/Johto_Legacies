@@ -12707,35 +12707,51 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery5[] = {
 static const struct TrainerMonItemCustomMoves sParty_Norman2[] = {
     {
     .iv = 255,
-    .lvl = 42,
-    .species = SPECIES_CHANSEY,
-    .heldItem = ITEM_NONE,
-    .abilityNums = 0,
-    .moves = {MOVE_LIGHT_SCREEN, MOVE_SING, MOVE_SKILL_SWAP, MOVE_FOCUS_PUNCH}
+    .lvl = 84,
+    .species = SPECIES_ELECTRODE_HISUIAN,
+    .heldItem = ITEM_AIR_BALLOON,
+    .abilityNums = 1,
+    .moves = {MOVE_VOLT_SWITCH, MOVE_ENERGY_BALL, MOVE_THUNDERBOLT, MOVE_FOUL_PLAY}
     },
     {
     .iv = 255,
-    .lvl = 42,
-    .species = SPECIES_SLAKING,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .abilityNums = 0,
-    .moves = {MOVE_BLIZZARD, MOVE_SHADOW_BALL, MOVE_DOUBLE_EDGE, MOVE_FIRE_BLAST}
+    .lvl = 84,
+    .species = SPECIES_PINCURCHIN,
+    .heldItem = ITEM_TERRAIN_EXTENDER,
+    .abilityNums = 2,
+    .moves = {MOVE_SPIKES, MOVE_ZING_ZAP, MOVE_SCALD, MOVE_POISON_JAB}
     },
     {
     .iv = 255,
-    .lvl = 43,
-    .species = SPECIES_SPINDA,
-    .heldItem = ITEM_NONE,
+    .lvl = 85,
+    .species = SPECIES_EELEKTROSS,
+    .heldItem = ITEM_ASSAULT_VEST,
     .abilityNums = 0,
-    .moves = {MOVE_TEETER_DANCE, MOVE_SKILL_SWAP, MOVE_FACADE, MOVE_HYPNOSIS}
+    .moves = {MOVE_THUNDERBOLT, MOVE_GIGA_DRAIN, MOVE_FLAMETHROWER, MOVE_KNOCK_OFF}
     },
     {
     .iv = 255,
-    .lvl = 45,
-    .species = SPECIES_SLAKING,
-    .heldItem = ITEM_SITRUS_BERRY,
+    .lvl = 85,
+    .species = SPECIES_ROTOM_WASH,
+    .heldItem = ITEM_LEFTOVERS,
     .abilityNums = 0,
-    .moves = {MOVE_HYPER_BEAM, MOVE_FLAMETHROWER, MOVE_THUNDERBOLT, MOVE_SHADOW_BALL}
+    .moves = {MOVE_VOLT_SWITCH, MOVE_HYDRO_PUMP, MOVE_PAIN_SPLIT, MOVE_THUNDERBOLT}
+    },
+    {
+    .iv = 255,
+    .lvl = 85,
+    .species = SPECIES_TOXTRICITY,
+    .heldItem = ITEM_THROAT_SPRAY,
+    .abilityNums = 0,
+    .moves = {MOVE_OVERDRIVE, MOVE_BOOMBURST, MOVE_SLUDGE_BOMB, MOVE_VOLT_SWITCH}
+    },
+    {
+    .iv = 255,
+    .lvl = 86,
+    .species = SPECIES_MANECTRIC,
+    .heldItem = ITEM_MANECTITE,
+    .abilityNums = 0,
+    .moves = {MOVE_THUNDERBOLT, MOVE_FLAMETHROWER, MOVE_VOLT_SWITCH, MOVE_HIDDEN_POWER}
     }
 };
 

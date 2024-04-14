@@ -94,6 +94,47 @@ script PetalburgCity_Gym_EventScript_Guitarist {
     }
 }
 
+script PetalburgCity_Gym_EventScript_CharlieRound2 {
+	trainerbattle_double (TRAINER_NORMAN_2, PetalburgCity_Gym_Text_CharlieRematchIntro, PetalburgCity_Gym_Text_CharlieRematchDefeat, PetalburgCity_Gym_Text_CharlieRematchNotEnoughMons, PetalburgCity_Gym_EventScript_CharlieRematchDefeated, NO_MUSIC)
+	msgbox(format("Yo kid! That last battle really amped me up!\pI'll play a song just for you in our next concert."))
+	if (var(VAR_GYM_LEADERS_ROUND2_COUNT) == 8) {
+        msgbox(format("Oh yeah, and I heard the POKéMON League found a new Champion.\pYou should go rock their world!"))
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+script PetalburgCity_Gym_EventScript_CharlieRematchDefeated {
+	msgbox(format("Battles like that really amp me up!\pI feel like I could put on the best show of my life right now!\pToo bad we aren't playing today..."))
+	addvar (VAR_GYM_LEADERS_ROUND2_COUNT, 1)
+    if (var(VAR_GYM_LEADERS_ROUND2_COUNT) == 8) {
+        msgbox(format("Oh yeah, I heard the POKéMON League found a new Champion.\pYou should go rock their world too!"))
+        setflag (FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+text PetalburgCity_Gym_Text_CharlieRematchIntro {
+	format("Yo kid! Glad to see you again!\pSorry, but we aren't putting on a concert today, we're just chilling.\p...\pWhat's that?\pYou want a rematch?\pHell yeah!\pI've been looking forward to facing you again.\pLet's get this party started!")
+}
+
+text PetalburgCity_Gym_Text_CharlieRematchDefeat {
+	format("Rock on!\pYou keep blowing my expectations away!")
+}
+
+text PetalburgCity_Gym_Text_CharlieRematchNotEnoughMons {
+	format("...\pOh, bummer, I wanted a double battle.\pCome back when you have more than one POKéMON with you.")
+}
+
 script PetalburgCity_Gym_EventScript_Charlie {
     lock
     faceplayer
