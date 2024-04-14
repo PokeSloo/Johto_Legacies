@@ -13303,43 +13303,51 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza5[] = {
 static const struct TrainerMonItemCustomMoves sParty_Juan2[] = {
     {
     .iv = 255,
-    .lvl = 46,
-    .species = SPECIES_POLIWAG,
-    .heldItem = ITEM_NONE,
-    .abilityNums = 0,
-    .moves = {MOVE_HYPNOSIS, MOVE_RAIN_DANCE, MOVE_PROTECT, MOVE_HYDRO_PUMP}
+    .lvl = 84,
+    .species = SPECIES_DRAGALGE,
+    .heldItem = ITEM_BLACK_SLUDGE,
+    .abilityNums = 2,
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_TOXIC_SPIKES, MOVE_HYDRO_PUMP, MOVE_DRAGON_PULSE}
     },
     {
     .iv = 255,
-    .lvl = 46,
-    .species = SPECIES_WHISCASH,
-    .heldItem = ITEM_NONE,
-    .abilityNums = 0,
-    .moves = {MOVE_RAIN_DANCE, MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_FISSURE}
-    },
-    {
-    .iv = 255,
-    .lvl = 48,
-    .species = SPECIES_WALREIN,
-    .heldItem = ITEM_NONE,
-    .abilityNums = 0,
-    .moves = {MOVE_WATER_PULSE, MOVE_BODY_SLAM, MOVE_PROTECT, MOVE_ICE_BEAM}
-    },
-    {
-    .iv = 255,
-    .lvl = 48,
-    .species = SPECIES_CRAWDAUNT,
-    .heldItem = ITEM_CHESTO_BERRY,
-    .abilityNums = 0,
-    .moves = {MOVE_REST, MOVE_CRABHAMMER, MOVE_TAUNT, MOVE_DOUBLE_TEAM}
-    },
-    {
-    .iv = 255,
-    .lvl = 51,
+    .lvl = 84,
     .species = SPECIES_KINGDRA,
-    .heldItem = ITEM_CHESTO_BERRY,
+    .heldItem = ITEM_CHOICE_SPECS,
+    .abilityNums = 2,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_DRAGON_PULSE, MOVE_ICE_BEAM, MOVE_FLASH_CANNON}
+    },
+    {
+    .iv = 255,
+    .lvl = 85,
+    .species = SPECIES_GOODRA_HISUIAN,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .abilityNums = 2,
+    .moves = {MOVE_FLASH_CANNON, MOVE_FIRE_BLAST, MOVE_SCALD, MOVE_DRAGON_PULSE}
+    },
+    {
+    .iv = 255,
+    .lvl = 85,
+    .species = SPECIES_DRAGONITE,
+    .heldItem = ITEM_LEFTOVERS,
+    .abilityNums = 2,
+    .moves = {MOVE_DRAGON_DANCE, MOVE_STEEL_WING, MOVE_DRAGON_CLAW, MOVE_THUNDER_PUNCH}
+    },
+    {
+    .iv = 255,
+    .lvl = 85,
+    .species = SPECIES_LATIAS,
+    .heldItem = ITEM_LIFE_ORB,
     .abilityNums = 0,
-    .moves = {MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_ICE_BEAM, MOVE_REST}
+    .moves = {MOVE_CALM_MIND, MOVE_ICE_BEAM, MOVE_PSYCHIC, MOVE_THUNDERBOLT}
+    },
+    {
+    .iv = 255,
+    .lvl = 86,
+    .species = SPECIES_GARCHOMP,
+    .heldItem = ITEM_GARCHOMPITE,
+    .abilityNums = 2,
+    .moves = {MOVE_DRAGON_CLAW, MOVE_EARTHQUAKE, MOVE_POISON_JAB, MOVE_STONE_EDGE}
     }
 };
 

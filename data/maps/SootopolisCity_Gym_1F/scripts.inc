@@ -173,3 +173,84 @@ SootopolisCity_Gym_1F_Text_GymStatueCertified:
 	.string "CLAIR'S CERTIFIED TRAINERS:\n"
 	.string "SHANE, {PLAYER}$"
 
+SootopolisCity_Gym_1F_EventScript_ClairRound2::
+	trainerbattle_double TRAINER_JUAN_2, SootopolisCity_Gym_1F_Text_ClairRematchIntro, SootopolisCity_Gym_1F_Text_ClairRematchDefeat, SootopolisCity_Gym_1F_Text_ClairRematchNotEnoughMons, SootopolisCity_Gym_1F_EventScript_ClairRematchDefeated, NO_MUSIC
+	msgbox SootopolisCity_Gym_1F_EventScript_ClairRound2_Text_0
+	compare VAR_GYM_LEADERS_ROUND2_COUNT, 8
+	goto_if_eq SootopolisCity_Gym_1F_EventScript_ClairRound2_1
+	release
+	end
+
+SootopolisCity_Gym_1F_EventScript_ClairRound2_1:
+	msgbox SootopolisCity_Gym_1F_EventScript_ClairRound2_Text_1
+	release
+	end
+
+
+SootopolisCity_Gym_1F_EventScript_ClairRematchDefeated::
+	msgbox SootopolisCity_Gym_1F_EventScript_ClairRematchDefeated_Text_0
+	addvar VAR_GYM_LEADERS_ROUND2_COUNT, 1
+	compare VAR_GYM_LEADERS_ROUND2_COUNT, 8
+	goto_if_eq SootopolisCity_Gym_1F_EventScript_ClairRematchDefeated_1
+	release
+	end
+
+SootopolisCity_Gym_1F_EventScript_ClairRematchDefeated_1:
+	msgbox SootopolisCity_Gym_1F_EventScript_ClairRematchDefeated_Text_1
+	setflag FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME
+	release
+	end
+
+
+SootopolisCity_Gym_1F_EventScript_ClairRound2_Text_0:
+	.string "How has your brother, SHANE, been?\p"
+	.string "Still a little brat?\p"
+	.string "Perhaps I should straighten him out\n"
+	.string "like I did for your father.$"
+
+SootopolisCity_Gym_1F_EventScript_ClairRound2_Text_1:
+	.string "By the way, I've heard rumors that the\n"
+	.string "POKéMON League has found a new\l"
+	.string "Champion.\p"
+	.string "Go, and show them the might of a true\n"
+	.string "POKéMON Master!$"
+
+SootopolisCity_Gym_1F_EventScript_ClairRematchDefeated_Text_0:
+	.string "I will never doubt your skill again.\p"
+	.string "{PLAYER}, you truly are a POKéMON\n"
+	.string "Master!$"
+
+SootopolisCity_Gym_1F_EventScript_ClairRematchDefeated_Text_1:
+	.string "By the way, I've heard rumors that the\n"
+	.string "POKéMON League has found a new\l"
+	.string "Champion.\p"
+	.string "Go, and don't hold anything back!$"
+
+SootopolisCity_Gym_1F_Text_ClairRematchIntro::
+	.string "Good to see you {PLAYER}.\p"
+	.string "Although, I'm ashamed to say that I was\n"
+	.string "a little disappointed to hear that you\l"
+	.string "bested your father in the POKéMON\l"
+	.string "League.\p"
+	.string "I know you're his kid, but I feel as\n"
+	.string "though I have failed him as a mentor.\p"
+	.string "I do know your strength firsthand\n"
+	.string "though, so that does lessen the blow.\p"
+	.string "But, I would like another battle with\n"
+	.string "you to be sure.\p"
+	.string "Please, allow me to redeem myself as the\n"
+	.string "world's best Dragon Master!$"
+
+SootopolisCity_Gym_1F_Text_ClairRematchDefeat::
+	.string "This solidifies the fact that you didn't\n"
+	.string "win our first battle just by luck.\p"
+	.string "Thank you, {PLAYER}, for accepting\n"
+	.string "the selfish request of a stubborn\l"
+	.string "woman.$"
+
+SootopolisCity_Gym_1F_Text_ClairRematchNotEnoughMons::
+	.string "...\p"
+	.string "Unfortunately, I would like this to be a\n"
+	.string "double battle.\p"
+	.string "Please come back when you have more\n"
+	.string "than one POKéMON with you.$"
