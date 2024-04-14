@@ -12895,43 +12895,51 @@ static const struct TrainerMonItemCustomMoves sParty_Norman5[] = {
 static const struct TrainerMonItemCustomMoves sParty_Winona2[] = {
     {
     .iv = 255,
-    .lvl = 40,
-    .species = SPECIES_DRATINI,
-    .heldItem = ITEM_SITRUS_BERRY,
+    .lvl = 84,
+    .species = SPECIES_INFERNAPE,
+    .heldItem = ITEM_CHOICE_SCARF,
     .abilityNums = 0,
-    .moves = {MOVE_THUNDER_WAVE, MOVE_THUNDERBOLT, MOVE_PROTECT, MOVE_ICE_BEAM}
+    .moves = {MOVE_CLOSE_COMBAT, MOVE_U_TURN, MOVE_FLARE_BLITZ, MOVE_STONE_EDGE}
     },
     {
     .iv = 255,
-    .lvl = 38,
-    .species = SPECIES_TROPIUS,
-    .heldItem = ITEM_NONE,
-    .abilityNums = 0,
-    .moves = {MOVE_SUNNY_DAY, MOVE_AERIAL_ACE, MOVE_SOLAR_BEAM, MOVE_EARTHQUAKE}
+    .lvl = 84,
+    .species = SPECIES_SNEASLER,
+    .heldItem = ITEM_AIR_BALLOON,
+    .abilityNums = 1,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_CLOSE_COMBAT, MOVE_THROAT_CHOP, MOVE_POISON_JAB}
     },
     {
     .iv = 255,
-    .lvl = 41,
-    .species = SPECIES_PELIPPER,
-    .heldItem = ITEM_NONE,
-    .abilityNums = 0,
-    .moves = {MOVE_SURF, MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_AERIAL_ACE}
+    .lvl = 85,
+    .species = SPECIES_SCRAFTY,
+    .heldItem = ITEM_LEFTOVERS,
+    .abilityNums = 1,
+    .moves = {MOVE_DRAGON_DANCE, MOVE_CRUNCH, MOVE_HIGH_JUMP_KICK, MOVE_STONE_EDGE}
     },
     {
     .iv = 255,
-    .lvl = 43,
-    .species = SPECIES_SKARMORY,
-    .heldItem = ITEM_NONE,
-    .abilityNums = 0,
-    .moves = {MOVE_WHIRLWIND, MOVE_SPIKES, MOVE_STEEL_WING, MOVE_AERIAL_ACE}
+    .lvl = 85,
+    .species = SPECIES_MACHAMP,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .abilityNums = 1,
+    .moves = {MOVE_THUNDER_PUNCH, MOVE_DYNAMIC_PUNCH, MOVE_KNOCK_OFF, MOVE_BULLET_PUNCH}
     },
     {
     .iv = 255,
-    .lvl = 45,
-    .species = SPECIES_ALTARIA,
-    .heldItem = ITEM_CHESTO_BERRY,
+    .lvl = 85,
+    .species = SPECIES_URSHIFU_RAPID_STRIKE_STYLE,
+    .heldItem = ITEM_CHOICE_BAND,
     .abilityNums = 0,
-    .moves = {MOVE_AERIAL_ACE, MOVE_REST, MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE}
+    .moves = {MOVE_CLOSE_COMBAT, MOVE_SURGING_STRIKES, MOVE_U_TURN, MOVE_ICE_PUNCH}
+    },
+    {
+    .iv = 255,
+    .lvl = 86,
+    .species = SPECIES_LUCARIO,
+    .heldItem = ITEM_LUCARIONITE,
+    .abilityNums = 2,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_METEOR_MASH, MOVE_BULLET_PUNCH, MOVE_CLOSE_COMBAT}
     }
 };
 

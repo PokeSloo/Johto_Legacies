@@ -528,3 +528,44 @@ script Route110_TrickHouseEnd_EventScript_BlackBelt6 {
 text Route110_TrickHouseEnd_Text_BlackBelts {
     format("Not now kid, we're busy.")
 }
+
+script Route110_TrickHouseEnd_EventScript_LeeRound2 {
+	trainerbattle_double (TRAINER_WINONA_2, Route110_TrickHouseEnd_Text_LeeRematchIntro, Route110_TrickHouseEnd_Text_LeeRematchDefeat, Route110_TrickHouseEnd_Text_LeeRematchNotEnoughMons, Route110_TrickHouseEnd_EventScript_LeeRematchDefeated, NO_MUSIC)
+	msgbox(format("You've defeated me twice now.\pPerhaps you should be the master of this dojo instead, haha!"))
+	if (var(VAR_GYM_LEADERS_ROUND2_COUNT) == 8) {
+        msgbox(format("Oh, and the POKéMON League is rumored to have a new Champion now.\pGo show them what true fighting spirit is capable of!"))
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+script Route110_TrickHouseEnd_EventScript_LeeRematchDefeated {
+	msgbox(format("Thank you for showing me that I am still just a student myself.\pYou've reignited the fire burning in my heart yet again, and I will continue to push myself to become the best I can possibly be!"))
+	addvar (VAR_GYM_LEADERS_ROUND2_COUNT, 1)
+    if (var(VAR_GYM_LEADERS_ROUND2_COUNT) == 8) {
+        msgbox(format("One more thing, the POKéMON League is rumored to have a new Champion now.\pGo show them what true fighting spirit is capable of!"))
+        setflag (FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+text Route110_TrickHouseEnd_Text_LeeRematchIntro {
+	format("I've been waiting for the day you return to my dojo, and that look in your eyes...\pIt's the look of unwavering determination!\pBut don't get too ahead of yourself.\pI won't roll over as easily this time, I've been honing my own skills as well!\pLet me show you what a true master is capable of!")
+}
+
+text Route110_TrickHouseEnd_Text_LeeRematchDefeat {
+	format("Haha! I don't know how it's possible, but you've reached heights that even I thought were unattainable!")
+}
+
+text Route110_TrickHouseEnd_Text_LeeRematchNotEnoughMons {
+	format("...\pOn second thought, go get more POKéMON for this battle.\pTrue warriors fight as a team.")
+}

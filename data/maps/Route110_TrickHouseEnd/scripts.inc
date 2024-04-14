@@ -514,6 +514,35 @@ Route110_TrickHouseEnd_EventScript_BlackBelt6_1:
 	end
 
 
+Route110_TrickHouseEnd_EventScript_LeeRound2::
+	trainerbattle_double TRAINER_WINONA_2, Route110_TrickHouseEnd_Text_LeeRematchIntro, Route110_TrickHouseEnd_Text_LeeRematchDefeat, Route110_TrickHouseEnd_Text_LeeRematchNotEnoughMons, Route110_TrickHouseEnd_EventScript_LeeRematchDefeated, NO_MUSIC
+	msgbox Route110_TrickHouseEnd_EventScript_LeeRound2_Text_0
+	compare VAR_GYM_LEADERS_ROUND2_COUNT, 8
+	goto_if_eq Route110_TrickHouseEnd_EventScript_LeeRound2_1
+	release
+	end
+
+Route110_TrickHouseEnd_EventScript_LeeRound2_1:
+	msgbox Route110_TrickHouseEnd_EventScript_LeeRound2_Text_1
+	release
+	end
+
+
+Route110_TrickHouseEnd_EventScript_LeeRematchDefeated::
+	msgbox Route110_TrickHouseEnd_EventScript_LeeRematchDefeated_Text_0
+	addvar VAR_GYM_LEADERS_ROUND2_COUNT, 1
+	compare VAR_GYM_LEADERS_ROUND2_COUNT, 8
+	goto_if_eq Route110_TrickHouseEnd_EventScript_LeeRematchDefeated_1
+	release
+	end
+
+Route110_TrickHouseEnd_EventScript_LeeRematchDefeated_1:
+	msgbox Route110_TrickHouseEnd_EventScript_LeeRematchDefeated_Text_1
+	setflag FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME
+	release
+	end
+
+
 Route110_TrickHouseEnd_EventScript_Lee_Text_0:
 	.string "I must say, that battle with you has\n"
 	.string "inspired me to reach new heights!\p"
@@ -675,6 +704,31 @@ Route110_TrickHouseEnd_EventScript_BlackBelt6_Text_0:
 	.string "Sorry we were so tough on you kid, I had\n"
 	.string "no idea you were so strong.$"
 
+Route110_TrickHouseEnd_EventScript_LeeRound2_Text_0:
+	.string "You've defeated me twice now.\p"
+	.string "Perhaps you should be the master of\n"
+	.string "this dojo instead, haha!$"
+
+Route110_TrickHouseEnd_EventScript_LeeRound2_Text_1:
+	.string "Oh, and the POKéMON League is rumored\n"
+	.string "to have a new Champion now.\p"
+	.string "Go show them what true fighting spirit\n"
+	.string "is capable of!$"
+
+Route110_TrickHouseEnd_EventScript_LeeRematchDefeated_Text_0:
+	.string "Thank you for showing me that I am still\n"
+	.string "just a student myself.\p"
+	.string "You've reignited the fire burning in my\n"
+	.string "heart yet again, and I will continue to\l"
+	.string "push myself to become the best I can\l"
+	.string "possibly be!$"
+
+Route110_TrickHouseEnd_EventScript_LeeRematchDefeated_Text_1:
+	.string "One more thing, the POKéMON League is\n"
+	.string "rumored to have a new Champion now.\p"
+	.string "Go show them what true fighting spirit\n"
+	.string "is capable of!$"
+
 Route110_TrickHouseEnd_Text_LeeDefeat::
 	.string "From the moment you walked into my gym,\n"
 	.string "I thought you were just some wimpy\l"
@@ -705,3 +759,26 @@ Route110_TrickHouseEnd_Text_DariusDefeat::
 
 Route110_TrickHouseEnd_Text_BlackBelts::
 	.string "Not now kid, we're busy.$"
+
+Route110_TrickHouseEnd_Text_LeeRematchIntro::
+	.string "I've been waiting for the day you\n"
+	.string "return to my dojo, and that look in your\l"
+	.string "eyes...\p"
+	.string "It's the look of unwavering\n"
+	.string "determination!\p"
+	.string "But don't get too ahead of yourself.\p"
+	.string "I won't roll over as easily this time,\n"
+	.string "I've been honing my own skills as well!\p"
+	.string "Let me show you what a true master is\n"
+	.string "capable of!$"
+
+Route110_TrickHouseEnd_Text_LeeRematchDefeat::
+	.string "Haha! I don't know how it's possible, but\n"
+	.string "you've reached heights that even I\l"
+	.string "thought were unattainable!$"
+
+Route110_TrickHouseEnd_Text_LeeRematchNotEnoughMons::
+	.string "...\p"
+	.string "On second thought, go get more POKéMON\n"
+	.string "for this battle.\p"
+	.string "True warriors fight as a team.$"
