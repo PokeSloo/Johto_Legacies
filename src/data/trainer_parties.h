@@ -13099,43 +13099,51 @@ static const struct TrainerMonItemCustomMoves sParty_Winona5[] = {
 static const struct TrainerMonItemCustomMoves sParty_TateAndLiza2[] = {
     {
     .iv = 255,
-    .lvl = 48,
-    .species = SPECIES_SLOWPOKE,
-    .heldItem = ITEM_NONE,
-    .abilityNums = 0,
-    .moves = {MOVE_YAWN, MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_PROTECT}
+    .lvl = 84,
+    .species = SPECIES_MAMOSWINE,
+    .heldItem = ITEM_LIFE_ORB,
+    .abilityNums = 2,
+    .moves = {MOVE_HIGH_HORSEPOWER, MOVE_ICE_SHARD, MOVE_ICICLE_CRASH, MOVE_STEALTH_ROCK}
     },
     {
     .iv = 255,
-    .lvl = 49,
-    .species = SPECIES_CLAYDOL,
-    .heldItem = ITEM_NONE,
-    .abilityNums = 0,
-    .moves = {MOVE_EARTHQUAKE, MOVE_ANCIENT_POWER, MOVE_PSYCHIC, MOVE_LIGHT_SCREEN}
+    .lvl = 84,
+    .species = SPECIES_NINETALES_ALOLAN,
+    .heldItem = ITEM_LIGHT_CLAY,
+    .abilityNums = 2,
+    .moves = {MOVE_AURORA_VEIL, MOVE_FREEZE_DRY, MOVE_ICY_WIND, MOVE_DAZZLING_GLEAM}
     },
     {
     .iv = 255,
-    .lvl = 49,
-    .species = SPECIES_XATU,
-    .heldItem = ITEM_CHESTO_BERRY,
-    .abilityNums = 0,
-    .moves = {MOVE_PSYCHIC, MOVE_REST, MOVE_CONFUSE_RAY, MOVE_CALM_MIND}
+    .lvl = 85,
+    .species = SPECIES_BEARTIC,
+    .heldItem = ITEM_CHOICE_BAND,
+    .abilityNums = 1,
+    .moves = {MOVE_ICICLE_CRASH, MOVE_SUPERPOWER, MOVE_AQUA_JET, MOVE_PLAY_ROUGH}
     },
     {
     .iv = 255,
-    .lvl = 50,
-    .species = SPECIES_LUNATONE,
-    .heldItem = ITEM_CHESTO_BERRY,
+    .lvl = 85,
+    .species = SPECIES_LAPRAS,
+    .heldItem = ITEM_ASSAULT_VEST,
     .abilityNums = 0,
-    .moves = {MOVE_EARTHQUAKE, MOVE_PSYCHIC, MOVE_REST, MOVE_CALM_MIND}
+    .moves = {MOVE_FREEZE_DRY, MOVE_HYDRO_PUMP, MOVE_BLIZZARD, MOVE_PSYCHIC}
     },
     {
     .iv = 255,
-    .lvl = 50,
-    .species = SPECIES_SOLROCK,
-    .heldItem = ITEM_SITRUS_BERRY,
+    .lvl = 85,
+    .species = SPECIES_DARMANITAN_GALARIAN,
+    .heldItem = ITEM_CHOICE_SCARF,
     .abilityNums = 0,
-    .moves = {MOVE_SUNNY_DAY, MOVE_SOLAR_BEAM, MOVE_PSYCHIC, MOVE_FLAMETHROWER}
+    .moves = {MOVE_ICICLE_CRASH, MOVE_FLARE_BLITZ, MOVE_U_TURN, MOVE_HAMMER_ARM}
+    },
+    {
+    .iv = 255,
+    .lvl = 86,
+    .species = SPECIES_GLALIE,
+    .heldItem = ITEM_GLALITITE,
+    .abilityNums = 1,
+    .moves = {MOVE_DOUBLE_EDGE, MOVE_SHADOW_BALL, MOVE_CRUNCH, MOVE_FREEZE_DRY}
     }
 };
 

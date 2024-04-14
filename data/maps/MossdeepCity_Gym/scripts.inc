@@ -27,6 +27,35 @@ MossdeepCity_Gym_EventScript_WinterDefeated::
 	end
 
 
+MossdeepCity_Gym_EventScript_WinterRound2::
+	trainerbattle_double TRAINER_TATE_AND_LIZA_2, MossdeepCity_Gym_Text_WinterRematchIntro, MossdeepCity_Gym_Text_WinterRematchDefeat, MossdeepCity_Gym_Text_WinterRematchNotEnoughMons, MossdeepCity_Gym_EventScript_WinterRematchDefeated, NO_MUSIC
+	msgbox MossdeepCity_Gym_EventScript_WinterRound2_Text_0
+	compare VAR_GYM_LEADERS_ROUND2_COUNT, 8
+	goto_if_eq MossdeepCity_Gym_EventScript_WinterRound2_1
+	release
+	end
+
+MossdeepCity_Gym_EventScript_WinterRound2_1:
+	msgbox MossdeepCity_Gym_EventScript_WinterRound2_Text_1
+	release
+	end
+
+
+MossdeepCity_Gym_EventScript_WinterRematchDefeated::
+	msgbox MossdeepCity_Gym_EventScript_WinterRematchDefeated_Text_0
+	addvar VAR_GYM_LEADERS_ROUND2_COUNT, 1
+	compare VAR_GYM_LEADERS_ROUND2_COUNT, 8
+	goto_if_eq MossdeepCity_Gym_EventScript_WinterRematchDefeated_1
+	release
+	end
+
+MossdeepCity_Gym_EventScript_WinterRematchDefeated_1:
+	msgbox MossdeepCity_Gym_EventScript_WinterRematchDefeated_Text_1
+	setflag FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME
+	release
+	end
+
+
 MossdeepCity_Gym_EventScript_Preston::
 	trainerbattle_single TRAINER_PRESTON, MossdeepCity_Gym_Text_PrestonIntro, MossdeepCity_Gym_Text_PrestonDefeat
 	msgbox MossdeepCity_Gym_Text_PrestonPostBattle, MSGBOX_AUTOCLOSE
@@ -343,6 +372,28 @@ MossdeepCity_Gym_EventScript_WinterDefeated_Text_3:
 	.string "I just so happen to have a few extra\n"
 	.string "passes!$"
 
+MossdeepCity_Gym_EventScript_WinterRound2_Text_0:
+	.string "Did you get a chance to visit the two\n"
+	.string "move tutors at the peak of Mt. Rage?\p"
+	.string "They teach some useful moves.$"
+
+MossdeepCity_Gym_EventScript_WinterRound2_Text_1:
+	.string "Oh, and on another note, I heard the\n"
+	.string "POKéMON League has a new Champion.\p"
+	.string "I have no doubt you and your POKéMON\n"
+	.string "will win gracefully!$"
+
+MossdeepCity_Gym_EventScript_WinterRematchDefeated_Text_0:
+	.string "You know, I'm actually a bit jealous of\n"
+	.string "that deep connection you share with\l"
+	.string "your POKéMON...$"
+
+MossdeepCity_Gym_EventScript_WinterRematchDefeated_Text_1:
+	.string "Oh, on another note, I heard the\n"
+	.string "POKéMON League has a new Champion.\p"
+	.string "I have no doubt you and your POKéMON\n"
+	.string "will win gracefully!$"
+
 MossdeepCity_Gym_Text_WinterIntro::
 	.string "WINTER: Welcome to my gym, {PLAYER}.\p"
 	.string "I've been excitedly waiting for your\n"
@@ -365,3 +416,33 @@ MossdeepCity_Gym_Text_WinterDefeat::
 	.string "wonderful!\p"
 	.string "Please, take this badge as a sign of\n"
 	.string "that close bond.$"
+
+MossdeepCity_Gym_Text_WinterRematchIntro::
+	.string "{PLAYER}, please allow me to properly\n"
+	.string "thank you for liberating the Rage\l"
+	.string "Resort from Team Phoenix.\p"
+	.string "It's my favorite vacation spot, and\n"
+	.string "there's no telling what that evil group\l"
+	.string "would have done with it, given more\l"
+	.string "time.\p"
+	.string "...\p"
+	.string "What's that?\p"
+	.string "You would like a rematch?\p"
+	.string "Oh, I would love to!\p"
+	.string "I've been doing my best to prepare for\n"
+	.string "another battle with you some day, and\l"
+	.string "it looks like this is that day!$"
+
+MossdeepCity_Gym_Text_WinterRematchDefeat::
+	.string "The deep bond you share with your\n"
+	.string "POKéMON has clearly become even\l"
+	.string "stronger than last time.\p"
+	.string "I am glad to have witnessed something\n"
+	.string "this special firsthand.$"
+
+MossdeepCity_Gym_Text_WinterRematchNotEnoughMons::
+	.string "...\p"
+	.string "Or so I thought.\p"
+	.string "Please come back when you have more\n"
+	.string "than one POKéMON with you, as I would\l"
+	.string "like to have a double battle.$"

@@ -33,6 +33,47 @@ text MossdeepCity_Gym_Text_WinterDefeat {
     format("Yep, my intuition was right on the money!\pYou're a fantastic TRAINER, and the bond you share with your POKéMON is wonderful!\pPlease, take this badge as a sign of that close bond.")
 }
 
+script MossdeepCity_Gym_EventScript_WinterRound2 {
+	trainerbattle_double (TRAINER_TATE_AND_LIZA_2, MossdeepCity_Gym_Text_WinterRematchIntro, MossdeepCity_Gym_Text_WinterRematchDefeat, MossdeepCity_Gym_Text_WinterRematchNotEnoughMons, MossdeepCity_Gym_EventScript_WinterRematchDefeated, NO_MUSIC)
+	msgbox(format("Did you get a chance to visit the two move tutors at the peak of Mt. Rage?\pThey teach some useful moves."))
+	if (var(VAR_GYM_LEADERS_ROUND2_COUNT) == 8) {
+        msgbox(format("Oh, and on another note, I heard the POKéMON League has a new Champion.\pI have no doubt you and your POKéMON will win gracefully!"))
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+script MossdeepCity_Gym_EventScript_WinterRematchDefeated {
+	msgbox(format("You know, I'm actually a bit jealous of that deep connection you share with your POKéMON..."))
+	addvar (VAR_GYM_LEADERS_ROUND2_COUNT, 1)
+    if (var(VAR_GYM_LEADERS_ROUND2_COUNT) == 8) {
+        msgbox(format("Oh, on another note, I heard the POKéMON League has a new Champion.\pI have no doubt you and your POKéMON will win gracefully!"))
+        setflag (FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+text MossdeepCity_Gym_Text_WinterRematchIntro {
+	format("{PLAYER}, please allow me to properly thank you for liberating the Rage Resort from Team Phoenix.\pIt's my favorite vacation spot, and there's no telling what that evil group would have done with it, given more time.\p...\pWhat's that?\pYou would like a rematch?\pOh, I would love to!\pI've been doing my best to prepare for another battle with you some day, and it looks like this is that day!")
+}
+
+text MossdeepCity_Gym_Text_WinterRematchDefeat {
+	format("The deep bond you share with your POKéMON has clearly become even stronger than last time.\pI am glad to have witnessed something this special firsthand.")
+}
+
+text MossdeepCity_Gym_Text_WinterRematchNotEnoughMons {
+	format("...\pOr so I thought.\pPlease come back when you have more than one POKéMON with you, as I would like to have a double battle.")
+}
+
 raw`
 MossdeepCity_Gym_EventScript_Preston::
 	trainerbattle_single TRAINER_PRESTON, MossdeepCity_Gym_Text_PrestonIntro, MossdeepCity_Gym_Text_PrestonDefeat
