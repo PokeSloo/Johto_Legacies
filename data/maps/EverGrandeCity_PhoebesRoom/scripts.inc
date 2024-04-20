@@ -39,6 +39,7 @@ EverGrandeCity_PhoebesRoom_EventScript_CloseDoor::
 EverGrandeCity_PhoebesRoom_EventScript_Phoebe::
 	lock
 	faceplayer
+    goto_if_set FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME, EverGrandeCity_PhoebesRoom_EventScript_SecondKazuma
 	goto_if_set FLAG_DEFEATED_ELITE_4_PHOEBE, EverGrandeCity_PhoebesRoom_EventScript_PostBattleSpeech
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
 	msgbox EverGrandeCity_PhoebesRoom_Text_IntroSpeech, MSGBOX_DEFAULT
@@ -46,6 +47,25 @@ EverGrandeCity_PhoebesRoom_EventScript_Phoebe::
 	trainerbattle_no_intro TRAINER_PHOEBE, EverGrandeCity_PhoebesRoom_Text_Defeat
 	goto EverGrandeCity_PhoebesRoom_EventScript_Defeated
 	end
+
+EverGrandeCity_PhoebesRoom_EventScript_SecondKazuma::
+	goto_if_set FLAG_DEFEATED_ELITE_4_PHOEBE, EverGrandeCity_PhoebesRoom_EventScript_PostBattleSpeech2
+	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
+	msgbox EverGrandeCity_PhoebesRoom_EventScript_SecondKazuma_Text_0
+	setvar VAR_MUGSHOT_ID, MUGSHOT_PHOEBE
+	trainerbattle_no_intro TRAINER_ROXANNE_4, EverGrandeCity_PhoebesRoom_Text_SecondDefeat
+	setflag FLAG_DEFEATED_ELITE_4_PHOEBE
+	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
+	msgbox EverGrandeCity_PhoebesRoom_Text_KazumaSecondPost
+	release
+	end
+
+
+EverGrandeCity_PhoebesRoom_EventScript_PostBattleSpeech2::
+	msgbox EverGrandeCity_PhoebesRoom_Text_KazumaSecondPost
+	release
+	end
+
 
 EverGrandeCity_PhoebesRoom_EventScript_PostBattleSpeech::
 	msgbox EverGrandeCity_PhoebesRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
@@ -83,3 +103,23 @@ EverGrandeCity_PhoebesRoom_Text_PostBattleSpeech:
 	.string "Go on, then.\p"
 	.string "Your next challenge awaits.$"
 
+EverGrandeCity_PhoebesRoom_EventScript_SecondKazuma_Text_0:
+	.string "So, it's you again?\p"
+	.string "You haven't lost that fiery spirit, have\n"
+	.string "you?\p"
+	.string "If you've been slacking, you'll find\n"
+	.string "yourself burned to a crisp!\p"
+	.string "Now, show me the passion of a true\n"
+	.string "POKéMON master!$"
+
+EverGrandeCity_PhoebesRoom_Text_KazumaSecondPost::
+	.string "I'm glad to see you've kept that fiery\n"
+	.string "spirit!\p"
+	.string "Go on, you may advance to the next\n"
+	.string "room.$"
+
+EverGrandeCity_PhoebesRoom_Text_SecondDefeat::
+	.string "Hahaha!\n"
+	.string "You really know how to keep the flame\l"
+	.string "of my soul burning with the ferocious\l"
+	.string "power of the sun!$"

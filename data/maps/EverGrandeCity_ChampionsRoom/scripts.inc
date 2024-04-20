@@ -38,6 +38,7 @@ EverGrandeCity_ChampionsRoom_Movement_PlayerApproachWallace:
 	step_end
 
 EverGrandeCity_ChampionsRoom_EventScript_Wallace::
+	goto_if_set FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME, EverGrandeCity_ChampionsRoom_EventScript_Red
 	msgbox EverGrandeCity_ChampionsRoom_EventScript_Wallace_Text_0
 	waitmessage
 	playbgm MUS_ENCOUNTER_CHAMPION, FALSE
@@ -45,6 +46,32 @@ EverGrandeCity_ChampionsRoom_EventScript_Wallace::
 	setvar VAR_MUGSHOT_ID, MUGSHOT_CHAMPION
 	trainerbattle_no_intro TRAINER_WALLACE, EverGrandeCity_ChampionsRoom_Text_Defeat
 	goto EverGrandeCity_ChampionsRoom_EventScript_Defeated
+	end
+
+
+EverGrandeCity_ChampionsRoom_EventScript_Red::
+	applymovement 3, EverGrandeCity_ChampionsRoom_Movement_StepDown
+	waitmovement 0
+	msgbox EverGrandeCity_ChampionsRoom_EventScript_Red_Text_0
+	setvar VAR_MUGSHOT_ID, MUGSHOT_RED
+	trainerbattle_no_intro TRAINER_BRAWLY_4, EverGrandeCity_ChampionsRoom_Text_RedDefeat
+	playse SE_DOOR
+	setmetatile 6, 1, METATILE_EliteFour_OpenDoorChampion_Frame, FALSE
+	setmetatile 6, 2, METATILE_EliteFour_OpenDoorChampion_Opening, FALSE
+	special DrawWholeMapView
+	delay 30
+	msgbox EverGrandeCity_ChampionsRoom_EventScript_Red_Text_0
+	waitmessage
+	closemessage
+	setflag FLAG_DEFEATED_RED
+	setvar VAR_GYM_LEADERS_ROUND2_COUNT, 10
+	applymovement 3, EverGrandeCity_ChampionsRoom_Movement_WallaceExit
+	applymovement OBJ_EVENT_ID_PLAYER, EverGrandeCity_ChampionsRoom_Movement_PlayerExit
+	waitmovement 0
+	clearflag FLAG_HIDE_SILVER_IN_HOUSE
+	warp MAP_EVER_GRANDE_CITY_HALL_OF_FAME, 7, 16
+	waitstate
+	releaseall
 	end
 
 
@@ -157,6 +184,10 @@ EverGrandeCity_ChampionsRoom_EventScript_Wallace_Text_1:
 	.string "hope you do the same.\p"
 	.string "Prepare yourself!$"
 
+EverGrandeCity_ChampionsRoom_EventScript_Red_Text_0:
+	.string "...\n"
+	.string "...$"
+
 EverGrandeCity_ChampionsRoom_EventScript_Defeated_Text_0:
 	.string "DAD: Thanks old friend, you fought well.$"
 
@@ -191,3 +222,6 @@ EverGrandeCity_ChampionsRoom_Text_Defeat::
 	.string "heights.\p"
 	.string "You are truly worthy of the title\n"
 	.string "“Champion”.$"
+
+EverGrandeCity_ChampionsRoom_Text_RedDefeat::
+	.string "...!$"

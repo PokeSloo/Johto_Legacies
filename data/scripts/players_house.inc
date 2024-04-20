@@ -34,6 +34,7 @@ PlayersHouse_2F_EventScript_WallClock::
 	setflag FLAG_HIDE_FERALIGATR_IN_HOUSE
 	setflag FLAG_HIDE_SHANE_CHERRYGROVE_BATTLE
 	setflag FLAG_HIDE_REMATCH_WHITNEY
+	setflag FLAG_HIDE_RED_POKEMON_LEAGUE
 	releaseall
 	end
 

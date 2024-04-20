@@ -40,6 +40,7 @@ EverGrandeCity_DrakesRoom_EventScript_CloseDoor::
 EverGrandeCity_DrakesRoom_EventScript_Drake::
 	lock
 	faceplayer
+    goto_if_set FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME, EverGrandeCity_DrakesRoom_EventScript_SecondJasmine
 	goto_if_set FLAG_DEFEATED_ELITE_4_DRAKE, EverGrandeCity_DrakesRoom_EventScript_PostBattleSpeech
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
 	msgbox EverGrandeCity_DrakesRoom_Text_IntroSpeech, MSGBOX_DEFAULT
@@ -48,14 +49,31 @@ EverGrandeCity_DrakesRoom_EventScript_Drake::
 	goto EverGrandeCity_DrakesRoom_EventScript_Defeated
 	end
 
+EverGrandeCity_DrakesRoom_EventScript_SecondJasmine::
+	goto_if_set FLAG_DEFEATED_ELITE_4_DRAKE, EverGrandeCity_DrakesRoom_EventScript_PostBattleSpeech2
+	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
+	msgbox EverGrandeCity_DrakesRoom_EventScript_SecondJasmine_Text_0
+	setvar VAR_MUGSHOT_ID, MUGSHOT_DRAKE
+	trainerbattle_no_intro TRAINER_BRAWLY_3, EverGrandeCity_DrakesRoom_Text_SecondDefeat
+	setflag FLAG_DEFEATED_ELITE_4_DRAKE
+	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
+	msgbox EverGrandeCity_DrakesRoom_Text_SecondJasminePost
+	release
+	end
+
+
+EverGrandeCity_DrakesRoom_EventScript_PostBattleSpeech2::
+	msgbox EverGrandeCity_DrakesRoom_Text_SecondJasminePost
+	release
+	end
+
+
 EverGrandeCity_DrakesRoom_EventScript_PostBattleSpeech::
 	msgbox EverGrandeCity_DrakesRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
 	release
 	end
 
 EverGrandeCity_DrakesRoom_EventScript_Defeated::
-	setvar VAR_0x8004, FANCOUNTER_DEFEATED_DRAKE
-	special Script_TryGainNewFanFromCounter
 	setflag FLAG_DEFEATED_ELITE_4_DRAKE
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 	msgbox EverGrandeCity_DrakesRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
@@ -91,3 +109,26 @@ EverGrandeCity_DrakesRoom_Text_PostBattleSpeech:
 	.string "becoming too overconfident.\p"
 	.string "Go on now, the Champion is waiting.$"
 
+EverGrandeCity_DrakesRoom_EventScript_SecondJasmine_Text_0:
+	.string "You've done well to make it this far,\n"
+	.string "{PLAYER}.\p"
+	.string "Our previous encounter has pushed us\n"
+	.string "Elite Four members to surpass our own\l"
+	.string "limits, and become an iron-clad wall for\l"
+	.string "the POKéMON League!\p"
+	.string "Now, you will learn that this wall will\n"
+	.string "never break down!$"
+
+EverGrandeCity_DrakesRoom_Text_SecondJasminePost::
+	.string "The bond you share with your POKéMON is\n"
+	.string "commendable.\p"
+	.string "It's clear that bond will never be\n"
+	.string "broken.\p"
+	.string "Go now, the Champion is waiting.$"
+
+EverGrandeCity_DrakesRoom_Text_SecondDefeat::
+	.string "You continue to exceed my\n"
+	.string "expectations, {PLAYER}.\p"
+	.string "I thought we were impenetrable, but you\n"
+	.string "continue to break through our\l"
+	.string "defenses with ease.$"

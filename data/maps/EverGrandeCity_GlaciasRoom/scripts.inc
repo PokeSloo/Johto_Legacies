@@ -39,6 +39,7 @@ EverGrandeCity_GlaciasRoom_EventScript_CloseDoor::
 EverGrandeCity_GlaciasRoom_EventScript_Glacia::
 	lock
 	faceplayer
+    goto_if_set FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME, EverGrandeCity_GlaciasRoom_EventScript_SecondAgatha
 	goto_if_set FLAG_DEFEATED_ELITE_4_GLACIA, EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech
 	playbgm MUS_HG_ENCOUNTER_SUSPICIOUS_1, FALSE
 	msgbox EverGrandeCity_GlaciasRoom_Text_IntroSpeech, MSGBOX_DEFAULT
@@ -46,6 +47,25 @@ EverGrandeCity_GlaciasRoom_EventScript_Glacia::
 	trainerbattle_no_intro TRAINER_GLACIA, EverGrandeCity_GlaciasRoom_Text_Defeat
 	goto EverGrandeCity_GlaciasRoom_EventScript_Defeated
 	end
+
+EverGrandeCity_GlaciasRoom_EventScript_SecondAgatha::
+	goto_if_set FLAG_DEFEATED_ELITE_4_GLACIA, EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech2
+	playbgm MUS_HG_ENCOUNTER_SUSPICIOUS_1, FALSE
+	msgbox EverGrandeCity_GlaciasRoom_EventScript_SecondAgatha_Text_0
+	setvar VAR_MUGSHOT_ID, MUGSHOT_GLACIA
+	trainerbattle_no_intro TRAINER_ROXANNE_5, EverGrandeCity_GlaciasRoom_Text_Defeat
+	setflag FLAG_DEFEATED_ELITE_4_GLACIA
+	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
+	msgbox EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech
+	release
+	end
+
+
+EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech2::
+	msgbox EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech2_Text_0
+	release
+	end
+
 
 EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech::
 	msgbox EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
@@ -70,3 +90,10 @@ EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech:
 	.string "Next room...\p"
 	.string "Go...$"
 
+EverGrandeCity_GlaciasRoom_EventScript_SecondAgatha_Text_0:
+	.string "You again...?\p"
+	.string "KEKEKEKE!$"
+
+EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech2_Text_0:
+	.string "...\p"
+	.string "Stronger than last time...$"

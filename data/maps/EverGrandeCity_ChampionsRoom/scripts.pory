@@ -45,6 +45,7 @@ EverGrandeCity_ChampionsRoom_Movement_PlayerApproachWallace:
 `
 
 script EverGrandeCity_ChampionsRoom_EventScript_Wallace {
+	goto_if_set (FLAG_DEFEATED_ALL_GYM_LEADERS_2ND_TIME, EverGrandeCity_ChampionsRoom_EventScript_Red)
 	msgbox (format("DAD: I was wondering when you would show up, {PLAYER}.\pAfter SHANE challenged me, I figured you would be right behind him.\p...\pYou know, I felt a great sense of pride when I arrived at the Rage Resort, and found that you and SHANE defeated Team Phoenix by working together.\pI know he can be difficult, but I believe he just needs someone to show him a better path forward, just as someone once did for me."))
 	waitmessage
 	playbgm (MUS_ENCOUNTER_CHAMPION, FALSE)
@@ -57,6 +58,37 @@ script EverGrandeCity_ChampionsRoom_EventScript_Wallace {
 
 text EverGrandeCity_ChampionsRoom_Text_Defeat {
 	format("DAD: Well done, {PLAYER}.\pI gave that battle everything I had, and you still beat me.\pThe deep bond you share with your POKéMON has pushed you to incredible heights.\pYou are truly worthy of the title “Champion”.")
+}
+
+script EverGrandeCity_ChampionsRoom_EventScript_Red {
+	applymovement (LOCALID_RED, EverGrandeCity_ChampionsRoom_Movement_StepDown)
+	waitmovement (0)
+	msgbox (format("...\n..."))
+	setvar (VAR_MUGSHOT_ID, MUGSHOT_RED)
+	trainerbattle_no_intro (TRAINER_BRAWLY_4, EverGrandeCity_ChampionsRoom_Text_RedDefeat)
+	playse (SE_DOOR)
+	setmetatile (6, 1, METATILE_EliteFour_OpenDoorChampion_Frame, FALSE)
+	setmetatile (6, 2, METATILE_EliteFour_OpenDoorChampion_Opening, FALSE)
+	special (DrawWholeMapView)
+	delay (30)
+	msgbox(format("...\n..."))
+	waitmessage
+	closemessage
+	setflag (FLAG_DEFEATED_RED)
+	setflag (FLAG_HIDE_SHANE_LAZULAN_POST_THORNE)
+	setvar (VAR_GYM_LEADERS_ROUND2_COUNT, 10)
+	applymovement (LOCALID_RED, EverGrandeCity_ChampionsRoom_Movement_WallaceExit)
+	applymovement (OBJ_EVENT_ID_PLAYER, EverGrandeCity_ChampionsRoom_Movement_PlayerExit)
+	waitmovement (0)
+	clearflag (FLAG_HIDE_SILVER_IN_HOUSE)
+	warp (MAP_EVER_GRANDE_CITY_HALL_OF_FAME, 7, 16)
+	waitstate
+	releaseall
+	end
+}
+
+text EverGrandeCity_ChampionsRoom_Text_RedDefeat {
+	format("...!")
 }
 
 script EverGrandeCity_ChampionsRoom_EventScript_Defeated {
@@ -133,12 +165,10 @@ movement EverGrandeCity_ChampionsRoom_Movement_PlayerExit {
 	walk_up
 	delay_8
 	set_invisible
-	step_end
 }
 
 movement EverGrandeCity_ChampionsRoom_Movement_WallaceExit {
 	walk_up * 3
 	delay_8
 	set_invisible
-	step_end
 }
