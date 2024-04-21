@@ -177,7 +177,7 @@ Route110_TrickHouseEnd_EventScript_Lee_2:
 	setflag FLAG_DEFEATED_FORTREE_GYM
 	setflag FLAG_BADGE06_GET
 	addvar VAR_ECRUTEAK_STATE, 1
-	giveitem ITEM_TM31_BRICK_BREAK
+	giveitem ITEM_TM31
 	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_4
 	release
 	end

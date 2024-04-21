@@ -44,7 +44,7 @@ GraniteCave_B2F_EventScript_DefeatedLapras::
 
 
 GraniteCave_B2F_EventScript_ItemTMRest::
-	finditem ITEM_TM44_REST
+	finditem ITEM_TM44
 	end
 
 

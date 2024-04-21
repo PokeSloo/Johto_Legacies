@@ -10,7 +10,7 @@ script Route118_EventScript_CalmMindFisherman {
     }
     else {
         msgbox(format("The biggest fish are cautious, and will scare easy.\pA good fisherman always keeps a calm mind..."))
-        giveitem (ITEM_TM04_CALM_MIND)
+        giveitem (ITEM_TM04)
         msgbox(format("That TM may not help your fishing, but it should come in handy enough."))
         setflag (FLAG_RECEIVED_TM_04)
         release

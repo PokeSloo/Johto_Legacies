@@ -65,7 +65,7 @@ MauvilleCity_House1_EventScript_TauntKid::
 	goto_if_set FLAG_RECEIVED_TAUNT_TM, MauvilleCity_House1_EventScript_TauntKid_1
 	msgbox MauvilleCity_House1_EventScript_TauntKid_Text_1
 	waitmessage
-	giveitem ITEM_TM12_TAUNT
+	giveitem ITEM_TM12
 	setflag FLAG_RECEIVED_TAUNT_TM
 	release
 	end

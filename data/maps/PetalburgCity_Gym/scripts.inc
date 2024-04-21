@@ -122,7 +122,7 @@ PetalburgCity_Gym_EventScript_Charlie_2:
 	msgbox PetalburgCity_Gym_Text_ExplainBoltBadgeTakeThis, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_PETALBURG_GYM
 	setflag FLAG_BADGE05_GET
-	giveitem ITEM_TM24_THUNDERBOLT
+	giveitem ITEM_TM24
 	msgbox PetalburgCity_Gym_EventScript_Charlie_Text_2
 	waitmessage
 	closemessage

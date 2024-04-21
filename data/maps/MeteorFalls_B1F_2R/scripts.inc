@@ -10,6 +10,6 @@ MeteorFalls_B1F_2R_EventScript_ItemMuscleBand::
 	end
 
 MeteorFalls_B1F_2R_EventScript_ItemTM50::
-	finditem ITEM_TM50_OVERHEAT
+	finditem ITEM_TM50
 	end
 

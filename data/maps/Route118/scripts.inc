@@ -7,7 +7,7 @@ Route118_EventScript_CalmMindFisherman::
 	faceplayer
 	goto_if_set FLAG_RECEIVED_TM_04, Route118_EventScript_CalmMindFisherman_1
 	msgbox Route118_EventScript_CalmMindFisherman_Text_1
-	giveitem ITEM_TM04_CALM_MIND
+	giveitem ITEM_TM04
 	msgbox Route118_EventScript_CalmMindFisherman_Text_2
 	setflag FLAG_RECEIVED_TM_04
 	release

@@ -10,7 +10,7 @@ script RustboroCity_Flat2_2F_EventScript_ToxicBeauty {
     }
     else {
         msgbox(format("My boyfriend can't do anything right!\pI told him to go out and buy me something good, but all he came back with was a TM that's as useless as he is!\pWorst gift ever!\pHere, you take it."))
-        giveitem (ITEM_TM06_TOXIC)
+        giveitem (ITEM_TM06)
         setflag (FLAG_RECEIVED_TOXIC_TM)
         msgbox(format("He's lucky I don't leave him for someone else, I bet the old man next door has some money at least."))
         release

@@ -7,7 +7,7 @@ RustboroCity_Flat2_2F_EventScript_ToxicBeauty::
 	faceplayer
 	goto_if_set FLAG_RECEIVED_TOXIC_TM, RustboroCity_Flat2_2F_EventScript_ToxicBeauty_1
 	msgbox RustboroCity_Flat2_2F_EventScript_ToxicBeauty_Text_1
-	giveitem ITEM_TM06_TOXIC
+	giveitem ITEM_TM06
 	setflag FLAG_RECEIVED_TOXIC_TM
 	msgbox RustboroCity_Flat2_2F_EventScript_ToxicBeauty_Text_2
 	release

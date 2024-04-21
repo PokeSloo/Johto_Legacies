@@ -155,7 +155,7 @@ Route114_EventScript_Kai::
 	end
 
 Route114_EventScript_ItemTM22::
-	finditem ITEM_TM22_SOLAR_BEAM
+	finditem ITEM_TM22
 	end
 
 Route114_Text_AllMyMonDoesIsRoarTakeThis:

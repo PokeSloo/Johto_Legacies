@@ -79,7 +79,7 @@ MauvilleCity_Gym_On_Frame_1:
 	waitse
 	msgbox MauvilleCity_Gym_On_Frame_Text_9
 	waitmessage
-	giveitem ITEM_TM45_ATTRACT
+	giveitem ITEM_TM45
 	msgbox MauvilleCity_Gym_On_Frame_Text_10
 	waitmessage
 	closemessage

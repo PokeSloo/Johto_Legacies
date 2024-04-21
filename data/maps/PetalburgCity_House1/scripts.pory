@@ -11,7 +11,7 @@ script PetalburgCity_House1_EventScript_KarateGuy {
     else {
         msgbox (format("Hiyah!\pYou're a rather scrawny kid, aren't you?\pBelieve it or not, I was even smaller than you when I was your age.\pWhat you need is a good bulk..."))
         waitmessage
-        giveitem (ITEM_TM08_BULK_UP)
+        giveitem (ITEM_TM08)
         setflag (FLAG_RECEIVED_BULKUP_TM)
         msgbox (format("That may not help you grow, but teach it to one of your POKéMON and they'll be able to raise their attack and defense while in battle!"))
         release

@@ -8,7 +8,7 @@ MirageTower_1F_EventScript_BlackSludge::
 
 
 MirageTower_1F_EventScript_SludgeBomb::
-	finditem ITEM_TM36_SLUDGE_BOMB
+	finditem ITEM_TM36
 	end
 
 

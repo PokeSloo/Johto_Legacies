@@ -8,7 +8,7 @@ PetalburgCity_House1_EventScript_KarateGuy::
 	goto_if_set FLAG_RECEIVED_BULKUP_TM, PetalburgCity_House1_EventScript_KarateGuy_1
 	msgbox PetalburgCity_House1_EventScript_KarateGuy_Text_1
 	waitmessage
-	giveitem ITEM_TM08_BULK_UP
+	giveitem ITEM_TM08
 	setflag FLAG_RECEIVED_BULKUP_TM
 	msgbox PetalburgCity_House1_EventScript_KarateGuy_Text_2
 	release

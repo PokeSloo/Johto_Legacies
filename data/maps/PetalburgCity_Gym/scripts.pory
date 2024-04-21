@@ -152,7 +152,7 @@ script PetalburgCity_Gym_EventScript_Charlie {
 	    msgbox (PetalburgCity_Gym_Text_ExplainBoltBadgeTakeThis, MSGBOX_DEFAULT)
 	    setflag (FLAG_DEFEATED_PETALBURG_GYM)
 	    setflag (FLAG_BADGE05_GET)
-        giveitem (ITEM_TM24_THUNDERBOLT)
+        giveitem (ITEM_TM24)
         msgbox(format("That TM contains the move Thunderbolt! A very powerful ELECTRIC move that has a chance to paralyze your opponent.\pIt's also the inspiration behind my band's name, obviously.\pSay, you should stick around for the show.\pI'll save you a spot in the front row!\pWell, I'd better get to it..."))
         waitmessage
         closemessage

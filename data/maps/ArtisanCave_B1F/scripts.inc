@@ -6,7 +6,7 @@ ArtisanCave_B1F_EventScript_ItemOddKeystone::
 	end
 
 ArtisanCave_B1F_EventScript_ItemTM28::
-	finditem ITEM_TM28_DIG
+	finditem ITEM_TM28
 	end
 
 MtChimney_EventScript_Sawyer::

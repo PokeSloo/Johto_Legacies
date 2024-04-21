@@ -24,7 +24,7 @@ VerdanturfTown_FriendshipRatersHouse_EventScript_Girl::
 	faceplayer
 	goto_if_set FLAG_RECEIVED_TM42, VerdanturfTown_FriendshipRatersHouse_EventScript_Girl_1
 	msgbox VerdanturfTown_FriendshipRatersHouse_EventScript_Girl_Text_1
-	giveitem ITEM_TM42_FACADE
+	giveitem ITEM_TM42
 	msgbox VerdanturfTown_FriendshipRatersHouse_EventScript_Girl_Text_2
 	setflag FLAG_RECEIVED_TM42
 	release

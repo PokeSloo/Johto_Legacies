@@ -38,7 +38,7 @@ DewfordTown_Gym_EventScript_Alicia_2:
 	setflag FLAG_DEFEATED_DEWFORD_GYM
 	setflag FLAG_BADGE02_GET
 	msgbox DewfordTown_Gym_EventScript_Alicia_Text_3
-	giveitem ITEM_TM43_SECRET_POWER
+	giveitem ITEM_TM43
 	msgbox DewfordTown_Gym_EventScript_Alicia_Text_4
 	release
 	end

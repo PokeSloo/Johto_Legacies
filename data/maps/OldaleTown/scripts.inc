@@ -755,7 +755,7 @@ OldaleTown_PlayerKnockBack:
 	step_end
 
 OldaleTown_EventScript_ItemTM27::
-	finditem ITEM_TM27_RETURN
+	finditem ITEM_TM27
 	end
 
 

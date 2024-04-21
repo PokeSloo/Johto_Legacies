@@ -64,7 +64,7 @@ script MauvilleCity_House1_EventScript_TauntKid {
     else {
         msgbox (format("Are you a TRAINER?\pI don't believe it!\pYou look like you couldn't even catch a cold!\pI bet I could beat you with a single level 1 Magikarp!\p...\pIt's fun to taunt people, you should try it sometime."))
         waitmessage
-        giveitem (ITEM_TM12_TAUNT)
+        giveitem (ITEM_TM12)
         setflag (FLAG_RECEIVED_TAUNT_TM)
         release
         end

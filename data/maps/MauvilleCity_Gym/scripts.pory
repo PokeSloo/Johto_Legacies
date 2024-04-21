@@ -85,7 +85,7 @@ script MauvilleCity_Gym_On_Frame {
     waitse
     msgbox(format("WHITNEY: The PLAIN BADGE will allow your POKéMON to use the HM move Rock Smash outside of battle.\pYou should also take this..."))
     waitmessage
-    giveitem (ITEM_TM45_ATTRACT)
+    giveitem (ITEM_TM45)
     msgbox(format("TM45 contains the move Attract!\pIt will make your POKéMON irresistible to the opposite sex.\pYour opponents will only be able to attack 50 percent of the time!\pNow, {PLAYER}, congratulations!\pYou have beaten The Challenge!"))
     waitmessage
     closemessage

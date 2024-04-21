@@ -28,7 +28,7 @@ script VerdanturfTown_FriendshipRatersHouse_EventScript_Girl {
     }
     else {
         msgbox(format("I can't get an ounce of sleep around here, grandpa is just too loud!\pIt really makes me mad, but I just don't have the heart to tell him, so I just smile and bear with it.\pBut enough about me.\pYou look like a strong TRAINER, perhaps you could make use of this TM."))
-        giveitem(ITEM_TM42_FACADE)
+        giveitem(ITEM_TM42)
         msgbox(format("That TM contains the move Facade, it will double in power if your POKéMON has a status effect."))
         setflag(FLAG_RECEIVED_TM42)
         release

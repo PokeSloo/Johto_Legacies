@@ -33,7 +33,7 @@ MirageTower_2F_EventScript_Grunt_8::
 
 
 MirageTower_3F_EventScript_ThiefBall::
-	finditem ITEM_TM46_THIEF
+	finditem ITEM_TM46
 	end
 
 
