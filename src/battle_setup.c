@@ -661,10 +661,12 @@ u8 BattleSetup_GetTerrainId(void)
         return BATTLE_TERRAIN_GRASS;
     if (MetatileBehavior_IsLongGrass(tileBehavior))
         return BATTLE_TERRAIN_LONG_GRASS;
+    if (MetatileBehavior_IsSnowGrass(tileBehavior))
+        return BATTLE_TERRAIN_SNOW;
     if (MetatileBehavior_IsFootprints(tileBehavior))
-        return BATTLE_TERRAIN_GRASS;
+        return BATTLE_TERRAIN_SNOW;
     if (MetatileBehavior_IsIce(tileBehavior))
-        return BATTLE_TERRAIN_WATER;
+        return BATTLE_TERRAIN_ICE;
     if (MetatileBehavior_IsSandOrDeepSand(tileBehavior))
         return BATTLE_TERRAIN_SAND;
 

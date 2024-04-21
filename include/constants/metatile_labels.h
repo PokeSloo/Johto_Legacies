@@ -172,7 +172,7 @@
 #define METATILE_Facility_NewMauvilleDoor_Open_Tile5    0x2CD
 
 // gTileset_Fallarbor
-#define METATILE_Fallarbor_AshField                  0x218
+#define METATILE_Fallarbor_AshField                  0x229
 #define METATILE_Fallarbor_AshGrass                  0x20A
 #define METATILE_Fallarbor_BrownCaveEntrance_Bottom  0x261
 #define METATILE_Fallarbor_BrownCaveEntrance_Top     0x259
