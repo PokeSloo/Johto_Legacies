@@ -195,6 +195,11 @@ RustboroCity_PokemonSchool_EventScript_NewTeacher_7:
 	end
 
 
+RustboroCity_PokemonSchool_EventScript_Oliver::
+	msgbox RustboroCity_PokemonSchool_EventScript_Oliver_Text_0, MSGBOX_NPC
+	end
+
+
 RustboroCity_PokemonSchool_EventScript_NewTeacher_Text_0:
 	.string "Thanks for the help, I'm sure that\n"
 	.string "Dunsparce wasn't easy to find.$"
@@ -225,3 +230,11 @@ RustboroCity_PokemonSchool_EventScript_NewTeacher_Text_5:
 	.string "Dunsparce wasn't easy to find.\p"
 	.string "I'll be sure to come to you if I need to\n"
 	.string "find any more rare POKéMON.$"
+
+RustboroCity_PokemonSchool_EventScript_Oliver_Text_0:
+	.string "OLIVER: Oh, hey {PLAYER}!\p"
+	.string "I'm glad you were able to calm Ho-oh's\n"
+	.string "rage.\p"
+	.string "There's no telling how much of Johto\n"
+	.string "would be destroyed if it wasn't\l"
+	.string "stopped.$"

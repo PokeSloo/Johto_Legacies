@@ -579,6 +579,97 @@ LittlerootTown_BrendansHouse_1F_DownExclamation:
 	emote_exclamation_mark
 	step_end
 
+LittlerootTown_BrendansHouse_1F_EventScript_Feraligatr::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_FERALIGATR, CRY_MODE_NORMAL
+	applymovement 7, LittlerootTown_BrendansHouse_1F_Heart
+	msgbox LittlerootTown_BrendansHouse_1F_EventScript_Feraligatr_Text_0
+	waitmovement 0
+	waitmoncry
+	release
+	end
+
+
+LittlerootTown_BrendansHouse_1F_EventScript_FinalSilver::
+	msgbox LittlerootTown_BrendansHouse_1F_EventScript_FinalSilver_Text_0, MSGBOX_NPC
+	end
+
+
+LittlerootTown_BrendansHouse_1F_EventScript_FinalShane::
+	msgbox LittlerootTown_BrendansHouse_1F_EventScript_FinalShane_Text_0, MSGBOX_NPC
+	end
+
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_RED, LittlerootTown_BrendansHouse_1F_EventScript_Mom_1
+	goto_if_set FLAG_IS_CHAMPION, LittlerootTown_BrendansHouse_1F_EventScript_Mom_2
+	goto_if_set FLAG_HOOH_VS_LUGIA_COMPLETED, LittlerootTown_BrendansHouse_1F_EventScript_Mom_3
+	goto_if_set FLAG_DEFEATED_DAMON_KIZU, LittlerootTown_BrendansHouse_1F_EventScript_Mom_4
+	goto_if_set FLAG_BADGE05_GET, LittlerootTown_BrendansHouse_1F_EventScript_Mom_5
+	goto_if_set FLAG_HIDE_SHANE_PHOENIX_CELL, LittlerootTown_BrendansHouse_1F_EventScript_Mom_6
+	goto_if_set FLAG_ILEX_BLOCKING_GRUNT, LittlerootTown_BrendansHouse_1F_EventScript_Mom_7
+	goto_if_set FLAG_BADGE02_GET, LittlerootTown_BrendansHouse_1F_EventScript_Mom_8
+	goto_if_set FLAG_HIDE_RT31_RAIKOU, LittlerootTown_BrendansHouse_1F_EventScript_Mom_9
+	goto_if_set FLAG_HAS_MATCH_CALL, LittlerootTown_BrendansHouse_1F_EventScript_Mom_10
+	msgbox LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_10
+	release
+	end
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_1:
+	msgbox LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_0
+	release
+	end
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_2:
+	msgbox LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_1
+	release
+	end
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_3:
+	msgbox LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_2
+	release
+	end
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_4:
+	msgbox LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_3
+	release
+	end
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_5:
+	msgbox LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_4
+	release
+	end
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_6:
+	msgbox LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_5
+	release
+	end
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_7:
+	msgbox LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_6
+	release
+	end
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_8:
+	msgbox LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_7
+	release
+	end
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_9:
+	msgbox LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_8
+	release
+	end
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_10:
+	msgbox LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_9
+	release
+	end
+
+
 LittlerootTown_BrendansHouse_1F_EventScript_OnFrameAfterE4_Text_0:
 	.string "MOM: There's my new Champion!\p"
 	.string "You're finally awake.$"
@@ -706,11 +797,12 @@ LittlerootTown_BrendansHouse_1F_EnteiEgg_Text_1:
 	.string "{PLAYER} received a POKéMON egg!$"
 
 LittlerootTown_BrendansHouse_1F_Get_Started_Text_0:
-	.string "Today is the day!\p"
+	.string "MOM: Today is the day!\p"
 	.string "Today you get to go choose your very\n"
-	.string "first POKéMON. I'm so excited for you!\p"
-	.string "Now, Route 29 can be dangerous. There\n"
-	.string "are patches of grass where wild\l"
+	.string "first POKéMON.\p"
+	.string "I'm so excited for you!\p"
+	.string "Now, Route 29 can be dangerous.\p"
+	.string "There are patches of grass where wild\n"
 	.string "POKéMON can jump out and attack you.\p"
 	.string "You will need someone to go with you and\n"
 	.string "keep you safe.$"
@@ -731,8 +823,9 @@ LittlerootTown_BrendansHouse_1F_Get_Started_Text_3:
 	.string "Just keep quiet, and follow me.$"
 
 LittlerootTown_BrendansHouse_1F_Get_Started_Text_4:
-	.string "MOM: Don't worry, sweetie. If SHANE\n"
-	.string "gives you any trouble, just let me know.\l"
+	.string "MOM: Don't worry, sweetie.\p"
+	.string "If SHANE gives you any trouble, just let\n"
+	.string "me know.\p"
 	.string "Azumarill and I will set him straight!\p"
 	.string "Oh, and don't forget to take your shoes\n"
 	.string "with you.$"
@@ -752,10 +845,10 @@ LittlerootTown_BrendansHouse_1F_MalePlayer_Text_0:
 
 LittlerootTown_BrendansHouse_1F_MalePlayer_Text_1:
 	.string "SHANE: What!? Why do I have to?\p"
-	.string "MOM: That's enough, SHANE. You already\n"
-	.string "have your first badge, and you're close\l"
-	.string "to getting your second. {PLAYER} can\l"
-	.string "learn a lot from you.\p"
+	.string "MOM: That's enough, SHANE.\p"
+	.string "You already have your first badge, and\n"
+	.string "you're so close to getting your second.\p"
+	.string "{PLAYER} can learn a lot from you.\p"
 	.string "SHANE: Fine, I'll go.$"
 
 LittlerootTown_BrendansHouse_1F_FemalePlayer_Text_0:
@@ -780,11 +873,11 @@ LittlerootTown_BrendansHouse_1F_Get_Nav_Text_1:
 
 LittlerootTown_BrendansHouse_1F_Get_Nav_Text_2:
 	.string "MOM: That is a POKéNAV, you can\n"
-	.string "register people and call them anytime.\l"
+	.string "register people and call them anytime.\p"
 	.string "It also has a map of the Johto region.\p"
 	.string "Don't hesitate to call me if SHANE acts\n"
-	.string "up again. Azumarill and I will take care\l"
-	.string "of him.$"
+	.string "up again.\p"
+	.string "Azumarill and I will take care of him.$"
 
 LittlerootTown_BrendansHouse_1F_Get_Nav_Text_3:
 	.string "Right, Azumarill?$"
@@ -792,6 +885,105 @@ LittlerootTown_BrendansHouse_1F_Get_Nav_Text_3:
 LittlerootTown_BrendansHouse_1F_Get_Nav_Text_4:
 	.string "MOM: Now get going, and don't worry\n"
 	.string "about SHANE, ok.$"
+
+LittlerootTown_BrendansHouse_1F_EventScript_Feraligatr_Text_0:
+	.string "FERALIGATR: Grrahh!$"
+
+LittlerootTown_BrendansHouse_1F_EventScript_FinalSilver_Text_0:
+	.string "DAD: That festival was fun, but it's\n"
+	.string "nice to be back home.\p"
+	.string "I missed these relaxing days.$"
+
+LittlerootTown_BrendansHouse_1F_EventScript_FinalShane_Text_0:
+	.string "SHANE: What are you looking at, nerd?\p"
+	.string "I could totally beat the new League\n"
+	.string "Champion too, just wait for me to train\l"
+	.string "up a bit more!$"
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_0:
+	.string "MOM: It's so nice to have your father\n"
+	.string "home.\p"
+	.string "You know, we really didn't get along\n"
+	.string "very well when we first met.\p"
+	.string "Fate sure has a strange sense of humor.$"
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_1:
+	.string "MOM: It was so nice to see your father\n"
+	.string "again.\p"
+	.string "It might be greedy of me, but I hope\n"
+	.string "he's all finished with battling now.\p"
+	.string "Then he could just stay here all the\n"
+	.string "time!$"
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_2:
+	.string "MOM: Your father called to tell me all\n"
+	.string "about what happened with Lugia and\l"
+	.string "Ho-oh.\p"
+	.string "We're both so proud of you!\p"
+	.string "Oh, and I heard you met your\n"
+	.string "grandmother...\p"
+	.string "I hope you can forgive us for hiding her\n"
+	.string "from you.\p"
+	.string "She's such a nasty woman.$"
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_3:
+	.string "...\p"
+	.string "MOM: What's that sweetie?\p"
+	.string "...\p"
+	.string "Hmm... Battling criminal groups and\n"
+	.string "saving POKéMON is right up your\l"
+	.string "father's alley.\p"
+	.string "Someone needs to stop those jerks!$"
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_4:
+	.string "MOM: You saw a live Thunderbolts\n"
+	.string "concert?\p"
+	.string "That sounds like fun!\p"
+	.string "I hope SHANE got to watch them too.\p"
+	.string "The Thunderbolts are his favorite band,\n"
+	.string "you know!$"
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_5:
+	.string "...\p"
+	.string "MOM: What's that sweetie?\p"
+	.string "...\p"
+	.string "This Phoenix gang sounds like a nasty\n"
+	.string "bunch of folks!\p"
+	.string "We used to have a similar group who\n"
+	.string "called themselves Team Rocket.$"
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_6:
+	.string "...\p"
+	.string "MOM: What's that sweetie?\p"
+	.string "...\p"
+	.string "Time travel?\p"
+	.string "You kids sure have wild imaginations!$"
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_7:
+	.string "MOM: Oh, you have two badges now?\p"
+	.string "Keep at it, {PLAYER}!\p"
+	.string "I know you'll become a POKéMON Master\n"
+	.string "one day.$"
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_8:
+	.string "...\p"
+	.string "MOM: What's that sweetie?\p"
+	.string "You saw a legendary POKéMON?\p"
+	.string "Yellow with black stripes?\p"
+	.string "Your father will love to hear about\n"
+	.string "this.$"
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_9:
+	.string "MOM: That POKéNAV is a really handy\n"
+	.string "tool.\p"
+	.string "All of the best POKéMON TRAINERS have\n"
+	.string "one!$"
+
+LittlerootTown_BrendansHouse_1F_EventScript_Mom_Text_10:
+	.string "MOM: Don't worry, sweetie.\p"
+	.string "If SHANE gives you any trouble, just let\n"
+	.string "me know.\p"
+	.string "Azumarill and I will set him straight!$"
 
 Come_Here::
 	.string "MOM: There you are, {PLAYER}.$"

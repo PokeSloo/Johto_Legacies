@@ -1297,7 +1297,7 @@
 #define FLAG_HIDE_REMATCH_WHITNEY                                   0x4E0 // Cleared after defeating Falkner
 #define FLAG_DEFEATED_WATARU_REMATCH                                0x4E1 // Used for rain setting
 #define FLAG_HIDE_RED_POKEMON_LEAGUE                                0x4E2 // For second e4 battle
-#define FLAG_UNUSED_0x4E3                                           0x4E3 // Unused Flag
+#define FLAG_HIDE_OLIVER_TRAINER_SCHOOL                             0x4E3 // Cleared after Ho-oh vs Lugia
 #define FLAG_UNUSED_0x4E4                                           0x4E4 // Unused Flag
 #define FLAG_UNUSED_0x4E5                                           0x4E5 // Unused Flag
 #define FLAG_UNUSED_0x4E6                                           0x4E6 // Unused Flag

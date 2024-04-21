@@ -197,3 +197,8 @@ script RustboroCity_PokemonSchool_EventScript_NewTeacher {
         }
     }
 }
+
+script RustboroCity_PokemonSchool_EventScript_Oliver {
+	msgbox(format("OLIVER: Oh, hey {PLAYER}!\pI'm glad you were able to calm Ho-oh's rage.\pThere's no telling how much of Johto would be destroyed if it wasn't stopped."), MSGBOX_NPC)
+	end
+}

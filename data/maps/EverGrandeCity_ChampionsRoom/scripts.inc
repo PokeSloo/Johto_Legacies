@@ -64,6 +64,7 @@ EverGrandeCity_ChampionsRoom_EventScript_Red::
 	waitmessage
 	closemessage
 	setflag FLAG_DEFEATED_RED
+	setflag FLAG_HIDE_SHANE_LAZULAN_POST_THORNE
 	setvar VAR_GYM_LEADERS_ROUND2_COUNT, 10
 	applymovement 3, EverGrandeCity_ChampionsRoom_Movement_WallaceExit
 	applymovement OBJ_EVENT_ID_PLAYER, EverGrandeCity_ChampionsRoom_Movement_PlayerExit

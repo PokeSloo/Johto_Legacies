@@ -354,6 +354,7 @@ MauvilleCity_OnFrame_Later::
 	removeobject 12
 	setflag FLAG_HIDE_SILVER_ECRUTEAK
 	setflag FLAG_HOOH_VS_LUGIA_COMPLETED
+	clearflag FLAG_HIDE_OLIVER_TRAINER_SCHOOL
 	addvar VAR_ECRUTEAK_STATE, 1
 	release
 	end

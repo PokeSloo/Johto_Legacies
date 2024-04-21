@@ -283,7 +283,7 @@ goto (LittlerootTown_BrendansHouse_1F_Get_Started)
 }
 
 script LittlerootTown_BrendansHouse_1F_Get_Started {
-msgbox (format("Today is the day!\pToday you get to go choose your very first POKéMON. I'm so excited for you!\pNow, Route 29 can be dangerous. There are patches of grass where wild POKéMON can jump out and attack you.\pYou will need someone to go with you and keep you safe."))
+msgbox (format("MOM: Today is the day!\pToday you get to go choose your very first POKéMON.\pI'm so excited for you!\pNow, Route 29 can be dangerous.\pThere are patches of grass where wild POKéMON can jump out and attack you.\pYou will need someone to go with you and keep you safe."))
 waitmessage
 closemessage
 delay (10)
@@ -329,7 +329,7 @@ setflag (FLAG_GENERAL_HIDE)
 fadedefaultbgm
 applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_StepUpFaceRight)
 waitmovement (0)
-msgbox (format("MOM: Don't worry, sweetie. If SHANE gives you any trouble, just let me know. Azumarill and I will set him straight!\pOh, and don't forget to take your shoes with you."))
+msgbox (format("MOM: Don't worry, sweetie.\pIf SHANE gives you any trouble, just let me know.\pAzumarill and I will set him straight!\pOh, and don't forget to take your shoes with you."))
 waitmessage
 playfanfare (MUS_OBTAIN_ITEM)
 msgbox (format("{PLAYER} received the running shoes!"))
@@ -351,7 +351,7 @@ script LittlerootTown_BrendansHouse_1F_MalePlayer {
     waitmessage
     applymovement (SHANE_START_ID, LittlerootTown_BrendansHouse_1F_StompRight)
     waitmovement (0)
-    msgbox (format("SHANE: What!? Why do I have to?\pMOM: That's enough, SHANE. You already have your first badge, and you're close to getting your second. {PLAYER} can learn a lot from you.\pSHANE: Fine, I'll go."))
+    msgbox (format("SHANE: What!? Why do I have to?\pMOM: That's enough, SHANE.\pYou already have your first badge, and you're so close to getting your second.\p{PLAYER} can learn a lot from you.\pSHANE: Fine, I'll go."))
     waitmessage
     return
 }
@@ -361,7 +361,7 @@ script LittlerootTown_BrendansHouse_1F_FemalePlayer {
     waitmessage
     applymovement (SHANE_START_ID, LittlerootTown_BrendansHouse_1F_StompRight)
     waitmovement (0)
-    msgbox (format("SHANE: What!? Why do I have to?\pMOM: That's enough, SHANE. You already have your first badge, and you're close to getting your second. {PLAYER} can learn a lot from you.\pSHANE: Fine, I'll go."))
+    msgbox (format("SHANE: What!? Why do I have to?\pMOM: That's enough, SHANE.\pYou already have your first badge, and you're so close to getting your second.\p{PLAYER} can learn a lot from you.\pSHANE: Fine, I'll go."))
     waitmessage
     return
 }
@@ -428,7 +428,7 @@ script LittlerootTown_BrendansHouse_1F_Get_Nav {
 	setflag (FLAG_RECEIVED_POKENAV)
 	setflag (FLAG_HIDE_SHANE_CHERRYGROVE_BATTLE)
     addvar (VAR_CHERRYGROVE_STATE, 1)
-    msgbox (format("MOM: That is a POKéNAV, you can register people and call them anytime. It also has a map of the Johto region.\pDon't hesitate to call me if SHANE acts up again. Azumarill and I will take care of him."))
+    msgbox (format("MOM: That is a POKéNAV, you can register people and call them anytime.\pIt also has a map of the Johto region.\pDon't hesitate to call me if SHANE acts up again.\pAzumarill and I will take care of him."))
     waitmessage
     applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceRight)
     waitmovement (0)
@@ -460,7 +460,7 @@ script LittlerootTown_BrendansHouse_1F_Get_Nav {
 }
 
 text Come_Here {
-format ("MOM: There you are, {PLAYER}.")
+    format ("MOM: There you are, {PLAYER}.")
 }
 
 text LittlerootTown_BrendansHouse_1F_WhatHappened {
@@ -533,4 +533,87 @@ movement LittlerootTown_BrendansHouse_1F_Heart {
 movement LittlerootTown_BrendansHouse_1F_DownExclamation {
     walk_in_place_down
     emote_exclamation_mark
+}
+
+script LittlerootTown_BrendansHouse_1F_EventScript_Feraligatr {
+	lock
+    faceplayer
+	waitse
+	playmoncry (SPECIES_FERALIGATR, CRY_MODE_NORMAL)
+    applymovement (FERALIGATR_ID, LittlerootTown_BrendansHouse_1F_Heart)
+    msgbox (format("FERALIGATR: Grrahh!"))
+    waitmovement (0)
+    waitmoncry
+    release
+    end
+}
+
+script LittlerootTown_BrendansHouse_1F_EventScript_FinalSilver {
+    msgbox(format("DAD: That festival was fun, but it's nice to be back home.\pI missed these relaxing days."), MSGBOX_NPC)
+    end
+}
+
+script LittlerootTown_BrendansHouse_1F_EventScript_FinalShane {
+    msgbox(format("SHANE: What are you looking at, nerd?\pI could totally beat the new League Champion too, just wait for me to train up a bit more!"), MSGBOX_NPC)
+    end
+}
+
+script LittlerootTown_BrendansHouse_1F_EventScript_Mom {
+    lock
+    faceplayer
+    if(flag(FLAG_DEFEATED_RED)) {
+        msgbox(format("MOM: It's so nice to have your father home.\pYou know, we really didn't get along very well when we first met.\pFate sure has a strange sense of humor."))
+        release
+        end
+    }
+    elif(flag(FLAG_IS_CHAMPION)) {
+        msgbox(format("MOM: It was so nice to see your father again.\pIt might be greedy of me, but I hope he's all finished with battling now.\pThen he could just stay here all the time!"))
+        release
+        end
+    }
+    elif(flag(FLAG_HOOH_VS_LUGIA_COMPLETED)) {
+        msgbox(format("MOM: Your father called to tell me all about what happened with Lugia and Ho-oh.\pWe're both so proud of you!\pOh, and I heard you met your grandmother...\pI hope you can forgive us for hiding her from you.\pShe's such a nasty woman."))
+        release
+        end
+    }
+    elif(flag(FLAG_DEFEATED_DAMON_KIZU)) {
+        msgbox(format("...\pMOM: What's that sweetie?\p...\pHmm... Battling criminal groups and saving POKéMON is right up your father's alley.\pSomeone needs to stop those jerks!"))
+        release
+        end
+    }
+    elif(flag(FLAG_BADGE05_GET)) {
+        msgbox(format("MOM: You saw a live Thunderbolts concert?\pThat sounds like fun!\pI hope SHANE got to watch them too.\pThe Thunderbolts are his favorite band, you know!"))
+        release
+        end
+    }
+    elif(flag(FLAG_HIDE_SHANE_PHOENIX_CELL)) {
+        msgbox(format("...\pMOM: What's that sweetie?\p...\pThis Phoenix gang sounds like a nasty bunch of folks!\pWe used to have a similar group who called themselves Team Rocket."))
+        release
+        end
+    }
+    elif(flag(FLAG_ILEX_BLOCKING_GRUNT)) {
+        msgbox(format("...\pMOM: What's that sweetie?\p...\pTime travel?\pYou kids sure have wild imaginations!"))
+        release
+        end
+    }
+    elif(flag(FLAG_BADGE02_GET)) {
+        msgbox(format("MOM: Oh, you have two badges now?\pKeep at it, {PLAYER}!\pI know you'll become a POKéMON Master one day."))
+        release
+        end
+    }
+    elif(flag(FLAG_HIDE_RT31_RAIKOU)) {
+        msgbox(format("...\pMOM: What's that sweetie?\pYou saw a legendary POKéMON?\pYellow with black stripes?\pYour father will love to hear about this."))
+        release
+        end
+    }
+    elif(flag(FLAG_HAS_MATCH_CALL)) {
+        msgbox(format("MOM: That POKéNAV is a really handy tool.\pAll of the best POKéMON TRAINERS have one!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("MOM: Don't worry, sweetie.\pIf SHANE gives you any trouble, just let me know.\pAzumarill and I will set him straight!"))
+        release
+        end
+    }
 }
