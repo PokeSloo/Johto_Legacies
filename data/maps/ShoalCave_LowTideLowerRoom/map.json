@@ -14,32 +14,7 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 3,
-      "y": 1,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_StrengthBoulder",
-      "flag": "FLAG_TEMP_11"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
-      "x": 1,
-      "y": 1,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "ShoalCave_LowTideLowerRoom_EventScript_BlackBelt",
-      "flag": "0"
-    }
+
   ],
   "warp_events": [
     {
@@ -90,26 +65,12 @@
       "elevation": 0,
       "dest_map": "MAP_SHOAL_CAVE_HIGH_TIDE_ENTRANCE_ROOM",
       "dest_warp_id": 5
-    },
-    {
-      "x": 34,
-      "y": 22,
-      "elevation": 0,
-      "dest_map": "MAP_SLATEPORT_CITY",
-      "dest_warp_id": 14
     }
   ],
   "coord_events": [
 
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": 2,
-      "y": 1,
-      "elevation": 3,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "ShoalCave_LowTideLowerRoom_EventScript_ShoalSalt4"
-    }
+
   ]
 }

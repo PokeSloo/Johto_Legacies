@@ -1,0 +1,34 @@
+mapscripts ShoalCave_HighTideInnerRoom_MapScripts {}
+
+script ShoalCave_HighTideInnerRoom_EventScript_Mewtwo {
+    lock
+    waitse
+	playmoncry (SPECIES_MEWTWO, CRY_MODE_NORMAL)
+    msgbox(format("Mew!"))
+    waitmessage
+    waitmoncry
+    setwildbattle (SPECIES_MEWTWO, 70)
+    dowildbattle
+    removeobject(1)
+    setflag(FLAG_COMPLETED_MEWTWO_EVENT)
+    delay (30)
+    waitse
+    playmoncry (SPECIES_CELEBI, CRY_MODE_NORMAL)
+    waitmoncry
+    delay (30)
+    fadescreen (FADE_TO_WHITE)
+    playbgm (MUS_RAYQUAZA_APPEARS, FALSE)
+    checkplayergender
+    if (var(VAR_RESULT) == MALE) {
+        setvar (VAR_0x8004, MALE)
+    }
+    elif (var(VAR_RESULT) == FEMALE) {
+        setvar (VAR_0x8004, FEMALE)
+    }
+    setwarp (MAP_FARAWAY_ISLAND_ENTRANCE, 13, 5)
+    special (TimeTravelForwardClock)
+	waitstate
+    fadedefaultbgm
+    release
+    end
+}

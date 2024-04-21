@@ -15007,7 +15007,7 @@
           "map": "MAP_SHOAL_CAVE_HIGH_TIDE_INNER_ROOM",
           "base_label": "gShoalCave_HighTideInnerRoom0",
           "land_mons": {
-            "encounter_rate": 0,
+            "encounter_rate": 10,
             "mons": [
               {
                 "min_level": 58,
@@ -15072,7 +15072,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 0,
+            "encounter_rate": 4,
             "mons": [
               {
                 "min_level": 40,
@@ -15102,7 +15102,7 @@
             ]
           },
           "fishing_mons": {
-            "encounter_rate": 0,
+            "encounter_rate": 30,
             "mons": [
               {
                 "min_level": 5,

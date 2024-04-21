@@ -1,7 +1,9 @@
-raw`
-.set LOCALID_SAILOR, 1
-.set LOCALID_SS_TIDAL, 2
+const LOCALID_SAILOR = 1
+const LOCALID_SS_TIDAL = 2
+const CELEBI_ID = 3
+const POKEBALL_ID = 4
 
+raw`
 FarawayIsland_Entrance_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, FarawayIsland_Entrance_OnTransition
 	.byte 0
@@ -82,4 +84,79 @@ script FarawayIsland_Entrance_EventScript_Depart {
     waitmovement (0)
     waitse
     return
+}
+
+script FarawayIsland_Entrance_EventScript_Shrine {
+    lock
+    if (flag(FLAG_COMPLETED_MEWTWO_EVENT)) {
+        release
+        end
+    }
+    specialvar (VAR_RESULT, ScriptGetLeadMonSpecies)
+    if (var(VAR_RESULT) == SPECIES_CELEBI) {
+        playse (SE_PIN)
+        applymovement (OBJ_EVENT_ID_PLAYER, FarawayIsland_Entrance_Movement_Exclamation)
+        waitmovement (0)
+        waitse
+        delay (30)
+        msgbox(format("Celebi is reacting to the shrine!\pWill you let it out?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES) {
+            goto (FarawayIsland_Entrance_EventScript_BeginTimeTravel)
+        }
+        else {
+            release
+            end
+        }
+    }
+    else {
+        release
+        end
+    }
+}
+
+script FarawayIsland_Entrance_EventScript_BeginTimeTravel {
+    closemessage
+    applymovement (OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepLeft)
+    waitmovement (0)
+    delay (30)
+    addobject (POKEBALL_ID)
+    delay (30)
+    playse (SE_BALL_OPEN)
+    removeobject (POKEBALL_ID)
+    addobject (CELEBI_ID)
+    waitse
+    delay (30)
+    waitse
+    playmoncry (SPECIES_CELEBI, CRY_MODE_NORMAL)
+    waitmoncry
+    playse (SE_LEDGE)
+    applymovement (CELEBI_ID, FarawayIsland_Entrance_Movement_CelebiJump)
+    waitmovement (0)
+    playse (SE_LEDGE)
+    applymovement (CELEBI_ID, FarawayIsland_Entrance_Movement_CelebiJump)
+    waitmovement (0)
+    fadescreen (FADE_TO_WHITE)
+    removeobject (CELEBI_ID)
+    playbgm (MUS_RAYQUAZA_APPEARS, FALSE)
+    checkplayergender
+    if (var(VAR_RESULT) == MALE) {
+        setvar (VAR_0x8004, MALE)
+    }
+    elif (var(VAR_RESULT) == FEMALE) {
+        setvar (VAR_0x8004, FEMALE)
+    }
+    setwarp (MAP_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM, 34, 21)
+    special (TimeTravelBackClock)
+	waitstate
+    fadedefaultbgm
+    release
+    end
+}
+
+movement FarawayIsland_Entrance_Movement_Exclamation {
+    emote_exclamation_mark
+}
+
+movement FarawayIsland_Entrance_Movement_CelebiJump {
+    jump_in_place_right
 }
