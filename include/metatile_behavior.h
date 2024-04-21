@@ -78,6 +78,7 @@ bool8 MetatileBehavior_IsPuddle(u8);
 bool8 MetatileBehavior_IsTallGrass(u8);
 bool8 MetatileBehavior_IsLongGrass(u8);
 bool8 MetatileBehavior_IsSnowGrass(u8);
+bool8 MetatileBehavior_IsTallorSnowGrass(u8);
 bool8 MetatileBehavior_IsBerryTreeSoil(u8);
 bool8 MetatileBehavior_IsAshGrass(u8);
 bool8 MetatileBehavior_IsFootprints(u8);

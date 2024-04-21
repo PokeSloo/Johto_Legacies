@@ -742,6 +742,14 @@ bool8 MetatileBehavior_IsSnowGrass(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsTallorSnowGrass(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SNOW_GRASS || metatileBehavior == MB_TALL_GRASS)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsBerryTreeSoil(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_BERRY_TREE_SOIL)
