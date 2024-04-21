@@ -1,6 +1,18 @@
 MtPyre_5F_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, MtPyre_5F_MapScripts_MAP_SCRIPT_ON_LOAD
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, MtPyre_5F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
+
+MtPyre_5F_MapScripts_MAP_SCRIPT_ON_LOAD:
+	goto_if_set FLAG_HOOH_BRAILLE_DOOR_OPEN, MtPyre_5F_MapScripts_MAP_SCRIPT_ON_LOAD_2
+	end
+
+MtPyre_5F_MapScripts_MAP_SCRIPT_ON_LOAD_2:
+	setmetatile 12, 0, 0x263, TRUE
+	setmetatile 13, 0, 0x263, TRUE
+	setmetatile 12, 1, 0x280, FALSE
+	setmetatile 13, 1, 0x280, FALSE
+	end
 
 MtPyre_5F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	map_script_2 VAR_CHERRYGROVE_STATE, 7, MtPyre_5F_On_Frame
@@ -166,6 +178,47 @@ MtPyre_5F_EventScript_DefeatedSpiritomb::
 	release
 	end
 
+
+MtPyre_5F_EventScript_Braille::
+	lock
+	goto_if_set FLAG_HOOH_BRAILLE_DOOR_OPEN, MtPyre_5F_EventScript_Braille_1
+	braillemsgbox MtPyre_5F_Text_HoohBraille
+	waitmessage
+	closemessage
+	specialvar VAR_RESULT, ScriptGetLeadMonSpecies
+	compare VAR_RESULT, SPECIES_HO_OH
+	goto_if_eq MtPyre_5F_EventScript_Braille_4
+	release
+	end
+
+MtPyre_5F_EventScript_Braille_1:
+	braillemsgbox MtPyre_5F_Text_HoohBraille
+	release
+	end
+
+MtPyre_5F_EventScript_Braille_4:
+	fadeoutbgm 1
+	playse SE_M_ROCK_THROW
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 12
+	setvar VAR_0x8007, 5
+	special ShakeCamera
+	waitstate
+	setmetatile 12, 0, 0x263, TRUE
+	setmetatile 13, 0, 0x263, TRUE
+	setmetatile 12, 1, 0x280, FALSE
+	setmetatile 13, 1, 0x280, FALSE
+	special DrawWholeMapView
+	fadeinbgm 1
+	setflag FLAG_HOOH_BRAILLE_DOOR_OPEN
+	release
+	end
+
+
+MtPyre_5F_Text_HoohBraille:
+    .braille "RESURRECTOR\n"
+    .braille "SHALL PASS.$"
 
 MtPyre_5F_Main_Text_0:
 	.string "OLIVER: Are you alright, {PLAYER}?\p"

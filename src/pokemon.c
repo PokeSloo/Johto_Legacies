@@ -7556,6 +7556,9 @@ u16 GetBattleBGM(void)
         case SPECIES_GROUDON:
         case SPECIES_KYOGRE:
         case SPECIES_RAYQUAZA:
+        case SPECIES_DIALGA:
+        case SPECIES_PALKIA:
+        case SPECIES_GIRATINA:
         #ifdef POKEMON_EXPANSION
         case SPECIES_RAYQUAZA_MEGA:
         case SPECIES_KYOGRE_PRIMAL:

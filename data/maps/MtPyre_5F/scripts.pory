@@ -1,6 +1,16 @@
 const OLIVER_ID = 1
 
 mapscripts MtPyre_5F_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        if (flag(FLAG_HOOH_BRAILLE_DOOR_OPEN)) {
+            setmetatile (12, 0, 0x263, TRUE)
+            setmetatile (13, 0, 0x263, TRUE)
+            setmetatile (12, 1, 0x280, FALSE)
+            setmetatile (13, 1, 0x280, FALSE)
+            end
+        }
+        end
+    }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_CHERRYGROVE_STATE, 7: MtPyre_5F_On_Frame
     ]
@@ -154,3 +164,47 @@ script MtPyre_5F_EventScript_DefeatedSpiritomb {
     release
     end
 }
+
+script MtPyre_5F_EventScript_Braille {
+    lock
+    if(flag(FLAG_HOOH_BRAILLE_DOOR_OPEN)) {
+        braillemsgbox(MtPyre_5F_Text_HoohBraille)
+        release
+        end
+    }
+    else {
+        braillemsgbox(MtPyre_5F_Text_HoohBraille)
+        waitmessage
+        closemessage
+        specialvar (VAR_RESULT, ScriptGetLeadMonSpecies)
+        if (var(VAR_RESULT) == SPECIES_HO_OH) {
+            fadeoutbgm (1)
+	        playse (SE_M_ROCK_THROW)
+            setvar (VAR_0x8004, 1)  // vertical pan
+	        setvar (VAR_0x8005, 1)  // horizontal pan
+	        setvar (VAR_0x8006, 12)  // num shakes
+	        setvar (VAR_0x8007, 5)  // shake delay
+	        special (ShakeCamera)
+	        waitstate
+            setmetatile (12, 0, 0x263, TRUE)
+            setmetatile (13, 0, 0x263, TRUE)
+            setmetatile (12, 1, 0x280, FALSE)
+            setmetatile (13, 1, 0x280, FALSE)
+            special (DrawWholeMapView)
+            fadeinbgm (1)
+            setflag(FLAG_HOOH_BRAILLE_DOOR_OPEN)
+            release
+            end
+        }
+        else {
+            release
+            end
+        }
+    }
+}
+
+raw`
+MtPyre_5F_Text_HoohBraille:
+    .braille "RESURRECTOR\n"
+    .braille "SHALL PASS.$"
+`

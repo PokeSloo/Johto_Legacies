@@ -22,7 +22,7 @@ MtPyre_6F_MapScripts_MAP_SCRIPT_ON_LOAD_2:
 	setmetatile 12, 10, 0x261, FALSE
 	setmetatile 14, 10, 0x261, FALSE
 	setmetatile 10, 11, 0x261, FALSE
-	return
+	end
 
 
 MtPyre_6F_EventScript_Oliver::

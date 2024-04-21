@@ -18,7 +18,7 @@ mapscripts MtPyre_6F_MapScripts {
             setmetatile (12, 10, 0x261, FALSE)
             setmetatile (14, 10, 0x261, FALSE)
             setmetatile (10, 11, 0x261, FALSE)
-            return
+            end
         }
         end
     }

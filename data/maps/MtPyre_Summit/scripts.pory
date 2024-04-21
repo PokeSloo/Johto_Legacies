@@ -1,0 +1,270 @@
+mapscripts MtPyre_Summit_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        if (flag(FLAG_RAIKOU_BRAILLE_DOOR_OPEN)) {
+            setmetatile (7, 43, 0x263, TRUE)
+            setmetatile (8, 43, 0x263, TRUE)
+            setmetatile (7, 44, 0x280, FALSE)
+            setmetatile (8, 44, 0x280, FALSE)
+        }
+        if (flag(FLAG_ENTEI_BRAILLE_DOOR_OPEN)) {
+            setmetatile (7, 30, 0x263, TRUE)
+            setmetatile (8, 30, 0x263, TRUE)
+            setmetatile (7, 31, 0x280, FALSE)
+            setmetatile (8, 31, 0x280, FALSE)
+        }
+        if (flag(FLAG_SUICUNE_BRAILLE_DOOR_OPEN)) {
+            setmetatile (7, 17, 0x263, TRUE)
+            setmetatile (8, 17, 0x263, TRUE)
+            setmetatile (7, 18, 0x280, FALSE)
+            setmetatile (8, 18, 0x280, FALSE)
+        }
+        end
+    }
+}
+
+script MtPyre_Summit_EventScript_RaikouBraille {
+    lock
+    if(flag(FLAG_RAIKOU_BRAILLE_DOOR_OPEN)) {
+        braillemsgbox(MtPyre_Summit_Text_RaikouBraille)
+        release
+        end
+    }
+    else {
+        braillemsgbox(MtPyre_Summit_Text_RaikouBraille)
+        waitmessage
+        closemessage
+        specialvar (VAR_RESULT, ScriptGetLeadMonSpecies)
+        if (var(VAR_RESULT) == SPECIES_RAIKOU) {
+            fadeoutbgm (1)
+	        playse (SE_M_ROCK_THROW)
+            setvar (VAR_0x8004, 1)  // vertical pan
+	        setvar (VAR_0x8005, 1)  // horizontal pan
+	        setvar (VAR_0x8006, 12)  // num shakes
+	        setvar (VAR_0x8007, 5)  // shake delay
+	        special (ShakeCamera)
+	        waitstate
+            setmetatile (7, 43, 0x263, TRUE)
+            setmetatile (8, 43, 0x263, TRUE)
+            setmetatile (7, 44, 0x280, FALSE)
+            setmetatile (8, 44, 0x280, FALSE)
+            special (DrawWholeMapView)
+            fadeinbgm (1)
+            setflag(FLAG_RAIKOU_BRAILLE_DOOR_OPEN)
+            release
+            end
+        }
+        else {
+            release
+            end
+        }
+    }
+}
+
+script MtPyre_Summit_EventScript_EnteiBraille {
+    lock
+    if(flag(FLAG_ENTEI_BRAILLE_DOOR_OPEN)) {
+        braillemsgbox(MtPyre_Summit_Text_EnteiBraille)
+        release
+        end
+    }
+    else {
+        braillemsgbox(MtPyre_Summit_Text_EnteiBraille)
+        waitmessage
+        closemessage
+        specialvar (VAR_RESULT, ScriptGetLeadMonSpecies)
+        if (var(VAR_RESULT) == SPECIES_ENTEI) {
+            fadeoutbgm (1)
+	        playse (SE_M_ROCK_THROW)
+            setvar (VAR_0x8004, 1)  // vertical pan
+	        setvar (VAR_0x8005, 1)  // horizontal pan
+	        setvar (VAR_0x8006, 12)  // num shakes
+	        setvar (VAR_0x8007, 5)  // shake delay
+	        special (ShakeCamera)
+	        waitstate
+            setmetatile (7, 30, 0x263, TRUE)
+            setmetatile (8, 30, 0x263, TRUE)
+            setmetatile (7, 31, 0x280, FALSE)
+            setmetatile (8, 31, 0x280, FALSE)
+            special (DrawWholeMapView)
+            fadeinbgm (1)
+            setflag(FLAG_ENTEI_BRAILLE_DOOR_OPEN)
+            release
+            end
+        }
+        else {
+            release
+            end
+        }
+    }
+}
+
+script MtPyre_Summit_EventScript_SuicuneBraille {
+    lock
+    if(flag(FLAG_SUICUNE_BRAILLE_DOOR_OPEN)) {
+        braillemsgbox(MtPyre_Summit_Text_SuicuneBraille)
+        release
+        end
+    }
+    else {
+        braillemsgbox(MtPyre_Summit_Text_SuicuneBraille)
+        waitmessage
+        closemessage
+        specialvar (VAR_RESULT, ScriptGetLeadMonSpecies)
+        if (var(VAR_RESULT) == SPECIES_SUICUNE) {
+            fadeoutbgm (1)
+	        playse (SE_M_ROCK_THROW)
+            setvar (VAR_0x8004, 1)  // vertical pan
+	        setvar (VAR_0x8005, 1)  // horizontal pan
+	        setvar (VAR_0x8006, 12)  // num shakes
+	        setvar (VAR_0x8007, 5)  // shake delay
+	        special (ShakeCamera)
+	        waitstate
+            setmetatile (7, 17, 0x263, TRUE)
+            setmetatile (8, 17, 0x263, TRUE)
+            setmetatile (7, 18, 0x280, FALSE)
+            setmetatile (8, 18, 0x280, FALSE)
+            special (DrawWholeMapView)
+            fadeinbgm (1)
+            setflag(FLAG_SUICUNE_BRAILLE_DOOR_OPEN)
+            release
+            end
+        }
+        else {
+            release
+            end
+        }
+    }
+}
+
+script MtPyre_Summit_EventScript_DialgaAlter {
+    lock
+    if (flag(FLAG_BATTLED_DIALGA)) {
+        braillemsgbox(MtPyre_Summit_Text_DialgaBraille)
+        release
+        end
+    }
+    else {
+        braillemsgbox(MtPyre_Summit_Text_DialgaBraille)
+        waitmessage
+        closemessage
+        delay(30)
+        waitse
+	    playmoncry (SPECIES_DIALGA, CRY_MODE_NORMAL)
+        msgbox(format("Gugyugubah!"))
+        waitmessage
+        waitmoncry
+        setwildbattle (SPECIES_DIALGA, 70)
+        dowildbattle
+        setflag (FLAG_BATTLED_DIALGA)
+        release
+        end
+    }
+}
+
+script MtPyre_Summit_EventScript_PalkiaAlter {
+    lock
+    if (flag(FLAG_BATTLED_PALKIA)) {
+        braillemsgbox(MtPyre_Summit_Text_PalkiaBraille)
+        release
+        end
+    }
+    else {
+        braillemsgbox(MtPyre_Summit_Text_PalkiaBraille)
+        waitmessage
+        closemessage
+        delay(30)
+        waitse
+	    playmoncry (SPECIES_PALKIA, CRY_MODE_NORMAL)
+        msgbox(format("Gagyagyaah!"))
+        waitmessage
+        waitmoncry
+        setwildbattle (SPECIES_PALKIA, 70)
+        dowildbattle
+        setflag (FLAG_BATTLED_PALKIA)
+        release
+        end
+    }
+}
+
+script MtPyre_Summit_EventScript_GiratinaAlter {
+    lock
+    if (flag(FLAG_BATTLED_GIRATINA)) {
+        braillemsgbox(MtPyre_Summit_Text_GiratinaBraille)
+        release
+        end
+    }
+    else {
+        braillemsgbox(MtPyre_Summit_Text_GiratinaBraille)
+        waitmessage
+        closemessage
+        delay(30)
+        waitse
+	    playmoncry (SPECIES_GIRATINA, CRY_MODE_NORMAL)
+        msgbox(format("Bishaan!"))
+        waitmessage
+        waitmoncry
+        setwildbattle (SPECIES_GIRATINA, 70)
+        dowildbattle
+        setflag (FLAG_BATTLED_GIRATINA)
+        release
+        end
+    }
+}
+
+script MtPyre_Summit_EventScript_ArceusAlter {
+    lock
+    if (flag(FLAG_BATTLED_ARCEUS)) {
+        braillemsgbox(MtPyre_Summit_Text_ArceusBraille)
+        release
+        end
+    }
+    else {
+        braillemsgbox(MtPyre_Summit_Text_ArceusBraille)
+        waitmessage
+        closemessage
+        delay(30)
+        waitse
+	    playmoncry (SPECIES_ARCEUS, CRY_MODE_NORMAL)
+        msgbox(format("Dodogyuuun!"))
+        waitmessage
+        waitmoncry
+        setwildbattle (SPECIES_ARCEUS, 80)
+        dowildbattle
+        setflag (FLAG_BATTLED_ARCEUS)
+        release
+        end
+    }
+}
+
+raw`
+MtPyre_Summit_Text_RaikouBraille:
+    .braille "RESURRECTED\n"
+    .braille "THUNDER\n"
+    .braille "SHALL PASS.$"
+
+MtPyre_Summit_Text_EnteiBraille:
+    .braille "RESURRECTED\n"
+    .braille "FIRE\n"
+    .braille "SHALL PASS.$"
+
+MtPyre_Summit_Text_SuicuneBraille:
+    .braille "RESURRECTED\n"
+    .braille "WATER\n"
+    .braille "SHALL PASS.$"
+
+MtPyre_Summit_Text_DialgaBraille:
+    .braille "UNAVOIDABLE\n"
+    .braille "ENDER.$"
+
+MtPyre_Summit_Text_PalkiaBraille:
+    .braille "INDESCRIBABLE\n"
+    .braille "VASTNESS.$"
+
+MtPyre_Summit_Text_GiratinaBraille:
+    .braille "OTHERWORLDLY\n"
+    .braille "CHAOS.$"
+
+MtPyre_Summit_Text_ArceusBraille:
+    .braille "ALPHA AND\n"
+    .braille "OMEGA.$"
+`

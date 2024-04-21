@@ -1299,14 +1299,14 @@
 #define FLAG_HIDE_RED_POKEMON_LEAGUE                                0x4E2 // For second e4 battle
 #define FLAG_HIDE_OLIVER_TRAINER_SCHOOL                             0x4E3 // Cleared after Ho-oh vs Lugia
 #define FLAG_COMPLETED_MEWTWO_EVENT                                 0x4E4 // From shrine on Faraway Island
-#define FLAG_UNUSED_0x4E5                                           0x4E5 // Unused Flag
-#define FLAG_UNUSED_0x4E6                                           0x4E6 // Unused Flag
-#define FLAG_UNUSED_0x4E7                                           0x4E7 // Unused Flag
-#define FLAG_UNUSED_0x4E8                                           0x4E8 // Unused Flag
-#define FLAG_UNUSED_0x4E9                                           0x4E9 // Unused Flag
-#define FLAG_UNUSED_0x4EA                                           0x4EA // Unused Flag
-#define FLAG_UNUSED_0x4EB                                           0x4EB // Unused Flag
-#define FLAG_UNUSED_0x4EC                                           0x4EC // Unused Flag
+#define FLAG_HOOH_BRAILLE_DOOR_OPEN                                 0x4E5 // Ruins of alph
+#define FLAG_RAIKOU_BRAILLE_DOOR_OPEN                               0x4E6 // Ruins of alph
+#define FLAG_ENTEI_BRAILLE_DOOR_OPEN                                0x4E7 // Ruins of alph
+#define FLAG_SUICUNE_BRAILLE_DOOR_OPEN                              0x4E8 // Ruins of alph
+#define FLAG_BATTLED_DIALGA                                         0x4E9 // Ruins of alph puzzle
+#define FLAG_BATTLED_PALKIA                                         0x4EA // Ruins of alph puzzle
+#define FLAG_BATTLED_GIRATINA                                       0x4EB // Ruins of alph puzzle
+#define FLAG_BATTLED_ARCEUS                                         0x4EC // Ruins of alph puzzle
 #define FLAG_UNUSED_0x4ED                                           0x4ED // Unused Flag
 #define FLAG_UNUSED_0x4EE                                           0x4EE // Unused Flag
 #define FLAG_UNUSED_0x4EF                                           0x4EF // Unused Flag
