@@ -218,10 +218,12 @@ static const struct MatchCallBirch sProfBirchMatchCallHeader =
 };
 
 static const match_call_text_data_t sMomTextScripts[] = {
-    { MatchCall_Text_Mom1, 0xFFFF,                      0xFFFF },
-    { MatchCall_Text_Mom2, FLAG_DEFEATED_PETALBURG_GYM, 0xFFFF },
-    { MatchCall_Text_Mom3, FLAG_SYS_GAME_CLEAR,         0xFFFF },
-    { NULL,                0xFFFF,                      0xFFFF }
+    { MatchCall_Text_Mom1, 0xFFFF,                          0xFFFF },
+    { MatchCall_Text_Mom2, FLAG_ILEX_BLOCKING_GRUNT,        0xFFFF },
+    { MatchCall_Text_Mom3, FLAG_BADGE05_GET,                0xFFFF },
+    { MatchCall_Text_Steven6, FLAG_HOOH_VS_LUGIA_COMPLETED, 0xFFFF },
+    { MatchCall_Text_Steven7, FLAG_SYS_GAME_CLEAR,          0xFFFF },
+    { NULL,                0xFFFF,                          0xFFFF }
 };
 
 static const struct MatchCallStructNPC sMomMatchCallHeader =
@@ -236,13 +238,11 @@ static const struct MatchCallStructNPC sMomMatchCallHeader =
 
 static const match_call_text_data_t sStevenTextScripts[] = {
     { MatchCall_Text_Steven1, 0xFFFF,                              0xFFFF },
-    { MatchCall_Text_Steven2, FLAG_RUSTURF_TUNNEL_OPENED,          0xFFFF },
-    { MatchCall_Text_Steven3, FLAG_RECEIVED_RED_OR_BLUE_ORB,       0xFFFF },
-    { MatchCall_Text_Steven4, FLAG_TEAM_AQUA_ESCAPED_IN_SUBMARINE, 0xFFFF },
-    { MatchCall_Text_Steven5, FLAG_DEFEATED_MOSSDEEP_GYM,          0xFFFF },
-    { MatchCall_Text_Steven6, FLAG_KYOGRE_ESCAPED_SEAFLOOR_CAVERN, 0xFFFF },
-    { MatchCall_Text_Steven7, FLAG_SYS_GAME_CLEAR,                 0xFFFF },
-    { NULL,                   0xFFFF,                              0xFFFF },
+    { MatchCall_Text_Steven2, FLAG_SYS_GAME_CLEAR,                 0xFFFF },
+    { MatchCall_Text_Steven3, FLAG_RECEIVED_MEGA_STONE_LAZULAN,    0xFFFF },
+    { MatchCall_Text_Steven4, FLAG_DEFEATED_THORNE_ROUJEM,         0xFFFF },
+    { MatchCall_Text_Steven5, FLAG_DEFEATED_RED,                   0xFFFF },
+    { NULL,                   0xFFFF,                              0xFFFF }
 };
 
 static const struct MatchCallStructNPC sStevenMatchCallHeader =
@@ -344,12 +344,12 @@ static const struct MatchCallWally sWallyMatchCallHeader =
 
 static const match_call_text_data_t sScottTextScripts[] = {
     { MatchCall_Text_Scott1, 0xFFFF,                              0xFFFF },
-    { MatchCall_Text_Scott2, FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY,  0xFFFF },
-    { MatchCall_Text_Scott3, FLAG_RECEIVED_CASTFORM,              0xFFFF },
-    { MatchCall_Text_Scott4, FLAG_RECEIVED_RED_OR_BLUE_ORB,       0xFFFF },
-    { MatchCall_Text_Scott5, FLAG_TEAM_AQUA_ESCAPED_IN_SUBMARINE, 0xFFFF },
-    { MatchCall_Text_Scott6, FLAG_DEFEATED_SOOTOPOLIS_GYM,        0xFFFF },
-    { MatchCall_Text_Scott7, FLAG_SYS_GAME_CLEAR,                 0xFFFF },
+    { MatchCall_Text_Scott2, FLAG_OLIVER_CALL_RT_34,              0xFFFF },
+    { MatchCall_Text_Scott3, FLAG_BADGE05_GET,                    0xFFFF },
+    { MatchCall_Text_Scott4, FLAG_BADGE06_GET,                    0xFFFF },
+    { MatchCall_Text_Scott5, FLAG_DEFEATED_DAMON_KIZU,            0xFFFF },
+    { MatchCall_Text_Scott6, FLAG_SAW_RESORT_GRUNT,               0xFFFF },
+    { MatchCall_Text_Scott7, FLAG_HOOH_VS_LUGIA_COMPLETED,        0xFFFF },
     { NULL,                  0xFFFF,                              0xFFFF }
 };
 

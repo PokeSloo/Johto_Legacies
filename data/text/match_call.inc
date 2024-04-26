@@ -2015,28 +2015,32 @@ MatchCall_BattlePyramidText14::
 	.string "See you again!$"
 
 MatchCall_Text_Mom1::
-	.string "MOM: Your father and you…\n"
-	.string "Everyone is captivated by POKéMON.\p"
-	.string "What is the charm of POKéMON?\p"
-	.string "Me?\n"
-	.string "I adore POKéMON that help me with\l"
-	.string "my everyday chores.$"
+	.string "MOM: How are you sweetie?\p"
+	.string "That SHANE hasn't been picking on\n"
+	.string "you again, has he?\p"
+	.string "Azurill and I will have something\n"
+	.string "to say about that!\p"
+	.string "Right, Azurill!?\p"
+	.string "Ok, call me if you ever need\n"
+	.string "anything, and don't forget to visit\l"
+	.string "every once in a while.$"
 
 MatchCall_Text_Mom2::
-	.string "MOM: Hi, {PLAYER}!\n"
-	.string "Your father keeps himself locked\l"
-	.string "away in the PETALBURG GYM.\p"
-	.string "He comes home every so often.\n"
-	.string "But he goes back to the GYM when\l"
-	.string "he's eaten everything he can.\p"
-	.string "I'm guessing that losing to you\n"
-	.string "was a big blow to his pride!$"
+	.string "MOM: How are you sweetie?\p"
+	.string "...\p"
+	.string "What's that?\p"
+	.string "...\p"
+	.string "Time travel?\p"
+	.string "You kids sure do have wild\n"
+	.string "imaginations!$"
 
 MatchCall_Text_Mom3::
-	.string "MOM: {PLAYER}…\n"
-	.string "Don't worry about me or the house.\p"
-	.string "Wear those RUNNING SHOES until\n"
-	.string "they fall apart, honey!$"
+	.string "MOM: You saw a live Thunderbolts\n"
+	.string "concert?\p"
+	.string "That sounds like fun!\p"
+	.string "I hope SHANE got to watch them too.\p"
+	.string "The Thunderbolts are his favorite\n"
+	.string "band, you know!"
 
 MatchCall_Text_Roxanne1::
 	.string "ROXANNE: Oh, hello, {PLAYER}!\p"
@@ -2641,73 +2645,57 @@ MatchCall_Text_Wally7::
 	.string "Thank you…$"
 
 MatchCall_Text_Scott1::
-	.string "SCOTT: Howdy, {PLAYER}{KUN}!\p"
-	.string "You know how POKéMON can be found\n"
-	.string "everywhere?\p"
-	.string "Like in the mountains, in the sea,\n"
-	.string "in tall grass anywhere?\p"
-	.string "Just like POKéMON, you can find\n"
-	.string "TRAINERS everywhere, too.\p"
-	.string "As a result, I have to hurry\n"
-	.string "everywhere, too. Busy, busy!$"
+	.string "OLIVER: Oh, hey {PLAYER}{KUN}!\p"
+	.string "Thanks again for bringing me my\n"
+	.string "notebook.\p"
+	.string "I still haven't discovered anything\n"
+	.string "useful in these catacombs yet, but\l"
+	.string "I will keep researching!$"
 
 MatchCall_Text_Scott2::
-	.string "SCOTT: I'm on ROUTE 119 right now.\n"
-	.string "It's teeming with TRAINERS!\p"
-	.string "It's also overgrown with tall grass\n"
-	.string "everywhere, it seems.\p"
-	.string "Walking around in shorts here\n"
-	.string "makes me all ticklish!$"
+	.string "OLIVER: Oh, hey {PLAYER}.\p"
+	.string "Ack! Sorry!\p"
+	.string "This isn't really a good time for\n"
+	.string "me.\p"
+	.string "Can I call you back later?$"
 
 MatchCall_Text_Scott3::
-	.string "SCOTT: Hi, hi, {PLAYER}{KUN}!\p"
-	.string "Have you had the chance to climb\n"
-	.string "MT. PYRE?\p"
-	.string "The place is a memorial to POKéMON\n"
-	.string "that have passed away.\p"
-	.string "It's somewhere every TRAINER\n"
-	.string "should climb to the top of once.$"
+	.string "OLIVER: Yo, {PLAYER}{KUN}!\p"
+	.string "I'm actually in Cianwood City right\n"
+	.string "now, trying to get a closer look at\l"
+	.string "the Whirl Islands.\p"
+	.string "Unfortunately, they don't seem to\n"
+	.string "be very accessible.$"
 
 MatchCall_Text_Scott4::
-	.string "SCOTT: Hi, {PLAYER}{KUN}!\p"
-	.string "I've been hearing about these odd\n"
-	.string "gangs being a nuisance.\p"
-	.string "TEAM MAGMA and TEAM AQUA,\n"
-	.string "I think they were.\p"
-	.string "I would think there'd be some\n"
-	.string "skilled TRAINERS among them.\p"
-	.string "…But if they're thugs…$"
+	.string "OLIVER: {PLAYER}! {PLAYER}!\p"
+	.string "You should get to Kizu Forest as\n"
+	.string "soon as you can!\p"
+	.string "This shrine looks exactly like the\n"
+	.string "one in Ilex Forest!\p"
+	.string "It can't just be a coincidence!$"
 
 MatchCall_Text_Scott5::
-	.string "SCOTT: Oh, hi, {PLAYER}{KUN}.\p"
-	.string "Might there be tough TRAINERS\n"
-	.string "at the bottom of the sea?\p"
-	.string "I can't go check for myself.\n"
-	.string "I can't swim, for one.\l"
-	.string "And I don't raise POKéMON…$"
+	.string "OLIVER: Ack! I'm sorry, {PLAYER}!\p"
+	.string "I can't believe PROF. THORNE was\n"
+	.string "part of some weird evil group.\p"
+	.string "I'm such an idiot!\p"
+	.string "I'll make it up to you someday, I\n"
+	.string "swear it!$"
 
 MatchCall_Text_Scott6::
-	.string "SCOTT: Hi, hi, {PLAYER}{KUN}!\p"
-	.string "You know that you can challenge\n"
-	.string "the POKéMON LEAGUE when you've\l"
-	.string "collected all the GYM BADGES?\p"
-	.string "With your talent, becoming the\n"
-	.string "CHAMPION isn't a pipe dream.\p"
-	.string "But did you know?\n"
-	.string "There's somewhere even better.\p"
-	.string "But, that's all I'm willing to say\n"
-	.string "for the time being.\p"
-	.string "It's something you can look\n"
-	.string "forward to.\p"
-	.string "When you've won your way through\n"
-	.string "the POKéMON LEAGUE into the HALL\l"
-	.string "OF FAME!$"
+	.string "OLIVER: Hey, {PLAYER}!\p"
+	.string "I called in some backup to help\n"
+	.string "you out.\p"
+	.string "Did they get there yet?$"
 
 MatchCall_Text_Scott7::
-	.string "… … … … … …\n"
-	.string "… … … … … …\p"
-	.string "SCOTT appears to be out of\n"
-	.string "the POKéNAV's service area…$"
+	.string "OLIVER: {PLAYER}?\p"
+	.string "I heard about how you summoned\n"
+	.string "Lugia to calm Ho-oh's rampage!\p"
+	.string "I'm so jealous of you!\p"
+	.string "Those are my two favorite\n"
+	.string "legendary POKéMON!$"
 
 MatchCall_Text_Norman1::
 	.string "DAD: In RUSTBORO, there's a man\n"
@@ -2774,55 +2762,50 @@ MatchCall_Text_Norman9::
 	.string "How much higher will you soar?$"
 
 MatchCall_Text_Steven1::
-	.string "… … … … … …\p"
-	.string "… … … … … …$"
-
-MatchCall_Text_Steven2::
-	.string "STEVEN: Hi, {PLAYER}{KUN}!\p"
-	.string "I've met a lot of different\n"
-	.string "TRAINERS so far.\p"
-	.string "But you're one of a kind.\n"
-	.string "You're not like anyone else.$"
-
-MatchCall_Text_Steven3::
-	.string "STEVEN: Hi, {PLAYER}{KUN}!\p"
-	.string "When you're on an adventure with\n"
-	.string "your POKéMON, what do you think?\p"
-	.string "Do you consider them to be strong\n"
-	.string "partners?\p"
-	.string "Do you think of them as fun\n"
-	.string "companions?\p"
-	.string "Depending on how you think, your\n"
-	.string "adventure's significance changes.$"
-
-MatchCall_Text_Steven4::
-	.string "STEVEN: Hello?\n"
-	.string "{PLAYER}{KUN}?\p"
-	.string "I'm involved in a spot of trouble\n"
-	.string "at the SPACE CENTER.\p"
-	.string "I'm sorry, but I can't talk now.\n"
-	.string "Bye!$"
-
-MatchCall_Text_Steven5::
-	.string "STEVEN: Oh!\n"
-	.string "{PLAYER}{KUN}!\p"
-	.string "There's no need to talk.\n"
-	.string "It's past time for talking.\p"
-	.string "You have to believe in yourself\n"
-	.string "and do what's right.$"
-
-MatchCall_Text_Steven6::
-	.string "… … … … … …\p"
-	.string "STEVEN appears not to be getting\n"
-	.string "the call…$"
-
-MatchCall_Text_Steven7::
-	.string "STEVEN: {PLAYER}{KUN}… Congratulations\n"
-	.string "for entering the HALL OF FAME.\p"
 	.string "… … … … … …\n"
 	.string "… … … … … …\p"
-	.string "I hope we can meet again\n"
-	.string "somewhere!$"
+	.string "DAD must be busy right now…$"
+
+MatchCall_Text_Steven2::
+	.string "DAD: Hey, {PLAYER}{KUN}!\p"
+	.string "I'm here with SHANE in Lazulan\n"
+	.string "City, waiting for the festival.\p"
+	.string "You'd better hurry up and get over\n"
+	.string "here, they're already setting up.$"
+
+MatchCall_Text_Steven3::
+	.string "DAD: Hey, {PLAYER}{KUN}!\p"
+	.string "I've just been catching up with\n"
+	.string "GOLD before the festival starts.\p"
+	.string "Feel free to explore around the\n"
+	.string "islands.$"
+
+MatchCall_Text_Steven4::
+	.string "DAD: Oh, hey {PLAYER}!\p"
+	.string "They sure have some good deals at\n"
+	.string "the festival tents.\p"
+	.string "You can even buy Rare Candy here!$"
+
+MatchCall_Text_Steven5::
+	.string "DAD: {PLAYER}, what's up?\p"
+	.string "I've just been at home catching\n"
+	.string "up with MOM.\p"
+	.string "I think she's a little mad at me\n"
+	.string "for being gone so long.\p"
+	.string "Good talking to you though, later!$"
+
+MatchCall_Text_Steven6::
+	.string "MOM: Oh, {PLAYER}, you say you got\n"
+	.string "to see your father?\p"
+	.string "That's wonderful!\p"
+	.string "I know work always keeps him busy,\n"
+	.string "but I really miss having him home.$"
+
+MatchCall_Text_Steven7::
+	.string "MOM: It's so nice having your\n"
+	.string "father home again after so long!\p"
+	.string "I was starting to get lonely at\n"
+	.string "home all by myself.$"
 
 MatchCall_Text_BirchRegisterCall:
 	.string "PROF. BIRCH: Oh, {PLAYER}{KUN}!\n"
