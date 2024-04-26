@@ -160,17 +160,17 @@ static void MatchCall_GetNameAndDescByRematchIdx(u32, const u8 **, const u8 **);
 // .rodata
 
 static const match_call_text_data_t sMrStoneTextScripts[] = {
-    { MatchCall_Text_MrStone1,  0xFFFF,                              FLAG_ENABLE_MR_STONE_POKENAV },
-    { MatchCall_Text_MrStone2,  FLAG_ENABLE_MR_STONE_POKENAV,        0xFFFF },
-    { MatchCall_Text_MrStone3,  FLAG_DELIVERED_STEVEN_LETTER,        0xFFFF },
-    { MatchCall_Text_MrStone4,  FLAG_RECEIVED_EXP_SHARE,             0xFFFF },
-    { MatchCall_Text_MrStone5,  FLAG_RECEIVED_HM04,                  0xFFFF },
-    { MatchCall_Text_MrStone6,  FLAG_DEFEATED_PETALBURG_GYM,         0xFFFF },
-    { MatchCall_Text_MrStone7,  FLAG_RECEIVED_CASTFORM,              0xFFFF },
-    { MatchCall_Text_MrStone8,  FLAG_GROUDON_AWAKENED_MAGMA_HIDEOUT, 0xFFFF },
-    { MatchCall_Text_MrStone9,  FLAG_TEAM_AQUA_ESCAPED_IN_SUBMARINE, 0xFFFF },
-    { MatchCall_Text_MrStone10, FLAG_DEFEATED_SOOTOPOLIS_GYM,        0xFFFF },
-    { MatchCall_Text_MrStone11, FLAG_SYS_GAME_CLEAR,                 0xFFFF },
+    { MatchCall_Text_MrStone1,  0xFFFF,                              0xFFFF },
+    { MatchCall_Text_MrStone2,  FLAG_RECEIVED_SHANE_CALL_RT32,       0xFFFF },
+    { MatchCall_Text_MrStone3,  FLAG_MET_SHANE_AZALEA,               0xFFFF },
+    { MatchCall_Text_MrStone4,  FLAG_GOLDENROD_SEWER_OPEN,           0xFFFF },
+    { MatchCall_Text_MrStone5,  FLAG_HIDE_ECRUTEAK_PHOENIX,          0xFFFF },
+    { MatchCall_Text_MrStone6,  FLAG_DEFEATED_SHANE_CIANWOOD,        0xFFFF },
+    { MatchCall_Text_MrStone4,  FLAG_HIDE_SHANE_RESORT_GATE,         0xFFFF },
+    { MatchCall_Text_MrStone7,  FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS,      0xFFFF },
+    { MatchCall_Text_MrStone8,  FLAG_HOOH_VS_LUGIA_COMPLETED,        0xFFFF },
+    { MatchCall_Text_MrStone9,  FLAG_SHANE_EXITED_POKEMON_LEAGUE,    0xFFFF },
+    { MatchCall_Text_MrStone10, FLAG_SYS_GAME_CLEAR,                 0xFFFF },
     { NULL,                     0xFFFF,                              0xFFFF }
 };
 
@@ -506,7 +506,7 @@ static const struct MatchCallStructTrainer sSidneyMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_EVER_GRANDE_CITY,
-    .flag = FLAG_REMATCH_SIDNEY,
+    .flag = FLAG_RECEIVED_METEORITE,
     .rematchTableIdx = REMATCH_SIDNEY,
     .desc = gText_EliteFourMatchCallDesc,
     .name = NULL,
@@ -522,7 +522,7 @@ static const struct MatchCallStructTrainer sPhoebeMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_EVER_GRANDE_CITY,
-    .flag = FLAG_REMATCH_PHOEBE,
+    .flag = FLAG_RECEIVED_METEORITE,
     .rematchTableIdx = REMATCH_PHOEBE,
     .desc = gText_EliteFourMatchCallDesc,
     .name = NULL,
@@ -538,7 +538,7 @@ static const struct MatchCallStructTrainer sGlaciaMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_EVER_GRANDE_CITY,
-    .flag = FLAG_REMATCH_GLACIA,
+    .flag = FLAG_RECEIVED_METEORITE,
     .rematchTableIdx = REMATCH_GLACIA,
     .desc = gText_EliteFourMatchCallDesc,
     .name = NULL,
@@ -554,7 +554,7 @@ static const struct MatchCallStructTrainer sDrakeMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_EVER_GRANDE_CITY,
-    .flag = FLAG_REMATCH_DRAKE,
+    .flag = FLAG_RECEIVED_METEORITE,
     .rematchTableIdx = REMATCH_DRAKE,
     .desc = gText_EliteFourMatchCallDesc,
     .name = NULL,
@@ -570,7 +570,7 @@ static const struct MatchCallStructTrainer sWallaceMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_EVER_GRANDE_CITY,
-    .flag = FLAG_REMATCH_WALLACE,
+    .flag = FLAG_RECEIVED_METEORITE,
     .rematchTableIdx = REMATCH_WALLACE,
     .desc = gText_ChampionMatchCallDesc,
     .name = NULL,

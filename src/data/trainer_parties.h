@@ -7910,8 +7910,8 @@ static const struct TrainerMonNoItemCustomMoves sParty_MayRoute110Mudkip[] = {
     {
     .iv = 150,
     .lvl = 44,
-    .species = SPECIES_CACTURNE,
-    .moves = {MOVE_SUCKER_PUNCH, MOVE_ENERGY_BALL, MOVE_SPIKES, MOVE_PIN_MISSILE}
+    .species = SPECIES_SHIFTRY,
+    .moves = {MOVE_SUCKER_PUNCH, MOVE_LEAF_STORM, MOVE_KNOCK_OFF, MOVE_ROCK_SLIDE}
     },
     {
     .iv = 150,
