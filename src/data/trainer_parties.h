@@ -9601,6 +9601,16 @@ static const struct TrainerMonNoItemDefaultMoves sParty_James1[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_James2[] = {
     {
     .iv = 10,
+    .lvl = 26,
+    .species = SPECIES_BUTTERFREE,
+    },
+    {
+    .iv = 10,
+    .lvl = 26,
+    .species = SPECIES_BEEDRILL,
+    },
+    {
+    .iv = 10,
     .lvl = 27,
     .species = SPECIES_NINJASK,
     }
@@ -9609,8 +9619,13 @@ static const struct TrainerMonNoItemDefaultMoves sParty_James2[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_James3[] = {
     {
     .iv = 20,
-    .lvl = 29,
-    .species = SPECIES_DUSTOX,
+    .lvl = 28,
+    .species = SPECIES_BUTTERFREE,
+    },
+    {
+    .iv = 20,
+    .lvl = 28,
+    .species = SPECIES_BEEDRILL,
     },
     {
     .iv = 20,
