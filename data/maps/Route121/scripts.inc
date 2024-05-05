@@ -11,7 +11,7 @@ Route121_EventScript_Vanessa::
 	end
 
 Route121_EventScript_Walter::
-	trainerbattle_single TRAINER_WALTER_1, Route121_Text_WalterIntro, Route121_Text_WalterDefeat
+	trainerbattle_single TRAINER_GRUNT_SEAFLOOR_CAVERN_2, Route121_Text_WalterIntro, Route121_Text_WalterDefeat
 	msgbox Route121_Text_WalterPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -72,7 +72,7 @@ Route121_EventScript_Marcel::
 	end
 
 Route121_EventScript_Cristin::
-	trainerbattle_single TRAINER_CRISTIN_1, Route121_Text_CristinIntro, Route121_Text_CristinDefeat
+	trainerbattle_single TRAINER_DWAYNE, Route121_Text_CristinIntro, Route121_Text_CristinDefeat
 	msgbox Route121_Text_CristinPostBattle, MSGBOX_AUTOCLOSE
 	end
 

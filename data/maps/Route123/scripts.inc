@@ -17,12 +17,12 @@ Route123_EventScript_Violet::
 	end
 
 Route123_EventScript_Cameron::
-	trainerbattle_single TRAINER_CAMERON_1, Route123_Text_CameronIntro, Route123_Text_CameronDefeat
+	trainerbattle_single TRAINER_SIMON, Route123_Text_CameronIntro, Route123_Text_CameronDefeat
 	msgbox Route123_Text_CameronPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route123_EventScript_Jacki::
-	trainerbattle_single TRAINER_JACKI_1, Route123_Text_JackiIntro, Route123_Text_JackiDefeat
+	trainerbattle_single TRAINER_GRUNT_SEAFLOOR_CAVERN_1, Route123_Text_JackiIntro, Route123_Text_JackiDefeat
 	msgbox Route123_Text_JackiPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -77,7 +77,7 @@ Route123_EventScript_Davis::
 	end
 
 Route123_EventScript_Fernando::
-	trainerbattle_single TRAINER_FERNANDO_1, Route123_Text_FernandoIntro, Route123_Text_FernandoDefeat
+	trainerbattle_single TRAINER_JOHANNA, Route123_Text_FernandoIntro, Route123_Text_FernandoDefeat
 	msgbox Route123_Text_FernandoPostBattle, MSGBOX_AUTOCLOSE
 	end
 

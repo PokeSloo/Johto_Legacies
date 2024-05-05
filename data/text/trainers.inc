@@ -295,18 +295,19 @@ Route104_Text_BillyPostBattle:
 	.string "to practice on.$"
 
 Route104_Text_HaleyIntro:
-	.string "Should I…\n"
-	.string "Or shouldn't I?\p"
-	.string "Okay, sure, I will battle!$"
+	.string "This is a pretty long route!\p"
+	.string "You don't need to heal your POKéMON, do\n"
+	.string "you?$"
 
 Route104_Text_HaleyDefeat:
-	.string "I shouldn't have battled…$"
+	.string "I thought I might have a better chance\n"
+	.string "at winning if you were worn out, but I\l"
+	.string "guess I was wrong.$"
 
 Route104_Text_HaleyPostBattle:
-	.string "If you're faced with a decision and\n"
-	.string "you let someone else choose for you,\l"
-	.string "you will regret it, however things\l"
-	.string "turn out.$"
+	.string "You should heal your POKéMON before\n"
+	.string "going through Union Cave.\p"
+	.string "It's still a long way to Azalea Town.$"
 
 Route104_Text_HaleyRegister1:
 	.string "You're strong, but should I register\n"
@@ -325,7 +326,7 @@ Route104_Text_HaleyRematchIntro:
 
 Route104_Text_HaleyRematchDefeat:
 	.string "Ohh…\n"
-	.string "I thought I could win…$"
+	.string "I thought I could win this time…$"
 
 Route104_Text_HaleyPostRematch:
 	.string "I made the decision to battle, so\n"
@@ -610,7 +611,7 @@ Route107_Text_TonyPostBattle:
 Route107_Text_TonyRegister:
 	.string "Here, register me in your POKéNAV so I\n"
 	.string "can tell you more about what makes\l"
-	.string "BUGS awesome!$"
+	.string "BUG-types awesome!$"
 
 Route107_Text_TonyRematchIntro:
 	.string "Let me show you how much my Pinsir has\n"
@@ -1271,9 +1272,9 @@ Route111_Text_DustyDefeat:
 
 Route111_Text_DustyPostBattle:
 	.string "I've calmed down now, but I still don't\n"
-	.string "have my hiking stick.\p"
+	.string "have my hiking boots.\p"
 	.string "Why bother hiking this mountain without\n"
-	.string "my stick?$"
+	.string "my boots?$"
 
 Route111_Text_DustyRegister:
 	.string "I came all the way to this mountain, but\n"
@@ -2387,7 +2388,7 @@ Route117_Text_MariaIntro:
 	.string "so I'm pretty confident about my speed.$"
 
 Route117_Text_MariaDefeat:
-	.string "I need to get more practices in,\n"
+	.string "I need to get more practice in,\n"
 	.string "I guess.$"
 
 Route117_Text_MariaPostBattle:
@@ -2406,7 +2407,7 @@ Route117_Text_MariaRematchIntro:
 	.string "Let me show you the evidence!$"
 
 Route117_Text_MariaRematchDefeat:
-	.string "I need to get more practices in,\n"
+	.string "I need to get more practice in,\n"
 	.string "I guess.$"
 
 Route117_Text_MariaPostRematch:
@@ -3433,15 +3434,15 @@ Route123_Text_KindraPostBattle:
 	.string "That sounds like it could be fun...$"
 
 Route123_Text_FernandoIntro:
-	.string "Let me play you the song of my people!$"
+	.string "Here's a song straight from my heart!$"
 
 Route123_Text_FernandoDefeat:
 	.string "I didn't know it would be such a sad\n"
 	.string "song for me...$"
 
 Route123_Text_FernandoPostBattle:
-	.string "My people are all guitarists, if you\n"
-	.string "didn't guess so.$"
+	.string "Someday I'll play you a happier song\n"
+	.string "from my heart instead.$"
 
 Route123_Text_FernandoRegister:
 	.string "The next time, lend your ears to\n"
@@ -3773,7 +3774,7 @@ Route125_Text_ErnestIntro:
 	.string "I'll show you!$"
 
 Route125_Text_ErnestDefeat:
-	.string "With your skills, you could make a good\n"
+	.string "With your skills, you would make a good\n"
 	.string "fisherman...$"
 
 Route125_Text_ErnestPostBattle:

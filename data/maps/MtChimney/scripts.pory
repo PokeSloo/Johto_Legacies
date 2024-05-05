@@ -7,11 +7,6 @@ MtChimney_EventScript_Tabitha::
 	msgbox MtChimney_Text_TabithaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-MtChimney_EventScript_Grunt2::
-	trainerbattle_single TRAINER_GRUNT_MT_CHIMNEY_2, MtChimney_Text_Grunt2Intro, MtChimney_Text_Grunt2Defeat
-	msgbox MtChimney_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
-	end
-
 MtChimney_EventScript_Shelby::
 	trainerbattle_single TRAINER_SHELBY_1, MtChimney_Text_ShelbyIntro, MtChimney_Text_ShelbyDefeat, MtChimney_EventScript_DefeatedShelby
 	specialvar VAR_RESULT, ShouldTryRematchBattle
@@ -31,21 +26,6 @@ MtChimney_EventScript_DefeatedShelby::
 MtChimney_EventScript_RematchShelby::
 	trainerbattle_rematch TRAINER_SHELBY_1, MtChimney_Text_ShelbyRematchIntro, MtChimney_Text_ShelbyRematchDefeat
 	msgbox MtChimney_Text_ShelbyPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-MtChimney_EventScript_Melissa::
-	trainerbattle_single TRAINER_MELISSA, MtChimney_Text_MelissaIntro, MtChimney_Text_MelissaDefeat
-	msgbox MtChimney_Text_MelissaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-MtChimney_EventScript_Sheila::
-	trainerbattle_single TRAINER_SHEILA, MtChimney_Text_SheilaIntro, MtChimney_Text_SheilaDefeat
-	msgbox MtChimney_Text_SheilaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-MtChimney_EventScript_Grunt1::
-	trainerbattle_single TRAINER_GRUNT_MT_CHIMNEY_1, MtChimney_Text_Grunt1Intro, MtChimney_Text_Grunt1Defeat
-	msgbox MtChimney_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MtChimney_Text_TabithaIntro:

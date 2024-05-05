@@ -314,12 +314,12 @@ Route111_EventScript_Daisuke::
 	end
 
 Route111_EventScript_Wilton::
-	trainerbattle_single TRAINER_WILTON_1, Route111_Text_WiltonIntro, Route111_Text_WiltonDefeat
+	trainerbattle_single TRAINER_GRUNT_MT_CHIMNEY_1, Route111_Text_WiltonIntro, Route111_Text_WiltonDefeat
 	msgbox Route111_Text_WiltonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Brooke::
-	trainerbattle_single TRAINER_BROOKE_1, Route111_Text_BrookeIntro, Route111_Text_BrookeDefeat
+	trainerbattle_single TRAINER_GRUNT_MT_CHIMNEY_2, Route111_Text_BrookeIntro, Route111_Text_BrookeDefeat
 	msgbox Route111_Text_BrookePostBattle, MSGBOX_AUTOCLOSE
 	end
 
