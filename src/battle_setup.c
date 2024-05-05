@@ -665,6 +665,8 @@ u8 BattleSetup_GetTerrainId(void)
         return BATTLE_TERRAIN_SNOW;
     if (MetatileBehavior_IsFootprints(tileBehavior))
         return BATTLE_TERRAIN_SNOW;
+    if (MetatileBehavior_IsSnowPath(tileBehavior))
+        return BATTLE_TERRAIN_SNOW;
     if (MetatileBehavior_IsIce(tileBehavior))
         return BATTLE_TERRAIN_ICE;
     if (MetatileBehavior_IsSandOrDeepSand(tileBehavior))

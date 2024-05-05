@@ -14,8 +14,8 @@
 #define METATILE_BattleFrontierOutsideEast_Door_BattleArena  0x291
 #define METATILE_BattleFrontierOutsideEast_Door_BattleTower  0x329
 #define METATILE_BattleFrontierOutsideEast_Door_Sliding      0x396
-#define METATILE_BattleFrontierOutsideEast_SnowGrass         0x22A
 #define METATILE_BattleFrontierOutsideEast_SnowField         0x259
+#define METATILE_BattleFrontierOutsideEast_SnowGrass         0x22A
 
 // gTileset_BattleFrontierOutsideWest
 #define METATILE_BattleFrontierOutsideWest_Door                0x3FC
