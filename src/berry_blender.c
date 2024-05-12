@@ -1471,11 +1471,11 @@ static void CB2_StartBlenderLink(void)
         sBerryBlender->speed = MIN_ARROW_SPEED;
         sBerryBlender->gameFrameTime = 0;
         SetMainCallback2(CB2_PlayBlender);
-        if (GetCurrentMapMusic() != MUS_RG_CYCLING)
+        if (GetCurrentMapMusic() != MUS_CYCLING)
         {
             sBerryBlender->savedMusic = GetCurrentMapMusic();
         }
-        PlayBGM(MUS_RG_CYCLING);
+        PlayBGM(MUS_CYCLING);
         break;
     }
 
@@ -1779,10 +1779,10 @@ static void CB2_StartBlenderLocal(void)
                 sBerryBlender->opponentTaskIds[i] = CreateTask(sLocalOpponentTasks[i], 10 + i);
         }
 
-        if (GetCurrentMapMusic() != MUS_RG_CYCLING)
+        if (GetCurrentMapMusic() != MUS_CYCLING)
             sBerryBlender->savedMusic = GetCurrentMapMusic();
 
-        PlayBGM(MUS_RG_CYCLING);
+        PlayBGM(MUS_CYCLING);
         PlaySE(SE_BERRY_BLENDER);
         UpdateHitPitch();
         break;

@@ -988,9 +988,8 @@ LilycoveCity_ContestLobby_Text_LadyGaveMePokeblockCase:
 	.string "gave me a case for {POKEBLOCK}S!$"
 
 LilycoveCity_ContestLobby_Text_MakePokeblocksDifferentBerries:
-	.string "Make {POKEBLOCK}S and put them in there.\p"
-	.string "When you make a {POKEBLOCK}, everyone\n"
-	.string "has to put in a different BERRY.$"
+	.string "You can store {POKEBLOCK}S in your {POKEBLOCK}\n"
+	.string "Case, go figure.$"
 
 LilycoveCity_ContestLobby_Text_YourPokemonSpurredMeToPaint:
 	.string "Congratulations!\p"
@@ -1006,17 +1005,16 @@ LilycoveCity_ContestLobby_Text_ShouldITakePaintingToMuseum:
 	.string "what I've done, but do you like it?\p"
 	.string "A work of this caliber, it wouldn't look\n"
 	.string "out of place in an art museum.\p"
-	.string "Huh? An art museum really is looking\n"
-	.string "for paintings?\p"
 	.string "Do you think I should take this there?$"
 
 LilycoveCity_ContestLobby_Text_IllTakePaintingToMuseum:
-	.string "What, really? Then, sure, I will take\n"
-	.string "this painting there right now.\p"
-	.string "I'll give it a proper title, too.\p"
-	.string "I hope they'll like it and consider\n"
-	.string "exhibiting this.\p"
-	.string "Please check if they did accept this.\n"
+	.string "What, really? That's great!\p"
+	.string "...\p"
+	.string "Although, I just remembered there\n"
+	.string "aren't any museums in the Johto\l"
+	.string "region...\p"
+	.string "Hmm... I'll just find somewhere else to\n"
+	.string "hang it!\p"
 	.string "Thank you!$"
 
 LilycoveCity_ContestLobby_Text_TakeMementoOfPainting:
@@ -1047,18 +1045,15 @@ LilycoveCity_ContestLobby_Text_FineThatsTheWayItIs:
 	.string "Well, be seeing you.$"
 
 LilycoveCity_ContestLobby_Text_MasterRankHereICome:
-	.string "Hoo, boy… Master Rank CONTESTS,\n"
-	.string "here I come.\p"
-	.string "The world will know that my dearest\n"
-	.string "POKéMON is the cutest being in all\l"
-	.string "existence. The time has come!\l"
-	.string "Uheheheh.$"
+	.string "If you find a BERRY that is good for\n"
+	.string "making {POKEBLOCK}S, you should plant it and\l"
+	.string "grow more.\p"
+	.string "Then, you'll never run out!$"
 
 LilycoveCity_ContestLobby_Text_WholeVarietyOfPokemonHere:
-	.string "You can see a whole variety of\n"
-	.string "POKéMON here.\p"
-	.string "That's why I make this place a regular\n"
-	.string "part of my daily stroll.$"
+	.string "Why don't they have a SPOOKY CONTEST,\n"
+	.string "or a CREEPY CONTEST?\p"
+	.string "Now that's what I want to see!$"
 
 LilycoveCity_ContestLobby_Text_ContestFeastForEyes:
 	.string "Wow, coming out to a CONTEST is\n"
@@ -1067,20 +1062,282 @@ LilycoveCity_ContestLobby_Text_ContestFeastForEyes:
 	.string "that just scream to be painted?$"
 
 LilycoveCity_ContestLobby_Text_ToughContestIsExtreme:
-	.string "The TOUGHNESS CONTEST is like\n"
-	.string "extreme, man!\p"
-	.string "Those muscular appeals…\n"
-	.string "Cascading sweat… I swoon!$"
+	.string "One of these days I'll enter my little\n"
+	.string "Salandit into a CONTEST, but which one\l"
+	.string "should I enter...?$"
 
 LilycoveCity_ContestLobby_Text_LavishedCareOnMon:
-	.string "Day in and day out, I lavished my care\n"
-	.string "on this POKéMON.\p"
-	.string "Its condition is peaking.\n"
-	.string "Today, victory is mine!$"
+	.string "Hmm... I'm a little too old for POKéMON\n"
+	.string "CONTESTS now, but I still enjoy\l"
+	.string "watching them!$"
 
 LilycoveCity_ContestLobby_Text_MadePokeblocksWithFamily:
-	.string "I made {POKEBLOCK}S with Mom, Dad, and\n"
-	.string "Big Sister. They turned out great!\p"
-	.string "I bet you can make smoother, better\n"
-	.string "{POKEBLOCK}S if you have more people.$"
+	.string "Do you think it's possible for one\n"
+	.string "POKéMON to achieve Master Rank in\l"
+	.string "every single CONTEST category?$"
+
+LilycoveCity_ContestLobby_EventScript_Chairman::
+	lock
+	faceplayer
+	call_if_unset FLAG_MET_SLATEPORT_FANCLUB_CHAIRMAN, LilycoveCity_ContestLobby_EventScript_MeetChairman
+	switch VAR_SLATEPORT_FAN_CLUB_STATE
+	case 0, LilycoveCity_ContestLobby_EventScript_ChairmanFirstAssessment
+	case 1, LilycoveCity_ContestLobby_EventScript_ChairmanTryAssessPokemon
+	case 2, LilycoveCity_ContestLobby_EventScript_NoMoreScarves
+	release
+	end
+
+LilycoveCity_ContestLobby_EventScript_ChairmanFirstAssessment::
+	setvar VAR_SLATEPORT_FAN_CLUB_STATE, 1
+	msgbox LilycoveCity_ContestLobby_Text_AllowMeToExamineYourPokemon, MSGBOX_DEFAULT
+	goto LilycoveCity_ContestLobby_EventScript_ChairmanAssessLeadMon
+	end
+
+LilycoveCity_ContestLobby_EventScript_ChairmanTryAssessPokemon::
+	setvar VAR_TEMP_2, 0
+	call_if_set FLAG_RECEIVED_YELLOW_SCARF, LilycoveCity_ContestLobby_EventScript_CountReceivedScarf
+	call_if_set FLAG_RECEIVED_GREEN_SCARF, LilycoveCity_ContestLobby_EventScript_CountReceivedScarf
+	call_if_set FLAG_RECEIVED_PINK_SCARF, LilycoveCity_ContestLobby_EventScript_CountReceivedScarf
+	call_if_set FLAG_RECEIVED_BLUE_SCARF, LilycoveCity_ContestLobby_EventScript_CountReceivedScarf
+	call_if_set FLAG_RECEIVED_RED_SCARF, LilycoveCity_ContestLobby_EventScript_CountReceivedScarf
+	call_if_eq VAR_TEMP_2, CONTEST_CATEGORIES_COUNT, LilycoveCity_ContestLobby_EventScript_ReceivedAllScarves
+	goto_if_eq VAR_SLATEPORT_FAN_CLUB_STATE, 2, LilycoveCity_ContestLobby_EventScript_NoMoreScarves
+	msgbox LilycoveCity_ContestLobby_Text_HowIsYourPokemonGrowing, MSGBOX_DEFAULT
+	goto LilycoveCity_ContestLobby_EventScript_ChairmanAssessLeadMon
+	end
+
+LilycoveCity_ContestLobby_EventScript_NoMoreScarves::
+	msgbox LilycoveCity_ContestLobby_Text_NothingElseToGiveYou, MSGBOX_DEFAULT
+	release
+	end
+
+LilycoveCity_ContestLobby_EventScript_ChairmanAssessLeadMon::
+	msgbox LilycoveCity_ContestLobby_Text_HmHmISee, MSGBOX_DEFAULT
+	setvar VAR_TEMP_1, 0
+	call_if_unset FLAG_RECEIVED_YELLOW_SCARF, LilycoveCity_ContestLobby_EventScript_CheckMonTough
+	call_if_unset FLAG_RECEIVED_GREEN_SCARF, LilycoveCity_ContestLobby_EventScript_CheckMonSmart
+	call_if_unset FLAG_RECEIVED_PINK_SCARF, LilycoveCity_ContestLobby_EventScript_CheckMonCute
+	call_if_unset FLAG_RECEIVED_BLUE_SCARF, LilycoveCity_ContestLobby_EventScript_CheckMonBeauty
+	call_if_unset FLAG_RECEIVED_RED_SCARF, LilycoveCity_ContestLobby_EventScript_CheckMonCool
+	bufferleadmonspeciesname STR_VAR_1
+	switch VAR_TEMP_1
+	case 0, LilycoveCity_ContestLobby_EventScript_NoHighConditions
+	case 1, LilycoveCity_ContestLobby_EventScript_GiveRedScarf
+	case 2, LilycoveCity_ContestLobby_EventScript_GiveBlueScarf
+	case 3, LilycoveCity_ContestLobby_EventScript_GivePinkScarf
+	case 4, LilycoveCity_ContestLobby_EventScript_GiveGreenScarf
+	case 5, LilycoveCity_ContestLobby_EventScript_GiveYellowScarf
+	release
+	end
+
+LilycoveCity_ContestLobby_EventScript_ReceivedAllScarves::
+	setvar VAR_SLATEPORT_FAN_CLUB_STATE, 2
+	return
+
+LilycoveCity_ContestLobby_EventScript_CountReceivedScarf::
+	addvar VAR_TEMP_2, 1
+	return
+
+LilycoveCity_ContestLobby_EventScript_NoHighConditions::
+	msgbox LilycoveCity_ContestLobby_Text_GiveMonMorePokeblocks, MSGBOX_DEFAULT
+	release
+	end
+
+LilycoveCity_ContestLobby_EventScript_GiveRedScarf::
+	checkitemspace ITEM_RED_SCARF
+	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_ContestLobby_EventScript_NoRoomForScarf
+	msgbox LilycoveCity_ContestLobby_Text_MonMostImpressiveGiveItThis, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_RED_SCARF
+	giveitem ITEM_RED_SCARF
+	msgbox LilycoveCity_ContestLobby_Text_ExplainRedScarf, MSGBOX_DEFAULT
+	release
+	end
+
+LilycoveCity_ContestLobby_EventScript_GiveBlueScarf::
+	checkitemspace ITEM_BLUE_SCARF
+	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_ContestLobby_EventScript_NoRoomForScarf
+	msgbox LilycoveCity_ContestLobby_Text_MonMostImpressiveGiveItThis, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_BLUE_SCARF
+	giveitem ITEM_BLUE_SCARF
+	msgbox LilycoveCity_ContestLobby_Text_ExplainBlueScarf, MSGBOX_DEFAULT
+	release
+	end
+
+LilycoveCity_ContestLobby_EventScript_GivePinkScarf::
+	checkitemspace ITEM_PINK_SCARF
+	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_ContestLobby_EventScript_NoRoomForScarf
+	msgbox LilycoveCity_ContestLobby_Text_MonMostImpressiveGiveItThis, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_PINK_SCARF
+	giveitem ITEM_PINK_SCARF
+	msgbox LilycoveCity_ContestLobby_Text_ExplainPinkScarf, MSGBOX_DEFAULT
+	release
+	end
+
+LilycoveCity_ContestLobby_EventScript_GiveGreenScarf::
+	checkitemspace ITEM_GREEN_SCARF
+	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_ContestLobby_EventScript_NoRoomForScarf
+	msgbox LilycoveCity_ContestLobby_Text_MonMostImpressiveGiveItThis, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_GREEN_SCARF
+	giveitem ITEM_GREEN_SCARF
+	msgbox LilycoveCity_ContestLobby_Text_ExplainGreenScarf, MSGBOX_DEFAULT
+	release
+	end
+
+LilycoveCity_ContestLobby_EventScript_GiveYellowScarf::
+	checkitemspace ITEM_YELLOW_SCARF
+	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_ContestLobby_EventScript_NoRoomForScarf
+	msgbox LilycoveCity_ContestLobby_Text_MonMostImpressiveGiveItThis, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_YELLOW_SCARF
+	giveitem ITEM_YELLOW_SCARF
+	msgbox LilycoveCity_ContestLobby_Text_ExplainYellowScarf, MSGBOX_DEFAULT
+	release
+	end
+
+LilycoveCity_ContestLobby_EventScript_NoRoomForScarf::
+	msgbox LilycoveCity_ContestLobby_Text_NoSpaceForReward, MSGBOX_DEFAULT
+	release
+	end
+
+LilycoveCity_ContestLobby_EventScript_CheckMonCool::
+	specialvar VAR_RESULT, CheckLeadMonCool
+	call_if_eq VAR_RESULT, TRUE, LilycoveCity_ContestLobby_EventScript_SetMonCool
+	return
+
+LilycoveCity_ContestLobby_EventScript_SetMonCool::
+	setvar VAR_TEMP_1, 1
+	return
+
+LilycoveCity_ContestLobby_EventScript_CheckMonBeauty::
+	specialvar VAR_RESULT, CheckLeadMonBeauty
+	call_if_eq VAR_RESULT, TRUE, LilycoveCity_ContestLobby_EventScript_SetMonBeauty
+	return
+
+LilycoveCity_ContestLobby_EventScript_SetMonBeauty::
+	setvar VAR_TEMP_1, 2
+	return
+
+LilycoveCity_ContestLobby_EventScript_CheckMonCute::
+	specialvar VAR_RESULT, CheckLeadMonCute
+	call_if_eq VAR_RESULT, TRUE, LilycoveCity_ContestLobby_EventScript_SetMonCute
+	return
+
+LilycoveCity_ContestLobby_EventScript_SetMonCute::
+	setvar VAR_TEMP_1, 3
+	return
+
+LilycoveCity_ContestLobby_EventScript_CheckMonSmart::
+	specialvar VAR_RESULT, CheckLeadMonSmart
+	call_if_eq VAR_RESULT, TRUE, LilycoveCity_ContestLobby_EventScript_SetMonSmart
+	return
+
+LilycoveCity_ContestLobby_EventScript_SetMonSmart::
+	setvar VAR_TEMP_1, 4
+	return
+
+LilycoveCity_ContestLobby_EventScript_CheckMonTough::
+	specialvar VAR_RESULT, CheckLeadMonTough
+	call_if_eq VAR_RESULT, TRUE, LilycoveCity_ContestLobby_EventScript_SetMonTough
+	return
+
+LilycoveCity_ContestLobby_EventScript_SetMonTough::
+	setvar VAR_TEMP_1, 5
+	return
+
+LilycoveCity_ContestLobby_EventScript_ChairmanNotEnteredContest::
+	goto_if_set FLAG_MET_SLATEPORT_FANCLUB_CHAIRMAN, LilycoveCity_ContestLobby_EventScript_ChairmanEnterContest
+	msgbox LilycoveCity_ContestLobby_Text_MeetChairman, MSGBOX_DEFAULT
+	setflag FLAG_MET_SLATEPORT_FANCLUB_CHAIRMAN
+	release
+	end
+
+LilycoveCity_ContestLobby_EventScript_ChairmanEnterContest::
+	msgbox LilycoveCity_ContestLobby_Text_LikeToSeeEnteredContestPokemon, MSGBOX_DEFAULT
+	release
+	end
+
+LilycoveCity_ContestLobby_EventScript_MeetChairman::
+	msgbox LilycoveCity_ContestLobby_Text_MeetChairman, MSGBOX_DEFAULT
+	setflag FLAG_MET_SLATEPORT_FANCLUB_CHAIRMAN
+	return
+
+LilycoveCity_ContestLobby_Text_MeetChairman:
+	.string "Er-herm! Who am I, you ask?\p"
+	.string "Well, I'm just a gentleman who enjoys\n"
+	.string "POKéMON and CONTESTS.\p"
+	.string "Although, I do consider myself a good\n"
+	.string "judge of a POKéMON'S condition.$"
+
+LilycoveCity_ContestLobby_Text_LikeToSeeEnteredContestPokemon:
+	.string "The POKéMON of a TRAINER who has\n"
+	.string "entered a POKéMON CONTEST…\l"
+	.string "That, I would like to see.$"
+
+LilycoveCity_ContestLobby_Text_AllowMeToExamineYourPokemon:
+	.string "Please, allow me to examine your\n"
+	.string "POKéMON, and I will assess its CONTEST\l"
+	.string "readiness!$"
+
+LilycoveCity_ContestLobby_Text_HowIsYourPokemonGrowing:
+	.string "Er-herm! So, you seek my expert opinion\n"
+	.string "again?\p"
+	.string "Then please, allow me to examine your\n"
+	.string "POKéMON, and I will assess its CONTEST\l"
+	.string "readiness!$"
+
+LilycoveCity_ContestLobby_Text_HmHmISee:
+	.string "Hm, hm…\n"
+	.string "I see…$"
+
+LilycoveCity_ContestLobby_Text_GiveMonMorePokeblocks:
+	.string "Your {STR_VAR_1}...\p"
+	.string "It's not great, but it's not bad either...\p"
+	.string "You should try feeding it more {POKEBLOCK}S\n"
+	.string "to improve your desired quality!$"
+
+LilycoveCity_ContestLobby_Text_NoSpaceForReward:
+	.string "Oh, my…\p"
+	.string "Your POKéMON is growing quite well,\n"
+	.string "so you deserve a reward.\p"
+	.string "Unfortunately, you have no space for\n"
+	.string "this in your BAG.$"
+
+LilycoveCity_ContestLobby_Text_MonMostImpressiveGiveItThis:
+	.string "Your {STR_VAR_1}...\p"
+	.string "It's a very impressive specimen indeed!\p"
+	.string "I have no doubt it would do well in a\n"
+	.string "CONTEST!\p"
+	.string "Although, if you were to give it this\n"
+	.string "scarf, I know it will reach even greater\l"
+	.string "heights!$"
+
+LilycoveCity_ContestLobby_Text_ExplainRedScarf:
+	.string "Let a POKéMON hold that Red Scarf.\p"
+	.string "Everyone will recognize the coolness\n"
+	.string "of that POKéMON!$"
+
+LilycoveCity_ContestLobby_Text_ExplainBlueScarf:
+	.string "Let a POKéMON hold that Blue Scarf.\p"
+	.string "Its beauty will be accentuated much\n"
+	.string "more than now!$"
+
+LilycoveCity_ContestLobby_Text_ExplainPinkScarf:
+	.string "Let a POKéMON hold that Pink Scarf.\p"
+	.string "It will draw out the cuteness of\n"
+	.string "the POKéMON some more!$"
+
+LilycoveCity_ContestLobby_Text_ExplainGreenScarf:
+	.string "Let a POKéMON hold that Green Scarf.\p"
+	.string "That will enhance the\n"
+	.string "smartness of POKéMON!$"
+
+LilycoveCity_ContestLobby_Text_ExplainYellowScarf:
+	.string "Let a POKéMON hold that Yellow Scarf.\p"
+	.string "It will bolster your POKéMON's\n"
+	.string "toughness so much more!$"
+
+LilycoveCity_ContestLobby_Text_NothingElseToGiveYou:
+	.string "I'm sorry, but I have no more scarves to\n"
+	.string "give you!\p"
+	.string "You are a wonderful TRAINER who has a\n"
+	.string "gift for raising POKéMON!$"
 
