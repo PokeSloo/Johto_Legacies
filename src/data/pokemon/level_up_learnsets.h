@@ -18326,6 +18326,8 @@ static const struct LevelUpMove sVulpixAlolanLevelUpLearnset[] = {
 
 static const struct LevelUpMove sNinetalesAlolanLevelUpLearnset[] = {
     //LEVEL_UP_MOVE( 0, MOVE_DAZZLING_GLEAM),
+    LEVEL_UP_MOVE( 1, MOVE_POWDER_SNOW),
+    LEVEL_UP_MOVE( 1, MOVE_TAIL_WHIP),
     LEVEL_UP_MOVE( 1, MOVE_DAZZLING_GLEAM),
     LEVEL_UP_MOVE( 1, MOVE_IMPRISON),
     LEVEL_UP_MOVE( 1, MOVE_NASTY_PLOT),
