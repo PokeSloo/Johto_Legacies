@@ -260,14 +260,14 @@ BattleFrontier_BattleTowerBattleRoom_EventScript_BattleAnabelSilver::
 
 BattleFrontier_BattleTowerBattleRoom_EventScript_DefeatedAnabelSilver::
 	call BattleFrontier_EventScript_IncrementWinStreak
-	frontier_getsymbols
-	goto_if_ne VAR_RESULT, 0, BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyWon
-	msgbox BattleFrontier_BattleTowerBattleRoom_Text_AnabelTalentShallBeRecognized, MSGBOX_DEFAULT
-	playfanfare MUS_OBTAIN_SYMBOL
-	message BattleFrontier_BattleTowerBattleRoom_Text_ReceivedAbilitySymbol
-	waitmessage
-	waitfanfare
-	frontier_givesymbol
+	@ frontier_getsymbols
+	@ goto_if_ne VAR_RESULT, 0, BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyWon
+	@ msgbox BattleFrontier_BattleTowerBattleRoom_Text_AnabelTalentShallBeRecognized, MSGBOX_DEFAULT
+	@ playfanfare MUS_OBTAIN_SYMBOL
+	@ message BattleFrontier_BattleTowerBattleRoom_Text_ReceivedAbilitySymbol
+	@ waitmessage
+	@ waitfanfare
+	@ frontier_givesymbol
 	msgbox BattleFrontier_BattleTowerBattleRoom_Text_UntilNextTime, MSGBOX_DEFAULT
 	goto BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyWon
 
@@ -284,14 +284,14 @@ BattleFrontier_BattleTowerBattleRoom_EventScript_BattleAnabelGold::
 
 BattleFrontier_BattleTowerBattleRoom_EventScript_DefeatedAnabelGold::
 	call BattleFrontier_EventScript_IncrementWinStreak
-	frontier_getsymbols
-	goto_if_eq VAR_RESULT, 2, BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyWon
-	msgbox BattleFrontier_BattleTowerBattleRoom_Text_AnabelCongratsYourPassPlease, MSGBOX_DEFAULT
-	playfanfare MUS_OBTAIN_SYMBOL
-	message BattleFrontier_BattleTowerBattleRoom_Text_AbilitySymbolTookGoldenShine
-	waitmessage
-	waitfanfare
-	frontier_givesymbol
+	@ frontier_getsymbols
+	@ goto_if_eq VAR_RESULT, 2, BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyWon
+	@ msgbox BattleFrontier_BattleTowerBattleRoom_Text_AnabelCongratsYourPassPlease, MSGBOX_DEFAULT
+	@ playfanfare MUS_OBTAIN_SYMBOL
+	@ message BattleFrontier_BattleTowerBattleRoom_Text_AbilitySymbolTookGoldenShine
+	@ waitmessage
+	@ waitfanfare
+	@ frontier_givesymbol
 	msgbox BattleFrontier_BattleTowerBattleRoom_Text_WishICouldBattleYouAgain, MSGBOX_DEFAULT
 	goto BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyWon
 
@@ -412,23 +412,23 @@ BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobby::
 	goto_if_eq VAR_RESULT, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyDoubles
 	goto_if_eq VAR_RESULT, FRONTIER_MODE_MULTIS, BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyMultis
 	goto_if_eq VAR_RESULT, FRONTIER_MODE_LINK_MULTIS, BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyLinkMultis
-	warp MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY, 6, 6
+	warp MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY, 16, 6
 	waitstate
 	end
 
 BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyDoubles::
-	warp MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY, 10, 6
+	warp MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY, 20, 6
 	waitstate
 	end
 
 BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyMultis::
-	warp MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY, 14, 6
+	warp MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY, 24, 6
 	waitstate
 	end
 
 BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyLinkMultis::
 	tower_closelink
-	warp MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY, 18, 6
+	warp MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY, 28, 6
 	waitstate
 	end
 
@@ -495,30 +495,27 @@ BattleFrontier_BattleTowerBattleRoom_Text_RecordCouldntBeSaved::
 	.string "Your record could not be saved.$"
 
 BattleFrontier_BattleTowerBattleRoom_Text_SalonMaidenOnHerWay:
-	.string "Excuse me, but…\p"
-	.string "Our leader, the SALON MAIDEN, is on\n"
-	.string "her way here in hopes of battling you.\p"
-	.string "She should be arriving very shortly.$"
+	.string "The Tower Champion has heard of your\n"
+	.string "winning streak, and he is now on his way\l"
+	.string "here to challenge you himself.\p"
+	.string "He should be arriving shortly.$"
 
 BattleFrontier_BattleTowerBattleRoom_Text_ReadyForSalonMaiden:
-	.string "You will be facing the SALON MAIDEN.\n"
+	.string "You will be facing the Tower Champion.\n"
 	.string "Are you prepared?$"
 
 BattleFrontier_BattleTowerBattleRoom_Text_GreetingsImAnabel:
-	.string "Greetings…\n"
-	.string "My name is ANABEL.\p"
-	.string "I am the SALON MAIDEN, and I am in\n"
-	.string "charge of running the BATTLE TOWER…\p"
-	.string "I have heard several rumors\n"
-	.string "about you…\p"
-	.string "In all honesty, what I have heard does\n"
-	.string "not seem attractive in any way…\p"
-	.string "The reason I've come to see you…\n"
-	.string "Well, there is but one reason…$"
+	.string "GOLD: {PLAYER}!\p"
+	.string "I was told about some kid on a hot\n"
+	.string "winning streak, but didn't know it was\l"
+	.string "you.\p"
+	.string "Of course, I am already well aware of\n"
+	.string "your talent.\p"
+	.string "Still, I love the chance to battle you\n"
+	.string "here in my domain.$"
 
 BattleFrontier_BattleTowerBattleRoom_Text_LetMeSeeYourTalent:
-	.string "Let me see your talent in\n"
-	.string "its entirety…$"
+	.string "Now then, let's get this battle started!$"
 
 BattleFrontier_BattleTowerBattleRoom_Text_AnabelTalentShallBeRecognized:
 	.string "ANABEL: Fufufu, nicely done…\p"
@@ -530,26 +527,24 @@ BattleFrontier_BattleTowerBattleRoom_Text_ReceivedAbilitySymbol:
 	.string "the FRONTIER PASS!$"
 
 BattleFrontier_BattleTowerBattleRoom_Text_UntilNextTime:
-	.string "… … … … … …\p"
-	.string "You have confidence in your POKéMON\n"
-	.string "battling talent, don't you?\p"
+	.string "GOLD: Well done!\p"
+	.string "Your battling skills never fail to\n"
+	.string "impress me.\p"
 	.string "I urge you to keep battling and\n"
 	.string "keep on winning.\p"
-	.string "I will be waiting for you.\n"
-	.string "Until the next time we meet…$"
+	.string "I look forward to meeting you here for\n"
+	.string "another battle!\p"
+	.string "Until next time...$"
 
 BattleFrontier_BattleTowerBattleRoom_Text_AnabelYouCameBack:
-	.string "ANABEL: You really did come back to\n"
-	.string "see me…\p"
-	.string "… … … … … …\p"
-	.string "You've won straight matches to see me…\n"
-	.string "I won't have to hold back against you…\p"
-	.string "It's been too long now…\p"
-	.string "Too long since I've been able to battle\n"
-	.string "without thinking about anything…$"
+	.string "GOLD: Well well, {PLAYER}.\p"
+	.string "I see you've managed to keep up your\n"
+	.string "winning streak.\p"
+	.string "I've been anxiously waiting to face you\n"
+	.string "here again!$"
 
 BattleFrontier_BattleTowerBattleRoom_Text_LetsBeginShallWe:
-	.string "Let's begin, shall we?$"
+	.string "Now, let's not waste any more time!$"
 
 BattleFrontier_BattleTowerBattleRoom_Text_AnabelCongratsYourPassPlease:
 	.string "ANABEL: Fufu, congratulations…\n"
@@ -560,8 +555,11 @@ BattleFrontier_BattleTowerBattleRoom_Text_AbilitySymbolTookGoldenShine:
 	.string "a golden shine!$"
 
 BattleFrontier_BattleTowerBattleRoom_Text_WishICouldBattleYouAgain:
-	.string "That was fun…\p"
-	.string "I have never had a POKéMON battle\n"
-	.string "so enjoyable before…\p"
-	.string "I wish I could battle with you again…$"
+	.string "GOLD: You continue to exceed my\n"
+	.string "expectations.\p"
+	.string "I know your father will be proud of your\n"
+	.string "accomplishment here today!\p"
+	.string "Well, {PLAYER}, you know where to find\n"
+	.string "me.\p"
+	.string "Until next time...$"
 

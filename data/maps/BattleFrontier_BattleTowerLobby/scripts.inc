@@ -703,19 +703,19 @@ BattleFrontier_BattleTowerLobby_EventScript_GetDoorXCoord::
 	return
 
 BattleFrontier_BattleTowerLobby_EventScript_GetDoorXCoordSingles::
-	setvar VAR_0x8004, 6
+	setvar VAR_0x8004, 16
 	return
 
 BattleFrontier_BattleTowerLobby_EventScript_GetDoorXCoordDoubles::
-	setvar VAR_0x8004, 10
+	setvar VAR_0x8004, 20
 	return
 
 BattleFrontier_BattleTowerLobby_EventScript_GetDoorXCoordMultis::
-	setvar VAR_0x8004, 14
+	setvar VAR_0x8004, 24
 	return
 
 BattleFrontier_BattleTowerLobby_EventScript_GetDoorXCoordLinkMultis::
-	setvar VAR_0x8004, 18
+	setvar VAR_0x8004, 28
 	return
 
 BattleFrontier_BattleTowerLobby_EventScript_GetPartySize::
@@ -979,7 +979,7 @@ BattleFrontier_BattleTowerLobby_Text_PutRibbonOnMons:
 BattleFrontier_BattleTowerLobby_Text_DescribeFeelingsAboutBattleTower:
 	.string "Excuse me, do you have a moment?\p"
 	.string "Can you describe your feelings when\n"
-	.string "you're about to begin a BATTLE TOWER\l"
+	.string "you're about to begin a Battle Tower\l"
 	.string "match, or when you've either won or\l"
 	.string "lost a match?$"
 
@@ -1011,15 +1011,15 @@ BattleFrontier_BattleTowerLobby_Text_ThatsHowYouFeel:
 BattleFrontier_BattleTowerLobby_Text_WinsInRowRecorded:
 	.string "The number of matches you win in a row\n"
 	.string "is recorded.\p"
-	.string "I'd better not get beaten in\n"
-	.string "an embarrassing way!$"
+	.string "If you win enough times, you'll get to\n"
+	.string "face the Tower Champion!\p"
+	.string "I hear he's pretty strong.$"
 
 BattleFrontier_BattleTowerLobby_Text_CanLeaveUntilLossOrSevenWins:
-	.string "Once you've entered the BATTLE TOWER,\n"
-	.string "you can't leave until you either lose\l"
-	.string "or you beat seven TRAINERS in a row.\p"
-	.string "You'd best be certain that you're up\n"
-	.string "to the challenge.$"
+	.string "I really want a Charizard Doll, but man\n"
+	.string "are they expensive!\p"
+	.string "I don't think I'll ever get that many\n"
+	.string "Battle Points!$"
 
 @ Unused
 BattleFrontier_BattleTowerLobby_Text_DoubleBattleRoomConstruction:

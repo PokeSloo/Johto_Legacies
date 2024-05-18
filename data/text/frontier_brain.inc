@@ -1,15 +1,16 @@
 @ Battle Tower
 gText_AnabelWonSilver::
-	.string "It's very disappointing…$"
+	.string "Such a shame…$"
 
 gText_AnabelDefeatSilver::
-	.string "Okay, I understand…$"
+	.string "There's more to you than meets the\n"
+	.string "eye…$"
 
 gText_AnabelWonGold::
-	.string "I'm terribly sorry…$"
+	.string "I was expecting more from you…$"
 
 gText_AnabelDefeatGold::
-	.string "Thank you…$"
+	.string "Just as I expected…$"
 
 @ Battle Dome
 gText_TuckerWonSilver::

@@ -101,55 +101,55 @@ static const struct FrontierBrainMon sFrontierBrainsMons[][2][FRONTIER_PARTY_SIZ
         // Silver Symbol.
         {
             {
-                .species = SPECIES_ALAKAZAM,
-                .heldItem = ITEM_BRIGHT_POWDER,
+                .species = SPECIES_CLEFABLE,
+                .heldItem = ITEM_LEFTOVERS,
+                .fixedIV = 24,
+                .nature = NATURE_BOLD,
+                .evs = {152, 0, 152, 0, 0, 106},
+                .moves = {MOVE_TOXIC, MOVE_MOONBLAST, MOVE_SOFT_BOILED, MOVE_PSYCHIC},
+            },
+            {
+                .species = SPECIES_SCIZOR,
+                .heldItem = ITEM_LIFE_ORB,
+                .fixedIV = 24,
+                .nature = NATURE_IMPISH,
+                .evs = {152, 6, 100, 0, 0, 152},
+                .moves = {MOVE_BULLET_PUNCH, MOVE_U_TURN, MOVE_KNOCK_OFF, MOVE_SUPERPOWER},
+            },
+            {
+                .species = SPECIES_TYPHLOSION,
+                .heldItem = ITEM_ASSAULT_VEST,
                 .fixedIV = 24,
                 .nature = NATURE_MODEST,
-                .evs = {106, 0, 152, 152, 100, 0},
-                .moves = {MOVE_THUNDER_PUNCH, MOVE_FIRE_PUNCH, MOVE_ICE_PUNCH, MOVE_DISABLE},
-            },
-            {
-                .species = SPECIES_ENTEI,
-                .heldItem = ITEM_LUM_BERRY,
-                .fixedIV = 24,
-                .nature = NATURE_LONELY,
-                .evs = {100, 152, 152, 0, 100, 6},
-                .moves = {MOVE_FIRE_BLAST, MOVE_CALM_MIND, MOVE_RETURN, MOVE_ROAR},
-            },
-            {
-                .species = SPECIES_SNORLAX,
-                .heldItem = ITEM_QUICK_CLAW,
-                .fixedIV = 24,
-                .nature = NATURE_ADAMANT,
-                .evs = {152, 152, 0, 0, 106, 100},
-                .moves = {MOVE_BODY_SLAM, MOVE_BELLY_DRUM, MOVE_YAWN, MOVE_SHADOW_BALL},
+                .evs = {100, 0, 6, 152, 152, 0},
+                .moves = {MOVE_ERUPTION, MOVE_FIRE_BLAST, MOVE_FOCUS_BLAST, MOVE_EXTRASENSORY},
             },
         },
         // Gold Symbol.
         {
             {
-                .species = SPECIES_RAIKOU,
-                .heldItem = ITEM_LUM_BERRY,
+                .species = SPECIES_TANGROWTH,
+                .heldItem = ITEM_ASSAULT_VEST,
                 .fixedIV = MAX_PER_STAT_IVS,
-                .nature = NATURE_MODEST,
-                .evs = {158, 0, 252, 100, 0, 0},
-                .moves = {MOVE_THUNDERBOLT, MOVE_CALM_MIND, MOVE_REFLECT, MOVE_REST},
+                .nature = NATURE_SASSY,
+                .evs = {252, 0, 6, 0, 0, 252},
+                .moves = {MOVE_EARTHQUAKE, MOVE_POWER_WHIP, MOVE_KNOCK_OFF, MOVE_SLUDGE_BOMB},
             },
             {
-                .species = SPECIES_LATIOS,
-                .heldItem = ITEM_BRIGHT_POWDER,
+                .species = SPECIES_GYARADOS,
+                .heldItem = ITEM_GYARADOSITE,
                 .fixedIV = MAX_PER_STAT_IVS,
-                .nature = NATURE_MODEST,
-                .evs = {252, 0, 252, 6, 0, 0},
-                .moves = {MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_RECOVER, MOVE_DRAGON_CLAW},
+                .nature = NATURE_JOLLY,
+                .evs = {0, 252, 0, 252, 0, 6},
+                .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_ICE_FANG, MOVE_WATERFALL},
             },
             {
-                .species = SPECIES_SNORLAX,
-                .heldItem = ITEM_CHESTO_BERRY,
+                .species = SPECIES_TYPHLOSION,
+                .heldItem = ITEM_CHOICE_SPECS,
                 .fixedIV = MAX_PER_STAT_IVS,
-                .nature = NATURE_ADAMANT,
-                .evs = {252, 252, 0, 0, 6, 0},
-                .moves = {MOVE_CURSE, MOVE_RETURN, MOVE_REST, MOVE_SHADOW_BALL},
+                .nature = NATURE_MODEST,
+                .evs = {0, 0, 0, 252, 252, 6},
+                .moves = {MOVE_ERUPTION, MOVE_FIRE_BLAST, MOVE_FOCUS_BLAST, MOVE_EXTRASENSORY},
             },
         },
     },
@@ -667,7 +667,7 @@ static const struct WindowTemplate sRankingHallRecordsWindowTemplate =
 // Second field - whether the character is female.
 static const u8 sFrontierBrainObjEventGfx[NUM_FRONTIER_FACILITIES][2] =
 {
-    [FRONTIER_FACILITY_TOWER]   = {OBJ_EVENT_GFX_ANABEL,  TRUE},
+    [FRONTIER_FACILITY_TOWER]   = {OBJ_EVENT_GFX_BRANDON,  FALSE},
     [FRONTIER_FACILITY_DOME]    = {OBJ_EVENT_GFX_TUCKER,  FALSE},
     [FRONTIER_FACILITY_PALACE]  = {OBJ_EVENT_GFX_SPENSER, FALSE},
     [FRONTIER_FACILITY_ARENA]   = {OBJ_EVENT_GFX_GRETA,   TRUE},
@@ -679,7 +679,8 @@ static const u8 sFrontierBrainObjEventGfx[NUM_FRONTIER_FACILITIES][2] =
 const u16 gFrontierBannedSpecies[] =
 {
     SPECIES_MEW, SPECIES_MEWTWO, SPECIES_HO_OH, SPECIES_LUGIA, SPECIES_CELEBI,
-    SPECIES_KYOGRE, SPECIES_GROUDON, SPECIES_RAYQUAZA, SPECIES_JIRACHI, SPECIES_DEOXYS, 0xFFFF
+    SPECIES_KYOGRE, SPECIES_GROUDON, SPECIES_RAYQUAZA, SPECIES_JIRACHI, SPECIES_DEOXYS,
+    SPECIES_DIALGA, SPECIES_PALKIA, SPECIES_GIRATINA, SPECIES_ARCEUS, SPECIES_URSHIFU, 0xFFFF
 };
 
 static const u8 *const sRecordsWindowChallengeTexts[][2] =

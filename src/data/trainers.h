@@ -9681,10 +9681,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ANABEL] =
     {
-        .trainerClass = TRAINER_CLASS_SALON_MAIDEN,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_SALON_MAIDEN_ANABEL,
-        .trainerName = _("ANABEL"),
+        .trainerClass = TRAINER_CLASS_PYRAMID_KING,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_PYRAMID_KING_BRANDON,
+        .trainerName = _("GOLD"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,

@@ -647,7 +647,7 @@ static bool8 HasAllFrontierSymbols(void)
     u8 i;
     for (i = 0; i < NUM_FRONTIER_FACILITIES; i++)
     {
-        if (!FlagGet(FLAG_SYS_TOWER_SILVER + 2 * i) || !FlagGet(FLAG_SYS_TOWER_GOLD + 2 * i))
+        if (!FlagGet(FLAG_SYS_TOWER_SILVER + 2 * i) || !FlagGet(FLAG_SYS_TOWER_GOLD + 2 * i)) //delete + 2 * i?
             return FALSE;
     }
     return TRUE;
