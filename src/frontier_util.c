@@ -110,7 +110,7 @@ static const struct FrontierBrainMon sFrontierBrainsMons[][2][FRONTIER_PARTY_SIZ
             },
             {
                 .species = SPECIES_SCIZOR,
-                .heldItem = ITEM_LIFE_ORB,
+                .heldItem = ITEM_SCIZORITE,
                 .fixedIV = 24,
                 .nature = NATURE_IMPISH,
                 .evs = {152, 6, 100, 0, 0, 152},
