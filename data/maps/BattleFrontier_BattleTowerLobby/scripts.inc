@@ -127,15 +127,7 @@ BattleFrontier_BattleTowerLobby_EventScript_AskSaveBattle::
 	tower_save 0
 	playse SE_SAVE
 	waitse
-	call BattleFrontier_EventScript_GetCantRecordBattle
-	goto_if_eq VAR_RESULT, TRUE, BattleFrontier_BattleTowerLobby_EventScript_EndSaveBattle
-	message BattleFrontier_BattleTowerLobby_Text_RecordLastMatch
-	waitmessage
-	multichoicedefault 20, 8, MULTI_YESNO, 1, FALSE
-	switch VAR_RESULT
-	case 1, BattleFrontier_BattleTowerLobby_EventScript_EndSaveBattle
-	case 0, BattleFrontier_EventScript_SaveBattle
-	case MULTI_B_PRESSED, BattleFrontier_BattleTowerLobby_EventScript_EndSaveBattle
+	goto BattleFrontier_BattleTowerLobby_EventScript_EndSaveBattle
 
 BattleFrontier_EventScript_SaveBattle::
 	frontier_savebattle
