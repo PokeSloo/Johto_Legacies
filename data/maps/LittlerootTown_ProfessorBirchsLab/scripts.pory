@@ -14,7 +14,7 @@ script LittlerootTown_ProfessorBirchsLab_OnFrame {
     lock
     applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_ProfessorBirchsLab_WalkToElm)
     waitmovement (0)
-    msgbox (format("PROF. ELM: Welcome!\pYou must be {PLAYER}, I've been expecting you.\pMy name is PROF. ELM. I specialize in the study of POKéMON evolution and reproduction, but enough about me.\pI've heard from your mother that you want to become a great POKéMON master. Following in your father's footsteps, it seems.\pI admire your ambition, those are big shoes for anyone to fill. Very well then, if you want to become a great POKéMON master, you will first need a POKéMON of your own."))
+    msgbox (format("PROF. ELM: Welcome!\pYou must be {PLAYER}, I've been expecting you.\pMy name is PROF. ELM.\pI specialize in the study of POKéMON evolution and reproduction, but enough about me.\pI've heard from your mother that you want to become a great POKéMON master.\pFollowing in your father's footsteps, it seems.\pI admire your ambition, those are big shoes for anyone to fill.\pVery well then, if you want to become a great POKéMON master, you will first need a POKéMON of your own."))
     waitmessage
     closemessage
     applymovement (ELM_ID, LittlerootTown_ProfessorBirchsLab_StepLeftFaceRight)
@@ -75,7 +75,7 @@ script LittlerootTown_ProfessorBirchsLab_ChikoritaBall {
 script LittlerootTown_ProfessorBirchsLab_ReceivedChikorita {
     hidemonpic
     setflag (FLAG_SYS_POKEMON_GET)
-	msgbox (format("PROF. ELM: A fantastic choice! It seems rather fond of you."))
+	msgbox (format("PROF. ELM: A fantastic choice!\pIt seems rather fond of you."))
     waitmessage
     closemessage
 	applymovement (ELM_ID, LittlerootTown_ProfessorBirchsLab_ElmToPlayerChik)
@@ -142,7 +142,7 @@ script LittlerootTown_ProfessorBirchsLab_TotodileBall {
 script LittlerootTown_ProfessorBirchsLab_ReceivedTotodile {
     hidemonpic
     setflag (FLAG_SYS_POKEMON_GET)
-	msgbox (format("PROF. ELM: A fantastic choice! It seems rather fond of you."))
+	msgbox (format("PROF. ELM: A fantastic choice!\pIt seems rather fond of you."))
     waitmessage
     closemessage
 	applymovement (ELM_ID, LittlerootTown_ProfessorBirchsLab_ElmToPlayerToto)
@@ -209,7 +209,7 @@ script LittlerootTown_ProfessorBirchsLab_CyndaquilBall {
 script LittlerootTown_ProfessorBirchsLab_ReceivedCyndaquil {
     hidemonpic
     setflag (FLAG_SYS_POKEMON_GET)
-	msgbox (format("PROF. ELM: A fantastic choice! It seems rather fond of you."))
+	msgbox (format("PROF. ELM: A fantastic choice!\pIt seems rather fond of you."))
     waitmessage
     closemessage
 	applymovement (ELM_ID, LittlerootTown_ProfessorBirchsLab_ElmToPlayerCynda)
@@ -225,7 +225,7 @@ script LittlerootTown_ProfessorBirchsLab_ReceivedCyndaquil {
     closemessage
 	applymovement (ELM_ID, LittlerootTown_ProfessorBirchsLab_ElmStepDown)
     waitmovement (0)
-	msgbox (format("Now then, off you go. Good luck!"))
+	msgbox (format("Now then, off you go.\nGood luck!"))
     waitmessage
     closemessage
 	applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown__ProfessorBirchsLab_FaceDown)
@@ -236,7 +236,7 @@ script LittlerootTown_ProfessorBirchsLab_ReceivedCyndaquil {
 }
 
 script LittlerootTown_ProfessorBirchsLab_Inbetween {
-	msgbox (format("You know, I gave your brother his first POKéMON just a few years ago. Such a rambunctious child.\pJust between you and me; I much prefer your attitude over his."))
+	msgbox (format("You know, I gave your brother his first POKéMON just a few years ago.\pSuch a rambunctious child.\pJust between you and me; I much prefer your attitude over his."))
     waitmessage
     closemessage
 	applymovement (ELM_ID, LittlerootTown_ProfessorBirchsLab_ElmStepRight)
@@ -258,7 +258,7 @@ script LittlerootTown_ProfessorBirchsLab_Inbetween {
 	setflag (FLAG_SYS_NATIONAL_DEX)
 	special (EnableNationalPokedex)
 	setvar (VAR_CABLE_CLUB_TUTORIAL_STATE, 1)
-	msgbox (format("PROF. ELM: That POKéDEX is a high-tech encyclopedia that will automatically record any POKéMON you see or catch. There are an extensive number of POKéMON in the Johto region these days, so filling it out will certainly be a challenge."))
+	msgbox (format("PROF. ELM: That POKéDEX is a high-tech encyclopedia that will automatically record any POKéMON you see or catch.\pThere are an extensive number of POKéMON in the Johto region these days, so filling it out will certainly be a challenge."))
     waitmessage
     closemessage
 	applymovement (ELM_ID, LittlerootTown_ProfessorBirchsLab_ElmStepDown)
@@ -280,7 +280,7 @@ script LittlerootTown_ProfessorBirchsLab_Inbetween {
 
 script LittlerootTown_ProfessorBirchsLab_Trigger {
     lock
-    msgbox (format("Wait, don't leave yet. You still haven't chosen your POKéMON."))
+    msgbox (format("Wait, don't leave yet!\pYou still haven't chosen your POKéMON."))
     waitmessage
     closemessage
     applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_PlayerWalkUp)
@@ -301,7 +301,7 @@ script LittlerootTown_ProfessorBirchsLab_AidTrigger1 {
     waitmessage
     closemessage
 	giveitem (ITEM_POKE_BALL, 5)
-	msgbox (format("That should help you get started. Feel free to stop by and visit the lab any time!"))
+	msgbox (format("That should help you get started.\pFeel free to stop by and visit the lab any time!"))
     waitmessage
     closemessage
     applymovement (AID_ID, LittlerootTown_ProfessorBirchsLab_AidBack1)
@@ -323,7 +323,7 @@ script LittlerootTown_ProfessorBirchsLab_AidTrigger2 {
     waitmessage
     closemessage
 	giveitem (ITEM_POKE_BALL, 5)
-	msgbox (format("That should help you get started. Feel free to stop by and visit the lab any time!"))
+	msgbox (format("That should help you get started.\pFeel free to stop by and visit the lab any time!"))
     waitmessage
     closemessage
     applymovement (AID_ID, LittlerootTown_ProfessorBirchsLab_AidBack2)
@@ -345,7 +345,7 @@ script LittlerootTown_ProfessorBirchsLab_AidTrigger3 {
     waitmessage
     closemessage
 	giveitem (ITEM_POKE_BALL, 5)
-	msgbox (format("That should help you get started. Feel free to stop by and visit the lab any time!"))
+	msgbox (format("That should help you get started.\pFeel free to stop by and visit the lab any time!"))
     waitmessage
     closemessage
     applymovement (AID_ID, LittlerootTown_ProfessorBirchsLab_AidBack3)
@@ -367,7 +367,7 @@ script LittlerootTown_ProfessorBirchsLab_AidTrigger4 {
     waitmessage
     closemessage
 	giveitem (ITEM_POKE_BALL, 5)
-	msgbox (format("That should help you get started. Feel free to stop by and visit the lab any time!"))
+	msgbox (format("That should help you get started.\pFeel free to stop by and visit the lab any time!"))
     waitmessage
     closemessage
     applymovement (AID_ID, LittlerootTown_ProfessorBirchsLab_AidBack4)
@@ -389,7 +389,7 @@ script LittlerootTown_ProfessorBirchsLab_AidTrigger5 {
     waitmessage
     closemessage
 	giveitem (ITEM_POKE_BALL, 5)
-	msgbox (format("That should help you get started. Feel free to stop by and visit the lab any time!"))
+	msgbox (format("That should help you get started.\pFeel free to stop by and visit the lab any time!"))
     waitmessage
     closemessage
     applymovement (AID_ID, LittlerootTown_ProfessorBirchsLab_AidBack5)
@@ -563,7 +563,7 @@ script LittlerootTown_ProfessorBirchsLab_EventScript_Elm {
 	end
 	}
 	else {
-		msgbox (format("PROF. ELM: {PLAYER}, how are you? I hope you've been treating my old POKéMON well.\pOh, would you like me to rate your POKéDEX?"), MSGBOX_YESNO)
+		msgbox (format("PROF. ELM: {PLAYER}, how are you?\pI hope you've been treating my old POKéMON well.\pOh, would you like me to rate your POKéDEX?"), MSGBOX_YESNO)
     	if (var(VAR_RESULT) != YES) {
 			msgbox (format("Maybe some other time, then."))
 			waitmessage

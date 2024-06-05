@@ -226,15 +226,17 @@ RustboroCity_Gym_Text_MarcPostBattle:
 	.string "with you!$"
 
 RustboroCity_Gym_Text_RoxanneIntro:
-	.string "Welcome, challenger. I am FALKNER,\n"
+	.string "Welcome, challenger.\n"
+	.string "I am FALKNER.\p"
 	.string "Violet City's Gym Leader and master of\l"
 	.string "the skies...\p"
+	.string "...\p"
 	.string "Yeah, yeah, go ahead and laugh.\p"
 	.string "Twenty years of losing to children\n"
 	.string "takes a toll on a person, you know!\p"
-	.string "But don't expect an easy win. Contrary\n"
-	.string "to the rumors going around, I still have\l"
-	.string "some fight left in me!\p"
+	.string "But don't expect an easy win.\p"
+	.string "Contrary to the rumors going around, I\n"
+	.string "still have some fight left in me!\p"
 	.string "My losing streak ends right now!$"
 
 RustboroCity_Gym_Text_RoxanneDefeat:
@@ -257,7 +259,7 @@ RustboroCity_Gym_Text_ExplainRockTomb:
 	.string "TM40 contains Aerial Ace...\p"
 	.string "It's a move...\p"
 	.string "No...\p"
-	.string "You know what! I'm done with this.\p"
+	.string "You know what? I'm done with this!\p"
 	.string "I can't allow this losing streak to keep\n"
 	.string "tormenting me day after day!\p"
 	.string "...\p"

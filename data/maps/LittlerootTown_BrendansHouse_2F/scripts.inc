@@ -335,5 +335,5 @@ LittlerootTown_BrendansHouse_2F_PlayerStepLeft:
 	step_end
 
 LittlerootTown_BrendansHouse_2F_Trigger_Text_0:
-	.string "Oh oh, the clock has stopped. Better\n"
+	.string "Uh oh, the clock has stopped. Better\n"
 	.string "reset it.$"

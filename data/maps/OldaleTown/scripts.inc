@@ -899,7 +899,7 @@ OldaleTown_EventScript_Girl_Text_0:
 	.string "up the world.$"
 
 OldaleTown_EventScript_Mailbox_Text_0:
-	.string "{PLAYER}'S HOUSE$"
+	.string "{PLAYER}'s HOUSE$"
 
 OldaleTown_EventScript_ShaneBattle_Text_0:
 	.string "SHANE: Wow! You actually made it back\n"

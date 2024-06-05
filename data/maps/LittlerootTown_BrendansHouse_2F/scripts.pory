@@ -317,7 +317,7 @@ PlayersHouse_2F_Text_ItsAGameCube:
 script LittlerootTown_BrendansHouse_2F_Trigger {
     lockall
     if (!flag(FLAG_SET_WALL_CLOCK)) {
-        msgbox (format("Oh oh, the clock has stopped. Better reset it."))
+        msgbox (format("Uh oh, the clock has stopped. Better reset it."))
         waitmessage
 		closemessage
         applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_2F_PlayerStepLeft)

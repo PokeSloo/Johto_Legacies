@@ -231,7 +231,7 @@ LittlerootTown_ProfessorBirchsLab_ReceivedCyndaquil::
 	closemessage
 	applymovement 2, LittlerootTown_ProfessorBirchsLab_ElmStepDown
 	waitmovement 0
-	msgbox LittlerootTown_ProfessorBirchsLab_ReceivedChikorita_Text_2
+	msgbox LittlerootTown_ProfessorBirchsLab_ReceivedCyndaquil_Text_0
 	waitmessage
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown__ProfessorBirchsLab_FaceDown
@@ -650,18 +650,19 @@ LittlerootTown_ProfessorBirchsLab_OnFrame_Text_0:
 	.string "PROF. ELM: Welcome!\p"
 	.string "You must be {PLAYER}, I've been\n"
 	.string "expecting you.\p"
-	.string "My name is PROF. ELM. I specialize in the\n"
-	.string "study of POKéMON evolution and\l"
-	.string "reproduction, but enough about me.\p"
+	.string "My name is PROF. ELM.\p"
+	.string "I specialize in the study of POKéMON\n"
+	.string "evolution and reproduction, but enough\l"
+	.string "about me.\p"
 	.string "I've heard from your mother that you\n"
-	.string "want to become a great POKéMON master.\l"
-	.string "Following in your father's footsteps,\l"
-	.string "it seems.\p"
+	.string "want to become a great POKéMON master.\p"
+	.string "Following in your father's footsteps, it\n"
+	.string "seems.\p"
 	.string "I admire your ambition, those are big\n"
-	.string "shoes for anyone to fill. Very well\l"
-	.string "then, if you want to become a great\l"
-	.string "POKéMON master, you will first need a\l"
-	.string "POKéMON of your own.$"
+	.string "shoes for anyone to fill.\p"
+	.string "Very well then, if you want to become a\n"
+	.string "great POKéMON master, you will first\l"
+	.string "need a POKéMON of your own.$"
 
 LittlerootTown_ProfessorBirchsLab_OnFrame_Text_1:
 	.string "On this table are three POKéBALLs, and\n"
@@ -695,8 +696,8 @@ LittlerootTown_ProfessorBirchsLab_ChikoritaBall_Text_4:
 	.string "CHIKORITA?$"
 
 LittlerootTown_ProfessorBirchsLab_ReceivedChikorita_Text_0:
-	.string "PROF. ELM: A fantastic choice! It seems\n"
-	.string "rather fond of you.$"
+	.string "PROF. ELM: A fantastic choice!\p"
+	.string "It seems rather fond of you.$"
 
 LittlerootTown_ProfessorBirchsLab_ReceivedChikorita_Text_1:
 	.string "By the way, if your POKéMON get injured,\n"
@@ -728,10 +729,14 @@ LittlerootTown_ProfessorBirchsLab_CyndaquilBall_Text_2:
 	.string "Do you want to give a nickname to this\n"
 	.string "CYNDAQUIL?$"
 
+LittlerootTown_ProfessorBirchsLab_ReceivedCyndaquil_Text_0:
+	.string "Now then, off you go.\n"
+	.string "Good luck!$"
+
 LittlerootTown_ProfessorBirchsLab_Inbetween_Text_0:
 	.string "You know, I gave your brother his first\n"
-	.string "POKéMON just a few years ago. Such a\l"
-	.string "rambunctious child.\p"
+	.string "POKéMON just a few years ago.\p"
+	.string "Such a rambunctious child.\p"
 	.string "Just between you and me; I much prefer\n"
 	.string "your attitude over his.$"
 
@@ -747,8 +752,8 @@ LittlerootTown_ProfessorBirchsLab_Inbetween_Text_3:
 LittlerootTown_ProfessorBirchsLab_Inbetween_Text_4:
 	.string "PROF. ELM: That POKéDEX is a high-tech\n"
 	.string "encyclopedia that will automatically\l"
-	.string "record any POKéMON you see or catch.\l"
-	.string "There are an extensive number of\l"
+	.string "record any POKéMON you see or catch.\p"
+	.string "There are an extensive number of\n"
 	.string "POKéMON in the Johto region these\l"
 	.string "days, so filling it out will certainly be\l"
 	.string "a challenge.$"
@@ -777,8 +782,8 @@ LittlerootTown_ProfessorBirchsLab_Inbetween_Text_7:
 	.string "a POKéMON master after-all.$"
 
 LittlerootTown_ProfessorBirchsLab_Trigger_Text_0:
-	.string "Wait, don't leave yet. You still haven't\n"
-	.string "chosen your POKéMON.$"
+	.string "Wait, don't leave yet!\p"
+	.string "You still haven't chosen your POKéMON.$"
 
 LittlerootTown_ProfessorBirchsLab_AidTrigger1_Text_0:
 	.string "Hi! I am one of PROF. ELM's aids.\p"
@@ -786,9 +791,9 @@ LittlerootTown_ProfessorBirchsLab_AidTrigger1_Text_0:
 	.string "journey.$"
 
 LittlerootTown_ProfessorBirchsLab_AidTrigger1_Text_1:
-	.string "That should help you get started. Feel\n"
-	.string "free to stop by and visit the lab any\l"
-	.string "time!$"
+	.string "That should help you get started.\p"
+	.string "Feel free to stop by and visit the lab\n"
+	.string "any time!$"
 
 LittlerootTown_ProfessorBirchsLab_HealingMachine_Text_0:
 	.string "It's some kind of machine, probably\n"
@@ -820,8 +825,8 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Elm_Text_0:
 	.string "Go on, you may choose one of the three.$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Elm_Text_1:
-	.string "PROF. ELM: {PLAYER}, how are you? I\n"
-	.string "hope you've been treating my old\l"
+	.string "PROF. ELM: {PLAYER}, how are you?\p"
+	.string "I hope you've been treating my old\n"
 	.string "POKéMON well.\p"
 	.string "Oh, would you like me to rate your\n"
 	.string "POKéDEX?$"

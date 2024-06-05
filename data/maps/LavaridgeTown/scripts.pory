@@ -18,7 +18,7 @@ script LavaridgeTown_EventScript_Oliver_OnFrame {
 	addobject (OLIVER_POST_ID)
 	applymovement (OLIVER_POST_ID, LavaridgeTown_Movement_OliverApproach)
     waitmovement (0)
-	msgbox(format("OLIVER: {PLAYER}!\pI just heard something incredible!\pMy university professor just told me about a shrine that just mysteriously appeared in Kizu Forest.\pWe should check it out!\pIt might be related to the shrine in Ilex Forest, and the legendary POKéMON, Celebi.\pLet's go, it's just west of Olivine!"))
+	msgbox(format("OLIVER: {PLAYER}!\pI just heard something incredible!\pMy university professor just told me about a shrine that mysteriously appeared in Kizu Forest recently.\pWe should check it out!\pIt might be related to the shrine in Ilex Forest, and the legendary POKéMON, Celebi.\pLet's go, it's just west of Olivine!"))
 	waitmessage
 	closemessage
 	applymovement (OLIVER_POST_ID, LavaridgeTown_Movement_OliverLeave)

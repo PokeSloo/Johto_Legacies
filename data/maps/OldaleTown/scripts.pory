@@ -317,7 +317,7 @@ script OldaleTown_EventScript_Girl {
 }
 
 script OldaleTown_EventScript_Mailbox {
-	msgbox ("{PLAYER}'S HOUSE", MSGBOX_SIGN)
+	msgbox ("{PLAYER}'s HOUSE", MSGBOX_SIGN)
 	end
 }
 

@@ -17,7 +17,13 @@ script Route110_TrickHouseEnd_EventScript_Lee {
         end
     }
     elif (flag(FLAG_DEFEATED_CIANWOOD_GYM_TRAINERS)) {
-        msgbox(format("Oh, you're ready for a battle now?\pWatching you battle my students really pumped me up!\pLet's waste no more time!"))
+        msgbox(format("Oh, are you ready for a battle now?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == NO) {
+            msgbox(format("Very well.\pGo finish your preparations, I'll be ready when you are..."))
+            release
+            end
+        }
+        msgbox(format("Watching you battle my students really pumped me up!\pLet's waste no more time!"))
         trainerbattle_no_intro (TRAINER_WINONA_1, Route110_TrickHouseEnd_Text_LeeDefeat)
 	    message (format("{PLAYER} received the STORM BADGE from LEE."))
 	    waitmessage

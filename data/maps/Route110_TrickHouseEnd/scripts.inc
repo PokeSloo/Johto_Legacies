@@ -7,19 +7,19 @@ Route110_TrickHouseEnd_EventScript_Lee::
 	faceplayer
 	goto_if_set FLAG_DEFEATED_FORTREE_GYM, Route110_TrickHouseEnd_EventScript_Lee_1
 	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM_TRAINERS, Route110_TrickHouseEnd_EventScript_Lee_2
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_5
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_7
 	waitmessage
 	closemessage
 	specialvar VAR_RESULT, GetPlayerFacingDirection
 	switch VAR_RESULT
-	case DIR_EAST, Route110_TrickHouseEnd_EventScript_Lee_8
-	case DIR_NORTH, Route110_TrickHouseEnd_EventScript_Lee_9
-	case DIR_WEST, Route110_TrickHouseEnd_EventScript_Lee_10
-	case DIR_SOUTH, Route110_TrickHouseEnd_EventScript_Lee_11
-Route110_TrickHouseEnd_EventScript_Lee_6:
+	case DIR_EAST, Route110_TrickHouseEnd_EventScript_Lee_11
+	case DIR_NORTH, Route110_TrickHouseEnd_EventScript_Lee_12
+	case DIR_WEST, Route110_TrickHouseEnd_EventScript_Lee_13
+	case DIR_SOUTH, Route110_TrickHouseEnd_EventScript_Lee_14
+Route110_TrickHouseEnd_EventScript_Lee_9:
 	applymovement 1, Route110_TrickHouseEnd_Movement_StepDown
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_6
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_8
 	waitmessage
 	closemessage
 	applymovement 2, Route110_TrickHouseEnd_Movement_StepUp
@@ -31,12 +31,12 @@ Route110_TrickHouseEnd_EventScript_Lee_6:
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_StepUp
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_7
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_9
 	waitmessage
 	closemessage
 	applymovement 1, Route110_TrickHouseEnd_Movement_StepDown
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_8
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_10
 	waitmessage
 	closemessage
 	applymovement 2, Route110_TrickHouseEnd_Movement_StepLeft
@@ -48,12 +48,12 @@ Route110_TrickHouseEnd_EventScript_Lee_6:
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_StepLeft
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_9
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_11
 	waitmessage
 	closemessage
 	applymovement 1, Route110_TrickHouseEnd_Movement_StepDown
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_10
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_12
 	waitmessage
 	closemessage
 	applymovement 2, Route110_TrickHouseEnd_Movement_StepRight
@@ -65,12 +65,12 @@ Route110_TrickHouseEnd_EventScript_Lee_6:
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_StepRight
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_9
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_11
 	waitmessage
 	closemessage
 	applymovement 1, Route110_TrickHouseEnd_Movement_StepDown
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_11
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_13
 	waitmessage
 	closemessage
 	applymovement 2, Route110_TrickHouseEnd_Movement_StepUp
@@ -82,24 +82,24 @@ Route110_TrickHouseEnd_EventScript_Lee_6:
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_StepUp
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_9
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_11
 	waitmessage
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_LookAround
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_12
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_14
 	waitmessage
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_WalkToLee
 	waitmovement 0
 	applymovement 1, Route110_TrickHouseEnd_Movement_FaceLeft
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_13
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_15
 	waitmessage
 	closemessage
 	applymovement 1, Route110_TrickHouseEnd_Movement_LeeWalkBack
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_14
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_16
 	waitmessage
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_PlayerToMiddle
@@ -107,7 +107,7 @@ Route110_TrickHouseEnd_EventScript_Lee_6:
 	delay 30
 	applymovement 3, Route110_TrickHouseEnd_Movement_FirstToPlayer
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_15
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_17
 	waitmessage
 	closemessage
 	trainerbattle_no_intro TRAINER_JARED, Route110_TrickHouseEnd_Text_JaredDefeat
@@ -115,7 +115,7 @@ Route110_TrickHouseEnd_EventScript_Lee_6:
 	waitmovement 0
 	applymovement 6, Route110_TrickHouseEnd_Movement_FirstToStance
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_16
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_18
 	waitmessage
 	closemessage
 	trainerbattle_no_intro TRAINER_EDWARDO, Route110_TrickHouseEnd_Text_EdwardoDefeat
@@ -123,7 +123,7 @@ Route110_TrickHouseEnd_EventScript_Lee_6:
 	waitmovement 0
 	applymovement 4, Route110_TrickHouseEnd_Movement_ThirdToPlayer
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_17
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_19
 	waitmessage
 	closemessage
 	trainerbattle_no_intro TRAINER_FLINT, Route110_TrickHouseEnd_Text_FlintDefeat
@@ -131,7 +131,7 @@ Route110_TrickHouseEnd_EventScript_Lee_6:
 	waitmovement 0
 	applymovement 5, Route110_TrickHouseEnd_Movement_FourthToPlayer
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_18
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_20
 	waitmessage
 	closemessage
 	trainerbattle_no_intro TRAINER_ASHLEY, Route110_TrickHouseEnd_Text_AshleyDefeat
@@ -139,7 +139,7 @@ Route110_TrickHouseEnd_EventScript_Lee_6:
 	waitmovement 0
 	applymovement 2, Route110_TrickHouseEnd_Movement_FifthToPlayer
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_19
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_21
 	waitmessage
 	closemessage
 	trainerbattle_no_intro TRAINER_HUMBERTO, Route110_TrickHouseEnd_Text_HumbertoDefeat
@@ -147,7 +147,7 @@ Route110_TrickHouseEnd_EventScript_Lee_6:
 	waitmovement 0
 	applymovement 7, Route110_TrickHouseEnd_Movement_SixthToPlayer
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_20
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_22
 	waitmessage
 	closemessage
 	trainerbattle_no_intro TRAINER_DARIUS, Route110_TrickHouseEnd_Text_DariusDefeat
@@ -157,7 +157,7 @@ Route110_TrickHouseEnd_EventScript_Lee_6:
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Route110_TrickHouseEnd_Movement_FaceUp
 	waitmovement 0
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_21
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_23
 	setflag FLAG_DEFEATED_CIANWOOD_GYM_TRAINERS
 	release
 	end
@@ -168,35 +168,43 @@ Route110_TrickHouseEnd_EventScript_Lee_1:
 	end
 
 Route110_TrickHouseEnd_EventScript_Lee_2:
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_1
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Route110_TrickHouseEnd_EventScript_Lee_7
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_3
 	trainerbattle_no_intro TRAINER_WINONA_1, Route110_TrickHouseEnd_Text_LeeDefeat
-	message Route110_TrickHouseEnd_EventScript_Lee_Text_2
+	message Route110_TrickHouseEnd_EventScript_Lee_Text_4
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_3
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_5
 	setflag FLAG_DEFEATED_FORTREE_GYM
 	setflag FLAG_BADGE06_GET
 	addvar VAR_ECRUTEAK_STATE, 1
 	giveitem ITEM_TM31
-	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_4
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_6
 	release
 	end
 
-Route110_TrickHouseEnd_EventScript_Lee_8:
-	call Route110_TrickHouseEnd_EventScript_FacingEast
-	goto Route110_TrickHouseEnd_EventScript_Lee_6
-
-Route110_TrickHouseEnd_EventScript_Lee_9:
-	call Route110_TrickHouseEnd_EventScript_FacingNorth
-	goto Route110_TrickHouseEnd_EventScript_Lee_6
-
-Route110_TrickHouseEnd_EventScript_Lee_10:
-	call Route110_TrickHouseEnd_EventScript_FacingWest
-	goto Route110_TrickHouseEnd_EventScript_Lee_6
+Route110_TrickHouseEnd_EventScript_Lee_7:
+	msgbox Route110_TrickHouseEnd_EventScript_Lee_Text_2
+	release
+	end
 
 Route110_TrickHouseEnd_EventScript_Lee_11:
+	call Route110_TrickHouseEnd_EventScript_FacingEast
+	goto Route110_TrickHouseEnd_EventScript_Lee_9
+
+Route110_TrickHouseEnd_EventScript_Lee_12:
+	call Route110_TrickHouseEnd_EventScript_FacingNorth
+	goto Route110_TrickHouseEnd_EventScript_Lee_9
+
+Route110_TrickHouseEnd_EventScript_Lee_13:
+	call Route110_TrickHouseEnd_EventScript_FacingWest
+	goto Route110_TrickHouseEnd_EventScript_Lee_9
+
+Route110_TrickHouseEnd_EventScript_Lee_14:
 	call Route110_TrickHouseEnd_EventScript_FacingSouth
-	goto Route110_TrickHouseEnd_EventScript_Lee_6
+	goto Route110_TrickHouseEnd_EventScript_Lee_9
 
 
 Route110_TrickHouseEnd_EventScript_FacingEast::
@@ -551,16 +559,23 @@ Route110_TrickHouseEnd_EventScript_Lee_Text_0:
 	.string "sometime.$"
 
 Route110_TrickHouseEnd_EventScript_Lee_Text_1:
-	.string "Oh, you're ready for a battle now?\p"
+	.string "Oh, are you ready for a battle now?$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_2:
+	.string "Very well.\p"
+	.string "Go finish your preparations, I'll be\n"
+	.string "ready when you are...$"
+
+Route110_TrickHouseEnd_EventScript_Lee_Text_3:
 	.string "Watching you battle my students really\n"
 	.string "pumped me up!\p"
 	.string "Let's waste no more time!$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_2:
+Route110_TrickHouseEnd_EventScript_Lee_Text_4:
 	.string "{PLAYER} received the STORM BADGE\n"
 	.string "from LEE.$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_3:
+Route110_TrickHouseEnd_EventScript_Lee_Text_5:
 	.string "With that badge, all POKéMON up to level\n"
 	.string "75 will obey your command without\l"
 	.string "question!\p"
@@ -571,44 +586,44 @@ Route110_TrickHouseEnd_EventScript_Lee_Text_3:
 	.string "...\p"
 	.string "You should also take this.$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_4:
+Route110_TrickHouseEnd_EventScript_Lee_Text_6:
 	.string "That TM contains the move Brick Break!\p"
 	.string "While not the strongest FIGHTING-type\n"
 	.string "move, it will blast through barriers like\l"
 	.string "Light Screen and Reflect.\p"
 	.string "Put it to good use.$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_5:
+Route110_TrickHouseEnd_EventScript_Lee_Text_7:
 	.string "LEE: Who are you? A new student?\p"
 	.string "Perfect timing, we were just getting\n"
 	.string "warmed up.\p"
 	.string "Now line up!$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_6:
+Route110_TrickHouseEnd_EventScript_Lee_Text_8:
 	.string "LEE: Attention!$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_7:
+Route110_TrickHouseEnd_EventScript_Lee_Text_9:
 	.string "ALL: Yes, sensei!\p"
 	.string "LEE: Let's get back to our striking\n"
 	.string "drills!$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_8:
+Route110_TrickHouseEnd_EventScript_Lee_Text_10:
 	.string "LEE: Now, strike left!$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_9:
+Route110_TrickHouseEnd_EventScript_Lee_Text_11:
 	.string "ALL: Osu!$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_10:
+Route110_TrickHouseEnd_EventScript_Lee_Text_12:
 	.string "LEE: Strike right!$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_11:
+Route110_TrickHouseEnd_EventScript_Lee_Text_13:
 	.string "LEE: Strike forward!$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_12:
+Route110_TrickHouseEnd_EventScript_Lee_Text_14:
 	.string "LEE: You in the middle!\p"
 	.string "What's your malfunction?$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_13:
+Route110_TrickHouseEnd_EventScript_Lee_Text_15:
 	.string "...\p"
 	.string "...\p"
 	.string "LEE: What's that?\p"
@@ -618,36 +633,36 @@ Route110_TrickHouseEnd_EventScript_Lee_Text_13:
 	.string "...\p"
 	.string "I tell you what...$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_14:
+Route110_TrickHouseEnd_EventScript_Lee_Text_16:
 	.string "LEE: Battle all of my students\n"
 	.string "consecutively!\p"
 	.string "If you win, I may grant you a battle.$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_15:
+Route110_TrickHouseEnd_EventScript_Lee_Text_17:
 	.string "I'm not holding back on you just\n"
 	.string "because you're a kid!$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_16:
+Route110_TrickHouseEnd_EventScript_Lee_Text_18:
 	.string "That last guy was the weakest one of\n"
 	.string "us, I'll show you how it's done!$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_17:
+Route110_TrickHouseEnd_EventScript_Lee_Text_19:
 	.string "That was just beginners luck!\p"
 	.string "There's no way you're beating all of us!$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_18:
+Route110_TrickHouseEnd_EventScript_Lee_Text_20:
 	.string "Alright kid, this is where things get\n"
 	.string "serious!$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_19:
+Route110_TrickHouseEnd_EventScript_Lee_Text_21:
 	.string "You're no joke kid, this is getting\n"
 	.string "interesting!$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_20:
+Route110_TrickHouseEnd_EventScript_Lee_Text_22:
 	.string "I'm the last one, let's see if you can\n"
 	.string "keep it up!$"
 
-Route110_TrickHouseEnd_EventScript_Lee_Text_21:
+Route110_TrickHouseEnd_EventScript_Lee_Text_23:
 	.string "LEE: Wow, I was wrong about you!\p"
 	.string "You completely blew away my\n"
 	.string "expectations!\p"
