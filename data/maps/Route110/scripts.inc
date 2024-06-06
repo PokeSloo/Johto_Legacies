@@ -9,18 +9,18 @@ Route110_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 Route110_OnFrame::
 	lock
-	addobject 31
+	addobject 26
 	applymovement OBJ_EVENT_ID_PLAYER, Route110_Movement_PlayerToShane
 	waitmovement 0
 	delay 30
-	applymovement 31, Route110_Movement_ShaneLookAround
+	applymovement 26, Route110_Movement_ShaneLookAround
 	waitmovement 0
 	msgbox Route110_OnFrame_Text_0
 	waitmessage
 	closemessage
-	applymovement 31, Route110_Movement_ShaneLeaveToResort
+	applymovement 26, Route110_Movement_ShaneLeaveToResort
 	waitmovement 0
-	removeobject 31
+	removeobject 26
 	setflag FLAG_HIDE_SHANE_RESORT_GATE
 	setflag FLAG_HIDE_SHANE_RESORT_HOUSE
 	addvar VAR_ECRUTEAK_STATE, 1
@@ -106,51 +106,51 @@ Route110_EventScript_Whitney::
 	waitmessage
 	closemessage
 	delay 30
-	addobject 33
-	applymovement 33, Route110_Movement_GrunttoHouse
+	addobject 28
+	applymovement 28, Route110_Movement_GrunttoHouse
 	waitmovement 0
 	playse SE_PIN
 	applymovement OBJ_EVENT_ID_PLAYER, Route110_Movement_ExclamationLeft
 	waitmovement 0
 	waitse
-	applymovement 33, Route110_Movement_GruntLookAround
+	applymovement 28, Route110_Movement_GruntLookAround
 	waitmovement 0
 	delay 20
 	opendoor 78, 27
 	waitdooranim
-	applymovement 33, Route110_Movement_StepinHouse
+	applymovement 28, Route110_Movement_StepinHouse
 	waitmovement 0
-	removeobject 33
+	removeobject 28
 	closedoor 78, 27
 	waitdooranim
 	applymovement OBJ_EVENT_ID_PLAYER, Route110_Movement_PlayertoShane
 	waitmovement 0
 	playse SE_PIN
-	applymovement 32, Route110_Movement_QuestionFaceUp
+	applymovement 27, Route110_Movement_QuestionFaceUp
 	waitmovement 0
 	waitse
 	msgbox Route110_EventScript_Whitney_Text_1
 	waitmessage
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Route110_Movement_StepLeft
-	applymovement 32, Route110_Movement_StepLeft
+	applymovement 27, Route110_Movement_StepLeft
 	waitmovement 0
 	msgbox Route110_EventScript_Whitney_Text_2
 	waitmessage
 	applymovement OBJ_EVENT_ID_PLAYER, Route110_Movement_FaceDown
-	applymovement 32, Route110_Movement_FaceUp
+	applymovement 27, Route110_Movement_FaceUp
 	waitmovement 0
 	msgbox Route110_EventScript_Whitney_Text_3
 	waitmessage
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Route110_Movement_PlayerToHouse
-	applymovement 32, Route110_Movement_ShaneToHouse
+	applymovement 27, Route110_Movement_ShaneToHouse
 	waitmovement 0
 	opendoor 78, 27
 	waitdooranim
-	applymovement 32, Route110_Movement_StepinHouse
+	applymovement 27, Route110_Movement_StepinHouse
 	waitmovement 0
-	removeobject 32
+	removeobject 27
 	closedoor 78, 27
 	waitdooranim
 	clearflag FLAG_HIDE_SHANE_RESORT_HOUSE
@@ -322,16 +322,6 @@ Route110_EventScript_ChallengeGuy::
 	msgbox Route110_Text_AlwaysAimHigher, MSGBOX_NPC
 	end
 
-Route110_EventScript_Edward::
-	trainerbattle_single TRAINER_EDWARD, Route110_Text_EdwardIntro, Route110_Text_EdwardDefeated
-	msgbox Route110_Text_EdwardPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Jaclyn::
-	trainerbattle_single TRAINER_JACLYN, Route110_Text_JaclynIntro, Route110_Text_JaclynDefeated
-	msgbox Route110_Text_JaclynPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route110_EventScript_Edwin::
 	trainerbattle_single TRAINER_EDWIN_1, Route110_Text_EdwinIntro, Route110_Text_EdwinDefeated, Route110_EventScript_EdwinRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
@@ -356,11 +346,6 @@ Route110_EventScript_EdwinRematch::
 Route110_EventScript_Dale::
 	trainerbattle_single TRAINER_DALE, Route110_Text_DaleIntro, Route110_Text_DaleDefeated
 	msgbox Route110_Text_DalePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Jacob::
-	trainerbattle_single TRAINER_JACOB, Route110_Text_JacobIntro, Route110_Text_JacobDefeated
-	msgbox Route110_Text_JacobPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route110_EventScript_Anthony::
@@ -415,27 +400,6 @@ Route110_EventScript_AbigailRematch::
 	msgbox Route110_Text_AbigailRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route110_EventScript_Isabel::
-	trainerbattle_single TRAINER_ISABEL_1, Route110_Text_IsabelIntro, Route110_Text_IsabelDefeated, Route110_EventScript_IsabelRegisterMatchCallAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route110_EventScript_IsabelRematch
-	msgbox Route110_Text_IsabelPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route110_EventScript_IsabelRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route110_Text_IsabelRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ISABEL_1
-	release
-	end
-
-Route110_EventScript_IsabelRematch::
-	trainerbattle_rematch TRAINER_ISABEL_1, Route110_Text_IsabelRematchIntro, Route110_Text_IsabelRematchDefeated
-	msgbox Route110_Text_IsabelRematchPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route110_EventScript_Timmy::
 	trainerbattle_single TRAINER_TIMMY, Route110_Text_TimmyIntro, Route110_Text_TimmyDefeated
 	msgbox Route110_Text_TimmyPostBattle, MSGBOX_AUTOCLOSE
@@ -452,11 +416,6 @@ Route110_EventScript_Kaleb::
 Route110_EventScript_Joseph::
 	trainerbattle_single TRAINER_JOSEPH, Route110_Text_JosephIntro, Route110_Text_JosephDefeated
 	msgbox Route110_Text_JosephPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Alyssa::
-	trainerbattle_single TRAINER_ALYSSA, Route110_Text_AlyssaIntro, Route110_Text_AlyssaDefeated
-	msgbox Route110_Text_AlyssaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route110_Text_RideBikeAtFullSpeed:

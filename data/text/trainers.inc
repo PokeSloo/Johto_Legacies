@@ -979,17 +979,18 @@ Route109_Text_ElijahPostBattle:
 	.string "world!$"
 
 Route110_Text_JacobIntro:
-	.string "If you don't watch out for thin ice,\n"
-	.string "you'll be in trouble!$"
+	.string "I need a break from treking through\n"
+	.string "this cave.\p"
+	.string "A quick battle sounds nice!$"
 
 Route110_Text_JacobDefeated:
-	.string "You shattered my dreams just like thin\n"
-	.string "ice!$"
+	.string "Hey, that battle went by a little too\n"
+	.string "fast!$"
 
 Route110_Text_JacobPostBattle:
-	.string "You know, I really haven't seen thin ice\n"
-	.string "around here.\p"
-	.string "Just patches of water.$"
+	.string "Honestly, I'm a little afraid to jump\n"
+	.string "down the holes up ahead.\p"
+	.string "There's no telling what's at the bottom.$"
 
 Route110_Text_AnthonyIntro:
 	.string "How are we snowboarding on the ice?\p"
@@ -1075,29 +1076,25 @@ Route110_Text_JasminePostBattle:
 	.string "that?$"
 
 Route110_Text_EdwardIntro:
-	.string "Do you really have a membership here,\n"
-	.string "you don't look like you could afford it!$"
+	.string "Gah, I can't get past this ice puzzle.\p"
+	.string "I'm so frustrated!$"
 
 Route110_Text_EdwardDefeated:
-	.string "I didn't mean it!\n"
-	.string "Please don't take my money!$"
+	.string "Now I'm even more frustrated!$"
 
 Route110_Text_EdwardPostBattle:
-	.string "I see, you must have built a fortune\n"
-	.string "from defeating TRAINERS like myself.$"
+	.string "Ice puzzles are the worst, don't you\n"
+	.string "agree?$"
 
 Route110_Text_JaclynIntro:
-	.string "Hmm... You look like fun!$"
+	.string "It's too cold in here!\p"
+	.string "Maybe a battle will warm me up!$"
 
 Route110_Text_JaclynDefeated:
-	.string "I was right!\n"
-	.string "You're a pretty good TRAINER.$"
+	.string "Nope, I'm still freezing!$"
 
 Route110_Text_JaclynPostBattle:
-	.string "The resort is beautiful this time of\n"
-	.string "year!\p"
-	.string "I just had to take a stroll around the\n"
-	.string "frozen lake.$"
+	.string "I'm jogging in place to keep warm!$"
 
 Route110_Text_EdwinIntro:
 	.string "Hey, don't stop me!\p"
@@ -1137,34 +1134,33 @@ Route110_Text_DalePostBattle:
 	.string "He's staying in one of the cabins.$"
 
 Route110_Text_IsabelIntro:
-	.string "I got bored of sitting in my cabin, let's\n"
-	.string "battle!$"
+	.string "Did you come out here to train as well?$"
 
 Route110_Text_IsabelDefeated:
-	.string "Defeat is better than cabin fever, I\n"
-	.string "suppose.$"
+	.string "It seems I have some more training to\n"
+	.string "do before I'm at your level.$"
 
 Route110_Text_IsabelPostBattle:
-	.string "Sitting in the cabin is boring, but it's\n"
-	.string "too cold out here.\p"
-	.string "I'm just not sure what to do!$"
+	.string "Training in a cold cave like this\n"
+	.string "teaches you to think in stressful\l"
+	.string "situations.$"
 
 Route110_Text_IsabelRegister:
-	.string "If you're ever bored yourself, we could\n"
-	.string "have another battle...$"
+	.string "Hopefully next time I'll put up more of a\n"
+	.string "challenge for you...$"
 
 Route110_Text_IsabelRematchIntro:
 	.string "I'm glad you showed up, I was starting\n"
-	.string "to get bored again!$"
+	.string "to get bored!$"
 
 Route110_Text_IsabelRematchDefeated:
 	.string "I really don't like to lose, but at least\n"
 	.string "I'm not bored.$"
 
 Route110_Text_IsabelRematchPostBattle:
-	.string "Sitting in the cabin is boring, but it's\n"
-	.string "too cold out here.\p"
-	.string "I'm just not sure what to do!$"
+	.string "Training in a cold cave like this\n"
+	.string "teaches you to think in stressful\l"
+	.string "situations.$"
 
 Route110_Text_TimmyIntro:
 	.string "Care for a battle on the way to the ski\n"
@@ -1180,16 +1176,16 @@ Route110_Text_TimmyPostBattle:
 	.string "up!$"
 
 Route110_Text_AlyssaIntro:
-	.string "Sure, I always have time for a POKéMON\n"
-	.string "battle!$"
+	.string "POKéMON battling on ice...\p"
+	.string "Sounds like some weird theatre show!$"
 
 Route110_Text_AlyssaDefeated:
-	.string "Hmm... I don't have time for losing\n"
-	.string "though...$"
+	.string "Well, you sure did put on a show!$"
 
 Route110_Text_AlyssaPostBattle:
-	.string "POKéMON battling on ice...\p"
-	.string "Sounds like some weird theatre show.$"
+	.string "They wouldn't let me into the Rage\n"
+	.string "Resort, but I can have just as much fun\l"
+	.string "here!$"
 
 Route110_Text_JosephIntro:
 	.string "They need to put up warning signs, this\n"

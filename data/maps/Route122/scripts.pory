@@ -157,7 +157,7 @@ script Route122_EventScript_Shrine {
         applymovement (PHOENIX_GRUNT_1_ID, Route122_Movement_ApproachCloser)
         applymovement (PHOENIX_GRUNT_2_ID, Route122_Movement_ApproachCloser)
         waitmovement (0)
-        msgbox(format("THORNE: Well done, {PLAYER}.\pI must thank you for luring in Celebi for us.\pWe truly couldn't have done it without you."))
+        msgbox(format("THORNE: Well done, {PLAYER}.\pI must thank you for luring Celebi out for us.\pWe truly couldn't have done it without you."))
         waitmessage
         applymovement (OLIVER_ID, Route122_Movement_StepDown)
         waitmovement (0)

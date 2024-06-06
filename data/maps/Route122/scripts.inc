@@ -316,7 +316,7 @@ Route122_EventScript_Oliver_Text_0:
 
 Route122_EventScript_Shrine_Text_0:
 	.string "THORNE: Well done, {PLAYER}.\p"
-	.string "I must thank you for luring in Celebi\n"
+	.string "I must thank you for luring Celebi out\n"
 	.string "for us.\p"
 	.string "We truly couldn't have done it without\n"
 	.string "you.$"

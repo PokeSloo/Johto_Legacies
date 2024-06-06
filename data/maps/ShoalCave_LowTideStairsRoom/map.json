@@ -117,6 +117,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ShoalCave_LowTideStairsRoom_EventScript_ItemMaxElixer",
       "flag": "FLAG_ITEM_ICE_PATH_MAX_ELIXIR"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
+      "x": 48,
+      "y": 17,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "ShoalCave_LowTideEntranceRoom_EventScript_Alyssa",
+      "flag": "0"
     }
   ],
   "warp_events": [
