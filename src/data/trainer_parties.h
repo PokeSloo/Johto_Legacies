@@ -3733,7 +3733,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Walter5[] = {
 static const struct TrainerMonItemCustomMoves sParty_Sidney[] = {
     {
     .iv = 255,
-    .lvl = 68,
+    .lvl = 66,
     .species = SPECIES_OVERQWIL,
     .heldItem = ITEM_AIR_BALLOON,
     .abilityNums = 2,
@@ -3741,7 +3741,7 @@ static const struct TrainerMonItemCustomMoves sParty_Sidney[] = {
     },
     {
     .iv = 255,
-    .lvl = 68,
+    .lvl = 66,
     .species = SPECIES_CROBAT,
     .heldItem = ITEM_SHARP_BEAK,
     .abilityNums = 2,
@@ -3749,7 +3749,7 @@ static const struct TrainerMonItemCustomMoves sParty_Sidney[] = {
     },
     {
     .iv = 255,
-    .lvl = 69,
+    .lvl = 67,
     .species = SPECIES_TENTACRUEL,
     .heldItem = ITEM_ASSAULT_VEST,
     .abilityNums = 0,
@@ -3757,7 +3757,7 @@ static const struct TrainerMonItemCustomMoves sParty_Sidney[] = {
     },
     {
     .iv = 255,
-    .lvl = 69,
+    .lvl = 67,
     .species = SPECIES_SLOWKING_GALARIAN,
     .heldItem = ITEM_BLACK_SLUDGE,
     .abilityNums = 0,
@@ -3765,7 +3765,7 @@ static const struct TrainerMonItemCustomMoves sParty_Sidney[] = {
     },
     {
     .iv = 255,
-    .lvl = 69,
+    .lvl = 67,
     .species = SPECIES_VENUSAUR,
     .heldItem = ITEM_LEFTOVERS,
     .abilityNums = 0,
@@ -3773,7 +3773,7 @@ static const struct TrainerMonItemCustomMoves sParty_Sidney[] = {
     },
     {
     .iv = 255,
-    .lvl = 70,
+    .lvl = 68,
     .species = SPECIES_NIDOQUEEN,
     .heldItem = ITEM_LIFE_ORB,
     .abilityNums = 2,
@@ -3784,7 +3784,7 @@ static const struct TrainerMonItemCustomMoves sParty_Sidney[] = {
 static const struct TrainerMonItemCustomMoves sParty_Phoebe[] = {
     {
     .iv = 255,
-    .lvl = 69,
+    .lvl = 67,
     .species = SPECIES_ROTOM_HEAT,
     .heldItem = ITEM_WHITE_HERB,
     .abilityNums = 0,
@@ -3792,7 +3792,7 @@ static const struct TrainerMonItemCustomMoves sParty_Phoebe[] = {
     },
     {
     .iv = 255,
-    .lvl = 69,
+    .lvl = 67,
     .species = SPECIES_NINETALES,
     .heldItem = ITEM_AIR_BALLOON,
     .abilityNums = 2,
@@ -3800,7 +3800,7 @@ static const struct TrainerMonItemCustomMoves sParty_Phoebe[] = {
     },
     {
     .iv = 255,
-    .lvl = 70,
+    .lvl = 68,
     .species = SPECIES_DARMANITAN,
     .heldItem = ITEM_CHOICE_SCARF,
     .abilityNums = 0,
@@ -3808,7 +3808,7 @@ static const struct TrainerMonItemCustomMoves sParty_Phoebe[] = {
     },
     {
     .iv = 255,
-    .lvl = 70,
+    .lvl = 68,
     .species = SPECIES_BLAZIKEN,
     .heldItem = ITEM_LIFE_ORB,
     .abilityNums = 2,
@@ -3816,7 +3816,7 @@ static const struct TrainerMonItemCustomMoves sParty_Phoebe[] = {
     },
     {
     .iv = 255,
-    .lvl = 70,
+    .lvl = 68,
     .species = SPECIES_VOLCARONA,
     .heldItem = ITEM_LEFTOVERS,
     .abilityNums = 0,
@@ -3824,7 +3824,7 @@ static const struct TrainerMonItemCustomMoves sParty_Phoebe[] = {
     },
     {
     .iv = 255,
-    .lvl = 71,
+    .lvl = 69,
     .species = SPECIES_ARCANINE_HISUIAN,
     .heldItem = ITEM_CHOICE_BAND,
     .abilityNums = 2,
@@ -3835,7 +3835,7 @@ static const struct TrainerMonItemCustomMoves sParty_Phoebe[] = {
 static const struct TrainerMonItemCustomMoves sParty_Glacia[] = {
     {
     .iv = 255,
-    .lvl = 70,
+    .lvl = 68,
     .species = SPECIES_SPIRITOMB,
     .heldItem = ITEM_BLACK_GLASSES,
     .abilityNums = 2,
@@ -3843,7 +3843,7 @@ static const struct TrainerMonItemCustomMoves sParty_Glacia[] = {
     },
     {
     .iv = 255,
-    .lvl = 70,
+    .lvl = 68,
     .species = SPECIES_MIMIKYU,
     .heldItem = ITEM_RED_CARD,
     .abilityNums = 0,
@@ -3851,7 +3851,7 @@ static const struct TrainerMonItemCustomMoves sParty_Glacia[] = {
     },
     {
     .iv = 255,
-    .lvl = 71,
+    .lvl = 69,
     .species = SPECIES_DRAGAPULT,
     .heldItem = ITEM_LIFE_ORB,
     .abilityNums = 1,
@@ -3859,7 +3859,7 @@ static const struct TrainerMonItemCustomMoves sParty_Glacia[] = {
     },
     {
     .iv = 255,
-    .lvl = 71,
+    .lvl = 69,
     .species = SPECIES_DUSKNOIR,
     .heldItem = ITEM_LEFTOVERS,
     .abilityNums = 0,
@@ -3867,7 +3867,7 @@ static const struct TrainerMonItemCustomMoves sParty_Glacia[] = {
     },
     {
     .iv = 255,
-    .lvl = 71,
+    .lvl = 69,
     .species = SPECIES_AEGISLASH,
     .heldItem = ITEM_IRON_BALL,
     .abilityNums = 0,
@@ -3875,7 +3875,7 @@ static const struct TrainerMonItemCustomMoves sParty_Glacia[] = {
     },
     {
     .iv = 255,
-    .lvl = 72,
+    .lvl = 70,
     .species = SPECIES_GENGAR,
     .heldItem = ITEM_CHOICE_SPECS,
     .abilityNums = 0,
@@ -3886,7 +3886,7 @@ static const struct TrainerMonItemCustomMoves sParty_Glacia[] = {
 static const struct TrainerMonItemCustomMoves sParty_Drake[] = {
     {
     .iv = 255,
-    .lvl = 71,
+    .lvl = 69,
     .species = SPECIES_SKARMORY,
     .heldItem = ITEM_ROCKY_HELMET,
     .abilityNums = 1,
@@ -3894,7 +3894,7 @@ static const struct TrainerMonItemCustomMoves sParty_Drake[] = {
     },
     {
     .iv = 255,
-    .lvl = 71,
+    .lvl = 69,
     .species = SPECIES_DURALUDON,
     .heldItem = ITEM_ASSAULT_VEST,
     .abilityNums = 0,
@@ -3902,7 +3902,7 @@ static const struct TrainerMonItemCustomMoves sParty_Drake[] = {
     },
     {
     .iv = 255,
-    .lvl = 72,
+    .lvl = 70,
     .species = SPECIES_EMPOLEON,
     .heldItem = ITEM_LIFE_ORB,
     .abilityNums = 0,
@@ -3910,7 +3910,7 @@ static const struct TrainerMonItemCustomMoves sParty_Drake[] = {
     },
     {
     .iv = 255,
-    .lvl = 72,
+    .lvl = 70,
     .species = SPECIES_FERROTHORN,
     .heldItem = ITEM_LEFTOVERS,
     .abilityNums = 0,
@@ -3918,7 +3918,7 @@ static const struct TrainerMonItemCustomMoves sParty_Drake[] = {
     },
     {
     .iv = 255,
-    .lvl = 72,
+    .lvl = 70,
     .species = SPECIES_EXCADRILL,
     .heldItem = ITEM_FOCUS_SASH,
     .abilityNums = 0,
@@ -3926,7 +3926,7 @@ static const struct TrainerMonItemCustomMoves sParty_Drake[] = {
     },
     {
     .iv = 255,
-    .lvl = 73,
+    .lvl = 71,
     .species = SPECIES_METAGROSS,
     .heldItem = ITEM_CHOICE_BAND,
     .abilityNums = 0,
@@ -5108,7 +5108,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Timmy[] = {
 static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     {
     .iv = 255,
-    .lvl = 73,
+    .lvl = 70,
     .species = SPECIES_GOLEM,
     .heldItem = ITEM_CUSTAP_BERRY,
     .abilityNums = 1,
@@ -5116,7 +5116,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     },
     {
     .iv = 255,
-    .lvl = 73,
+    .lvl = 70,
     .species = SPECIES_MAGNEZONE,
     .heldItem = ITEM_AIR_BALLOON,
     .abilityNums = 1,
@@ -5124,7 +5124,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     },
     {
     .iv = 255,
-    .lvl = 74,
+    .lvl = 71,
     .species = SPECIES_ALAKAZAM,
     .heldItem = ITEM_FOCUS_SASH,
     .abilityNums = 2,
@@ -5132,7 +5132,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     },
     {
     .iv = 255,
-    .lvl = 74,
+    .lvl = 71,
     .species = SPECIES_SALAMENCE,
     .heldItem = ITEM_SALAMENCITE,
     .abilityNums = 0,
@@ -5140,7 +5140,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     },
     {
     .iv = 255,
-    .lvl = 74,
+    .lvl = 71,
     .species = SPECIES_ENTEI,
     .heldItem = ITEM_CHOICE_BAND,
     .abilityNums = 0,
@@ -5148,7 +5148,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     },
     {
     .iv = 255,
-    .lvl = 75,
+    .lvl = 72,
     .species = SPECIES_FERALIGATR,
     .heldItem = ITEM_LIFE_ORB,
     .abilityNums = 2,
@@ -8046,7 +8046,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute103Treecko[] = {
 static const struct TrainerMonItemCustomMoves sParty_MayRoute110Treecko[] = {
     {
     .iv = 250,
-    .lvl = 66,
+    .lvl = 63,
     .species = SPECIES_GALVANTULA,
     .heldItem = ITEM_LIFE_ORB,
     .abilityNums = 0,
@@ -8054,7 +8054,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute110Treecko[] = {
     },
     {
     .iv = 250,
-    .lvl = 66,
+    .lvl = 63,
     .species = SPECIES_KROOKODILE,
     .heldItem = ITEM_QUICK_CLAW,
     .abilityNums = 0,
@@ -8062,7 +8062,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute110Treecko[] = {
     },
     {
     .iv = 250,
-    .lvl = 67,
+    .lvl = 64,
     .species = SPECIES_SHARPEDO,
     .heldItem = ITEM_FOCUS_SASH,
     .abilityNums = 2,
@@ -8070,7 +8070,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute110Treecko[] = {
     },
     {
     .iv = 250,
-    .lvl = 67,
+    .lvl = 64,
     .species = SPECIES_MUK_ALOLAN,
     .heldItem = ITEM_ASSAULT_VEST,
     .abilityNums = 0,
@@ -8078,7 +8078,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute110Treecko[] = {
     },
     {
     .iv = 250,
-    .lvl = 67,
+    .lvl = 64,
     .species = SPECIES_AERODACTYL,
     .heldItem = ITEM_CHOICE_BAND,
     .abilityNums = 2,
@@ -8086,7 +8086,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute110Treecko[] = {
     },
     {
     .iv = 250,
-    .lvl = 68,
+    .lvl = 65,
     .species = SPECIES_HOUNDOOM,
     .heldItem = ITEM_CHOICE_SCARF,
     .abilityNums = 1,
@@ -8097,7 +8097,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute110Treecko[] = {
 static const struct TrainerMonItemCustomMoves sParty_MayRoute119Treecko[] = {
     {
     .iv = 255,
-    .lvl = 73,
+    .lvl = 72,
     .species = SPECIES_GALVANTULA,
     .heldItem = ITEM_LIFE_ORB,
     .abilityNums = 0,
@@ -8105,7 +8105,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute119Treecko[] = {
     },
     {
     .iv = 255,
-    .lvl = 74,
+    .lvl = 73,
     .species = SPECIES_GLISCOR,
     .heldItem = ITEM_TOXIC_ORB,
     .abilityNums = 2,
@@ -8113,7 +8113,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute119Treecko[] = {
     },
     {
     .iv = 255,
-    .lvl = 74,
+    .lvl = 73,
     .species = SPECIES_SHARPEDO,
     .heldItem = ITEM_FOCUS_SASH,
     .abilityNums = 2,
@@ -8121,7 +8121,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute119Treecko[] = {
     },
     {
     .iv = 255,
-    .lvl = 74,
+    .lvl = 73,
     .species = SPECIES_MUK_ALOLAN,
     .heldItem = ITEM_ASSAULT_VEST,
     .abilityNums = 0,
@@ -8129,7 +8129,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute119Treecko[] = {
     },
     {
     .iv = 255,
-    .lvl = 75,
+    .lvl = 74,
     .species = SPECIES_MEGANIUM,
     .heldItem = ITEM_LEFTOVERS,
     .abilityNums = 0,
@@ -8137,7 +8137,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute119Treecko[] = {
     },
     {
     .iv = 255,
-    .lvl = 75,
+    .lvl = 74,
     .species = SPECIES_HOUNDOOM,
     .heldItem = ITEM_HOUNDOOMINITE,
     .abilityNums = 1,
