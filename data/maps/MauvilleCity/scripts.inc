@@ -20,12 +20,14 @@ MauvilleCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
 	setweather WEATHER_DROUGHT
 	playbgm MUS_B_PYRAMID, TRUE
 	setobjectxyperm 7, 46, 41
+	setobjectxyperm 4, 54, 30
 	goto MauvilleCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
 
 MauvilleCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_5:
 	setweather WEATHER_DROUGHT
 	playbgm MUS_B_PYRAMID, TRUE
 	setobjectxyperm 7, 46, 41
+	setobjectxyperm 4, 54, 30
 	goto MauvilleCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_4
 
 MauvilleCity_MapScripts_MAP_SCRIPT_ON_LOAD:
@@ -343,7 +345,7 @@ MauvilleCity_OnFrame_Later::
 	closemessage
 	playse SE_POKENAV_CALL
 	waitse
-	delay 30
+	delay 60
 	msgbox MauvilleCity_OnFrame_Later_Text_1
 	waitmessage
 	closemessage
@@ -352,6 +354,7 @@ MauvilleCity_OnFrame_Later::
 	waitmovement 0
 	removeobject 11
 	removeobject 12
+	setobjectxy 4, 34, 32
 	setflag FLAG_HIDE_SILVER_ECRUTEAK
 	setflag FLAG_HOOH_VS_LUGIA_COMPLETED
 	clearflag FLAG_HIDE_OLIVER_TRAINER_SCHOOL
@@ -691,10 +694,10 @@ MauvilleCity_EventScript_KimonoGirl_Text_0:
 	.string "Please come in and enjoy yourself!$"
 
 MauvilleCity_EventScript_KimonoGirl_Text_1:
-	.string "Welcome to the Ecruteak Dance Theater!\p"
-	.string "Hmm... It sure has gotten hot here\n"
-	.string "lately.\p"
-	.string "Pretty strange for this time of year.$"
+	.string "This is terrible!\p"
+	.string "Ho-oh normally isn't this aggressive, I\n"
+	.string "hope the Ecruteak Dance Theater\l"
+	.string "survives!$"
 
 MauvilleCity_EventScript_KimonoGirl_Text_2:
 	.string "Welcome to the Ecruteak Dance Theater!\p"

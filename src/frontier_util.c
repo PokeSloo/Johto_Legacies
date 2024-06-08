@@ -145,7 +145,7 @@ static const struct FrontierBrainMon sFrontierBrainsMons[][2][FRONTIER_PARTY_SIZ
             },
             {
                 .species = SPECIES_TYPHLOSION,
-                .heldItem = ITEM_CHOICE_SPECS,
+                .heldItem = ITEM_CHOICE_SCARF,
                 .fixedIV = MAX_PER_STAT_IVS,
                 .nature = NATURE_MODEST,
                 .evs = {0, 0, 0, 252, 252, 6},

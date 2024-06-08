@@ -6,11 +6,13 @@ mapscripts MauvilleCity_MapScripts {
             setweather (WEATHER_DROUGHT)
             playbgm (MUS_B_PYRAMID, TRUE)
             setobjectxyperm (7, 46, 41)
+            setobjectxyperm (4, 54, 30)
         }
         if (var (VAR_ECRUTEAK_STATE) == 10) {
             setweather (WEATHER_DROUGHT)
             playbgm (MUS_B_PYRAMID, TRUE)
             setobjectxyperm (7, 46, 41)
+            setobjectxyperm (4, 54, 30)
         }
 	    end
     }
@@ -324,7 +326,7 @@ script MauvilleCity_OnFrame_Later {
     closemessage
     playse (SE_POKENAV_CALL)
     waitse
-    delay (30)
+    delay (60)
     msgbox(format("DAD: Sorry, it looks like they need me back at the POKéMON League now.\pI hope to see you again soon, {PLAYER}."))
     waitmessage
     closemessage
@@ -333,6 +335,7 @@ script MauvilleCity_OnFrame_Later {
 	waitmovement (0)
     removeobject (11)
     removeobject (12)
+    setobjectxy (4, 34, 32)
     setflag (FLAG_HIDE_SILVER_ECRUTEAK)
     setflag (FLAG_HOOH_VS_LUGIA_COMPLETED)
     clearflag (FLAG_HIDE_OLIVER_TRAINER_SCHOOL)
@@ -500,7 +503,7 @@ script MauvilleCity_EventScript_KimonoGirl {
         end
     }
     elif (flag(FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS)) {
-        msgbox(format("Welcome to the Ecruteak Dance Theater!\pHmm... It sure has gotten hot here lately.\pPretty strange for this time of year."))
+        msgbox(format("This is terrible!\pHo-oh normally isn't this aggressive, I hope the Ecruteak Dance Theater survives!"))
         release
         end
     }

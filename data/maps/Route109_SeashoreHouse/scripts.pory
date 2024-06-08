@@ -111,6 +111,7 @@ Route109_SeashoreHouse_Text_SimonPostBattle:
 
 script Route109_SeashoreHouse_EventScript_Shopkeep {
     lock
+	faceplayer
     msgbox (format("Welcome!\pHow may I serve you?"))
     waitmessage
     pokemart (Route109_SeashoreHouse_MartItems)

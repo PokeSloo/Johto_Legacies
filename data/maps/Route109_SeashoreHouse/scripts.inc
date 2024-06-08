@@ -109,6 +109,7 @@ Route109_SeashoreHouse_Text_SimonPostBattle:
 
 Route109_SeashoreHouse_EventScript_Shopkeep::
 	lock
+	faceplayer
 	msgbox Route109_SeashoreHouse_EventScript_Shopkeep_Text_0
 	waitmessage
 	pokemart Route109_SeashoreHouse_MartItems
