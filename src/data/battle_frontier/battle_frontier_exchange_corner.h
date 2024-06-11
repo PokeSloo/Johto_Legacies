@@ -37,10 +37,10 @@ static const u16 sFrontierExchangeCorner_Vitamins[] =
 static const u16 sFrontierExchangeCorner_HoldItems[] =
 {
     ITEM_LEFTOVERS,
-    ITEM_WHITE_HERB,
-    ITEM_QUICK_CLAW,
-    ITEM_MENTAL_HERB,
     ITEM_BRIGHT_POWDER,
+    ITEM_QUICK_CLAW,
+    ITEM_CHOICE_SCARF,
+    ITEM_CHOICE_SPECS,
     ITEM_CHOICE_BAND,
     ITEM_KINGS_ROCK,
     ITEM_FOCUS_BAND,
@@ -87,10 +87,10 @@ static const u8 *const sFrontierExchangeCorner_VitaminsDescriptions[] =
 static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions[] =
 {
     BattleFrontier_ExchangeServiceCorner_Text_LeftoversDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_WhiteHerbDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_BrightpowderDesc,
     BattleFrontier_ExchangeServiceCorner_Text_QuickClawDesc,
     BattleFrontier_ExchangeServiceCorner_Text_MentalHerbDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_BrightpowderDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_WhiteHerbDesc,
     BattleFrontier_ExchangeServiceCorner_Text_ChoiceBandDesc,
     BattleFrontier_ExchangeServiceCorner_Text_KingsRockDesc,
     BattleFrontier_ExchangeServiceCorner_Text_FocusBandDesc,

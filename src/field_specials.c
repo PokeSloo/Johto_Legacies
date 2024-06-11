@@ -2373,10 +2373,10 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
     [SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR] =
     {
         gText_Leftovers48BP,
-        gText_WhiteHerb48BP,
+        gText_BrightPowder64BP,
         gText_QuickClaw48BP,
         gText_MentalHerb48BP,
-        gText_BrightPowder64BP,
+        gText_WhiteHerb48BP,
         gText_ChoiceBand64BP,
         gText_KingsRock64BP,
         gText_FocusBand64BP,
