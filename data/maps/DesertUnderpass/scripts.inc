@@ -7,7 +7,6 @@ DesertUnderpass_EventScript_Trigger::
 	goto_if_set FLAG_HIDE_PAST_SILVER, DesertUnderpass_EventScript_Trigger_2
 	applymovement OBJ_EVENT_ID_PLAYER, DesertUnderpass_Movement_PlayerWalkOver
 	waitmovement 0
-	playbgm MUS_HG_ENCOUNTER_RIVAL, FALSE
 	applymovement 1, DesertUnderpass_Movement_SilverToPlayer
 	waitmovement 0
 	playse SE_WALL_HIT
@@ -18,6 +17,7 @@ DesertUnderpass_EventScript_Trigger::
 	applymovement 1, DesertUnderpass_Movement_SilverExclamation
 	waitmovement 0
 	delay 60
+	playbgm MUS_HG_ENCOUNTER_RIVAL, FALSE
 	applymovement 1, DesertUnderpass_Movement_SilverUpTwo
 	waitmovement 0
 	msgbox DesertUnderpass_EventScript_Trigger_Text_0

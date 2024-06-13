@@ -27,7 +27,7 @@ Route104_EventScript_ItemPotion::
 	end
 
 Route105_EventScript_ItemIron::
-	finditem ITEM_IRON
+	finditem ITEM_CARBOS
 	end
 
 Route106_EventScript_ItemProtein::
@@ -111,7 +111,7 @@ Route115_EventScript_ItemTM01::
 	end
 
 Route115_EventScript_ItemIron::
-	finditem ITEM_IRON
+	finditem ITEM_CALCIUM
 	end
 
 Route115_EventScript_ItemGreatBall::

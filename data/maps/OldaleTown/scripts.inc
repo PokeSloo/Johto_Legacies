@@ -845,15 +845,16 @@ OldaleTown_OnFrame_Text_1:
 	.string "Come on, let's get this over with.$"
 
 OldaleTown_OnFrame_Text_2:
-	.string "Pfft, get a load of this nerd. Not a\n"
-	.string "single girl would go for a guy like that.\p"
+	.string "Pfft, get a load of this nerd.\p"
+	.string "Not a single girl would go for a guy like\n"
+	.string "that.\p"
 	.string "Trust me.$"
 
 OldaleTown_OnFrame_Text_3:
-	.string "This is a patch of tall grass. A scrawny\n"
-	.string "kid like you would get ripped to shreds\l"
-	.string "if you stepped one foot in there\l"
-	.string "without a POKéMON of your own.$"
+	.string "This is a patch of tall grass.\p"
+	.string "A scrawny kid like you would get ripped\n"
+	.string "to shreds if you stepped one foot in\l"
+	.string "there without a POKéMON of your own.$"
 
 OldaleTown_OnFrame_Text_4:
 	.string "I jump down from small ledges like this\n"
@@ -870,8 +871,8 @@ OldaleTown_OnFrame_Text_7:
 	.string "Didn't break your ankles, did you? Ha!$"
 
 OldaleTown_OnFrame_Text_8:
-	.string "These small trees are super annoying.\n"
-	.string "If you have HM01 and the Violet City\l"
+	.string "These small trees are super annoying.\p"
+	.string "If you have HM01 and the Violet City\n"
 	.string "gym badge, you can cut them down.$"
 
 OldaleTown_OnFrame_Text_9:
@@ -883,9 +884,11 @@ OldaleTown_OnFrame_Text_10:
 	.string "my dust, haha!$"
 
 OldaleTown_OnFrame_Text_11:
-	.string "This is PROF. ELM's lab. He's also a huge\n"
-	.string "nerd, so you two should get along.\p"
-	.string "Welp, Mom just said to bring you here,\n"
+	.string "This is PROF. ELM's lab.\p"
+	.string "He's also a huge nerd, so you two should\n"
+	.string "get along.\p"
+	.string "...\p"
+	.string "Welp, MOM just said to bring you here,\n"
 	.string "she didn't say anything about bringing\l"
 	.string "you back.\p"
 	.string "You're on your own now, later loser.$"
@@ -904,10 +907,11 @@ OldaleTown_EventScript_Mailbox_Text_0:
 OldaleTown_EventScript_ShaneBattle_Text_0:
 	.string "SHANE: Wow! You actually made it back\n"
 	.string "on your own.\p"
-	.string "I see you got a POKéMON from PROF. ELM.\n"
-	.string "You know, I got one from him too, but it\l"
-	.string "was too weak. I got rid of that thing.\p"
-	.string "Hey, let's test our your new POKéMON!\n"
+	.string "I see you got a POKéMON from PROF. ELM.\p"
+	.string "You know, I got one from him too, but it\n"
+	.string "was too weak.\p"
+	.string "I got rid of that thing.\p"
+	.string "Hey, let's test our your new POKéMON!\p"
 	.string "I'll see if it's a weakling!$"
 
 OldaleTown_EventScript_ShaneBattle_Text_1:

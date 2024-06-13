@@ -28,13 +28,13 @@ script OldaleTown_OnFrame {
 	applymovement (SHANE_ID, OldaleTown_ShaneWalktoNerd)
 	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalktoNerd)
     waitmovement (0)
-	msgbox (format("Pfft, get a load of this nerd. Not a single girl would go for a guy like that.\pTrust me."))
+	msgbox (format("Pfft, get a load of this nerd.\pNot a single girl would go for a guy like that.\pTrust me."))
     waitmessage
     closemessage
 	applymovement (SHANE_ID, OldaleTown_ShaneWalktoGrass)
 	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalktoGrass)
     waitmovement (0)
-    msgbox (format("This is a patch of tall grass. A scrawny kid like you would get ripped to shreds if you stepped one foot in there without a POKéMON of your own."))
+    msgbox (format("This is a patch of tall grass.\pA scrawny kid like you would get ripped to shreds if you stepped one foot in there without a POKéMON of your own."))
     waitmessage
     closemessage
 	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalkDownOne)
@@ -74,7 +74,7 @@ script OldaleTown_OnFrame {
 	applymovement (SHANE_ID, OldaleTown_ShaneToTree, MAP_OLDALE_TOWN)
 	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerToTree)
     waitmovement (0)
-	msgbox (format("These small trees are super annoying. If you have HM01 and the Violet City gym badge, you can cut them down."))
+	msgbox (format("These small trees are super annoying.\pIf you have HM01 and the Violet City gym badge, you can cut them down."))
     waitmessage
     closemessage
 	applymovement (SHANE_ID, OldaleTown_ShaneWalkAroundTrees, MAP_OLDALE_TOWN)
@@ -101,7 +101,7 @@ script OldaleTown_OnFrame {
 	applymovement (SHANE_ID, OldaleTown_ShaneFacePlayer, MAP_OLDALE_TOWN)
 	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerFaceShane)
     waitmovement (0)
-	msgbox (format("This is PROF. ELM's lab. He's also a huge nerd, so you two should get along.\pWelp, Mom just said to bring you here, she didn't say anything about bringing you back.\pYou're on your own now, later loser."))
+	msgbox (format("This is PROF. ELM's lab.\pHe's also a huge nerd, so you two should get along.\p...\pWelp, MOM just said to bring you here, she didn't say anything about bringing you back.\pYou're on your own now, later loser."))
     waitmessage
     closemessage
 	applymovement (SHANE_ID, OldaleTown_ShaneLeaves, MAP_OLDALE_TOWN)
@@ -372,7 +372,7 @@ script OldaleTown_EventScript_Trigger4 {
 script OldaleTown_EventScript_ShaneBattle{
 	setrespawn (HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F)
 	addvar (VAR_CHERRYGROVE_STATE, 1)
-	msgbox (format("SHANE: Wow! You actually made it back on your own.\pI see you got a POKéMON from PROF. ELM. You know, I got one from him too, but it was too weak. I got rid of that thing.\pHey, let's test our your new POKéMON! I'll see if it's a weakling!"))
+	msgbox (format("SHANE: Wow! You actually made it back on your own.\pI see you got a POKéMON from PROF. ELM.\pYou know, I got one from him too, but it was too weak.\pI got rid of that thing.\pHey, let's test our your new POKéMON!\pI'll see if it's a weakling!"))
 	trainerbattle_no_intro (TRAINER_BRENDAN_ROUTE_103_TREECKO, OldaleTown_Text_ShaneDefeat)
 	msgbox (format ("You'll pay for cheating!"))
 	waitmessage

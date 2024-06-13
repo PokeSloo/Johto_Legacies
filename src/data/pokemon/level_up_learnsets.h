@@ -2149,7 +2149,7 @@ static const struct LevelUpMove sKoffingLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sWeezingLevelUpLearnset[] = {
-    //LEVEL_UP_MOVE( 0, MOVE_DOUBLE_HIT),
+    LEVEL_UP_MOVE( 35, MOVE_DOUBLE_HIT),
     LEVEL_UP_MOVE( 1, MOVE_DOUBLE_HIT),
     LEVEL_UP_MOVE( 1, MOVE_POISON_GAS),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
@@ -18699,7 +18699,7 @@ static const struct LevelUpMove sFarfetchdGalarianLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sWeezingGalarianLevelUpLearnset[] = {
-    //LEVEL_UP_MOVE( 0, MOVE_DOUBLE_HIT),
+    LEVEL_UP_MOVE( 35, MOVE_DOUBLE_HIT),
     LEVEL_UP_MOVE( 1, MOVE_DOUBLE_HIT),
     LEVEL_UP_MOVE( 1, MOVE_STRANGE_STEAM),
     LEVEL_UP_MOVE( 1, MOVE_DEFOG),

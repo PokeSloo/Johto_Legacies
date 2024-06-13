@@ -10420,7 +10420,6 @@ static const u16 sRaikouTeachableLearnset[] = {
     MOVE_ROAR,
     MOVE_ROCK_SMASH,
     MOVE_SANDSTORM,
-    MOVE_SCALD,
     MOVE_SECRET_POWER,
     MOVE_SHADOW_BALL,
     MOVE_SHOCK_WAVE,

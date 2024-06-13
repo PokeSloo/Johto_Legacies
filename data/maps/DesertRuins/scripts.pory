@@ -21,9 +21,9 @@ script DesertRuins_On_Frame {
     waitmovement (0)
     playse (SE_WALL_HIT)
     delay (120)
-    msgbox (format("..."))
+    msgbox (format("...\n..."))
     trainerbattle_no_intro (TRAINER_BRENDAN_ROUTE_110_MUDKIP, DesertRuins_Text_GoldDefeat)
-    msgbox (format("..."))
+    msgbox (format("...\n..."))
     waitmessage
     closemessage
     applymovement (OBJ_EVENT_ID_PLAYER, DesertRuins_Movement_WatchGoldLeave)
@@ -79,8 +79,8 @@ movement DesertRuins_Movement_WalktoGold {
     walk_in_place_right
     delay_16
     player_run_down * 3
-    player_run_right * 4
-    face_right
+    player_run_right * 3
+    walk_right
 }
 
 movement DesertRuins_Movement_WalktoPlayer {

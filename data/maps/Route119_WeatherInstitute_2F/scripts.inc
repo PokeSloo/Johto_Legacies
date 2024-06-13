@@ -248,15 +248,14 @@ Route119_WeatherInstitute_2F_Text_Grunt5PostBattle:
 	.string "You really think you can stop us?$"
 
 Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_0:
-	.string "GRUNT: This is your final warning! Tell\n"
-	.string "us where you keep the Master Balls, and\l"
-	.string "we won't have to hurt you!\p"
+	.string "GRUNT: This is your final warning!\p"
+	.string "Tell us where you keep the Master Balls,\n"
+	.string "and we won't have to hurt you!\p"
 	.string "We know they're made in this factory, so\n"
 	.string "they must be somewhere in here.\p"
-	.string "CARMEN: I'll tell you the same thing I\n"
-	.string "told the others; we just sent off our\l"
-	.string "last shipment of Master Balls to the\l"
-	.string "Celadon Mart in Kanto.\p"
+	.string "???: Like I keep telling you, we just\n"
+	.string "sent off our last shipment of Master\l"
+	.string "Balls to the Celadon Mart in Kanto.\p"
 	.string "We won't receive any more shipments of\n"
 	.string "raw material needed to produce Master\l"
 	.string "Balls for at least another three weeks.$"
@@ -288,10 +287,10 @@ Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_5:
 	.string "We always rise back up!$"
 
 Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_6:
-	.string "CARMEN: Thank you for saving us from\n"
-	.string "those hooded lowlifes!\p"
-	.string "My name is CARMEN, by the way. I'm the\n"
-	.string "owner and CEO of this factory.\p"
+	.string "???: Thank you for saving us from those\n"
+	.string "hooded lowlifes!\p"
+	.string "My name is CARMEN, by the way.\p"
+	.string "I'm the owner and CEO of this factory.\p"
 	.string "And your name is?\p"
 	.string "...\p"
 	.string "{PLAYER}, I'll be sure to remember\n"
@@ -302,8 +301,8 @@ Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_6:
 	.string "demands!$"
 
 Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_7:
-	.string "CARMEN: My grandfather started this\n"
-	.string "business from nothing.\p"
+	.string "My grandfather started this business\n"
+	.string "from nothing.\p"
 	.string "It meant everything to him, and I\n"
 	.string "intend to carry on his legacy.\p"
 	.string "...\p"
@@ -313,10 +312,10 @@ Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_7:
 	.string "these…$"
 
 Route119_WeatherInstitute_2F_EventScript_FinalGrunt_Text_8:
-	.string "CARMEN: Those are Quick Balls. They are\n"
-	.string "most effective at the very start of a\l"
-	.string "battle, but lose effectiveness after\l"
-	.string "the first turn.\p"
+	.string "CARMEN: Those are Quick Balls.\p"
+	.string "They are most effective at the very\n"
+	.string "start of a battle, but lose\l"
+	.string "effectiveness after the first turn.\p"
 	.string "Feel free to buy more from the shop\n"
 	.string "downstairs if you run out.\p"
 	.string "Now, I must be sure everything in the\n"

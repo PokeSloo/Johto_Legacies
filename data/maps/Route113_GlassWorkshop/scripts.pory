@@ -9,7 +9,7 @@ script Route113_GlassWorkshop_EventScript_NewMrPoke {
         end
     }
     else {
-        msgbox (format("Hello there, young trainer.\nYou look like someone who might be interested in breeding POKéMON.\pYou know, when I was your age, my father gave me a POKéMON egg. I reluctantly carried it around for weeks, but once it hatched I was hooked!\pNow, POKéMON eggs are all I can think about.\pOh, who am I you ask?\pYou can call me MR. POKéMON.\pMy father used to go by the same name. I expect my son to take up the name when he gets older.\pBut you don't look interested in hearing about my name.\pHmm, maybe you'll be interested in this.\pI have so many POKéMON eggs, I don't know what to do with them.\pWould you like to have one?"), MSGBOX_YESNO)
+        msgbox (format("Hello there, young trainer.\pYou look like someone who might be interested in breeding POKéMON.\pYou know, when I was your age, my father gave me a POKéMON egg.\pI reluctantly carried it around for weeks, but once it hatched I was hooked!\pNow, POKéMON eggs are all I can think about.\pOh, who am I you ask?\pYou can call me MR. POKéMON.\pMy father used to go by the same name, and I expect my son to take up the name when he gets older, haha!\pBut you don't look interested in hearing about my name.\pHmm, maybe you'll be interested in this...\pI have so many POKéMON eggs, that I don't know what to do with them.\pWould you like to have one?"), MSGBOX_YESNO)
         if (var(VAR_RESULT) != YES) {
             msgbox (format("Come back if you ever change your mind."))
             release

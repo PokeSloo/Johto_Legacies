@@ -236,7 +236,7 @@ script LittlerootTown_ProfessorBirchsLab_ReceivedCyndaquil {
 }
 
 script LittlerootTown_ProfessorBirchsLab_Inbetween {
-	msgbox (format("You know, I gave your brother his first POKéMON just a few years ago.\pSuch a rambunctious child.\pJust between you and me; I much prefer your attitude over his."))
+	msgbox (format("You know, I gave your brother his first POKéMON just a few years ago.\pSuch a rambunctious child.\pJust between you and me, I much prefer your attitude over his."))
     waitmessage
     closemessage
 	applymovement (ELM_ID, LittlerootTown_ProfessorBirchsLab_ElmStepRight)

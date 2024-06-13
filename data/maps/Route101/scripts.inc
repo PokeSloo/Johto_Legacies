@@ -25,8 +25,9 @@ Route101_EventScript_SignRight::
 Route101_EventScript_Boy1_Text_0:
 	.string "Oh, hey {PLAYER}!\p"
 	.string "I see you finally received your first\n"
-	.string "POKéMON too. Going out, and catching\l"
-	.string "even more POKéMON is super fun!\p"
+	.string "POKéMON too.\p"
+	.string "Going out, and catching even more\n"
+	.string "POKéMON is super fun!\p"
 	.string "I wonder how many there are.$"
 
 Route101_EventScript_Boy2_Text_0:

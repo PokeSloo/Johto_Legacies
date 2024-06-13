@@ -106,8 +106,7 @@ DesertRuins_Movement_WalktoGold:
 	player_run_right
 	player_run_right
 	player_run_right
-	player_run_right
-	face_right
+	walk_right
 	step_end
 
 DesertRuins_Movement_WalktoPlayer:
@@ -147,6 +146,7 @@ DesertRuins_Movement_CelebiJumpRight:
 	step_end
 
 DesertRuins_On_Frame_Text_0:
+	.string "...\n"
 	.string "...$"
 
 DesertRuins_Text_GoldDefeat::

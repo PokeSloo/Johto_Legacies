@@ -1,7 +1,7 @@
 mapscripts Route101_MapScripts {}
 
 script Route101_EventScript_Boy1 {
-	msgbox (format("Oh, hey {PLAYER}!\pI see you finally received your first POKéMON too. Going out, and catching even more POKéMON is super fun!\pI wonder how many there are."), MSGBOX_NPC)
+	msgbox (format("Oh, hey {PLAYER}!\pI see you finally received your first POKéMON too.\pGoing out, and catching even more POKéMON is super fun!\pI wonder how many there are."), MSGBOX_NPC)
 	end
 }
 

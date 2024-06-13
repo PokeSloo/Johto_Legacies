@@ -737,7 +737,7 @@ LittlerootTown_ProfessorBirchsLab_Inbetween_Text_0:
 	.string "You know, I gave your brother his first\n"
 	.string "POKéMON just a few years ago.\p"
 	.string "Such a rambunctious child.\p"
-	.string "Just between you and me; I much prefer\n"
+	.string "Just between you and me, I much prefer\n"
 	.string "your attitude over his.$"
 
 LittlerootTown_ProfessorBirchsLab_Inbetween_Text_1:

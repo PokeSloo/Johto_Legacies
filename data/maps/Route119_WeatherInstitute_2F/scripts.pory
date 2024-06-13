@@ -30,7 +30,7 @@ script Route119_WeatherInstitute_2F_EventScript_FinalGrunt {
     delay (30)
     applymovement (LOCALID_GRUNT_FINAL, Route119_WeatherInstitute_2F_StepInPlaceLeft)
     waitmovement (0)
-    msgbox (format("GRUNT: This is your final warning! Tell us where you keep the Master Balls, and we won't have to hurt you!\pWe know they're made in this factory, so they must be somewhere in here.\pCARMEN: I'll tell you the same thing I told the others; we just sent off our last shipment of Master Balls to the Celadon Mart in Kanto.\pWe won't receive any more shipments of raw material needed to produce Master Balls for at least another three weeks."))
+    msgbox (format("GRUNT: This is your final warning!\pTell us where you keep the Master Balls, and we won't have to hurt you!\pWe know they're made in this factory, so they must be somewhere in here.\p???: Like I keep telling you, we just sent off our last shipment of Master Balls to the Celadon Mart in Kanto.\pWe won't receive any more shipments of raw material needed to produce Master Balls for at least another three weeks."))
 	closemessage
     applymovement (LOCALID_GRUNT_FINAL, Route119_WeatherInstitute_2F_StepInPlaceLeft)
     waitmovement (0)
@@ -75,14 +75,14 @@ script Route119_WeatherInstitute_2F_EventScript_FinalGrunt {
 	delay (30)
 	applymovement (LOCALID_CARMEN, Route119_WeatherInstitute_2F_CarmenToPlayer)
     waitmovement (0)
-	msgbox (format("CARMEN: Thank you for saving us from those hooded lowlifes!\pMy name is CARMEN, by the way. I'm the owner and CEO of this factory.\pAnd your name is?\p...\p{PLAYER}, I'll be sure to remember that.\pBy the way, we are actually fully stocked up on Master Balls, but I wasn't about to give in to those jerks' demands!"))
+	msgbox (format("???: Thank you for saving us from those hooded lowlifes!\pMy name is CARMEN, by the way.\pI'm the owner and CEO of this factory.\pAnd your name is?\p...\p{PLAYER}, I'll be sure to remember that.\pBy the way, we are actually fully stocked up on Master Balls, but I wasn't about to give in to those jerks' demands!"))
 	closemessage
 	applymovement (LOCALID_CARMEN, Route119_WeatherInstitute_2F_StepInPlaceRight)
     waitmovement (0)
-	msgbox (format("CARMEN: My grandfather started this business from nothing.\pIt meant everything to him, and I intend to carry on his legacy.\p...\pHere {PLAYER}, I know it isn't much of a reward, but as thanks for stepping in and saving us, I would like you to have these…"))
+	msgbox (format("My grandfather started this business from nothing.\pIt meant everything to him, and I intend to carry on his legacy.\p...\pHere {PLAYER}, I know it isn't much of a reward, but as thanks for stepping in and saving us, I would like you to have these…"))
 	waitmessage
 	giveitem (ITEM_QUICK_BALL, 5)
-	msgbox (format("CARMEN: Those are Quick Balls. They are most effective at the very start of a battle, but lose effectiveness after the first turn.\pFeel free to buy more from the shop downstairs if you run out.\pNow, I must be sure everything in the factory is still in working order.\pUntil we meet again, {PLAYER}."))
+	msgbox (format("CARMEN: Those are Quick Balls.\pThey are most effective at the very start of a battle, but lose effectiveness after the first turn.\pFeel free to buy more from the shop downstairs if you run out.\pNow, I must be sure everything in the factory is still in working order.\pUntil we meet again, {PLAYER}."))
 	waitmessage
 	closemessage
 	fadescreen (FADE_TO_BLACK)
