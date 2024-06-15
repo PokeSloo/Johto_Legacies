@@ -65,7 +65,7 @@ script LavaridgeTown_EventScript_ShaneTrigger {
     waitmessage
     closemessage
     trainerbattle_no_intro (TRAINER_MAY_ROUTE_110_MUDKIP, LavaridgeTown_Text_ShaneDefeated)
-	msgbox (format ("...\pI think I get it now...\pYou're just like dad...\pThere's something you both have that I can't seem to grasp for myself.\p...\pFine then, I'll just keep training.\pSoon I'll beat you, and then overthrow dad to become the Champion myself!\pMaybe then he'll...\p...\pForget it, I'm out!"))
+	msgbox (format ("...\pI think I get it now...\pYou're just like DAD...\pThere's something you both have that I can't seem to grasp for myself.\p...\pFine then, I'll just keep training.\pSoon I'll beat you, and then overthrow DAD to become the Champion myself!\pMaybe then he'll...\p...\pForget it, I'm out!"))
 	waitmessage
 	closemessage
     fadedefaultbgm

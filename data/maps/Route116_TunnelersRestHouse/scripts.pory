@@ -2,6 +2,7 @@ mapscripts Route116_TunnelersRestHouse_MapScripts {}
 
 script Route116_TunnelersRestHouse_EventScript_Girl {
     lock
+    faceplayer
     msgbox(format("Howdy! Welcome to Moomoo Farm!\pWould you like to buy some milk?"))
     waitmessage
     pokemart (Route116_TunnelersRestHouse_MartItems)

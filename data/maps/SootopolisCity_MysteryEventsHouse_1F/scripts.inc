@@ -259,7 +259,7 @@ SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_0:
 	.string "more powerful form.$"
 
 SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_1:
-	.string "SHANE: Yeah! Dad used that against me\n"
+	.string "SHANE: Yeah! DAD used that against me\n"
 	.string "in the POKéMON League.\p"
 	.string "I was doing ok until his SALAMENCE Mega\n"
 	.string "Evolved!$"

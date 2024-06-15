@@ -2276,21 +2276,24 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Roland[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_Nolen[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_Nolen[] = {
     {
     .iv = 0,
     .lvl = 36,
     .species = SPECIES_JELLICENT,
+    .moves = {MOVE_RECOVER, MOVE_WATER_PULSE, MOVE_OMINOUS_WIND, MOVE_BRINE}
     },
     {
     .iv = 0,
     .lvl = 36,
     .species = SPECIES_TENTACRUEL,
+    .moves = {MOVE_POISON_JAB, MOVE_BRINE, MOVE_ACID_SPRAY, MOVE_BUBBLE_BEAM}
     },
     {
     .iv = 0,
     .lvl = 37,
     .species = SPECIES_KABUTOPS,
+    .moves = {MOVE_MEGA_DRAIN, MOVE_AQUA_JET, MOVE_ENDURE, MOVE_MUD_SHOT}
     }
 };
 

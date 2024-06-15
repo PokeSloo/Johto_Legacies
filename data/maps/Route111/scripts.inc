@@ -426,7 +426,7 @@ Route111_EventScript_DoBattle_Text_3:
 	.string "SHANE: Man, these jerks are worse than\n"
 	.string "cockroaches!\p"
 	.string "Alright, you try and find out where they\n"
-	.string "went, I'm going to tell dad what\l"
+	.string "went, I'm going to tell DAD what\l"
 	.string "happened.$"
 
 Route111_EventScript_Jirachi_Text_0:

@@ -18,7 +18,7 @@ script SootopolisCity_MysteryEventsHouse_1F_OnFrame {
     waitmessage
     applymovement(SHANE_ID, SootopolisCity_Movement_StepUp)
     waitmovement (0)
-    msgbox(format("SHANE: Yeah! Dad used that against me in the POKéMON League.\pI was doing ok until his SALAMENCE Mega Evolved!"))
+    msgbox(format("SHANE: Yeah! DAD used that against me in the POKéMON League.\pI was doing ok until his SALAMENCE Mega Evolved!"))
     waitmessage
     applymovement(GOLD_ID, SootopolisCity_Movement_StepDown)
     waitmovement (0)

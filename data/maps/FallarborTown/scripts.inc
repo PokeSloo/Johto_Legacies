@@ -74,7 +74,7 @@ FallarborTown_Text_TownSign:
 
 FallarborTown_Text_WinterGone:
 	.string "If you're looking for the Gym Leader,\n"
-	.string "Winter, she's gone to Ice Path for some\l"
+	.string "WINTER, she's gone to Ice Path for some\l"
 	.string "training.$"
 
 FallarborTown_Text_BlockedRoad:

@@ -157,7 +157,7 @@ script Route111_EventScript_DoBattle {
 	applymovement (SHANE_ID, Route111_Movement_StepLeft)
 	applymovement (OBJ_EVENT_ID_PLAYER, Route111_Movement_StepRight)
     waitmovement (0)
-	msgbox(format("SHANE: Man, these jerks are worse than cockroaches!\pAlright, you try and find out where they went, I'm going to tell dad what happened."))
+	msgbox(format("SHANE: Man, these jerks are worse than cockroaches!\pAlright, you try and find out where they went, I'm going to tell DAD what happened."))
 	waitmessage
 	closemessage
 	applymovement (SHANE_ID, Route111_Movement_ShaneExit)

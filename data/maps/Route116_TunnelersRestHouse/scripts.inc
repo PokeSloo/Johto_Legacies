@@ -4,6 +4,7 @@ Route116_TunnelersRestHouse_MapScripts::
 
 Route116_TunnelersRestHouse_EventScript_Girl::
 	lock
+	faceplayer
 	msgbox Route116_TunnelersRestHouse_EventScript_Girl_Text_0
 	waitmessage
 	pokemart Route116_TunnelersRestHouse_MartItems
