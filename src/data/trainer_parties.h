@@ -8023,10 +8023,10 @@ static const struct TrainerMonItemCustomMoves sParty_MayRoute103Treecko[] = {
     {
     .iv = 250,
     .lvl = 54,
-    .species = SPECIES_WEEZING_GALARIAN,
-    .heldItem = ITEM_BLACK_SLUDGE,
+    .species = SPECIES_WEAVILE,
+    .heldItem = ITEM_CHOICE_BAND,
     .abilityNums = 0,
-    .moves = {MOVE_STRANGE_STEAM, MOVE_SLUDGE_BOMB, MOVE_EXPLOSION, MOVE_PAIN_SPLIT}
+    .moves = {MOVE_KNOCK_OFF, MOVE_ICICLE_CRASH, MOVE_ICE_SHARD, MOVE_PURSUIT}
     },
     {
     .iv = 250,
@@ -10370,10 +10370,10 @@ static const struct TrainerMonItemCustomMoves sParty_MayLilycoveMudkip[] = {
     {
     .iv = 255,
     .lvl = 79,
-    .species = SPECIES_WEEZING_GALARIAN,
-    .heldItem = ITEM_BLACK_SLUDGE,
+    .species = SPECIES_WEAVILE,
+    .heldItem = ITEM_CHOICE_BAND,
     .abilityNums = 0,
-    .moves = {MOVE_STRANGE_STEAM, MOVE_SLUDGE_BOMB, MOVE_EXPLOSION, MOVE_PAIN_SPLIT}
+    .moves = {MOVE_KNOCK_OFF, MOVE_ICICLE_CRASH, MOVE_ICE_SHARD, MOVE_PURSUIT}
     },
     {
     .iv = 255,

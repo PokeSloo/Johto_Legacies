@@ -160,31 +160,9 @@ script LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand {
     updatemoneybox
 	playse (SE_SHOP)
     waitse
-    msgbox(format("Now then, would you like to play again for another ¥1,000?"), MSGBOX_YESNO)
-    if (var(VAR_RESULT) == NO) {
-        msgbox(format("Not feeling very lucky today, huh?"))
-        hidemoneybox
-        release
-        end
-    }
-    else {
-        checkmoney (1000)
-        if (var(VAR_RESULT) == NO) {
-            msgbox (format("Hmm, it doesn't look like you have ¥1,000."))
-		    hidemoneybox
-		    release
-            end
-        }
-        else {
-            removemoney (1000)
-            updatemoneybox
-		    playse (SE_SHOP)
-            waitse
-		    msgbox(format("Wonderful!\pLet's keep going."))
-		    goto (LilycoveCity_CoveLilyMotel_1F_EventScript_GuessHand)
-            end
-        }
-    }
+    msgbox(format("Let's keep going."))
+    goto (LilycoveCity_CoveLilyMotel_1F_EventScript_GuessHand)
+    end
 }
 
 script LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand {

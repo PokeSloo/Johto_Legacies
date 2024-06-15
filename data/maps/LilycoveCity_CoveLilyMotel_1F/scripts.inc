@@ -176,30 +176,8 @@ LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand::
 	updatemoneybox
 	playse SE_SHOP
 	waitse
-	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_Text_1, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_1
-	checkmoney 1000
-	compare VAR_RESULT, NO
-	goto_if_eq LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_4
-	removemoney 1000
-	updatemoneybox
-	playse SE_SHOP
-	waitse
-	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_Text_2
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_Text_1
 	goto LilycoveCity_CoveLilyMotel_1F_EventScript_GuessHand
-	end
-
-LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_1:
-	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_2
-	hidemoneybox
-	release
-	end
-
-LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_4:
-	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_LeftRightGirl_Text_3
-	hidemoneybox
-	release
 	end
 
 
@@ -217,7 +195,7 @@ LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand::
 	updatemoneybox
 	playse SE_SHOP
 	waitse
-	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_Text_2
+	msgbox LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand_Text_1
 	goto LilycoveCity_CoveLilyMotel_1F_EventScript_GuessHand
 	end
 
@@ -621,11 +599,6 @@ LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_Text_0:
 	.string "Hey, maybe you do have psychic powers!$"
 
 LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_Text_1:
-	.string "Now then, would you like to play again\n"
-	.string "for another ¥1,000?$"
-
-LilycoveCity_CoveLilyMotel_1F_EventScript_GuessCorrectHand_Text_2:
-	.string "Wonderful!\p"
 	.string "Let's keep going.$"
 
 LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand_Text_0:
@@ -634,6 +607,10 @@ LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand_Text_0:
 	.string "side this time.\p"
 	.string "Would you like to try again for another\n"
 	.string "¥1,000?$"
+
+LilycoveCity_CoveLilyMotel_1F_EventScript_GuessWrongHand_Text_1:
+	.string "Wonderful!\p"
+	.string "Let's keep going.$"
 
 LilycoveCity_CoveLilyMotel_1F_EventScript_TriviaNerd_Text_0:
 	.string "Hey, there's my fellow trivia nerd!\p"
