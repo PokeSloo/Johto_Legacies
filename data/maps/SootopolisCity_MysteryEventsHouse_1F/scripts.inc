@@ -261,7 +261,7 @@ SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_0:
 SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_1:
 	.string "SHANE: Yeah! DAD used that against me\n"
 	.string "in the POKéMON League.\p"
-	.string "I was doing ok until his SALAMENCE Mega\n"
+	.string "I was doing ok until his Salamence Mega\n"
 	.string "Evolved!$"
 
 SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_2:

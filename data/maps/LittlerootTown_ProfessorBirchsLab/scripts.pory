@@ -5,6 +5,10 @@ const CYNDAQUIL_BALL = 4
 const AID_ID = 1
 
 mapscripts LittlerootTown_ProfessorBirchsLab_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setrespawn (HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE)
+        end
+    }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_CHERRYGROVE_STATE, 2: LittlerootTown_ProfessorBirchsLab_OnFrame
     ]
