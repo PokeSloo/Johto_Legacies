@@ -20,6 +20,20 @@ script PetalburgCity_House1_EventScript_KarateGuy {
 }
 
 script PetalburgCity_House1_EventScript_Woman {
-    msgbox (format("My husband and I used to train under Master Lee together.\pIn fact, that's where we met each other."), MSGBOX_NPC)
-    end
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_MACHO_BRACE)) {
+        msgbox (format("My husband and I used to train under Master Lee together.\pIn fact, that's where we met each other."))
+        release
+        end
+    }
+    else {
+        msgbox (format("Hmm... Your POKéMON look like they could use a little extra help with their training..."))
+        waitmessage
+        giveitem (ITEM_MACHO_BRACE)
+        setflag (FLAG_RECEIVED_MACHO_BRACE)
+        msgbox (format("That Macho Brace will halve your POKéMON'S speed, but in return, they will become stronger much faster!"))
+        release
+        end
+    }
 }

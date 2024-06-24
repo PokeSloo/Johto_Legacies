@@ -21,7 +21,20 @@ PetalburgCity_House1_EventScript_KarateGuy_1:
 
 
 PetalburgCity_House1_EventScript_Woman::
-	msgbox PetalburgCity_House1_EventScript_Woman_Text_0, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_MACHO_BRACE, PetalburgCity_House1_EventScript_Woman_1
+	msgbox PetalburgCity_House1_EventScript_Woman_Text_1
+	waitmessage
+	giveitem ITEM_MACHO_BRACE
+	setflag FLAG_RECEIVED_MACHO_BRACE
+	msgbox PetalburgCity_House1_EventScript_Woman_Text_2
+	release
+	end
+
+PetalburgCity_House1_EventScript_Woman_1:
+	msgbox PetalburgCity_House1_EventScript_Woman_Text_0
+	release
 	end
 
 
@@ -48,3 +61,13 @@ PetalburgCity_House1_EventScript_Woman_Text_0:
 	.string "My husband and I used to train under\n"
 	.string "Master Lee together.\p"
 	.string "In fact, that's where we met each other.$"
+
+PetalburgCity_House1_EventScript_Woman_Text_1:
+	.string "Hmm... Your POKéMON look like they could\n"
+	.string "use a little extra help with their\l"
+	.string "training...$"
+
+PetalburgCity_House1_EventScript_Woman_Text_2:
+	.string "That Macho Brace will halve your\n"
+	.string "POKéMON'S speed, but in return, they\l"
+	.string "will become stronger much faster!$"
