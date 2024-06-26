@@ -3,7 +3,6 @@ SootopolisCity_MapScripts::
 	.byte 0
 
 SootopolisCity_MapScripts_MAP_SCRIPT_ON_TRANSITION:
-	setflag FLAG_VISITED_SOOTOPOLIS_CITY
 	call_if_eq VAR_LAZULAN_STATE, 3, SootopolisCity_EventScript_SetUpAfterThorne
 	call_if_eq VAR_LAZULAN_STATE, 2, SootopolisCity_EventScript_SetUpAfterMtTempest
 	call_if_eq VAR_LAZULAN_STATE, 1, SootopolisCity_EventScript_SetUpAfterMegaStone
@@ -150,6 +149,7 @@ SootopolisCity_EventScript_GoldSilverMain::
 	waitdooranim
 	removeobject 13
 	setflag FLAG_HIDE_SHANE_INITIAL_LAZULAN
+	setflag FLAG_VISITED_SOOTOPOLIS_CITY
 	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_StepUp
 	applymovement 12, SootopolisCity_Movement_StepDown
 	waitmovement 0

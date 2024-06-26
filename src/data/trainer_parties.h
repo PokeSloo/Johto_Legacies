@@ -2432,21 +2432,24 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Kevin[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_Jack[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_Jack[] = {
     {
     .iv = 0,
     .lvl = 38,
     .species = SPECIES_HUNTAIL,
+    .moves = {MOVE_SUCKER_PUNCH, MOVE_WATER_PULSE, MOVE_SCARY_FACE, MOVE_ICE_FANG}
     },
     {
     .iv = 0,
     .lvl = 38,
     .species = SPECIES_OMASTAR,
+    .moves = {MOVE_ANCIENT_POWER, MOVE_PROTECT, MOVE_BRINE, MOVE_MUD_SHOT}
     },
     {
     .iv = 0,
     .lvl = 38,
     .species = SPECIES_GYARADOS,
+    .moves = {MOVE_DRAGON_RAGE, MOVE_AQUA_TAIL, MOVE_ICE_FANG, MOVE_SCARY_FACE}
     }
 };
 

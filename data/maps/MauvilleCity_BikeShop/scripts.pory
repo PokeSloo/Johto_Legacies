@@ -9,7 +9,7 @@ script MauvilleCity_BikeShop_EventScript_Rydel {
 	waitmessage
 	showmoneybox (0, 0)
 	msgbox (format("For a one-time payment of ¥5,000, you can rent either an Acro Bike or a Mach Bike. Your choice of course.\pYou can also come back and swap one bike for the other if you want to change it up.\pNot a bad deal right? Are you interested?"), MSGBOX_YESNO)
-	goto_if_eq (VAR_RESULT, YES, MauvilleCity_BikeShop_EventScript_YesFar)
+	goto_if_eq (VAR_RESULT, YES, MauvilleCity_BikeShop_EventScript_ChooseBike)
 	goto_if_eq (VAR_RESULT, NO, MauvilleCity_BikeShop_EventScript_NotFar)
 	end
 }
@@ -17,7 +17,7 @@ script MauvilleCity_BikeShop_EventScript_Rydel {
 script MauvilleCity_BikeShop_EventScript_SkipGreeting {
 	showmoneybox (0, 0)
 	msgbox (format("Welcome back, have you changed your mind?\pFor a one-time payment of ¥5,000, you can rent either an Acro Bike or a Mach Bike.\pAre you interested?"), MSGBOX_YESNO)
-	goto_if_eq (VAR_RESULT, YES, MauvilleCity_BikeShop_EventScript_YesFar)
+	goto_if_eq (VAR_RESULT, YES, MauvilleCity_BikeShop_EventScript_ChooseBike)
 	goto_if_eq (VAR_RESULT, NO, MauvilleCity_BikeShop_EventScript_NotFar)
 	end
 }
@@ -40,6 +40,7 @@ script MauvilleCity_BikeShop_EventScript_ChooseBike {
 		msgbox(format("Excellent!"))
 		waitmessage
 		hidemoneybox
+		setflag (FLAG_RECEIVED_BIKE)
         goto (MauvilleCity_BikeShop_EventScript_Paid)
         end
     }
@@ -61,12 +62,6 @@ script MauvilleCity_BikeShop_EventScript_NotFar {
 	hidemoneybox
 	msgbox (MauvilleCity_BikeShop_Text_GuessYouDontNeedBike, MSGBOX_DEFAULT)
 	release
-	end
-}
-
-script MauvilleCity_BikeShop_EventScript_YesFar {
-	setflag (FLAG_RECEIVED_BIKE)
-	goto (MauvilleCity_BikeShop_EventScript_ChooseBike)
 	end
 }
 

@@ -11,7 +11,7 @@ MauvilleCity_BikeShop_EventScript_Rydel::
 	waitmessage
 	showmoneybox 0, 0
 	msgbox MauvilleCity_BikeShop_EventScript_Rydel_Text_0, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, MauvilleCity_BikeShop_EventScript_YesFar
+	goto_if_eq VAR_RESULT, YES, MauvilleCity_BikeShop_EventScript_ChooseBike
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_BikeShop_EventScript_NotFar
 	end
 
@@ -19,7 +19,7 @@ MauvilleCity_BikeShop_EventScript_Rydel::
 MauvilleCity_BikeShop_EventScript_SkipGreeting::
 	showmoneybox 0, 0
 	msgbox MauvilleCity_BikeShop_EventScript_SkipGreeting_Text_0, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, MauvilleCity_BikeShop_EventScript_YesFar
+	goto_if_eq VAR_RESULT, YES, MauvilleCity_BikeShop_EventScript_ChooseBike
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_BikeShop_EventScript_NotFar
 	end
 
@@ -35,6 +35,7 @@ MauvilleCity_BikeShop_EventScript_ChooseBike::
 	msgbox MauvilleCity_BikeShop_EventScript_ChooseBike_Text_1
 	waitmessage
 	hidemoneybox
+	setflag FLAG_RECEIVED_BIKE
 	goto MauvilleCity_BikeShop_EventScript_Paid
 	end
 
@@ -71,12 +72,6 @@ MauvilleCity_BikeShop_EventScript_NotFar::
 	hidemoneybox
 	msgbox MauvilleCity_BikeShop_Text_GuessYouDontNeedBike, MSGBOX_DEFAULT
 	release
-	end
-
-
-MauvilleCity_BikeShop_EventScript_YesFar::
-	setflag FLAG_RECEIVED_BIKE
-	goto MauvilleCity_BikeShop_EventScript_ChooseBike
 	end
 
 
