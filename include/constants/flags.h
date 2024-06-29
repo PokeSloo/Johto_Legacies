@@ -1307,7 +1307,7 @@
 #define FLAG_BATTLED_PALKIA                                         0x4EA // Ruins of alph puzzle
 #define FLAG_BATTLED_GIRATINA                                       0x4EB // Ruins of alph puzzle
 #define FLAG_BATTLED_ARCEUS                                         0x4EC // Ruins of alph puzzle
-#define FLAG_UNUSED_0X4ED                                           0x4ED // Unused Flag
+#define FLAG_EXP_SHARE                                              0x4ED // Exp share on/off
 #define FLAG_UNUSED_0x4EE                                           0x4EE // Unused Flag
 #define FLAG_UNUSED_0x4EF                                           0x4EF // Unused Flag
 
