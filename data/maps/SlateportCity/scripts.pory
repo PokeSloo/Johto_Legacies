@@ -156,7 +156,7 @@ script SlateportCity_EventScript_BikeShopFatMan {
 }
 
 script SlateportCity_EventScript_MartEmployee {
-    msgbox(format("Come in an shop around!\pWe sell evolution stones and other items nobody else in Johto has!"), MSGBOX_NPC)
+    msgbox(format("Come in and shop around!\pWe sell evolution stones and other items nobody else in Johto has!"), MSGBOX_NPC)
     end
 }
 

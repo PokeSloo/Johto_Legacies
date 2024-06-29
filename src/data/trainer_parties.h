@@ -3971,10 +3971,10 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly1[] = {
     {
     .iv = 200,
     .lvl = 18,
-    .species = SPECIES_MR_MIME,
-    .heldItem = ITEM_LIGHT_CLAY,
-    .abilityNums = 0,
-    .moves = {MOVE_REFLECT, MOVE_ENCORE, MOVE_CONFUSION, MOVE_LIGHT_SCREEN}
+    .species = SPECIES_PONYTA_GALARIAN,
+    .heldItem = ITEM_KINGS_ROCK,
+    .abilityNums = 1,
+    .moves = {MOVE_DOUBLE_KICK, MOVE_CHARM, MOVE_CONFUSION, MOVE_FAIRY_WIND}
     },
     {
     .iv = 200,
@@ -3982,7 +3982,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly1[] = {
     .species = SPECIES_MIMIKYU,
     .heldItem = ITEM_BRIGHT_POWDER,
     .abilityNums = 0,
-    .moves = {MOVE_SHADOW_SNEAK, MOVE_DRAINING_KISS, MOVE_BABY_DOLL_EYES, MOVE_DOUBLE_TEAM}
+    .moves = {MOVE_SHADOW_SNEAK, MOVE_DRAINING_KISS, MOVE_BABY_DOLL_EYES, MOVE_THUNDER_WAVE}
     },
     {
     .iv = 200,
@@ -3998,7 +3998,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly1[] = {
     .species = SPECIES_SYLVEON,
     .heldItem = ITEM_LEFTOVERS,
     .abilityNums = 0,
-    .moves = {MOVE_DRAINING_KISS, MOVE_WISH, MOVE_PROTECT, MOVE_HIDDEN_POWER}
+    .moves = {MOVE_DRAINING_KISS, MOVE_TICKLE, MOVE_PROTECT, MOVE_HIDDEN_POWER}
     }
 };
 

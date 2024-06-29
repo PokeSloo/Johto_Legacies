@@ -319,7 +319,7 @@ SlateportCity_EventScript_BikeShopFatMan_Text_0:
 	.string "defective...$"
 
 SlateportCity_EventScript_MartEmployee_Text_0:
-	.string "Come in an shop around!\p"
+	.string "Come in and shop around!\p"
 	.string "We sell evolution stones and other\n"
 	.string "items nobody else in Johto has!$"
 
