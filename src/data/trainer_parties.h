@@ -3969,18 +3969,18 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne1[] = {
 
 static const struct TrainerMonItemCustomMoves sParty_Brawly1[] = {
     {
-    .iv = 130,
+    .iv = 150,
     .lvl = 18,
     .species = SPECIES_AZUMARILL,
     .heldItem = ITEM_KINGS_ROCK,
-    .abilityNums = 1,
+    .abilityNums = 0,
     .moves = {MOVE_AQUA_JET, MOVE_ROLLOUT, MOVE_DRAINING_KISS, MOVE_ICE_PUNCH}
     },
     {
     .iv = 150,
     .lvl = 19,
     .species = SPECIES_MIMIKYU,
-    .heldItem = ITEM_SITRUS_BERRY,
+    .heldItem = ITEM_BRIGHT_POWDER,
     .abilityNums = 0,
     .moves = {MOVE_SHADOW_SNEAK, MOVE_DRAINING_KISS, MOVE_BABY_DOLL_EYES, MOVE_ASTONISH}
     },
@@ -3988,12 +3988,12 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly1[] = {
     .iv = 170,
     .lvl = 19,
     .species = SPECIES_MAWILE,
-    .heldItem = ITEM_BRIGHT_POWDER,
-    .abilityNums = 0,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .abilityNums = 1,
     .moves = {MOVE_SUCKER_PUNCH, MOVE_THUNDER_PUNCH, MOVE_DRAINING_KISS, MOVE_KNOCK_OFF}
     },
     {
-    .iv = 190,
+    .iv = 200,
     .lvl = 20,
     .species = SPECIES_SYLVEON,
     .heldItem = ITEM_LEFTOVERS,
