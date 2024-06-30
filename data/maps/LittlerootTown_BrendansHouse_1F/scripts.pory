@@ -244,7 +244,7 @@ script LittlerootTown_BrendansHouse_1F_EnteiEgg {
 }
 
 script LittlerootTown_BrendansHouse_1F_Trigger_1 {
-    lockall
+    lock
     applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
     applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
     waitmovement (0)
@@ -257,7 +257,7 @@ script LittlerootTown_BrendansHouse_1F_Trigger_1 {
 }
 
 script LittlerootTown_BrendansHouse_1F_Trigger_2 {
-    lockall
+    lock
     applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
     applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
     waitmovement (0)
@@ -270,7 +270,7 @@ script LittlerootTown_BrendansHouse_1F_Trigger_2 {
 }
 
 script LittlerootTown_BrendansHouse_1F_Trigger_3 {
-lockall
+lock
 applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
 applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
 waitmovement (0)
@@ -342,7 +342,7 @@ waitmessage
 closemessage
 applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceRight)
 waitmovement (0)
-releaseall
+release
 end
 }
 
@@ -380,7 +380,7 @@ script LittlerootTown_BrendansHouse_1F_Azumarill {
 }
 
 script LittlerootTown_BrendansHouse_1F_PostBattleTrigger_1 {
-lockall
+lock
 applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
 applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
 waitmovement (0)
@@ -393,7 +393,7 @@ goto (LittlerootTown_BrendansHouse_1F_Get_Nav)
 }
 
 script LittlerootTown_BrendansHouse_1F_PostBattleTrigger_2 {
-lockall
+lock
 applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
 applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
 waitmovement (0)
@@ -406,7 +406,7 @@ goto (LittlerootTown_BrendansHouse_1F_Get_Nav)
 }
 
 script LittlerootTown_BrendansHouse_1F_PostBattleTrigger_3 {
-lockall
+lock
 applymovement (OBJ_EVENT_ID_PLAYER, LittlerootTown_BrendansHouse_1F_FaceDown)
 applymovement (MOM_ID, LittlerootTown_BrendansHouse_1F_FaceLeft)
 waitmovement (0)
@@ -434,7 +434,6 @@ script LittlerootTown_BrendansHouse_1F_Get_Nav {
     waitmovement (0)
     msgbox (format("Right, Azumarill?"))
     waitmessage
-    closemessage
     waitse
 	playmoncry (SPECIES_AZUMARILL, CRY_MODE_NORMAL)
     applymovement (AZUMARILL_ID, LittlerootTown_BrendansHouse_1F_DownExclamation)
@@ -455,7 +454,7 @@ script LittlerootTown_BrendansHouse_1F_Get_Nav {
     setflag (FLAG_ENABLE_MOM_MATCH_CALL)
     setflag (FLAG_REGISTERED_STEVEN_POKENAV)
     setflag (FLAG_ADVENTURE_STARTED)
-    releaseall
+    release
     end
 }
 
@@ -531,8 +530,9 @@ movement LittlerootTown_BrendansHouse_1F_Heart {
 }
 
 movement LittlerootTown_BrendansHouse_1F_DownExclamation {
-    walk_in_place_down
     emote_exclamation_mark
+    walk_in_place_down
+    face_down
 }
 
 script LittlerootTown_BrendansHouse_1F_EventScript_Feraligatr {

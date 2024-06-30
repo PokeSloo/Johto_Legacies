@@ -3958,7 +3958,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne1[] = {
     .moves = {MOVE_AERIAL_ACE, MOVE_CONFUSION, MOVE_HYPNOSIS, MOVE_WHIRLWIND}
     },
     {
-    .iv = 200,
+    .iv = 180,
     .lvl = 14,
     .species = SPECIES_PIDGEOTTO,
     .heldItem = ITEM_ORAN_BERRY,
@@ -3969,36 +3969,36 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne1[] = {
 
 static const struct TrainerMonItemCustomMoves sParty_Brawly1[] = {
     {
-    .iv = 200,
+    .iv = 130,
     .lvl = 18,
-    .species = SPECIES_PONYTA_GALARIAN,
+    .species = SPECIES_AZUMARILL,
     .heldItem = ITEM_KINGS_ROCK,
     .abilityNums = 1,
-    .moves = {MOVE_DOUBLE_KICK, MOVE_CHARM, MOVE_CONFUSION, MOVE_FAIRY_WIND}
+    .moves = {MOVE_AQUA_JET, MOVE_ROLLOUT, MOVE_DRAINING_KISS, MOVE_ICE_PUNCH}
     },
     {
-    .iv = 200,
+    .iv = 150,
     .lvl = 19,
     .species = SPECIES_MIMIKYU,
-    .heldItem = ITEM_BRIGHT_POWDER,
+    .heldItem = ITEM_SITRUS_BERRY,
     .abilityNums = 0,
-    .moves = {MOVE_SHADOW_SNEAK, MOVE_DRAINING_KISS, MOVE_BABY_DOLL_EYES, MOVE_THUNDER_WAVE}
+    .moves = {MOVE_SHADOW_SNEAK, MOVE_DRAINING_KISS, MOVE_BABY_DOLL_EYES, MOVE_ASTONISH}
     },
     {
-    .iv = 200,
+    .iv = 170,
     .lvl = 19,
     .species = SPECIES_MAWILE,
-    .heldItem = ITEM_SITRUS_BERRY,
+    .heldItem = ITEM_BRIGHT_POWDER,
     .abilityNums = 0,
     .moves = {MOVE_SUCKER_PUNCH, MOVE_THUNDER_PUNCH, MOVE_DRAINING_KISS, MOVE_KNOCK_OFF}
     },
     {
-    .iv = 200,
+    .iv = 190,
     .lvl = 20,
     .species = SPECIES_SYLVEON,
     .heldItem = ITEM_LEFTOVERS,
     .abilityNums = 0,
-    .moves = {MOVE_DRAINING_KISS, MOVE_TICKLE, MOVE_PROTECT, MOVE_HIDDEN_POWER}
+    .moves = {MOVE_DRAINING_KISS, MOVE_BABY_DOLL_EYES, MOVE_QUICK_ATTACK, MOVE_STORED_POWER}
     }
 };
 

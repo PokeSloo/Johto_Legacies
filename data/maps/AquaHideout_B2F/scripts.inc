@@ -65,9 +65,9 @@ AquaHideout_B2F_Text_MattPostBattle:
 	.string "That Exp. Share will certainly help\n"
 	.string "strengthen the bond you have with\l"
 	.string "your POKéMON.\p"
-	.string "When activated, all of your POKéMON will\n"
-	.string "earn at least half the Exp. Points, even\l"
-	.string "without joining the battle.$"
+	.string "Give it to one of your POKéMON, and they\n"
+	.string "will earn experience even without\l"
+	.string "joining the battle.$"
 
 AquaHideout_B2F_Text_Grunt4Intro:
 	.string "I hope you've trained more than just\n"
