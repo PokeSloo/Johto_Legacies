@@ -3974,7 +3974,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly1[] = {
     .species = SPECIES_AZUMARILL,
     .heldItem = ITEM_KINGS_ROCK,
     .abilityNums = 0,
-    .moves = {MOVE_AQUA_JET, MOVE_ROLLOUT, MOVE_DRAINING_KISS, MOVE_ICE_PUNCH}
+    .moves = {MOVE_AQUA_JET, MOVE_TAIL_WHIP, MOVE_DRAINING_KISS, MOVE_ICE_PUNCH}
     },
     {
     .iv = 150,

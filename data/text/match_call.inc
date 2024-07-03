@@ -2042,7 +2042,7 @@ MatchCall_Text_Mom3::
 	.string "That sounds like fun!\p"
 	.string "I hope SHANE got to watch them too.\p"
 	.string "The Thunderbolts are his favorite\n"
-	.string "band, you know!"
+	.string "band, you know!$"
 
 MatchCall_Text_Roxanne1::
 	.string "ROXANNE: Oh, hello, {PLAYER}!\p"
