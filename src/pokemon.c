@@ -6643,6 +6643,14 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 if (gPartyCriticalHits[evolutionItem] >= gEvolutionTable[species][i].param)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
+            case EVO_SCRIPT_TRIGGER_DMG:
+            {
+                u16 currentHp = GetMonData(mon, MON_DATA_HP, NULL);
+                if (currentHp != 0
+                    && (GetMonData(mon, MON_DATA_MAX_HP, NULL) - currentHp >= gEvolutionTable[species][i].param))
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            }
             }
         }
         break;
@@ -6652,15 +6660,15 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         {
             switch (gEvolutionTable[species][i].method)
             {
-            case EVO_SCRIPT_TRIGGER_DMG:
-            {
-                u16 currentHp = GetMonData(mon, MON_DATA_HP, NULL);
-                if (evolutionItem == EVO_SCRIPT_TRIGGER_DMG
-                    && currentHp != 0
-                    && (GetMonData(mon, MON_DATA_MAX_HP, NULL) - currentHp >= gEvolutionTable[species][i].param))
-                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
-                break;
-            }
+//            case EVO_SCRIPT_TRIGGER_DMG:
+//            {
+//                u16 currentHp = GetMonData(mon, MON_DATA_HP, NULL);
+//                if (evolutionItem == EVO_SCRIPT_TRIGGER_DMG
+//                    && currentHp != 0
+//                    && (GetMonData(mon, MON_DATA_MAX_HP, NULL) - currentHp >= gEvolutionTable[species][i].param))
+//                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+//                break;
+//            }
             case EVO_DARK_SCROLL:
                 if (evolutionItem == EVO_DARK_SCROLL)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
