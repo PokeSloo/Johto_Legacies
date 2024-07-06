@@ -1513,18 +1513,18 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 26,
-                "max_level": 28,
+                "min_level": 27,
+                "max_level": 29,
                 "species": "SPECIES_STUNKY"
               },
               {
-                "min_level": 26,
-                "max_level": 28,
+                "min_level": 27,
+                "max_level": 29,
                 "species": "SPECIES_MINCCINO"
               },
               {
-                "min_level": 26,
-                "max_level": 28,
+                "min_level": 27,
+                "max_level": 29,
                 "species": "SPECIES_TOGEDEMARU"
               },
               {
@@ -1533,13 +1533,13 @@
                 "species": "SPECIES_EMOLGA"
               },
               {
-                "min_level": 26,
-                "max_level": 28,
+                "min_level": 27,
+                "max_level": 29,
                 "species": "SPECIES_TOXEL"
               },
               {
-                "min_level": 26,
-                "max_level": 28,
+                "min_level": 27,
+                "max_level": 29,
                 "species": "SPECIES_DRIFLOON"
               },
               {
@@ -1548,8 +1548,8 @@
                 "species": "SPECIES_PIKACHU"
               },
               {
-                "min_level": 26,
-                "max_level": 28,
+                "min_level": 28,
+                "max_level": 30,
                 "species": "SPECIES_VIGOROTH"
               },
               {
@@ -1558,8 +1558,8 @@
                 "species": "SPECIES_GULPIN"
               },
               {
-                "min_level": 26,
-                "max_level": 28,
+                "min_level": 28,
+                "max_level": 30,
                 "species": "SPECIES_KECLEON"
               },
               {
