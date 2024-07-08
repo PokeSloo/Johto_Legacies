@@ -519,6 +519,7 @@ const u8 *const gItemEffectTable[] =
 
     // Medicinal Flutes
     [ITEM_BLUE_FLUTE - ITEM_POTION]       = gItemEffect_BlueFlute,
+    [ITEM_POKE_FLUTE - ITEM_POTION]       = gItemEffect_BlueFlute,
     [ITEM_YELLOW_FLUTE - ITEM_POTION]     = gItemEffect_YellowFlute,
     [ITEM_RED_FLUTE - ITEM_POTION]        = gItemEffect_RedFlute,
 

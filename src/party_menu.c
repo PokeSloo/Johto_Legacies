@@ -4376,7 +4376,7 @@ static bool8 NotUsingHPEVItemOnShedinja(struct Pokemon *mon, u16 item)
 
 static bool8 IsItemFlute(u16 item)
 {
-    if (item == ITEM_BLUE_FLUTE || item == ITEM_RED_FLUTE || item == ITEM_YELLOW_FLUTE)
+    if (item == ITEM_BLUE_FLUTE || item == ITEM_RED_FLUTE || item == ITEM_YELLOW_FLUTE || item == ITEM_POKE_FLUTE)
         return TRUE;
     return FALSE;
 }
@@ -4437,7 +4437,7 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
         }
         else
         {
-            PlaySE(SE_GLASS_FLUTE);
+            PlayFanfare(MUS_RG_POKE_FLUTE);
         }
         SetPartyMonAilmentGfx(mon, &sPartyMenuBoxes[gPartyMenu.slotId]);
         if (gSprites[sPartyMenuBoxes[gPartyMenu.slotId].statusSpriteId].invisible)
