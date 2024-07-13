@@ -2329,6 +2329,8 @@ static bool8 CanReplaceMove(void)
         || sMonSummaryScreen->newMove == MOVE_NONE
         || IsMoveHm(sMonSummaryScreen->summary.moves[sMonSummaryScreen->firstMoveIndex]) != TRUE)
         return TRUE;
+    else if (IsMoveHm(sMonSummaryScreen->summary.moves[sMonSummaryScreen->firstMoveIndex]) == TRUE)
+        return TRUE;
     else
         return FALSE;
 }

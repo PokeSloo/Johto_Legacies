@@ -290,11 +290,8 @@ Route104_Text_LikeFillingMouthWithSeedsTakeThis:
 	.string "sunlight with you wherever you go.$"
 
 Route104_Text_TMsAreOneTimeUse:
-	.string "A word of advice:\p"
-	.string "A TM, TECHNICAL MACHINE, is good only\n"
-	.string "for one-time use.\p"
-	.string "Once you use it, it's gone.\n"
-	.string "Think twice before using it...$"
+	.string "By the way, a TM, TECHNICAL MACHINE,\n"
+	.string "can be used as many times as you want!$"
 
 Route104_Text_DontNeedThisTakeIt:
 	.string "Some POKéMON moves will lower your\n"
