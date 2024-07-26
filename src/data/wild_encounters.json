@@ -3151,7 +3151,7 @@
               {
                 "min_level": 20,
                 "max_level": 22,
-                "species": "SPECIES_NUMEL"
+                "species": "SPECIES_LUNATONE"
               },
               {
                 "min_level": 20,
@@ -3166,7 +3166,7 @@
               {
                 "min_level": 20,
                 "max_level": 22,
-                "species": "SPECIES_LUNATONE"
+                "species": "SPECIES_NUMEL"
               }
             ]
           },
