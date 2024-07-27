@@ -10,7 +10,7 @@ MoveTutor_Text_SwaggerTeach:
 	.string "chewed me out.\p"
 	.string "That took the swagger out of my step.\p"
 	.string "If you'd like, I'll teach the move\n"
-	.string "SWAGGER to a POKéMON of yours.$"
+	.string "Swagger to a POKéMON of yours.$"
 
 MoveTutor_Text_SwaggerDeclined:
 	.string "What, no? Can't you get into\n"
@@ -18,7 +18,7 @@ MoveTutor_Text_SwaggerDeclined:
 
 MoveTutor_Text_SwaggerWhichMon:
 	.string "All right, which POKéMON wants to\n"
-	.string "learn how to SWAGGER?$"
+	.string "learn how to Swagger?$"
 
 MoveTutor_Text_SwaggerTaught:
 	.string "I'll just praise my POKéMON from now\n"
@@ -30,7 +30,7 @@ MoveTutor_Text_RolloutTeach:
 	.string "It totally beats walking!\p"
 	.string "Do you think your POKéMON will\n"
 	.string "want to roll, too?\p"
-	.string "I can teach one the move ROLLOUT\n"
+	.string "I can teach one the move Rollout\n"
 	.string "if you'd like.$"
 
 MoveTutor_Text_RolloutDeclined:
@@ -144,30 +144,30 @@ MoveTutor_Text_SleepTalkTaught:
 	.string "...Yeah...$"
 
 MoveTutor_Text_SubstituteTeach:
-	.string "When I see the wide world from up\n"
-	.string "here on the roof…\p"
-	.string "I think about how nice it would be\n"
-	.string "if there were more than just one me\l"
-	.string "so I could enjoy all sorts of lives.\p"
-	.string "Of course it's not possible.\n"
-	.string "Giggle…\p"
-	.string "I know! Would you be interested in\n"
-	.string "having a POKéMON learn SUBSTITUTE?$"
+	.string "Whew, I've been so busy lately, I just\n"
+	.string "can't get everything done!\p"
+	.string "I wish I could make a body double to\n"
+	.string "help out with all of my errands.\p"
+	.string "Hmm...\p"
+	.string "It may not be possible for me to create\n"
+	.string "a Substitute, but a POKéMON could.\p"
+	.string "Say, how would you like me to teach one\n"
+	.string "of your POKéMON the move Substitute?$"
 
 MoveTutor_Text_SubstituteDeclined:
-	.string "Oh, no?\p"
-	.string "A POKéMON can make a copy of\n"
-	.string "itself using it, you know.$"
+	.string "Oh, really?\p"
+	.string "That's too bad.$"
 
 MoveTutor_Text_SubstituteWhichMon:
-	.string "Giggle…\n"
-	.string "Which POKéMON do you want me to\l"
-	.string "teach SUBSTITUTE?$"
+	.string "Great!\n"
+	.string "And which POKéMON would like me to\l"
+	.string "teach?$"
 
 MoveTutor_Text_SubstituteTaught:
-	.string "We human beings should enjoy our\n"
-	.string "own lives to the utmost!\p"
-	.string "I hope you'll get that way, too!$"
+	.string "Unfortunately, your POKéMON's\n"
+	.string "substitute can't do chores for you.\p"
+	.string "They will help protect your POKéMON\n"
+	.string "from attacks though!$"
 
 MoveTutor_Text_DynamicPunchTeach:
 	.string "Kiyah!\p"

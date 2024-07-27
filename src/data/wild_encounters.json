@@ -8945,9 +8945,9 @@
                 "species": "SPECIES_SLUGMA"
               },
               {
-                "min_level": 20,
-                "max_level": 22,
-                "species": "SPECIES_GEODUDE"
+                "min_level": 18,
+                "max_level": 19,
+                "species": "SPECIES_TYROGUE"
               },
               {
                 "min_level": 20,
@@ -9255,7 +9255,7 @@
               {
                 "min_level": 29,
                 "max_level": 32,
-                "species": "SPECIES_TORKOAL"
+                "species": "SPECIES_BAGON"
               },
               {
                 "min_level": 30,
@@ -9265,7 +9265,7 @@
               {
                 "min_level": 30,
                 "max_level": 33,
-                "species": "SPECIES_MAGMAR"
+                "species": "SPECIES_JANGMO_O"
               }
             ]
           },
@@ -11163,12 +11163,12 @@
               {
                 "min_level": 42,
                 "max_level": 45,
-                "species": "SPECIES_GRAVELER"
+                "species": "SPECIES_DRUDDIGON"
               },
               {
                 "min_level": 42,
                 "max_level": 45,
-                "species": "SPECIES_GRAVELER"
+                "species": "SPECIES_DRUDDIGON"
               }
             ]
           }
@@ -11232,12 +11232,12 @@
               {
                 "min_level": 42,
                 "max_level": 45,
-                "species": "SPECIES_GRAVELER"
+                "species": "SPECIES_DRUDDIGON"
               },
               {
                 "min_level": 42,
                 "max_level": 45,
-                "species": "SPECIES_GRAVELER"
+                "species": "SPECIES_DRUDDIGON"
               }
             ]
           }
@@ -11301,12 +11301,12 @@
               {
                 "min_level": 43,
                 "max_level": 46,
-                "species": "SPECIES_GRAVELER"
+                "species": "SPECIES_DRUDDIGON"
               },
               {
                 "min_level": 43,
                 "max_level": 46,
-                "species": "SPECIES_GRAVELER"
+                "species": "SPECIES_DRUDDIGON"
               }
             ]
           },
