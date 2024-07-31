@@ -158,7 +158,7 @@ MtPyre_5F_EventScript_HallowedTower_1:
 	msgbox MtPyre_5F_EventScript_HallowedTower_Text_2
 	waitmessage
 	waitmoncry
-	setwildbattle SPECIES_SPIRITOMB, 25
+	setwildbattle SPECIES_SPIRITOMB, 30
 	dowildbattle
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, MtPyre_5F_EventScript_DefeatedSpiritomb

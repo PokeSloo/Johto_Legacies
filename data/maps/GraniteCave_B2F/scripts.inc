@@ -24,7 +24,7 @@ GraniteCave_B2F_EventScript_Lapras::
 	msgbox GraniteCave_B2F_EventScript_Lapras_Text_0
 	waitmessage
 	waitmoncry
-	setwildbattle SPECIES_LAPRAS, 25
+	setwildbattle SPECIES_LAPRAS, 35
 	dowildbattle
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, GraniteCave_B2F_EventScript_DefeatedLapras

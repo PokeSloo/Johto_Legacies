@@ -26,7 +26,7 @@ BattleFrontier_BattlePalaceLobby_EventScript_TV::
 	msgbox BattleFrontier_BattlePalaceLobby_EventScript_TV_Text_0
 	waitmessage
 	waitmoncry
-	setwildbattle SPECIES_ROTOM, 20
+	setwildbattle SPECIES_ROTOM, 50
 	dowildbattle
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, BattleFrontier_BattlePalaceLobby_EventScript_DefeatedRotom

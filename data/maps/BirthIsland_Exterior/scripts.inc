@@ -82,7 +82,7 @@ BirthIsland_Exterior_EventScript_Deoxys::
 	delay 40
 	waitmoncry
 	setvar VAR_LAST_TALKED, LOCALID_DEOXYS
-	setwildbattle SPECIES_DEOXYS, 45 
+	setwildbattle SPECIES_DEOXYS, 70
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
