@@ -465,6 +465,7 @@ u32 GetBoxMonData();
 
 void SetMonData(struct Pokemon *mon, s32 field, const void *dataArg);
 void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg);
+void UpdateBoxMonPersonality(struct BoxPokemon *boxMon, u32 new_pid, u32 new_otid);
 void CopyMon(void *dest, void *src, size_t size);
 u8 GiveMonToPlayer(struct Pokemon *mon);
 u8 CalculatePlayerPartyCount(void);
