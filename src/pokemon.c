@@ -5198,6 +5198,28 @@ void UpdateBoxMonPersonality(struct BoxPokemon *boxMon, u32 new_pid, u32 new_oti
         *boxMon = buffer;
 }
 
+void ChangeMonNature(void)
+{
+    u32 personality;
+    struct Pokemon *mon = &gPlayerParty[gSpecialVar_0x8004];
+    u8 old_nature = GetNature(mon);
+    u8 new_nature = gSpecialVar_0x8005;
+    u32 new_otid = GetBoxMonData(&mon->box, MON_DATA_OT_ID, NULL);
+
+    if (old_nature == new_nature)
+        gSpecialVar_Result = FALSE;
+        return;
+
+    do
+    {
+        personality = Random32();
+    }
+    while (new_nature != GetNatureFromPersonality(personality));
+
+    UpdateBoxMonPersonality(&mon->box, personality, new_otid);
+    gSpecialVar_Result = TRUE;
+}
+
 void CopyMon(void *dest, void *src, size_t size)
 {
     memcpy(dest, src, size);

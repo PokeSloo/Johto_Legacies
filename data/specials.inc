@@ -552,3 +552,4 @@ gSpecials::
 	def_special GetDeoxysState
 	def_special ChangeDeoxysForm
 	def_special BufferLeadMonNickname
+	def_special ChangeMonNature

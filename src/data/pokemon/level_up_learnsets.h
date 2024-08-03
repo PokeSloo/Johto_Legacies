@@ -20521,6 +20521,11 @@ static const struct LevelUpMove sElectrodeHisuianLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sTyphlosionHisuianLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_ERUPTION),
+    LEVEL_UP_MOVE( 1, MOVE_DOUBLE_EDGE),
+    LEVEL_UP_MOVE( 1, MOVE_GYRO_BALL),
+    LEVEL_UP_MOVE( 1, MOVE_REVERSAL),
+    LEVEL_UP_MOVE( 1, MOVE_HOWL),
     LEVEL_UP_MOVE( 1, MOVE_HEX),
     LEVEL_UP_MOVE( 1, MOVE_EXTRASENSORY),
     LEVEL_UP_MOVE( 1, MOVE_QUICK_ATTACK),

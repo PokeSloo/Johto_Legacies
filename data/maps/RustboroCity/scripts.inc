@@ -78,7 +78,38 @@ RustboroCity_EventScript_BenchBoy::
 
 
 RustboroCity_EventScript_BenchGirl::
-	msgbox RustboroCity_EventScript_BenchGirl_Text_0, MSGBOX_NPC
+	lock
+	faceplayer
+	msgbox RustboroCity_EventScript_BenchGirl_Text_0
+	waitmessage
+	special ChoosePartyMon
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, RustboroCity_EventScript_CancelMonSelect
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	goto_if_eq VAR_RESULT, SPECIES_EGG, RustboroCity_EventScript_ShowEgg
+	setvar VAR_0x8005, 3
+	special ChangeMonNature
+	compare VAR_RESULT, FALSE
+	goto_if_eq RustboroCity_EventScript_BenchGirl_1
+	msgbox RustboroCity_EventScript_BenchGirl_Text_2
+	release
+	end
+
+RustboroCity_EventScript_BenchGirl_1:
+	msgbox RustboroCity_EventScript_BenchGirl_Text_1
+	release
+	end
+
+
+RustboroCity_EventScript_CancelMonSelect::
+	msgbox RustboroCity_EventScript_CancelMonSelect_Text_0
+	release
+	end
+
+
+RustboroCity_EventScript_ShowEgg::
+	msgbox RustboroCity_EventScript_ShowEgg_Text_0
+	release
 	end
 
 
@@ -162,5 +193,16 @@ RustboroCity_EventScript_BenchBoy_Text_0:
 	.string "Is it time for my nap?$"
 
 RustboroCity_EventScript_BenchGirl_Text_0:
-	.string "Move along kiddo, I'm trying to show my\n"
-	.string "husband a little romance.$"
+	.string "Adamant nature test, select a mon.$"
+
+RustboroCity_EventScript_BenchGirl_Text_1:
+	.string "That mon is already Adamant$"
+
+RustboroCity_EventScript_BenchGirl_Text_2:
+	.string "nature has changed$"
+
+RustboroCity_EventScript_CancelMonSelect_Text_0:
+	.string "Maybe some other time.$"
+
+RustboroCity_EventScript_ShowEgg_Text_0:
+	.string "Eggs don't have natures.$"

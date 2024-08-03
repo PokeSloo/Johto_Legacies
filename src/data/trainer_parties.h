@@ -10400,18 +10400,18 @@ static const struct TrainerMonItemCustomMoves sParty_MayLilycoveTreecko[] = {
     {
     .iv = 255,
     .lvl = 78,
-    .species = SPECIES_SALAMENCE,
-    .heldItem = ITEM_SALAMENCITE,
-    .abilityNums = 0,
-    .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_DOUBLE_EDGE, MOVE_DRAGON_CLAW}
-    },
-    {
-    .iv = 255,
-    .lvl = 79,
     .species = SPECIES_ALAKAZAM,
     .heldItem = ITEM_FOCUS_SASH,
     .abilityNums = 2,
     .moves = {MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_FOCUS_BLAST, MOVE_ENERGY_BALL}
+    },
+    {
+    .iv = 255,
+    .lvl = 79,
+    .species = SPECIES_SALAMENCE,
+    .heldItem = ITEM_SALAMENCITE,
+    .abilityNums = 0,
+    .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_DOUBLE_EDGE, MOVE_DRAGON_CLAW}
     },
     {
     .iv = 255,

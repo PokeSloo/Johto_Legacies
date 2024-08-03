@@ -75,7 +75,39 @@ script RustboroCity_EventScript_BenchBoy {
 }
 
 script RustboroCity_EventScript_BenchGirl {
-	msgbox (format("Move along kiddo, I'm trying to show my husband a little romance."), MSGBOX_NPC)
+	//msgbox (format("Move along kiddo, I'm trying to show my husband a little romance."), MSGBOX_NPC)
+	lock
+	faceplayer
+	msgbox(format("Adamant nature test, select a mon."))
+	waitmessage
+	special (ChoosePartyMon)
+	waitstate
+	goto_if_eq (VAR_0x8004, PARTY_NOTHING_CHOSEN, RustboroCity_EventScript_CancelMonSelect)
+	specialvar (VAR_RESULT, ScriptGetPartyMonSpecies)
+	goto_if_eq (VAR_RESULT, SPECIES_EGG, RustboroCity_EventScript_ShowEgg)
+	setvar (VAR_0x8005, 3)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("That mon is already Adamant"))
+		release
+		end
+	}
+	else {
+		msgbox(format("nature has changed"))
+		release
+		end
+	}
+}
+
+script RustboroCity_EventScript_CancelMonSelect {
+	msgbox(format("Maybe some other time."))
+	release
+	end
+}
+
+script RustboroCity_EventScript_ShowEgg {
+	msgbox(format("Eggs don't have natures."))
+	release
 	end
 }
 
