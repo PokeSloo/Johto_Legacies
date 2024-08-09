@@ -11,7 +11,7 @@ script MauvilleCity_House2_EventScript_MoveRelearner {
     }
     checkmoney (3000)
     if (var(VAR_RESULT) == NO) {
-        msgbox(format("I'm sorry, but it doesn't look like you have enough money.\pPlease come back when you have at least ¥3,000"))
+        msgbox(format("I'm sorry, but it doesn't look like you have enough money.\pPlease come back when you have at least ¥3,000."))
         waitmessage
         hidemoneybox
 		release

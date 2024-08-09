@@ -5201,23 +5201,57 @@ void UpdateBoxMonPersonality(struct BoxPokemon *boxMon, u32 new_pid, u32 new_oti
 void ChangeMonNature(void)
 {
     u32 personality;
-    struct Pokemon *mon = &gPlayerParty[gSpecialVar_0x8004];
+    u32 old_personality = GetMonData(&gPlayerParty[gSpecialVar_0x8009], MON_DATA_PERSONALITY, NULL);
+    struct Pokemon *mon = &gPlayerParty[gSpecialVar_0x8009];
     u8 old_nature = GetNature(mon);
     u8 new_nature = gSpecialVar_0x8005;
     u32 new_otid = GetBoxMonData(&mon->box, MON_DATA_OT_ID, NULL);
+    u32 species = GetMonData(&gPlayerParty[gSpecialVar_0x8009], MON_DATA_SPECIES, NULL);
 
-    if (old_nature == new_nature)
+    if (old_nature == new_nature) {
         gSpecialVar_Result = FALSE;
         return;
-
-    do
-    {
-        personality = Random32();
     }
-    while (new_nature != GetNatureFromPersonality(personality));
+//    if (species == SPECIES_SPINDA) {
+//       do
+//        {
+//            personality = Random32();
+//        }
+//        while (new_nature != GetNatureFromPersonality(personality)
+//        || GetGenderFromSpeciesAndPersonality(species, old_personality) != GetGenderFromSpeciesAndPersonality(species, personality) //GENDER
+//        || IsShinyOtIdPersonality(new_otid, old_personality) != IsShinyOtIdPersonality(new_otid, personality) //SHININESS
+//        || ((old_personality & 0x0F) - 8) != ((personality & 0x0F) - 8) || (((old_personality & 0xF0) >> 4) - 8) != (((personality & 0xF0) >> 4) - 8)); //SPINDA SPOTS
 
-    UpdateBoxMonPersonality(&mon->box, personality, new_otid);
-    gSpecialVar_Result = TRUE;
+//        UpdateBoxMonPersonality(&mon->box, personality, new_otid);
+//        gSpecialVar_Result = TRUE;
+//        return;
+//    }
+    if (species == SPECIES_UNOWN) {
+        do
+        {
+            personality = Random32();
+        }
+        while (new_nature != GetNatureFromPersonality(personality)
+        || GetGenderFromSpeciesAndPersonality(species, old_personality) != GetGenderFromSpeciesAndPersonality(species, personality) //GENDER
+        || IsShinyOtIdPersonality(new_otid, old_personality) != IsShinyOtIdPersonality(new_otid, personality) //SHININESS
+        || GET_UNOWN_LETTER(old_personality) != GET_UNOWN_LETTER(personality)); //UNOWN LETTER
+
+        UpdateBoxMonPersonality(&mon->box, personality, new_otid);
+        gSpecialVar_Result = TRUE;
+        return;
+    }
+    else {
+        do
+        {
+            personality = Random32();
+        }
+        while (new_nature != GetNatureFromPersonality(personality)
+        || GetGenderFromSpeciesAndPersonality(species, old_personality) != GetGenderFromSpeciesAndPersonality(species, personality) //GENDER
+        || IsShinyOtIdPersonality(new_otid, old_personality) != IsShinyOtIdPersonality(new_otid, personality)); //SHININESS
+
+        UpdateBoxMonPersonality(&mon->box, personality, new_otid);
+        gSpecialVar_Result = TRUE;
+    }
 }
 
 void CopyMon(void *dest, void *src, size_t size)

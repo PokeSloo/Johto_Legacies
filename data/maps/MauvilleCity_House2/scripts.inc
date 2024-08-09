@@ -80,7 +80,7 @@ MauvilleCity_House2_EventScript_MoveRelearner_Text_0:
 	.string "I'm sorry, but it doesn't look like you\n"
 	.string "have enough money.\p"
 	.string "Please come back when you have at\n"
-	.string "least ¥3,000$"
+	.string "least ¥3,000.$"
 
 MauvilleCity_House2_EventScript_ChooseMove_Text_0:
 	.string "Wonderful!$"

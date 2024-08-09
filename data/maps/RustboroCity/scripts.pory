@@ -78,35 +78,399 @@ script RustboroCity_EventScript_BenchGirl {
 	//msgbox (format("Move along kiddo, I'm trying to show my husband a little romance."), MSGBOX_NPC)
 	lock
 	faceplayer
-	msgbox(format("Adamant nature test, select a mon."))
-	waitmessage
-	special (ChoosePartyMon)
-	waitstate
-	goto_if_eq (VAR_0x8004, PARTY_NOTHING_CHOSEN, RustboroCity_EventScript_CancelMonSelect)
-	specialvar (VAR_RESULT, ScriptGetPartyMonSpecies)
-	goto_if_eq (VAR_RESULT, SPECIES_EGG, RustboroCity_EventScript_ShowEgg)
-	setvar (VAR_0x8005, 3)
-	special (ChangeMonNature)
-	if (var(VAR_RESULT) == FALSE) {
-		msgbox(format("That mon is already Adamant"))
-		release
-		end
+	if (flag(FLAG_SPOKE_TO_NATURE_NPC)) {
+		msgbox(format("Welcome back, child..."))
+		waitmessage
+		showmoneybox (0, 0)
+		msgbox(format("Would you like me to change the nature of one of your POKéMON for ¥3,000?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == NO) {
+        	goto (RustboroCity_EventScript_CancelMonSelect)
+    	}
+    	checkmoney (3000)
+    	if (var(VAR_RESULT) == NO) {
+        	msgbox(format("Hmm... It doesn't look like you have enough money.\pPlease come back when you have at least ¥3,000."))
+        	waitmessage
+        	hidemoneybox
+			release
+        	end
+    	}
+		else {
+			goto (RustboroCity_EventScript_BenchGirl_SelectMon)
+		}
 	}
 	else {
-		msgbox(format("nature has changed"))
-		release
-		end
+		msgbox(format("Tell me child, are you familiar with the dark arts?\pDon't tell the sages in town, but I am able to change the nature of any POKéMON."))
+		waitmessage
+		setflag(FLAG_SPOKE_TO_NATURE_NPC)
+		showmoneybox (0, 0)
+		msgbox(format("I don't work for free, of course.\pHow does ¥3,000 sound to change your POKéMON's nature?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == NO) {
+        	goto (RustboroCity_EventScript_CancelMonSelect)
+    	}
+    	checkmoney (3000)
+    	if (var(VAR_RESULT) == NO) {
+        	msgbox(format("Hmm... It doesn't look like you have enough money.\pPlease come back when you have at least ¥3,000."))
+        	waitmessage
+        	hidemoneybox
+			release
+        	end
+    	}
+		else {
+			goto (RustboroCity_EventScript_BenchGirl_SelectMon)
+		}
 	}
 }
 
+script RustboroCity_EventScript_BenchGirl_SelectMon {
+	msgbox(format("Good... good...\pAnd which POKéMON shall be changed?"))
+	waitmessage
+	special (ChoosePartyMon)
+	waitstate
+	copyvar (VAR_0x8009, VAR_0x8004)
+	showmoneybox (0, 0)
+	goto_if_eq (VAR_0x8004, PARTY_NOTHING_CHOSEN, RustboroCity_EventScript_CancelMonSelect)
+	specialvar (VAR_RESULT, ScriptGetPartyMonSpecies)
+	goto_if_eq (VAR_RESULT, SPECIES_EGG, RustboroCity_EventScript_ShowEgg)
+	goto (RustboroCity_EventScript_BenchGirl_Multichoice)
+	end
+}
+
 script RustboroCity_EventScript_CancelMonSelect {
-	msgbox(format("Maybe some other time."))
+	msgbox(format("Hmm... Maybe some other time, then."))
+	hidemoneybox
 	release
 	end
 }
 
 script RustboroCity_EventScript_ShowEgg {
-	msgbox(format("Eggs don't have natures."))
+	msgbox(format("Hmm... That is an egg.\pEggs don't have natures yet."))
+	hidemoneybox
+	release
+	end
+}
+
+raw`
+RustboroCity_EventScript_BenchGirl_Multichoice::
+	message RustboroCity_Text_WhichNature
+	waitmessage
+	scrollingmultichoice 3, 20, 2, 5, TRUE
+	switch VAR_RESULT
+	case 0, RustboroCity_EventScript_ChooseLonely
+	case 1, RustboroCity_EventScript_ChooseBrave
+	case 2, RustboroCity_EventScript_ChooseAdamant
+	case 3, RustboroCity_EventScript_ChooseNaughty
+	case 4, RustboroCity_EventScript_ChooseBold
+	case 5, RustboroCity_EventScript_ChooseRelaxed
+	case 6, RustboroCity_EventScript_ChooseImpish
+	case 7, RustboroCity_EventScript_ChooseLax
+	case 8, RustboroCity_EventScript_ChooseTimid
+	case 9, RustboroCity_EventScript_ChooseHasty
+	case 10, RustboroCity_EventScript_ChooseJolly
+	case 11, RustboroCity_EventScript_ChooseNaive
+	case 12, RustboroCity_EventScript_ChooseModest
+	case 13, RustboroCity_EventScript_ChooseMild
+	case 14, RustboroCity_EventScript_ChooseQuiet
+	case 15, RustboroCity_EventScript_ChooseRash
+	case 16, RustboroCity_EventScript_ChooseCalm
+	case 17, RustboroCity_EventScript_ChooseGentle
+	case 18, RustboroCity_EventScript_ChooseSassy
+	case 19, RustboroCity_EventScript_ChooseCareful
+	case MULTI_B_PRESSED, RustboroCity_EventScript_CancelMonSelect
+	end
+`
+
+text RustboroCity_Text_WhichNature {
+	format("And which nature would you like it changed to?")
+}
+
+script RustboroCity_EventScript_ChooseLonely {
+	setvar (VAR_0x8005, 1)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Lonely."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseBrave {
+	setvar (VAR_0x8005, 2)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Brave."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseAdamant {
+	setvar (VAR_0x8005, 3)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Adamant."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseNaughty {
+	setvar (VAR_0x8005, 4)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Naughty."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseBold {
+	setvar (VAR_0x8005, 5)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Bold."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseRelaxed {
+	setvar (VAR_0x8005, 7)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Relaxed."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseImpish {
+	setvar (VAR_0x8005, 8)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Impish."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseLax {
+	setvar (VAR_0x8005, 9)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Lax."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseTimid {
+	setvar (VAR_0x8005, 10)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Timid."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseHasty {
+	setvar (VAR_0x8005, 11)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Hasty."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseJolly {
+	setvar (VAR_0x8005, 13)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Jolly."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseNaive {
+	setvar (VAR_0x8005, 14)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Naive."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseModest {
+	setvar (VAR_0x8005, 15)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Modest."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseMild {
+	setvar (VAR_0x8005, 16)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Mild."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseQuiet {
+	setvar (VAR_0x8005, 17)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Quiet."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseRash {
+	setvar (VAR_0x8005, 19)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Rash."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseCalm {
+	setvar (VAR_0x8005, 20)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Calm."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseGentle {
+	setvar (VAR_0x8005, 21)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Gentle."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseSassy {
+	setvar (VAR_0x8005, 22)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Sassy."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_ChooseCareful {
+	setvar (VAR_0x8005, 23)
+	special (ChangeMonNature)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Hmm... This POKéMON is already Careful."))
+		hidemoneybox
+		release
+		end
+	}
+	else {
+		goto (RustboroCity_EventScript_NatureChanged)
+	}
+}
+
+script RustboroCity_EventScript_NatureChanged {
+	msgbox(format("...\p...\pAll done!\pYour POKéMON's nature has changed!"))
+	removemoney (3000)
+    updatemoneybox
+	playse (SE_SHOP)
+    waitse
+	msgbox(format("Please, do visit again."))
+	hidemoneybox
 	release
 	end
 }

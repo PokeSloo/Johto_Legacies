@@ -463,7 +463,7 @@
 #define FLAG_SHOWN_EON_TICKET                0x1AE
 #define FLAG_SHOWN_AURORA_TICKET             0x1AF
 #define FLAG_SHOWN_OLD_SEA_MAP               0x1B0
-#define FLAG_MOVE_TUTOR_TAUGHT_SWAGGER       0x1B1 // Unused now
+#define FLAG_SPOKE_TO_NATURE_NPC             0x1B1 // Nature changer NPC in Violet
 #define FLAG_MOVE_TUTOR_TAUGHT_ROLLOUT       0x1B2 // Unused now
 #define FLAG_MOVE_TUTOR_TAUGHT_FURY_CUTTER   0x1B3 // Unused now
 #define FLAG_MOVE_TUTOR_TAUGHT_MIMIC         0x1B4 // Unused now

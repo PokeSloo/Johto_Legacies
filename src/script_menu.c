@@ -804,6 +804,26 @@ static const u8 sText_NewFirePunch[] = _("Fire Punch");
 static const u8 sText_NewFocusPunch[] = _("Focus Punch");
 static const u8 sText_NewIronTail[] = _("Iron Tail");
 static const u8 sText_NewSnatch[] = _("Snatch");
+static const u8 sText_NewLonely[] = _("Lonely");
+static const u8 sText_NewBrave[] = _("Brave");
+static const u8 sText_NewAdamant[] = _("Adamant");
+static const u8 sText_NewNaughty[] = _("Naughty");
+static const u8 sText_NewBold[] = _("Bold");
+static const u8 sText_NewRelaxed[] = _("Relaxed");
+static const u8 sText_NewImpish[] = _("Impish");
+static const u8 sText_NewLax[] = _("Lax");
+static const u8 sText_NewTimid[] = _("Timid");
+static const u8 sText_NewHasty[] = _("Hasty");
+static const u8 sText_NewJolly[] = _("Jolly");
+static const u8 sText_NewNaive[] = _("Naive");
+static const u8 sText_NewModest[] = _("Modest");
+static const u8 sText_NewMild[] = _("Mild");
+static const u8 sText_NewQuiet[] = _("Quiet");
+static const u8 sText_NewRash[] = _("Rash");
+static const u8 sText_NewCalm[] = _("Calm");
+static const u8 sText_NewGentle[] = _("Gentle");
+static const u8 sText_NewSassy[] = _("Sassy");
+static const u8 sText_NewCareful[] = _("Careful");
 
 // Sets of multichoices.
 static const struct ListMenuItem sSet1[] =
@@ -855,6 +875,30 @@ static const struct ListMenuItem sSet3[] =
     {sText_NewSnatch, 12},
 };
 
+static const struct ListMenuItem sSet4[] =
+{
+    {sText_NewLonely, 0},
+    {sText_NewBrave, 1},
+    {sText_NewAdamant, 2},
+    {sText_NewNaughty, 3},
+    {sText_NewBold, 4},
+    {sText_NewRelaxed, 5},
+    {sText_NewImpish, 6},
+    {sText_NewLax, 7},
+    {sText_NewTimid, 8},
+    {sText_NewHasty, 9},
+    {sText_NewJolly, 10},
+    {sText_NewNaive, 11},
+    {sText_NewModest, 12},
+    {sText_NewMild, 13},
+    {sText_NewQuiet, 14},
+    {sText_NewRash, 15},
+    {sText_NewCalm, 16},
+    {sText_NewGentle, 17},
+    {sText_NewSassy, 18},
+    {sText_NewCareful, 19},
+};
+
 // Table of your multichoice sets.
 struct
 {
@@ -865,6 +909,7 @@ struct
     {sSet1, ARRAY_COUNT(sSet1)},
     {sSet2, ARRAY_COUNT(sSet2)},
     {sSet3, ARRAY_COUNT(sSet3)},
+    {sSet4, ARRAY_COUNT(sSet4)},
 };
 
 static void Task_ScrollingMultichoiceInput(u8 taskId);
