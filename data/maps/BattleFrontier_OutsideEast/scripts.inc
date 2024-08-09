@@ -36,9 +36,10 @@ BattleFrontier_OutsideEast_Text_GotWipedOut:
 	.string "unprepared.$"
 
 BattleFrontier_OutsideEast_Text_ToughTrainerInBattleTower:
-	.string "I don't know what everyone is\n"
-	.string "complaining about, I don't think the\l"
-	.string "Battle Tower is that tough at all.$"
+	.string "The Battle Tower is pretty tough, but\n"
+	.string "at least they have some good prizes.\p"
+	.string "I picked up a few extra Master Balls\n"
+	.string "myself!$"
 
 BattleFrontier_OutsideEast_Text_LikeToHaveNameRecordedHere:
 	.string "As many times as I've tried, I still can't\n"
