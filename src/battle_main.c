@@ -388,7 +388,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_BUG_CATCHER, 4},
     {TRAINER_CLASS_HIKER, 10},
     {TRAINER_CLASS_YOUNG_COUPLE, 8},
-    {TRAINER_CLASS_WINSTRATE, 10},
+    {TRAINER_CLASS_WINSTRATE, 1},
     {TRAINER_CLASS_PKMN_TRAINER_1, 15},
     {TRAINER_CLASS_PKMN_TRAINER_2, 25},
     {0xFF, 5}, // Any trainer class not listed above uses this
@@ -1827,6 +1827,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     u8 fixedIV;
     s32 i, j;
     u8 monsCount;
+    u8 level = GetHighestLevelInPlayerParty();
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
@@ -1928,6 +1929,24 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
                 }
                 SetMonData(&party[i], MON_DATA_ABILITY_NUM, &partyData[i].abilityNums);
+                break;
+            }
+            case F_TRAINER_PARTY_DYNAMIC_LEVEL:
+            {
+                const struct TrainerMonDynamicLevel *partyData = gTrainers[trainerNum].party.NoItemDynamicLevel;
+
+                for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
+                    nameHash += gSpeciesNames[partyData[i].species][j];
+
+                personalityValue += nameHash << 8;
+                fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
+                CreateMon(&party[i], partyData[i].species, level, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+
+                for (j = 0; j < MAX_MON_MOVES; j++)
+                {
+                    SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
+                    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
+                }
                 break;
             }
             }

@@ -5,6 +5,7 @@
 #include "battle_ai_main.h"
 #include "battle_ai_util.h"
 #include "battle_scripts.h"
+#include "battle_tower.h"
 #include "battle_z_move.h"
 #include "constants/moves.h"
 #include "constants/abilities.h"
@@ -6828,6 +6829,7 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
     u32 i = 0;
     u32 lastMonLevel = 0;
     u32 moneyReward;
+    u32 level = GetHighestLevelInPlayerParty();
 
     if (trainerId == TRAINER_SECRET_BASE)
     {
@@ -6859,6 +6861,12 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
             {
                 const struct TrainerMonItemCustomMoves *party = gTrainers[trainerId].party.ItemCustomMoves;
                 lastMonLevel = party[gTrainers[trainerId].partySize - 1].lvl;
+            }
+            break;
+        case F_TRAINER_PARTY_DYNAMIC_LEVEL:
+            {
+                const struct TrainerMonDynamicLevel *party = gTrainers[trainerId].party.NoItemDynamicLevel;
+                lastMonLevel = level;
             }
             break;
         }

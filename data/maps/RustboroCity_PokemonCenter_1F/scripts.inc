@@ -46,3 +46,34 @@ RustboroCity_PokemonCenter_1F_Text_HMCutNextDoor:
 	.string "The ruins have always fascinated me\n"
 	.string "since I was a little girl.$"
 
+RustboroCity_PokemonCenter_1F_EventScript_LevelNurse::
+	lock
+	faceplayer
+	msgbox RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_1
+	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_TORCHIC, RustboroCity_PokemonCenter_1F_Text_Defeated
+	msgbox RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_Text_2
+	special HealPlayerParty
+	release
+	end
+
+RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_1:
+	msgbox RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_Text_1
+	release
+	end
+
+
+RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_Text_0:
+	.string "Would you like a quick battle to level up\n"
+	.string "your POKéMON?$"
+
+RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_Text_1:
+	.string "Very well.\p"
+	.string "Come see me if you change your mind.$"
+
+RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_Text_2:
+	.string "Please come see me if you need more Exp.$"
+
+RustboroCity_PokemonCenter_1F_Text_Defeated::
+	.string "I hope that helped!$"
