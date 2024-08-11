@@ -59,7 +59,7 @@ script RustboroCity_PokemonCenter_1F_EventScript_LevelNurse {
     }
     else {
         trainerbattle_no_intro (TRAINER_MAY_LILYCOVE_TORCHIC, RustboroCity_PokemonCenter_1F_Text_Defeated)
-        msgbox(format("Please come see me if you need more Exp."))
+        msgbox(format("Please come see me whenever you need more Exp."))
         special (HealPlayerParty)
         release
         end

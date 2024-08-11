@@ -282,6 +282,20 @@ static const u16 sMoltresFormSpeciesIdTable[] = {
 static const u16 sTyphlosionFormSpeciesIdTable[] = {
     SPECIES_TYPHLOSION,
     SPECIES_TYPHLOSION_HISUIAN,
+    SPECIES_TYPHLOSION_MEGA,
+    SPECIES_HISUIAN_TYPHLOSION_MEGA,
+    FORM_SPECIES_END,
+};
+
+static const u16 sMeganiumFormSpeciesIdTable[] = {
+    SPECIES_MEGANIUM,
+    SPECIES_MEGANIUM_MEGA,
+    FORM_SPECIES_END,
+};
+
+static const u16 sFeraligatrFormSpeciesIdTable[] = {
+    SPECIES_FERALIGATR,
+    SPECIES_FERALIGATR_MEGA,
     FORM_SPECIES_END,
 };
 

@@ -73,7 +73,8 @@ RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_Text_1:
 	.string "Come see me if you change your mind.$"
 
 RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_Text_2:
-	.string "Please come see me if you need more Exp.$"
+	.string "Please come see me whenever you need\n"
+	.string "more Exp.$"
 
 RustboroCity_PokemonCenter_1F_Text_Defeated::
 	.string "I hope that helped!$"

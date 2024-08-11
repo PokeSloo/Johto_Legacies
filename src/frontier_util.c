@@ -137,7 +137,7 @@ static const struct FrontierBrainMon sFrontierBrainsMons[][2][FRONTIER_PARTY_SIZ
             },
             {
                 .species = SPECIES_GYARADOS,
-                .heldItem = ITEM_GYARADOSITE,
+                .heldItem = ITEM_LIFE_ORB,
                 .fixedIV = MAX_PER_STAT_IVS,
                 .nature = NATURE_JOLLY,
                 .evs = {0, 252, 0, 252, 0, 6},
@@ -145,11 +145,11 @@ static const struct FrontierBrainMon sFrontierBrainsMons[][2][FRONTIER_PARTY_SIZ
             },
             {
                 .species = SPECIES_TYPHLOSION,
-                .heldItem = ITEM_CHOICE_SCARF,
+                .heldItem = ITEM_TRI_PASS,
                 .fixedIV = MAX_PER_STAT_IVS,
                 .nature = NATURE_MODEST,
                 .evs = {0, 0, 0, 252, 252, 6},
-                .moves = {MOVE_ERUPTION, MOVE_FIRE_BLAST, MOVE_FOCUS_BLAST, MOVE_EXTRASENSORY},
+                .moves = {MOVE_ERUPTION, MOVE_FIRE_BLAST, MOVE_DARK_PULSE, MOVE_EXTRASENSORY},
             },
         },
     },

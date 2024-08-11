@@ -59,8 +59,8 @@ SootopolisCity_MysteryEventsHouse_1F_OnFrame::
 	waitmovement 0
 	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_10
 	waitmessage
-	goto_if_set FLAG_CHOSE_OAK_BULBASAUR, SootopolisCity_MysteryEventsHouse_1F_OnFrame_2
-	goto_if_set FLAG_CHOSE_OAK_SQUIRTLE, SootopolisCity_MysteryEventsHouse_1F_OnFrame_3
+	goto_if_set FLAG_HIDE_CHIKORITA_BALL, SootopolisCity_MysteryEventsHouse_1F_OnFrame_2
+	goto_if_set FLAG_HIDE_TOTODILE_BALL, SootopolisCity_MysteryEventsHouse_1F_OnFrame_3
 	call SootopolisCity_MysteryEventsHouse_1F_EventScript_Charmander
 SootopolisCity_MysteryEventsHouse_1F_OnFrame_1:
 	msgbox SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_11
@@ -126,17 +126,17 @@ SootopolisCity_MysteryEventsHouse_1F_OnFrame_3:
 
 
 SootopolisCity_MysteryEventsHouse_1F_EventScript_Bulbasaur::
-	giveitem ITEM_VENUSAURITE
+	giveitem ITEM_RAINBOW_PASS
 	return
 
 
 SootopolisCity_MysteryEventsHouse_1F_EventScript_Squirtle::
-	giveitem ITEM_BLASTOISINITE
+	giveitem ITEM_TEA
 	return
 
 
 SootopolisCity_MysteryEventsHouse_1F_EventScript_Charmander::
-	giveitem ITEM_CHARIZARDITE_X
+	giveitem ITEM_TRI_PASS
 	return
 
 
@@ -245,6 +245,9 @@ SootopolisCity_MysteryEventsHouse_1F_Mart:
 	.2byte ITEM_BLASTOISINITE
 	.2byte ITEM_CHARIZARDITE_X
 	.2byte ITEM_CHARIZARDITE_Y
+	.2byte ITEM_TRI_PASS
+	.2byte ITEM_RAINBOW_PASS
+	.2byte ITEM_TEA
 	.2byte ITEM_SCEPTILITE
 	.2byte ITEM_SWAMPERTITE
 	.2byte ITEM_BLAZIKENITE
@@ -261,7 +264,7 @@ SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_0:
 SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_1:
 	.string "SHANE: Yeah! DAD used that against me\n"
 	.string "in the POKéMON League.\p"
-	.string "I was doing ok until his Salamence Mega\n"
+	.string "I was doing ok until his Feraligatr Mega\n"
 	.string "Evolved!$"
 
 SootopolisCity_MysteryEventsHouse_1F_OnFrame_Text_2:

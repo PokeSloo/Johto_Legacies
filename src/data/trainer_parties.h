@@ -5140,7 +5140,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     .iv = 255,
     .lvl = 71,
     .species = SPECIES_SALAMENCE,
-    .heldItem = ITEM_SALAMENCITE,
+    .heldItem = ITEM_LIFE_ORB,
     .abilityNums = 0,
     .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_DOUBLE_EDGE, MOVE_DRAGON_CLAW}
     },
@@ -5156,7 +5156,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     .iv = 255,
     .lvl = 72,
     .species = SPECIES_FERALIGATR,
-    .heldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_TEA,
     .abilityNums = 2,
     .moves = {MOVE_LIQUIDATION, MOVE_DRAGON_DANCE, MOVE_ICE_PUNCH, MOVE_EARTHQUAKE}
     }
@@ -10409,7 +10409,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayLilycoveTreecko[] = {
     .iv = 255,
     .lvl = 79,
     .species = SPECIES_SALAMENCE,
-    .heldItem = ITEM_SALAMENCITE,
+    .heldItem = ITEM_LIFE_ORB,
     .abilityNums = 0,
     .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_DOUBLE_EDGE, MOVE_DRAGON_CLAW}
     },
@@ -10417,7 +10417,7 @@ static const struct TrainerMonItemCustomMoves sParty_MayLilycoveTreecko[] = {
     .iv = 255,
     .lvl = 80,
     .species = SPECIES_FERALIGATR,
-    .heldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_TEA,
     .abilityNums = 2,
     .moves = {MOVE_LIQUIDATION, MOVE_DRAGON_DANCE, MOVE_ICE_PUNCH, MOVE_EARTHQUAKE}
     }
@@ -13643,14 +13643,14 @@ static const struct TrainerMonItemCustomMoves sParty_Steven[] = {
     .lvl = 82,
     .species = SPECIES_TANGROWTH,
     .heldItem = ITEM_ASSAULT_VEST,
-    .abilityNums = 2,
+    .abilityNums = 0,
     .moves = {MOVE_EARTHQUAKE, MOVE_POWER_WHIP, MOVE_KNOCK_OFF, MOVE_SLUDGE_BOMB}
     },
     {
     .iv = 255,
     .lvl = 82,
     .species = SPECIES_GYARADOS,
-    .heldItem = ITEM_GYARADOSITE,
+    .heldItem = ITEM_SHELL_BELL,
     .abilityNums = 0,
     .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_ICE_FANG, MOVE_WATERFALL}
     },
@@ -13666,9 +13666,9 @@ static const struct TrainerMonItemCustomMoves sParty_Steven[] = {
     .iv = 255,
     .lvl = 83,
     .species = SPECIES_TYPHLOSION,
-    .heldItem = ITEM_CHOICE_SCARF,
+    .heldItem = ITEM_TRI_PASS,
     .abilityNums = 0,
-    .moves = {MOVE_ERUPTION, MOVE_FIRE_BLAST, MOVE_FOCUS_BLAST, MOVE_EXTRASENSORY}
+    .moves = {MOVE_ERUPTION, MOVE_FIRE_BLAST, MOVE_DARK_PULSE, MOVE_EXTRASENSORY}
     }
 };
 

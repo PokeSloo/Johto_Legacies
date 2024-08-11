@@ -955,6 +955,10 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_GALLADE_MEGA] = sGalladeTeachableLearnset,
     [SPECIES_AUDINO_MEGA] = sAudinoTeachableLearnset,
     [SPECIES_DIANCIE_MEGA] = sDiancieTeachableLearnset,
+    [SPECIES_TYPHLOSION_MEGA] = sTyphlosionTeachableLearnset,
+    [SPECIES_MEGANIUM_MEGA] = sMeganiumTeachableLearnset,
+    [SPECIES_FERALIGATR_MEGA] = sFeraligatrTeachableLearnset,
+    [SPECIES_HISUIAN_TYPHLOSION_MEGA] = sTyphlosionTeachableLearnset,
     // Special Mega + Primals
     [SPECIES_RAYQUAZA_MEGA] = sRayquazaTeachableLearnset,
     [SPECIES_KYOGRE_PRIMAL] = sKyogreTeachableLearnset,

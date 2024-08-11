@@ -9949,41 +9949,41 @@ const struct Item gItems[] =
 
     [ITEM_TRI_PASS] =
     {
-        .name = _("Tri-Pass"),
+        .name = _("Typhlosionite"),
         .itemId = ITEM_TRI_PASS,
-        .price = 0,
+        .price = 5000,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sTriPassDesc,
-        .importance = 1,
-        .registrability = TRUE,
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
     },
 
     [ITEM_RAINBOW_PASS] =
     {
-        .name = _("Rainbow Pass"),
+        .name = _("Meganiumite"),
         .itemId = ITEM_RAINBOW_PASS,
-        .price = 0,
+        .price = 5000,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sRainbowPassDesc,
-        .importance = 1,
-        .registrability = TRUE,
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
     },
 
     [ITEM_TEA] =
     {
-        .name = _("Tea"),
+        .name = _("Feraligatite"),
         .itemId = ITEM_TEA,
-        .price = 0,
+        .price = 5000,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = sTeaDesc,
-        .importance = 1,
-        .registrability = TRUE,
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
     },
 
     [ITEM_RUBY] =

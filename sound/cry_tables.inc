@@ -954,6 +954,10 @@ gCryTable::
 	cry Cry_GalladeMega
 	cry Cry_AudinoMega
 	cry Cry_DiancieMega
+	cry Cry_TyphlosionMega
+	cry Cry_MeganiumMega
+	cry Cry_FeraligatrMega
+	cry Cry_MisTyphlosionMega
 	@ Special Mega + Primals
 	cry Cry_RayquazaMega
 	cry Cry_KyogrePrimal
@@ -2294,6 +2298,10 @@ gCryTable_Reverse::
 	cry_reverse Cry_GalladeMega
 	cry_reverse Cry_AudinoMega
 	cry_reverse Cry_DiancieMega
+	cry_reverse Cry_TyphlosionMega
+	cry_reverse Cry_MeganiumMega
+	cry_reverse Cry_FeraligatrMega
+	cry_reverse Cry_MisTyphlosionMega
 	@ Special Mega + Primals
 	cry_reverse Cry_RayquazaMega
 	cry_reverse Cry_KyogrePrimal

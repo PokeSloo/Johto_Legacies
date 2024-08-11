@@ -3769,19 +3769,19 @@ static const u8 sSilphScopeDesc[] = _(
     "evolve.");
 
 static const u8 sTriPassDesc[] = _(
-    "A pass for ferries\n"
-    "between One, Two,\n"
-    "and Three Island.");
+    "This stone enables\n"
+    "Typhlosion to Mega\n"
+    "Evolve in battle.");
 
 static const u8 sRainbowPassDesc[] = _(
-    "For ferries serving\n"
-    "Vermilion and the\n"
-    "Sevii Islands.");
+    "This stone enables\n"
+    "Meganium to Mega\n"
+    "Evolve in battle.");
 
 static const u8 sTeaDesc[] = _(
-    "A thirst-quenching\n"
-    "tea prepared by an\n"
-    "old lady.");
+    "This stone enables\n"
+    "Feraligatr to Mega\n"
+    "Evolve in battle.");
 
 static const u8 sRubyDesc[] = _(
     "An exquisite, red-\n"

@@ -18,7 +18,7 @@ script SootopolisCity_MysteryEventsHouse_1F_OnFrame {
     waitmessage
     applymovement(SHANE_ID, SootopolisCity_Movement_StepUp)
     waitmovement (0)
-    msgbox(format("SHANE: Yeah! DAD used that against me in the POKéMON League.\pI was doing ok until his Salamence Mega Evolved!"))
+    msgbox(format("SHANE: Yeah! DAD used that against me in the POKéMON League.\pI was doing ok until his Feraligatr Mega Evolved!"))
     waitmessage
     applymovement(GOLD_ID, SootopolisCity_Movement_StepDown)
     waitmovement (0)
@@ -60,10 +60,10 @@ script SootopolisCity_MysteryEventsHouse_1F_OnFrame {
     waitmovement (0)
     msgbox(format("GOLD: Hmm... Hopefully you'll be able to use this one."))
     waitmessage
-    if (flag(FLAG_CHOSE_OAK_BULBASAUR)) {
+    if (flag(FLAG_HIDE_CHIKORITA_BALL)) {
         call (SootopolisCity_MysteryEventsHouse_1F_EventScript_Bulbasaur)
     }
-    elif (flag(FLAG_CHOSE_OAK_SQUIRTLE)) {
+    elif (flag(FLAG_HIDE_TOTODILE_BALL)) {
         call (SootopolisCity_MysteryEventsHouse_1F_EventScript_Squirtle)
     }
     else {
@@ -124,17 +124,17 @@ script SootopolisCity_MysteryEventsHouse_1F_OnFrame {
 }
 
 script SootopolisCity_MysteryEventsHouse_1F_EventScript_Bulbasaur {
-    giveitem (ITEM_VENUSAURITE)
+    giveitem (ITEM_RAINBOW_PASS)
     return
 }
 
 script SootopolisCity_MysteryEventsHouse_1F_EventScript_Squirtle {
-    giveitem (ITEM_BLASTOISINITE)
+    giveitem (ITEM_TEA)
     return
 }
 
 script SootopolisCity_MysteryEventsHouse_1F_EventScript_Charmander {
-    giveitem (ITEM_CHARIZARDITE_X)
+    giveitem (ITEM_TRI_PASS)
     return
 }
 
@@ -225,6 +225,9 @@ mart SootopolisCity_MysteryEventsHouse_1F_Mart {
     ITEM_BLASTOISINITE
     ITEM_CHARIZARDITE_X
     ITEM_CHARIZARDITE_Y
+    ITEM_TRI_PASS
+    ITEM_RAINBOW_PASS
+    ITEM_TEA
     ITEM_SCEPTILITE
     ITEM_SWAMPERTITE
     ITEM_BLAZIKENITE
