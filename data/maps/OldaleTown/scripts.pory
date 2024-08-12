@@ -28,9 +28,13 @@ script OldaleTown_OnFrame {
 	applymovement (SHANE_ID, OldaleTown_ShaneWalktoNerd)
 	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalktoNerd)
     waitmovement (0)
-	msgbox (format("Pfft, get a load of this nerd.\pNot a single girl would go for a guy like that.\pTrust me."))
-    waitmessage
-    closemessage
+	checkplayergender
+    if (var(VAR_RESULT) == MALE) {
+        call (OldaleTown_Event_MalePlayer)
+    }
+    elif (var(VAR_RESULT) == FEMALE) {
+        call (OldaleTown_Event_FemalePlayer)
+    }
 	applymovement (SHANE_ID, OldaleTown_ShaneWalktoGrass)
 	applymovement (OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalktoGrass)
     waitmovement (0)
@@ -114,6 +118,20 @@ script OldaleTown_OnFrame {
     addvar (VAR_CHERRYGROVE_STATE, 1)
     release
     end
+}
+
+script OldaleTown_Event_MalePlayer {
+	msgbox (format("Pfft, get a load of this nerd.\pNot a single girl would go for a guy like that.\pTrust me."))
+    waitmessage
+    closemessage
+	return
+}
+
+script OldaleTown_Event_FemalePlayer {
+	msgbox (format("Pfft, get a load of this nerd.\pI doubt even a weird girl like you would go for a guy like that."))
+    waitmessage
+    closemessage
+	return
 }
 
 movement OldaleTown_ShaneApostraphe {

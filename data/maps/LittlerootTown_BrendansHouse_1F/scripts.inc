@@ -471,21 +471,9 @@ LittlerootTown_BrendansHouse_1F_Get_Nav::
 	addvar VAR_CHERRYGROVE_STATE, 1
 	msgbox LittlerootTown_BrendansHouse_1F_Get_Nav_Text_2
 	waitmessage
-	applymovement 1, LittlerootTown_BrendansHouse_1F_FaceRight
-	waitmovement 0
-	msgbox LittlerootTown_BrendansHouse_1F_Get_Nav_Text_3
-	waitmessage
-	waitse
-	playmoncry SPECIES_AZUMARILL, CRY_MODE_NORMAL
-	applymovement 6, LittlerootTown_BrendansHouse_1F_DownExclamation
-	waitmovement 0
-	msgbox LittlerootTown_BrendansHouse_1F_Azumarill_Text_0
-	waitmessage
-	closemessage
-	waitmoncry
 	applymovement 1, LittlerootTown_BrendansHouse_1F_FaceLeft
 	waitmovement 0
-	msgbox LittlerootTown_BrendansHouse_1F_Get_Nav_Text_4
+	msgbox LittlerootTown_BrendansHouse_1F_Get_Nav_Text_3
 	waitmessage
 	closemessage
 	applymovement 1, LittlerootTown_BrendansHouse_1F_FaceRight
@@ -877,12 +865,9 @@ LittlerootTown_BrendansHouse_1F_Get_Nav_Text_2:
 	.string "It also has a map of the Johto region.\p"
 	.string "Don't hesitate to call me if SHANE acts\n"
 	.string "up again.\p"
-	.string "Azumarill and I will take care of him.$"
+	.string "Azumarill and I will take care of him!$"
 
 LittlerootTown_BrendansHouse_1F_Get_Nav_Text_3:
-	.string "Right, Azumarill?$"
-
-LittlerootTown_BrendansHouse_1F_Get_Nav_Text_4:
 	.string "MOM: Now get going, and don't worry\n"
 	.string "about SHANE, ok.$"
 

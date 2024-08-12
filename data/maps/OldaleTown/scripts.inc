@@ -29,13 +29,16 @@ OldaleTown_OnFrame::
 	applymovement 4, OldaleTown_ShaneWalktoNerd
 	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalktoNerd
 	waitmovement 0
-	msgbox OldaleTown_OnFrame_Text_2
-	waitmessage
-	closemessage
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq OldaleTown_OnFrame_2
+	compare VAR_RESULT, FEMALE
+	goto_if_eq OldaleTown_OnFrame_3
+OldaleTown_OnFrame_1:
 	applymovement 4, OldaleTown_ShaneWalktoGrass
 	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalktoGrass
 	waitmovement 0
-	msgbox OldaleTown_OnFrame_Text_3
+	msgbox OldaleTown_OnFrame_Text_2
 	waitmessage
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalkDownOne
@@ -44,12 +47,12 @@ OldaleTown_OnFrame::
 	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalktoLedge
 	waitmovement 0
 	delay 20
-	msgbox OldaleTown_OnFrame_Text_4
+	msgbox OldaleTown_OnFrame_Text_3
 	waitmessage
 	applymovement 4, OldaleTown_ShaneFacePlayer, MAP_OLDALE_TOWN
 	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerFaceShane
 	waitmovement 0
-	msgbox OldaleTown_OnFrame_Text_5
+	msgbox OldaleTown_OnFrame_Text_4
 	waitmessage
 	closemessage
 	applymovement 4, OldaleTown_ShaneFaceDown, MAP_OLDALE_TOWN
@@ -60,7 +63,7 @@ OldaleTown_OnFrame::
 	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_ShaneFaceDown
 	waitmovement 0
 	delay 30
-	msgbox OldaleTown_OnFrame_Text_6
+	msgbox OldaleTown_OnFrame_Text_5
 	waitmessage
 	closemessage
 	applymovement 4, OldaleTown_ShaneWalkOffscreen, MAP_OLDALE_TOWN
@@ -69,19 +72,19 @@ OldaleTown_OnFrame::
 	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerJumpLedge
 	playse SE_LEDGE
 	waitmovement 0
-	msgbox OldaleTown_OnFrame_Text_7
+	msgbox OldaleTown_OnFrame_Text_6
 	waitmessage
 	closemessage
 	applymovement 4, OldaleTown_ShaneToTree, MAP_OLDALE_TOWN
 	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerToTree
 	waitmovement 0
-	msgbox OldaleTown_OnFrame_Text_8
+	msgbox OldaleTown_OnFrame_Text_7
 	waitmessage
 	closemessage
 	applymovement 4, OldaleTown_ShaneWalkAroundTrees, MAP_OLDALE_TOWN
 	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerWalkAroundTrees
 	waitmovement 0
-	msgbox OldaleTown_OnFrame_Text_9
+	msgbox OldaleTown_OnFrame_Text_8
 	waitmessage
 	closemessage
 	applymovement 4, OldaleTown_ShaneWalkToSign, MAP_OLDALE_TOWN
@@ -92,7 +95,7 @@ OldaleTown_OnFrame::
 	playse SE_LEDGE
 	playse SE_LEDGE
 	waitmovement 0
-	msgbox OldaleTown_OnFrame_Text_10
+	msgbox OldaleTown_OnFrame_Text_9
 	waitmessage
 	closemessage
 	applymovement 4, OldaleTown_ShaneWalkToLab, MAP_OLDALE_TOWN
@@ -102,7 +105,7 @@ OldaleTown_OnFrame::
 	applymovement 4, OldaleTown_ShaneFacePlayer, MAP_OLDALE_TOWN
 	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_PlayerFaceShane
 	waitmovement 0
-	msgbox OldaleTown_OnFrame_Text_11
+	msgbox OldaleTown_OnFrame_Text_10
 	waitmessage
 	closemessage
 	applymovement 4, OldaleTown_ShaneLeaves, MAP_OLDALE_TOWN
@@ -115,6 +118,28 @@ OldaleTown_OnFrame::
 	addvar VAR_CHERRYGROVE_STATE, 1
 	release
 	end
+
+OldaleTown_OnFrame_2:
+	call OldaleTown_Event_MalePlayer
+	goto OldaleTown_OnFrame_1
+
+OldaleTown_OnFrame_3:
+	call OldaleTown_Event_FemalePlayer
+	goto OldaleTown_OnFrame_1
+
+
+OldaleTown_Event_MalePlayer::
+	msgbox OldaleTown_Event_MalePlayer_Text_0
+	waitmessage
+	closemessage
+	return
+
+
+OldaleTown_Event_FemalePlayer::
+	msgbox OldaleTown_Event_FemalePlayer_Text_0
+	waitmessage
+	closemessage
+	return
 
 
 OldaleTown_ShaneApostraphe:
@@ -845,45 +870,39 @@ OldaleTown_OnFrame_Text_1:
 	.string "Come on, let's get this over with.$"
 
 OldaleTown_OnFrame_Text_2:
-	.string "Pfft, get a load of this nerd.\p"
-	.string "Not a single girl would go for a guy like\n"
-	.string "that.\p"
-	.string "Trust me.$"
-
-OldaleTown_OnFrame_Text_3:
 	.string "This is a patch of tall grass.\p"
 	.string "A scrawny kid like you would get ripped\n"
 	.string "to shreds if you stepped one foot in\l"
 	.string "there without a POKéMON of your own.$"
 
-OldaleTown_OnFrame_Text_4:
+OldaleTown_OnFrame_Text_3:
 	.string "I jump down from small ledges like this\n"
 	.string "all the time.$"
 
-OldaleTown_OnFrame_Text_5:
+OldaleTown_OnFrame_Text_4:
 	.string "I bet even a wimp like you could jump it.$"
 
-OldaleTown_OnFrame_Text_6:
+OldaleTown_OnFrame_Text_5:
 	.string "You'd better hurry up, or I'll leave you\n"
 	.string "behind.$"
 
-OldaleTown_OnFrame_Text_7:
+OldaleTown_OnFrame_Text_6:
 	.string "Didn't break your ankles, did you? Ha!$"
 
-OldaleTown_OnFrame_Text_8:
+OldaleTown_OnFrame_Text_7:
 	.string "These small trees are super annoying.\p"
 	.string "If you have HM01 and the Violet City\n"
 	.string "gym badge, you can cut them down.$"
 
-OldaleTown_OnFrame_Text_9:
+OldaleTown_OnFrame_Text_8:
 	.string "This part is a little tricky, just try\n"
 	.string "and keep up.$"
 
-OldaleTown_OnFrame_Text_10:
+OldaleTown_OnFrame_Text_9:
 	.string "Wow, I'm surprised you didn't get left in\n"
 	.string "my dust, haha!$"
 
-OldaleTown_OnFrame_Text_11:
+OldaleTown_OnFrame_Text_10:
 	.string "This is PROF. ELM's lab.\p"
 	.string "He's also a huge nerd, so you two should\n"
 	.string "get along.\p"
@@ -892,6 +911,17 @@ OldaleTown_OnFrame_Text_11:
 	.string "she didn't say anything about bringing\l"
 	.string "you back.\p"
 	.string "You're on your own now, later loser.$"
+
+OldaleTown_Event_MalePlayer_Text_0:
+	.string "Pfft, get a load of this nerd.\p"
+	.string "Not a single girl would go for a guy like\n"
+	.string "that.\p"
+	.string "Trust me.$"
+
+OldaleTown_Event_FemalePlayer_Text_0:
+	.string "Pfft, get a load of this nerd.\p"
+	.string "I doubt even a weird girl like you would\n"
+	.string "go for a guy like that.$"
 
 OldaleTown_EventScript_Girl_Text_0:
 	.string "If you have a POKéMON that knows the\n"

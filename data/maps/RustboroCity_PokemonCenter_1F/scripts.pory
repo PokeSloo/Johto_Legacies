@@ -58,14 +58,41 @@ script RustboroCity_PokemonCenter_1F_EventScript_LevelNurse {
         end
     }
     else {
-        trainerbattle_no_intro (TRAINER_MAY_LILYCOVE_TORCHIC, RustboroCity_PokemonCenter_1F_Text_Defeated)
-        msgbox(format("Please come see me whenever you need more Exp."))
+        if (flag(FLAG_BADGE08_GET)) {
+		trainerbattle_no_intro (TRAINER_WATTSON_4, RustboroCity_PokemonCenter_1F_Text_Defeated)
+        msgbox(RustboroCity_PokemonCenter_1F_Text_SeeMeLater)
         special (HealPlayerParty)
         release
         end
+		}
+		elif (flag(FLAG_HIDE_ECRUTEAK_PHOENIX)) {
+		trainerbattle_no_intro (TRAINER_WATTSON_3, RustboroCity_PokemonCenter_1F_Text_Defeated)
+        msgbox(RustboroCity_PokemonCenter_1F_Text_SeeMeLater)
+        special (HealPlayerParty)
+        release
+        end
+		}
+		elif (flag(FLAG_VISITED_SLATEPORT_CITY)) {
+		trainerbattle_no_intro (TRAINER_WATTSON_5, RustboroCity_PokemonCenter_1F_Text_Defeated)
+        msgbox(RustboroCity_PokemonCenter_1F_Text_SeeMeLater)
+        special (HealPlayerParty)
+        release
+        end
+		}
+		else {
+		trainerbattle_no_intro (TRAINER_MAY_LILYCOVE_TORCHIC, RustboroCity_PokemonCenter_1F_Text_Defeated)
+        msgbox(RustboroCity_PokemonCenter_1F_Text_SeeMeLater)
+        special (HealPlayerParty)
+        release
+        end
+		}
     }
 }
 
 text RustboroCity_PokemonCenter_1F_Text_Defeated {
     format("I hope that helped!")
+}
+
+text RustboroCity_PokemonCenter_1F_Text_SeeMeLater {
+	format("Please come see me whenever you need more Exp.")
 }

@@ -52,14 +52,38 @@ RustboroCity_PokemonCenter_1F_EventScript_LevelNurse::
 	msgbox RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_1
+	goto_if_set FLAG_BADGE08_GET, RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_4
+	goto_if_set FLAG_HIDE_ECRUTEAK_PHOENIX, RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_5
+	goto_if_set FLAG_VISITED_SLATEPORT_CITY, RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_6
 	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_TORCHIC, RustboroCity_PokemonCenter_1F_Text_Defeated
-	msgbox RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_Text_2
+	msgbox RustboroCity_PokemonCenter_1F_Text_SeeMeLater
 	special HealPlayerParty
 	release
 	end
 
 RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_1:
 	msgbox RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_Text_1
+	release
+	end
+
+RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_4:
+	trainerbattle_no_intro TRAINER_WATTSON_4, RustboroCity_PokemonCenter_1F_Text_Defeated
+	msgbox RustboroCity_PokemonCenter_1F_Text_SeeMeLater
+	special HealPlayerParty
+	release
+	end
+
+RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_5:
+	trainerbattle_no_intro TRAINER_WATTSON_3, RustboroCity_PokemonCenter_1F_Text_Defeated
+	msgbox RustboroCity_PokemonCenter_1F_Text_SeeMeLater
+	special HealPlayerParty
+	release
+	end
+
+RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_6:
+	trainerbattle_no_intro TRAINER_WATTSON_5, RustboroCity_PokemonCenter_1F_Text_Defeated
+	msgbox RustboroCity_PokemonCenter_1F_Text_SeeMeLater
+	special HealPlayerParty
 	release
 	end
 
@@ -72,9 +96,9 @@ RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_Text_1:
 	.string "Very well.\p"
 	.string "Come see me if you change your mind.$"
 
-RustboroCity_PokemonCenter_1F_EventScript_LevelNurse_Text_2:
-	.string "Please come see me whenever you need\n"
-	.string "more Exp.$"
-
 RustboroCity_PokemonCenter_1F_Text_Defeated::
 	.string "I hope that helped!$"
+
+RustboroCity_PokemonCenter_1F_Text_SeeMeLater::
+	.string "Please come see me whenever you need\n"
+	.string "more Exp.$"
