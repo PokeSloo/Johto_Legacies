@@ -954,10 +954,6 @@ gCryTable::
 	cry Cry_GalladeMega
 	cry Cry_AudinoMega
 	cry Cry_DiancieMega
-	cry Cry_TyphlosionMega
-	cry Cry_MeganiumMega
-	cry Cry_FeraligatrMega
-	cry Cry_MisTyphlosionMega
 	@ Special Mega + Primals
 	cry Cry_RayquazaMega
 	cry Cry_KyogrePrimal
@@ -1133,6 +1129,7 @@ gCryTable::
 	cry Cry_TornadusTherian
 	cry Cry_ThundurusTherian
 	cry Cry_LandorusTherian
+	cry Cry_Bulbasaur //Cry_EnamorusTherian
 	@ Kyurem
 	cry Cry_KyuremWhite
 	cry Cry_KyuremBlack
@@ -1303,6 +1300,11 @@ gCryTable::
 	@ Calyrex
 	cry Cry_CalyrexIceRider
 	cry Cry_CalyrexShadowRider
+	@ New Megas
+	cry Cry_Typhlosion
+	cry Cry_Meganium
+	cry Cry_Feraligatr
+	cry Cry_Typhlosion
 .else
 	@ Unown
 	cry Cry_Unown
@@ -2298,10 +2300,6 @@ gCryTable_Reverse::
 	cry_reverse Cry_GalladeMega
 	cry_reverse Cry_AudinoMega
 	cry_reverse Cry_DiancieMega
-	cry_reverse Cry_TyphlosionMega
-	cry_reverse Cry_MeganiumMega
-	cry_reverse Cry_FeraligatrMega
-	cry_reverse Cry_MisTyphlosionMega
 	@ Special Mega + Primals
 	cry_reverse Cry_RayquazaMega
 	cry_reverse Cry_KyogrePrimal
@@ -2648,6 +2646,11 @@ gCryTable_Reverse::
 	@ Calyrex
 	cry_reverse Cry_CalyrexIceRider
 	cry_reverse Cry_CalyrexShadowRider
+	@ New Megas
+	cry_reverse  Cry_Typhlosion
+	cry_reverse  Cry_Meganium
+	cry_reverse  Cry_Feraligatr
+	cry_reverse  Cry_Typhlosion
 .else
 	@ Unown
 	cry_reverse Cry_Unown

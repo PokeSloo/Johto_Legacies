@@ -4197,22 +4197,6 @@ Cry_DiancieMega::
 	.incbin "sound/direct_sound_samples/cries/mega_diancie.bin"
 
 	.align 2
-Cry_TyphlosionMega::
-	.incbin "sound/direct_sound_samples/cries/typhlosion.bin"
-
-	.align 2
-Cry_MeganiumMega::
-	.incbin "sound/direct_sound_samples/cries/meganium.bin"
-
-	.align 2
-Cry_FeraligatrMega::
-	.incbin "sound/direct_sound_samples/cries/feraligatr.bin"
-
-	.align 2
-Cry_MisTyphlosionMega::
-	.incbin "sound/direct_sound_samples/cries/typhlosion.bin"
-
-	.align 2
 Cry_RayquazaMega::
 	.incbin "sound/direct_sound_samples/cries/mega_rayquaza.bin"
 
