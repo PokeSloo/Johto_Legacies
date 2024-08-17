@@ -4567,7 +4567,6 @@ void Task_AbilityPatch(u8 taskId)
         // Can't use.
         if (gBaseStats[tSpecies].abilities[tAbilityNum] == 0
             || !tSpecies
-            || GetMonData(&gPlayerParty[tMonId], MON_DATA_ABILITY_NUM, NULL) > 1
             )
         {
             gPartyMenuUseExitCallback = FALSE;
@@ -4576,6 +4575,10 @@ void Task_AbilityPatch(u8 taskId)
             ScheduleBgCopyTilemapToVram(2);
             gTasks[taskId].func = Task_ClosePartyMenuAfterText;
             return;
+        }
+        else if (GetMonData(&gPlayerParty[tMonId], MON_DATA_ABILITY_NUM, NULL) > 1)
+        {
+            tAbilityNum = 0;
         }
         gPartyMenuUseExitCallback = TRUE;
         GetMonNickname(&gPlayerParty[tMonId], gStringVar1);

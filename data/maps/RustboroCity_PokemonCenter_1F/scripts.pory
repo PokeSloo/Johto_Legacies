@@ -58,7 +58,7 @@ script RustboroCity_PokemonCenter_1F_EventScript_LevelNurse {
         end
     }
     else {
-        if (flag(FLAG_BADGE08_GET)) {
+        if (flag(FLAG_VISITED_VERDANTURF_TOWN)) {
 		trainerbattle_no_intro (TRAINER_WATTSON_4, RustboroCity_PokemonCenter_1F_Text_Defeated)
         msgbox(RustboroCity_PokemonCenter_1F_Text_SeeMeLater)
         special (HealPlayerParty)

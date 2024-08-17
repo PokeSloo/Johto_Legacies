@@ -3978,7 +3978,7 @@ Cry_Spectrier::
 	.align 2
 Cry_Calyrex::
 	.incbin "sound/direct_sound_samples/cries/calyrex.bin"
-/*	
+
 	.align 2
 Cry_Wyrdeer::
 	.incbin "sound/direct_sound_samples/cries/wyrdeer.bin"
@@ -4002,7 +4002,7 @@ Cry_Sneasler::
 	.align 2
 Cry_Overqwil::
 	.incbin "sound/direct_sound_samples/cries/overqwil.bin"
-
+/*	
 	.align 2
 Cry_Enamorus::
 	.incbin "sound/direct_sound_samples/cries/enamorus.bin"

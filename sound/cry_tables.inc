@@ -899,12 +899,12 @@ gCryTable::
 	cry Cry_Glastrier
 	cry Cry_Spectrier
 	cry Cry_Calyrex
-	cry Cry_Stantler //Cry_Wyrdeer
-	cry Cry_Scizor //Cry_Kleavor
-	cry Cry_Ursaring //Cry_Ursaluna
-	cry Cry_Basculin //Cry_Basculegion
-	cry Cry_Weavile //Cry_Sneasler
-	cry Cry_Qwilfish //Cry_Overqwil
+	cry Cry_Wyrdeer
+	cry Cry_Kleavor
+	cry Cry_Ursaluna
+	cry Cry_Basculegion
+	cry Cry_Sneasler
+	cry Cry_Overqwil
 	cry Cry_Bulbasaur //Cry_Enamorus
 	@ Megas
 	cry Cry_VenusaurMega
@@ -2245,12 +2245,12 @@ gCryTable_Reverse::
 	cry_reverse Cry_Glastrier
 	cry_reverse Cry_Spectrier
 	cry_reverse Cry_Calyrex
-	cry_reverse Cry_Stantler //Cry_Wyrdeer
-	cry_reverse Cry_Scizor //Cry_Kleavor
-	cry_reverse Cry_Ursaring //Cry_Ursaluna
-	cry_reverse Cry_Basculin //Cry_Basculegion
-	cry_reverse Cry_Weavile //Cry_Sneasler
-	cry_reverse Cry_Qwilfish //Cry_Overqwil
+	cry_reverse Cry_Wyrdeer
+	cry_reverse Cry_Kleavor
+	cry_reverse Cry_Ursaluna
+	cry_reverse Cry_Basculegion
+	cry_reverse Cry_Sneasler
+	cry_reverse Cry_Overqwil
 	cry_reverse Cry_Bulbasaur //Cry_Enamorus
 	@ Megas
 	cry_reverse Cry_VenusaurMega

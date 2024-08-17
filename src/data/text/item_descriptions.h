@@ -424,9 +424,9 @@ static const u8 sAbilityCapsuleDesc[] = _(
     "mon's ability.");
 
 static const u8 sAbilityPatchDesc[] = _(
-    "Turns the ability\n"
-    "of a Pokémon into\n"
-    "a rare ability.");
+    "Switches ability\n"
+    "between a normal\n"
+    "and rare ability.");
 
 // Mints
 static const u8 sLonelyMintDesc[] = _(
