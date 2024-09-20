@@ -12,7 +12,7 @@ script ShoalCave_LowTideIceRoom_EventScript_Winter {
     msgbox(format("This isn't just any icy rock, it is THE Ice Rock."))
     waitmessage
     faceplayer
-    msgbox(format("You can evolve certin POKéMON species if you level them up next to this rock.\pThere's also a similar rock in Ilex Forest.\pOh, but I'm getting carried away.\pWhat, may I ask, brought you here?\p...\pOh! I see.\pYou're a TRAINER, and your name is {PLAYER}.\pI should have known.\pWorry not, I will get back to my gym right away!\pI look forward to our next meeting, {PLAYER}."))
+    msgbox(format("You can evolve certain POKéMON species if you level them up next to this rock.\pThere's also a similar rock in Ilex Forest.\pOh, but I'm getting carried away.\pWhat, may I ask, brought you here?\p...\pOh! I see.\pYou're a TRAINER, and your name is {PLAYER}.\pI should have known.\pWorry not, I will get back to my gym right away!\pI look forward to our next meeting, {PLAYER}."))
     waitmessage
     closemessage
     specialvar (VAR_RESULT, GetPlayerFacingDirection)

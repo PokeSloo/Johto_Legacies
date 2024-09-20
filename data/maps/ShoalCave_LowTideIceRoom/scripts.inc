@@ -101,7 +101,7 @@ ShoalCave_LowTideIceRoom_EventScript_Winter_Text_1:
 	.string "Ice Rock.$"
 
 ShoalCave_LowTideIceRoom_EventScript_Winter_Text_2:
-	.string "You can evolve certin POKéMON species\n"
+	.string "You can evolve certain POKéMON species\n"
 	.string "if you level them up next to this rock.\p"
 	.string "There's also a similar rock in Ilex\n"
 	.string "Forest.\p"

@@ -247,7 +247,7 @@ SlateportCity_EventScript_GoldenvineNerd_Text_0:
 	.string "I can't believe I missed WHITNEY on the\n"
 	.string "Night and Dave Show!\p"
 	.string "Maybe they'll let me in next time if I\n"
-	.string "look really desparate.$"
+	.string "look really desperate.$"
 
 SlateportCity_EventScript_GoldenvineNerd_Text_1:
 	.string "I heard WHITNEY will be on the Night and\n"

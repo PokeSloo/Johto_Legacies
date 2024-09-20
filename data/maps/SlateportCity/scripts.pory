@@ -90,7 +90,7 @@ script SlateportCity_EventScript_GoldenvineNerd {
     lock
     faceplayer
     if (flag(FLAG_GOLDENROD_SEWER_OPEN)) {
-        msgbox(format("I can't believe I missed WHITNEY on the Night and Dave Show!\pMaybe they'll let me in next time if I look really desparate."))
+        msgbox(format("I can't believe I missed WHITNEY on the Night and Dave Show!\pMaybe they'll let me in next time if I look really desperate."))
         release
         end
     }
